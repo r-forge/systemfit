@@ -884,11 +884,11 @@ hausman.systemfit <- function( li.results, fi.results )
       fib <- rbind( fib, fi.results[[i]]$b )
     } 
   
-  v1 <- licovb
-  v0 <- fi.results[[1]]$systemcovb
+  vli <- licovb
+  vfi <- fi.results[[1]]$systemcovb
   q  <- fib - lib
 
-  hausman <- t( q ) %*% solve( v1 - v0 ) %*% q
+  hausman <- t( q ) %*% solve( vli - vfi ) %*% q
   
 }
 
