@@ -39,9 +39,6 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
   rhs <- list()
   neqs <- length( eqns )
   nobs <- dim( data )[[1]]            # number of nonmissing observations  
-  g <- length( eqns )                 # number of equations
-  k <- dim( as.matrix( model.frame( inst ) ) )[[2]]
-  gk <- g*k
   
   ## GMM specific variables, in this case... g = 2, k = 3
 #  V <- matrix( 0, g*k, g*k )          # V is a 6x6 matrix
@@ -78,16 +75,19 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
     obj <- crossprod( r )
   }
   if( fitmethod == "2SLS" ) {
-      ## W is premultiplied == ( diag( neqs ) %x% W )
-      obj <- ( t(r) %*% S %*% r )
+    ## W is premultiplied == ( diag( neqs ) %x% W )
+    ##obj <- ( t(r) %*% S %*% r )
+    obj <- crossprod(t(crossprod(r,S)),r)
   }
   if( fitmethod == "SUR" ) {
     ## S is premultiplied == ( qr.solve( S ) %x% diag( nobs ) )
-    obj <- ( t(r) %*% S %*% r )
+    ##obj <- ( t(r) %*% S %*% r )
+    obj <- crossprod(t(crossprod(r,S)),r)
   }
   if( fitmethod == "3SLS" ) {
     ## S is premultiplied == ( qr.solve( S ) %x% W )
-    obj <- ( t(r) %*% S %*% r )
+    ##obj <- ( t(r) %*% S %*% r )
+    obj <- crossprod(t(crossprod(r,S)),r)
   }
   if( fitmethod == "GMM" ) {
     ## this just can't be correct... or can it...
@@ -97,11 +97,15 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
     for(t in 1:nobs) {
       moments <- rbind( moments, gmm.resids[t,] %x% z[t,] )
     }
+    g <- length( eqns )                 # number of equations
+    k <- dim( as.matrix( model.frame( inst ) ) )[[2]]
+    gk <- g*k
     for( i in 1:gk ) {
       mn <- rbind( mn, mean( moments[,i] ) )
     }
     ##obj <- ( t(nobs*mn) %*% S %*% (nobs*mn) ) / nobs
-    obj <- ( t(mn) %*% S %*% (mn) )
+    ##obj <- ( t(mn) %*% S %*% (mn) )
+    obj <- crossprod(t(crossprod(mn,S)),mn)
   }
   
   ## it would be nice to place the gradient and/or hessian attributes...

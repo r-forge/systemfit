@@ -45,22 +45,22 @@
 
 \details{
 
-  The nlsystemfit function relies on the \code{\link{nlm}} perform the minimization of
-  the objective functions and the \code{\link{qr}} set of functions.
-
+  The nlsystemfit function relies on \code{\link{nlm}} to perform the
+  minimization of the objective functions and the \code{\link{qr}} set
+  of functions.
+  
   A system of nonlinear equations can be written as:
-
+  
   \deqn{\epsilon_{t} = q( y_t, x_t, \theta )}
   \deqn{z_{t} = Z( x_t )}
-
+  
   where \eqn{\epsilon_{t}} are the residuals from the y observations and
   the function evaluated at the parameter estimates. 
-
+  
   The objective functions for the methods are:
   
-%  \tabular{|l|c|c|c|}{
   \tabular{lccc}{
-%    \hline
+    %    \hline
     Method \tab Instruments \tab Objective Function \tab Covariance of
     \eqn{\theta}\cr %\hline  
     OLS \tab no \tab \eqn{r'r} \tab \eqn{(X(diag(S)^{-1}\bigotimes
@@ -72,7 +72,7 @@
     3SLS \tab yes \tab \eqn{r'(S_{2SLS}^{-1} \bigotimes W)r} \tab
     \eqn{(X(diag(S)^{-1}\bigotimes W)X)^{-1}} %\hline
   }
-
+  
   where, r is a column vector for the residuals for each equation, S is
   variance-covariance matrix between the equations
   (\eqn{\hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) /
@@ -80,12 +80,12 @@
   partial derivates with respect to the parameters, W is a matrix of the
   instrument variables \eqn{Z(Z'Z)^{-1}Z}, Z is a matrix of the
   instrument variables, and I is an nxn identity matrix.
-
+  
   The SUR and 3SLS methods requires two solutions. The first solution
   for the SUR is an OLS solution to obtain the variance-covariance
   matrix. The 3SLS uses the variance-covatiance from a 2SLS solution,
   then fits all the equations simultaneously.  
-
+  
   The user should be aware that the function is \bold{VERY} sensative to
   the starting values and the nlm function may not converge. The nlm
   function will be called with the \code{typsize} argument set the
@@ -127,8 +127,7 @@
   \item{drcov}{determinant of \code{rcov}.}
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
   \item{rcor}{estimated residual correlation matrix.}
-  \item{nlmest}{results from the nlm function call}
-  
+  \item{nlmest}{results from the nlm function call} 
   \item{solvetol}{tolerance level when inverting a matrix or calculating a determinant.}
 
   ## elements of the class nlsystemfit.eq
@@ -165,30 +164,26 @@
 }
 
 \author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com} }
-}
 
-\seealso{\code{\link{systemfit}}, \code{\link{nlm}}, and \code{\link{qr}},  }
+\seealso{\code{\link{systemfit}}, \code{\link{nlm}}, and \code{\link{qr}}}
 
 \examples{
 library( systemfit )
 data( ppine )
 
-hg.formula <- hg ~ exp( h0 + h1*log(tht) + h2*tht^2 + h3*cr + h4*elev )
+hg.formula <- hg ~ exp( h0 + h1*log(tht) + h2*tht^2 + h3*elev + h4*cr)
 dg.formula <- dg ~ exp( d0 + d1*log(dbh) + d2*hg + d3*cr + d4*ba  )
-hd.formula <-  tht ~ 4.5 + exp( b0 + b1 * dbh^b2 )
-labels <- list( "height.growth", "diameter.growth", "tht-dbh" )
-inst <- ~ dbh + ba + elev + cr 
-start.values <- c(h0=-0.5, h1=0.5, h2=-0.0001, h3=0.1, h4=0.0001,
-                  d0=-0.1, d1=0.2, d2=0.05, d3=0.07, d4=-0.025,
-                  b0=7.0, b1=-6.0, b2=-0.3 )
-model <- list( hg.formula, dg.formula, hd.formula )
+labels <- list( "height.growth", "diameter.growth" )
+inst <- ~ tht + dbh + elev + cr + ba
+start.values <- c(h0=-0.5, h1=0.5, h2=-0.001, h3=0.0001, h4=0.08,
+                  d0=-0.5, d1=0.009, d2=0.25, d3=0.005, d4=-0.02 )
+model <- list( hg.formula, dg.formula )
 
 model.ols <- nlsystemfit( "OLS", model, start.values, data=ppine, eqnlabels=labels )
-model.3sls <- nlsystemfit( "3SLS", model, start.values, data=ppine,
-                                   eqnlabels=labels, inst=inst )
-
-#print the results
 print( model.ols )
+
+model.3sls <- nlsystemfit( "3SLS", model, start.values, data=ppine,
+                                    eqnlabels=labels, inst=inst )
 print( model.3sls )
 }
 

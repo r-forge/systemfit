@@ -884,6 +884,12 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
 ## both are consistent, but only b0 is asympt. efficient and
 ## under the alter. hypo only b1 is consistent, so the statistic (m) is
 
+# The m-statistic is then distributed with k degrees of freedom, where k
+# is the rank of the matrix .A generalized inverse is used, as
+# recommended by Hausman (1982).
+
+# you need to fix this up to return the test statistic, df, and the p value
+
 ## man is this wrong...
 hausman.systemfit <- function( li.results, fi.results ) {
 

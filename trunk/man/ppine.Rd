@@ -11,7 +11,7 @@
 \description{
 A subset of tree growth observations from a Ponderosa pine growth database.
 
-The \code{ppine} data frame has 530 rows and 8 columns.
+The \code{ppine} data frame has 166 rows and 8 columns.
 }
 
 \format{
@@ -55,13 +55,16 @@ The \code{ppine} data frame has 530 rows and 8 columns.
  and the observations are for a single remeasurement.
 
  The data was provided by the USDA Forest Service Intermountain
- Research Station from installations on USDA Forest Service, Spokane Indian
- Reservation and the Nez Perce Indian Reservation lands.
+ Research Station.
+
+ 
+%  The data was provided by the USDA Forest Service Intermountain
+%  Research Station from installations on USDA Forest Service, Spokane Indian
+%  Reservation and the Nez Perce Indian Reservation lands.
 }
 
 \source{
-  \link{William R. Wykoff \email{wwykoff@fs.fed.us} }\cr
-  \emph{Rocky Mountain Research Station, 1221 South Main Street, Moscow, ID 83843}
+  William R. Wykoff \email{wwykoff@fs.fed.us} \emph{Rocky Mountain Research Station, 1221 South Main Street, Moscow, ID 83843}
 }
 
 
