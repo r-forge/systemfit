@@ -1,3 +1,6 @@
+
+% 	$Id$	
+
 \name{varcov}
 \alias{varcov}
 \alias{varcov.systemfit}
