@@ -26,7 +26,7 @@ sur.systemfit( eqns, instruments, eqnlabels, data )
   \item{instruments}{one-sided model formula specifying instrumental
     variables. Instrument variables are not used in this case.}
   \item{data}{an optional data frame containing the variables in the model. 
-    By default the variables are taken from the environment from which twostage is
+    By default the variables are taken from the environment from which sur is
     called.}
   \item{eqnlabels}{list of character vectors of names for the equation labels.}
 }
@@ -73,8 +73,8 @@ sur.systemfit( eqns, instruments, eqnlabels, data )
   \item{adjr2}{adjusted r-squared}
   \item{covb}{covb}
   \item{se.prediction}{standard error of the predicted values}
-  \item{prediction.limts}{lower and upper 95 percent prediction limits}
-  \item{confidence.limts}{lower and upper 95 percent confidence limits}
+  \item{prediction.limits}{lower and upper 95 percent prediction limits}
+  \item{confidence.limits}{lower and upper 95 percent confidence limits}
 }
 
 \references{    
