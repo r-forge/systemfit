@@ -14,9 +14,12 @@
 }
 
 
-\usage{ nlsystemfit( method="OLS", eqns, startvals, eqnlabels, inst,
-data, solvtol=.Machine$double.eps, pl=0, maxiter=1000 ) }
-
+\usage{ nlsystemfit( method="OLS", eqns, startvals,
+                     eqnlabels=c(as.character(1:length(eqns))), inst=NULL,
+                     data=list(), solvtol=.Machine$double.eps, pl=0,
+                     maxiter=1000 )
+}
+		   
 
 \arguments{
   \item{method}{the estimation method, one of "OLS", "SUR", "2SLS",
@@ -38,17 +41,6 @@ data, solvtol=.Machine$double.eps, pl=0, maxiter=1000 ) }
     detecting linear dependencies in the columns of X in the
     \code{\link{qr}} function calls.}
   \item{maxiter}{the maximum number of iterations for the \code{\link{nlm}} function.}
-%   \item{rcovformula}{formula to calculate the estimated residual covariance
-%     matrix (see details).}
-%   \item{probdfsys}{use the degrees of freedom of the whole system
-%     (in place of the degrees of freedom of the single equation)
-%     to calculate prob values for the t-test of individual parameters.}
-%   \item{single.eq.sigma}{use different \eqn{\sigma^2}s for each
-%     single equation to calculate the covariance matrix and the
-%     standard errors of the coefficients (only OLS and 2SLS).}
-%   \item{solvetol}{tolerance level for detecting linear dependencies
-%     when inverting a matrix or calculating a determinant (see
-%     \code{\link{solve}} and \code{\link{det}}).}
 }
 
 \details{
@@ -106,71 +98,6 @@ data, solvtol=.Machine$double.eps, pl=0, maxiter=1000 ) }
   iterations reported in the summary are only those used in the last
   call to nlm, thus the number of iterations in the OLS portion of the
   SUR fit and the 2SLS portion of the 3SLS fit are not included. 
-  
-%   \eqn{\hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) /
-%     \sqrt{(T - k_i)*(T - k_j)}}
-  
-%   The formula to calculate the estimated covariance matrix of the
-%   residuals, S,
-%   (\eqn{\hat{\Sigma}}) can be one of the following (see Judge et al., 1985, p. 469): \cr
-%   if rcovformula=0: \eqn{\hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) / T}; \cr
-%   if rcovformula=1: \eqn{\hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) /
-%     \sqrt{(T - k_i)*(T - k_j)}}; \cr
-%   if rcovformula=2: \eqn{\hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) / (T - k_i - k_j
-%     + tr[(X_i'X_i)^{-1}X_i'X_j(X_j'X_j)^{-1}X_j'X_i]}. \cr
-%   If \eqn{k_i = k_j}, formula 1 and 2 are equal and yield an unbiased estimator for the
-%   residual covariance matrix.
-%   If \eqn{k_i \neq k_j}, only formula 2 yields an unbiased estimator for the residual
-%   covariance matrix, but it is not neccessarily positive semidefinit and
-%   its inverse is \bold{not} an unbiased estimator for the inverse of the residual
-%   covariance matrix. Thus, it is doubtful whether formula 2 is really superior
-%   to formula 1 (see Theil, 1971, p. 322).
-
-  
-  
-
-  
-%   The matrix \code{TX} transforms the regressor matrix (\eqn{X}) by
-%    \eqn{X^{*} = X *} \code{TX}. Thus, the vector of coefficients is now
-%    \eqn{b =} \code{TX} \eqn{\cdot b^{*}} , where \eqn{b} is the original (stacked) vector
-%    of all coefficients and \eqn{b^{*}} is the new coefficient vector that is
-%    estimated instead. Thus, the elements of vector \eqn{b} are
-%    \eqn{b_i = \sum_j TX_{ij} \cdot b^{*}_j} \cr
-%    The \code{TX} matrix can be used to change the order of the
-%    coefficients and also to restrict coefficients (if \code{TX} has less
-%    columns than it has rows). However restricting coefficients
-%    by the \code{TX} matrix is less powerfull and flexible than the
-%    restriction by providing the \code{R.restr} matrix and the
-%    \code{q.restr} vector. The advantage of restricting the coefficients
-%    by the \code{TX} matrix is that the matrix that is inverted for
-%    estimation gets smaller by this procedure, while it gets larger
-%    if the restrictions are imposed by \code{R.restr} and \code{q.restr}.
-
-%    If iterated (WLS, SUR, W2SLS or 3SLS estimation with \code{maxit}>1),
-%      the convergence criterion is \cr
-%    \eqn{\sqrt{\sum_i (b_{i,g} - b_{i,g-1})^2 \left/ \sum_i b_{i,g-1}^2 \right.}}
-%    < \code{tol} (\eqn{b_{i,g}} is the ith coefficient of the gth iteration step).
-
-%    The formula to calculate the estimated covariance matrix of the residuals
-%    (\eqn{\hat{\Sigma}}) can be one of the following (see Judge et al., 1985, p. 469): \cr
-%    if rcovformula=0: \eqn{\hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) / T}; \cr
-%    if rcovformula=1: \eqn{\hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) /
-%        \sqrt{(T - k_i)*(T - k_j)}}; \cr
-%    if rcovformula=2: \eqn{\hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) / (T - k_i - k_j
-%    + tr[(X_i'X_i)^{-1}X_i'X_j(X_j'X_j)^{-1}X_j'X_i]}. \cr
-%    If \eqn{k_i = k_j}, formula 1 and 2 are equal and yield an unbiased estimator for the
-%    residual covariance matrix.
-%    If \eqn{k_i \neq k_j}, only formula 2 yields an unbiased estimator for the residual
-%    covariance matrix, but it is not neccessarily positive semidefinit and
-%    its inverse is \bold{not} an unbiased estimator for the inverse of the residual
-%    covariance matrix. Thus, it is doubtful whether formula 2 is really superior
-%    to formula 1 (see Theil, 1971, p. 322).
-
-%    The formulas to calculate the 3SLS estimator lead to identical results
-%    if the same instruments are used in all equations. If different instruments
-%    are used in the different equations, only the GMM-3SLS estimator ("GMM")
-%    and the 3SLS estimator proposed by Schmidt (1990) ("Schmidt") are consistent,
-%    whereas "GMM" is efficient relative to "Schmidt" (see Schmidt, 1990).
 }
 
 \value{
@@ -202,43 +129,20 @@ data, solvtol=.Machine$double.eps, pl=0, maxiter=1000 ) }
   \item{rcor}{estimated residual correlation matrix.}
   \item{nlmest}{results from the nlm function call}
   
-  %  \item{olsr2}{System OLS R-squared value.}
-%  \item{mcelr2}{McElroys R-squared value for the system (only SUR and 3SLS).}
-%  \item{y}{vector of all (stacked) endogenous variables}
-%  \item{x}{matrix of all (diagonally stacked) regressors}
-%  \item{h}{matrix of all (diagonally stacked) instrumental variables (only 2SLS and 3SLS)}
-%  \item{data}{data frame of the whole system (including instruments)}
-%  \item{R.restr}{the restriction matrix.}
-%  \item{q.restr}{the restriction vector.}
-%  \item{TX}{matrix used to transform the regressor matrix.}
-%  \item{maxiter}{maximum number of iterations.}
-%  \item{tol}{tolerance level indicating when to stop the iteration}
-%  \item{rcovformula}{formula to calculate the estimated residual covariance
-%    matrix}
-%  \item{formula3sls}{formula for calculating the 3SLS estimator.}
-%  \item{probdfsys}{system degrees of freedom to calculate prob values?.}
-%  \item{single.eq.sigma}{different \eqn{\sigma^2}s for each single equation?.}
   \item{solvetol}{tolerance level when inverting a matrix or calculating a determinant.}
 
   ## elements of the class nlsystemfit.eq
   \item{eq}{a list that contains the results that belong to the individual equations.}
   \item{eqnlabel*}{the equation label of the ith equation (from the labels list).}
   \item{formula*}{model formula of the ith equation.}
-%  \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
   \item{n*}{number of observations of the ith equation.}
-  \item{k*}{number of coefficients/regressors in the ith equation (including the constant).}
-%   \item{ki*}{number of linear independent coefficients in the ith equation (including the constant
-%               differs from \code{k} only if there are restrictions that are not cross-equation).}
+  \item{k*}{number of coefficients/regressors in the ith equation.}
   \item{df*}{degrees of freedom of the ith equation.}
   \item{b*}{estimated coefficients of the ith equation.}
   \item{se*}{estimated standard errors of \code{b}.}
   \item{t*}{t values for \code{b}.}
   \item{p*}{p values for \code{b}.}
   \item{covb*}{estimated covariance matrix of \code{b}.}
-%  \item{y*}{vector of endogenous variable (response values) of the ith equation.}
-%  \item{x*}{matrix of regressors (model matrix) of the ith equation.}
-%  \item{h*}{matrix of instrumental variables of the ith equation (only 2SLS and 3SLS).}
-%  \item{data*}{data frame (including instruments) of the ith equation.}
   \item{predicted*}{vector of predicted values of the ith equation.}
   \item{residuals*}{vector of residuals of the ith equation.}
   \item{ssr*}{sum of squared residuals of the ith equation.}
@@ -263,26 +167,29 @@ data, solvtol=.Machine$double.eps, pl=0, maxiter=1000 ) }
 \author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com} }
 }
 
-\seealso{\code{\link{nlm}},\code{\link{qr}}, and \code{\link{systemfit}} }
+\seealso{\code{\link{systemfit}}, \code{\link{nlm}}, and \code{\link{qr}},  }
 
 \examples{
 library( systemfit )
-data( ritchie )
+data( ppine )
 
-hg.formula <- hg ~ exp( h0 + h1*log(ht) + h2*ht^2 + h3*cr + h4*whc )
-dg.formula <- dg ~ exp( d0 + d1*log(bd) + d2*log(hg) + d3*bainlh )
-cr.formula <- cr ~ 1.0 / ( 1.0 + exp( c0 + c1*log(bd) + c2*ht^2 + c3*bainlh ) )
-labels <- list( "height.growth", "diameter.growth", "crown.ratio" )
-inst <- ~ ht + bd + whc + bainlh
-start.values <- c(h0=-1.0, h1=0.5, h2=-0.0005, h3=0.05, h4=-0.2,
-                  d0=-5.0, d1=1.2, d2=0.5, d3=-0.002,
-                  c0=-1.5, c1=-0.5, c2=0.0005, c3=0.002 )
-model <- list( hg.formula, dg.formula, cr.formula )
-model.ols <- nlsystemfit( "OLS", model, start.values, data=ritchie, eqnlabels=labels )
+hg.formula <- hg ~ exp( h0 + h1*log(tht) + h2*tht^2 + h3*cr + h4*elev )
+dg.formula <- dg ~ exp( d0 + d1*log(dbh) + d2*hg + d3*cr + d4*ba  )
+hd.formula <-  tht ~ 4.5 + exp( b0 + b1 * dbh^b2 )
+labels <- list( "height.growth", "diameter.growth", "tht-dbh" )
+inst <- ~ dbh + ba + elev + cr 
+start.values <- c(h0=-0.5, h1=0.5, h2=-0.0001, h3=0.1, h4=0.0001,
+                  d0=-0.1, d1=0.2, d2=0.05, d3=0.07, d4=-0.025,
+                  b0=7.0, b1=-6.0, b2=-0.3 )
+model <- list( hg.formula, dg.formula, hd.formula )
 
-# print the results
+model.ols <- nlsystemfit( "OLS", model, start.values, data=ppine, eqnlabels=labels )
+model.3sls <- nlsystemfit( "3SLS", model, start.values, data=ppine,
+                                   eqnlabels=labels, inst=inst )
+
+#print the results
 print( model.ols )
-
+print( model.3sls )
 }
 
 \keyword{models}

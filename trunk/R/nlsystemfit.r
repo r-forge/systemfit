@@ -113,9 +113,15 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
 }
 
 
-### for now, simply try to build the vector from the parameters
-nlsystemfit <- function( method="OLS", eqns, startvals, eqnlabels, inst=NULL,
-                        data, solvtol=.Machine$double.eps, pl=0, maxiter=1000 ) {
+nlsystemfit <- function( method="OLS",
+                        eqns,
+                        startvals,
+                        eqnlabels=c(as.character(1:length(eqns))),
+                        inst=NULL,
+                        data=list(),
+                        solvtol=.Machine$double.eps,
+                        pl=0,
+                        maxiter=1000 ) {
   
   attach( data )
   
@@ -245,28 +251,20 @@ nlsystemfit <- function( method="OLS", eqns, startvals, eqnlabels, inst=NULL,
                  eqns=eqns, data=data, fitmethod=method, parmnames=startvals, S=Solsinv, instr=z )
     }
     if( method == "GMM" ) {
-#       print( "resids" )
-#       print( resids )
       resids <- NULL
       for(i in 1:G) {
         resids <- cbind( resids, residi[[i]] )
       }
-#       z <- as.matrix( model.frame( inst ) )
-#       v <- resids %x% z
-#       v2sls <- qr.solve( var( v ), tol=solvtol )
-
       z <- as.matrix( model.frame( inst ) )
       moments <- list()
       moments <- NULL
       for(t in 1:nobs) {
         moments <- rbind( moments, resids[t,] %x% z[t,] )
       }
-#      print( var( moments ) )
       v2sls <- qr.solve( var( moments ), tol=solvtol )
       est <- nlm( knls,estols$estimate,
                  gradtol=solvtol,typsize=abs(startvals),print.level=pl,iterlim=maxiter,steptol=solvtol,
                  eqns=eqns, data=data, fitmethod="GMM", parmnames=startvals, S=v2sls, instr=inst )
-#      print( est$estimate )
     }
   }
 
@@ -414,16 +412,12 @@ nlsystemfit <- function( method="OLS", eqns, startvals, eqnlabels, inst=NULL,
     eqn.terms <- vector()
     eqn.est <- vector()    
     eqn.se <- vector()    
-#    eqn.tval <- vector()    
-#    eqn.prob <- vector()    
     jacob <- attr( eval( deriv( as.formula( eqns[[i]] ), names( startvals ) ) ), "gradient" )
     for( v in 1:length( est$estimate ) ) {
       if( qr( jacob[,v] )$rank > 0 ) {
         eqn.terms <- rbind( eqn.terms, name <- names( est$estimate )[v] )
         eqn.est <- rbind( eqn.est, est$estimate[v] )
         eqn.se <- rbind( eqn.se, se2[v] )
-#        eqn.tval <- rbind( eqn.tval, t.val[v] )
-#        eqn.prob <- rbind( eqn.prob, prob[v] )
       }
     }
 

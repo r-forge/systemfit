@@ -32,24 +32,28 @@
 
 \examples{
 library( systemfit )
-data( ritchie )
+data( ppine )
 
-hg.formula <- hg ~ exp( h0 + h1 * log( ht ) + h2 * ht^2 )
-dg.formula <- dg ~ exp( d0 + d1 * log( bd ) + d2 * log( hg ) )
-labels <- list( "height.growth", "diameter.growth" )
-inst <- ~ ht + bd
-start.values <- c(h0=-1.1, h1=0.55, h2=-0.0008,
-                  d0=-5.51072, d1=0.832112, d2=0.165224 )
-model <- list( hg.formula, dg.formula )
+hg.formula <- hg ~ exp( h0 + h1*log(tht) + h2*tht^2 + h3*cr + h4*elev )
+dg.formula <- dg ~ exp( d0 + d1*log(dbh) + d2*hg + d3*cr + d4*ba  )
+hd.formula <-  tht ~ 4.5 + exp( b0 + b1 * dbh^b2 )
+labels <- list( "height.growth", "diameter.growth", "tht-dbh" )
+inst <- ~ dbh + ba + elev + cr 
+start.values <- c(h0=-0.5, h1=0.5, h2=-0.0001, h3=0.1, h4=0.0001,
+                  d0=-0.1, d1=0.2, d2=0.05, d3=0.07, d4=-0.025,
+                  b0=7.0, b1=-6.0, b2=-0.3 )
+model <- list( hg.formula, dg.formula, hd.formula )
 
-## perform OLS for the system
-model.ols <- nlsystemfit( "OLS", model, start.values, data=ritchie, eqnlabels=labels )
+model.ols <- nlsystemfit( "OLS", model, start.values, data=ppine, eqnlabels=labels )
+model.3sls <- nlsystemfit( "3SLS", model, start.values, data=ppine,
+                                   eqnlabels=labels, inst=inst )
+
+
+#print the results
 print( model.ols )
-
-## perform Three-Stage Least Squares fit for the system
-model.3sls <- nlsystemfit( "3SLS", model, start.values, data=ritchie,
-eqnlabels=labels, inst=inst, pl=2, solvtol=1e-16 )
 print( model.3sls )
+
+
 }
 
 \keyword{models}
