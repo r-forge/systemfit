@@ -1,16 +1,16 @@
 
-% 	$Id$	
+%    $Id$
 
 \name{print.systemfit.equation}
 \alias{print.systemfit.equation}
-\title{print.systemfit.equation}
+\title{Print output of systemfit estimation}
 
 \description{
   This function prints a summary of one equation of the estimated equation system.
 }
 
 \usage{
-  print.systemfit.equation(x, digits=6,...)
+   \method{print}{systemfit.equation}(x, digits=6,...)
 }
 
 \arguments{

@@ -1,6 +1,6 @@
 \name{fitted.systemfit.equation}
 \alias{fitted.systemfit.equation}
-\title{fitted.systemfit.equation}
+\title{Fitted values}
 
 \description{
    This function extracts the fitted values of one equation
@@ -8,7 +8,7 @@
 }
 
 \usage{
-\method{fitted}{systemfit.equation}( object, \dots )
+   \method{fitted}{systemfit.equation}( object, \dots )
 }
 
 \arguments{

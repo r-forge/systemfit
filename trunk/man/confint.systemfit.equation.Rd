@@ -1,6 +1,6 @@
 \name{confint.systemfit.equation}
 \alias{confint.systemfit.equation}
-\title{confint.systemfit.equation}
+\title{Confidence intervals of coefficients}
 
 \description{
    This function calculates the confidence intervals of the
@@ -9,7 +9,7 @@
 }
 
 \usage{
-\method{confint}{systemfit.equation}( object, parm, level = 0.95, \dots )
+   \method{confint}{systemfit.equation}( object, parm, level = 0.95, \dots )
 }
 
 \arguments{

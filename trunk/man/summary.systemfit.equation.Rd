@@ -1,16 +1,16 @@
 
-% 	$Id$	
+%    $Id$
 
 \name{summary.systemfit.equation}
 \alias{summary.systemfit.equation}
-\title{summary.systemfit.equation}
+\title{Print output of systemfit estimation}
 
 \description{
   This function returns a summary of one equation of the estimated equation system.
 }
 
 \usage{
-summary.systemfit.equation(object,...)
+   \method{summary}{systemfit.equation}( object, ... )
 }
 
 \arguments{

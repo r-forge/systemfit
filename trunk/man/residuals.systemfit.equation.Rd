@@ -1,6 +1,6 @@
 \name{residuals.systemfit.equation}
 \alias{residuals.systemfit.equation}
-\title{residuals.systemfit.equation}
+\title{Residuals of systemfit equation}
 
 \description{
    This function extracts the residuals of one equation
@@ -9,7 +9,7 @@
 }
 
 \usage{
-\method{residuals}{systemfit.equation}( object, \dots)
+   \method{residuals}{systemfit.equation}( object, \dots)
 }
 
 \arguments{

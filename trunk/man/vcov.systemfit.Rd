@@ -1,6 +1,6 @@
 \name{vcov.systemfit}
 \alias{vcov.systemfit}
-\title{vcov.systemfit}
+\title{Variance covariance matrix of coefficients}
 
 \description{
    This function extracts the variance covariance matrix of all
@@ -9,7 +9,7 @@
 }
 
 \usage{
-\method{vcov}{systemfit}( object, \dots)
+   \method{vcov}{systemfit}( object, \dots)
 }
 
 \arguments{

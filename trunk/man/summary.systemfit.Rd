@@ -1,13 +1,13 @@
 \name{summary.systemfit}
 \alias{summary.systemfit}
-\title{summary.systemfit}
+\title{Print output of systemfit estimation}
 
 \description{
   This function returns a summary of the system of equations.
 }
 
 \usage{
-summary.systemfit(object,...)
+   \method{summary}{systemfit}( object, ... )
 }
 
 \arguments{

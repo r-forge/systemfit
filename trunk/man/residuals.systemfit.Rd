@@ -1,15 +1,15 @@
 \name{residuals.systemfit}
 \alias{residuals.systemfit}
-\title{residuals.systemfit}
+\title{Residuals of systemfit object}
 
 \description{
-   This function extracts the residuals of one equation
+   This function extracts the residuals
    from an object returned by
    \code{\link{systemfit}}.
 }
 
 \usage{
-\method{residuals}{systemfit}( object, \dots)
+   \method{residuals}{systemfit}( object, \dots)
 }
 
 \arguments{

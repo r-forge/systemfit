@@ -1,14 +1,14 @@
 \name{coef.systemfit}
 \alias{coef.systemfit}
-\title{coef.systemfit}
+\title{Coefficients of systemfit object}
 
 \description{
    This function extracts the coefficients from an object returned by
-      \code{\link{systemfit}}.
+   \code{\link{systemfit}}.
 }
 
 \usage{
-\method{coef}{systemfit}( object, \dots)
+   \method{coef}{systemfit}( object, \dots)
 }
 
 \arguments{
