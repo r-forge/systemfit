@@ -1052,6 +1052,10 @@ print.systemfit.system <- function( x,digits=6,... )
 
   cat("The correlations of the residuals\n")
   print( correlation.resids.systemfit( object ), digits=digits )
+
+  ## you should print the covariance of the parameter
+  ## estimates and the correlations of the parameter estimates
+  
   
   ## now print the individual equations
   for(i in 1:length( object ) ) 
