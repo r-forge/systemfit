@@ -1,5 +1,6 @@
 
 % 	$Id$	
+
 \name{ols}
 \alias{ols}
 \alias{ols.systemfit}
