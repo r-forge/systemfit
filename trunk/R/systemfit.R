@@ -57,20 +57,30 @@ systemfit <- function( method,
       for( i in 1:G ) {
          for( j in ifelse( diag, i, 1 ):ifelse( diag, i, G ) ) {
             if( rcovformula == 0 ) {
-               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
-                  sqrt( n[i] * n[j] )
-            } else if( rcovformula == 1 ) {
+               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) / n[i]
+            } else if( rcovformula == 1 || rcovformula == "geomean" ) {
                result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
                   sqrt( ( n[i] - ki[i] ) * ( n[j] - ki[j] ) )
-            } else if( rcovformula == 2 ) {
+            } else if( rcovformula == 2 || rcovformula == "Theil" ) {
+               #result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
+               #   ( n[i] - ki[i] - ki[j] + sum( diag(
+               #   x[[i]] %*% solve( crossprod( x[[i]] ), tol=solvetol ) %*%
+               #   crossprod( x[[i]], x[[j]]) %*%
+               #   solve( crossprod( x[[j]] ), tol=solvetol ) %*%
+               #   t( x[[j]] ) ) ) )
                result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
                   ( n[i] - ki[i] - ki[j] + sum( diag(
                   solve( crossprod( x[[i]] ), tol=solvetol ) %*%
                   crossprod( x[[i]], x[[j]]) %*%
                   solve( crossprod( x[[j]] ), tol=solvetol ) %*%
                   crossprod( x[[j]], x[[i]] ) ) ) )
+
+            } else if( rcovformula == 3 || rcovformula == "max" ) {
+               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
+                  ( n[i] - max( ki[i], ki[j] ) )
             } else {
-               stop( "Argument 'rcovformula' must be either 0, 1 or 2." )
+               stop( paste( "Argument 'rcovformula' must be either 0, 1,",
+                   "'geomean', 2, 'Theil', 3 or 'max'." ) )
             }
          }
       }
@@ -81,11 +91,12 @@ systemfit <- function( method,
    calcSigma2 <- function( resids ) {
       if( rcovformula == 0 ) {
          result <- sum( resids^2 ) / N
-      } else if( rcovformula == 1 ) {
+      } else if( rcovformula == 1 || rcovformula == "geomean" ||
+         rcovformula == 3 || rcovformula == "max") {
          result <- sum( resids^2 )/ ( N - Ki )
       } else {
          stop( paste( "Sigma^2 can only be calculated if argument",
-            "'rcovformula' is either 0 or 1" ) )
+            "'rcovformula' is either 0, 1, 'geomean', 3 or 'max'" ) )
       }
    }
 
@@ -155,6 +166,9 @@ systemfit <- function( method,
       for(j in 1:k[i]) {
          xnames <- c( xnames, paste("eq",as.character(i),colnames( x[[i]] )[j] ))
       }
+   }
+   if( var ( n ) != 0 ) {
+      stop( "Systems with unequal numbers of observations are not supported yet." )
    }
 
    N  <- sum( n )    # total number of observations
