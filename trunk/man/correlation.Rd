@@ -1,3 +1,7 @@
+
+% 	$Id$	
+
+
 \name{correlation}
 \alias{correlation}
 \alias{correlation.systemfit}
