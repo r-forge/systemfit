@@ -121,8 +121,11 @@ print.systemfit.ols <- function( x, digits=6, ... )
   save.digits <- unlist(options(digits=digits))
   on.exit(options(digits=save.digits))
 
-    cat("\n")
-    cat( paste( attr( object, "class" ), "estimates for", object$eqnlabel, "\n" ) )
+  cat("\n")
+  cat( paste( attr( object, "class" ), "results\n" ) )
+
+  cat("\n")
+  cat( paste( attr( object, "class" ), "estimates for", object$eqnlabel, "\n" ) )
     
     cat("Model Formula: ")
     print(object$formula)
@@ -176,69 +179,69 @@ twostage.systemfit <- function(
 			data )	
 {
 
-	results <- list()
-	resulti <- list()
+  results <- list()
+  resulti <- list()
+  
+  for(i in 1:length( eqns ) ) 
+    {
+      
+      ## perform the two stage least squares regression
+      y	  <- eval( attr( terms( eqns[[i]] ), "variables" )[[2]] )
+      x	  <- model.matrix( eqns[[i]] )
+      z	  <- model.matrix( inst )
+      ztzinv	  <- solve( t(z) %*% z )
+      v	  <- solve( t(x) %*% z %*% ztzinv %*% t(z) %*% x )
 
-	for(i in 1:length( eqns ) ) 
-	{
-
-		# perform the two stage least squares regression
-		y	  <- eval( attr( terms( eqns[[i]] ), "variables" )[[2]] )
-		x	  <- model.matrix( eqns[[i]] )
-		z	  <- model.matrix( inst )
-		ztzinv	  <- solve( t(z) %*% z )
-		v	  <- solve( t(x) %*% z %*% ztzinv %*% t(z) %*% x )
-
-		# two stage least squares results...
-		b	  <- v %*% t(x) %*% z %*% ztzinv %*% t(z) %*% y
-		resids	  <- y - x %*% b
-		n	  <- length( y )
-		p	  <- ncol( x )
-		s	  <- sum(resids^2)/(n - p)
-		dfe	  <- n - p
-		se	  <- sqrt(diag(s*v))
-		t	  <- b/se
-		prob	  <- 2.0*(1.0 - pt(abs(t), dfe))
-		mse	  <- ( s * dfe / dfe )
-		rmse	  <- sqrt( mse ) 
-		r2	  <- 1.0 - ((t(resids)%*%resids)/(t(y)%*%y-n*mean(y)^2))
-		adjr2	  <- 1.0 - ((n-1)/(n-p))*(1.0-r2)
-		covb	  <- v * s
-
-		# get the residuals from the 2sls on the instruments
-		instres <- lsfit( model.frame( inst ), model.matrix( eqns[[i]] ) )$coef
-		temp2 <- model.matrix( inst ) %*% instres
-		resulti$instres <- instres
-		resulti$tslsres <- temp2
-
-		# build the "return" structure for the 2sls part
-		resulti$method	     <- "2sls"
-		resulti$eqnlabel     <- eqnlabels[[i]]			
-		resulti$formula	     <- eqns[[i]]
-		resulti$dfe	     <- dfe
-		resulti$dfm	     <- n - dfe
-		resulti$model.matrix <- model.matrix(eqns[[i]] )
-		resulti$model.frame  <- model.frame(eqns[[i]] )
-		resulti$instruments  <- inst
-		resulti$response     <- y
-		resulti$predicted    <- x %*% b
-		resulti$residuals    <- resids 
-		resulti$ztzinv	     <- ztzinv
-		resulti$v	     <- v
-		resulti$b	     <- b
-		names(resulti$b)     <- colnames( model.matrix( eqns[[i]] ) )
-		resulti$n	     <- n
-		resulti$s	     <- s
-		resulti$sse	     <- s * dfe
-		resulti$mse	     <- mse 
-		resulti$rmse	     <- rmse 
-		resulti$se	     <- se
-		resulti$t	     <- t
-		resulti$p	     <-  prob
-		resulti$r2	     <- r2
-		resulti$adjr2	     <- adjr2
-		resulti$covb	     <- covb
-
+      ## two stage least squares results...
+      b	  <- v %*% t(x) %*% z %*% ztzinv %*% t(z) %*% y
+      resids	  <- y - x %*% b
+      n	  <- length( y )
+      p	  <- ncol( x )
+      s	  <- sum(resids^2)/(n - p)
+      dfe	  <- n - p
+      se	  <- sqrt(diag(s*v))
+      t	  <- b/se
+      prob	  <- 2.0*(1.0 - pt(abs(t), dfe))
+      mse	  <- ( s * dfe / dfe )
+      rmse	  <- sqrt( mse ) 
+      r2	  <- 1.0 - ((t(resids)%*%resids)/(t(y)%*%y-n*mean(y)^2))
+      adjr2	  <- 1.0 - ((n-1)/(n-p))*(1.0-r2)
+      covb	  <- v * s
+      
+      ## get the residuals from the 2sls on the instruments
+      instres <- lsfit( model.frame( inst ), model.matrix( eqns[[i]] ) )$coef
+      temp2 <- model.matrix( inst ) %*% instres
+      resulti$instres <- instres
+      resulti$tslsres <- temp2
+      
+      ## build the "return" structure for the 2sls part
+      resulti$method	     <- "2sls"
+      resulti$eqnlabel     <- eqnlabels[[i]]			
+      resulti$formula	     <- eqns[[i]]
+      resulti$dfe	     <- dfe
+      resulti$dfm	     <- n - dfe
+      resulti$model.matrix <- model.matrix(eqns[[i]] )
+      resulti$model.frame  <- model.frame(eqns[[i]] )
+      resulti$instruments  <- inst
+      resulti$response     <- y
+      resulti$predicted    <- x %*% b
+      resulti$residuals    <- resids 
+      resulti$ztzinv	     <- ztzinv
+      resulti$v	     <- v
+      resulti$b	     <- b
+      names(resulti$b)     <- colnames( model.matrix( eqns[[i]] ) )
+      resulti$n	     <- n
+      resulti$s	     <- s
+      resulti$sse	     <- s * dfe
+      resulti$mse	     <- mse 
+      resulti$rmse	     <- rmse 
+      resulti$se	     <- se
+      resulti$t	     <- t
+      resulti$p	     <-  prob
+      resulti$r2	     <- r2
+      resulti$adjr2	     <- adjr2
+      resulti$covb	     <- covb
+      
       ## add the confidence limits and prediction limits here...
       xtxi <- solve( t(resulti$model.matrix) %*% resulti$model.matrix )
       bm4 <- diag( resulti$model.matrix %*% xtxi %*% t(resulti$model.matrix) )
@@ -250,14 +253,14 @@ twostage.systemfit <- function(
       resulti$se.prediction <- stdp
       resulti$prediction.limits <- cbind( resulti$predicted-(tval*stdi), resulti$predicted+(tval*stdi) )
       resulti$confidence.limits <- cbind( resulti$predicted-(tval*stdp), resulti$predicted+(tval*stdp) )
-
-                class(resulti)	     <- "systemfit.twostage"
-		results[[i]]	     <- resulti
-
-	} 
-
-	class(results)	<- "systemfit.system"
-	twostage <- results
+      
+      class(resulti)	     <- "systemfit.twostage"
+      results[[i]]	     <- resulti
+      
+    } 
+  
+  class(results)	<- "systemfit.system"
+  twostage <- results
 }
 
 
@@ -276,13 +279,16 @@ print.systemfit.twostage <- function( x,digits=6,... )
   save.digits <- unlist(options(digits=digits))
   on.exit(options(digits=save.digits))
 
-    cat("\n")
-    cat( paste( attr( object, "class" ), "estimates for", object$eqnlabel, "\n" ) )
+  cat("\n")
+  cat( paste( attr( object, "class" ), "results\n" ) )
+
+  cat("\n")
+  cat( paste( attr( object, "class" ), "estimates for", object$eqnlabel, "\n" ) )
     
-    cat("Model Formula: ")
-    print(object$formula)
-    cat("Instruments: ")
-    print(object$instruments)
+  cat("Model Formula: ")
+  print(object$formula)
+  cat("Instruments: ")
+  print(object$instruments)
     cat("\n")
     
     Signif <- symnum(object$p, corr = FALSE, na = FALSE,
@@ -333,13 +339,12 @@ sur.systemfit <- function(
   u2	<-  matrix( 0, dim(data)[1], length( eqns ) )
   
   ## perform the two-stage fits
-  osls <- ols.systemfit(	
+  osls <- ols.systemfit(
                         eqns, 
                         instruments,
                         eqnlabels,
                         data )	
-  
-  
+
   ## these are the ones that wil be used to build the big matrix
   t3 <- NULL
   bigb <- NULL
@@ -383,6 +388,8 @@ sur.systemfit <- function(
   ## get the variance-covariance matrix from the two stage results
   varcov <- varcov.systemfit( osls )	
   
+  print( varcov )
+
   parta <- kronecker( solve( varcov ), 
                      diag( dim( model.matrix( eqns[[1]] ) )[1] ) )
   part1 <- solve( t(t3) %*% parta %*% t3 ) # covariance matrix
