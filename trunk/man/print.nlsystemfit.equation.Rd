@@ -1,5 +1,5 @@
-% 	$Id$	
 
+% 	$Id$	
 
 \name{print.nlsystemfit.equation}
 \alias{print.nlsystemfit.equation}
