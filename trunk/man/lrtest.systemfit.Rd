@@ -1,3 +1,6 @@
+
+% 	$Id$	
+
 \name{lrtest.systemfit}
 \alias{lrtest.systemfit}
 

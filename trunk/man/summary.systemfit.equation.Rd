@@ -1,3 +1,6 @@
+
+% 	$Id$	
+
 \name{summary.systemfit.equation}
 \alias{summary.systemfit.equation}
 \title{summary.systemfit.equation}

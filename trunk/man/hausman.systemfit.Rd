@@ -1,3 +1,6 @@
+
+% 	$Id$	
+
 \name{hausman.systemfit}
 \alias{hausman.systemfit}
 
