@@ -37,7 +37,8 @@ systemfit <- function( method,
                         probdfsys=!(is.null(R.restr) & is.null(TX)),
                         single.eq.sigma=(is.null(R.restr) & is.null(TX)),
                         solvetol=.Machine$double.eps,
-                        saveMemory = FALSE)
+                        saveMemory = ( nrow( data ) * length( eqns ) > 1000 &&
+                           length( data ) > 0 ) )
 {
 
    ## some tests
@@ -171,6 +172,12 @@ systemfit <- function( method,
       if( var ( n ) != 0 ) {
          stop( "Systems with unequal numbers of observations are not supported yet." )
       }
+   }
+   if( sum( n ) > 1000 && !saveMemory ) {
+      warning( paste( "You have more than 1000 observations.",
+         "Setting argument 'saveMemory' to TRUE speeds up",
+         "the estimation. Estimation of larger data sets might even",
+         "require this setting.\n" ) )
    }
 
    N  <- sum( n )    # total number of observations
