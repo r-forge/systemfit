@@ -67,7 +67,7 @@ fit3sls <- systemfit( "3SLS", system, labels, inst)
 
 ## perform the hausman test on the first equation
 h <- hausman.systemfit( fit2sls, fit3sls )
-pval <- pchisq( h, dim( fit3sls$bcov )[1] )
+pval <- 1 - pchisq( h, dim( fit3sls$bcov )[1] )
 
 print( h )
 print( pval )
