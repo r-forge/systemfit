@@ -7,6 +7,10 @@
 ### you need to figure out how to translate the single equation
 ### into a lm object!
 
+### to build this package you need to issue the following command
+### rcmd build --bin systemfit from the parent directory
+
+
 # performs ordinary least squares on the system of equations 
 ols.systemfit <- function(	
                           eqns, 
