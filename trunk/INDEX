@@ -1,14 +1,14 @@
 coef.systemfit.equation
-                        coef.systemfit.equation
-coef.systemfit          coef.systemfit
+                        Coefficients of systemfit equation
+coef.systemfit          Coefficients of systemfit object
 confint.systemfit.equation
-                        confint.systemfit.equation
-confint.systemfit       confint.systemfit
+                        Confidence intervals of coefficients
+confint.systemfit       Confidence intervals of coefficients
 correlation.systemfit   Correlation between Predictions from Equation
                         i and j
 fitted.systemfit.equation
-                        fitted.systemfit.equation
-fitted.systemfit        fitted.systemfit
+                        Fitted values
+fitted.systemfit        Fitted values
 hausman.systemfit       Hausman's Test
 kmenta                  Partly Artificial Data on the U. S. Economy
 lrtest.systemfit        Likelihood Ratio test for Equation Systems
@@ -17,25 +17,27 @@ ppine                   Tree Growth Data for Ponderosa Pine
 predict.systemfit.equation
                         Predictions from Equation System Estimation
 predict.systemfit       Predictions from Equation System Estimation
+print.confint.systemfit
+                        Print confidence intervals of coefficients
 print.nlsystemfit.equation
                         print.nlsystemfit.equation
 print.nlsystemfit.system
                         print.nlsystemfit.system
 print.systemfit.equation
-                        print.systemfit.equation
-print.systemfit         print.systemfit
+                        Print output of systemfit estimation
+print.systemfit         Print output of systemfit estimation
 residuals.systemfit.equation
-                        residuals.systemfit.equation
-residuals.systemfit     residuals.systemfit
+                        Residuals of systemfit equation
+residuals.systemfit     Residuals of systemfit object
 se.ratio.systemfit      Ratio of the Standard Errors
 summary.nlsystemfit.equation
                         summary.nlsystemfit.equation
 summary.nlsystemfit.system
                         summary.nlsystemfit.system
 summary.systemfit.equation
-                        summary.systemfit.equation
-summary.systemfit       summary.systemfit
+                        Print output of systemfit estimation
+summary.systemfit       Print output of systemfit estimation
 systemfit               Equation System Estimation
 vcov.systemfit.equation
-                        vcov.systemfit.equation
-vcov.systemfit          vcov.systemfit
+                        Variance covariance matrix of coefficients
+vcov.systemfit          Variance covariance matrix of coefficients
