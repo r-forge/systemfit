@@ -167,8 +167,10 @@ systemfit <- function( method,
          xnames <- c( xnames, paste("eq",as.character(i),colnames( x[[i]] )[j] ))
       }
    }
-   if( var ( n ) != 0 ) {
-      stop( "Systems with unequal numbers of observations are not supported yet." )
+   if( G > 1 ) {
+      if( var ( n ) != 0 ) {
+         stop( "Systems with unequal numbers of observations are not supported yet." )
+      }
    }
 
    N  <- sum( n )    # total number of observations
@@ -219,15 +221,18 @@ systemfit <- function( method,
     resids <- Y - X %*% b                                        # residuals
     if(single.eq.sigma) {
       rcov <- calcRCov( resids, diag = TRUE )   # residual covariance matrix
-      Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
-                     # Omega inverse
+      #Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])# Omega inverse
+      Xs <- X * rep( 1 / diag( rcov ), n )
       if(is.null(R.restr)) {
-        bcov   <- solve( t(X) %*% Oinv %*% X, tol=solvetol )
+         #bcov   <- solve( t(X) %*% Oinv %*% X, tol=solvetol )
+         bcov <- solve( t( Xs ) %*% X, tol=solvetol )
                     # coefficient covariance matrix
       } else {
-        W <- rbind( cbind( t(X) %*% Oinv %*% X, t(R.restr) ),
+         #W <- rbind( cbind( t(X) %*% Oinv %*% X, t(R.restr) ),
+         #           cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
+         W <- rbind( cbind( t(Xs) %*% X, t(R.restr) ),
                     cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
-        bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
+         bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
       }
     } else {
       s2 <- calcSigma2( resids )     # sigma squared
@@ -360,17 +365,17 @@ systemfit <- function( method,
   if(method=="2SLS") {
     resids <- Y - X %*% b                        # residuals
     if(single.eq.sigma) {
-      rcov <- calcRCov( resids )
+      rcov <- calcRCov( resids, diag = TRUE )
+      #Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1]) # Omega inverse
+      Xfs <- Xf * rep( 1 / diag( rcov ), n )
       if(is.null(R.restr)) {
          #bcov   <- solve( t(Xf) %*% Oinv %*% Xf, tol=solvetol )
-         # the following 2 lines are substituted for the previous line to increase
-         # speed ( suggested by Ott Toomet )
-         Xfs <- Xf*rep(1/diag(rcov), n)
          bcov <- solve(t(Xfs) %*% Xf, tol=solvetol)
                             # coefficient covariance matrix
       } else {
-         Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1]) # Omega inverse
-         W <- rbind( cbind( t(Xf) %*% Oinv %*% Xf, t(R.restr) ),
+         #W <- rbind( cbind( t(Xf) %*% Oinv %*% Xf, t(R.restr) ),
+         #           cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
+         W <- rbind( cbind( t(Xfs) %*% Xf, t(R.restr) ),
                     cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
          bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
       }
