@@ -473,7 +473,7 @@ systemfit <- function( method,
                       %*% H %*% solve( crossprod( H ), tol=solvetol ) %*% crossprod(H, Y) )
                            # (unrestr.) coeffic.
         } else {
-          W <- rbind( cbind( t(Xf) %*% Oinv %*% XF, t(R.restr) ),
+          W <- rbind( cbind( t(Xf) %*% Oinv %*% Xf, t(R.restr) ),
                       cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
           V <- rbind( t(Xf) %*% Oinv %*% H %*% solve( crossprod( H ), tol=solvetol ) %*%
                       crossprod( H, Y ), q.restr )
@@ -533,7 +533,7 @@ systemfit <- function( method,
                 # final step coefficient covariance matrix
       } else {
         W <- rbind( cbind( t(Xf) %*% Oinv %*% Xf, t(R.restr) ),
-                    cbind( R.restr, matrix(0,K-Ki,K-Ki)))
+          cbind( R.restr, matrix( 0, nrow( R.restr ), nrow( R.restr ))))
         V <- rbind( t(Xf) %*% Oinv %*% Y , q.restr )
         bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
                 # coefficient covariance matrix
