@@ -663,3 +663,4 @@ print.nlsystemfit.equation <- function( x, digits=6, ... ) {
 ## just testing the repos
 ## testing again
 ## and again..
+##Don't go to Georgia (you remember Deliverance don't you?)
