@@ -22,7 +22,7 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
            rcovformula=1, formula3sls="GLS",
            probdfsys=!(is.null(R.restr) & is.null(TX)),
            single.eq.sigma=(is.null(R.restr) & is.null(TX)),
-           solvetol=1e-7 )
+           solvetol=.Machine$double.eps )
 }
 
 \arguments{
