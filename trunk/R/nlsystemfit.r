@@ -664,3 +664,5 @@ print.nlsystemfit.equation <- function( x, digits=6, ... ) {
 ## testing again
 ## and again..
 ##Don't go to Georgia (you remember Deliverance don't you?)
+## yes, but the braves are in the running this year and i'll
+## want to purchase a gulfstream at minimal cost
