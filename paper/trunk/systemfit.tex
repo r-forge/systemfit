@@ -235,7 +235,7 @@ of the parameters are equal to the OLS estimates%
 estimated parameters might differ, 
 if the WLS estimation is based on a different formula 
 to calculate the (diagonal) variance-covariance 
-matrix of the residuals (see section ????).}.  
+matrix of the residuals (see section \ref{sec:residcov}).}.  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Seemingly unrelated regression}
@@ -903,15 +903,15 @@ and identical variance-covariance matrices of the estimated parameters.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Residual variance-covariance matrix}
+\subsubsection{Residual variance-covariance matrix}\label{sec:residcov}
 
 Since the true residuals of the estimated equations are generally not known,
 the true covariance matrix of the residuals cannot be determined.
-Thus, the this covariance matrix must be calculated from the
+Thus, this covariance matrix must be calculated from the
 \emph{estimated} residuals. 
 
 The estimated covariance matrix of the residuals ($\widehat{\Sigma} = 
-\left[ \sigma \right]$) 
+\left[ \widehat{\sigma}_{ij} \right]$) 
 is often calculated by
 \begin{equation}
    \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }{ T }
@@ -919,7 +919,7 @@ is often calculated by
 \end{equation}
 where $T$ is the number of observations in each equation.
 
-However, this estimator is biased, because it is not corrected for the
+However, this estimator is biased, because it is not corrected for 
 degrees of freedom. 
 The usual single-equation procedure to correct for degrees of freedom 
 cannot always be applied, because the number of regressors in each equation 
@@ -948,13 +948,18 @@ However, this yields an unbiased estimator only if $K_i = K_j$
 
 
 A further approach to obtain the estimated residual variance-covariance
-matrix is
-\begin{equation}
-   \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j } 
+matrix is \citep[p. 309]{zellner62c}
+\begin{eqnarray}
+   \widehat{\sigma}_{ij} & = & 
+   \frac{ \widehat{u}_i' \widehat{u}_j } 
+   { T - K_i - K_j + tr \left[ X_i \left( X_i' X_i \right)^{-1}
+   X_i' X_j \left( X_j' X_j \right)^{-1} X_j' \right] } \\
+   & = &
+   \frac{ \widehat{u}_i' \widehat{u}_j } 
    { T - K_i - K_j + tr \left[ \left( X_i' X_i \right)^{-1}
-   X_i' X_j \left( X_j' X_j \right)^{-1} X_j' X_i \right] }
+   X_i' X_j \left( X_j' X_j \right)^{-1} X_j' X_i \right] } \\
    \label{eq:rcov2}
-\end{equation} 
+\end{eqnarray} 
 This yields an unbiased estimator for all elements of $\widehat{\Sigma}$,
 but even if $\widehat{\Sigma}$ is an unbiased estimator of $\Sigma$, 
 its inverse $\widehat{\Sigma}^{-1}$ is not an unbiased estimator 
@@ -1033,7 +1038,7 @@ The other mandatory argument \code{eqns} is a list of the equations
 to estimate. 
 Each equation is a standard formula in \proglang{R}.
 It starts with a dependent variable on the left hand side.
-After a tilde ($~$) the regressors are listed%
+After a tilde ($\sim$) the regressors are listed%
 \footnote{For Details see the \proglang{R} help files to \code{formula}}.
 
 This is now demonstrated using an example: \\
@@ -1537,6 +1542,9 @@ might want this in the package.
 \section{CVS Revision Log}
 \begin{verbatim}
 $Log$
+Revision 1.8  2004/11/16 08:55:53  henningsena
+merged file and resolved conflict due to some minor changes I did while Jeff was adding nlsystemfit.
+
 Revision 1.7  2004/11/16 05:34:47  hamannj
 question about nlsystemfit code section (example)
 
