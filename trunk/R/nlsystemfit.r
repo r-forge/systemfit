@@ -394,7 +394,7 @@ nlsystemfit <- function( method="OLS",
     covb <- qr.solve( t( Y %*% X ) %*% Vinv %*% ( Y %*% X  ), tol=solvtol )
 #    print( covb )
   }
-
+  colnames( covb ) <- rownames( covb )
   
   
   ## bind the standard errors to the parameter estimate matrix
@@ -449,7 +449,10 @@ nlsystemfit <- function( method="OLS",
 
 #     ## you'll need these to compute the correlations...
 #     print( paste( "eqn ", i ) )
-     resulti$covb  <- covb[(1+sum(k[1:i])-k[i]):(sum(k[1:i])),(1+sum(k[1:i])-k[i]):(sum(k[1:i]))]
+    coefNames <- rownames( covb )[ rownames( covb ) %in% 
+      strsplit( as.character( eqns[[ i ]] )[ 3 ], "[^a-zA-Z0-9.]" )[[ 1 ]] ]
+    resulti$covb <- covb[ coefNames, coefNames ]
+
 #     resulti$x <- model.frame( as.formula( eqns[[i]] )[[3]] )
 #     print( resulti$x )    
 #    print( model.frame( eval( eqns[[i]] ) ) )
