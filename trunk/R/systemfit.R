@@ -840,15 +840,56 @@ threestage.cov <- function( results, eqni, eqnj )
 ## given 2 estimators, b0 abd b1, where under the null hypothesis,
 ## both are consistent, but only b0 is asympt. efficient and 
 ## under the alter. hypo only b1 is consistent, so the statistic (m) is
-hausman.systemfit <- function( results0, results1 )
+
+## man is this wrong...
+hausman.systemfit <- function( li.results, fi.results )
 {
 
-	v0 <- results0$covb
-	v1 <- results1$covb
-	q  <- results1$b - results0$b
-		
-	hausman <- t( q ) %*% ( v1 - v0 ) %*% q
+  ## build the variance-covariance matrix
+  ## for the full information and the limited information
+  ## matricies
 
+  ficovb <- NULL
+  licovb <- NULL
+  lib <-  NULL
+  fib <-  NULL
+  
+  ## build the final large matrix...
+  for(i in 1:length( li.results ) ) 
+    {
+      fitr <- NULL
+      litr <- NULL
+      
+      ## get the dimensions of the current matrix
+      for(j in 1:length( li.results ) ) 
+        {
+          if( i == j )
+            {
+              litr <- cbind( litr, li.results[[i]]$covb )
+            }		
+          else
+            {
+              ## bind the zero matrix to the row
+              di <- dim( li.results[[i]]$covb )[1]
+              dj <- dim( li.results[[j]]$covb )[1]
+              litr <- cbind( litr, matrix( 0, di, dj ) )
+            }
+        }
+
+      licovb <- rbind( licovb, litr )
+      
+      ## now add the rows of the parameter estimates
+      ## to the big_beta matrix to compute the differences
+      lib <- rbind( lib, li.results[[i]]$b )
+      fib <- rbind( fib, fi.results[[i]]$b )
+    } 
+  
+  v1 <- licovb
+  v0 <- fi.results[[1]]$systemcovb
+  q  <- fib - lib
+
+  hausman <- t( q ) %*% solve( v1 - v0 ) %*% q
+  
 }
 
 
