@@ -4,7 +4,10 @@
 #	$Id$	
 
 
-# performs two-stage least squares on the system of equations 
+### you need to figure out how to translate the single equation
+### into a lm object!
+
+# performs ordinary least squares on the system of equations 
 ols.systemfit <- function(	
                           eqns, 
                           instruments,
@@ -37,6 +40,7 @@ ols.systemfit <- function(
       r2	  <- 1.0 - ((t(resids)%*%resids)/(t(y)%*%y-n*mean(y)^2))
       adjr2	  <- 1.0 - ((n-1)/(n-p))*(1.0-r2)
       covb	  <- solve( t(x) %*% x )
+      pred <- x %*% b 
       
       ## build the "return" structure for the 2sls part
       resulti$method	     <- "ols"
@@ -48,7 +52,7 @@ ols.systemfit <- function(
       resulti$model.frame  <- model.frame(eqns[[i]] )
       resulti$instruments  <- inst
       resulti$response     <- y
-      resulti$predicted    <- x %*% b
+      resulti$predicted    <- pred
       resulti$residuals    <- resids 
       ##resulti$ztzinv	     <- ztzinv
       resulti$v	     <- v
@@ -66,6 +70,10 @@ ols.systemfit <- function(
       resulti$adjr2	     <- adjr2
       resulti$covb	     <- covb
       
+
+      ## thise should really be outside the function
+      ## so you can cut down on storage since the
+      ## user may want to change the alpha level
       ## add the confidence limits and prediction limits here...
       xtxi <- solve( t(resulti$model.matrix) %*% resulti$model.matrix )
       bm4 <- diag( resulti$model.matrix %*% xtxi %*% t(resulti$model.matrix) )
@@ -77,14 +85,15 @@ ols.systemfit <- function(
       stdr <- sqrt( ( 1.0 - bm4 ) * resulti$mse )
 
       resulti$se.prediction <- stdp
-      resulti$prediction.limits <- cbind( resulti$predicted-(tval*stdi), resulti$predicted+(tval*stdi) )
-      resulti$confidence.limits <- cbind( resulti$predicted-(tval*stdp), resulti$predicted+(tval*stdp) )
-
+      resulti$prediction.limits <- cbind( pred-(tval*stdi), pred+(tval*stdi) )
+      resulti$confidence.limits <- cbind( pred-(tval*stdp), pred+(tval*stdp) )
       resulti$student <- resids / stdr
-      resulti$cookd <- (1/resulti$dfe) *
-        resulti$student * resulti$student * ((stdp/(stdr*stdr)))
+      ##resulti$cookd <- (1/resulti$dfm)*(resulti$student)^2*((stdp/(stdr*stdr)))
 
-
+      resulti$dstari <- resids*sqrt((n-p-1)/(resulti$sse*(1-bm4 )-resids^2))
+      resulti$cookd <-  (resids^2)/(p-mse)*(bm4/(1-bm4)^2)
+      
+      
       class(resulti)	     <- "systemfit.ols"
       results[[i]]	     <- resulti                
     } 
@@ -907,6 +916,41 @@ correlation.systemfit <- function( results, eqni, eqnj )
 }
 
 
+correlation.resids.systemfit <- function( results )
+{
+
+  labels <- NULL
+  u2 <-  matrix( 0, length( results ), length( results ) )
+
+  ## use bind to create a vector for the residuals 
+  for(i in 1:length( results ) ) 
+    {	
+      labels <- rbind( labels, results[[i]]$eqnlabel ) 
+
+      ## use bind to create a vector for the residuals 
+      for(j in 1:length( results ) ) 
+        {	
+          ri	<- results[[i]]$residuals
+          rj	<- results[[j]]$residuals
+
+          ## from SAS
+          cvij <- cov( ri, rj ) / sqrt( var( ri ) * var( rj ) )
+          
+          u2[i,j] <- cvij
+        }
+      
+    }
+
+  rownames(u2) <- labels
+  colnames(u2) <- labels
+
+  varcov <- u2
+  varcov
+  
+}
+
+
+
 ## this function returns a vector of the 
 ## cross-equation corrlations between eq i and eq j
 ## from the results set for equation ij
@@ -1000,7 +1044,10 @@ print.systemfit.system <- function( x,digits=6,... )
   rownames(vc) <- labels
   colnames(vc) <- labels
   print( vc )
+  cat("\n")
 
+  cat("The correlations of the residuals\n")
+  print( correlation.resids.systemfit( object ), digits=digits )
   
   ## now print the individual equations
   for(i in 1:length( object ) ) 
@@ -1008,7 +1055,7 @@ print.systemfit.system <- function( x,digits=6,... )
       print( object[[i]], digits )
     }
 
-    save.digits <- unlist(options(digits=digits))
-    on.exit(options(digits=save.digits))
+  save.digits <- unlist(options(digits=digits))
+  on.exit(options(digits=save.digits))
   
 }
