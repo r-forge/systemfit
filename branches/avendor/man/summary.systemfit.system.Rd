@@ -1,6 +1,5 @@
 \name{summary.systemfit.system}
 \alias{summary.systemfit.system}
-
 \title{summary.systemfit.system}
 
 \description{
@@ -22,11 +21,12 @@ summary.systemfit.system(object,...)
 
 \author{Jeff D. Hamann \email{jeff\_hamann@hamanndonald.com}}
 
-\seealso{\code{\link{ols}},\code{\link{twostage}} and \code{\link{threestage}}}
+\seealso{\code{\link{systemfit}}, \code{\link{print.systemfit.system}} and
+  \code{\link{print.systemfit.system}}}
 
 
 \examples{
-library( systemfit )
+\dontrun{library( systemfit )}
 
 data( kmenta )
 attach( kmenta )
@@ -36,15 +36,13 @@ inst <- ~ d + f + a
 labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
-## perform 3SLS on each of the equations in the system
-fit3sls <- threestage.systemfit( system, inst, labels, kmenta )
+## perform OLS on each of the equations in the system
+fitols <- systemfit( "OLS", system, labels )
 
 ## print the results
-print( fit3sls )
-
-
-
+summary.systemfit.system( fitols )
 }
+
 \keyword{models}
 
 
