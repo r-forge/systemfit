@@ -20,16 +20,17 @@
 }
 
 \value{
-   A matrix (or vector) with columns giving lower and upper
-   confidence limits for each parameter. These will be labelled as
+   An object of class \code{confint.systemfit}, which is a
+   a matrix with columns giving lower and upper confidence
+   limits for each estimated coefficient. These will be labelled as
    (1-level)/2 and 1 - (1-level)/2 in % (by default 2.5% and 97.5%).
 }
 
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
 
 \seealso{
-   \code{\link{systemfit}}, \code{\link{confint.systemfit}}
-   and \code{\link{confint}}
+   \code{\link{systemfit}}, \code{\link{confint.systemfit}},
+   \code{\link{print.confint.systemfit}} and \code{\link{confint}}
 }
 
 
@@ -54,6 +55,7 @@ confint( fitols$eq[[2]] )
 }
 
 \keyword{models}
+\keyword{regression}
 
 
 
