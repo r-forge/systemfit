@@ -660,3 +660,15 @@ print.nlsystemfit.equation <- function( x, digits=6, ... ) {
   cat("\n")
 }
 
+# from Model Selection and Inference: A Practical Information-Theoretic Approach
+# Kenneth P. Burnham and David R. Anderson, 1998. Springer-Verlag, New York, New York.
+
+## Akaike's Information Criterion
+## AIC = n * log( sigmahat^2 ) + 2K
+## n = number of obs
+## sigmahat^2 = sum( error^2 ) / n == residual sums of squares 
+## K is the total number if estimated parameters, including the intercept and sigma^2 (nparams + 1)
+## second order AIC
+## AICc = AIC + (2K*(K+1))/(n-K-1)
+## unless the sample size is large with repsect to the number of estiamted parameters, use AICc.
+
