@@ -25,7 +25,7 @@ threestage.systemfit( eqns, instruments, eqnlabels, data )
     constant is implied if not explicitly omitted.}
   \item{instruments}{one-sided model formula specifying instrumental variables.}
   \item{data}{an optional data frame containing the variables in the model. 
-    By default the variables are taken from the environment from which twostage is
+    By default the variables are taken from the environment from which threestage is
     called.}
   \item{eqnlabels}{list of character vectors of names for the equation labels.}
 }

@@ -1,3 +1,6 @@
+
+% 	$Id$	
+
 \name{threestage.cov}
 \alias{threestage.cov}
 \alias{threestage.cov.systemfit}
