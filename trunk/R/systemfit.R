@@ -627,7 +627,7 @@ threestage.systemfit <- function(
 		resulti$model.matrix <- model.matrix(eqns[[i]] )
 		resulti$model.frame  <- model.frame(eqns[[i]] )
 		resulti$instruments  <- inst
-		resulti$response     <- tsls[[i]]$reponse
+		resulti$response     <- tsls[[i]]$response
 		resulti$predicted    <- x %*% b
 		resulti$residuals    <- resids 
 		resulti$ztzinv	     <- tsls[[i]]$ztzinv
