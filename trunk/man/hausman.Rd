@@ -69,7 +69,10 @@ fit3sls <- threestage.systemfit( system, inst, labels, kmenta )
 
 ## perform the hausman test on the first equation
 h <- hausman.systemfit( fit2sls, fit3sls )
-##pval <- pchisq( h, dim( fit3sls[[1]]$covb )[1] )
+pval <- pchisq( h, dim( fit3sls[[1]]$systemcovb )[1] )
+
+print( h )
+print( pval )
 
 }
 \keyword{models}

@@ -129,8 +129,8 @@ print( "summary values for the ratio in the std. err. for the predictions" )
 print( summary( improve.ratio ) )
 
 ## perform the hausman test 
-h <- hausman.systemfit( fit3sls[[1]], fit2sls[[1]] )
-pval <- pchisq( h, dim( fit3sls[[1]]$covb )[1] )
+h <- hausman.systemfit( fit2sls, fit3sls )
+pval <- pchisq( h, dim( fit3sls[[1]]$systemcovb )[1] )
 }
 \keyword{models}
 

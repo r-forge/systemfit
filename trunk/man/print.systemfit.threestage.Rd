@@ -25,7 +25,8 @@ print.systemfit.threestage(x,digits=6,...)
 
 \author{Jeff D. Hamann \email{jeff\_hamann@hamanndonald.com}}
 
-\seealso{\code{\link{ols}},\code{\link{twostage}} and \code{\link{threestage}}}
+
+\seealso{\code{\link{ols}},\code{\link{twostage}},\code{\link{sur}}and \code{\link{threestage}}}
 
 
 \examples{
