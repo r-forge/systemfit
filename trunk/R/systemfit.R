@@ -311,7 +311,7 @@ systemfit <- function( method,
       Xi <- X[(1+sum(n[1:i])-n[i]):(sum(n[1:i])),]
             # regressors of the ith equation (including zeros)
       #h[[i]] <- model.matrix( instl[[i]] )
-      # the following lines have to be substituted for the previous
+      # the following lines have been substituted for the previous
       # line due to changes in the data handling.
       # code provided by Ott Toomet
       m <- m0
@@ -320,8 +320,8 @@ systemfit <- function( method,
       m <- eval(m, parent.frame())
       h[[i]] <- model.matrix(Terms, m)
       if( nrow( h[[ i ]] ) != nrow( Xi ) ) {
-         stop( paste( "The instruments and the regressors of equation", as.character( i ),
-            "have different numbers of observations." ) )
+         stop( paste( "The instruments and the regressors of equation",
+            as.character( i ), "have different numbers of observations." ) )
       }
       # extract instrument matrix
       Xf <- rbind(Xf, h[[i]] %*% solve( crossprod( h[[i]]) , tol=solvetol )
@@ -502,18 +502,27 @@ systemfit <- function( method,
     }
     if(formula3sls=="GMM") {
       if(is.null(R.restr)) {
-        bcov <- solve(t(Xf) %*% Oinv %*% Xf, tol=solvetol )
+        bcov <- solve( t(X) %*% H %*% solve( t(H) %*%
+           ( rcov %x% diag( 1, n[1], n[1] ) ) %*% H, tol=solvetol ) %*%
+           t(H) %*% X, tol=solvetol )
                 # final step coefficient covariance matrix
       } else {
         bcov   <- Winv[1:ncol(X),1:ncol(X)] # coefficient covariance matrix
       }
     }
     if(formula3sls=="Schmidt") {
+      PH <- H %*%  solve( t(H) %*% H, tol=solvetol ) %*% t(H)
       if(is.null(R.restr)) {
-        bcov <- solve(t(Xf) %*% Oinv %*% Xf, tol=solvetol )
-                # final step coefficient covariance matrix
+         bcov <- solve( t(Xf) %*% Oinv %*% Xf, tol=solvetol ) %*%
+            t(Xf) %*% Oinv %*% PH %*% ( rcov %x% diag( 1, n[1], n[1] ) ) %*%
+            PH %*% Oinv %*% Xf %*% solve( t(Xf) %*% Oinv %*% Xf, tol=solvetol )
+                  # final step coefficient covariance matrix
       } else {
-        bcov   <- Winv[1:ncol(X),1:ncol(X)]
+         VV <- t(Xf) %*% Oinv %*% PH %*% ( rcov %x% diag( 1, n[1], n[1] ) ) %*%
+            PH %*% Oinv %*% Xf
+         VV <- rbind( cbind( VV, matrix( 0, nrow( VV ), nrow( R.restr ) ) ),
+            matrix( 0, nrow( R.restr ), nrow( VV ) + nrow( R.restr ) ) )
+         bcov <- ( Winv %*% VV %*% Winv )[ 1:ncol(X), 1:ncol(X) ]
                   # coefficient covariance matrix
       }
     }
