@@ -53,6 +53,8 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
   # partial derivatives of the residuals with respect to the parameters
   dResidTheta <- NULL
   dResidThetai <- list()
+  d2ResidTheta <- array( NA, c( 0, 0, 0 ) )
+  d2ResidThetai <- list()
 
   ## get the values of the parameters
   for( i in 1:length( parmnames ) ) {
@@ -74,11 +76,33 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
     dResidThetai[[ i ]] <- - attributes( with( data, with( as.list( theta ),
       eval( deriv( eqns[[i]], names( parmnames ))))))$gradient
     dResidTheta <- rbind( dResidTheta, dResidThetai[[ i ]] )
+    d2ResidThetai[[ i ]] <- - attributes( with( data, with( as.list( theta ),
+      eval( deriv3( eqns[[i]], names( parmnames ) )))))$hessian
+    temp <- array( NA, c( dim( d2ResidTheta )[ 1 ] +
+      dim( d2ResidThetai[[ i ]] )[ 1 ], dim( d2ResidThetai[[ i ]] )[ 2:3 ] ) )
+    if( i > 1 ) {
+      temp[ 1:dim( d2ResidTheta )[ 1 ], , ] <- d2ResidTheta
+    }
+    temp[ ( dim( d2ResidTheta )[ 1 ] + 1 ):( dim( temp )[ 1 ] ),
+      , ] <- d2ResidThetai[[ i ]]
+    d2ResidTheta <- temp
   }
   ## these are the objective functions for the various fitting methods
   if( fitmethod == "OLS" ) {
     obj <- crossprod( r )
-    attributes( obj ) <- list( gradient = 2 * t( r ) %*% dResidTheta )
+    gradient <- 2 * t( r ) %*% dResidTheta
+#print( d2ResidTheta )
+#print( t( dResidTheta ) %*% dResidTheta )
+    hessian <- matrix( NA, nrow = length( parmnames ), ncol = length( parmnames ) )
+    for( i in 1:length( parmnames ) ) {
+      hessian[ i, ] <- 2 * t( r ) %*% d2ResidTheta[ , , i ]
+    }
+    hessian <- hessian + 2 * t( dResidTheta ) %*% dResidTheta
+    rownames( hessian ) <- colnames( dResidTheta )
+    colnames( hessian ) <- colnames( dResidTheta )
+#print( hessian - t( hessian ) )
+    hessian <- NULL
+    attributes( obj ) <- list( gradient = gradient, hessian = hessian )
   }
   if( fitmethod == "2SLS" ) {
     ## W is premultiplied == ( diag( neqs ) %x% W )
