@@ -1,3 +1,4 @@
+#	$Id$	
 ###
 ###            Simultaneous Nonlinear Least Squares for R
 ###
