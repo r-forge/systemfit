@@ -48,7 +48,7 @@ The \code{ritchie} data frame has 428 rows and 7 columns.
  single remeasurement. 
 }
 \source{
- Ritchie, M. W. (19XX)
+ Ritchie, M. W. (1999)
  \emph{Get the pub these things come from, Second Edition}, Macmillan.
 }
 \examples{
