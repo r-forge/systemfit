@@ -8,12 +8,13 @@
 }
 
 \usage{
-\method{predict}{systemfit.equation}( object, data )
+\method{predict}{systemfit.equation}( object, data, ... )
 }
 
 \arguments{
   \item{object}{an object of type \code{systemfit.equation}.}
   \item{data}{data frame in which to predict.}
+  \item{...}{additional optional arguments.}
 }
 
 \value{

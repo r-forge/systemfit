@@ -11,7 +11,7 @@
 \usage{
 \method{predict}{systemfit}( object, data = object$data,
                              se.fit = FALSE, se.pred = FALSE,
-                             interval = "none", level=0.05 )
+                             interval = "none", level=0.05, ... )
 }
 
 \arguments{
@@ -22,6 +22,7 @@
   \item{interval}{Type of interval calculation ("none", "confidence"
       or "prediction")}
   \item{level}{level of significance.}
+  \item{...}{additional optional arguments.}
 }
 
 \details{
