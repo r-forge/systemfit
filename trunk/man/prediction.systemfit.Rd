@@ -12,7 +12,7 @@
 }
 
 \usage{
-prediction.systemfit( object, data=results$data, alpha=0.05 )
+prediction.systemfit( object, data=object$data, alpha=0.05 )
 }
 
 \arguments{
