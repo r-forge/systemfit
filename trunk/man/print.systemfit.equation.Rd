@@ -1,3 +1,6 @@
+
+% 	$Id$	
+
 \name{print.systemfit.equation}
 \alias{print.systemfit.equation}
 \title{print.systemfit.equation}
