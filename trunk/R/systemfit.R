@@ -6,74 +6,85 @@
 
 # performs two-stage least squares on the system of equations 
 ols.systemfit <- function(	
-	      			eqns, 
-				instruments,
-				eqnlabels,
-				data )	
+                          eqns, 
+                          instruments,
+                          eqnlabels,
+                          data )	
 {
-	results <- list()
-	resulti <- list()
-
-	for(i in 1:length( eqns ) ) 
-	{
-
-		# perform the two stage least squares regression
-		y	  <- eval( attr( terms( eqns[[i]] ), "variables" )[[2]] )
-		x	  <- model.matrix( eqns[[i]] )
-
-		v <- diag( dim( model.matrix( eqns[[i]] )[2] ) )
-		# two stage least squares results...
-		b	  <- solve( t(x) %*% x ) %*% t(x) %*% y
-		resids	  <- y - x %*% b
-		n	  <- length( y )
-		p	  <- ncol( x )
-		s	  <- sum(resids^2)/(n - p)
-		dfe	  <- n - p
-		se	  <- sqrt( diag( solve( t(x) %*% x ) ) * s )
-		t	  <- b/se
-		prob	  <- 2.0*(1.0 - pt(abs(t), dfe))
-		mse	  <- ( s * dfe / dfe )
-		rmse	  <- sqrt( mse ) 
-		r2	  <- 1.0 - ((t(resids)%*%resids)/(t(y)%*%y-n*mean(y)^2))
-		adjr2	  <- 1.0 - ((n-1)/(n-p))*(1.0-r2)
-		covb	  <- solve( t(x) %*% x )
-
-		# build the "return" structure for the 2sls part
-		resulti$method	     <- "ols"
-		resulti$eqnlabel     <- eqnlabels[[i]]			
-		resulti$formula	     <- eqns[[i]]
-		resulti$dfe	     <- dfe
-		resulti$dfm	     <- n - dfe
-		resulti$model.matrix <- model.matrix(eqns[[i]] )
-		resulti$model.frame  <- model.frame(eqns[[i]] )
-		resulti$instruments  <- inst
-		resulti$response     <- y
-		resulti$predicted    <- x %*% b
-		resulti$residuals    <- resids 
-		##resulti$ztzinv	     <- ztzinv
-		resulti$v	     <- v
-		resulti$b	     <- b
-		names(resulti$b)     <- colnames( model.matrix( eqns[[i]] ) )
-		resulti$n	     <- n
-		resulti$s	     <- s
-		resulti$sse	     <- s * dfe
-		resulti$mse	     <- mse 
-		resulti$rmse	     <- rmse 
-		resulti$se	     <- se
-		resulti$t	     <- t
-		resulti$p	     <- prob
-		resulti$r2	     <- r2
-		resulti$adjr2	     <- adjr2
-		resulti$covb	     <- covb
-		class(resulti)	     <- "systemfit.ols"
-                results[[i]]	     <- resulti
-
-                
-	} 
-
-	class(results)	<- "systemfit.system"
-	ols <- results
-
+  results <- list()
+  resulti <- list()
+  
+  for(i in 1:length( eqns ) ) 
+    {
+      
+      ## perform the two stage least squares regression
+      y	  <- eval( attr( terms( eqns[[i]] ), "variables" )[[2]] )
+      x	  <- model.matrix( eqns[[i]] )
+      
+      v <- diag( dim( model.matrix( eqns[[i]] )[2] ) )
+      ## two stage least squares results...
+      b	  <- solve( t(x) %*% x ) %*% t(x) %*% y
+      resids	  <- y - x %*% b
+      n	  <- length( y )
+      p	  <- ncol( x )
+      s	  <- sum(resids^2)/(n - p)
+      dfe	  <- n - p
+      se	  <- sqrt( diag( solve( t(x) %*% x ) ) * s )
+      t	  <- b/se
+      prob	  <- 2.0*(1.0 - pt(abs(t), dfe))
+      mse	  <- ( s * dfe / dfe )
+      rmse	  <- sqrt( mse ) 
+      r2	  <- 1.0 - ((t(resids)%*%resids)/(t(y)%*%y-n*mean(y)^2))
+      adjr2	  <- 1.0 - ((n-1)/(n-p))*(1.0-r2)
+      covb	  <- solve( t(x) %*% x )
+      
+      ## build the "return" structure for the 2sls part
+      resulti$method	     <- "ols"
+      resulti$eqnlabel     <- eqnlabels[[i]]			
+      resulti$formula	     <- eqns[[i]]
+      resulti$dfe	     <- dfe
+      resulti$dfm	     <- n - dfe
+      resulti$model.matrix <- model.matrix(eqns[[i]] )
+      resulti$model.frame  <- model.frame(eqns[[i]] )
+      resulti$instruments  <- inst
+      resulti$response     <- y
+      resulti$predicted    <- x %*% b
+      resulti$residuals    <- resids 
+      ##resulti$ztzinv	     <- ztzinv
+      resulti$v	     <- v
+      resulti$b	     <- b
+      names(resulti$b)     <- colnames( model.matrix( eqns[[i]] ) )
+      resulti$n	     <- n
+      resulti$s	     <- s
+      resulti$sse	     <- s * dfe
+      resulti$mse	     <- mse 
+      resulti$rmse	     <- rmse 
+      resulti$se	     <- se
+      resulti$t	     <- t
+      resulti$p	     <- prob
+      resulti$r2	     <- r2
+      resulti$adjr2	     <- adjr2
+      resulti$covb	     <- covb
+      
+      ## add the confidence limits and prediction limits here...
+      xtxi <- solve( t(resulti$model.matrix) %*% resulti$model.matrix )
+      bm4 <- diag( resulti$model.matrix %*% xtxi %*% t(resulti$model.matrix) )
+      stdp <- sqrt( bm4 * resulti$mse )
+      tval <-  qt( 0.975, resulti$dfe  )
+      
+      ## compute the stdi and stdr
+      stdi <- sqrt( ( 1.0 + bm4 ) * resulti$mse )
+      resulti$se.prediction <- stdp
+      resulti$prediction.limits <- cbind( resulti$predicted-(tval*stdi), resulti$predicted+(tval*stdi) )
+      resulti$confidence.limits <- cbind( resulti$predicted-(tval*stdp), resulti$predicted+(tval*stdp) )
+      
+      class(resulti)	     <- "systemfit.ols"
+      results[[i]]	     <- resulti                
+    } 
+  
+  class(results)	<- "systemfit.system"
+  ols <- results
+  
 }
 
 
@@ -136,6 +147,8 @@ print.systemfit.ols <- function( x, digits=6, ... )
     cat("\n")
   
 }
+
+
 
 
 
@@ -209,7 +222,20 @@ twostage.systemfit <- function(
 		resulti$r2	     <- r2
 		resulti$adjr2	     <- adjr2
 		resulti$covb	     <- covb
-		class(resulti)	     <- "systemfit.twostage"
+
+      ## add the confidence limits and prediction limits here...
+      xtxi <- solve( t(resulti$model.matrix) %*% resulti$model.matrix )
+      bm4 <- diag( resulti$model.matrix %*% xtxi %*% t(resulti$model.matrix) )
+      stdp <- sqrt( bm4 * resulti$mse )
+      tval <-  qt( 0.975, resulti$dfe  )
+      
+      ## compute the stdi and stdr
+      stdi <- sqrt( ( 1.0 + bm4 ) * resulti$mse )
+      resulti$se.prediction <- stdp
+      resulti$prediction.limits <- cbind( resulti$predicted-(tval*stdi), resulti$predicted+(tval*stdi) )
+      resulti$confidence.limits <- cbind( resulti$predicted-(tval*stdp), resulti$predicted+(tval*stdp) )
+
+                class(resulti)	     <- "systemfit.twostage"
 		results[[i]]	     <- resulti
 
 	} 
@@ -427,7 +453,22 @@ sur.systemfit <- function(
 		resulti$adjr2	     <- adjr2
 		resulti$systemcovb   <- part1	# sneak in the whole covariance matrix 
 		resulti$covb	     <- covb	# this is the var-cov matrix for the eq  
-		class(resulti)	     <- "systemfit.sur"
+
+
+      ## add the confidence limits and prediction limits here...
+      xtxi <- solve( t(resulti$model.matrix) %*% resulti$model.matrix )
+      bm4 <- diag( resulti$model.matrix %*% xtxi %*% t(resulti$model.matrix) )
+      stdp <- sqrt( bm4 * resulti$mse )
+      tval <-  qt( 0.975, resulti$dfe  )
+      
+      ## compute the stdi and stdr
+      stdi <- sqrt( ( 1.0 + bm4 ) * resulti$mse )
+      resulti$se.prediction <- stdp
+      resulti$prediction.limits <- cbind( resulti$predicted-(tval*stdi), resulti$predicted+(tval*stdi) )
+      resulti$confidence.limits <- cbind( resulti$predicted-(tval*stdp), resulti$predicted+(tval*stdp) )
+
+
+                class(resulti)	     <- "systemfit.sur"
 		results[[i]]	     <- resulti
 
 	}
@@ -646,7 +687,21 @@ threestage.systemfit <- function(
 		resulti$adjr2	     <- adjr2
 		resulti$systemcovb   <- part1	# sneak in the whole covariance matrix 
 		resulti$covb	     <- covb	# this is the var-cov matrix for the eq  
-		class(resulti)	     <- "systemfit.threestage"
+
+
+      ## add the confidence limits and prediction limits here...
+      xtxi <- solve( t(resulti$model.matrix) %*% resulti$model.matrix )
+      bm4 <- diag( resulti$model.matrix %*% xtxi %*% t(resulti$model.matrix) )
+      stdp <- sqrt( bm4 * resulti$mse )
+      tval <-  qt( 0.975, resulti$dfe  )
+      
+      ## compute the stdi and stdr
+      stdi <- sqrt( ( 1.0 + bm4 ) * resulti$mse )
+      resulti$se.prediction <- stdp
+      resulti$prediction.limits <- cbind( resulti$predicted-(tval*stdi), resulti$predicted+(tval*stdi) )
+      resulti$confidence.limits <- cbind( resulti$predicted-(tval*stdp), resulti$predicted+(tval*stdp) )
+
+                class(resulti)	     <- "systemfit.threestage"
 		results[[i]]	     <- resulti
 
 	}
