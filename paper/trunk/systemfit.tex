@@ -1,3 +1,7 @@
+
+%       $Id$    
+
+
 \documentclass[article]{jss}
 
 \author{Arne Henningsen\\University of Kiel\And 
@@ -1322,20 +1326,20 @@ starting values of the parameter estimates.
 
 This is now demonstrated using an example: \\
 
-\code{
-R> library( systemfit ) \\
-R> data( ppine ) \\
-R> hg.formula <- hg $\sim$ exp( h0 + h1*log(tht) + h2*tht$\hat$2 + h3*elev + h4*cr) \\
-R> dg.formula <- dg $\sim$ exp( d0 + d1*log(dbh) + d2*hg + d3*cr + d4*ba  ) \\
-R> labels <- list( "height.growth", "diameter.growth" )\\
-R> inst <- $\sim$ tht + dbh + elev + cr + ba\\
-R> start.values <- c(h0=-0.5, h1=0.5, h2=-0.001, h3=0.0001, h4=0.08,\\
-R+   d0=-0.5, d1=0.009, d2=0.25, d3=0.005, d4=-0.02 )\\
-R> model <- list( hg.formula, dg.formula )\\
-R> model.3sls <- nlsystemfit( "3SLS", model, start.values, data=ppine,\\
-R+   eqnlabels=labels, inst=inst ) \\
-R> summary( model.3sls ) \\
-}
+% \code{
+% R> library( systemfit ) \\
+% R> data( ppine ) \\
+% R> hg.formula <- hg $\sim$ exp( h0 + h1*log(tht) + h2*tht$\hat$2 + h3*elev + h4*cr) \\
+% R> dg.formula <- dg $\sim$ exp( d0 + d1*log(dbh) + d2*hg + d3*cr + d4*ba  ) \\
+% R> labels <- list( "height.growth", "diameter.growth" )\\
+% R> inst <- $\sim$ tht + dbh + elev + cr + ba\\
+% R> start.values <- c(h0=-0.5, h1=0.5, h2=-0.001, h3=0.0001, h4=0.08,\\
+% R+   d0=-0.5, d1=0.009, d2=0.25, d3=0.005, d4=-0.02 )\\
+% R> model <- list( hg.formula, dg.formula )\\
+% R> model.3sls <- nlsystemfit( "3SLS", model, start.values, data=ppine,\\
+% R+   eqnlabels=labels, inst=inst ) \\
+% R> summary( model.3sls ) \\
+% }
 
 
 The nlsystemfit function relies on \code{nlm} to perform the
@@ -1527,6 +1531,14 @@ Describe, in a paragraph the process and give some reasons why you
 might want this in the package. 
 
 
+\section{CVS Revision Log}
+\begin{verbatim}
+$Log$
+Revision 1.5  2004/11/16 05:31:19  hamannj
+added cvs header and log section. to be removed when submitted.
+
+\begin{verbatim}
+
 
 
 
@@ -1535,4 +1547,10 @@ might want this in the package.
 %\bibliography{/home/suapm095/Documents/Literatur/arne}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+
+
+
 \end{document}
+
+
