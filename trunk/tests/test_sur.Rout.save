@@ -381,6 +381,88 @@ d            0.0013788326  0.0020945790
              0.0014755390  0.0019499751
              0.0019499751  0.0040995769
 > 
+> ## ********************* SUR (rcovformula=3) *****************
+> fitsur1c <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 3 )
+> print( fitsur1c )
+
+systemfit results 
+method: SUR 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  66.6713 3.92184 1.98036 0.751332 0.722077
+supply 20 16 105.1868 6.57417 2.56401 0.607679 0.534119
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.72539 4.26428
+supply 4.26428 5.78444
+
+warning: this covariance matrix is NOT positive semidefinit!
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.92184 5.14958
+supply 5.14958 6.57417
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.983879
+supply 0.983879 1.000000
+
+The determinant of the residual covariance matrix: -0.735302
+OLS R-squared value of the system: 0.679506
+McElroy's R-squared value for the system: 0.95731
+
+SUR estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 99.225003   7.512869 13.207338        0 ***
+p           -0.267658   0.087799 -3.048537 0.007262  **
+d            0.291629   0.040762  7.154496    2e-06 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 1.980364 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 66.67132 MSE: 3.921842 Root MSE: 1.980364 
+Multiple R-Squared: 0.751332 Adjusted R-Squared: 0.722077 
+
+
+SUR estimates for supply  (equation 2 )
+Model Formula: q ~ p + f + a
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 62.957541  10.985025 5.731215  3.1e-05 ***
+p            0.144186   0.094351 1.528194 0.145991    
+f            0.207185   0.038568 5.371945  6.2e-05 ***
+a            0.333341   0.064412  5.17516  9.2e-05 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.564015 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 105.186783 MSE: 6.574174 Root MSE: 2.564015 
+Multiple R-Squared: 0.607679 Adjusted R-Squared: 0.534119 
+
+> print( fitsur1c$bcov )
+            (Intercept)            p             d                          
+(Intercept) 56.44320584 -0.587720206  0.0259012699  60.8607156 -0.6306589837
+p           -0.58772021  0.007708626 -0.0018792150  -0.4008641  0.0057708780
+d            0.02590127 -0.001879215  0.0016615167  -0.2107290  0.0005481238
+            60.86071561 -0.400864111 -0.2107290084 120.6707803 -0.9553954489
+            -0.63065898  0.005770878  0.0005481238  -0.9553954  0.0089020227
+             0.02158916 -0.001566359  0.0013849033  -0.2231761  0.0005886707
+             0.03279601 -0.002379449  0.0021038010  -0.3104215  0.0007755511
+                                       
+(Intercept)  0.0215891631  0.0327960103
+p           -0.0015663587 -0.0023794491
+d            0.0013849033  0.0021038010
+            -0.2231760600 -0.3104215494
+             0.0005886707  0.0007755511
+             0.0014874853  0.0019590007
+             0.0019590007  0.0041488784
+> 
 > ## *************** SUR with cross-equation restriction **************
 > fitsur2 <- systemfit( "SUR", system, labels, data = kmenta, R.restr = restrm )
 > print( fitsur2 )
@@ -864,6 +946,168 @@ d            0.0002340052  0.0003403877
             -0.0005617366 -0.0007376460
              0.0003479277  0.0002340052
              0.0002340052  0.0003403877
+> 
+> ## *************** SUR with 2 restrictions (rcovformula = 2) **************
+> fitsur4e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 2,
++    R.restr = restr2m, q.restr = restr2q )
+> print( fitsur4e )
+
+systemfit results 
+method: SUR 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  67.0475 3.94397 1.98594 0.749929 0.720509
+supply 20 16 108.2171 6.76357 2.60069 0.596377 0.520698
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.76491 4.60580
+supply 4.60580 5.98832
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.94397 5.16157
+supply 5.16157 6.76357
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.966822
+supply 0.966822 1.000000
+
+The determinant of the residual covariance matrix: 0.0335271
+OLS R-squared value of the system: 0.673153
+McElroy's R-squared value for the system: 0.707639
+
+SUR estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 92.526596   7.289606 12.692949        0 ***
+p           -0.230404   0.082692 -2.786302 0.008552  **
+d            0.322103   0.016626 19.373258        0 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 1.985944 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 67.047517 MSE: 3.943972 Root MSE: 1.985944 
+Multiple R-Squared: 0.749929 Adjusted R-Squared: 0.720509 
+
+
+SUR estimates for supply  (equation 2 )
+Model Formula: q ~ p + f + a
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 48.701089   7.403429   6.57818        0 ***
+p            0.269596   0.082692  3.260266 0.002483  **
+f            0.226135   0.016607 13.616644        0 ***
+a            0.322103   0.016626 19.373258        0 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.600686 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 108.217072 MSE: 6.763567 Root MSE: 2.600686 
+Multiple R-Squared: 0.596377 Adjusted R-Squared: 0.520698 
+
+> print( fitsur4e$bcov )
+            (Intercept)             p             d                          
+(Intercept) 53.13835311 -0.5935137468  0.0657463820 53.39033066 -0.5935137468
+p           -0.59351375  0.0068378900 -0.0009269033 -0.59931220  0.0068378900
+d            0.06574638 -0.0009269033  0.0002764301  0.06954013 -0.0009269033
+            53.39033066 -0.5993122026  0.0695401279 54.81075738 -0.5993122026
+            -0.59351375  0.0068378900 -0.0009269033 -0.59931220  0.0068378900
+             0.05704842 -0.0007748986  0.0002097319  0.04865329 -0.0007748986
+             0.06574638 -0.0009269033  0.0002764301  0.06954013 -0.0009269033
+                                       
+(Intercept)  0.0570484173  0.0657463820
+p           -0.0007748986 -0.0009269033
+d            0.0002097319  0.0002764301
+             0.0486532920  0.0695401279
+            -0.0007748986 -0.0009269033
+             0.0002757997  0.0002097319
+             0.0002097319  0.0002764301
+> 
+> ## *************** SUR with 2 restrictions (rcovformula = 3) **************
+> fitsur4e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 3,
++    R.restr = restr2m, q.restr = restr2q )
+> print( fitsur4e )
+
+systemfit results 
+method: SUR 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  66.4048 3.90616 1.97640 0.752327 0.723189
+supply 20 16 106.9240 6.68275 2.58510 0.601200 0.526425
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.76491 4.59292
+supply 4.59292 5.98832
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.90616 5.08791
+supply 5.08791 6.68275
+
+The correlations of the residuals
+       demand supply
+demand 1.0000 0.9661
+supply 0.9661 1.0000
+
+The determinant of the residual covariance matrix: 0.217064
+OLS R-squared value of the system: 0.676763
+McElroy's R-squared value for the system: 0.701594
+
+SUR estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 93.197751   7.316811 12.737482        0 ***
+p           -0.238111   0.082935 -2.871059   0.0069  **
+d            0.323126   0.017039 18.963348        0 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 1.976402 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 66.404772 MSE: 3.906163 Root MSE: 1.976402 
+Multiple R-Squared: 0.752327 Adjusted R-Squared: 0.723189 
+
+
+SUR estimates for supply  (equation 2 )
+Model Formula: q ~ p + f + a
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 49.367559   7.438141  6.637083        0 ***
+p            0.261889   0.082935  3.157772 0.003267  **
+f            0.227104   0.017083  13.29439        0 ***
+a            0.323126   0.017039 18.963348        0 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.585101 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 106.923958 MSE: 6.682747 Root MSE: 2.585101 
+Multiple R-Squared: 0.6012 Adjusted R-Squared: 0.526425 
+
+> print( fitsur4e$bcov )
+            (Intercept)             p             d                          
+(Intercept) 53.53572336 -0.5968536711  0.0650972386 53.79473340 -0.5968536711
+p           -0.59685367  0.0068781852 -0.0009339814 -0.60305549  0.0068781852
+d            0.06509724 -0.0009339814  0.0002903440  0.06922592 -0.0009339814
+            53.79473340 -0.6030554881  0.0692259152 55.32593577 -0.6030554881
+            -0.59685367  0.0068781852 -0.0009339814 -0.60305549  0.0068781852
+             0.05638426 -0.0007770997  0.0002187986  0.04723048 -0.0007770997
+             0.06509724 -0.0009339814  0.0002903440  0.06922592 -0.0009339814
+                                       
+(Intercept)  0.0563842566  0.0650972386
+p           -0.0007770997 -0.0009339814
+d            0.0002187986  0.0002903440
+             0.0472304791  0.0692259152
+            -0.0007770997 -0.0009339814
+             0.0002918179  0.0002187986
+             0.0002187986  0.0002903440
 > 
 > ## *************** SUR with 2 restrictions via R and TX ****************
 > fitsur5 <- systemfit( "SUR", system, labels, data = kmenta, R.restr = restr3m,
@@ -1357,6 +1601,89 @@ d           -0.0006780182 -0.001023090
             -0.0010163190 -0.001626478
              0.0013646897  0.001792903
              0.0017929026  0.004128464
+> 
+> ## ************** iterated SUR (rcovformula = 3) ****************************
+> fitsuri1c <- systemfit( "SUR", system2, labels, data = kmenta, maxit = 100,
++    rcovformula = 3 )
+> print( fitsuri1c )
+
+systemfit results 
+method: iterated SUR 
+
+convergence achieved after 7 iterations
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 66.8258 3.93093 1.98266 0.750756 0.721433
+supply 20 16 41.7081 2.60676 1.61455 0.937493 0.925773
+
+The covariance matrix of the residuals used for estimation
+         demand   supply
+demand  3.93091 -2.48679
+supply -2.48679  2.60675
+
+The covariance matrix of the residuals
+         demand   supply
+demand  3.93093 -2.48681
+supply -2.48681  2.60676
+
+The correlations of the residuals
+          demand    supply
+demand  1.000000 -0.753668
+supply -0.753668  1.000000
+
+The determinant of the residual covariance matrix: 4.06276
+OLS R-squared value of the system: 0.883966
+McElroy's R-squared value for the system: 0.960247
+
+SUR estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 93.542723   7.385832 12.665157        0 ***
+p           -0.228481   0.087747 -2.603847 0.018532   *
+d            0.309713   0.045807  6.761201    3e-06 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 1.982657 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 66.825809 MSE: 3.93093 Root MSE: 1.982657 
+Multiple R-Squared: 0.750756 Adjusted R-Squared: 0.721433 
+
+
+SUR estimates for supply  (equation 2 )
+Model Formula: p ~ d + f + a
+
+             Estimate Std. Error    t value Pr(>|t|)    
+(Intercept) 89.182975    3.38614  26.337655        0 ***
+d            0.663871   0.042272  15.704739        0 ***
+f           -0.471532   0.036993 -12.746565        0 ***
+a           -0.795507   0.064465 -12.340106        0 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 1.614546 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 41.708116 MSE: 2.606757 Root MSE: 1.614546 
+Multiple R-Squared: 0.937493 Adjusted R-Squared: 0.925773 
+
+> print( fitsuri1c$bcov )
+            (Intercept)            p             d                          
+(Intercept) 54.55051178 -0.556982591  0.0138914579 -2.70316742  0.2249024677
+p           -0.55698259  0.007699593 -0.0021850968 -0.08732911 -0.0018481353
+d            0.01389146 -0.002185097  0.0020983221  0.11599326 -0.0004106601
+            -2.70316742 -0.087329112  0.1159932604 11.46594091 -0.0587495804
+             0.22490247 -0.001848135 -0.0004106601 -0.05874958  0.0017869230
+            -0.17211013  0.002379209 -0.0006752047 -0.05172764 -0.0010184552
+            -0.25970411  0.003590087 -0.0010188444 -0.05783619 -0.0016314022
+                                      
+(Intercept) -0.1721101294 -0.259704105
+p            0.0023792090  0.003590087
+d           -0.0006752047 -0.001018844
+            -0.0517276393 -0.057836187
+            -0.0010184552 -0.001631402
+             0.0013684705  0.001793734
+             0.0017937337  0.004155761
 > 
 > ## *********** iterated SUR with restriction *******************
 > fitsuri2 <- systemfit( "SUR", system2, labels, data = kmenta, R.restr = restrm,
@@ -2022,4 +2349,171 @@ Multiple R-Squared: 0.601952 Adjusted R-Squared: 0.527318
 [6,]  0.0002700875  0.0002013941
 [7,]  0.0002013941  0.0002660539
 > 
+> ## ********* iterated SUR with 2 restrictions via R and TX (rcovformula=2) **********
+> fitsuri5e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 2,
++    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
+> print( fitsuri5e )
+
+systemfit results 
+method: iterated SUR 
+
+warning: convergence not achieved after 100 iterations
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  95.7602 5.63295 2.37338 0.642838 0.600819
+supply 20 16 157.7373 9.85858 3.13984 0.411679 0.301369
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 4.25504 5.28586
+supply 5.28586 6.69323
+
+warning: this covariance matrix is NOT positive semidefinit!
+
+The covariance matrix of the residuals
+        demand  supply
+demand 5.63295 7.56339
+supply 7.56339 9.85858
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.981886
+supply 0.981886 1.000000
+
+The determinant of the residual covariance matrix: -1.67203
+OLS R-squared value of the system: 0.527259
+McElroy's R-squared value for the system: 0.926927
+
+SUR estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept)  78.03416    7.16377 10.892891        0 ***
+p           -0.064681   0.081525 -0.793381 0.432902    
+d            0.300747   0.013068 23.013486        0 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.373384 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 95.760152 MSE: 5.63295 Root MSE: 2.373384 
+Multiple R-Squared: 0.642838 Adjusted R-Squared: 0.600819 
+
+
+SUR estimates for supply  (equation 2 )
+Model Formula: q ~ p + f + a
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 34.195763   7.225714   4.73251  3.6e-05 ***
+p            0.435319   0.081525  5.339674    6e-06 ***
+f            0.207031   0.012415 16.675571        0 ***
+a            0.300747   0.013068 23.013486        0 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 3.139838 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 157.737286 MSE: 9.85858 Root MSE: 3.139838 
+Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369 
+
+> print( fitsuri5e$bcov )
+            [,1]          [,2]          [,3]        [,4]          [,5]
+[1,] 51.31959549 -0.5797470437  0.0705275532 51.55182888 -0.5797470437
+[2,] -0.57974704  0.0066463973 -0.0008716799 -0.58302497  0.0066463973
+[3,]  0.07052755 -0.0008716799  0.0001707801  0.07203637 -0.0008716799
+[4,] 51.55182888 -0.5830249659  0.0720363706 52.21094600 -0.5830249659
+[5,] -0.57974704  0.0066463973 -0.0008716799 -0.58302497  0.0066463973
+[6,]  0.06165768 -0.0007512418  0.0001382151  0.05879365 -0.0007512418
+[7,]  0.07052755 -0.0008716799  0.0001707801  0.07203637 -0.0008716799
+              [,6]          [,7]
+[1,]  0.0616576810  0.0705275532
+[2,] -0.0007512418 -0.0008716799
+[3,]  0.0001382151  0.0001707801
+[4,]  0.0587936533  0.0720363706
+[5,] -0.0007512418 -0.0008716799
+[6,]  0.0001541379  0.0001382151
+[7,]  0.0001382151  0.0001707801
+> 
+> ## ********* iterated SUR with 2 restrictions via R and TX (rcovformula=3) **********
+> fitsuri5e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 3,
++    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
+> print( fitsuri5e )
+
+systemfit results 
+method: iterated SUR 
+
+warning: convergence not achieved after 100 iterations
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  84.8528 4.99134 2.23413 0.683520 0.646287
+supply 20 16 124.6304 7.78940 2.79095 0.535159 0.448002
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 11.0950 14.8619
+supply 14.8619 18.9853
+
+The covariance matrix of the residuals
+        demand  supply
+demand 4.99134 6.17612
+supply 6.17612 7.78940
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.960928
+supply 0.960928 1.000000
+
+The determinant of the residual covariance matrix: 0.735095
+OLS R-squared value of the system: 0.60934
+McElroy's R-squared value for the system: 0.456836
+
+SUR estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+
+              Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 117.633865  14.177637  8.297142        0 ***
+p            -0.522916   0.167191  -3.12765 0.003539  **
+d             0.364648   0.015025 24.269469        0 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.234131 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 84.852823 MSE: 4.991343 Root MSE: 2.234131 
+Multiple R-Squared: 0.68352 Adjusted R-Squared: 0.646287 
+
+
+SUR estimates for supply  (equation 2 )
+Model Formula: q ~ p + f + a
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 73.991395  14.025952  5.275321    7e-06 ***
+p           -0.022916   0.167191 -0.137066 0.891764    
+f            0.262562   0.005598 46.900695        0 ***
+a            0.364648   0.015025 24.269469        0 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.79095 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 124.630431 MSE: 7.789402 Root MSE: 2.79095 
+Multiple R-Squared: 0.535159 Adjusted R-Squared: 0.448002 
+
+> print( fitsuri5e$bcov )
+            [,1]         [,2]          [,3]        [,4]         [,5]
+[1,] 201.0053771 -2.389241476  0.3949252443 200.2989402 -2.389241476
+[2,]  -2.3892415  0.027952976 -0.0041686430  -2.3720852  0.027952976
+[3,]   0.3949252 -0.004168643  0.0002257494   0.3865060 -0.004168643
+[4,] 200.2989402 -2.372085220  0.3865060377 196.7273273 -2.372085220
+[5,]  -2.3892415  0.027952976 -0.0041686430  -2.3720852  0.027952976
+[6,]   0.3649894 -0.003932462  0.0002904766   0.3872428 -0.003932462
+[7,]   0.3949252 -0.004168643  0.0002257494   0.3865060 -0.004168643
+              [,6]          [,7]
+[1,]  3.649894e-01  0.3949252443
+[2,] -3.932462e-03 -0.0041686430
+[3,]  2.904766e-04  0.0002257494
+[4,]  3.872428e-01  0.3865060377
+[5,] -3.932462e-03 -0.0041686430
+[6,]  3.134047e-05  0.0002904766
+[7,]  2.904766e-04  0.0002257494
 > 

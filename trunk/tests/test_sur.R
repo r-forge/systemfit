@@ -61,6 +61,11 @@ fitsur1cp <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 2,
 print( fitsur1cp )
 print( fitsur1cp$bcov )
 
+## ********************* SUR (rcovformula=3) *****************
+fitsur1c <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 3 )
+print( fitsur1c )
+print( fitsur1c$bcov )
+
 ## *************** SUR with cross-equation restriction **************
 fitsur2 <- systemfit( "SUR", system, labels, data = kmenta, R.restr = restrm )
 print( fitsur2 )
@@ -91,6 +96,18 @@ print( fitsur4$bcov )
 
 ## *************** SUR with 2 restrictions (EViews-like) **************
 fitsur4e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 0,
+   R.restr = restr2m, q.restr = restr2q )
+print( fitsur4e )
+print( fitsur4e$bcov )
+
+## *************** SUR with 2 restrictions (rcovformula = 2) **************
+fitsur4e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 2,
+   R.restr = restr2m, q.restr = restr2q )
+print( fitsur4e )
+print( fitsur4e$bcov )
+
+## *************** SUR with 2 restrictions (rcovformula = 3) **************
+fitsur4e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 3,
    R.restr = restr2m, q.restr = restr2q )
 print( fitsur4e )
 print( fitsur4e$bcov )
@@ -129,6 +146,12 @@ fitsuri1cp <- systemfit( "SUR", system2, labels, data = kmenta, rcovformula = 2,
    probdfsys = TRUE, maxit = 100 )
 print( fitsuri1cp )
 print( fitsuri1cp$bcov )
+
+## ************** iterated SUR (rcovformula = 3) ****************************
+fitsuri1c <- systemfit( "SUR", system2, labels, data = kmenta, maxit = 100,
+   rcovformula = 3 )
+print( fitsuri1c )
+print( fitsuri1c$bcov )
 
 ## *********** iterated SUR with restriction *******************
 fitsuri2 <- systemfit( "SUR", system2, labels, data = kmenta, R.restr = restrm,
@@ -178,3 +201,14 @@ fitsuri5e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 0,
 print( fitsuri5e )
 print( fitsuri5e$bcov )
 
+## ********* iterated SUR with 2 restrictions via R and TX (rcovformula=2) **********
+fitsuri5e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 2,
+   R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
+print( fitsuri5e )
+print( fitsuri5e$bcov )
+
+## ********* iterated SUR with 2 restrictions via R and TX (rcovformula=3) **********
+fitsuri5e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 3,
+   R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
+print( fitsuri5e )
+print( fitsuri5e$bcov )

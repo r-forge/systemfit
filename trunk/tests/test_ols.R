@@ -69,6 +69,24 @@ fitols1rs <- systemfit( "OLS", system, labels, data = kmenta,
 print( fitols1rs )
 print( fitols1rs$bcov )
 
+## ****************  OLS (rcovformula=2 ) ***********************
+fitols1r <- systemfit( "OLS", system, labels, data = kmenta,
+   rcovformula = 2 )
+print( fitols1r )
+print( fitols1r$bcov )
+
+## ****************  OLS (rcovformula=3) ***********************
+fitols1r <- systemfit( "OLS", system, labels, data = kmenta,
+   rcovformula = 3 )
+print( fitols1r )
+print( fitols1r$bcov )
+
+## ********  OLS (rcovformula=3, single.eq.sigma=F) ***********
+fitols1rs <- systemfit( "OLS", system, labels, data = kmenta,
+   rcovformula = 3, single.eq.sigma = FALSE )
+print( fitols1rs )
+print( fitols1rs$bcov )
+
 
 ## ********* OLS with cross-equation restriction ************
 ## ****** OLS with cross-equation restriction (default) *********

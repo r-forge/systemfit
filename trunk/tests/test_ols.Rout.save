@@ -430,6 +430,231 @@ d            0.0000000000  0.0000000000
              0.0014372493  0.0008863330
              0.0008863330  0.0064068425
 > 
+> ## ****************  OLS (rcovformula=2 ) ***********************
+> fitols1r <- systemfit( "OLS", system, labels, data = kmenta,
++    rcovformula = 2 )
+> print( fitols1r )
+
+systemfit results 
+method: OLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
+supply 20 16 92.5511 5.78444 2.40509 0.654807 0.590084
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.72539 4.27624
+supply 4.27624 5.78444
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.891179
+supply 0.891179 1.000000
+
+The determinant of the residual covariance matrix: 3.26308
+OLS R-squared value of the system: 0.709298
+
+OLS estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 99.895423   7.519362 13.285093        0 ***
+p           -0.316299   0.090677 -3.488177 0.002815  **
+d            0.334636   0.045422  7.367285    1e-06 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 1.930127 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127 
+Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
+
+
+OLS estimates for supply  (equation 2 )
+Model Formula: q ~ p + f + a
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 58.275431   11.46291 5.083825 0.000111 ***
+p            0.160367   0.094884 1.690134 0.110388    
+f            0.248133   0.046188 5.372263  6.2e-05 ***
+a            0.248302   0.097518 2.546227 0.021567   *
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.405087 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
+Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
+
+> print( fitols1r$bcov )
+            (Intercept)            p            d                          
+(Intercept) 56.54080696 -0.594801461  0.032162194   0.0000000  0.0000000000
+p           -0.59480146  0.008222392 -0.002333464   0.0000000  0.0000000000
+d            0.03216219 -0.002333464  0.002063143   0.0000000  0.0000000000
+             0.00000000  0.000000000  0.000000000 131.3983031 -0.9874997306
+             0.00000000  0.000000000  0.000000000  -0.9874997  0.0090029614
+             0.00000000  0.000000000  0.000000000  -0.3043609  0.0008439930
+             0.00000000  0.000000000  0.000000000  -0.2791832  0.0005220243
+                                      
+(Intercept)  0.000000000  0.0000000000
+p            0.000000000  0.0000000000
+d            0.000000000  0.0000000000
+            -0.304360904 -0.2791832170
+             0.000843993  0.0005220243
+             0.002133318  0.0013155895
+             0.001315589  0.0095097150
+> 
+> ## ****************  OLS (rcovformula=3) ***********************
+> fitols1r <- systemfit( "OLS", system, labels, data = kmenta,
++    rcovformula = 3 )
+> print( fitols1r )
+
+systemfit results 
+method: OLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
+supply 20 16 92.5511 5.78444 2.40509 0.654807 0.590084
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.72539 4.26428
+supply 4.26428 5.78444
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.891179
+supply 0.891179 1.000000
+
+The determinant of the residual covariance matrix: 3.36519
+OLS R-squared value of the system: 0.709298
+
+OLS estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 99.895423   7.519362 13.285093        0 ***
+p           -0.316299   0.090677 -3.488177 0.002815  **
+d            0.334636   0.045422  7.367285    1e-06 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 1.930127 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127 
+Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
+
+
+OLS estimates for supply  (equation 2 )
+Model Formula: q ~ p + f + a
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 58.275431   11.46291 5.083825 0.000111 ***
+p            0.160367   0.094884 1.690134 0.110388    
+f            0.248133   0.046188 5.372263  6.2e-05 ***
+a            0.248302   0.097518 2.546227 0.021567   *
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.405087 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
+Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
+
+> print( fitols1r$bcov )
+            (Intercept)            p            d                          
+(Intercept) 56.54080696 -0.594801461  0.032162194   0.0000000  0.0000000000
+p           -0.59480146  0.008222392 -0.002333464   0.0000000  0.0000000000
+d            0.03216219 -0.002333464  0.002063143   0.0000000  0.0000000000
+             0.00000000  0.000000000  0.000000000 131.3983031 -0.9874997306
+             0.00000000  0.000000000  0.000000000  -0.9874997  0.0090029614
+             0.00000000  0.000000000  0.000000000  -0.3043609  0.0008439930
+             0.00000000  0.000000000  0.000000000  -0.2791832  0.0005220243
+                                      
+(Intercept)  0.000000000  0.0000000000
+p            0.000000000  0.0000000000
+d            0.000000000  0.0000000000
+            -0.304360904 -0.2791832170
+             0.000843993  0.0005220243
+             0.002133318  0.0013155895
+             0.001315589  0.0095097150
+> 
+> ## ********  OLS (rcovformula=3, single.eq.sigma=F) ***********
+> fitols1rs <- systemfit( "OLS", system, labels, data = kmenta,
++    rcovformula = 3, single.eq.sigma = FALSE )
+> print( fitols1rs )
+
+systemfit results 
+method: OLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
+supply 20 16 92.5511 5.78444 2.40509 0.654807 0.590084
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.72539 4.26428
+supply 4.26428 5.78444
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.891179
+supply 0.891179 1.000000
+
+The determinant of the residual covariance matrix: 3.36519
+OLS R-squared value of the system: 0.709298
+
+OLS estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 99.895423   8.467146 11.798004        0 ***
+p           -0.316299   0.102107 -3.097722 0.006536  **
+d            0.334636   0.051147  6.542616    5e-06 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 1.930127 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127 
+Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
+
+
+OLS estimates for supply  (equation 2 )
+Model Formula: q ~ p + f + a
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 58.275431  10.358722 5.625736  3.8e-05 ***
+p            0.160367   0.085744 1.870294 0.079851   .
+f            0.248133   0.041739 5.944919  2.1e-05 ***
+a            0.248302   0.088124 2.817642 0.012382   *
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.405087 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
+Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
+
+> print( fitols1rs$bcov )
+            (Intercept)            p            d                          
+(Intercept) 71.69256578 -0.754195866  0.040780993   0.0000000  0.0000000000
+p           -0.75419587  0.010425822 -0.002958784   0.0000000  0.0000000000
+d            0.04078099 -0.002958784  0.002616022   0.0000000  0.0000000000
+             0.00000000  0.000000000  0.000000000 107.3031208 -0.8064168284
+             0.00000000  0.000000000  0.000000000  -0.8064168  0.0073520421
+             0.00000000  0.000000000  0.000000000  -0.2485487  0.0006892257
+             0.00000000  0.000000000  0.000000000  -0.2279880  0.0004262980
+                                       
+(Intercept)  0.0000000000  0.0000000000
+p            0.0000000000  0.0000000000
+d            0.0000000000  0.0000000000
+            -0.2485486803 -0.2279879552
+             0.0006892257  0.0004262980
+             0.0017421204  0.0010743431
+             0.0010743431  0.0077658696
+> 
 > 
 > ## ********* OLS with cross-equation restriction ************
 > ## ****** OLS with cross-equation restriction (default) *********
