@@ -125,9 +125,9 @@ d            0.0000000000  0.0000000000
              0.0022325692  0.0013768059
              0.0013768059  0.0099311363
 > 
-> ## ********************* 2SLS (EViews-like) *****************
+> ## ********************* 2SLS (probdfsys = TRUE) *****************
 > fit2sls1e <- systemfit( "2SLS", system, labels, data = kmenta, inst = inst,
-+    rcovformula = 0, probdfsys = TRUE )
++    probdfsys = TRUE )
 > print( fit2sls1e )
 
 systemfit results 
@@ -139,15 +139,15 @@ supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
 
 The covariance matrix of the residuals
         demand  supply
-demand 3.28645 3.59324
-supply 3.59324 4.83166
+demand 3.86642 4.35744
+supply 4.35744 6.03958
 
 The correlations of the residuals
          demand   supply
 demand 1.000000 0.901724
 supply 0.901724 1.000000
 
-The determinant of the residual covariance matrix: 2.96768
+The determinant of the residual covariance matrix: 4.36424
 OLS R-squared value of the system: 0.697214
 
 2SLS estimates for demand  (equation 1 )
@@ -201,6 +201,89 @@ d            0.0000000000  0.0000000000
              0.0009362217  0.0005790694
              0.0022325692  0.0013768059
              0.0013768059  0.0099311363
+> 
+> ## ********************* 2SLS (rcovformula = 0) *****************
+> fit2sls1e <- systemfit( "2SLS", system, labels, data = kmenta, inst = inst,
++    rcovformula = 0 )
+> print( fit2sls1e )
+
+systemfit results 
+method: 2SLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 65.7291 3.86642 1.96632 0.754847 0.726005
+supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.28645 3.59324
+supply 3.59324 4.83166
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.901724
+supply 0.901724 1.000000
+
+The determinant of the residual covariance matrix: 2.96768
+OLS R-squared value of the system: 0.697214
+
+2SLS estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+Instruments: ~d + f + a
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 94.633304   7.302652 12.958758        0 ***
+p           -0.243557   0.088954 -2.738002 0.014016   *
+d            0.313992    0.04328  7.254908    1e-06 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 1.966321 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321 
+Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
+
+
+2SLS estimates for supply  (equation 2 )
+Model Formula: q ~ p + f + a
+Instruments: ~d + f + a
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 49.532442  10.742541 4.610868 0.000289 ***
+p            0.240076   0.089384 2.685905 0.016234   *
+f            0.255606   0.042262 6.048158  1.7e-05 ***
+a            0.252924   0.089134 2.837565 0.011883   *
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.457555 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
+Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
+
+> print( fit2sls1e$bcov )
+            (Intercept)            p            d                          
+(Intercept) 53.32872762 -0.572408381  0.041906368   0.0000000  0.0000000000
+p           -0.57240838  0.007912836 -0.002245614   0.0000000  0.0000000000
+d            0.04190637 -0.002245614  0.001873151   0.0000000  0.0000000000
+             0.00000000  0.000000000  0.000000000 115.4021957 -0.8763282945
+             0.00000000  0.000000000  0.000000000  -0.8763283  0.0079894198
+             0.00000000  0.000000000  0.000000000  -0.2590548  0.0007489774
+             0.00000000  0.000000000  0.000000000  -0.2361830  0.0004632555
+                                       
+(Intercept)  0.0000000000  0.0000000000
+p            0.0000000000  0.0000000000
+d            0.0000000000  0.0000000000
+            -0.2590547721 -0.2361830183
+             0.0007489774  0.0004632555
+             0.0017860553  0.0011014447
+             0.0011014447  0.0079449090
+> # It is not possible to estimate 2SLS without any restrictions
+> # with systemfit exactly as EViews does, because in the absence
+> # of cross-equation restrictions EViews uses
+> # rcovformula == 1 for the coefficient covariance matrix and
+> # rcovformula == 0 for the residual covariance matrix.
+> # systemfit uses always the same formulas for both calculations.
 > 
 > ## ********************* 2SLS with restriction ********************
 > fit2sls2 <- systemfit( "2SLS", system, labels, data = kmenta, R.restr = restrm,
@@ -894,9 +977,9 @@ d            0.0000000000  0.0000000000
              0.0022325692  0.0013768059
              0.0013768059  0.0099311363
 > 
-> ## *********** 2SLS estimation with different instruments (EViews-like)********
+> ## *********** 2SLS estimation with different instruments (probdfsys = TRUE)********
 > fit2slsd1e <- systemfit( "2SLS", system, labels, data = kmenta, inst = instlist,
-+    rcovformula = 0, probdfsys = TRUE )
++    probdfsys = TRUE )
 > print( fit2slsd1e )
 
 systemfit results 
@@ -908,15 +991,15 @@ supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
 
 The covariance matrix of the residuals
         demand  supply
-demand 3.37233 3.16294
-supply 3.16294 4.83166
+demand 3.96744 3.83562
+supply 3.83562 6.03958
 
 The correlations of the residuals
          demand   supply
 demand 1.000000 0.783569
 supply 0.783569 1.000000
 
-The determinant of the residual covariance matrix: 6.28979
+The determinant of the residual covariance matrix: 9.24969
 OLS R-squared value of the system: 0.694011
 
 2SLS estimates for demand  (equation 1 )
@@ -970,6 +1053,89 @@ d            0.0000000000  0.0000000000
              0.0009362217  0.0005790694
              0.0022325692  0.0013768059
              0.0013768059  0.0099311363
+> 
+> ## *********** 2SLS estimation with different instruments (rcovformula = 0)********
+> fit2slsd1e <- systemfit( "2SLS", system, labels, data = kmenta, inst = instlist,
++    rcovformula = 0 )
+> print( fit2slsd1e )
+
+systemfit results 
+method: 2SLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
+supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.37233 3.16294
+supply 3.16294 4.83166
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.783569
+supply 0.783569 1.000000
+
+The determinant of the residual covariance matrix: 6.28979
+OLS R-squared value of the system: 0.694011
+
+2SLS estimates for demand  (equation 1 )
+Model Formula: q ~ p + d
+Instruments: ~d + f
+
+              Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 106.789358  10.273841 10.394298        0 ***
+p            -0.411599    0.13354 -3.082213 0.006757  **
+d             0.361681   0.052004  6.954895    2e-06 ***
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 1.991845 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845 
+Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
+
+
+2SLS estimates for supply  (equation 2 )
+Model Formula: q ~ p + f + a
+Instruments: ~d + f + a
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 49.532442  10.742541 4.610868 0.000289 ***
+p            0.240076   0.089384 2.685905 0.016234   *
+f            0.255606   0.042262 6.048158  1.7e-05 ***
+a            0.252924   0.089134 2.837565 0.011883   *
+---
+Signif. codes:  0 `***' 0.001 `**' 0.01 `*' 0.05 `.' 0.1 ` ' 1 
+
+Residual standard error: 2.457555 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
+Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
+
+> print( fit2slsd1e$bcov )
+            (Intercept)           p            d                          
+(Intercept) 105.5518059 -1.29002162  0.242410902   0.0000000  0.0000000000
+p            -1.2900216  0.01783295 -0.005060880   0.0000000  0.0000000000
+d             0.2424109 -0.00506088  0.002704399   0.0000000  0.0000000000
+              0.0000000  0.00000000  0.000000000 115.4021957 -0.8763282945
+              0.0000000  0.00000000  0.000000000  -0.8763283  0.0079894198
+              0.0000000  0.00000000  0.000000000  -0.2590548  0.0007489774
+              0.0000000  0.00000000  0.000000000  -0.2361830  0.0004632555
+                                       
+(Intercept)  0.0000000000  0.0000000000
+p            0.0000000000  0.0000000000
+d            0.0000000000  0.0000000000
+            -0.2590547721 -0.2361830183
+             0.0007489774  0.0004632555
+             0.0017860553  0.0011014447
+             0.0011014447  0.0079449090
+> # It is not possible to estimate 2SLS without any restrictions
+> # with systemfit exactly as EViews does, because in the absence
+> # of cross-equation restrictions EViews uses
+> # rcovformula == 1 for the coefficient covariance matrix and
+> # rcovformula == 0 for the residual covariance matrix.
+> # systemfit uses always the same formulas for both calculations.
 > 
 > ## **** 2SLS estimation with different instruments and restriction *******
 > fit2slsd2 <- systemfit( "2SLS", system, labels, data = kmenta, R.restr = restrm,

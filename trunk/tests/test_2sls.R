@@ -38,11 +38,23 @@ fit2sls1 <- systemfit( "2SLS", system, labels, data = kmenta, inst = inst )
 print( fit2sls1 )
 print( fit2sls1$bcov )
 
-## ********************* 2SLS (EViews-like) *****************
+## ********************* 2SLS (probdfsys = TRUE) *****************
 fit2sls1e <- systemfit( "2SLS", system, labels, data = kmenta, inst = inst,
-   rcovformula = 0, probdfsys = TRUE )
+   probdfsys = TRUE )
 print( fit2sls1e )
 print( fit2sls1e$bcov )
+
+## ********************* 2SLS (rcovformula = 0) *****************
+fit2sls1e <- systemfit( "2SLS", system, labels, data = kmenta, inst = inst,
+   rcovformula = 0 )
+print( fit2sls1e )
+print( fit2sls1e$bcov )
+# It is not possible to estimate 2SLS without any restrictions
+# with systemfit exactly as EViews does, because in the absence
+# of cross-equation restrictions EViews uses
+# rcovformula == 1 for the coefficient covariance matrix and
+# rcovformula == 0 for the residual covariance matrix.
+# systemfit uses always the same formulas for both calculations.
 
 ## ********************* 2SLS with restriction ********************
 fit2sls2 <- systemfit( "2SLS", system, labels, data = kmenta, R.restr = restrm,
@@ -97,11 +109,23 @@ fit2slsd1 <- systemfit( "2SLS", system, labels, data = kmenta, inst = instlist )
 print( fit2slsd1 )
 print( fit2slsd1$bcov )
 
-## *********** 2SLS estimation with different instruments (EViews-like)********
+## *********** 2SLS estimation with different instruments (probdfsys = TRUE)********
 fit2slsd1e <- systemfit( "2SLS", system, labels, data = kmenta, inst = instlist,
-   rcovformula = 0, probdfsys = TRUE )
+   probdfsys = TRUE )
 print( fit2slsd1e )
 print( fit2slsd1e$bcov )
+
+## *********** 2SLS estimation with different instruments (rcovformula = 0)********
+fit2slsd1e <- systemfit( "2SLS", system, labels, data = kmenta, inst = instlist,
+   rcovformula = 0 )
+print( fit2slsd1e )
+print( fit2slsd1e$bcov )
+# It is not possible to estimate 2SLS without any restrictions
+# with systemfit exactly as EViews does, because in the absence
+# of cross-equation restrictions EViews uses
+# rcovformula == 1 for the coefficient covariance matrix and
+# rcovformula == 0 for the residual covariance matrix.
+# systemfit uses always the same formulas for both calculations.
 
 ## **** 2SLS estimation with different instruments and restriction *******
 fit2slsd2 <- systemfit( "2SLS", system, labels, data = kmenta, R.restr = restrm,

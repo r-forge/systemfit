@@ -45,11 +45,23 @@ fitols1n <- systemfit( "OLS", system, labels, data = kmenta,
 print( fitols1n )
 print( fitols1n$bcov )
 
-## ****************  OLS (EViews-like) ***********************
+## ****************  OLS (probdfsys = TRUE) ***********************
 fitols1e <- systemfit( "OLS", system, labels, data = kmenta,
-   rcovformula = 0, probdfsys = TRUE )
+   probdfsys = TRUE )
 print( fitols1e )
 print( fitols1e$bcov )
+
+## ****************  OLS (rcovformula = 0) ***********************
+fitols1r <- systemfit( "OLS", system, labels, data = kmenta,
+   rcovformula = 0 )
+print( fitols1r )
+print( fitols1r$bcov )
+# It is not possible to estimate OLS without any restrictions
+# with systemfit exactly as EViews does, because in the absence
+# of cross-equation restrictions EViews uses
+# rcovformula == 1 for the coefficient covariance matrix and
+# rcovformula == 0 for the residual covariance matrix.
+# systemfit uses always the same formulas for both calculations.
 
 ## ********* OLS with cross-equation restriction ************
 fitols2 <- systemfit( "OLS", system, labels, data = kmenta,
