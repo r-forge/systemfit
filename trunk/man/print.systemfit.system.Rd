@@ -1,3 +1,6 @@
+
+% 	$Id$	
+
 \name{print.systemfit.system}
 \alias{print.systemfit.system}
 \title{print.systemfit.system}
