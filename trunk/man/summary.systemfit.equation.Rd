@@ -24,7 +24,7 @@ summary.systemfit.equation(object,...)
 
 \author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com}}
 
-\seealso{\code{\link{systemfit}}, \code{\link{summary.systemfit.system}} and
+\seealso{\code{\link{systemfit}}, \code{\link{summary.systemfit}} and
   \code{\link{print.systemfit.equation}}}
 
 

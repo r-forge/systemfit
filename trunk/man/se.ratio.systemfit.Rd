@@ -17,8 +17,8 @@ se.ratio.systemfit( resultsi, resultsj, eqni )
 }
 
 \arguments{
-  \item{resultsi}{an object of type systemfit.system.}
-  \item{resultsj}{an object of type systemfit.system.}
+  \item{resultsi}{an object of type \code{systemfit}.}
+  \item{resultsj}{an object of type \code{systemfit}.}
   \item{eqni}{index for equation to obtain the ratio of standard errors.}
 }
 

@@ -26,7 +26,7 @@ correlation.systemfit( results, eqni, eqnj )
 }
 
 \arguments{
-  \item{results}{an object of type systemfit.system.}
+  \item{results}{an object of type \code{systemfit}.}
   \item{eqni}{index for equation i}
   \item{eqnj}{index for equation j}
 }

@@ -1,5 +1,5 @@
 
-% 	$Id$	
+% 	$Id$
 
 
 \name{systemfit}
@@ -112,14 +112,14 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
 }
 
 \value{
-  \code{systemfit} returns a list of the class \code{systemfit.system} and
+  \code{systemfit} returns a list of the class \code{systemfit} and
   contains all results that belong to the whole system.
   This list contains one special object: "eq". It is a list and contains
   one object for each estimated equation. These objects are of the class
   \code{systemfit.equation} and contain the results that belong only to the
   regarding equation.
 
-  The objects of the class \code{systemfit.system} and
+  The objects of the class \code{systemfit} and
   \code{systemfit.equation} have the following components (the elements of
   the latter are marked with an asterisk (\eqn{*})):
 
@@ -128,6 +128,7 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
   \item{n}{total number of observations.}
   \item{k}{total number of coefficients.}
   \item{ki}{total number of linear independent coefficients.}
+  \item{df}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}
   \item{b}{vector of all estimated coefficients.}
   \item{bt}{coefficient vector transformed by \code{TX}.}
@@ -179,7 +180,7 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
   \item{x*}{matrix of regressors (model matrix) of the ith equation.}
   \item{h*}{matrix of instrumental variables of the ith equation (only 2SLS and 3SLS).}
   \item{data*}{data frame (including instruments) of the ith equation.}
-  \item{predicted*}{vector of predicted values of the ith equation.}
+  \item{fitted*}{vector of fitted values of the ith equation.}
   \item{residuals*}{vector of residuals of the ith equation.}
 
   \item{ssr*}{sum of squared residuals of the ith equation.}
@@ -215,8 +216,8 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
   \emph{Principles of Econometrics}, Wiley, New York.
 }
 
-\author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com}
-  Arne Henningsen (\url{http://www.arne-henningsen.de}) }
+\author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com},\cr
+  Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de} }
 }
 
 \seealso{\code{\link{lm}} and \code{\link{nlsystemfit}}}
