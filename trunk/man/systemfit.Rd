@@ -8,7 +8,7 @@
 \title{Equation System Estimation}
 
 \description{
-  Fits a set of structural equations using Ordinary Least
+  Fits a set of linear structural equations using Ordinary Least
   Squares (OLS), Weighted Least Squares (WLS), Seemingly Unrelated Regression (SUR),
   Two-Stage Least Squares (2SLS), Weighted Two-Stage Least Squares (W2SLS)
   or Three-Stage Least Squares (3SLS).
@@ -215,12 +215,11 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
   \emph{Principles of Econometrics}, Wiley, New York.
 }
 
-%\author{Jeff D. Hamann \email{jeff\_hamann@hamanndonald.com}
 \author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com}
   Arne Henningsen (\url{http://www.arne-henningsen.de}) }
 }
 
-\seealso{\code{\link{lm}}}
+\seealso{\code{\link{lm}} and \code{\link{nlsystemfit}}}
 
 \examples{
 \dontrun{library( systemfit )}
