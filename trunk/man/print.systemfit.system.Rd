@@ -23,7 +23,7 @@ print.systemfit.system(x, digits=6,...)
   \code{print.systemfit.system} returns nothing.
 }
 
-\author{Jeff D. Hamann \email{jeff\_hamann@hamanndonald.com}}
+\author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com}}
 
 \seealso{\code{\link{systemfit}}, \code{\link{print.systemfit.equation}}
   and \code{\link{summary.systemfit.system}}}

@@ -37,7 +37,7 @@ se.ratio.systemfit( resultsi, resultsj, eqni )
 
 }
 
-\author{Jeff D. Hamann \email{jeff\_hamann@hamanndonald.com}}
+\author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com}}
 
 \seealso{\code{\link{systemfit}} and \code{\link{correlation.systemfit}}}
 

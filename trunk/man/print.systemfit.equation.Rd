@@ -23,7 +23,7 @@
   \code{print.systemfit.equation} returns nothing.
 }
 
-\author{Jeff D. Hamann \email{jeff\_hamann@hamanndonald.com}}
+\author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com}}
 
 \seealso{\code{\link{systemfit}}, \code{\link{print.systemfit.system}} and
   \code{\link{summary.systemfit.equation}}}

@@ -1,11 +1,6 @@
 ### this is the systemfit project....
-### hopefully, We'll be able to add more econometrics features...
-### you need to figure out how to translate the single equation
-### into a lm object!
 
 #	$Id$	
-
-
 
 systemfit <- function( method,
                         eqns,

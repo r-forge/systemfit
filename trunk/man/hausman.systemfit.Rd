@@ -46,7 +46,7 @@ hausman.systemfit( li.results, fi.results )
 
 }
 
-\author{Jeff D. Hamann \email{jeff\_hamann@hamanndonald.com}}
+\author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com}}
 
 \seealso{\code{\link{systemfit}}}
 

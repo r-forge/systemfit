@@ -215,9 +215,9 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
   \emph{Principles of Econometrics}, Wiley, New York.
 }
 
-\author{Jeff D. Hamann \email{jeff\_hamann@hamanndonald.com}
-
-  Arne Henningsen (\url{http://www.arne-henningsen.de})
+%\author{Jeff D. Hamann \email{jeff\_hamann@hamanndonald.com}
+\author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com}
+  Arne Henningsen (\url{http://www.arne-henningsen.de}) }
 }
 
 \seealso{\code{\link{lm}}}
