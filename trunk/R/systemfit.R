@@ -62,18 +62,33 @@ systemfit <- function( method,
             } else if( rcovformula == 1 ) {
                result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
                   sqrt( ( n[i] - ki[i] ) * ( n[j] - ki[j] ) )
-            } else {
+            } else if( rcovformula == 2 ) {
                result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
                   ( n[i] - ki[i] - ki[j] + sum( diag(
                   solve( crossprod( x[[i]] ), tol=solvetol ) %*%
                   crossprod( x[[i]], x[[j]]) %*%
                   solve( crossprod( x[[j]] ), tol=solvetol ) %*%
                   crossprod( x[[j]], x[[i]] ) ) ) )
+            } else {
+               stop( "Argument 'rcovformula' must be either 0, 1 or 2." )
             }
          }
       }
       return( result )
    }
+
+   ## Calculate Sigma squared
+   calcSigma2 <- function( resids ) {
+      if( rcovformula == 0 ) {
+         result <- sum( resids^2 ) / N
+      } else if( rcovformula == 1 ) {
+         result <- sum( resids^2 )/ ( N - Ki )
+      } else {
+         stop( paste( "Sigma^2 can only be calculated if argument",
+            "'rcovformula' is either 0 or 1" ) )
+      }
+   }
+
 
 
   results <- list()               # results to be returned
@@ -201,7 +216,7 @@ systemfit <- function( method,
         bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
       }
     } else {
-      s2     <- sum(resids^2)/(N-Ki)     # sigma squared
+      s2 <- calcSigma2( resids )     # sigma squared
       if(is.null(R.restr)) {
         bcov   <- s2 * solve( crossprod( X ), tol=solvetol )
                           # coefficient covariance matrix
@@ -346,7 +361,7 @@ systemfit <- function( method,
          bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
       }
     } else {
-      s2     <- sum(resids^2)/(N-Ki) # sigma squared
+      s2 <- calcSigma2( resids ) # sigma squared
       if(is.null(R.restr)) {
         bcov   <- s2 * solve( crossprod( Xf ), tol=solvetol )
                   # coefficient covariance matrix
