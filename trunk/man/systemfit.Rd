@@ -23,7 +23,8 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
            probdfsys=!(is.null(R.restr) & is.null(TX)),
            single.eq.sigma=(is.null(R.restr) & is.null(TX)),
            solvetol=.Machine$double.eps,
-           saveMemory = FALSE )
+           saveMemory=( nrow(data) * length(eqns) > 1000 &&
+              length(data) > 0 ) )
 }
 
 \arguments{
@@ -66,9 +67,9 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
    \item{solvetol}{tolerance level for detecting linear dependencies
       when inverting a matrix or calculating a determinant (see
       \code{\link{solve}} and \code{\link{det}}).}
-   \item{saveMemory}{save memory by omitting some calculation that
+   \item{saveMemory}{logical. Save memory by omitting some calculation that
       are not crucial for the basic estimation (e.g McElroy's
-      \eqn{R^2}).}
+      \eqn{R^2})?}
 }
 
 \details{
