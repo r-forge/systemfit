@@ -270,6 +270,7 @@ print( fit3sls )
 }
 
 \keyword{models}
+\keyword{regression}
 
 
 
