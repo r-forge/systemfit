@@ -1,6 +1,8 @@
+
+% 	$Id$	
+
 \name{print.systemfit.ols}
 \alias{print.systemfit.ols}
-
 \title{print.systemfit.ols}
 
 \description{

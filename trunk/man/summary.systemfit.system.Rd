@@ -1,6 +1,8 @@
+
+% 	$Id$	
+
 \name{summary.systemfit.system}
 \alias{summary.systemfit.system}
-
 \title{summary.systemfit.system}
 
 \description{

@@ -1,3 +1,6 @@
+
+% 	$Id$	
+
 \name{se.ratio}
 \alias{se.ratio}
 \alias{se.ratio.systemfit}

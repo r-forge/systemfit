@@ -1,3 +1,6 @@
+
+% 	$Id$	
+
 \name{sur}
 \alias{sur}
 \alias{sur.systemfit}
@@ -69,6 +72,9 @@ sur.systemfit( eqns, instruments, eqnlabels, data )
   \item{r2}{r2}
   \item{adjr2}{adjusted r-squared}
   \item{covb}{covb}
+  \item{se.prediction}{standard error of the predicted values}
+  \item{prediction.limts}{lower and upper 95 percent prediction limits}
+  \item{confidence.limts}{lower and upper 95 percent confidence limits}
 }
 
 \references{    
@@ -84,7 +90,7 @@ sur.systemfit( eqns, instruments, eqnlabels, data )
 
 \author{Jeff D. Hamann \email{jeff\_hamann@hamanndonald.com}}
 
-\seealso{\code{\link{ols}},\code{\link{sur}},\code{\link{twostage}} and \code{\link{threestage}}}
+\seealso{\code{\link{ols}},\code{\link{twostage}},\code{\link{sur}}and \code{\link{threestage}}}
 
 
 \examples{

@@ -1,6 +1,8 @@
+
+% 	$Id$	
+
 \name{print.systemfit.threestage}
 \alias{print.systemfit.threestage}
-
 \title{print.systemfit.threestage}
 
 \description{

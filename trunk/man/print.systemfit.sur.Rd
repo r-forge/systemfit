@@ -1,6 +1,8 @@
+
+% 	$Id$	
+
 \name{print.systemfit.sur}
 \alias{print.systemfit.sur}
-
 \title{print.systemfit.sur}
 
 \description{
