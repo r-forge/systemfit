@@ -1,3 +1,6 @@
+
+% 	$Id$	
+
 \name{prediction.systemfit}
 \alias{prediction.systemfit}
 
