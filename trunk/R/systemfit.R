@@ -24,6 +24,15 @@ systemfit <- function( method,
                         solvetol=1e-7)
 {
   attach(data)
+
+   ## some tests
+   if(!(method=="OLS" | method=="WLS" | method=="SUR" | method=="2SLS" | method=="W2SLS" |
+      method=="3SLS")){
+      stop("The method must be 'OLS', 'WLS', 'SUR', '2SLS', 'W2SLS' or '3SLS'")}
+   if((method=="2SLS" | method=="W2SLS" | method=="3SLS") & is.null(inst)) {
+      stop("The methods '2SLS', 'W2SLS' and '3SLS' need instruments!")}
+
+
   results <- list()               # results to be returned
   results$eq <- list()            # results for the individual equations
   resulti <- list()               # results of the ith equation
