@@ -907,7 +907,7 @@ print.systemfit.equation <- function( x, digits=6, ... ) {
 ## calculate predicted values, its standard errors and the prediction intervals
 predict.systemfit <- function( object, data=object$data,
                                se.fit=FALSE, se.pred=FALSE,
-                               interval="none", level=0.95 ) {
+                               interval="none", level=0.95, ... ) {
    attach(data); on.exit( detach( data ) )
 
    predicted <- data.frame( obs=seq( nrow( data ) ) )
@@ -1021,7 +1021,7 @@ predict.systemfit <- function( object, data=object$data,
 }
 
 ## calculate predicted values, its standard errors and the prediction intervals
-predict.systemfit.equation <- function( object, data=object$data ) {
+predict.systemfit.equation <- function( object, data=object$data, ... ) {
    attach( data ); on.exit( detach( data ) )
    x <-  model.matrix( object$formula )
    predicted <- drop( x %*% object$b )
