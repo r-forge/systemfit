@@ -50,6 +50,9 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
   lhs <- NULL
   rhs <- NULL
   residi <- NULL
+  # partial derivatives of the residuals with respect to the parameters
+  dResidTheta <- NULL
+  dResidThetai <- list()
 
   ## get the values of the parameters
   for( i in 1:length( parmnames ) ) {
@@ -61,33 +64,39 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
 
   ## build the residual vector...
   for( i in 1:length( eqns ) ) {
-   lhs[[i]] <- as.matrix( eval( as.formula( eqns[[i]] )[[2]] ) )
-   rhs[[i]] <- as.matrix( eval( as.formula( eqns[[i]] )[[3]] ) )
-   residi[[i]] <- lhs[[i]] - rhs[[i]]
-   r <- rbind( r, as.matrix( residi[[i]] ) )
-   if( fitmethod == "GMM" ) {
-     gmm.resids <- cbind( gmm.resids, as.matrix( residi[[i]] ) )
-   }
- }
-
+    lhs[[i]] <- as.matrix( eval( as.formula( eqns[[i]] )[[2]] ) )
+    rhs[[i]] <- as.matrix( eval( as.formula( eqns[[i]] )[[3]] ) )
+    residi[[i]] <- lhs[[i]] - rhs[[i]]
+    r <- rbind( r, as.matrix( residi[[i]] ) )
+    if( fitmethod == "GMM" ) {
+      gmm.resids <- cbind( gmm.resids, as.matrix( residi[[i]] ) )
+    }
+    dResidThetai[[ i ]] <- - attributes( with( data, with( as.list( theta ),
+      eval( deriv( eqns[[i]], names( parmnames ))))))$gradient
+    dResidTheta <- rbind( dResidTheta, dResidThetai[[ i ]] )
+  }
   ## these are the objective functions for the various fitting methods
   if( fitmethod == "OLS" ) {
     obj <- crossprod( r )
+    attributes( obj ) <- list( gradient = 2 * t( r ) %*% dResidTheta )
   }
   if( fitmethod == "2SLS" ) {
     ## W is premultiplied == ( diag( neqs ) %x% W )
     ##obj <- ( t(r) %*% S %*% r )
     obj <- crossprod(t(crossprod(r,S)),r)
+    attributes( obj ) <- list( gradient = 2 * t( r ) %*% S %*% dResidTheta )
   }
   if( fitmethod == "SUR" ) {
     ## S is premultiplied == ( qr.solve( S ) %x% diag( nobs ) )
     ##obj <- ( t(r) %*% S %*% r )
     obj <- crossprod(t(crossprod(r,S)),r)
+    attributes( obj ) <- list( gradient = 2 * t( r ) %*% S %*% dResidTheta )
   }
   if( fitmethod == "3SLS" ) {
     ## S is premultiplied == ( qr.solve( S ) %x% W )
     ##obj <- ( t(r) %*% S %*% r )
     obj <- crossprod(t(crossprod(r,S)),r)
+    attributes( obj ) <- list( gradient = 2 * t( r ) %*% S %*% dResidTheta )
   }
   if( fitmethod == "GMM" ) {
     ## this just can't be correct... or can it...
@@ -113,7 +122,7 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
   ## attr( obj, "gradient" ) <- "hi mom"
   ## attr( obj, "hessian" ) <- hessian...
 
-  obj
+  return( obj )
 }
 
 
@@ -124,7 +133,6 @@ nlsystemfit <- function( method="OLS",
                         inst=NULL,
                         data=list(),
                         solvtol=.Machine$double.eps,
-                        pl=0,
                         maxiter=1000, ... ) {
 
   attach( data )
@@ -163,13 +171,21 @@ nlsystemfit <- function( method="OLS",
   resids <- NULL
 
   if( method == "OLS" ) {
-    est <- nlm( knls, startvals,
-               typsize=abs(startvals),print.level=pl,iterlim=maxiter,
+    if( TRUE ) {
+      est <- nlm( knls, startvals,
+               typsize=abs(startvals),iterlim=maxiter,
                eqns=eqns,
                data=data,
                fitmethod=method,
                parmnames=startvals,
                ... )
+    } else {
+      est <- optim( fn = knls, par = startvals,
+               eqns=eqns,
+               data=data,
+               fitmethod=method,
+               parmnames=startvals )
+    }
   }
   if( method == "2SLS" ) {
     ## just fit and part out the return structure
@@ -177,7 +193,7 @@ nlsystemfit <- function( method="OLS",
     Wt <- z %*% qr.solve( crossprod( z ), tol=solvtol ) %*% t(z)
     W2 <- diag( length( eqns ) ) %x% Wt
     est <- nlm( knls, startvals,
-               typsize=abs(startvals),print.level=pl,iterlim=maxiter,
+               typsize=abs(startvals),iterlim=maxiter,
                eqns=eqns,
                data=data,
                fitmethod=method,
@@ -188,7 +204,7 @@ nlsystemfit <- function( method="OLS",
     ## fit ols/2sls, build the cov matrix for estimation and refit
     if( method == "SUR" ) {
       estols <- nlm( knls, startvals,
-                    typsize=abs(startvals),print.level=pl,iterlim=maxiter,
+                    typsize=abs(startvals),iterlim=maxiter,
                     eqns=eqns,
                     data=data,
                     fitmethod="OLS",
@@ -199,7 +215,7 @@ nlsystemfit <- function( method="OLS",
       W <- z %*% qr.solve( crossprod( z ), tol=solvtol ) %*% t(z)
       W2 <- ( diag( length( eqns ) ) %x% W )
       estols <- nlm( knls, startvals,
-                    typsize=abs(startvals),print.level=pl,iterlim=maxiter,
+                    typsize=abs(startvals),iterlim=maxiter,
                     eqns=eqns,
                     data=data,
                     fitmethod="2SLS",
@@ -244,7 +260,7 @@ nlsystemfit <- function( method="OLS",
     if( method == "SUR" ) {
       Solsinv <- qr.solve( Sols, tol=solvtol ) %x% diag( nobs )
       est <- nlm( knls,estols$estimate,
-                 typsize=abs(startvals),print.level=pl,iterlim=maxiter,
+                 typsize=abs(estols$estimate),iterlim=maxiter,
                  eqns=eqns, data=data, fitmethod=method, parmnames=startvals,
                  S=Solsinv, ... )
     }
@@ -253,7 +269,7 @@ nlsystemfit <- function( method="OLS",
       W <- z %*% qr.solve( crossprod( z ), tol=solvtol ) %*% t(z)
       Solsinv <- qr.solve( Sols, tol=solvtol ) %x% W
       est <- nlm( knls, estols$estimate,
-                 typsize=abs(startvals),print.level=pl,iterlim=maxiter,
+                 typsize=abs(estols$estimate),iterlim=maxiter,
                  eqns=eqns, data=data, fitmethod=method, parmnames=startvals,
                  S=Solsinv, instr=z, ... )
     }
@@ -270,7 +286,7 @@ nlsystemfit <- function( method="OLS",
       }
       v2sls <- qr.solve( var( moments ), tol=solvtol )
       est <- nlm( knls,estols$estimate,
-                 typsize=abs(startvals),print.level=pl,iterlim=maxiter,
+                 typsize=abs(estols$estimate),iterlim=maxiter,
                  eqns=eqns, data=data, fitmethod="GMM", parmnames=startvals,
                  S=v2sls, instr=inst, ... )
     }
@@ -284,12 +300,17 @@ nlsystemfit <- function( method="OLS",
 
   ## evaluate the residuals for eqn
   ## get the values of the final parameters
-  names( est$estimate ) <- names( startvals )
-  for( i in 1:length( est$estimate ) ) {
-    name <- names( est$estimate )[i]
+  if( TRUE ) {
+    estimate <- est$estimate
+  } else {
+    estimate <- est$par
+  }
+  names( estimate ) <- names( startvals )
+  for( i in 1:length( estimate ) ) {
+    name <- names( estimate )[i]
     ### I wonder if I need to clear out the variables before assigning them for good measure...
     assign( name, NULL )
-    val <- est$estimate[i]
+    val <- estimate[i]
     storage.mode( val ) <-  "double"
     assign( name, val )
   }
@@ -403,13 +424,13 @@ nlsystemfit <- function( method="OLS",
 
   ## bind the standard errors to the parameter estimate matrix
   se2 <- sqrt( diag( covb ) )
-  t.val <- est$estimate / se2
+  t.val <- estimate / se2
   prob  <- 2*( 1 - pt( abs( t.val ), sum( n ) - sum( k ) ) ) ### you better check this...
 
   results$method       <- method
   results$n <- sum( n )
   results$k <- sum( k )
-  results$b <- est$estimate
+  results$b <- estimate
   results$se <- se2
   results$t <- t.val
   results$p <- prob
@@ -421,10 +442,10 @@ nlsystemfit <- function( method="OLS",
     eqn.est <- vector()
     eqn.se <- vector()
     jacob <- attr( eval( deriv( as.formula( eqns[[i]] ), names( startvals ) ) ), "gradient" )
-    for( v in 1:length( est$estimate ) ) {
+    for( v in 1:length( estimate ) ) {
       if( qr( jacob[,v] )$rank > 0 ) {
-        eqn.terms <- rbind( eqn.terms, name <- names( est$estimate )[v] )
-        eqn.est <- rbind( eqn.est, est$estimate[v] )
+        eqn.terms <- rbind( eqn.terms, name <- names( estimate )[v] )
+        eqn.est <- rbind( eqn.est, estimate[v] )
         eqn.se <- rbind( eqn.se, se2[v] )
       }
     }

@@ -16,7 +16,7 @@
 
 \usage{ nlsystemfit( method="OLS", eqns, startvals,
                      eqnlabels=c(as.character(1:length(eqns))), inst=NULL,
-                     data=list(), solvtol=.Machine$double.eps, pl=0,
+                     data=list(), solvtol=.Machine$double.eps,
                      maxiter=1000, ... )
 }
 
@@ -35,7 +35,6 @@
   \item{data}{an optional data frame containing the variables in the model.
     By default the variables are taken from the environment from which
     nlsystemfit is called.}
-  \item{pl}{print.level argument that is passed to the \code{\link{nlm}} function. }
   \item{solvtol}{tolerance for detecting linear dependencies in the columns
     of X in the \code{\link{qr}} function calls.}
   \item{maxiter}{the maximum number of iterations for the \code{\link{nlm}} function.}
@@ -180,6 +179,13 @@ model <- list( hg.formula, dg.formula )
 
 model.ols <- nlsystemfit( "OLS", model, start.values, data=ppine, eqnlabels=labels )
 print( model.ols )
+
+model.sur <- nlsystemfit( "SUR", model, start.values, data=ppine, eqnlabels=labels )
+print( model.sur )
+
+model.2sls <- nlsystemfit( "2SLS", model, start.values, data=ppine,
+   eqnlabels=labels, inst=inst )
+print( model.2sls )
 
 model.3sls <- nlsystemfit( "3SLS", model, start.values, data=ppine,
                                     eqnlabels=labels, inst=inst )
