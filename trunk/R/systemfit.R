@@ -303,6 +303,10 @@ systemfit <- function( method,
       m$formula <- Terms
       m <- eval(m, parent.frame())
       h[[i]] <- model.matrix(Terms, m)
+      if( nrow( h[[ i ]] ) != nrow( Xi ) ) {
+         stop( paste( "The instruments and the regressors of equation", as.character( i ),
+            "have different numbers of observations." ) )
+      }
       # extract instrument matrix
       Xf <- rbind(Xf, h[[i]] %*% solve( crossprod( h[[i]]) , tol=solvetol )
               %*% crossprod( h[[i]], Xi ))       # 'fitted' X-values
