@@ -521,6 +521,11 @@ nlsystemfit <- function( method="OLS",
   class(results)  <- "nlsystemfit.system"
 
   detach(data)
+
+  if( results$nlmest$code >= 4 ) {
+    warning( "Estimation did not converge!" )
+  }
+
   results
 }
 
