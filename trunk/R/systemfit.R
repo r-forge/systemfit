@@ -74,10 +74,17 @@ ols.systemfit <- function(
       
       ## compute the stdi and stdr
       stdi <- sqrt( ( 1.0 + bm4 ) * resulti$mse )
+      stdr <- sqrt( ( 1.0 - bm4 ) * resulti$mse )
+
       resulti$se.prediction <- stdp
       resulti$prediction.limits <- cbind( resulti$predicted-(tval*stdi), resulti$predicted+(tval*stdi) )
       resulti$confidence.limits <- cbind( resulti$predicted-(tval*stdp), resulti$predicted+(tval*stdp) )
-      
+
+      resulti$student <- resids / stdr
+      resulti$cookd <- (1/resulti$dfe) *
+        resulti$student * resulti$student * ((stdp/(stdr*stdr)))
+
+
       class(resulti)	     <- "systemfit.ols"
       results[[i]]	     <- resulti                
     } 
