@@ -1,4 +1,4 @@
-###	$Id$	
+###	$Id$
 ###
 ###            Simultaneous Equation Estimation for R
 ###
@@ -461,9 +461,9 @@ systemfit <- function( method,
   }
 
   ## for all estimation methods
-  pred  <- X %*% b                              # predicted endogenous values
-  bt    <- NULL
-  btcov <- NULL
+  fitted <- X %*% b                              # fitted endogenous values
+  bt     <- NULL
+  btcov  <- NULL
   if(!is.null(TX)) {
     bt <- b
     b  <- TX %*% bt
@@ -502,7 +502,7 @@ systemfit <- function( method,
     rmse   <- sqrt( mse )                                # estimated standard error of residuals
     r2     <- 1 - ssr/(t(y[[i]])%*%y[[i]]-n[i]*mean(y[[i]])^2)
     adjr2  <- 1 - ((n[i]-1)/df[i])*(1-r2)
-    predi  <- pred[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
+    fittedi <- fitted[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
     datai  <- model.frame( eqns[[i]] )
     if(method=="2SLS" | method=="3SLS") {
       datai <- cbind( datai, model.frame( instl[[i]] ))
@@ -523,15 +523,17 @@ systemfit <- function( method,
     resulti$k            <- k[i]            # number of coefficients/regressors
     resulti$ki           <- ki[i]           # number of linear independent coefficients
     resulti$df           <- df[i]           # degrees of freedom of residuals
-    resulti$b            <- c(bi)           # estimated coefficients
-    resulti$se           <- c(sei)          # standard errors of estimated coefficients
-    resulti$t            <- c(ti)           # t-values of estimated coefficients
-    resulti$p            <- c(probi)        # p-values of estimated coefficients
+    resulti$dfSys        <- N- Ki           # degrees of freedom of residuals of the whole system
+    resulti$probdfsys    <- probdfsys       #
+    resulti$b            <- c( bi )         # estimated coefficients
+    resulti$se           <- c( sei )        # standard errors of estimated coefficients
+    resulti$t            <- c( ti )         # t-values of estimated coefficients
+    resulti$p            <- c( probi )      # p-values of estimated coefficients
     resulti$bcov         <- bcovi           # covariance matrix of estimated coefficients
     resulti$y            <- y[[i]]          # vector of endogenous variables
     resulti$x            <- x[[i]]          # matrix of regressors
     resulti$data         <- datai           # data frame of this equation (incl. instruments)
-    resulti$predicted    <- predi           # predicted values
+    resulti$fitted       <- fittedi         # fitted values
     resulti$residuals    <- residi[[i]]     # residuals
     resulti$ssr          <- ssr             # sum of squared errors/residuals
     resulti$mse          <- mse             # estimated variance of the residuals (mean squared error)
@@ -577,19 +579,14 @@ systemfit <- function( method,
               t(Y) %*% ( solve(rcov, tol=solvetol) %x% ( diag(1,n[1],n[1]) - rep(1,n[1]) %*%
               t(rep(1,n[1])) / n[1] )) %*% Y )   # McElroy's (1977a) R2
 
-  b              <- array(b,c(K,1))
-  rownames(b)    <- xnames
-  colnames(b)    <- c("coefficient")
-  se             <- array(se,c(K,1))
-  rownames(se)   <- xnames
-  colnames(se)   <- c("standard error")
-  t              <- array(t,c(K,1))
-  rownames(t)    <- xnames
-  colnames(t)    <- c("t-statistic")
-  prob           <- array(prob,c(K,1))
-  rownames(prob) <- xnames
-  colnames(prob) <- c("p-value")
-
+  b              <- c(b)
+  names(b)       <- xnames
+  se             <- c(se)
+  names(se)      <- xnames
+  t              <- c(t)
+  names(t)       <- xnames
+  prob           <- c(prob)
+  names(prob)    <- xnames
 
   ## build the "return" structure for the whole system
   results$method  <- method
@@ -597,6 +594,7 @@ systemfit <- function( method,
   results$n       <- N              # total number of observations
   results$k       <- K              # total number of coefficients
   results$ki      <- Ki             # total number of linear independent coefficients
+  results$df      <- N - Ki         # dewgrees of freedom of the whole system
   results$b       <- b              # all estimated coefficients
   results$bt      <- bt             # transformed vector of estimated coefficients
   results$se      <- se             # standard errors of estimated coefficients
@@ -630,7 +628,7 @@ systemfit <- function( method,
   results$probdfsys       <- probdfsys
   results$single.eq.sigma <- single.eq.sigma
   results$solvetol        <- solvetol
-  class(results)  <- "systemfit.system"
+  class(results)  <- "systemfit"
 
   detach(data)
   results
@@ -638,13 +636,13 @@ systemfit <- function( method,
 
 
 ## print the (summary) results that belong to the whole system
-summary.systemfit.system <- function(object,...) {
-  summary.systemfit.system <- object
-  summary.systemfit.system
+summary.systemfit <- function(object,...) {
+  summary.systemfit <- object
+  summary.systemfit
 }
 
 ## print the results that belong to the whole system
-print.systemfit.system <- function( x, digits=6,... ) {
+print.systemfit <- function( x, digits=6,... ) {
   object <- x
 
   save.digits <- unlist(options(digits=digits))
@@ -731,7 +729,6 @@ print.systemfit.system <- function( x, digits=6,... ) {
   }
 }
 
-
 ## print the (summary) results for a single equation
 summary.systemfit.equation <- function(object,...) {
   summary.systemfit.equation <- object
@@ -790,10 +787,11 @@ print.systemfit.equation <- function( x, digits=6, ... ) {
 }
 
 
-## calculate predicted values and its standard errors and limits
-prediction.systemfit <- function( object, data=object$data, alpha=0.05) {
+## calculate predicted values, its standard errors and the prediction intervals
+predict.systemfit <- function( object, data=object$data, level=0.95 ) {
    attach(data)
-   results <- list()
+   predicted <- array( NA, c( nrow( data ), 4 * object$g ) )
+   colnames( predicted ) <- as.character( 1:ncol( predicted ) )
    g       <- object$g
    n       <- array(NA,c(g))
    eqns    <- list()
@@ -823,18 +821,33 @@ prediction.systemfit <- function( object, data=object$data, alpha=0.05) {
       } else {
          sei    <- sqrt( diag(ycovi) )
       }
-      tval   <- qt( 1 - alpha/2, object$eq[[i]]$df )
-      limits <- cbind( Yi - (tval*sei), Yi + (tval*sei) )
+      if( object$probdfsys ) {
+         tval   <- qt( 1 - ( 1- level )/2, object$df )
+      } else {
+         tval   <- qt( 1 - ( 1- level )/2, object$eq[[i]]$df )
+      }
 
-      resulti$predicted          <- Yi
-      resulti$se.prediction      <- sei
-      resulti$prediction.limits  <- limits
-      results[[i]]               <- resulti
+      predicted[ , i*4-3 ]         <- Yi
+      colnames( predicted )[i*4-3] <- paste( "eq", as.character(i), " pred", sep="" )
+      predicted[ , i*4-2 ]         <- sei
+      colnames( predicted )[i*4-2] <- paste( "eq", as.character(i), " se", sep="" )
+      predicted[ , i*4-1 ]         <- Yi - (tval*sei)
+      colnames( predicted )[i*4-1] <- paste( "eq", as.character(i), " lwr", sep="" )
+      predicted[ , i*4 ]           <- Yi + (tval*sei)
+      colnames( predicted )[i*4]   <- paste( "eq", as.character(i), " upr", sep="" )
    }
    detach(data)
-   results
+   predicted
 }
 
+## calculate predicted values, its standard errors and the prediction intervals
+predict.systemfit.equation <- function( object, data=object$data ) {
+   attach(data)
+   x <-  model.matrix( object$formula )
+   predicted <- x %*% object$b
+   detach(data)
+   predicted
+}
 
 ## this function returns a vector of the
 ## cross-equation corrlations between eq i and eq j
@@ -955,3 +968,88 @@ lrtest.systemfit <- function( resultc, resultu ) {
 }
 
 
+## return all coefficients
+coef.systemfit <- function( object, ... ) {
+   object$b
+}
+
+## return the coefficients of a single equation
+coef.systemfit.equation <- function( object, ... ) {
+   object$b
+}
+
+## return all residuals
+residuals.systemfit <- function( object, ... ) {
+   residuals <- data.frame( eq1 = object$eq[[1]]$residuals )
+   if( object$g > 1 ) {
+      for( i in 2:object$g ) {
+         residuals <- cbind( residuals, new=object$eq[[i]]$residuals )
+         names( residuals )[ i ] <- paste( "eq", as.character(i), sep="" )
+      }
+   }
+   residuals
+}
+
+## return residuals of a single equation
+residuals.systemfit.equation <- function( object, ... ) {
+   object$residuals
+}
+
+## return the variance covariance matrix of the coefficients
+vcov.systemfit <- function( object, ... ) {
+   object$bcov
+}
+
+## return the variance covariance matrix of the coefficients of a single equation
+vcov.systemfit.equation <- function( object, ... ) {
+   object$bcov
+}
+
+## return the variance covariance matrix of the coefficients
+confint.systemfit <- function( object, parm = NULL, level = 0.95, ... ) {
+   a <- ( 1 - level ) / 2
+   a <- c( a, 1 - a )
+   pct <- paste( round( 100 * a, 1 ), "%" )
+   ci <- array( NA, dim = c( length( object$b ), 2),
+            dimnames = list( names( object$b ), pct ) )
+   j <- 1
+   for( i in 1:object$g ) {
+      object$eq[[i]]$dfSys <- object$df
+      object$eq[[i]]$probdfsys <- object$probdfsys
+      ci[ j:(j+object$eq[[ i ]]$k-1), ] <- confint( object$eq[[ i ]] )
+      j <- j + object$eq[[ i ]]$k
+   }
+   ci
+}
+
+## return the variance covariance matrix of the coefficients of a single equation
+confint.systemfit.equation <- function( object, parm = NULL, level = 0.95, ... ) {
+   a <- ( 1 - level ) / 2
+   a <- c( a, 1 - a )
+   pct <- paste( round( 100 * a, 1 ), "%" )
+   ci <- array( NA, dim = c( length( object$b ), 2),
+            dimnames = list( names( object$b ), pct ) )
+   if( object$ probdfsys ) {
+      fac <- qt( a, object$dfSys )
+   } else {
+      fac <- qt( a, object$df )
+   }
+   ci[] <- object$b + object$se %o% fac
+   ci
+}
+
+## return the fitted values
+fitted.systemfit <- function( object, ... ) {
+   fitted <- array( NA, c( length( object$eq[[1]]$fitted ), object$g ) )
+   colnames( fitted ) <- as.character( 1:ncol( fitted ) )
+   for(i in 1:object$g )  {
+      fitted[ , i ]           <- object$eq[[ i ]]$fitted
+      colnames( fitted )[ i ] <- paste( "eq", as.character(i), sep="" )
+   }
+   fitted
+}
+
+## return the fitted values of e single euation
+fitted.systemfit.equation <- function( object, ... ) {
+   object$fitted
+}
