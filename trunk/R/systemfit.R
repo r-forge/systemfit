@@ -745,8 +745,9 @@ systemfit <- function( method,
   results$x       <- X              # matrix of all (diagonally stacked) regressors
   results$resids  <- resids         # vector of all (stacked) residuals
   results$data    <- alldata        # data frame for all data used in the system
-  if(method=="2SLS" | method=="3SLS") {
+  if( method=="2SLS" | method=="W2SLS" | method=="3SLS" ) {
     results$h       <- H            # matrix of all (diagonally stacked) instr. variables
+    results$xHat    <- Xf           # matrix of "fitted" regressors
   }
   if(method=="SUR" | method=="3SLS") {
     results$rcovest <- rcovest      # residual covarance matrix used for estimation
