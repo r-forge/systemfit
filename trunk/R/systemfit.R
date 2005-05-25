@@ -624,7 +624,17 @@ systemfit <- function( method,
     Terms <- terms( eqns[[i]], data = data)
     m$formula <- Terms
     m <- eval(m, parent.frame())
-    datai <- model.frame(Terms, m)
+    # datai <- model.frame(Terms, m)
+    # the following lines are substituted for the previous line to
+    # allow transformed variables in the formulas (e.g. "log(x1)")
+    # code provided by Mikko Pakkanen 
+    resp <- model.extract( m, "response" )
+    # using model.matrix instead of model.frame, need to get the output
+    # variable separately
+    datai <- data.frame( cbind( resp, ( model.matrix( Terms, m ) )[ , -1 ] ) )
+    # I guess there's a better way to extract the name of the output variable?
+    names( datai )[1] <- as.character( terms( eqns[[ i ]] ) )[2]
+    rm( resp )
     if(method=="2SLS" | method=="3SLS") {
       #datai <- cbind( datai, model.frame( instl[[i]] ))
       # the following lines have to be substituted for the previous
@@ -634,7 +644,12 @@ systemfit <- function( method,
       Terms <- terms(instl[[i]], data = data)
       m$formula <- Terms
       m <- eval(m, parent.frame())
-      datai <- cbind( datai, model.frame(Terms, m))
+      # datai <- cbind( datai, model.frame(Terms, m))
+      # the following lines are substituted for the previous line to
+      # allow transformed variables in the formulas (e.g. "log(x1)")
+      # code provided by Mikko Pakkanen 
+      datai <- cbind( datai, 
+         as.data.frame( ( model.matrix( Terms, m ) )[ , -1 ] ) )
     }
 
     if(i==1) {
