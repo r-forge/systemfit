@@ -829,7 +829,10 @@ print.systemfit <- function( x, digits=6,... ) {
   rownames(table) <- c( labels )
   colnames(table) <- c("N","DF", "SSR", "MSE", "RMSE", "R2", "Adj R2" )
 
-  print.matrix(table, quote = FALSE, right = TRUE )
+  ##print.matrix(table, quote = FALSE, right = TRUE )
+  ##prmatrix(table, quote = FALSE, right = TRUE )
+  print(table, quote = FALSE, right = TRUE )
+
   cat("\n")
 
   if(!is.null(x$rcovest)) {
@@ -917,7 +920,9 @@ print.systemfit.equation <- function( x, digits=6, ... ) {
   rownames(table) <- names(x$b)
   colnames(table) <- c("Estimate","Std. Error","t value","Pr(>|t|)","")
 
-  print.matrix(table, quote = FALSE, right = TRUE )
+  ##print.matrix(table, quote = FALSE, right = TRUE )
+  ##prmatrix(table, quote = FALSE, right = TRUE )
+  print(table, quote = FALSE, right = TRUE )
   cat("---\nSignif. codes: ",attr(Signif,"legend"),"\n")
 
   cat(paste("\nResidual standard error:", round(x$s, digits),

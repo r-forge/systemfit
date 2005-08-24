@@ -5,7 +5,7 @@
 \name{systemfit}
 \alias{systemfit}
 
-\title{Equation System Estimation}
+\title{Linear Equation System Estimation}
 
 \description{
   Fits a set of linear structural equations using Ordinary Least
