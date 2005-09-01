@@ -1,0 +1,352 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Estimation}\label{sec:Estimation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Consider a system of $G$ equations, where the $i$th equation is of
+the form 
+\begin{equation}
+   y_{i} = X_i \beta_i + u_i, \quad i = 1, 2, \ldots, G
+\end{equation}
+where $y_i$ is a vector of the dependent variable,
+$X_i$ is a matrix of the exogenous variables,
+$\beta_i$ is the coefficient vector and
+$u_i$ is a vector of the disturbance terms of the $i$th equation.
+
+We can write the 'stacked' system as
+\begin{equation}
+   \left[ \begin{array}{c}
+      y_1 \\ y_2\\ \vdots\\ y_G
+   \end{array} \right] = 
+   \left[ \begin{array}{cccc}
+      X_1 & 0 & \cdots & 0\\
+      0 & X_2 & \cdots & 0\\
+      \vdots & \vdots & \ddots & \vdots\\
+      0 & 0 & \cdots & X_G
+   \end{array}\right] \cdot 
+   \left[ \begin{array}{c}
+      \beta_1 \\ \beta_2 \\ \vdots\\ \beta_G
+   \end{array} \right] +
+   \left[ \begin{array}{c}
+      u_1 \\ u_2 \\ \vdots\\ u_G
+   \end{array} \right]
+\end{equation}
+
+or more simply as
+\begin{equation}
+   y = X \beta + u 
+\end{equation}   
+
+We assume that there is no correlation of the disturbance terms 
+across observations:
+\begin{equation}
+   E \left( u_{it} \, u_{jt^*} \right) = 0 
+   \; \forall \; t \neq t^*
+\end{equation}
+where $i$ and $j$ indicate the equation number 
+and $t$ and $t^*$ denote the observation number.
+
+However, we explicitly allow for contemporaneous correlation:
+\begin{equation}
+   E \left( u_{it} \, u_{jt} \right) = \sigma_{ij}
+\end{equation}
+
+Thus, the covariance matrix of the total system is
+\begin{equation}
+   E \left( u \, u' \right) = \Omega = \Sigma \otimes I
+\end{equation}
+where $\Sigma = \left[ \sigma_{ij} \right]$ and $I$ is an
+identity matrix.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Ordinary Least Squares estimation}
+
+The Ordinary Least Squares (OLS) estimator of the system 
+is obtained by
+\begin{equation}
+   \widehat{\beta} = \left( X'X \right)^{-1} X'y
+\end{equation}
+
+These estimates are efficient only if the disturbance terms are not 
+contemporaneously correlated, which means 
+\begin{equation}
+   \sigma_{ij} = 0 \; \forall \; i \neq j
+\end{equation}
+
+If the whole system is treated as one single equation, 
+the variance-covariance matrix of the estimated parameters is
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = \sigma^2 \left( X'X \right)^{-1}
+\end{equation}
+with $\sigma^2 = E \left( u' u \right)$.
+This assumes that the disturbances of all equations have the
+same variance.
+
+If the disturbance terms of the individual equations 
+are allowed to have different variances, 
+the variance-covariance matrix of the estimated parameters is
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
+   \label{eq:OLSvcm2}
+\end{equation}
+with $\Omega = \Sigma \otimes I$, 
+$\sigma_{ij} = 0 \; \forall \; i \neq j$ and
+$\sigma_{ii} = E \left( u_i' u_i \right)$.
+
+If no cross-equation restrictions are imposed, the simultaneous 
+OLS estimation of the system leads to the same parameter estimates 
+as an equation-wise OLS estimation. The variance-covariance matrix 
+of the parameters from an equation-wise OLS estimation is equal to 
+the variance-covariance matrix obtained by equation 
+(\ref{eq:OLSvcm2}).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Weighted least squares}
+
+The Weighted Least Squares (WLS) estimator of the system 
+is obtained by
+\begin{equation}
+   \widehat{\beta} = \left( X' \Omega^{-1} X \right)^{-1} X' \Omega^{-1} y
+\end{equation}
+with $\Omega = \Sigma \otimes I$, 
+$\sigma_{ij} = 0 \; \forall \; i \neq j$ and
+$\sigma_{ii} = E \left( u_i' u_i \right)$.
+
+Like the OLS estimates these estimates are only efficient 
+if the disturbance terms are not contemporaneously correlated.
+
+The variance-covariance matrix of the estimated parameters is
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
+\end{equation}
+
+If no cross-equation restrictions are imposed, 
+the parameter estimates and the variance-covariance matrix 
+of the parameters are equal to the OLS estimates%
+\footnote{The variance-covariance matrices of the 
+estimated parameters might differ, 
+if the WLS estimation is based on a different formula 
+to calculate the (diagonal) variance-covariance 
+matrix of the residuals (see section \ref{sec:residcov}).}.  
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Seemingly unrelated regression}
+
+When the disturbances are contemporaneously correlated, a Generalized 
+Least Squares (GLS) estimation leads to efficient parameter estimates.
+In this case the GLS is generally called "Seemingly Unrelated Regression" 
+(SUR) (see \citealp{zellner62}). 
+Note, while an unbiased OLS or WLS estimation requires only that 
+the regressors and the disturbance terms of each single 
+equation are uncorrelated,
+a consistent SUR estimation requires that all disturbance terms and all 
+regressors are uncorrelated:
+\begin{equation}
+   E \left( u | X \right) = 0
+\end{equation}
+
+The SUR estimator can be obtained by:%
+\footnote{To calculate $\Omega^{-1}$ it is not necessary to invert 
+the (huge) $\Omega$ matrix, 
+because it is sufficient to invert the (small) $\Sigma$ matrix and
+calculate it by $\Omega^{-1} = \Sigma^{-1} \otimes I$.}
+
+\begin{equation}
+   \widehat{\beta} = \left( X' \Omega^{-1} X \right)^{-1} X' \Omega^{-1} y
+\end{equation}
+with $\Omega = \Sigma \otimes I$ and
+$\sigma_{ij} = E \left( u_i' u_j \right)$.
+
+And the variance-covariance matrix of the estimated parameters is
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Two-stage least squares estimation}
+
+If the regressors of one or more equations are correlated 
+with the disturbances ($E \left( u_i | X_i \right) \neq 0$), 
+the estimated coefficients are biased.
+This can be circumvented by an instrumental variable (IV) estimation.
+The instrumental variables for each equation $H_i$ 
+can be either different or identical for all equations.
+The instrumental variables of each equation may not be correlated with 
+the disturbance terms of the corresponding equation 
+($E \left( u_i | H_i \right) = 0$).
+
+At the first stage new ('fitted') regressors are obtained by
+\begin{equation}
+   \widehat{X_i} = H_i \left( H_i' H_i \right)^{-1} H_i' X
+\end{equation}
+
+At the second stage the unbiased two-stage least squares estimates
+of $\beta$ are obtained by:
+\begin{equation}
+   \widehat{\beta} = \left( \widehat{X}' \widehat{X} \right)^{-1} 
+   \widehat{X}' y 
+   \label{eq:beta2sls}
+\end{equation}
+
+If the whole system is treated as one single equation, 
+the variance-covariance matrix of the estimated parameters is
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = \sigma^2 \left( \widehat{X}'
+   \widehat{X} \right)^{-1}
+\end{equation}
+with $\sigma^2 = E \left( u' u \right)$.
+
+If the disturbance terms of the individual equations 
+are allowed to have different variances, 
+the variance-covariance matrix of the estimated parameters is
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1} 
+   \widehat{X} \right)^{-1}
+\end{equation}
+with $\Omega = \Sigma \otimes I$, 
+$\sigma_{ij} = 0 \; \forall \; i \neq j$ and
+$\sigma_{ii} = E \left( u_i' u_i \right)$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Weighted two-stage least squares estimation}
+
+The Weighted Two-Stage Least Squares (W2SLS) estimator of the system 
+is obtained by
+\begin{equation}
+   \widehat{\beta} = \left( \widehat{X}' \Omega^{-1} \widehat{X} 
+   \right)^{-1} \widehat{X}' \Omega^{-1} y
+\end{equation}
+with $\Omega = \Sigma \otimes I$, 
+$\sigma_{ij} = 0 \; \forall \; i \neq j$ and
+$\sigma_{ii} = E \left( u_i' u_i \right)$.
+
+The variance-covariance matrix of the estimated parameters is
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1} 
+   \widehat{X} \right)^{-1}
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Three-stage least squares estimation}
+
+If the regressors are correlated with the disturbances 
+($E \left( u | X \right) \neq 0$) and 
+the disturbances are contemporaneously correlated, 
+an Instrumental Variable (IV) Generalized Least Squares (GLS) 
+estimation leads to consistent and efficient estimates. This estimation 
+procedure is generally called "Three-stage Least Squares" (3SLS). 
+
+The standard 3SLS estimator can be obtained by:
+\begin{equation}
+   \widehat{\beta} = \left( \widehat{X}' \Omega^{-1} \widehat{X} 
+   \right)^{-1} \widehat{X}' \Omega^{-1} y
+\end{equation}
+with $\Omega = \Sigma \otimes I$ and
+$\sigma_{ij} = E \left( u_i' u_j \right)$.
+
+Its variance-covariance matrix is:
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1} 
+   \widehat{X} \right)^{-1}
+   \label{eq:cov3sls}
+\end{equation}
+
+While an unbiased 2SLS or W2SLS estimation requires only that 
+the instrumental variables and the disturbance terms of each single 
+equation are uncorrelated,
+\cite{schmidt90} points out that this estimator is only consistent 
+if all disturbance terms and all instrumental variables are uncorrelated:
+\begin{equation}
+   E \left( u | H \right) = 0
+\end{equation}
+with
+\begin{equation}
+   H =
+   \left[ \begin{array}{cccc}
+      H_1 & 0 & \cdots & 0\\
+      0 & H_2 & \cdots & 0\\
+      \vdots & \vdots & \ddots & \vdots\\
+      0 & 0 & \cdots & H_G
+   \end{array}\right] \cdot 
+\end{equation}
+
+Since there might be occasions where this cannot be avoided, 
+\cite{schmidt90} analyses other approaches to obtain 3SLS estimators:
+
+One of these approaches is based on instrumental variable estimation
+(IV-3SLS):
+\begin{equation}
+   \widehat{\beta} = \left( \widehat{X}' \Omega^{-1} X 
+   \right)^{-1} \widehat{X}' \Omega^{-1} y
+\end{equation}
+
+The variance-covariance matrix of this IV-3SLS estimator is:
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1} 
+   X \right)^{-1}
+\end{equation}
+
+
+Another approach is based on the Generalized Method of Moments (GMM) 
+estimator (GMM-3SLS):
+\begin{equation}
+   \widehat{\beta} = \left( X' H \left( H' \Omega H \right)^{-1}
+   H' X \right)^{-1} X' H \left( H' \Omega H \right)^{-1} H' y
+   \label{eq:beta3slsGMM}
+\end{equation}
+
+The variance-covariance matrix of the GMM-3SLS estimator is:
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = 
+   \left( X' H \left( H' \Omega H \right)^{-1} H' X \right)^{-1}
+\end{equation}
+
+
+A fourth approach developed by \cite{schmidt90} himself is:
+\begin{equation}
+   \widehat{\beta} = \left( \widehat{X}' \Omega^{-1} \widehat{X} 
+   \right)^{-1} \widehat{X}' \Omega^{-1} 
+   H \left( H' H \right)^{-1} H' y 
+   \label{eq:beta3slsSchmidt}
+\end{equation}
+
+The variance-covariance matrix of this estimator is:
+\begin{equation}
+   Var \left[ \widehat{\beta} \right] = 
+   \left( \widehat{X}' \Omega^{-1}  \widehat{X} \right)^{-1} 
+   \widehat{X}' \Omega^{-1} H \left( H' H \right)^{-1} H' \Omega 
+   H \left( H' H \right)^{-1} H' \Omega^{-1} \widehat{X}
+   \left( \widehat{X}' \Omega^{-1}  \widehat{X} \right)^{-1}
+\end{equation}
+
+
+The econometrics software EViews uses following approach:
+\begin{equation}
+   \widehat{\beta} = \widehat{\beta}_{2SLS} + 
+   \left( \widehat{X}' \Omega^{-1} \widehat{X} \right)^{-1} 
+   \widehat{X}' \Omega^{-1} \left( y - X \widehat{\beta}_{2SLS} \right)
+\end{equation}
+with $\widehat{\beta}_{2SLS}$ is the two-stage least squares estimator
+(equation \ref{eq:beta2sls}).
+EViews uses the standard 3SLS formula (equation (\ref{eq:cov3sls})) to 
+calculate the variance-covariance matrix of the 3SLS estimator.
+
+
+If the same instrumental variables are used in all equations 
+($H_1 = H_2 = \ldots = H_G$), 
+all the above mentioned approaches lead to identical parameter estimates.
+However, if this is not the case, the results depend on the 
+equation used \citep{schmidt90}. 
+The only reason to use different instruments in the different equations 
+is that the instruments of one equation are correlated with the
+disturbance terms in another equation. Otherwise, one would simply use
+every instrument in every equation \citep{schmidt90}. 
+In this case, only the GMM-3SLS (equation (\ref{eq:beta3slsGMM}))
+and the 3SLS estimator developed by \cite{schmidt90} 
+(equation (\ref{eq:beta3slsSchmidt})) are consistent.
+
+

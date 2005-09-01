@@ -1,0 +1,39 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Many theoretical models consist of more than one equation. If these
+models are econometrically estimated, the equations generally should
+not be estimated individually, but all together, because the
+disturbance terms of these equations are likely contemporaneously
+correlated. Estimating all equations simultaneously and taking the
+covariance structure of the residuals into account leads to efficient
+estimates, while ignoring this correlation leads to an inefficient
+parameter estimation \citep{zellner62}.
+
+Another reason to estimate an equation system simultaneously are
+cross-equation parameter restrictions. These restrictions can be
+tested and/or imposed only in a simultaneous estimation
+approach. Especially the economic theory suggests many cross-equation
+restriction.
+
+The \pkg{systemfit} package provides the capability to estimate
+linear and non-linear equation systems in \proglang{R}. Compared to
+other statistics and econometrics software the (advanced) user can
+control many important details of the estimation procedure. On the
+other hand these user options have reasonable defaults that also
+beginners can easily use the provided functions.
+
+\textbf{I'll have to update this section to match the recent changes. JDH.}
+
+This paper is organized as follows: In section~\ref{sec:Estimation} we
+introduce the mathematics of estimating equation systems.
+Section~\ref{sec:Restrictions} shows how linear restrictions can be
+imposed.
+All other relevant issues are discussed in section~\ref{sec:Other}.
+Section~\ref{sec:Usage} demonstrates how to run
+\pkg{systemfit}, especially how the features presented in the previous
+sections can be used.
+Finally, a summary and an outlook are given in
+section~\ref{sec:Summmary}.
+
