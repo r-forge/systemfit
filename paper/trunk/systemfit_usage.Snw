@@ -7,10 +7,9 @@
 \subsection{Standard usage}
 
 \pkg{systemfit} is generally called by
-
-\code{
-R> systemfit( method, eqns )
-}
+<<eval=FALSE>>=
+systemfit( method, eqns )
+@
 
 There are two mandatory arguments: \code{method} and \code{eqns}.
 
@@ -24,13 +23,13 @@ It starts with a dependent variable on the left hand side.
 After a tilde ($\sim$) the regressors are listed%
 \footnote{For Details see the \proglang{R} help files to \code{formula}}.
 
-This is now demonstrated using an example: \\
-\code{
-R> library( systemfit ) \\
-R> data( kmenta ) \\
-R> attach( kmenta ) \\
-R> fitsur <- systemfit( "SUR", list( q $\sim$ p + d, q $\sim$ p + f + a ) ) \\
-}
+This is now demonstrated using an example:
+<<>>=
+library( systemfit )
+data( kmenta )
+attach( kmenta )
+fitsur <- systemfit( "SUR", list( q ~ p + d, q ~ p + f + a ) )
+@
 
 The first line loads the \pkg{systemfit} package. 
 The second line loads example data that are included in this package.
@@ -52,68 +51,9 @@ consumer prices) and a constant as well as
 The regression result is assigned to the variable \code{fitsur}.
 
 Summary results can be printed by\\
-\code{
-R>~summary(~fitsur~)~\\
-~\\
-systemfit~results~\\
-method:~SUR~\\
-\\
-\mbox{}~~~N~DF~~~~~~SSR~~~~~MSE~~~~RMSE~~~~~~~R2~~~Adj~R2 \\
-1~20~17~~65.6829~3.86370~1.96563~0.755019~0.726198~\\
-2~20~16~104.0584~6.50365~2.55023~0.611888~0.539117~\\
-~\\
-The~covariance~matrix~of~the~residuals~used~for~estimation\\
-\mbox{}~~~~~~~~1~~~~~~~2~\\
-1~3.72539~4.13696~\\
-2~4.13696~5.78444~\\
-~\\
-The~covariance~matrix~of~the~residuals\\
-\mbox{}~~~~~~~~1~~~~~~~2~\\
-1~3.86370~4.92431~\\
-2~4.92431~6.50365~\\
-~\\
-The~correlations~of~the~residuals\\
-\mbox{}~~~~~~~~~1~~~~~~~~2~\\
-1~1.000000~0.982348~\\
-2~0.982348~1.000000~\\
-~\\
-The~determinant~of~the~residual~covariance~matrix:~0.879285~\\
-OLS~R-squared~value~of~the~system:~0.683453~\\
-McElroy's~R-squared~value~for~the~system:~0.788722~\\
-~\\
-SUR~estimates~for~1~~(equation~1~)~\\
-Model~Formula:~q~~~p~+~d\\
-\\
-\mbox{}~~~~~~~~~~~~~Estimate~Std.~Error~~~t~value~Pr(>|t|)~\\
-(Intercept)~99.332894~~~7.514452~13.218913~~~~~~~~0~***~\\
-p~~~~~~~~~~~-0.275486~~~0.088509~-3.112513~0.006332~~**~\\
-d~~~~~~~~~~~~~0.29855~~~0.041945~~7.117605~~~~2e-06~***~\\
----~\\
-Signif.~codes:~~0~`***'~0.001~`**'~0.01~`*'~0.05~`.'~0.1~`~'~1~\\
-~\\
-Residual~standard~error:~1.96563~on~17~degrees~of~freedom~\\
-Number~of~observations:~20~Degrees~of~Freedom:~17~\\
-SSR:~65.682902~MSE:~3.8637~Root~MSE:~1.96563~\\
-Multiple~R-Squared:~0.755019~Adjusted~R-Squared:~0.726198~\\
-~\\
-~\\
-SUR~estimates~for~2~~(equation~2~)~\\
-Model~Formula:~q~~~p~+~f~+~a\\
-\\
-\mbox{}~~~~~~~~~~~~~Estimate~Std.~Error~~t~value~Pr(>|t|)~\\
-(Intercept)~61.966166~~~11.08079~5.592215~~~~4e-05~***~\\
-p~~~~~~~~~~~~0.146884~~~0.094435~1.555397~0.139408~\\
-f~~~~~~~~~~~~0.214004~~~0.039868~5.367761~~6.3e-05~***~\\
-a~~~~~~~~~~~~0.339304~~~0.067911~4.996283~0.000132~***~\\
----~\\
-Signif.~codes:~~0~`***'~0.001~`**'~0.01~`*'~0.05~`.'~0.1~`~'~1~\\
-~\\
-Residual~standard~error:~2.550226~on~16~degrees~of~freedom~\\
-Number~of~observations:~20~Degrees~of~Freedom:~16~\\
-SSR:~104.05843~MSE:~6.503652~Root~MSE:~2.550226~\\
-Multiple~R-Squared:~0.611888~Adjusted~R-Squared:~0.539117~\\
-}
-
+<<>>=
+summary( fitsur )
+@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -126,19 +66,11 @@ Following additional options can be set by the user:
 \paragraph{Equation labels}
 The optional argument \code{eqnlabels} allows the user to label the equations.
 It has to be a vector of strings naming the equations.\\
-\code{
-R>~fitsur~<-~systemfit(~"SUR",~list(~q~~~p~+~d,~q~~~p~+~f~+~a~),\\~
-R+~~~~eqnlabels~=~c(~"demand",~"supply"~)~)\\
-R>~summary(~fitsur~)\\
-systemfit~results\\
-method:~SUR\\
-\\
-\mbox{}~~~~~~~~N~DF~~~~~~SSR~~~~~MSE~~~~RMSE~~~~~~~R2~~~Adj~R2\\
-demand~20~17~~65.6829~3.86370~1.96563~0.755019~0.726198\\
-supply~20~16~104.0584~6.50365~2.55023~0.611888~0.539117\\
-\ldots\\
-}
-If no equation labels are provided, the equations are numbered.
+<<>>=
+fitsur <- systemfit( "SUR", list( q ~ p + d, q ~ p + f + a ),
+             eqnlabels = c( "demand", "supply" ) )
+summary( fitsur )
+@
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Instrumental variables}   
