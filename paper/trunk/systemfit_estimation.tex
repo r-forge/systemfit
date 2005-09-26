@@ -59,7 +59,7 @@ identity matrix.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Ordinary Least Squares estimation}
+\subsection{Ordinary least squares (OLS)}
 
 The Ordinary Least Squares (OLS) estimator of the system 
 is obtained by
@@ -93,7 +93,7 @@ with $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
 $\sigma_{ii} = E \left( u_i' u_i \right)$.
 
-If no cross-equation restrictions are imposed, the simultaneous 
+If no cross-equation parameter restrictions are imposed, the simultaneous 
 OLS estimation of the system leads to the same parameter estimates 
 as an equation-wise OLS estimation. The variance-covariance matrix 
 of the parameters from an equation-wise OLS estimation is equal to 
@@ -102,7 +102,7 @@ the variance-covariance matrix obtained by equation
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Weighted least squares}
+\subsection{Weighted least squares (WLS)}
 
 The Weighted Least Squares (WLS) estimator of the system 
 is obtained by
@@ -121,17 +121,11 @@ The variance-covariance matrix of the estimated parameters is
    Var \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
 \end{equation}
 
-If no cross-equation restrictions are imposed, 
-the parameter estimates and the variance-covariance matrix 
-of the parameters are equal to the OLS estimates%
-\footnote{The variance-covariance matrices of the 
-estimated parameters might differ, 
-if the WLS estimation is based on a different formula 
-to calculate the (diagonal) variance-covariance 
-matrix of the residuals (see section \ref{sec:residcov}).}.  
+If no cross-equation parameter restrictions are imposed, 
+the parameter estimates are equal to the OLS estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Seemingly unrelated regression}
+\subsection{Seemingly unrelated regression (SUR)}
 
 When the disturbances are contemporaneously correlated, a Generalized 
 Least Squares (GLS) estimation leads to efficient parameter estimates.
@@ -165,7 +159,7 @@ And the variance-covariance matrix of the estimated parameters is
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Two-stage least squares estimation}
+\subsection{Two-stage least squares (2SLS)}
 
 If the regressors of one or more equations are correlated 
 with the disturbances ($E \left( u_i | X_i \right) \neq 0$), 
@@ -211,7 +205,7 @@ $\sigma_{ii} = E \left( u_i' u_i \right)$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Weighted two-stage least squares estimation}
+\subsection{Weighted two-stage least squares (W2SLS)}
 
 The Weighted Two-Stage Least Squares (W2SLS) estimator of the system 
 is obtained by
@@ -231,7 +225,7 @@ The variance-covariance matrix of the estimated parameters is
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Three-stage least squares estimation}
+\subsection{Three-stage least squares (3SLS)}
 
 If the regressors are correlated with the disturbances 
 ($E \left( u | X \right) \neq 0$) and 
@@ -332,7 +326,7 @@ The econometrics software EViews uses following approach:
 \end{equation}
 with $\widehat{\beta}_{2SLS}$ is the two-stage least squares estimator
 (equation \ref{eq:beta2sls}).
-EViews uses the standard 3SLS formula (equation (\ref{eq:cov3sls})) to 
+EViews uses the standard 3SLS formula (\ref{eq:cov3sls}) to
 calculate the variance-covariance matrix of the 3SLS estimator.
 
 
@@ -345,8 +339,8 @@ The only reason to use different instruments in the different equations
 is that the instruments of one equation are correlated with the
 disturbance terms in another equation. Otherwise, one would simply use
 every instrument in every equation \citep{schmidt90}. 
-In this case, only the GMM-3SLS (equation (\ref{eq:beta3slsGMM}))
+In this case, only the GMM-3SLS (\ref{eq:beta3slsGMM})
 and the 3SLS estimator developed by \cite{schmidt90} 
-(equation (\ref{eq:beta3slsSchmidt})) are consistent.
+(\ref{eq:beta3slsSchmidt}) are consistent.
 
 

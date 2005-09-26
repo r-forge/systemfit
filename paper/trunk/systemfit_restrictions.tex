@@ -7,7 +7,13 @@ First, a matrix $T$ can be provided with
 \begin{equation}
    \beta = T \cdot \beta^* \label{eq:T-restr} 
 \end{equation}
-where $\beta^*$ is a vector of linear independent coefficients.
+where $\beta^*$ is a vector of restricted (linear independent) coefficients,
+and $T$ is a matrix with the number of rows equal to the number of
+unrestricted coefficients ($\beta$) and
+the number of columns equal to the number of restricted coefficients
+($\beta^*$).
+$T$ can be used to map each unrestricted coefficient to one or more
+restricted coefficients.
 
 To impose these restrictions the $X$ matrix is
 (post-)multiplied by this $T$ matrix.
@@ -36,8 +42,8 @@ Each restriction belongs to one row of $R$ and the corresponding
 element of~$q$.
 
 The first way is less flexible than this latter one%
-\footnote{e.g. restrictions like $\beta_1 + \beta_2 = 4$ cannot be imposed
-by the first method}, 
+\footnote{e.g.\ restrictions like $\beta_1 + \beta_2 = 4$ cannot be imposed
+by the first method.}, 
 but the first way is preferable if equality constraints for coefficients
 across many equations of the system are imposed. 
 Of course, these restrictions can be also imposed using
@@ -427,7 +433,7 @@ where $\widehat{\beta^0}_{2SLS}$ is the restricted 2SLS estimator calculated
 by equation (\ref{eq:beta2SLSr}). 
 To calculate the variance-covariance matrix 
 EViews uses the standard formula of the restricted 3SLS estimator
-(equation (\ref{eq:cov3slsr})).
+(\ref{eq:cov3slsr}).
 
 
 If the same instrumental variables are used in all equations 
