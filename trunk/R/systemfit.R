@@ -145,6 +145,13 @@ systemfit <- function( method,
    # how were we called?
    call <- match.call() # get the original call
    m0 <- match.call( expand.dots = FALSE ) #-"- without ...-expansion
+   pos <- which( names( m0 ) == "data" )
+   if( length( pos ) == 1 ) {
+      results$data.name <- as.character( m0[ pos ] )
+   } else {
+      results$data.name <- "unknown" 
+   }
+   rm( pos )
    temp <- c("", "data", "weights", "subset", "na.action")
                   # arguments for model matrices
    m0 <- m0[match(temp, names(m0), nomatch = 0)]
@@ -1117,29 +1124,27 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
 
 hausman.systemfit <- function( results2sls, results3sls ) {
 
-   hausman <- list()
+   result <- list()
 
-   hausman$q <- results2sls$b - results3sls$b
-   hausman$qVar <- results2sls$bcov - results3sls$bcov
+   result$q <- results2sls$b - results3sls$b
+   result$qVar <- results2sls$bcov - results3sls$bcov
 
 #    if( min( eigen( hausman$qVar )$values ) < 0 ) {
 #       warning( "the matrix V is not 'positive definite'" )
 #    }
 
-   hausman$m <- t( hausman$q ) %*% solve( hausman$qVar, hausman$q )
-   hausman$df <- nrow( hausman$qVar )
-   hausman$pval <- 1 - pchisq( hausman$m, hausman$df )
-
-   class( hausman ) <- "hausman.systemfit"
-   return( hausman )
+   result$statistic <- t( result$q ) %*% solve( result$qVar, result$q )
+   names( result$statistic ) <- "Hausman"
+   result$parameter <- nrow( result$qVar )
+   names( result$parameter ) <- "df"
+   result$p.value <- 1 - pchisq( result$statistic, result$parameter )
+   result$method = paste( "Hausman specification test for consistency of",
+      "the 3SLS estimation" )  
+   result$data.name = results2sls$data.name
+   class( result ) <- "htest"
+   return( result )
 }
 
-print.hausman.systemfit <- function( x, digits=6, ... ) {
-   save.digits <- unlist( options( digits = digits ) )
-   on.exit( options( digits = save.digits ) )
-   cat( x$m, " (P-value: ", x$pval, ")\n", sep = "" )
-   invisible( x )
-}
 
 ## Likelihood Ratio Test
 lrtest.systemfit <- function( resultc, resultu ) {

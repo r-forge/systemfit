@@ -171,6 +171,7 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
   \item{probdfsys}{system degrees of freedom to calculate prob values?.}
   \item{single.eq.sigma}{different \eqn{\sigma^2}s for each single equation?.}
   \item{solvetol}{tolerance level when inverting a matrix or calculating a determinant.}
+  \item{data.name}{name of the data.frame used for estimation.}
 
   ## elements of the class systemfit.eq
   \item{eq}{a list that contains the results that belong to the individual equations.}

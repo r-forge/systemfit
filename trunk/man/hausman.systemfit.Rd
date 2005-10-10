@@ -41,13 +41,15 @@
 
 \value{
    \code{hausman.systemfit} returns a list of the class
-    \code{hausman.systemfit} that contains following elements:
+    \code{htest} that contains following elements:
    \item{q}{vector of the differences between the estimated coefficients.}
    \item{qVar}{variance covariance matrix of \code{q} (difference between the
      variance covariance matrices of the estimated coefficients).}
-   \item{m}{the Hausman test statistic.}
-   \item{df}{degrees of freedom.}
-   \item{pval}{P-value of the test.}
+   \item{statistic}{the Hausman test statistic.}
+   \item{parameter}{degrees of freedom.}
+   \item{p.value}{P-value of the test.}
+   \item{method}{character string describing this test.}
+   \item{data.name}{name of the data.frame used for estimation.}
 }
 
 \references{
