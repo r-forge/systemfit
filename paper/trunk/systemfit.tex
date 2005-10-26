@@ -78,9 +78,551 @@
 \input{systemfit_summary.tex}
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Standard usage}
+
+\pkg{systemfit} is generally called by
+
+\code{
+R> systemfit( method, eqns )
+}
+
+There are two mandatory arguments: \code{method} and \code{eqns}.
+
+The argument \code{method} is a string determining the estimation method.
+It must be one of "OLS", "WLS", "SUR", "2SLS", "W2SLS" or "3SLS".
+
+The other mandatory argument \code{eqns} is a list of the equations 
+to estimate. 
+Each equation is a standard formula in \proglang{R}.
+It starts with a dependent variable on the left hand side.
+After a tilde ($\sim$) the regressors are listed%
+\footnote{For Details see the \proglang{R} help files to \code{formula}}.
+
+This is now demonstrated using an example: \\
+\code{
+R> library( systemfit ) \\
+R> data( kmenta ) \\
+R> attach( kmenta ) \\
+R> fitsur <- systemfit( "SUR", list( q $\sim$ p + d, q $\sim$ p + f + a ) ) \\
+}
+
+The first line loads the \pkg{systemfit} package. 
+The second line loads example data that are included in this package.
+These data come from \cite{kmenta86}.
+They are attached to the \proglang{R} search path in line three.
+In the last line a seemingly unrelated regression is done.
+The first equation represents the demand side of the food market.
+The dependant variable is \code{q} (food consumption per capita). 
+The regressors are \code{p} (ratio of food prices to general consumer prices)
+and \code{d} (disposable income) as well as a constant%
+\footnote{a regression constant is always implied if not explicitly omitted.}.
+The second equation represents the supply side.
+Variable \code{q} (food consumption per capita) is also the dependant 
+variable of this equation. 
+The regressors are again \code{p} (ratio of food prices to general 
+consumer prices) and a constant as well as 
+\code{f} (ratio of preceding year's prices received by farmers) and 
+\code{a} (a time trend in years).
+The regression result is assigned to the variable \code{fitsur}.
+
+Summary results can be printed by\\
+\code{
+R>~summary(~fitsur~)~\\
+~\\
+systemfit~results~\\
+method:~SUR~\\
+\\
+\mbox{}~~~N~DF~~~~~~SSR~~~~~MSE~~~~RMSE~~~~~~~R2~~~Adj~R2 \\
+1~20~17~~65.6829~3.86370~1.96563~0.755019~0.726198~\\
+2~20~16~104.0584~6.50365~2.55023~0.611888~0.539117~\\
+~\\
+The~covariance~matrix~of~the~residuals~used~for~estimation\\
+\mbox{}~~~~~~~~1~~~~~~~2~\\
+1~3.72539~4.13696~\\
+2~4.13696~5.78444~\\
+~\\
+The~covariance~matrix~of~the~residuals\\
+\mbox{}~~~~~~~~1~~~~~~~2~\\
+1~3.86370~4.92431~\\
+2~4.92431~6.50365~\\
+~\\
+The~correlations~of~the~residuals\\
+\mbox{}~~~~~~~~~1~~~~~~~~2~\\
+1~1.000000~0.982348~\\
+2~0.982348~1.000000~\\
+~\\
+The~determinant~of~the~residual~covariance~matrix:~0.879285~\\
+OLS~R-squared~value~of~the~system:~0.683453~\\
+McElroy's~R-squared~value~for~the~system:~0.788722~\\
+~\\
+SUR~estimates~for~1~~(equation~1~)~\\
+Model~Formula:~q~~~p~+~d\\
+\\
+\mbox{}~~~~~~~~~~~~~Estimate~Std.~Error~~~t~value~Pr(>|t|)~\\
+(Intercept)~99.332894~~~7.514452~13.218913~~~~~~~~0~***~\\
+p~~~~~~~~~~~-0.275486~~~0.088509~-3.112513~0.006332~~**~\\
+d~~~~~~~~~~~~~0.29855~~~0.041945~~7.117605~~~~2e-06~***~\\
+---~\\
+Signif.~codes:~~0~`***'~0.001~`**'~0.01~`*'~0.05~`.'~0.1~`~'~1~\\
+~\\
+Residual~standard~error:~1.96563~on~17~degrees~of~freedom~\\
+Number~of~observations:~20~Degrees~of~Freedom:~17~\\
+SSR:~65.682902~MSE:~3.8637~Root~MSE:~1.96563~\\
+Multiple~R-Squared:~0.755019~Adjusted~R-Squared:~0.726198~\\
+~\\
+~\\
+SUR~estimates~for~2~~(equation~2~)~\\
+Model~Formula:~q~~~p~+~f~+~a\\
+\\
+\mbox{}~~~~~~~~~~~~~Estimate~Std.~Error~~t~value~Pr(>|t|)~\\
+(Intercept)~61.966166~~~11.08079~5.592215~~~~4e-05~***~\\
+p~~~~~~~~~~~~0.146884~~~0.094435~1.555397~0.139408~\\
+f~~~~~~~~~~~~0.214004~~~0.039868~5.367761~~6.3e-05~***~\\
+a~~~~~~~~~~~~0.339304~~~0.067911~4.996283~0.000132~***~\\
+---~\\
+Signif.~codes:~~0~`***'~0.001~`**'~0.01~`*'~0.05~`.'~0.1~`~'~1~\\
+~\\
+Residual~standard~error:~2.550226~on~16~degrees~of~freedom~\\
+Number~of~observations:~20~Degrees~of~Freedom:~16~\\
+SSR:~104.05843~MSE:~6.503652~Root~MSE:~2.550226~\\
+Multiple~R-Squared:~0.611888~Adjusted~R-Squared:~0.539117~\\
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{User options}
+
+Following additional options can be set by the user:
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsubsection{Equation labels}
+\paragraph{Equation labels}
+The optional argument \code{eqnlabels} allows the user to label the equations.
+It has to be a vector of strings naming the equations.\\
+\code{
+R>~fitsur~<-~systemfit(~"SUR",~list(~q~~~p~+~d,~q~~~p~+~f~+~a~),\\~
+R+~~~~eqnlabels~=~c(~"demand",~"supply"~)~)\\
+R>~summary(~fitsur~)\\
+systemfit~results\\
+method:~SUR\\
+\\
+\mbox{}~~~~~~~~N~DF~~~~~~SSR~~~~~MSE~~~~RMSE~~~~~~~R2~~~Adj~R2\\
+demand~20~17~~65.6829~3.86370~1.96563~0.755019~0.726198\\
+supply~20~16~104.0584~6.50365~2.55023~0.611888~0.539117\\
+\ldots\\
+}
+If no equation labels are provided, the equations are numbered.
+ 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Instrumental variables}   
+\paragraph{Instrumental variables}   
+\code{inst}one-sided model formula specifying instrumental variables
+   or a list of one-sided model formulas if different instruments should
+   be used for the different equations (only needed for 2SLS, W2SLS and
+   3SLS estimations).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Data}   
+\paragraph{Data}   
+\code{data} an optional data frame containing the variables in the model.
+   By default the variables are taken from the environment from which
+   systemfit is called.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Restrictions}   
+\paragraph{Restrictions}   
+\code{R.restr} an optional j x k matrix to impose linear
+   restrictions on the parameters by \code{R.restr} * $\beta$ = \code{q.restr}
+   (j = number of restrictions, k = number of all parameters,
+   $\beta$ = vector of all parameters).
+
+\code{q.restr} an optional j x 1 matrix to impose linear
+   restrictions (see \code{R.restr}); default is a j x 1 matrix
+   that contains only zeros.
+
+\code{TX} an optional matrix to transform the regressor matrix and,
+   hence, also the coefficient vector (see details).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Iteration control}   
+\paragraph{Iteration control}
+\code{maxiter} maximum number of iterations for WLS, SUR, W2SLS and
+   3SLS estimations.
+
+\code{tol} tolerance level indicating when to stop the iteration (only
+   WLS, SUR, W2SLS and 3SLS estimations).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Residual covariance matrix}   
+\paragraph{Residual covariance matrix}   
+\code{rcovformula} formula to calculate the estimated residual covariance
+   matrix (see details).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{3SLS formula}   
+\paragraph{3SLS formula}   
+\code{formula3sls} formula for calculating the 3SLS estimator,
+   one of "GLS", "IV", "GMM", "Schmidt" or "EViews" (see details).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Degrees of freedom for t-tests}   
+\paragraph{Degrees of freedom for t-tests}   
+\code{probdfsys} use the degrees of freedom of the whole system
+   (in place of the degrees of freedom of the single equation)
+   to calculate prob values for the t-test of individual parameters.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{Sigma squared}   
+\paragraph{Sigma squared}   
+\code{single.eq.sigma} use different $\sigma^2$s for each
+   single equation to calculate the covariance matrix and the
+   standard errors of the coefficients (only OLS and 2SLS).
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\subsubsection{System options}   
+\paragraph{System options}   
+
+\code{solvetol} tolerance level for detecting linear dependencies
+   when inverting a matrix or calculating a determinant (see
+   \code{solve} and \code{det}).
+
+\code{saveMemory} save memory by omitting some calculation that
+   are not crucial for the basic estimation (e.g McElroy's
+   $R^2$).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Estimating nonlinear equation systems}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The \pkg{systemfit} package also contains a method for fitting
+nonlinear systems of equations.
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Nonlinear parameter estimation}
+\label{sec:nonlinear_estimation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+A system of nonlinear equations can be written as:
+  
+\begin{equation}
+  \label{eq:non_linear_eq_1}
+  \epsilon_{t} = q( y_t, x_t, \beta )
+\end{equation}
+%%% It is not clear what these variable are. 
+%%% Adding an equation representing only a single equation
+%%% would make things clearer.
+
+\noindent and
+
+\begin{equation}
+  \label{eq:non_linear_eq_2}
+  z_{t} = Z( x_t )
+\end{equation}
+
+where $\epsilon_{t}$ are the residuals from the y observations and
+$z_{t}$ are the function evaluated at the parameter estimates.
+
+\textbf{you really need to check this!!!}
+
+The objective functions for the methods are:
+  
+\begin{center}
+\begin{tabular}{|l|c|c|c|} \hline
+  Method & Instruments & Objective Function & Covariance of $\theta$ \\ \hline  
+  OLS & No & $r'r$ & $(X(diag(S)^{-1}\otimes I)X)^{-1}$ \\ \hline
+  SUR & No & $r'(diag(S)_{OLS}^{-1}\otimes I)r$ & $(X(S^{-1}\otimes I)X)^{-1}$ \\ \hline
+  2SLS & Yes & $r'(I \otimes W)r$ & $(X(diag(S)^{-1}\otimes I)X)^{-1}$ \\ \hline 
+  3SLS & Yes & $r'(S_{2SLS}^{-1} \otimes W)r$ & $(X(diag(S)^{-1}\otimes W)X)^{-1}$ \\ \hline
+\end{tabular}
+\end{center}
+
+where, $r$ is a column vector for the residuals for each equation,
+%% what is the difference to \epsilon?
+$X$ is matrix of the partial derivatives of the dependent variable 
+with respect to the parameters $\left( \frac{ \partial y }{ \theta} \right)$,
+%% is this correct?
+%% in the linear section X is used for the regressors, 
+%% thus we should use a different variable name here.
+$W$ is a matrix of the instrument variables, $Z(Z'Z)^{-1}Z$, $Z$ is a
+matrix of the instrument variables, and $I$ is an $n \times n $
+identity matrix and $S$ is the estimated variance-covariance matrix between the
+equations
+
+\begin{equation}
+  \label{eq:non-linear_varcov}
+  \hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) / \sqrt{(T - k_i)*(T- k_j)} 
+\end{equation}
+
+\textbf{The residual variance-covariance matrix can be calculated in 
+different ways (section~\ref{sec:residcov}). 
+It should be relatively easy to implement this also in nlsystemfit(), 
+e.g. the function 'calcRCov' in systemfit() could be moved outside
+systemfit() that it can be used also by nlsystemfit().}
+
+\textbf{You need to clear this up.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Using nlsystemfit}\label{sec:UsingnlSystemfit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\code {nlsystemfit} fits a set of structural nonlinear equations using
+Ordinary Least Squares (OLS), Seemingly Unrelated Regression (SUR),
+Two-Stage Least Squares (2SLS), Three-Stage Least Squares (3SLS) using
+the objective functions described in section
+\ref{sec:nonlinear_estimation}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Standard usage}
+
+Similar to calling the \code{systemfit} function, \code{nlsystemfit}
+is called with a minimum of three arguments,
+
+\code{
+R> nlsystemfit( method, eqns, start )
+}
+
+where \code{method} is one of the following estimation methods: "OLS",
+"SUR", "2SLS", or "3SLS", \code{eqns} is a list of equations similar
+to those described for \code{systemfit}, and \code{start} is a list of
+starting values of the parameter estimates.
+
+% The mandatory argument \code{eqns} is a list of the equations  to
+% estimate.  Each equation is a standard formula in \proglang{R}.  It
+% starts with a dependent variable on the left hand side.  After a tilde
+% ($~$) the regressors are listed  \footnote{For Details see the
+%   \proglang{R} help files to \code{formula}}.
+
+This is now demonstrated using an example: \\
+
+% \code{
+% R> library( systemfit ) \\
+% R> data( ppine ) \\
+% R> hg.formula <- hg $\sim$ exp( h0 + h1*log(tht) + h2*tht$\hat$2 + h3*elev + h4*cr) \\
+% R> dg.formula <- dg $\sim$ exp( d0 + d1*log(dbh) + d2*hg + d3*cr + d4*ba  ) \\
+% R> labels <- list( "height.growth", "diameter.growth" )\\
+% R> inst <- $\sim$ tht + dbh + elev + cr + ba\\
+% R> start.values <- c(h0=-0.5, h1=0.5, h2=-0.001, h3=0.0001, h4=0.08,\\
+% R+   d0=-0.5, d1=0.009, d2=0.25, d3=0.005, d4=-0.02 )\\
+% R> model <- list( hg.formula, dg.formula )\\
+% R> model.3sls <- nlsystemfit( "3SLS", model, start.values, data=ppine,\\
+% R+   eqnlabels=labels, inst=inst ) \\
+% R> summary( model.3sls ) \\
+% }
+
+
+The nlsystemfit function relies on \code{nlm} to perform the
+minimization of the objective functions and the \code{qr} set of
+functions. If the user does not have a set of estimates for the
+initial parameters, it is suggested using linearized forms in one of
+the linear methods, or simply using \code{nls} to obtain estimates for
+the equations. 
+
+The outputs are similar to those for a systemfit object. 
+
+\textbf{Describe the code and outputs as Arne did in the previous
+  section.}
+
+The first line loads the \pkg{systemfit} package. 
+The second line loads example data that are included in this package.
+These data come from \cite{kmenta86}.
+They are attached to the \proglang{R} search path in line three.
+In the last line a seemingly unrelated regression is done.
+The first equation represents the demand side of the food market.
+The dependant variable is \code{q} (food consumption per capita). 
+The regressors are \code{p} (ratio of food prices to general consumer prices)
+and \code{disposable income} as well as a constant%
+\footnote{a regression constant is always implied if not explicitly omitted.}.
+The second equation represents the supply side.
+Variable \code{q} (food consumption per capita) is also the dependant 
+variable of this equation. 
+The regressors are again \code{p} (ratio of food prices to general 
+consumer prices) and a constant as well as 
+\code{f} (ratio of preceding year's prices received by farmers) and 
+\code{a} (a time trend in years).
+The regression result is assigned to the variable \code{fitsur}.
+
+%% Arne -- Did you put the ~'s in by hand?
+%% Yes, I did. I used find and replace to substitute the "~" for " ". 
+%% This is necessary to retain the format of the output.
+
+Summary results can be printed by\\
+\code{
+R>~summary(~fitsur~)~\\
+~\\
+systemfit~results~\\
+method:~SUR~\\
+\\
+\mbox{}~~~N~DF~~~~~~SSR~~~~~MSE~~~~RMSE~~~~~~~R2~~~Adj~R2 \\
+1~20~17~~65.6829~3.86370~1.96563~0.755019~0.726198~\\
+2~20~16~104.0584~6.50365~2.55023~0.611888~0.539117~\\
+~\\
+The~covariance~matrix~of~the~residuals~used~for~estimation\\
+\mbox{}~~~~~~~~1~~~~~~~2~\\
+1~3.72539~4.13696~\\
+2~4.13696~5.78444~\\
+~\\
+The~covariance~matrix~of~the~residuals\\
+\mbox{}~~~~~~~~1~~~~~~~2~\\
+1~3.86370~4.92431~\\
+2~4.92431~6.50365~\\
+~\\
+The~correlations~of~the~residuals\\
+\mbox{}~~~~~~~~~1~~~~~~~~2~\\
+1~1.000000~0.982348~\\
+2~0.982348~1.000000~\\
+~\\
+The~determinant~of~the~residual~covariance~matrix:~0.879285~\\
+OLS~R-squared~value~of~the~system:~0.683453~\\
+McElroy's~R-squared~value~for~the~system:~0.788722~\\
+~\\
+SUR~estimates~for~1~~(equation~1~)~\\
+Model~Formula:~q~~~p~+~d\\
+\\
+\mbox{}~~~~~~~~~~~~~Estimate~Std.~Error~~~t~value~Pr(>|t|)~\\
+(Intercept)~99.332894~~~7.514452~13.218913~~~~~~~~0~***~\\
+p~~~~~~~~~~~-0.275486~~~0.088509~-3.112513~0.006332~~**~\\
+d~~~~~~~~~~~~~0.29855~~~0.041945~~7.117605~~~~2e-06~***~\\
+---~\\
+Signif.~codes:~~0~`***'~0.001~`**'~0.01~`*'~0.05~`.'~0.1~`~'~1~\\
+~\\
+Residual~standard~error:~1.96563~on~17~degrees~of~freedom~\\
+Number~of~observations:~20~Degrees~of~Freedom:~17~\\
+SSR:~65.682902~MSE:~3.8637~Root~MSE:~1.96563~\\
+Multiple~R-Squared:~0.755019~Adjusted~R-Squared:~0.726198~\\
+~\\
+~\\
+SUR~estimates~for~2~~(equation~2~)~\\
+Model~Formula:~q~~~p~+~f~+~a\\
+\\
+\mbox{}~~~~~~~~~~~~~Estimate~Std.~Error~~t~value~Pr(>|t|)~\\
+(Intercept)~61.966166~~~11.08079~5.592215~~~~4e-05~***~\\
+p~~~~~~~~~~~~0.146884~~~0.094435~1.555397~0.139408~\\
+f~~~~~~~~~~~~0.214004~~~0.039868~5.367761~~6.3e-05~***~\\
+a~~~~~~~~~~~~0.339304~~~0.067911~4.996283~0.000132~***~\\
+---~\\
+Signif.~codes:~~0~`***'~0.001~`**'~0.01~`*'~0.05~`.'~0.1~`~'~1~\\
+~\\
+Residual~standard~error:~2.550226~on~16~degrees~of~freedom~\\
+Number~of~observations:~20~Degrees~of~Freedom:~16~\\
+SSR:~104.05843~MSE:~6.503652~Root~MSE:~2.550226~\\
+Multiple~R-Squared:~0.611888~Adjusted~R-Squared:~0.539117~\\
+}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Other issues}
+
+
+\subsubsection{nlsystemfit issue 1}
+% The user should be aware that the function is \bold{VERY} sensative to
+% the starting values and the nlm function may not converge. 
+
+% did you try optim()? Especially if you provide (analytical) derivatives
+% it is very good in finding the optimum.
+
+% The nlm
+% function will be called with the \code{typsize} argument set the
+% absolute values of the starting values for the OLS and 2SLS
+% methods. For the SUR and 3SLS methods, the \code{typsize} argument is
+% set to the absolute values of the resulting OLS and 2SLS parameter
+% estimates from the nlm result structre. In addition, the starting
+% values for the SUR and 3SLS methods are obtained from the OLS and 2SLS
+% parameter estimates to shorten the number of iterations. The number of
+% iterations reported in the summary are only those used in the last
+% call to nlm, thus the number of iterations in the OLS portion of the
+% SUR fit and the 2SLS portion of the 3SLS fit are not included.  }
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Other tools}
+
+
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Likelihood ratio test}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Hausman test}
+
+\textbf{Man, I really have to clean this up.}
+
+Hausman \citep{hausman1978} developed a test have power against
+alternatives for which $\hat{\theta}$ and $\tilde{\theta}$ diverge
+under misspecification.
+
+The Hausman result if the difference between the covariance of an
+efficient and the covariance of the inefficient estimator is zero, the
+model is correctly specified.  
+
+The test is based on the idea that under the hypothesis of no
+correlation, both the limited information estimates and the
+full-information results are consistent, but only the full-information
+estimates are efficient and under the alternative, the limited
+information estimates are consistent, but the full information
+estimates are not. 
+
+Since the models that are fit using the \pkg{systemfit} package are
+typically random effects models, the effects may be inconsistent
+between the introduced variables and the regressors.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary and outlook}\label{sec:Summmary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+What should we place in this section?
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Unbalanced Observations}\label{sec:summary_unbalanced_data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The \pkg{systemfit} package was originally developed to fit
+simultaneous equations for forestry datasets. Forestry datasets
+typically contain observations for many inexpensive observations
+(diameter at breast height) and very few expensive observations such
+as total tree height. While the package currently does not allow for
+unbalanced datasets, data where the equations contain different
+numbers of observations, future releases of the package will have that
+feature implemented. We are still trying to figure out how develop the
+code for instrumental variable methods (2SLS,3SLS) for the correct
+estimation methods if possible.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Additional Methods}\label{sec:summary_additional_methods}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsubsection{Full Information Maximum Likelihood}
+
+Describe, in a paragraph the process and give some reasons why you
+might want this in the package. 
+
+
+\subsubsection{Generalized Method of Moments}
+
+Describe, in a paragraph the process and give some reasons why you
+might want this in the package. 
+
+
+
+
 \section{CVS Revision Log}
 \begin{verbatim}
 $Log$
+Revision 1.14  2005/10/26 21:16:53  hamannj
+checked out and updated local copy before edits
+
 Revision 1.13  2005/09/26 20:34:12  henningsena
 using now package csquotes to have uniform and correct quotation marks (BibTeX-Style jss.bst has to be modified)
 
