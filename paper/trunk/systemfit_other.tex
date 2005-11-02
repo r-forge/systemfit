@@ -94,10 +94,6 @@ parameters. This argument can set the degrees of freedom for the
 entire system instead of using the degrees of freedom for each of the
 individual equations.
 
-%    \item{probdfsys}{use the degrees of freedom of the whole system
-%       (in place of the degrees of freedom of the single equation)
-%       to calculate prob values for the t-test of individual parameters.}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Goodness of fit}
 
@@ -159,13 +155,6 @@ estimates are efficient and under the alternative, the limited
 information estimates are consistent, but the full information
 estimates are not.
 
-% Since the models that are fit using the \pkg{systemfit} package are
-% typically random effects models, the effects may be inconsistent
-% between the introduced variables and the regressors.
-
-% results2sls  result of a 2SLS (limited information) estimation returned by systemfit. 
-% results3sls  result of a 3SLS (full information) estimation returned by systemfit. 
-
 The null hypotheses of the test is that all exogenous variables are
 uncorrelated with all disturbance terms. Under this hypothesis both
 the 2SLS and the 3SLS estimator are consistent but only the 3SLS
@@ -225,6 +214,11 @@ functions and the \code{qr} set of functions. If the user does not
 have a set of estimates for the initial parameters, it is suggested
 using linearized forms in one of the linear methods, or simply using
 \code{nls} to obtain estimates for the equations.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% left over from the older docs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % The mandatory argument
 % \code{eqns} is a list of the equations to estimate.  Each equation is
