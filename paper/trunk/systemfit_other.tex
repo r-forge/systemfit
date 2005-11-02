@@ -128,19 +128,19 @@ $i$ is a column vector of $T$ ones.
 
 Currently, the \code{systemfit} package can perform a Likelihood Ratio
 test to test linear restrictions when estimating SUR equation systems.
+The function returns the empirical likelihood ratio, the $p$-value and
+the degrees of freedom of the test which is equivalent to the number
+of restrictions.
 
-This test calculates the likelihood ratio value by calculating the
-estimated residual covariance matrix $hat{S}$ by the maximum likelihood
-formula 
+% This test calculates the likelihood ratio value by calculating the
+% estimated residual covariance matrix $\hat{S}$ by the maximum
+% likelihood formula,
 
-\begin{equation}
-hat{s}_{ij} = \frac{\hat{e}_i^{'} \hat{e}_j}{T} 
-\end{equation}
-where $T$ is vector of ones. 
+% \begin{equation}
+% \hat{s}_{ij} = \frac{\hat{e}_i^{'} \hat{e}_j}{T} 
+% \end{equation}
+% where $T$ is vector of ones. 
 
-% (no matter which formula is used in the estimation).
-
-You should really get some of the text from your stats book. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hausman test}
