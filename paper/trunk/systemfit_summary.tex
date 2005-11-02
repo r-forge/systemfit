@@ -2,36 +2,27 @@
 \section{Summary and outlook}\label{sec:Summmary}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-What should we place in this section?
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Unbalanced Observations}\label{sec:summary_unbalanced_data}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 The \pkg{systemfit} package was originally developed to fit
 simultaneous equations for forestry datasets. Forestry datasets
-typically contain observations for many inexpensive observations
-(diameter at breast height) and very few expensive observations such
-as total tree height. While the package currently does not allow for
-unbalanced datasets, data where the equations contain different
-numbers of observations, future releases of the package will have that
-feature implemented. We are still trying to figure out how develop the
-code for instrumental variable methods (2SLS,3SLS) for the correct
-estimation methods if possible.
+typically contain observations of many inexpensive observations (stem
+diameter) and few expensive observations such as stem height and being
+able the utilize as many observations as possible is advantageous. As
+most software packages simply drop data points that do not contain
+both observations, the \pkg{systemfit} package currently does not
+allow for unbalanced datasets, but it is our intention to include this
+capability for certain estimation methods in future releases.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Additional Methods}\label{sec:summary_additional_methods}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-\subsubsection{Full information maximum likelihood (FIML)}
-
-Describe, in a paragraph the process and give some reasons why you
-might want this in the package. 
+In this article, we have described some of the basic features of the
+\pkg{systemfit} package for estimation of linear systems of
+equations. It has been tested on a variety of datasets and has
+produced satisfactory for a few years. While more sophisticated tools
+exist, the \pkg{systemfit} package will perform the basic fitting
+methods. We wish to include more sophisticated estimation methods such
+as full-information maximum likelihood and generalized methods of
+moments.
 
 
-\subsubsection{Generalized method of moments (GMM)}
-
-Describe, in a paragraph the process and give some reasons why you
-might want this in the package. 
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "systemfit"
+%%% End: 

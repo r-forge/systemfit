@@ -1,45 +1,51 @@
+
+%       $Id$    
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Many theoretical models consist of more than one equation. If these
-models are econometrically estimated, the equations generally should
-not be estimated individually, but all together, because the
-disturbance terms of these equations are likely contemporaneously
-correlated. Estimating all equations simultaneously and taking the
-covariance structure of the residuals into account leads to efficient
-estimates, while ignoring this correlation leads to an inefficient
-parameter estimation \citep{zellner62}.
+models are econometrically estimated, it may not be appropriate to
+estimate the equations individually, but all together, because the
+disturbance terms of these equations are likely to be
+contemporaneously correlated \citep{theil71} (make sure this is the
+correct paper). Estimating all equations simultaneously, taking the
+covariance structure of the residuals into account, leads to efficient
+estimates. Ignoring this correlation leads to an inefficient parameter
+estimation \citep{zellner62}.
 
 Another reason to estimate an equation system simultaneously are
 cross-equation parameter restrictions. These restrictions can be
-tested and/or imposed only in a simultaneous estimation
-approach. Especially the economic theory suggests many cross-equation
-restrictions.
+tested and/or imposed only in a simultaneous estimation approach
+especially the economic theory suggests many cross-equation
+restrictions \textbf{(is this statement really true?)}.
 
-The \pkg{systemfit} package provides the capability to estimate
-linear and non-linear equation systems in \proglang{R}.
-Although linear and non-linear equation systems can be estimated
-with several other statistical and econometric software packages
-(e.g. \proglang{SAS}, \proglang{EViews}, \proglang{TSP}),
-using \pkg{systemfit} has several advantages.
-First, all estimation procedures are publicly available in the source code.
-Second, the estimation algorithms can be easily modified to meet specific
-requirements.
-Third, the (advanced) user can control many important details of the
-estimation procedure that are generally not available in other software
-packages.
-On the other hand these user options have reasonable defaults that also
-beginners can easily use the provided functions.
+The \pkg{systemfit} package provides the capability to estimate linear
+and non-linear equation systems in \proglang{R}.  Although linear and
+non-linear equation systems can be estimated with several other
+statistical and econometric software packages (e.g. \proglang{SAS},
+\proglang{EViews}, \proglang{TSP}), \pkg{systemfit} has several
+advantages.  First, all estimation procedures are publicly available
+in the source code.  Second, the estimation algorithms can be easily
+modified to meet specific requirements.  Third, the (advanced) user
+can control many important details of the estimation procedure that
+are generally not available in other software packages.  On the other
+hand, these user options have reasonable defaults that also beginners
+can easily use the provided functions.
 
 This paper is organized as follows: In section~\ref{sec:Estimation} we
 introduce the mathematics of estimating equation systems.
 Section~\ref{sec:Restrictions} shows how linear restrictions can be
-imposed.
-All other relevant issues are discussed in section~\ref{sec:Other}.
-Section~\ref{sec:Usage} demonstrates how to run
+imposed.  Section~\ref{sec:Usage} demonstrates how to run
 \pkg{systemfit}, especially how the features presented in the previous
-sections can be used.
-Finally, a summary and an outlook are given in
-section~\ref{sec:Summmary}.
+sections can be used. All other relevant issues are discussed in
+section~\ref{sec:Other}. Finally, a summary and outlook are presented
+in section~\ref{sec:Summmary}.
 
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "systemfit"
+%%% End: 

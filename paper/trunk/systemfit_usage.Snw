@@ -31,14 +31,14 @@ attach( kmenta )
 fitsur <- systemfit( "SUR", list( q ~ p + d, q ~ p + f + a ) )
 @
 
-The first line loads the \pkg{systemfit} package. 
-The second line loads example data that are included in this package.
-These data come from \cite{kmenta86}.
-They are attached to the \proglang{R} search path in line three.
-In the last line a seemingly unrelated regression is done.
-The first equation represents the demand side of the food market.
-The dependant variable is \code{q} (food consumption per capita). 
-The regressors are \code{p} (ratio of food prices to general consumer prices)
+The first line loads the \pkg{systemfit} package.  The second line
+loads example data that are included with the package.  These data
+come from \cite{kmenta86}.  They are attached to the \proglang{R}
+search path in line three.  In the last line, a seemingly unrelated
+regression is performed.  The first equation represents the demand
+side of the food market.  The dependant variable is \code{q} (food
+consumption per capita).  The regressors are \code{p} (ratio of food
+prices to general consumer prices)
 and \code{d} (disposable income) as well as a constant%
 \footnote{a regression constant is always implied if not explicitly omitted.}.
 The second equation represents the supply side.
