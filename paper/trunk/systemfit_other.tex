@@ -21,10 +21,12 @@ is often calculated by
 where $T$ is the number of observations in each equation.
 
 However, this estimator is biased, because it is not corrected for
-degrees of freedom.  The usual single-equation procedure to correct
-for degrees of freedom  cannot always be applied, because the number
-of regressors in each equation  might differ.  Two alternative
-approaches to calculate the residual variance-covariance  matrix are
+degrees of freedom.
+The usual single-equation procedure to correct for degrees of freedom
+cannot always be applied, because the number of regressors in each equation
+might differ.
+Two alternative approaches to calculate the residual variance-covariance
+matrix are
 \begin{equation}
    \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
    { \sqrt{ \left( T - K_i \right) \cdot \left( T - K_j \right) } }
@@ -83,15 +85,17 @@ likelihood \citep[p. 345]{greene02}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Degrees of freedom}
 
-Different approaches to determine the degrees of freedom for testing
-the estimated parameters with a t-test \textbf{(cite this one)}.
+Different approaches to determine the degrees of
+freedom for testing the estimated parameters with a t-test
+\textbf{(cite this one)}.
 
 \textbf{Arne, do you have a citation for this?}
 
 The \code{probdfsys} can be used to set the degrees of freedom when
 calculating the probability values for the t-test for individual
-parameters. This argument can set the degrees of freedom for the
-entire system instead of using the degrees of freedom for each of the
+parameters.
+This argument can set the degrees of freedom for the entire system
+instead of using the degrees of freedom for each of the
 individual equations.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -143,10 +147,11 @@ of restrictions.
 
 Hausman \citep{hausman1978} developed a test have power against
 alternatives for which $\hat{\theta}$ and $\tilde{\theta}$ diverge
-under misspecification. The resulting test statistic, distributed as a
-$\chi^2$, is the difference between the covariance of an efficient and
-the covariance of the inefficient estimator is zero, if the model is
-correctly specified.
+under misspecification.
+The resulting test statistic, distributed as a
+$\chi^2$, is the difference between the covariance of an
+efficient and the covariance of the inefficient estimator is zero, if the
+model is correctly specified.
 
 The test is based on the idea that under the hypothesis of no
 correlation, both the limited information estimates and the
@@ -156,11 +161,11 @@ information estimates are consistent, but the full information
 estimates are not.
 
 The null hypotheses of the test is that all exogenous variables are
-uncorrelated with all disturbance terms. Under this hypothesis both
-the 2SLS and the 3SLS estimator are consistent but only the 3SLS
-estimator is (asymptotically) efficient. Under the alternative
-hypothesis the 2SLS estimator is consistent but the 3SLS estimator is
-inconsistent.
+uncorrelated with all disturbance terms.
+Under this hypothesis both the 2SLS and the 3SLS estimator are consistent
+but only the 3SLS estimator is (asymptotically) efficient.
+Under the alternative hypothesis the 2SLS estimator is consistent but the
+3SLS estimator is inconsistent.
 
 The Hausman test statistic is,
 
@@ -178,8 +183,8 @@ from a 3SLS estimation.
 
 As linear systems of equations can be estimated using
 \code{systemfit}, nonlinear systems of equations \citep{hausman-1975}
-can be estimated using a similar function \code{nlsystemfit}. The
-usage for the nonlinear estimation function is similar to
+can be estimated using a similar function \code{nlsystemfit}.
+The usage for the nonlinear estimation function is similar to
 \code{systemfit} and can estimate system of equations using OLS, SUR,
 2SLS and 3SLS methods.
 
@@ -209,12 +214,12 @@ R> nlsystemfit( method, eqns, start )
 where \code{method} is one of the following estimation methods: "OLS",
 "SUR", "2SLS", or "3SLS", \code{eqns} is a list of equations similar
 to those described for \code{systemfit}, and \code{start} is a list of
-starting values of the parameter estimates. The nlsystemfit function
-relies on \code{nlm} to perform the minimization of the objective
-functions and the \code{qr} set of functions. If the user does not
-have a set of estimates for the initial parameters, it is suggested
-using linearized forms in one of the linear methods, or simply using
-\code{nls} to obtain estimates for the equations.
+starting values of the parameter estimates.
+The nlsystemfit function relies on \code{nlm} to perform the minimization
+of the objective functions and the \code{qr} set of functions.
+If the user does not have a set of estimates for the initial parameters,
+it is suggested using linearized forms in one of the linear methods,
+or simply using \code{nls} to obtain estimates for the equations.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -7,9 +7,10 @@ the form
 \begin{equation}
    y_{i} = \mathbf{X}_i \beta_i + u_i, \quad i = 1, 2, \ldots, G
 \end{equation}
-where $y_i$ is a vector of the dependent variable, $\mathbf{X}_i$ is a
-matrix of the exogenous variables, $\beta_i$ is the coefficient vector
-and $u_i$ is a vector of the disturbance terms of the $i$th equation.
+where $y_i$ is a vector of the dependent variable,
+$\mathbf{X}_i$ is a matrix of the exogenous variables,
+$\beta_i$ is the coefficient vector and
+$u_i$ is a vector of the disturbance terms of the $i$th equation.
 
 We can write the °stacked° system as
 \begin{equation}
@@ -81,21 +82,21 @@ the variance-covariance matrix of the estimated parameters is
    Var \left[ \widehat{\beta} \right] = \sigma^2 \left( X'X \right)^{-1}
 \end{equation}
 
-with $\sigma^2 = E \left( u' u \right)$.  This assumes that the
-disturbances of all equations have the same variance.
+with $\sigma^2 = E \left( u' u \right)$.
+This assumes that the disturbances of all equations have the
+same variance.
 
-If the disturbance terms of the individual equations  are allowed to
-have different variances,  the variance-covariance matrix of the
-estimated parameters is
+If the disturbance terms of the individual equations
+are allowed to have different variances,
+the variance-covariance matrix of the estimated parameters is
 
 \begin{equation}
    Var \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
    \label{eq:OLSvcm2}
 \end{equation}
-
-\noindent with $\Omega = \Sigma \otimes I$, 
-$\sigma_{ij} = 0 \; \forall \; i \neq j$ and $\sigma_{ii} = E \left(
-  u_i' u_i \right)$.
+with $\Omega = \Sigma \otimes I$,
+$\sigma_{ij} = 0 \; \forall \; i \neq j$ and
+$\sigma_{ii} = E \left( u_i' u_i \right)$.
 
 If no cross-equation parameter restrictions are imposed, the simultaneous 
 OLS estimation of the system leads to the same parameter estimates 
