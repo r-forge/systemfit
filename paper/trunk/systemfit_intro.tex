@@ -10,7 +10,7 @@ Many theoretical models consist of more than one equation. If these
 models are econometrically estimated, it may not be appropriate to
 estimate the equations individually, but all together, because the
 disturbance terms of these equations are likely to be contemporaneously
-correlated \citep{theil71} (make sure this is the correct paper).
+correlated. %\citep{theil71} (make sure this is the correct paper).
 Estimating all equations simultaneously, taking the
 covariance structure of the residuals into account, leads to efficient
 estimates.
@@ -21,13 +21,13 @@ Another reason to estimate an equation system simultaneously are
 cross-equation parameter restrictions. These restrictions can be
 tested and/or imposed only in a simultaneous estimation
 approach especially the economic theory suggests many cross-equation
-restrictions \textbf{(is this statement really true?)}.
+restrictions.
 
 The \pkg{systemfit} package provides the capability to estimate
 linear and non-linear equation systems in \proglang{R}.
 Although linear and non-linear equation systems can be estimated
 with several other statistical and econometric software packages
-(e.g. \proglang{SAS}, \proglang{EViews}, \proglang{TSP}),
+(e.g.\ \proglang{SAS}, \proglang{EViews}, \proglang{TSP}),
 \pkg{systemfit} has several advantages.
 First, all estimation procedures are publicly available in the source code.
 Second, the estimation algorithms can be easily modified to meet specific
