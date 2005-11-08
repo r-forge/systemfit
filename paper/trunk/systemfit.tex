@@ -6,6 +6,10 @@
 \usepackage{csquotes}
 \MakeOuterQuote{°}
 
+\usepackage{lineno}
+
+\linenumbers 
+
 \author{Arne Henningsen\\University of Kiel\And
         Jeff D. Hamann\\ Forest Informatics, Inc. }
         
@@ -19,19 +23,24 @@
 \Shorttitle{systemfit} %% a short title (if necessary)
 
 %% an abstract and keywords
-\Abstract{Many statistical analysis are based on models that consist
-  of  more than one equation. If these models contain relationships
-  among the various equations, ignoring these relationships can result
-  in biased and possibly inconsistent parameter estimates. If
-  relationships exist among the equations, the sets of equations
-  should be fitted simultaneously rather than equation by equation.
-  The package \pkg{systemfit} provides the capability to estimate
-  systems of linear and non-linear equations, using limited and
-  full-information methods within the \proglang{R} programming
-  environment.  }
+\Abstract{ 
   
-\Keywords{R, simultaneous equation system, seemingly unrelated regression,
-   two-stage least squares, three-stage least squares}
+  Many statistical analyses are based on models containing systems of
+  structurally related equations. If the cross-equation disturbances
+  are correlated, full information methods are required
+  \citep{zellner62}. If exogenous variables are stochastically
+  dependent on the disturbances in the system
+  \citep{zellner62b,theil71}, limited information methods should be
+  used for parameter estimation. The package \pkg{systemfit} provides
+  the capability to estimate systems of linear and non-linear
+  structural equations for limited (ordinary least squares (OLS), two
+  stage-least squares (2SLS)) and full-information
+  (seemingly-unrelated regression (SUR) and three-stage least squares
+  (3SLS)) methods within the \proglang{R} programming environment.}
+  
+\Keywords{R, simultaneous equations estimation, ordinary least
+  squares, seemingly unrelated regression, two-stage least squares,
+  three-stage least squares}
 
 %% at least one keyword must be supplied
 
@@ -85,142 +94,13 @@
 
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Estimating nonlinear equation systems}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% The \pkg{systemfit} package also contains a method for fitting
-% nonlinear systems of equations.
-
-
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsection{Nonlinear parameter estimation}
-% \label{sec:nonlinear_estimation}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% A system of nonlinear equations can be written as:
-  
-% \begin{equation}
-%   \label{eq:non_linear_eq_1}
-%   \epsilon_{t} = q( y_t, x_t, \beta )
-% \end{equation}
-% %%% It is not clear what these variable are. 
-% %%% Adding an equation representing only a single equation
-% %%% would make things clearer.
-
-% \noindent and
-
-% \begin{equation}
-%   \label{eq:non_linear_eq_2}
-%   z_{t} = Z( x_t )
-% \end{equation}
-
-% where $\epsilon_{t}$ are the residuals from the y observations and
-% $z_{t}$ are the function evaluated at the parameter estimates.
-
-% \textbf{you really need to check this!!!}
-
-% The objective functions for the methods are:
-  
-% \begin{center}
-% \begin{tabular}{|l|c|c|c|} \hline
-%   Method & Instruments & Objective Function & Covariance of $\theta$ \\ \hline  
-%   OLS & No & $r'r$ & $(X(diag(S)^{-1}\otimes I)X)^{-1}$ \\ \hline
-%   SUR & No & $r'(diag(S)_{OLS}^{-1}\otimes I)r$ & $(X(S^{-1}\otimes I)X)^{-1}$ \\ \hline
-%   2SLS & Yes & $r'(I \otimes W)r$ & $(X(diag(S)^{-1}\otimes I)X)^{-1}$ \\ \hline 
-%   3SLS & Yes & $r'(S_{2SLS}^{-1} \otimes W)r$ & $(X(diag(S)^{-1}\otimes W)X)^{-1}$ \\ \hline
-% \end{tabular}
-% \end{center}
-
-% where, $r$ is a column vector for the residuals for each equation,
-% %% what is the difference to \epsilon?
-% $X$ is matrix of the partial derivatives of the dependent variable 
-% with respect to the parameters $\left( \frac{ \partial y }{ \theta} \right)$,
-% %% is this correct?
-% %% in the linear section X is used for the regressors, 
-% %% thus we should use a different variable name here.
-% $W$ is a matrix of the instrument variables, $Z(Z'Z)^{-1}Z$, $Z$ is a
-% matrix of the instrument variables, and $I$ is an $n \times n $
-% identity matrix and $S$ is the estimated variance-covariance matrix between the
-% equations
-
-% \begin{equation}
-%   \label{eq:non-linear_varcov}
-%   \hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) / \sqrt{(T - k_i)*(T- k_j)} 
-% \end{equation}
-
-% \textbf{The residual variance-covariance matrix can be calculated in 
-% different ways (section~\ref{sec:residcov}). 
-% It should be relatively easy to implement this also in nlsystemfit(), 
-% e.g. the function 'calcRCov' in systemfit() could be moved outside
-% systemfit() that it can be used also by nlsystemfit().}
-
-% \textbf{You need to clear this up.}
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % \subsection{Using nlsystemfit}\label{sec:UsingnlSystemfit}
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% % \code {nlsystemfit} fits a set of structural nonlinear equations using
-% % Ordinary Least Squares (OLS), Seemingly Unrelated Regression (SUR),
-% % Two-Stage Least Squares (2SLS), Three-Stage Least Squares (3SLS) using
-% % the objective functions described in section
-% % \ref{sec:nonlinear_estimation}.
-
-% % %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% % \subsubsection{Standard usage}
-
-% % Similar to calling the \code{systemfit} function, \code{nlsystemfit}
-% % is called with a minimum of three arguments,
-
-% % \code{
-% % R> nlsystemfit( method, eqns, start )
-% % }
-
-% % where \code{method} is one of the following estimation methods: "OLS",
-% % "SUR", "2SLS", or "3SLS", \code{eqns} is a list of equations similar
-% % to those described for \code{systemfit}, and \code{start} is a list of
-% % starting values of the parameter estimates.
-
-% % % The mandatory argument \code{eqns} is a list of the equations  to
-% % % estimate.  Each equation is a standard formula in \proglang{R}.  It
-% % % starts with a dependent variable on the left hand side.  After a tilde
-% % % ($~$) the regressors are listed  \footnote{For Details see the
-% % %   \proglang{R} help files to \code{formula}}.
-
-% % This is now demonstrated using an example: \\
-
-% % % \code{
-% % % R> library( systemfit ) \\
-% % % R> data( ppine ) \\
-% % % R> hg.formula <- hg $\sim$ exp( h0 + h1*log(tht) + h2*tht$\hat$2 + h3*elev + h4*cr) \\
-% % % R> dg.formula <- dg $\sim$ exp( d0 + d1*log(dbh) + d2*hg + d3*cr + d4*ba  ) \\
-% % % R> labels <- list( "height.growth", "diameter.growth" )\\
-% % % R> inst <- $\sim$ tht + dbh + elev + cr + ba\\
-% % % R> start.values <- c(h0=-0.5, h1=0.5, h2=-0.001, h3=0.0001, h4=0.08,\\
-% % % R+   d0=-0.5, d1=0.009, d2=0.25, d3=0.005, d4=-0.02 )\\
-% % % R> model <- list( hg.formula, dg.formula )\\
-% % % R> model.3sls <- nlsystemfit( "3SLS", model, start.values, data=ppine,\\
-% % % R+   eqnlabels=labels, inst=inst ) \\
-% % % R> summary( model.3sls ) \\
-% % % }
-
-
-% % The nlsystemfit function relies on \code{nlm} to perform the
-% % minimization of the objective functions and the \code{qr} set of
-% % functions. If the user does not have a set of estimates for the
-% % initial parameters, it is suggested using linearized forms in one of
-% % the linear methods, or simply using \code{nls} to obtain estimates for
-% % the equations. 
-
-% % The outputs are similar to those for a systemfit object. 
-
-
-
 
 % \section{CVS Revision Log}
 % \begin{verbatim}
 % $Log$
+% Revision 1.19  2005/11/08 06:31:48  hamannj
+% made seemingly massive changes... but hopefully not for the worse...
+%
 % Revision 1.18  2005/11/07 14:08:56  henningsena
 % a few minor changes (predominantly adding a "\ " after a period (.) that does not indicate an end of a sentence)
 %

@@ -1,7 +1,9 @@
+
+%       $Id$    
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Other issues and tools}\label{sec:Other}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Residual variance-covariance matrix}\label{sec:residcov}
@@ -85,11 +87,18 @@ likelihood \citep[p.\ 345]{greene02}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Degrees of freedom}
 
+Don't we already mention this in the usage section.
+
 Different approaches to determine the degrees of
 freedom for testing the estimated parameters with a t-test
 \textbf{(cite this one)}.
 
 \textbf{Arne, do you have a citation for this?}
+
+\paragraph{Degrees of freedom for t-tests}   
+\code{probdfsys} use the degrees of freedom of the whole system
+   (in place of the degrees of freedom of the single equation)
+   to calculate prob values for the t-test of individual parameters.
 
 The \code{probdfsys} can be used to set the degrees of freedom when
 calculating the probability values for the t-test for individual
