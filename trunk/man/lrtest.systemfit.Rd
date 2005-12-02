@@ -1,5 +1,5 @@
 
-% 	$Id$	
+%  $Id$
 
 \name{lrtest.systemfit}
 \alias{lrtest.systemfit}
@@ -51,7 +51,6 @@ lrtest.systemfit( resultc, resultu )
 \seealso{\code{\link{systemfit}}}
 
 \examples{
-\dontrun{library( systemfit )}
 data( kmenta )
 demand <- q ~ p + d
 supply <- q ~ p + f + a

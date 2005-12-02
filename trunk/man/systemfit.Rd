@@ -237,7 +237,6 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
 \seealso{\code{\link{lm}} and \code{\link{nlsystemfit}}}
 
 \examples{
-\dontrun{library( systemfit )}
 data( kmenta )
 demand <- q ~ p + d
 supply <- q ~ p + f + a

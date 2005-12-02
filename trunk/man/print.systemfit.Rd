@@ -27,8 +27,6 @@
 
 
 \examples{
-\dontrun{library( systemfit )}
-
 data( kmenta )
 demand <- q ~ p + d
 supply <- q ~ p + f + a
