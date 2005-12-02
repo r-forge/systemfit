@@ -38,14 +38,13 @@
 \dontrun{library( systemfit )}
 
 data( kmenta )
-attach( kmenta )
 demand <- q ~ p + d
 supply <- q ~ p + f + a
 labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
 ## perform OLS on each of the equations in the system
-fitols <- systemfit( "OLS", system, labels )
+fitols <- systemfit( "OLS", system, labels, data = kmenta )
 
 ## print the confidence interval of the coefficients of the first equation
 confint( fitols$eq[[1]] )

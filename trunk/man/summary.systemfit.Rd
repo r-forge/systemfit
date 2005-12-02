@@ -29,7 +29,6 @@
 \dontrun{library( systemfit )}
 
 data( kmenta )
-attach( kmenta )
 demand <- q ~ p + d
 supply <- q ~ p + f + a
 inst <- ~ d + f + a
@@ -37,7 +36,7 @@ labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
 ## perform OLS on each of the equations in the system
-fitols <- systemfit( "OLS", system, labels )
+fitols <- systemfit( "OLS", system, labels, data = kmenta )
 
 ## print the results
 summary.systemfit( fitols )

@@ -1,5 +1,5 @@
 
-% 	$Id$	
+%  $Id$
 
 \name{correlation.systemfit}
 \alias{correlation.systemfit}
@@ -36,7 +36,7 @@ correlation.systemfit( results, eqni, eqnj )
   predicted values in equation i and equation j.
 }
 
-\references{    
+\references{
 
   Greene, W. H. (1993)
   \emph{Econometric Analysis, Second Edition}, Macmillan.
@@ -60,7 +60,6 @@ correlation.systemfit( results, eqni, eqnj )
 \dontrun{library( systemfit )}
 
 data( kmenta )
-attach( kmenta )
 demand <- q ~ p + d
 supply <- q ~ p + f + a
 inst <- ~ d + f + a
@@ -68,12 +67,12 @@ labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
 ## perform 2SLS on each of the equations in the system
-fit2sls <- systemfit( "2SLS", system, labels, inst)
+fit2sls <- systemfit( "2SLS", system, labels, inst, data = kmenta )
 print( fit2sls )
 print( fit2sls$rcov )
 
 ## perform the 3SLS
-fit3sls <- systemfit( "3SLS", system, labels, inst )
+fit3sls <- systemfit( "3SLS", system, labels, inst, data = kmenta )
 print( fit3sls )
 print( "covariance of residuals used for estimation (from 2sls)" )
 print( fit3sls$rcovest )
@@ -84,7 +83,7 @@ print( fit3sls$rcov )
 ## of suppy and demand by plotting the correlation over
 ## the value of q
 r12 <- correlation.systemfit( fit3sls, 1, 2 )
-plot( q, r12, main="correlation between predictions from supply and demand" )
+plot( kmenta$q, r12, main="correlation between predictions from supply and demand" )
 }
 
 \keyword{models}
