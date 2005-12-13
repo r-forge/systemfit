@@ -149,7 +149,7 @@ systemfit <- function( method,
    if( length( pos ) == 1 ) {
       results$data.name <- as.character( m0[ pos ] )
    } else {
-      results$data.name <- "unknown" 
+      results$data.name <- "unknown"
    }
    rm( pos )
    temp <- c("", "data", "weights", "subset", "na.action")
@@ -997,7 +997,7 @@ predict.systemfit <- function( object, data=object$data,
       }
       if( se.pred | interval == "prediction" ) {
          if(object$method=="SUR" | object$method=="3SLS") {
-            ycovpi <- ycov[ ( 1 + sum( n[1:i] ) - n[i] ) : sum( n[1:i] ),
+            ycovpi <- ycovp[ ( 1 + sum( n[1:i] ) - n[i] ) : sum( n[1:i] ),
                             ( 1 + sum( n[1:i] ) - n[i] ) : sum( n[1:i] ) ]
          } else {
             ycovpi <- x[[i]] %*% object$eq[[i]]$bcov %*% t(x[[i]]) +
@@ -1139,7 +1139,7 @@ hausman.systemfit <- function( results2sls, results3sls ) {
    names( result$parameter ) <- "df"
    result$p.value <- 1 - pchisq( result$statistic, result$parameter )
    result$method = paste( "Hausman specification test for consistency of",
-      "the 3SLS estimation" )  
+      "the 3SLS estimation" )
    result$data.name = results2sls$data.name
    class( result ) <- "htest"
    return( result )
