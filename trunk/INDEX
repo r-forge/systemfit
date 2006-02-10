@@ -4,11 +4,13 @@ coef.systemfit.equation
 confint.systemfit       Confidence intervals of coefficients
 confint.systemfit.equation
                         Confidence intervals of coefficients
-correlation.systemfit   Correlation between Predictions from Equation
-                        i and j
+correlation.systemfit   Correlation between Predictions from Equation i
+                        and j
 fitted.systemfit        Fitted values
 fitted.systemfit.equation
                         Fitted values
+GrunfeldGreene          Grunfeld Data as published by Greene (2003)
+GrunfeldTheil           Grunfeld Data as published in Theil (1971)
 hausman.systemfit       Hausman Test
 kmenta                  Partly Artificial Data on the U. S. Economy
 lrtest.systemfit        Likelihood Ratio test for Equation Systems

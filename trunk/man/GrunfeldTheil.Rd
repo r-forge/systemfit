@@ -1,0 +1,33 @@
+\name{GrunfeldTheil}
+\alias{GrunfeldTheil}
+\title{Grunfeld Data as published in Theil (1971)}
+\description{
+   Panel data on 2 US firms for the years 1935-1954.
+}
+
+\usage{
+   data("GrunfeldTheil")
+}
+\format{
+A data frame containing 20 annual observations on 3 variables for 2 firms.
+\describe{
+   \item{invest}{gross investment.}
+   \item{value}{market value of the firm (at the end of the previous year).}
+   \item{capital}{capital stock of the firm (at the end of the previous year).}
+   \item{firm}{name of the firm ("General Electric" or "Westinghouse").}
+   \item{year}{year.}
+}
+}
+
+\source{
+   Theil (1971), p. 296.
+}
+
+\references{
+Theil, Henri (1971). \emph{Principles of Econometrics}, John Wiley & Sons, New York.
+
+Grunfeld, Y. (1958). \emph{The Determinants of Corporate Investment},
+Unpublished Ph.D. Dissertation, University of Chicago.
+}
+
+\keyword{datasets}

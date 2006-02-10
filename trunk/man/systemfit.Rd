@@ -4,6 +4,7 @@
 
 \name{systemfit}
 \alias{systemfit}
+\alias{systemfitClassic}
 
 \title{Linear Equation System Estimation}
 
@@ -25,6 +26,9 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
            solvetol=.Machine$double.eps,
            saveMemory=( nrow(data) * length(eqns) > 1000 &&
               length(data) > 0 ) )
+
+systemfitClassic( method, formula, eqnVar, timeVar, data,
+                  pooled = FALSE, ... )
 }
 
 \arguments{
@@ -70,9 +74,19 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
    \item{saveMemory}{logical. Save memory by omitting some calculation that
       are not crucial for the basic estimation (e.g McElroy's
       \eqn{R^2})?}
+   \item{formula}{formula to be estimated (for each equation).}
+   \item{eqnVar}{variable name indicating the equation to which the
+      observation belongs.}
+   \item{timeVar}{variable name indicating the time.}
+   \item{pooled}{logical, restrict coefficients to be equal in all equations.}
+   \item{...}{arguments passed to \code{\link{systemfit}}.}
 }
 
 \details{
+   \code{systemfitClassic} is a wrapper function for \code{systemfit}
+   that can be applied to panel-like data in long format
+   if the regressors are the same for all equations.\cr
+
    The matrix \code{TX} transforms the regressor matrix (\eqn{X}) by
    \eqn{X^{*} = X *} \code{TX}. Thus, the vector of coefficients is now
    \eqn{b =} \code{TX} \eqn{\cdot b^{*}} , where \eqn{b} is the original (stacked) vector
@@ -209,10 +223,7 @@ systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
 
 \references{
 
-  Greene, W. H. (1993)
-  \emph{Econometric Analysis, Second Edition}, Macmillan.
-
-  Greene, W. H. (2002)
+  Greene, W. H. (2003)
   \emph{Econometric Analysis, Fifth Edition}, Prentice Hall.
 
   Judge, George G.; W. E. Griffiths; R. Carter Hill; Helmut Lütkepohl and Tsoung-Chao Lee (1985)
@@ -279,6 +290,32 @@ print( fit2sls2 )
 inst <- ~ d + f + a
 fit3sls <- systemfit( "3SLS", system, labels, inst, kmenta, formula3sls="GMM" )
 print( fit3sls )
+
+## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
+data( GrunfeldTheil )
+formulaGrunfeld <- invest ~ value + capital
+theilOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+   data = GrunfeldTheil )
+summary( theilOls )
+theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+   data = GrunfeldTheil, rcovformula = 0 )
+summary( theilOls )
+
+## Repeating the OLS and SUR estimations in Greene (2003, pp. 351)
+data( GrunfeldGreene )
+formulaGrunfeld <- invest ~ value + capital
+greeneOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene )
+summary( greeneOls )
+greeneOlsPooled <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene, pooled = TRUE )
+summary( greeneOlsPooled )
+greeneSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene, rcovformula = 0 )
+summary( greeneSur )
+greeneSurPooled <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene, pooled = TRUE, rcovformula = 0 )
+summary( greeneSurPooled )
 }
 
 \keyword{models}
