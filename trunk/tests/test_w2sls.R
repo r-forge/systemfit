@@ -2,10 +2,10 @@
 library( systemfit )
 data( kmenta )
 
-demand <- q ~ p + d
-supply <- q ~ p + f + a
-inst   <- ~ d + f + a
-inst1  <- ~ d + f
+demand <- consump ~ price + income
+supply <- consump ~ price + farmPrice + trend
+inst <- ~ income + farmPrice + trend
+inst1  <- ~ income + farmPrice
 instlist <- list( inst1, inst )
 labels <- list( "demand", "supply" )
 system <- list( demand, supply )

@@ -51,9 +51,9 @@ lrtest.systemfit( resultc, resultu )
 \seealso{\code{\link{systemfit}}}
 
 \examples{
-data( kmenta )
-demand <- q ~ p + d
-supply <- q ~ p + f + a
+data( "kmenta" )
+demand <- consump ~ price + income
+supply <- consump ~ price + farmPrice + trend
 labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 

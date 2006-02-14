@@ -249,8 +249,8 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
 
 \examples{
 data( "kmenta" )
-demand <- q ~ p + d
-supply <- q ~ p + f + a
+demand <- consump ~ price + income
+supply <- consump ~ price + farmPrice + trend
 labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
@@ -275,19 +275,19 @@ fitsur <- systemfit("SUR", system, labels, data=kmenta, maxit=100 )
 print( fitsur )
 
 ## 2SLS estimation
-inst <- ~ d + f + a
+inst <- ~ income + farmPrice + trend
 fit2sls <- systemfit( "2SLS", system, labels, inst, kmenta )
 print( fit2sls )
 
 ## 2SLS estimation with different instruments in each equation
-inst1 <- ~ d + f
-inst2 <- ~ d + f + a
+inst1 <- ~ income + farmPrice
+inst2 <- ~ income + farmPrice + trend
 instlist <- list( inst1, inst2 )
 fit2sls2 <- systemfit( "2SLS", system, labels, instlist, kmenta )
 print( fit2sls2 )
 
 ## 3SLS estimation with GMM-3SLS formula
-inst <- ~ d + f + a
+inst <- ~ income + farmPrice + trend
 fit3sls <- systemfit( "3SLS", system, labels, inst, kmenta, formula3sls="GMM" )
 print( fit3sls )
 

@@ -2,11 +2,8 @@
 library( systemfit )
 data( kmenta )
 
-demand <- q ~ p + d
-supply <- q ~ p + f + a
-inst   <- ~ d + f + a
-inst1  <- ~ d + f
-instlist <- list( inst1, inst )
+demand <- consump ~ price + income
+supply <- consump ~ price + farmPrice + trend
 labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 restrm <- matrix(0,1,7)  # restriction matrix "R"
@@ -35,7 +32,7 @@ restr3q[1,1] <-  0.5
 
 # the standard equations do not converge and lead to a singular weighting matrix
 # both in R and in EViews, since both equations have the same endogenous variable
-supply2 <- p ~ d + f + a
+supply2 <- price ~ income + farmPrice + trend
 system2 <- list( demand, supply2 )
 
 

@@ -1,6 +1,7 @@
 
 R : Copyright 2005, The R Foundation for Statistical Computing
-Version 2.1.0  (2005-04-18), ISBN 3-900051-07-0
+Version 2.2.0  (2005-10-06 r35749)
+ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -18,11 +19,8 @@ Type 'q()' to quit R.
 > library( systemfit )
 > data( kmenta )
 > 
-> demand <- q ~ p + d
-> supply <- q ~ p + f + a
-> inst   <- ~ d + f + a
-> inst1  <- ~ d + f
-> instlist <- list( inst1, inst )
+> demand <- consump ~ price + income
+> supply <- consump ~ price + farmPrice + trend
 > labels <- list( "demand", "supply" )
 > system <- list( demand, supply )
 > restrm <- matrix(0,1,7)  # restriction matrix "R"
@@ -81,12 +79,12 @@ The determinant of the residual covariance matrix: 4.43485
 OLS R-squared value of the system: 0.709298
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.895423   7.519362 13.285093        0 ***
-p           -0.316299   0.090677 -3.488177 0.002815  **
-d            0.334636   0.045422  7.367285    1e-06 ***
+price       -0.316299   0.090677 -3.488177 0.002815  **
+income       0.334636   0.045422  7.367285    1e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -97,13 +95,13 @@ Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 58.275431   11.46291 5.083825 0.000111 ***
-p            0.160367   0.094884 1.690134 0.110388    
-f            0.248133   0.046188 5.372263  6.2e-05 ***
-a            0.248302   0.097518 2.546227 0.021567   *
+price        0.160367   0.094884 1.690134 0.110388    
+farmPrice    0.248133   0.046188 5.372263  6.2e-05 ***
+trend        0.248302   0.097518 2.546227 0.021567   *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -113,18 +111,18 @@ SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
 > print( round( fitols1$bcov, digits = 6 ) )
-            (Intercept)         p         d                               
+            (Intercept)     price    income                               
 (Intercept)   56.540807 -0.594801  0.032162   0.000000  0.000000  0.000000
-p             -0.594801  0.008222 -0.002333   0.000000  0.000000  0.000000
-d              0.032162 -0.002333  0.002063   0.000000  0.000000  0.000000
+price         -0.594801  0.008222 -0.002333   0.000000  0.000000  0.000000
+income         0.032162 -0.002333  0.002063   0.000000  0.000000  0.000000
                0.000000  0.000000  0.000000 131.398303 -0.987500 -0.304361
                0.000000  0.000000  0.000000  -0.987500  0.009003  0.000844
                0.000000  0.000000  0.000000  -0.304361  0.000844  0.002133
                0.000000  0.000000  0.000000  -0.279183  0.000522  0.001316
                      
 (Intercept)  0.000000
-p            0.000000
-d            0.000000
+price        0.000000
+income       0.000000
             -0.279183
              0.000522
              0.001316
@@ -156,12 +154,12 @@ The determinant of the residual covariance matrix: 4.43485
 OLS R-squared value of the system: 0.709298
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.895423   8.467146 11.798004        0 ***
-p           -0.316299   0.102107 -3.097722 0.006536  **
-d            0.334636   0.051147  6.542616    5e-06 ***
+price       -0.316299   0.102107 -3.097722 0.006536  **
+income       0.334636   0.051147  6.542616    5e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -172,13 +170,13 @@ Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 58.275431  10.358722 5.625736  3.8e-05 ***
-p            0.160367   0.085744 1.870294 0.079851   .
-f            0.248133   0.041739 5.944919  2.1e-05 ***
-a            0.248302   0.088124 2.817642 0.012382   *
+price        0.160367   0.085744 1.870294 0.079851   .
+farmPrice    0.248133   0.041739 5.944919  2.1e-05 ***
+trend        0.248302   0.088124 2.817642 0.012382   *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -188,18 +186,18 @@ SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
 > print( round( fitols1s$bcov, digits = 6 ) )
-            (Intercept)         p         d                               
+            (Intercept)     price    income                               
 (Intercept)   71.692566 -0.754196  0.040781   0.000000  0.000000  0.000000
-p             -0.754196  0.010426 -0.002959   0.000000  0.000000  0.000000
-d              0.040781 -0.002959  0.002616   0.000000  0.000000  0.000000
+price         -0.754196  0.010426 -0.002959   0.000000  0.000000  0.000000
+income         0.040781 -0.002959  0.002616   0.000000  0.000000  0.000000
                0.000000  0.000000  0.000000 107.303121 -0.806417 -0.248549
                0.000000  0.000000  0.000000  -0.806417  0.007352  0.000689
                0.000000  0.000000  0.000000  -0.248549  0.000689  0.001742
                0.000000  0.000000  0.000000  -0.227988  0.000426  0.001074
                      
 (Intercept)  0.000000
-p            0.000000
-d            0.000000
+price        0.000000
+income       0.000000
             -0.227988
              0.000426
              0.001074
@@ -231,12 +229,12 @@ The determinant of the residual covariance matrix: 4.43485
 OLS R-squared value of the system: 0.709298
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.895423   7.519362 13.285093        0 ***
-p           -0.316299   0.090677 -3.488177   0.0014  **
-d            0.334636   0.045422  7.367285        0 ***
+price       -0.316299   0.090677 -3.488177   0.0014  **
+income       0.334636   0.045422  7.367285        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -247,13 +245,13 @@ Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 58.275431   11.46291 5.083825  1.4e-05 ***
-p            0.160367   0.094884 1.690134 0.100429    
-f            0.248133   0.046188 5.372263    6e-06 ***
-a            0.248302   0.097518 2.546227 0.015741   *
+price        0.160367   0.094884 1.690134 0.100429    
+farmPrice    0.248133   0.046188 5.372263    6e-06 ***
+trend        0.248302   0.097518 2.546227 0.015741   *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -263,18 +261,18 @@ SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
 > print( round( fitols1p$bcov, digits = 6 ) )
-            (Intercept)         p         d                               
+            (Intercept)     price    income                               
 (Intercept)   56.540807 -0.594801  0.032162   0.000000  0.000000  0.000000
-p             -0.594801  0.008222 -0.002333   0.000000  0.000000  0.000000
-d              0.032162 -0.002333  0.002063   0.000000  0.000000  0.000000
+price         -0.594801  0.008222 -0.002333   0.000000  0.000000  0.000000
+income         0.032162 -0.002333  0.002063   0.000000  0.000000  0.000000
                0.000000  0.000000  0.000000 131.398303 -0.987500 -0.304361
                0.000000  0.000000  0.000000  -0.987500  0.009003  0.000844
                0.000000  0.000000  0.000000  -0.304361  0.000844  0.002133
                0.000000  0.000000  0.000000  -0.279183  0.000522  0.001316
                      
 (Intercept)  0.000000
-p            0.000000
-d            0.000000
+price        0.000000
+income       0.000000
             -0.279183
              0.000522
              0.001316
@@ -306,12 +304,12 @@ The determinant of the residual covariance matrix: 3.01569
 OLS R-squared value of the system: 0.709298
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.895423   6.932509 14.409706        0 ***
-p           -0.316299     0.0836 -3.783459 0.001483  **
-d            0.334636   0.041877  7.990943        0 ***
+price       -0.316299     0.0836 -3.783459 0.001483  **
+income       0.334636   0.041877  7.990943        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -322,13 +320,13 @@ Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 58.275431  10.252738 5.683889  3.4e-05 ***
-p            0.160367   0.084867 1.889628 0.077067   .
-f            0.248133   0.041312 6.006373  1.8e-05 ***
-a            0.248302   0.087223 2.846768 0.011659   *
+price        0.160367   0.084867 1.889628 0.077067   .
+farmPrice    0.248133   0.041312 6.006373  1.8e-05 ***
+trend        0.248302   0.087223 2.846768 0.011659   *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -338,18 +336,18 @@ SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
 > print( round( fitols1r$bcov, digits = 6 ) )
-            (Intercept)         p         d                               
+            (Intercept)     price    income                               
 (Intercept)   48.059686 -0.505581  0.027338   0.000000  0.000000  0.000000
-p             -0.505581  0.006989 -0.001983   0.000000  0.000000  0.000000
-d              0.027338 -0.001983  0.001754   0.000000  0.000000  0.000000
+price         -0.505581  0.006989 -0.001983   0.000000  0.000000  0.000000
+income         0.027338 -0.001983  0.001754   0.000000  0.000000  0.000000
                0.000000  0.000000  0.000000 105.118642 -0.790000 -0.243489
                0.000000  0.000000  0.000000  -0.790000  0.007202  0.000675
                0.000000  0.000000  0.000000  -0.243489  0.000675  0.001707
                0.000000  0.000000  0.000000  -0.223347  0.000418  0.001052
                      
 (Intercept)  0.000000
-p            0.000000
-d            0.000000
+price        0.000000
+income       0.000000
             -0.223347
              0.000418
              0.001052
@@ -381,12 +379,12 @@ The determinant of the residual covariance matrix: 3.01569
 OLS R-squared value of the system: 0.709298
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.895423   7.690668 12.989175        0 ***
-p           -0.316299   0.092743 -3.410479 0.003331  **
-d            0.334636   0.046457  7.203183    1e-06 ***
+price       -0.316299   0.092743 -3.410479 0.003331  **
+income       0.334636   0.046457  7.203183    1e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -397,13 +395,13 @@ Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 58.275431   9.408776 6.193731  1.3e-05 ***
-p            0.160367   0.077881 2.059126 0.056143   .
-f            0.248133   0.037911 6.545141    7e-06 ***
-a            0.248302   0.080043 3.102121 0.006849  **
+price        0.160367   0.077881 2.059126 0.056143   .
+farmPrice    0.248133   0.037911 6.545141    7e-06 ***
+trend        0.248302   0.080043 3.102121 0.006849  **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -413,18 +411,18 @@ SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
 > print( round( fitols1rs$bcov, digits = 6 ) )
-            (Intercept)         p         d                              
+            (Intercept)     price    income                              
 (Intercept)   59.146367 -0.622212  0.033644  0.000000  0.000000  0.000000
-p             -0.622212  0.008601 -0.002441  0.000000  0.000000  0.000000
-d              0.033644 -0.002441  0.002158  0.000000  0.000000  0.000000
+price         -0.622212  0.008601 -0.002441  0.000000  0.000000  0.000000
+income         0.033644 -0.002441  0.002158  0.000000  0.000000  0.000000
                0.000000  0.000000  0.000000 88.525075 -0.665294 -0.205053
                0.000000  0.000000  0.000000 -0.665294  0.006065  0.000569
                0.000000  0.000000  0.000000 -0.205053  0.000569  0.001437
                0.000000  0.000000  0.000000 -0.188090  0.000352  0.000886
                      
 (Intercept)  0.000000
-p            0.000000
-d            0.000000
+price        0.000000
+income       0.000000
             -0.188090
              0.000352
              0.000886
@@ -456,12 +454,12 @@ The determinant of the residual covariance matrix: 3.26308
 OLS R-squared value of the system: 0.709298
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.895423   7.519362 13.285093        0 ***
-p           -0.316299   0.090677 -3.488177 0.002815  **
-d            0.334636   0.045422  7.367285    1e-06 ***
+price       -0.316299   0.090677 -3.488177 0.002815  **
+income       0.334636   0.045422  7.367285    1e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -472,13 +470,13 @@ Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 58.275431   11.46291 5.083825 0.000111 ***
-p            0.160367   0.094884 1.690134 0.110388    
-f            0.248133   0.046188 5.372263  6.2e-05 ***
-a            0.248302   0.097518 2.546227 0.021567   *
+price        0.160367   0.094884 1.690134 0.110388    
+farmPrice    0.248133   0.046188 5.372263  6.2e-05 ***
+trend        0.248302   0.097518 2.546227 0.021567   *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -488,18 +486,18 @@ SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
 > print( round( fitols1r$bcov, digits = 6 ) )
-            (Intercept)         p         d                               
+            (Intercept)     price    income                               
 (Intercept)   56.540807 -0.594801  0.032162   0.000000  0.000000  0.000000
-p             -0.594801  0.008222 -0.002333   0.000000  0.000000  0.000000
-d              0.032162 -0.002333  0.002063   0.000000  0.000000  0.000000
+price         -0.594801  0.008222 -0.002333   0.000000  0.000000  0.000000
+income         0.032162 -0.002333  0.002063   0.000000  0.000000  0.000000
                0.000000  0.000000  0.000000 131.398303 -0.987500 -0.304361
                0.000000  0.000000  0.000000  -0.987500  0.009003  0.000844
                0.000000  0.000000  0.000000  -0.304361  0.000844  0.002133
                0.000000  0.000000  0.000000  -0.279183  0.000522  0.001316
                      
 (Intercept)  0.000000
-p            0.000000
-d            0.000000
+price        0.000000
+income       0.000000
             -0.279183
              0.000522
              0.001316
@@ -531,12 +529,12 @@ The determinant of the residual covariance matrix: 3.36519
 OLS R-squared value of the system: 0.709298
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.895423   7.519362 13.285093        0 ***
-p           -0.316299   0.090677 -3.488177 0.002815  **
-d            0.334636   0.045422  7.367285    1e-06 ***
+price       -0.316299   0.090677 -3.488177 0.002815  **
+income       0.334636   0.045422  7.367285    1e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -547,13 +545,13 @@ Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 58.275431   11.46291 5.083825 0.000111 ***
-p            0.160367   0.094884 1.690134 0.110388    
-f            0.248133   0.046188 5.372263  6.2e-05 ***
-a            0.248302   0.097518 2.546227 0.021567   *
+price        0.160367   0.094884 1.690134 0.110388    
+farmPrice    0.248133   0.046188 5.372263  6.2e-05 ***
+trend        0.248302   0.097518 2.546227 0.021567   *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -563,18 +561,18 @@ SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
 > print( round( fitols1r$bcov, digits = 6 ) )
-            (Intercept)         p         d                               
+            (Intercept)     price    income                               
 (Intercept)   56.540807 -0.594801  0.032162   0.000000  0.000000  0.000000
-p             -0.594801  0.008222 -0.002333   0.000000  0.000000  0.000000
-d              0.032162 -0.002333  0.002063   0.000000  0.000000  0.000000
+price         -0.594801  0.008222 -0.002333   0.000000  0.000000  0.000000
+income         0.032162 -0.002333  0.002063   0.000000  0.000000  0.000000
                0.000000  0.000000  0.000000 131.398303 -0.987500 -0.304361
                0.000000  0.000000  0.000000  -0.987500  0.009003  0.000844
                0.000000  0.000000  0.000000  -0.304361  0.000844  0.002133
                0.000000  0.000000  0.000000  -0.279183  0.000522  0.001316
                      
 (Intercept)  0.000000
-p            0.000000
-d            0.000000
+price        0.000000
+income       0.000000
             -0.279183
              0.000522
              0.001316
@@ -606,12 +604,12 @@ The determinant of the residual covariance matrix: 3.36519
 OLS R-squared value of the system: 0.709298
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.895423   8.467146 11.798004        0 ***
-p           -0.316299   0.102107 -3.097722 0.006536  **
-d            0.334636   0.051147  6.542616    5e-06 ***
+price       -0.316299   0.102107 -3.097722 0.006536  **
+income       0.334636   0.051147  6.542616    5e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -622,13 +620,13 @@ Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 58.275431  10.358722 5.625736  3.8e-05 ***
-p            0.160367   0.085744 1.870294 0.079851   .
-f            0.248133   0.041739 5.944919  2.1e-05 ***
-a            0.248302   0.088124 2.817642 0.012382   *
+price        0.160367   0.085744 1.870294 0.079851   .
+farmPrice    0.248133   0.041739 5.944919  2.1e-05 ***
+trend        0.248302   0.088124 2.817642 0.012382   *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -638,18 +636,18 @@ SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
 > print( round( fitols1rs$bcov, digits = 6 ) )
-            (Intercept)         p         d                               
+            (Intercept)     price    income                               
 (Intercept)   71.692566 -0.754196  0.040781   0.000000  0.000000  0.000000
-p             -0.754196  0.010426 -0.002959   0.000000  0.000000  0.000000
-d              0.040781 -0.002959  0.002616   0.000000  0.000000  0.000000
+price         -0.754196  0.010426 -0.002959   0.000000  0.000000  0.000000
+income         0.040781 -0.002959  0.002616   0.000000  0.000000  0.000000
                0.000000  0.000000  0.000000 107.303121 -0.806417 -0.248549
                0.000000  0.000000  0.000000  -0.806417  0.007352  0.000689
                0.000000  0.000000  0.000000  -0.248549  0.000689  0.001742
                0.000000  0.000000  0.000000  -0.227988  0.000426  0.001074
                      
 (Intercept)  0.000000
-p            0.000000
-d            0.000000
+price        0.000000
+income       0.000000
             -0.227988
              0.000426
              0.001074
@@ -683,12 +681,12 @@ The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.556298   8.422525 11.820244        0 ***
-p           -0.291694   0.097484 -2.992235 0.005127  **
-d            0.312881   0.044052    7.1025        0 ***
+price       -0.291694   0.097484 -2.992235 0.005127  **
+income       0.312881   0.044052    7.1025        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -699,13 +697,13 @@ Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 56.37954  10.072129 5.597579    3e-06 ***
-p           0.163912   0.085286 1.921907 0.063031   .
-f           0.257067   0.040217 6.391991        0 ***
-a           0.312881   0.044052   7.1025        0 ***
+price       0.163912   0.085286 1.921907 0.063031   .
+farmPrice   0.257067   0.040217 6.391991        0 ***
+trend       0.312881   0.044052   7.1025        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -715,18 +713,18 @@ SSR: 95.087806 MSE: 5.942988 Root MSE: 2.437824
 Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848 
 
 > print( round( fitols2$bcov, digits = 6 ) )
-            (Intercept)         p         d                               
+            (Intercept)     price    income                               
 (Intercept)   70.938921 -0.736413  0.030252  -0.888127  0.001661  0.004185
-p             -0.736413  0.009503 -0.002195   0.064436 -0.000120 -0.000304
-d              0.030252 -0.002195  0.001941  -0.056972  0.000107  0.000268
+price         -0.736413  0.009503 -0.002195   0.064436 -0.000120 -0.000304
+income         0.030252 -0.002195  0.001941  -0.056972  0.000107  0.000268
               -0.888127  0.064436 -0.056972 101.447788 -0.790443 -0.223090
                0.001661 -0.000120  0.000107  -0.790443  0.007274  0.000640
                0.004185 -0.000304  0.000268  -0.223090  0.000640  0.001617
                0.030252 -0.002195  0.001941  -0.056972  0.000107  0.000268
                      
 (Intercept)  0.030252
-p           -0.002195
-d            0.001941
+price       -0.002195
+income       0.001941
             -0.056972
              0.000107
              0.000268
@@ -758,12 +756,12 @@ The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.556298   7.564002 13.161854        0 ***
-p           -0.291694   0.088667 -3.289779  0.00234  **
-d            0.312881   0.041501  7.539044        0 ***
+price       -0.291694   0.088667 -3.289779  0.00234  **
+income       0.312881   0.041501  7.539044        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -774,13 +772,13 @@ Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 56.37954  11.316513 4.982059  1.8e-05 ***
-p           0.163912   0.096049 1.706535 0.097028   .
-f           0.257067   0.045142 5.694686    2e-06 ***
-a           0.312881   0.041501 7.539044        0 ***
+price       0.163912   0.096049 1.706535 0.097028   .
+farmPrice   0.257067   0.045142 5.694686    2e-06 ***
+trend       0.312881   0.041501 7.539044        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -790,18 +788,18 @@ SSR: 95.087806 MSE: 5.942988 Root MSE: 2.437824
 Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848 
 
 > print( round( fitols2s$bcov, digits = 6 ) )
-            (Intercept)         p         d                               
+            (Intercept)     price    income                               
 (Intercept)   57.214133 -0.596328  0.026850  -0.788252  0.001474  0.003714
-p             -0.596328  0.007862 -0.001948   0.057190 -0.000107 -0.000269
-d              0.026850 -0.001948  0.001722  -0.050565  0.000095  0.000238
+price         -0.596328  0.007862 -0.001948   0.057190 -0.000107 -0.000269
+income         0.026850 -0.001948  0.001722  -0.050565  0.000095  0.000238
               -0.788252  0.057190 -0.050565 128.063465 -1.001596 -0.280017
                0.001474 -0.000107  0.000095  -1.001596  0.009225  0.000806
                0.003714 -0.000269  0.000238  -0.280017  0.000806  0.002038
                0.026850 -0.001948  0.001722  -0.050565  0.000095  0.000238
                      
 (Intercept)  0.026850
-p           -0.001948
-d            0.001722
+price       -0.001948
+income       0.001722
             -0.050565
              0.000095
              0.000238
@@ -833,12 +831,12 @@ The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.556298   8.422525 11.820244        0 ***
-p           -0.291694   0.097484 -2.992235 0.008189  **
-d            0.312881   0.044052    7.1025    2e-06 ***
+price       -0.291694   0.097484 -2.992235 0.008189  **
+income       0.312881   0.044052    7.1025    2e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -849,13 +847,13 @@ Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 56.37954  10.072129 5.597579    4e-05 ***
-p           0.163912   0.085286 1.921907 0.072611   .
-f           0.257067   0.040217 6.391991    9e-06 ***
-a           0.312881   0.044052   7.1025    3e-06 ***
+price       0.163912   0.085286 1.921907 0.072611   .
+farmPrice   0.257067   0.040217 6.391991    9e-06 ***
+trend       0.312881   0.044052   7.1025    3e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -865,18 +863,18 @@ SSR: 95.087806 MSE: 5.942988 Root MSE: 2.437824
 Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848 
 
 > print( round( fitols2p$bcov, digits = 6 ) )
-            (Intercept)         p         d                               
+            (Intercept)     price    income                               
 (Intercept)   70.938921 -0.736413  0.030252  -0.888127  0.001661  0.004185
-p             -0.736413  0.009503 -0.002195   0.064436 -0.000120 -0.000304
-d              0.030252 -0.002195  0.001941  -0.056972  0.000107  0.000268
+price         -0.736413  0.009503 -0.002195   0.064436 -0.000120 -0.000304
+income         0.030252 -0.002195  0.001941  -0.056972  0.000107  0.000268
               -0.888127  0.064436 -0.056972 101.447788 -0.790443 -0.223090
                0.001661 -0.000120  0.000107  -0.790443  0.007274  0.000640
                0.004185 -0.000304  0.000268  -0.223090  0.000640  0.001617
                0.030252 -0.002195  0.001941  -0.056972  0.000107  0.000268
                      
 (Intercept)  0.030252
-p           -0.002195
-d            0.001941
+price       -0.002195
+income       0.001941
             -0.056972
              0.000107
              0.000268
@@ -908,12 +906,12 @@ The determinant of the residual covariance matrix: 1.69697
 OLS R-squared value of the system: 0.702974
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.556298   7.765184 12.820855        0 ***
-p           -0.291694   0.089876 -3.245534 0.002634  **
-d            0.312881   0.040614  7.703743        0 ***
+price       -0.291694   0.089876 -3.245534 0.002634  **
+income       0.312881   0.040614  7.703743        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -924,13 +922,13 @@ Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 56.37954   9.286044 6.071427    1e-06 ***
-p           0.163912    0.07863 2.084601 0.044688   *
-f           0.257067   0.037078 6.933088        0 ***
-a           0.312881   0.040614 7.703743        0 ***
+price       0.163912    0.07863 2.084601 0.044688   *
+farmPrice   0.257067   0.037078 6.933088        0 ***
+trend       0.312881   0.040614 7.703743        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -940,18 +938,18 @@ SSR: 95.087806 MSE: 5.942988 Root MSE: 2.437824
 Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848 
 
 > print( round( fitols2r$bcov, digits = 6 ) )
-            (Intercept)         p         d                              
+            (Intercept)     price    income                              
 (Intercept)   60.298083 -0.625951  0.025714 -0.754908  0.001412  0.003557
-p             -0.625951  0.008078 -0.001866  0.054771 -0.000102 -0.000258
-d              0.025714 -0.001866  0.001650 -0.048426  0.000091  0.000228
+price         -0.625951  0.008078 -0.001866  0.054771 -0.000102 -0.000258
+income         0.025714 -0.001866  0.001650 -0.048426  0.000091  0.000228
               -0.754908  0.054771 -0.048426 86.230620 -0.671876 -0.189626
                0.001412 -0.000102  0.000091 -0.671876  0.006183  0.000544
                0.003557 -0.000258  0.000228 -0.189626  0.000544  0.001375
                0.025714 -0.001866  0.001650 -0.048426  0.000091  0.000228
                      
 (Intercept)  0.025714
-p           -0.001866
-d            0.001650
+price       -0.001866
+income       0.001650
             -0.048426
              0.000091
              0.000228
@@ -983,12 +981,12 @@ The determinant of the residual covariance matrix: 1.69697
 OLS R-squared value of the system: 0.702974
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.556298   7.765184 12.820855        0 ***
-p           -0.291694   0.089876 -3.245534 0.002634  **
-d            0.312881   0.040614  7.703743        0 ***
+price       -0.291694   0.089876 -3.245534 0.002634  **
+income       0.312881   0.040614  7.703743        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -999,13 +997,13 @@ Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 56.37954   9.286044 6.071427    1e-06 ***
-p           0.163912    0.07863 2.084601 0.044688   *
-f           0.257067   0.037078 6.933088        0 ***
-a           0.312881   0.040614 7.703743        0 ***
+price       0.163912    0.07863 2.084601 0.044688   *
+farmPrice   0.257067   0.037078 6.933088        0 ***
+trend       0.312881   0.040614 7.703743        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1015,18 +1013,18 @@ SSR: 95.087806 MSE: 5.942988 Root MSE: 2.437824
 Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848 
 
 > print( round( fitols2rs$bcov, digits = 6 ) )
-            (Intercept)         p         d                              
+            (Intercept)     price    income                              
 (Intercept)   60.298083 -0.625951  0.025714 -0.754908  0.001412  0.003557
-p             -0.625951  0.008078 -0.001866  0.054771 -0.000102 -0.000258
-d              0.025714 -0.001866  0.001650 -0.048426  0.000091  0.000228
+price         -0.625951  0.008078 -0.001866  0.054771 -0.000102 -0.000258
+income         0.025714 -0.001866  0.001650 -0.048426  0.000091  0.000228
               -0.754908  0.054771 -0.048426 86.230620 -0.671876 -0.189626
                0.001412 -0.000102  0.000091 -0.671876  0.006183  0.000544
                0.003557 -0.000258  0.000228 -0.189626  0.000544  0.001375
                0.025714 -0.001866  0.001650 -0.048426  0.000091  0.000228
                      
 (Intercept)  0.025714
-p           -0.001866
-d            0.001650
+price       -0.001866
+income       0.001650
             -0.048426
              0.000091
              0.000228
@@ -1058,12 +1056,12 @@ The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.556298   8.422525 11.820244        0 ***
-p           -0.291694   0.097484 -2.992235 0.005127  **
-d            0.312881   0.044052    7.1025        0 ***
+price       -0.291694   0.097484 -2.992235 0.005127  **
+income       0.312881   0.044052    7.1025        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1074,13 +1072,13 @@ Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 56.37954  10.072129 5.597579    3e-06 ***
-p           0.163912   0.085286 1.921907 0.063031   .
-f           0.257067   0.040217 6.391991        0 ***
-a           0.312881   0.044052   7.1025        0 ***
+price       0.163912   0.085286 1.921907 0.063031   .
+farmPrice   0.257067   0.040217 6.391991        0 ***
+trend       0.312881   0.044052   7.1025        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1125,12 +1123,12 @@ The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.556298   7.564002 13.161854        0 ***
-p           -0.291694   0.088667 -3.289779  0.00234  **
-d            0.312881   0.041501  7.539044        0 ***
+price       -0.291694   0.088667 -3.289779  0.00234  **
+income       0.312881   0.041501  7.539044        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1141,13 +1139,13 @@ Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 56.37954  11.316513 4.982059  1.8e-05 ***
-p           0.163912   0.096049 1.706535 0.097028   .
-f           0.257067   0.045142 5.694686    2e-06 ***
-a           0.312881   0.041501 7.539044        0 ***
+price       0.163912   0.096049 1.706535 0.097028   .
+farmPrice   0.257067   0.045142 5.694686    2e-06 ***
+trend       0.312881   0.041501 7.539044        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1192,12 +1190,12 @@ The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.556298   8.422525 11.820244        0 ***
-p           -0.291694   0.097484 -2.992235 0.008189  **
-d            0.312881   0.044052    7.1025    2e-06 ***
+price       -0.291694   0.097484 -2.992235 0.008189  **
+income       0.312881   0.044052    7.1025    2e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1208,13 +1206,13 @@ Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 56.37954  10.072129 5.597579    4e-05 ***
-p           0.163912   0.085286 1.921907 0.072611   .
-f           0.257067   0.040217 6.391991    9e-06 ***
-a           0.312881   0.044052   7.1025    3e-06 ***
+price       0.163912   0.085286 1.921907 0.072611   .
+farmPrice   0.257067   0.040217 6.391991    9e-06 ***
+trend       0.312881   0.044052   7.1025    3e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1259,12 +1257,12 @@ The determinant of the residual covariance matrix: 1.69697
 OLS R-squared value of the system: 0.702974
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.556298   7.765184 12.820855        0 ***
-p           -0.291694   0.089876 -3.245534 0.002634  **
-d            0.312881   0.040614  7.703743        0 ***
+price       -0.291694   0.089876 -3.245534 0.002634  **
+income       0.312881   0.040614  7.703743        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1275,13 +1273,13 @@ Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 56.37954   9.286044 6.071427    1e-06 ***
-p           0.163912    0.07863 2.084601 0.044688   *
-f           0.257067   0.037078 6.933088        0 ***
-a           0.312881   0.040614 7.703743        0 ***
+price       0.163912    0.07863 2.084601 0.044688   *
+farmPrice   0.257067   0.037078 6.933088        0 ***
+trend       0.312881   0.040614 7.703743        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1326,12 +1324,12 @@ The determinant of the residual covariance matrix: 1.69697
 OLS R-squared value of the system: 0.702974
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 99.556298   6.973388 14.276604        0 ***
-p           -0.291694   0.081622 -3.573728 0.001078  **
-d            0.312881   0.038053  8.222166        0 ***
+price       -0.291694   0.081622 -3.573728 0.001078  **
+income       0.312881   0.038053  8.222166        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1342,13 +1340,13 @@ Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 56.37954  10.124784 5.568469    3e-06 ***
-p           0.163912    0.08591 1.907937 0.064874   .
-f           0.257067   0.040393 6.364232        0 ***
-a           0.312881   0.038053 8.222166        0 ***
+price       0.163912    0.08591 1.907937 0.064874   .
+farmPrice   0.257067   0.040393 6.364232        0 ***
+trend       0.312881   0.038053 8.222166        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1394,12 +1392,12 @@ The determinant of the residual covariance matrix: 2.69142
 OLS R-squared value of the system: 0.701962
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 101.481708   6.159922 16.474512        0 ***
-p            -0.316799   0.062915 -5.035322  1.4e-05 ***
-d             0.318885   0.039852  8.001656        0 ***
+price        -0.316799   0.062915 -5.035322  1.4e-05 ***
+income        0.318885   0.039852  8.001656        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1410,13 +1408,13 @@ Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 54.14942   7.551514  7.17067        0 ***
-p           0.183201   0.062915 2.911859 0.006215  **
-f           0.259528   0.039059 6.644583        0 ***
-a           0.318885   0.039852 8.001656        0 ***
+price       0.183201   0.062915 2.911859 0.006215  **
+farmPrice   0.259528   0.039059 6.644583        0 ***
+trend       0.318885   0.039852 8.001656        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1426,18 +1424,18 @@ SSR: 95.813088 MSE: 5.988318 Root MSE: 2.447104
 Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636 
 
 > print( round( fitols4$bcov, digits = 6 ) )
-            (Intercept)         p         d                              
+            (Intercept)     price    income                              
 (Intercept)   37.944640 -0.310971 -0.067804 35.274460 -0.310971 -0.035803
-p             -0.310971  0.003958 -0.000871 -0.408415  0.003958  0.000224
-d             -0.067804 -0.000871  0.001588  0.057157 -0.000871  0.000137
+price         -0.310971  0.003958 -0.000871 -0.408415  0.003958  0.000224
+income        -0.067804 -0.000871  0.001588  0.057157 -0.000871  0.000137
               35.274460 -0.408415  0.057157 57.025370 -0.408415 -0.171260
               -0.310971  0.003958 -0.000871 -0.408415  0.003958  0.000224
               -0.035803  0.000224  0.000137 -0.171260  0.000224  0.001526
               -0.067804 -0.000871  0.001588  0.057157 -0.000871  0.000137
                      
 (Intercept) -0.067804
-p           -0.000871
-d            0.001588
+price       -0.000871
+income       0.001588
              0.057157
             -0.000871
              0.000137
@@ -1469,12 +1467,12 @@ The determinant of the residual covariance matrix: 2.69142
 OLS R-squared value of the system: 0.701962
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 101.481708   6.047397 16.781055        0 ***
-p            -0.316799   0.064815  -4.88773  2.3e-05 ***
-d             0.318885    0.03848  8.287124        0 ***
+price        -0.316799   0.064815  -4.88773  2.3e-05 ***
+income        0.318885    0.03848  8.287124        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1485,13 +1483,13 @@ Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 54.14942   7.968695 6.795268        0 ***
-p           0.183201   0.064815 2.826509 0.007727  **
-f           0.259528   0.044561 5.824163    1e-06 ***
-a           0.318885    0.03848 8.287124        0 ***
+price       0.183201   0.064815 2.826509 0.007727  **
+farmPrice   0.259528   0.044561 5.824163    1e-06 ***
+trend       0.318885    0.03848 8.287124        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1501,18 +1499,18 @@ SSR: 95.813088 MSE: 5.988318 Root MSE: 2.447104
 Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636 
 
 > print( round( fitols4s$bcov, digits = 6 ) )
-            (Intercept)         p         d                              
+            (Intercept)     price    income                              
 (Intercept)   36.571016 -0.321554 -0.043279 35.846737 -0.321554 -0.033436
-p             -0.321554  0.004201 -0.001011 -0.431417  0.004201  0.000226
-d             -0.043279 -0.001011  0.001481  0.074877 -0.001011  0.000111
+price         -0.321554  0.004201 -0.001011 -0.431417  0.004201  0.000226
+income        -0.043279 -0.001011  0.001481  0.074877 -0.001011  0.000111
               35.846737 -0.431417  0.074877 63.500095 -0.431417 -0.215648
               -0.321554  0.004201 -0.001011 -0.431417  0.004201  0.000226
               -0.033436  0.000226  0.000111 -0.215648  0.000226  0.001986
               -0.043279 -0.001011  0.001481  0.074877 -0.001011  0.000111
                      
 (Intercept) -0.043279
-p           -0.001011
-d            0.001481
+price       -0.001011
+income       0.001481
              0.074877
             -0.001011
              0.000111
@@ -1544,12 +1542,12 @@ The determinant of the residual covariance matrix: 2.69142
 OLS R-squared value of the system: 0.701962
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 101.481708   6.159922 16.474512        0 ***
-p            -0.316799   0.062915 -5.035322 0.000102 ***
-d             0.318885   0.039852  8.001656        0 ***
+price        -0.316799   0.062915 -5.035322 0.000102 ***
+income        0.318885   0.039852  8.001656        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1560,13 +1558,13 @@ Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 54.14942   7.551514  7.17067    2e-06 ***
-p           0.183201   0.062915 2.911859 0.010187   *
-f           0.259528   0.039059 6.644583    6e-06 ***
-a           0.318885   0.039852 8.001656    1e-06 ***
+price       0.183201   0.062915 2.911859 0.010187   *
+farmPrice   0.259528   0.039059 6.644583    6e-06 ***
+trend       0.318885   0.039852 8.001656    1e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1576,18 +1574,18 @@ SSR: 95.813088 MSE: 5.988318 Root MSE: 2.447104
 Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636 
 
 > print( round( fitols4p$bcov, digits = 6 ) )
-            (Intercept)         p         d                              
+            (Intercept)     price    income                              
 (Intercept)   37.944640 -0.310971 -0.067804 35.274460 -0.310971 -0.035803
-p             -0.310971  0.003958 -0.000871 -0.408415  0.003958  0.000224
-d             -0.067804 -0.000871  0.001588  0.057157 -0.000871  0.000137
+price         -0.310971  0.003958 -0.000871 -0.408415  0.003958  0.000224
+income        -0.067804 -0.000871  0.001588  0.057157 -0.000871  0.000137
               35.274460 -0.408415  0.057157 57.025370 -0.408415 -0.171260
               -0.310971  0.003958 -0.000871 -0.408415  0.003958  0.000224
               -0.035803  0.000224  0.000137 -0.171260  0.000224  0.001526
               -0.067804 -0.000871  0.001588  0.057157 -0.000871  0.000137
                      
 (Intercept) -0.067804
-p           -0.000871
-d            0.001588
+price       -0.000871
+income       0.001588
              0.057157
             -0.000871
              0.000137
@@ -1619,12 +1617,12 @@ The determinant of the residual covariance matrix: 1.83017
 OLS R-squared value of the system: 0.701962
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 101.481708   5.762079 17.611994        0 ***
-p            -0.316799   0.058852 -5.382986    5e-06 ***
-d             0.318885   0.037278   8.55413        0 ***
+price        -0.316799   0.058852 -5.382986    5e-06 ***
+income        0.318885   0.037278   8.55413        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1635,13 +1633,13 @@ Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 54.14942   7.063795 7.665769        0 ***
-p           0.183201   0.058852 3.112908  0.00368  **
-f           0.259528   0.036536 7.103358        0 ***
-a           0.318885   0.037278  8.55413        0 ***
+price       0.183201   0.058852 3.112908  0.00368  **
+farmPrice   0.259528   0.036536 7.103358        0 ***
+trend       0.318885   0.037278  8.55413        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1651,18 +1649,18 @@ SSR: 95.813088 MSE: 5.988318 Root MSE: 2.447104
 Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636 
 
 > print( round( fitols4r$bcov, digits = 6 ) )
-            (Intercept)         p         d                              
+            (Intercept)     price    income                              
 (Intercept)   33.201560 -0.272100 -0.059329 30.865153 -0.272100 -0.031328
-p             -0.272100  0.003464 -0.000762 -0.357363  0.003464  0.000196
-d             -0.059329 -0.000762  0.001390  0.050012 -0.000762  0.000120
+price         -0.272100  0.003464 -0.000762 -0.357363  0.003464  0.000196
+income        -0.059329 -0.000762  0.001390  0.050012 -0.000762  0.000120
               30.865153 -0.357363  0.050012 49.897199 -0.357363 -0.149852
               -0.272100  0.003464 -0.000762 -0.357363  0.003464  0.000196
               -0.031328  0.000196  0.000120 -0.149852  0.000196  0.001335
               -0.059329 -0.000762  0.001390  0.050012 -0.000762  0.000120
                      
 (Intercept) -0.059329
-p           -0.000762
-d            0.001390
+price       -0.000762
+income       0.001390
              0.050012
             -0.000762
              0.000120
@@ -1694,12 +1692,12 @@ The determinant of the residual covariance matrix: 1.83017
 OLS R-squared value of the system: 0.701962
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 101.481708    5.52342 18.372983        0 ***
-p            -0.316799   0.058865 -5.381831    5e-06 ***
-d             0.318885   0.035219  9.054462        0 ***
+price        -0.316799   0.058865 -5.381831    5e-06 ***
+income        0.318885   0.035219  9.054462        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1710,13 +1708,13 @@ Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 54.14942   7.208856 7.511514        0 ***
-p           0.183201   0.058865 3.112241 0.003686  **
-f           0.259528   0.039873 6.508793        0 ***
-a           0.318885   0.035219 9.054462        0 ***
+price       0.183201   0.058865 3.112241 0.003686  **
+farmPrice   0.259528   0.039873 6.508793        0 ***
+trend       0.318885   0.035219 9.054462        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1726,18 +1724,18 @@ SSR: 95.813088 MSE: 5.988318 Root MSE: 2.447104
 Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636 
 
 > print( round( fitols4rs$bcov, digits = 6 ) )
-            (Intercept)         p         d                              
+            (Intercept)     price    income                              
 (Intercept)   30.508171 -0.266011 -0.038366 29.714754 -0.266011 -0.028003
-p             -0.266011  0.003465 -0.000826 -0.356026  0.003465  0.000188
-d             -0.038366 -0.000826  0.001240  0.060437 -0.000826  0.000095
+price         -0.266011  0.003465 -0.000826 -0.356026  0.003465  0.000188
+income        -0.038366 -0.000826  0.001240  0.060437 -0.000826  0.000095
               29.714754 -0.356026  0.060437 51.967601 -0.356026 -0.173384
               -0.266011  0.003465 -0.000826 -0.356026  0.003465  0.000188
               -0.028003  0.000188  0.000095 -0.173384  0.000188  0.001590
               -0.038366 -0.000826  0.001240  0.060437 -0.000826  0.000095
                      
 (Intercept) -0.038366
-p           -0.000826
-d            0.001240
+price       -0.000826
+income       0.001240
              0.060437
             -0.000826
              0.000095
@@ -1770,12 +1768,12 @@ The determinant of the residual covariance matrix: 1.83017
 OLS R-squared value of the system: 0.701962
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 101.481708   5.762079 17.611994        0 ***
-p            -0.316799   0.058852 -5.382986    5e-06 ***
-d             0.318885   0.037278   8.55413        0 ***
+price        -0.316799   0.058852 -5.382986    5e-06 ***
+income        0.318885   0.037278   8.55413        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1786,13 +1784,13 @@ Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 54.14942   7.063795 7.665769        0 ***
-p           0.183201   0.058852 3.112908  0.00368  **
-f           0.259528   0.036536 7.103358        0 ***
-a           0.318885   0.037278  8.55413        0 ***
+price       0.183201   0.058852 3.112908  0.00368  **
+farmPrice   0.259528   0.036536 7.103358        0 ***
+trend       0.318885   0.037278  8.55413        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1837,12 +1835,12 @@ The determinant of the residual covariance matrix: 2.69142
 OLS R-squared value of the system: 0.701962
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 101.481708   6.047397 16.781055        0 ***
-p            -0.316799   0.064815  -4.88773  2.3e-05 ***
-d             0.318885    0.03848  8.287124        0 ***
+price        -0.316799   0.064815  -4.88773  2.3e-05 ***
+income        0.318885    0.03848  8.287124        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1853,13 +1851,13 @@ Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 54.14942   7.968695 6.795268        0 ***
-p           0.183201   0.064815 2.826509 0.007727  **
-f           0.259528   0.044561 5.824163    1e-06 ***
-a           0.318885    0.03848 8.287124        0 ***
+price       0.183201   0.064815 2.826509 0.007727  **
+farmPrice   0.259528   0.044561 5.824163    1e-06 ***
+trend       0.318885    0.03848 8.287124        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1904,12 +1902,12 @@ The determinant of the residual covariance matrix: 2.69142
 OLS R-squared value of the system: 0.701962
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 101.481708   6.159922 16.474512        0 ***
-p            -0.316799   0.062915 -5.035322 0.000102 ***
-d             0.318885   0.039852  8.001656        0 ***
+price        -0.316799   0.062915 -5.035322 0.000102 ***
+income        0.318885   0.039852  8.001656        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1920,13 +1918,13 @@ Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 54.14942   7.551514  7.17067    2e-06 ***
-p           0.183201   0.062915 2.911859 0.010187   *
-f           0.259528   0.039059 6.644583    6e-06 ***
-a           0.318885   0.039852 8.001656    1e-06 ***
+price       0.183201   0.062915 2.911859 0.010187   *
+farmPrice   0.259528   0.039059 6.644583    6e-06 ***
+trend       0.318885   0.039852 8.001656    1e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1971,12 +1969,12 @@ The determinant of the residual covariance matrix: 1.83017
 OLS R-squared value of the system: 0.701962
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 101.481708   5.762079 17.611994        0 ***
-p            -0.316799   0.058852 -5.382986    5e-06 ***
-d             0.318885   0.037278   8.55413        0 ***
+price        -0.316799   0.058852 -5.382986    5e-06 ***
+income        0.318885   0.037278   8.55413        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1987,13 +1985,13 @@ Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 54.14942   7.063795 7.665769        0 ***
-p           0.183201   0.058852 3.112908  0.00368  **
-f           0.259528   0.036536 7.103358        0 ***
-a           0.318885   0.037278  8.55413        0 ***
+price       0.183201   0.058852 3.112908  0.00368  **
+farmPrice   0.259528   0.036536 7.103358        0 ***
+trend       0.318885   0.037278  8.55413        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2038,12 +2036,12 @@ The determinant of the residual covariance matrix: 1.83017
 OLS R-squared value of the system: 0.701962
 
 OLS estimates for demand  (equation 1 )
-Model Formula: q ~ p + d
+Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 101.481708    5.52342 18.372983        0 ***
-p            -0.316799   0.058865 -5.381831    5e-06 ***
-d             0.318885   0.035219  9.054462        0 ***
+price        -0.316799   0.058865 -5.381831    5e-06 ***
+income        0.318885   0.035219  9.054462        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2054,13 +2052,13 @@ Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199
 
 
 OLS estimates for supply  (equation 2 )
-Model Formula: q ~ p + f + a
+Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 54.14942   7.208856 7.511514        0 ***
-p           0.183201   0.058865 3.112241 0.003686  **
-f           0.259528   0.039873 6.508793        0 ***
-a           0.318885   0.035219 9.054462        0 ***
+price       0.183201   0.058865 3.112241 0.003686  **
+farmPrice   0.259528   0.039873 6.508793        0 ***
+trend       0.318885   0.035219 9.054462        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 

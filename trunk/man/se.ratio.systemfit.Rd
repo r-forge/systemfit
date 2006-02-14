@@ -43,10 +43,10 @@ se.ratio.systemfit( resultsi, resultsj, eqni )
 
 
 \examples{
-data( kmenta )
-demand <- q ~ p + d
-supply <- q ~ p + f + a
-inst <- ~ d + f + a
+data( "kmenta" )
+demand <- consump ~ price + income
+supply <- consump ~ price + farmPrice + trend
+inst <- ~ income + farmPrice + trend
 labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 

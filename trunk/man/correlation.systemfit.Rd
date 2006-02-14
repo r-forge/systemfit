@@ -57,10 +57,10 @@ correlation.systemfit( results, eqni, eqnj )
 
 
 \examples{
-data( kmenta )
-demand <- q ~ p + d
-supply <- q ~ p + f + a
-inst <- ~ d + f + a
+data( "kmenta" )
+demand <- consump ~ price + income
+supply <- consump ~ price + farmPrice + trend
+inst <- ~ income + farmPrice + trend
 labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
@@ -81,7 +81,7 @@ print( fit3sls$rcov )
 ## of suppy and demand by plotting the correlation over
 ## the value of q
 r12 <- correlation.systemfit( fit3sls, 1, 2 )
-plot( kmenta$q, r12, main="correlation between predictions from supply and demand" )
+plot( kmenta$consump, r12, main="correlation between predictions from supply and demand" )
 }
 
 \keyword{models}

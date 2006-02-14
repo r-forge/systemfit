@@ -2,11 +2,8 @@
 library( systemfit )
 data( kmenta )
 
-demand <- q ~ p + d
-supply <- q ~ p + f + a
-inst   <- ~ d + f + a
-inst1  <- ~ d + f
-instlist <- list( inst1, inst )
+demand <- consump ~ price + income
+supply <- consump ~ price + farmPrice + trend
 labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 restrm <- matrix(0,1,7)  # restriction matrix "R"
