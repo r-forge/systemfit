@@ -50,10 +50,12 @@ formulaGrunfeld <- invest ~ value + capital
 greeneOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
    data = GrunfeldGreene )
 summary( greeneOls )
+sapply( greeneOls$eq, function(x){return(x$ssr/20)} ) # sigma^2
 # OLS Pooled
 greeneOlsPooled <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
    data = GrunfeldGreene, pooled = TRUE )
 summary( greeneOlsPooled )
+sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/97 # sigma^2
 # SUR
 greeneSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
    data = GrunfeldGreene, rcovformula = 0 )
