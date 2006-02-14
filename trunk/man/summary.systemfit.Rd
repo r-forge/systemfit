@@ -1,28 +1,28 @@
 \name{summary.systemfit}
 \alias{summary.systemfit}
-\title{Print output of systemfit estimation}
+\alias{summary.systemfit.equation}
+\title{Summary of systemfit estimation}
 
 \description{
-  This function returns a summary of the system of equations.
+   These functions print a summary of the estimated equation system.
 }
 
 \usage{
    \method{summary}{systemfit}( object, ... )
+
+   \method{summary}{systemfit.equation}( object, ... )
 }
 
 \arguments{
-  \item{object}{an object of type \code{systemfit}.}
-  \item{...}{not used by user.}
+   \item{object}{an object of class \code{systemfit} or
+      \code{systemfit.equation}.}
+   \item{...}{not used by user.}
 }
 
-\value{
-  \code{summary.systemfit} returns an object of type \code{systemfit}.
-}
+\author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com},\cr
+   Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de} }
 
-\author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com}}
-
-\seealso{\code{\link{systemfit}}, \code{\link{print.systemfit}} and
-  \code{\link{print.systemfit}}}
+\seealso{\code{\link{systemfit}}, \code{\link{print.systemfit}}}
 
 
 \examples{
@@ -36,8 +36,14 @@ system <- list( demand, supply )
 ## perform OLS on each of the equations in the system
 fitols <- systemfit( "OLS", system, labels, data = kmenta )
 
-## print the results
-summary.systemfit( fitols )
+## results of the whole system
+summary( fitols )
+
+## results of the first equation
+summary( fitols$eq[[1]] )
+
+## results of the second equation
+summary( fitols$eq[[2]] )
 }
 
 \keyword{models}
