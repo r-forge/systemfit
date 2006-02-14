@@ -24,10 +24,24 @@ A data frame containing 20 annual observations on 3 variables for 2 firms.
 }
 
 \references{
-Theil, Henri (1971). \emph{Principles of Econometrics}, John Wiley & Sons, New York.
-
 Grunfeld, Y. (1958). \emph{The Determinants of Corporate Investment},
 Unpublished Ph.D. Dissertation, University of Chicago.
+
+Theil, Henri (1971). \emph{Principles of Econometrics}, John Wiley & Sons, New York.
+}
+
+\examples{
+## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
+data( "GrunfeldTheil" )
+formulaGrunfeld <- invest ~ value + capital
+# OLS
+theilOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+   data = GrunfeldTheil )
+summary( theilOls )
+# SUR
+theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+   data = GrunfeldTheil, rcovformula = 0 )
+summary( theilSur )
 }
 
 \keyword{datasets}

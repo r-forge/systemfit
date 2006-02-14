@@ -20,8 +20,18 @@ A data frame containing 20 annual observations on 3 variables for 5 firms.
 }
 }
 
+\details{
+There exist several different versions of this data set,
+and this version is considered incorrect
+(see \url{http://www.stanford.edu/~clint/bench/grunfeld.htm} for details).
+However, we provide this incorrect version to replicated the results
+published in Greene (2003).
+}
+
 \source{
-   \url{http://www.stern.nyu.edu/~wgreene/Text/tables/TableF13-1.txt}
+   Greene (2003), Appendix F, Data Sets Used in Applications, Table F13.1.
+
+   \url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}
 }
 
 \references{
@@ -30,6 +40,28 @@ Upper Saddle River (NJ).
 
 Grunfeld, Y. (1958). \emph{The Determinants of Corporate Investment},
 Unpublished Ph.D. Dissertation, University of Chicago.
+}
+
+\examples{
+## Repeating the OLS and SUR estimations in Greene (2003, pp. 351)
+data( "GrunfeldGreene" )
+formulaGrunfeld <- invest ~ value + capital
+# OLS
+greeneOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene )
+summary( greeneOls )
+# OLS Pooled
+greeneOlsPooled <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene, pooled = TRUE )
+summary( greeneOlsPooled )
+# SUR
+greeneSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene, rcovformula = 0 )
+summary( greeneSur )
+# SUR Pooled
+greeneSurPooled <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene, pooled = TRUE, rcovformula = 0 )
+summary( greeneSurPooled )
 }
 
 \keyword{datasets}

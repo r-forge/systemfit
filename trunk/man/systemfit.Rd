@@ -248,7 +248,7 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
 \seealso{\code{\link{lm}} and \code{\link{nlsystemfit}}}
 
 \examples{
-data( kmenta )
+data( "kmenta" )
 demand <- q ~ p + d
 supply <- q ~ p + f + a
 labels <- list( "demand", "supply" )
@@ -291,31 +291,23 @@ inst <- ~ d + f + a
 fit3sls <- systemfit( "3SLS", system, labels, inst, kmenta, formula3sls="GMM" )
 print( fit3sls )
 
+
+## Examples how to use systemfitClassic()
 ## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
-data( GrunfeldTheil )
+data( "GrunfeldTheil" )
 formulaGrunfeld <- invest ~ value + capital
+# OLS
 theilOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
    data = GrunfeldTheil )
 summary( theilOls )
+# SUR
 theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
    data = GrunfeldTheil, rcovformula = 0 )
-summary( theilOls )
+summary( theilSur )
 
-## Repeating the OLS and SUR estimations in Greene (2003, pp. 351)
-data( GrunfeldGreene )
-formulaGrunfeld <- invest ~ value + capital
-greeneOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
-   data = GrunfeldGreene )
-summary( greeneOls )
-greeneOlsPooled <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
-   data = GrunfeldGreene, pooled = TRUE )
-summary( greeneOlsPooled )
-greeneSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
-   data = GrunfeldGreene, rcovformula = 0 )
-summary( greeneSur )
-greeneSurPooled <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
-   data = GrunfeldGreene, pooled = TRUE, rcovformula = 0 )
-summary( greeneSurPooled )
+
+## Further examples are in the documentation to the data set
+## 'GrunfeldGreene'.
 }
 
 \keyword{models}
