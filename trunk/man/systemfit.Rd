@@ -306,8 +306,8 @@ theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
 summary( theilSur )
 
 
-## Further examples are in the documentation to the data set
-## 'GrunfeldGreene'.
+## Further examples are in the documentation to the data sets
+## 'KleinI' and 'GrunfeldGreene'.
 }
 
 \keyword{models}
