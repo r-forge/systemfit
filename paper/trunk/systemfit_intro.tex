@@ -10,7 +10,7 @@ Many theoretical models consist of more than one equation.
 These models can contain variables that appear on the left-hand side in one
 equation and on the right-hand side of another equation (simultaneity-bias).
 The system can have non-zero off-diagonal covariance elements resulting from
-related disturbnaces (contemporaneous correlation).
+related disturbances (contemporaneous correlation).
 Ignoring contemporaneous correlation leads to inefficient parameter
 estimates \citep{zellner62} and ignoring simultaneity-bias can lead to
 inconsistent parameter estimates.
@@ -26,21 +26,23 @@ inconsistent parameter estimates.
 Another reason to estimate an equation system simultaneously are
 cross-equation parameter restrictions.
 These restrictions can be tested and/or imposed only in a simultaneous
-estimation approach especially the economic theory suggests many
-cross-equation restrictions.
+estimation approach.
+Especially the economic theory suggests many cross-equation parameter
+restrictions (e.g.\ the symmetry restriction in demand models).
 
 % (But we don't say why this is important...) Are we
 % imposing restrictions in the parameters, or the variance-covariance
 % matrix or both and for what pupose?
 
-% For all of the methods developed in the package, the disturbnaces of
+% For all of the methods developed in the package, the disturbances of
 % the individual equations are assumed to be independent and identially
 % distributed (iid).  
 % In the future, we would like to add the ability to fit equations were
 % the disturbances are serially correlated (wikins 1969).
 
 The \pkg{systemfit} package provides the capability to estimate
-linear and non-linear equation systems in \proglang{R}.
+linear and non-linear equation systems in \proglang{R}
+\citep{r-project}.
 Although linear and non-linear equation systems can be estimated
 with several other statistical and econometric software packages
 (e.g.\ \proglang{SAS}, \proglang{EViews}, \proglang{TSP}),

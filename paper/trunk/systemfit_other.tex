@@ -12,10 +12,10 @@ Since the true residuals of the estimated equations are generally not known,
 the true covariance matrix of the residuals cannot be determined.
 Thus, this covariance matrix must be calculated from the
 \emph{estimated} residuals. 
-
-The estimated covariance matrix of the residuals ($\widehat{\Sigma} = 
-\left[ \widehat{\sigma}_{ij} \right]$) 
-is often calculated by
+Generally, the estimated covariance matrix of the residuals
+($\widehat{\Sigma} = \left[ \widehat{\sigma}_{ij} \right]$)
+can be calculated from the residuals of a first-step OLS or 2SLS estimation.
+The following formula is often applied:
 \begin{equation}
    \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }{ T }
    \label{eq:rcov0}
@@ -38,13 +38,14 @@ and
 \begin{equation}
    \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
    { T - \max \left( K_i , K_j \right) }
+   \label{eq:rcov3}
 \end{equation}
 where $K_i$ and $K_j$ are the number of regressors in equation
 $i$ and $j$, respectively.
 
 However, this yields an unbiased estimator only if $K_i = K_j$ 
 \citep[p.\ 469]{judge85}. 
-% Greene (2002, p. 344) says that the second is unbiased if i = j or K_i = K_j,
+% Greene (2003, p. 344) says that the second is unbiased if i = j or K_i = K_j,
 % whereas the first is unbiased only if i = j. 
 % However, if K_i = K_j the first and the second are equal.
 % Why is the first biased if K_i = K_j ???????????
@@ -75,13 +76,13 @@ Hence, °it is doubtful whether [this formula] is really superior to
 
 The WLS, SUR, W2SLS and 3SLS parameter estimates are consistent,
 if the estimated residual variance-covariance matrix is calculated
-using the residuals from a first step OLS or 2SLS estimation.
+using the residuals from a first-step OLS or 2SLS estimation.
 It is also possible to iterate the estimation procedure and 
 calculate the residual variance-covariance matrix from the
 residuals of the previous iteration. 
 If equation (\ref{eq:rcov0}) is applied to calculate the estimated
 residual variance-covariance matrix, the results are maximum
-likelihood \citep[p.\ 345]{greene02}.
+likelihood \citep[p.\ 345]{greene03}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,7 +122,7 @@ and $\overline{y_i}$ is the mean value of $y_i$.
 
 The goodness of fit of the whole system can be measured by the
 McElroy's $R^2$ value \citep{mcelroy77}: 
-% also: \citep[p.\ 345]{greene02}
+% also: \citep[p.\ 345]{greene03}
 \begin{equation}
    R_*^2 = 1 - \frac{ \widehat{u}' \widehat{ \Omega }^{-1} \widehat{u} }
    { y' \left( \widehat{ \Sigma }^{-1} \otimes

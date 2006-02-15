@@ -20,7 +20,6 @@ To impose these restrictions, the $X$ matrix is
 \begin{equation}
     X^* = X \cdot T
 \end{equation}
-
 Then, a standard estimation is done by substituting $X^*$ for $X$.
 This results in the linear independent parameter estimates $\beta^*$ and
 the variance-covariance matrix of these parameters. 
@@ -30,20 +29,23 @@ can be obtained by:
 \begin{equation}
    Var \left[ \widehat{\beta} \right] = T \cdot Var \left[ \widehat{\beta^*} \right] \cdot T'
 \end{equation}
-
-The second way to impose linear parameter restrictions 
+The second way to impose linear parameter restrictions
 can be formulated by
 \begin{equation}
    R \beta^0 = q
 \end{equation}
 where $\beta^0$ is the vector of the restricted coefficients, 
-$R$ is a matrix and $q$ is a vector (see \citealp[p.\ 100]{greene02}). 
+$R$ is a matrix and $q$ is a vector (see \citealp[p.\ 100]{greene03}).
 Each restriction belongs to one row of $R$ and the corresponding 
 element of~$q$.
 
 The first way is less flexible than this latter one%
-\footnote{e.g.\ restrictions like $\beta_1 + \beta_2 = 4$ cannot be imposed
-by the first method.}, 
+\footnote{
+While restrictions like $\beta_1 = 2 \beta_2$ can be imposed by
+both methods,
+restrictions like $\beta_1 + \beta_2 = 4$ can be imposed only
+by the second method.
+}, 
 but the first way is preferable if equality constraints for coefficients
 across many equations of the system are imposed. 
 Of course, these restrictions can be also imposed using
@@ -81,9 +83,8 @@ The OLS estimator restricted by $R \beta^0 = q$ can be obtained by
       X' y \\ q 
    \end{array} \right]
 \end{equation}
-where $2\lambda$ is a vector of the Lagrangean multipliers of the restrictions.
-
-If the whole system is treated as one single equation, 
+where $\lambda$ is a vector of the Lagrangean multipliers of the restrictions.
+If the whole system is treated as one single equation,
 the variance-covariance matrix of the estimated parameters is
 \begin{equation}
    Var 
@@ -97,8 +98,7 @@ the variance-covariance matrix of the estimated parameters is
    \end{array} \right]^{-1}
 \end{equation}
 with $\sigma^2 = E \left( u' u \right)$.
-
-If the disturbance terms of the individual equations 
+If the disturbance terms of the individual equations
 are allowed to have different variances, 
 the variance-covariance matrix of the estimated parameters is
 \begin{equation}
@@ -137,7 +137,6 @@ The WLS estimator restricted by $R \beta^0 = q$ can be obtained by
 with $\Omega = \Sigma \otimes I$, 
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
 $\sigma_{ii} = E \left( u_i' u_i \right)$.
-
 The variance-covariance matrix of the estimated parameters is
 \begin{equation}
    Var 
@@ -171,7 +170,6 @@ The SUR estimator restricted by $R \beta^0 = q$ can be obtained by
 \end{equation}
 with $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_i' u_j \right)$.
-
 The variance-covariance matrix of the estimated parameters is
 \begin{equation}
    Var 
@@ -204,8 +202,7 @@ The 2SLS estimator restricted by $R \beta^0 = q$ can be obtained by
    \end{array} \right]
    \label{eq:beta2SLSr}
 \end{equation}
-
-If the whole system is treated as one single equation, 
+If the whole system is treated as one single equation,
 the variance-covariance matrix of the estimated parameters is
 \begin{equation}
    Var 
@@ -219,8 +216,7 @@ the variance-covariance matrix of the estimated parameters is
    \end{array} \right]^{-1}
 \end{equation}
 with $\sigma^2 = E \left( u' u \right)$.
-
-If the disturbance terms of the individual equations 
+If the disturbance terms of the individual equations
 are allowed to have different variances, 
 the variance-covariance matrix of the estimated parameters is
 \begin{equation}
@@ -260,7 +256,6 @@ The W2SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 with $\Omega = \Sigma \otimes I$, 
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
 $\sigma_{ii} = E \left( u_i' u_i \right)$.
-
 The variance-covariance matrix of the estimated parameters is
 \begin{equation}
    Var 
@@ -295,7 +290,6 @@ The standard 3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \end{equation}
 with $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_i' u_j \right)$.
-
 The variance-covariance matrix of this estimator is
 \begin{equation}
    Var 
@@ -309,8 +303,6 @@ The variance-covariance matrix of this estimator is
    \end{array} \right]^{-1}
    \label{eq:cov3slsr}
 \end{equation}
-
-
 The IV-3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
@@ -326,7 +318,6 @@ The IV-3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
       \widehat{X}' \Omega^{-1} y \\ q 
    \end{array} \right]
 \end{equation}
-
 with
 \begin{equation}
    Var 
@@ -339,8 +330,6 @@ with
       R & 0
    \end{array} \right]^{-1}
 \end{equation}
-
-
 The restricted 3SLS-GMM estimator can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
@@ -356,7 +345,6 @@ The restricted 3SLS-GMM estimator can be obtained by
       X' H \left( H \Omega H \right)^{-1} H' y \\ q 
    \end{array} \right]
 \end{equation}
-
 with
 \begin{equation}
    Var 
@@ -369,9 +357,7 @@ with
       R & 0
    \end{array} \right]^{-1}
 \end{equation}
-
-
-The restricted 3SLS estimator based on the suggestion of 
+The restricted 3SLS estimator based on the suggestion of
 \cite{schmidt90} is:
 \begin{equation}
    \left[ \begin{array}{c}
@@ -387,7 +373,6 @@ The restricted 3SLS estimator based on the suggestion of
       \widehat{X}' \Omega^{-1} H \left( H' H \right)^{-1} H' y \\ q 
    \end{array} \right]
 \end{equation}
-
 with
 \begin{eqnarray}
    Var 
@@ -412,8 +397,6 @@ with
       R & 0
    \end{array} \right]^{-1}
 \end{eqnarray}
-
-
 The econometrics software EViews calculates the restricted 3SLS estimator by:
 \begin{equation}
    \left[ \begin{array}{c}
@@ -433,8 +416,8 @@ The econometrics software EViews calculates the restricted 3SLS estimator by:
 where $\widehat{\beta^0}_{2SLS}$ is the restricted 2SLS estimator calculated
 by equation (\ref{eq:beta2SLSr}). 
 To calculate the variance-covariance matrix 
-EViews uses the standard formula of the restricted 3SLS estimator
-(\ref{eq:cov3slsr}).
+EViews uses the standard formula of the restricted 3SLS
+estimator~(\ref{eq:cov3slsr}).
 
 
 If the same instrumental variables are used in all equations 
