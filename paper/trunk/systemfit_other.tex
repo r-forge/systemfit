@@ -155,7 +155,7 @@ of restrictions.
 \subsection{Hausman test}
 
 Hausman \citep{hausman78} developed a test have power against
-alternatives for which $\hat{\theta}$ and $\tilde{\theta}$ diverge
+alternatives for which $\hat{\beta}_2$ and $\hat{\beta}_3$ diverge
 under misspecification.
 The resulting test statistic, distributed as a
 $\chi^2$, is the difference between the covariance of an
@@ -179,13 +179,13 @@ Under the alternative hypothesis the 2SLS estimator is consistent but the
 The Hausman test statistic is,
 
 \begin{equation}
-m = ( \beta_2 - \beta_3 )^{'} ( \Omega_2 - \Omega_3 ) ( \beta_2 - \beta_3 ) 
+  m = ( \hat{\beta}_2 - \hat{\beta}_3 )^{'} ( \hat{\Omega}_2 - \hat{\Omega}_3 ) ( \hat{\beta}_2 - \hat{\beta}_3 ) 
 \label{eq:hausman}
 \end{equation}
-where $\beta_2$ and $\Omega_2$ are the estimated coefficients and the
-variance-covariance matrix from a 2SLS estimation and $\beta_3$ and
-$\Omega_3$ are the estimated coefficients and their variance
-covariance-matrix from a 3SLS estimation.
+where $\hat{\beta}_2$ and $\hat{\Omega}_2$ are the estimated
+coefficient and variance-covariance matrix from 2SLS estimation and
+$\hat{\beta}_3$ and $\hat{\Omega}_3$ are the estimated coefficients
+and variance covariance-matrix from 3SLS estimation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Nonlinear estimation}
