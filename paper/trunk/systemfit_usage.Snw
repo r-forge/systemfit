@@ -12,45 +12,57 @@ systemfit( method, eqns )
 @
 
 There are two mandatory arguments: \code{method} and \code{eqns}.
-
 The argument \code{method} is a string determining the estimation method.
 It must be one of "OLS", "WLS", "SUR", "2SLS", "W2SLS" or "3SLS".
-
-The other mandatory argument \code{eqns} is a list of the equations 
+The other mandatory argument \code{eqns} is a list of the equations
 to estimate. 
 Each equation is a standard formula in \proglang{R}.
 It starts with a dependent variable on the left hand side.
-After a tilde ($\sim$) the regressors are listed%
-\footnote{For Details see the \proglang{R} help files to \code{formula}}.
+After a tilde ($\sim$) the regressors are listed,
+separated by plus signs%
+\footnote{
+For Details see the \proglang{R} help files to \code{formula}.
+}.
 
-This is now demonstrated using an example:
+This is now demonstrated using an example taken from  \citet{kmenta86}.
+We want to estimate a small model of US the food market:
+\begin{align}
+consump & = \beta_1 + \beta_2 * price + \beta_3 * income\\
+consump & = \beta_4 + \beta_5 * price + \beta_6 * farmPrice + \beta_7 * trend
+\end{align}
+The first equation represents the demand side of the food market.
+Variable \code{consump} (food consumption per capita) is the dependant variable.
+The regressors are \code{price} (ratio of food prices to general consumer prices)
+and \code{income} (disposable income) as well as a constant.
+The second equation specifies the supply side of the food market.
+Variable \code{consump} (food consumption per capita) is also the dependant
+variable of this equation.
+The regressors are again \code{price} (ratio of food prices to general 
+consumer prices) and a constant as well as 
+\code{farmPrice} (ratio of preceding year's prices received by farmers) and 
+\code{trend} (a time trend in years).
+These equations can be estimated as SUR in \proglang{R} by
 <<>>=
 library( systemfit )
 data( kmenta )
 attach( kmenta )
-fitsur <- systemfit( "SUR", list( q ~ p + d, q ~ p + f + a ) )
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
+fitsur <- systemfit( "SUR", list( demand = eqDemand, supply = eqSupply ) )
 @
 
 The first line loads the \pkg{systemfit} package.
 The second line loads example data that are included with the package.
-These data come from \cite{kmenta86}.
 They are attached to the \proglang{R} search path in line three.
-In the last line, a seemingly unrelated regression is performed.
-The first equation represents the demand side of the food market.
-The dependant variable is \code{q} (food consumption per capita).
-The regressors are \code{p} (ratio of food prices to general consumer prices)
-and \code{d} (disposable income) as well as a constant%
-\footnote{a regression constant is always implied if not explicitly omitted.}.
-The second equation represents the supply side.
-Variable \code{q} (food consumption per capita) is also the dependant 
-variable of this equation. 
-The regressors are again \code{p} (ratio of food prices to general 
-consumer prices) and a constant as well as 
-\code{f} (ratio of preceding year's prices received by farmers) and 
-\code{a} (a time trend in years).
-The regression result is assigned to the variable \code{fitsur}.
+In the fourth and fifth line, the demand and supply equations are specified,
+respectively%
+\footnote{
+A regression constant is always implied if not explicitly omitted.
+}.
+Finally, in the last line, a seemingly unrelated regression is performed
+and the regression result is assigned to the variable \code{fitsur}.
 
-Summary results can be printed by\\
+Summary results can be printed by
 <<>>=
 summary( fitsur )
 @
@@ -65,88 +77,248 @@ Following additional options can be set by the user:
 % \subsubsection{Equation labels}
 \paragraph{Equation labels}
 The optional argument \code{eqnlabels} allows the user to label the equations.
-It has to be a vector of strings naming the equations.\\
-<<>>=
-fitsur <- systemfit( "SUR", list( q ~ p + d, q ~ p + f + a ),
-             eqnlabels = c( "demand", "supply" ) )
-summary( fitsur )
+It has to be a vector of strings.
+If this argument is not provided, the labels are taken from the names of
+the equations in argument \code{eqns}.
+And if the equations have no names, they are numbered consecutively.
+Hence, the following command has the same effect as the command above.
+<<eval=FALSE>>=
+fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ),
+   eqnlabels = c( "demand", "supply" ) )
 @
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Instrumental variables}   
 \paragraph{Instrumental variables}   
-\code{inst}one-sided model formula specifying instrumental variables
-   or a list of one-sided model formulas if different instruments should
-   be used for the different equations (only needed for 2SLS, W2SLS and
-   3SLS estimations).
+The instruments for a 2SLS, W2SLS or 3SLS estimation can be specified
+by the argument \code{inst}.
+If the same instruments should be used for all equations,
+\code{inst} must be a one-sided formula.
+If different instruments should be used for the equations,
+\code{inst} must be a list that contains a one-sided formula
+for each equation.
+The first example uses the same instruments for all equations,
+and the second uses different instruments:
+<<eval=FALSE>>=
+fit3sls  <- systemfit( "3SLS", list( demand = eqDemand, supply = eqSupply ),
+   inst = ~ income + farmPrice + trend )
+fit3sls2 <- systemfit( "3SLS", list( demand = eqDemand, supply = eqSupply ),
+   inst = list( ~ farmPrice + trend, ~ income + farmPrice + trend ) )
+@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Data}   
-\paragraph{Data}   
-\code{data} an optional data frame containing the variables in the model.
-   By default the variables are taken from the environment from which
-   systemfit is called.
+\paragraph{Data}
+Having all data in the global environment or attached to the search path
+is often inconvenient.
+Therefore, an data frame \code{data} can be provided
+that contains the variables in the model.
+In the following example we do not need to attach the data frame
+\code{kmenta} before calling systemfit:
+have to be
+<<eval=FALSE>>=
+fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ), data = kmenta )
+@
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Restrictions}   
-\paragraph{Restrictions}   
-\code{R.restr} an optional j x k matrix to impose linear
-   restrictions on the parameters by \code{R.restr} * $\beta$ = \code{q.restr}
-   (j = number of restrictions, k = number of all parameters,
-   $\beta$ = vector of all parameters).
+\paragraph{Restrictions}
+As outline in section~\ref{sec:Restrictions}, parameter restrictions
+can be imposed in two ways.
+The first way is to use the transformation matrix $T$
+that can be specified by the argument \code{TX}.
+If we want to impose the restriction, say $\beta_2 = - \beta_5$,
+we can do this as follows
+<<eval=FALSE>>=
+tx <- matrix( 0, nrow = 7, ncol = 6 )
+tx[ 1, 1 ] <-  1   # beta*_1 =  beta_1
+tx[ 2, 2 ] <-  1   # beta*_2 =  beta_2
+tx[ 3, 3 ] <-  1   # beta*_3 =  beta_3
+tx[ 4, 4 ] <-  1   # beta*_4 =  beta_4
+tx[ 2, 5 ] <- -1   # beta*_2 = -beta_5
+tx[ 5, 6 ] <-  1   # beta*_5 =  beta_6
+tx[ 6, 7 ] <-  1   # beta*_6 =  beta_7
+fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ), TX = tx )
+@
+The first line creates a $7 \times 6$ matrix of zeros,
+where 7 is the number of unrestricted coefficients and
+6 is the number of restricted coefficients.
+The following seven lines specify this matrix in a way
+that the unrestricted coefficients $( \beta )$ are assigned
+to the restricted coefficients $( \beta^* )$ with
+$\beta^*_1 = \beta_1$,
+$\beta^*_2 = \beta_2$,
+$\beta^*_3 = \beta_3$,
+$\beta^*_4 = \beta_4$,
+$\beta^*_2 = -\beta_5$,
+$\beta^*_5 = \beta_6$, and
+$\beta^*_6 = \beta_7$.
+Finally the model is estimated with restriction
+$\beta^*_2 = \beta_2 = - \beta_5$ imposed.
 
-\code{q.restr} an optional j x 1 matrix to impose linear
-   restrictions (see \code{R.restr}); default is a j x 1 matrix
-   that contains only zeros.
+The second way to impose parameter restrictions is to use
+the matrix $R$ and the vector $q$
+(see section~\ref{sec:Restrictions}).
+Matrix $R$ can be specified with the argument \code{R.restr}
+and vector $q$ with argument \code{q.restr}.
+We convert the restriction specified above to $\beta_2 + \beta_5 = 0$
+and impose it in the second way:
+<<eval=FALSE>>=
+Rmat <- matrix( 0, nrow = 1, ncol = 7 )
+Rmat[ 1, 2 ] <-  1   # beta_2
+Rmat[ 1, 5 ] <-  1   # beta_5
+qvec <- c( 0 )
+fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ),
+   R.restr = Rmat, q.restr = qvec )
+@
+The first line creates a $1 \times 7$ matrix of zeros,
+where 1 is the number of restrictions and
+7 is the number of unrestricted coefficients.
+The following two lines specify this matrix in a way
+that the multiplication with the parameter vector
+results in $ \beta_2 + \beta_5 $.
+The fourth line creates a vector with a single element
+that contains the left hand side of the restriction, i.e.\ zero.
+Finally the model is estimated with restriction
+$\beta_2 + \beta_5 = 0$ imposed.
 
-\code{TX} an optional matrix to transform the regressor matrix and,
-   hence, also the coefficient vector (see details).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Iteration control}   
 \paragraph{Iteration control}
-\code{maxiter} maximum number of iterations for WLS, SUR, W2SLS and
-   3SLS estimations.
+The estimation methods WLS, SUR, W2SLS and 3SLS need a variance
+covariance matrix of the residuals
+that can be calculated from a first-step OLS or 2SLS estimation
+(see section~\ref{sec:residcov}).
+If the argument \code{maxiter} is set to a number large than one,
+this procedure is iterated and at each iteration the variance covariance
+matrix is calculated from the previous step estimation.
+This iteration is repeated until the maximum number of iterations
+is reached or the parameter estimates have converged.
+The maximum number of iterations is specified by the argument \code{maxiter}.
+Its default value is one, which means no iteration.
+The convergence criterion is
+\begin{equation}
+   \sqrt{ \frac{ \sum_i (b_{i,g} - b_{i,g-1})^2 }{ \sum_i b_{i,g-1}^2 }}
+      < \texttt{tol}
+\end{equation}
+where $b_{i,g}$ is the $i$th coefficient of the $g$th iteration.
+The default value of \code{tol} is $10^{-5}$.
 
-\code{tol} tolerance level indicating when to stop the iteration (only
-   WLS, SUR, W2SLS and 3SLS estimations).
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Residual covariance matrix}   
-\paragraph{Residual covariance matrix}   
-\code{rcovformula} formula to calculate the estimated residual covariance
-   matrix (see details).
+\paragraph{Residual covariance matrix}
+It was explained in section~\ref{sec:residcov} that several different
+formulas have been proposed to calculate the residual variance
+covariance matrix.
+The user can specify, which formula \pkg{systemfit} should use.
+Possible values of the argument \code{rcovformula} are presented in
+table~\ref{tab:rcovformula}.
+By default, \pkg{systemfit} uses equation (\ref{eq:rcov1}).
+
+\begin{table}[H]
+\caption{Possible values of argument \code{rcovformula}}
+\label{tab:rcovformula}
+\centering
+\begin{tabular}{|c|c|}
+\hline
+argument & equation \\
+\code{rcovformula} & \\
+\hline
+0              & \ref{eq:rcov0} \\
+\hline
+1 or 'geomean' & \ref{eq:rcov1} \\
+\hline
+2 or 'Theil'   & \ref{eq:rcov2} \\
+\hline
+3 or 'max'     & \ref{eq:rcov3} \\
+\hline
+\end{tabular}
+\end{table}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{3SLS formula}   
-\paragraph{3SLS formula}   
-\code{formula3sls} formula for calculating the 3SLS estimator,
-   one of "GLS", "IV", "GMM", "Schmidt" or "EViews" (see details).
+\paragraph{3SLS formula}
+As discussed in section~\ref{sec:3sls}, there exist several different
+formulas to perform a 3SLS estimation.
+The user can specify the applied formula by the argument \code{formula3sls}.
+Possible values are presented in table~\ref{tab:formula3sls}.
+The default value is 'GLS'.
+
+\begin{table}[H]
+\caption{Possible values of argument \code{formula3sls}}
+\label{tab:formula3sls}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+argument           & equation       & equation \\
+\code{formula3sls} & (unrestricted) & (restricted) \\
+\hline
+'GLS'     & \ref{eq:3slsGls}     & \ref{eq:3slsGlsR} \\
+\hline
+'IV'      & \ref{eq:3slsIv}      & \ref{eq:3slsIvR} \\
+\hline
+'GMM'     & \ref{eq:3slsGmm}     & \ref{eq:3slsGmmR} \\
+\hline
+'Schmidt' & \ref{eq:3slsSchmidt} & \ref{eq:3slsSchmidtR} \\
+\hline
+'EViews'  & \ref{eq:3slsEViews}  & \ref{eq:3slsEViewsR} \\
+\hline
+\end{tabular}
+\end{table}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Degrees of freedom for t-tests}   
 \paragraph{Degrees of freedom for t-tests}   
-\code{probdfsys} use the degrees of freedom of the whole system
-   (in place of the degrees of freedom of the single equation)
-   to calculate prob values for the t-test of individual parameters.
+The method to determine the degrees of freedom to perform t-tests of
+the estimated parameters can be specified with argument \code{probdfsys}.
+If it is \code{TRUE},
+the degrees of freedom of the whole system are taken.
+In contrast if \code{probdfsys} is \code{FALSE},
+the degrees of freedom of the single equationare taken.
+By default, \code{probdfsys} is \code{TRUE}, if any restrictions
+are specified using either the argument \code{R.restr} or the
+argument \code{TX}, and it is \code{FALSE} otherwise.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Sigma squared}   
-\paragraph{Sigma squared}   
-\code{single.eq.sigma} use different $\sigma^2$s for each
-   single equation to calculate the covariance matrix and the
-   standard errors of the coefficients (only OLS and 2SLS).
+\paragraph{Sigma squared}
+In case of OLS or 2SLS estimations, argument \code{single.eq.sigma}
+can be used to specify,
+whether different $\sigma^2$s for each single equation
+or the same $\sigma^2$ for all equations should be used.
+If argument \code{single.eq.sigma} is \code{TRUE},
+equations (\ref{eq:olsVarSingleSigma})
+and (\ref{eq:2slsVarSingleSigma}) are applied.
+In contrast, if argument \code{single.eq.sigma} is \code{FALSE},
+equations (\ref{eq:olsVarSameSigma})
+and (\ref{eq:2slsVarSameSigma}) are applied.
+By default, \code{single.eq.sigma} is \code{FALSE}, if any restrictions
+are specified using either the argument \code{R.restr} or the
+argument \code{TX}, and it is \code{TRUE} otherwise.
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{System options}   
-\paragraph{System options}   
-
-\code{solvetol} tolerance level for detecting linear dependencies
-   when inverting a matrix or calculating a determinant (see
-   \code{solve} and \code{det}).
-
-\code{saveMemory} save memory by omitting some calculation that
-   are not crucial for the basic estimation (e.g.\ McElroy's
-   $R^2$).
-
+\paragraph{System options}
+Finally, two options regarding some internal calculations are available.
+First, argument \code{solvetol} specifies the tolerance level
+for detecting linear dependencies when inverting a matrix or
+calculating a determinant (using functions \code{solve} and \code{det}).
+The default value depends on the used computer system and is equal to the
+default tolerance level of \code{solve} and \code{det}.
+Second, argument \code{saveMemory} can be used in case of large data sets
+to accelerate the estimation by omitting some calculation
+that are not crucial for the basic estimation.
+Currently, only the calculation of McElroy's $R^2$ is omitted.
+The default value of argument \code{saveMemory} is \code{TRUE},
+if the argument \code{data} is specified and the number of observations
+times the number of equations is larger than 1000,
+and it is \code{FALSE} otherwise.
 

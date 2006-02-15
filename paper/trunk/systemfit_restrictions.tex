@@ -287,6 +287,7 @@ The standard 3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
    \left[ \begin{array}{c}
       \widehat{X}' \Omega^{-1} y \\ q 
    \end{array} \right]
+   \label{eq:3slsGlsR}
 \end{equation}
 with $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_i' u_j \right)$.
@@ -317,6 +318,7 @@ The IV-3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
    \left[ \begin{array}{c}
       \widehat{X}' \Omega^{-1} y \\ q 
    \end{array} \right]
+   \label{eq:3slsIvR}
 \end{equation}
 with
 \begin{equation}
@@ -344,6 +346,7 @@ The restricted 3SLS-GMM estimator can be obtained by
    \left[ \begin{array}{c}
       X' H \left( H \Omega H \right)^{-1} H' y \\ q 
    \end{array} \right]
+   \label{eq:3slsGmmR}
 \end{equation}
 with
 \begin{equation}
@@ -372,6 +375,7 @@ The restricted 3SLS estimator based on the suggestion of
    \left[ \begin{array}{c}
       \widehat{X}' \Omega^{-1} H \left( H' H \right)^{-1} H' y \\ q 
    \end{array} \right]
+   \label{eq:3slsSchmidtR}
 \end{equation}
 with
 \begin{eqnarray}
@@ -412,6 +416,7 @@ The econometrics software EViews calculates the restricted 3SLS estimator by:
       \widehat{X}' \Omega^{-1} \left( y - X \widehat{\beta^0}_{2SLS} \right) 
       \\ q 
    \end{array} \right]
+   \label{eq:3slsEViewsR}
 \end{equation}
 where $\widehat{\beta^0}_{2SLS}$ is the restricted 2SLS estimator calculated
 by equation (\ref{eq:beta2SLSr}). 
