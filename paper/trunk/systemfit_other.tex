@@ -75,7 +75,15 @@ Hence, °it is doubtful whether [this formula] is really superior to
 The WLS, SUR, W2SLS and 3SLS parameter estimates are consistent,
 if the estimated residual variance-covariance matrix is calculated
 using the residuals from a first-step OLS or 2SLS estimation.
-It is also possible to iterate the estimation procedure and 
+The software LIMDEP calculates SUR or 3SLS estimates by a
+slightly different approach.
+It uses the residuals of a first-step OLS or 2SLS estimation
+for a second-step WLS or W2SLS estimation,
+and then calculates the residual variance covariance matrix
+from the residuals of the WLS or W2SLS estimation
+to estimates the model by SUR or 3SLS in a third step
+\citep{greene06}.
+It is also possible to iterate the estimation procedure and
 calculate the residual variance-covariance matrix from the
 residuals of the previous iteration. 
 If equation (\ref{eq:rcov0}) is applied to calculate the estimated

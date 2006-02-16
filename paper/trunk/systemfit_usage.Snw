@@ -13,8 +13,16 @@ systemfit( method, eqns )
 
 There are two mandatory arguments: \code{method} and \code{eqns}.
 The argument \code{method} is a string determining the estimation method.
-It must be one of "OLS", "WLS", "SUR", "2SLS", "W2SLS" or "3SLS".
-The other mandatory argument \code{eqns} is a list of the equations
+It must be one of °OLS°, °WLS°, °SUR°, °WSUR°, °2SLS°, °W2SLS°, °3SLS°,
+or °W3SLS°.
+While six of these methods correspond to the estimation methods
+described in sections~\ref{sec:ols}--\ref{sec:3sls}
+and~\ref{sec:olsR}--\ref{sec:3slsR},
+the methods °WSUR° and °W3SLS° are °SUR° and °3SLS° estimations
+that take the residual variance covariance matrices from
+°WLS° and °W2SLS° estimations, respectively
+(see section~\ref{sec:residcov}).
+The other mandatory argument, \code{eqns}, is a list of the equations
 to estimate. 
 Each equation is a standard formula in \proglang{R}.
 It starts with a dependent variable on the left hand side.
