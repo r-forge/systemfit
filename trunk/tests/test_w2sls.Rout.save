@@ -77,6 +77,7 @@ OLS R-squared value of the system: 0.697214
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 94.633304   7.920838 11.947385        0 ***
@@ -93,6 +94,7 @@ Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 49.532442  12.010526 4.124086 0.000795 ***
@@ -152,6 +154,7 @@ OLS R-squared value of the system: 0.697214
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 94.633304   7.302652 12.958758        0 ***
@@ -168,6 +171,7 @@ Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 49.532442  10.742541 4.610868  5.8e-05 ***
@@ -227,6 +231,7 @@ OLS R-squared value of the system: 0.691766
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 94.383212   8.009046 11.784576        0 ***
@@ -243,6 +248,7 @@ Multiple R-Squared: 0.750709 Adjusted R-Squared: 0.721381
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 48.049365  11.800069 4.071956 0.000263 ***
@@ -302,6 +308,7 @@ OLS R-squared value of the system: 0.69171
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 94.370587   7.383374 12.781499        0 ***
@@ -318,6 +325,7 @@ Multiple R-Squared: 0.750455 Adjusted R-Squared: 0.721097
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 48.066141  10.557424 4.552828  6.5e-05 ***
@@ -376,6 +384,7 @@ OLS R-squared value of the system: 0.691766
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 94.383212   8.009046 11.784576        0 ***
@@ -392,6 +401,7 @@ Multiple R-Squared: 0.750709 Adjusted R-Squared: 0.721381
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 48.049365  11.800069 4.071956 0.000263 ***
@@ -443,6 +453,7 @@ OLS R-squared value of the system: 0.69171
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 94.370587   7.383374 12.781499        0 ***
@@ -459,6 +470,7 @@ Multiple R-Squared: 0.750455 Adjusted R-Squared: 0.721097
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 48.066141  10.557424 4.552828  6.5e-05 ***
@@ -510,6 +522,7 @@ OLS R-squared value of the system: 0.690084
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 95.304293   6.305629 15.114162        0 ***
@@ -526,6 +539,7 @@ Multiple R-Squared: 0.754094 Adjusted R-Squared: 0.725164
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 46.422943   8.329568 5.573272    3e-06 ***
@@ -585,6 +599,7 @@ OLS R-squared value of the system: 0.690114
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 95.347005   5.757891 16.559363        0 ***
@@ -601,6 +616,7 @@ Multiple R-Squared: 0.754042 Adjusted R-Squared: 0.725105
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 46.436649    7.53598 6.161992        0 ***
@@ -660,6 +676,7 @@ OLS R-squared value of the system: 0.690084
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 95.304293   6.305629 15.114162        0 ***
@@ -676,6 +693,7 @@ Multiple R-Squared: 0.754094 Adjusted R-Squared: 0.725164
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 46.422943   8.329568 5.573272    3e-06 ***
@@ -727,6 +745,7 @@ OLS R-squared value of the system: 0.690114
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 95.347005   5.757891 16.559363        0 ***
@@ -743,6 +762,7 @@ Multiple R-Squared: 0.754042 Adjusted R-Squared: 0.725105
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 46.436649    7.53598 6.161992        0 ***
@@ -793,6 +813,7 @@ OLS R-squared value of the system: 0.694011
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice
 
               Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 106.789358  11.143545 9.583069        0 ***
@@ -809,6 +830,7 @@ Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 49.532442  12.010526 4.124086 0.000795 ***
@@ -868,6 +890,7 @@ OLS R-squared value of the system: 0.694011
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 106.789358  10.273841 10.394298        0 ***
@@ -884,6 +907,7 @@ Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 49.532442  10.742541 4.610868  5.8e-05 ***
@@ -943,6 +967,7 @@ OLS R-squared value of the system: 0.690054
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 104.569455   10.63439  9.833141        0 ***
@@ -959,6 +984,7 @@ Multiple R-Squared: 0.758401 Adjusted R-Squared: 0.729978
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 47.035586  11.946576  3.93716 0.000388 ***
@@ -1018,6 +1044,7 @@ OLS R-squared value of the system: 0.690403
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 104.463809   9.792942 10.667255        0 ***
@@ -1034,6 +1061,7 @@ Multiple R-Squared: 0.758627 Adjusted R-Squared: 0.730231
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 47.070623  10.689038 4.403635    1e-04 ***
@@ -1093,6 +1121,7 @@ OLS R-squared value of the system: 0.690054
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 104.569455   10.63439  9.833141        0 ***
@@ -1109,6 +1138,7 @@ Multiple R-Squared: 0.758401 Adjusted R-Squared: 0.729978
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 47.035586  11.946576  3.93716 0.000388 ***
@@ -1160,6 +1190,7 @@ OLS R-squared value of the system: 0.690403
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 104.463809   9.792942 10.667255        0 ***
@@ -1176,6 +1207,7 @@ Multiple R-Squared: 0.758627 Adjusted R-Squared: 0.730231
 
 W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 47.070623  10.689038 4.403635    1e-04 ***
