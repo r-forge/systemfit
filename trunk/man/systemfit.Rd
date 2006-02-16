@@ -32,8 +32,8 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
 }
 
 \arguments{
-   \item{method}{the estimation method, one of "OLS", "WLS", "SUR",
-      "2SLS", "W2SLS" or "3SLS".}
+   \item{method}{the estimation method, one of "OLS", "WLS", "SUR", "WSUR",
+      "2SLS", "W2SLS", "3SLS", or "W3SLS" (see details).}
    \item{eqns}{a list of structural equations to be estimated; a regression
       constant is implied if not explicitly omitted.}
    \item{eqnlabels}{an optional list of character vectors of names
@@ -85,7 +85,19 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
 \details{
    \code{systemfitClassic} is a wrapper function for \code{systemfit}
    that can be applied to panel-like data in long format
-   if the regressors are the same for all equations.\cr
+   if the regressors are the same for all equations.
+
+   If argument \code{method} is "WSUR" or "W3SLS",
+   the "SUR" or "3SLS" estimation uses a residual variance covariance matrix
+   that is calculated from a "WLS" or "W2SLS" estimation, respectively
+   (and not from an "OLS" or "2SLS" estimation as for a standard "SUR" or "3SLS"
+   estimation).
+   The "WSUR" method is the default method of command "TSCS"
+   in the software LIMDEP that carries out "SUR" estimations
+   in which all coefficient vectors are constrained to be equal
+   (personal information from W.H. Greene, 2006/02/16).
+   If no cross-equation restrictions are imposed, "WSUR" and "W3SLS"
+   generate identical results compared to "SUR" and "3SLS", respectively.
 
    The matrix \code{TX} transforms the regressor matrix (\eqn{X}) by
    \eqn{X^{*} = X *} \code{TX}. Thus, the vector of coefficients is now
