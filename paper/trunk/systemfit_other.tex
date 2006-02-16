@@ -177,6 +177,7 @@ of restrictions.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hausman test}
+\label{sec:hausman}
 
 Hausman \citep{hausman78} developed a test for misspecification.
 The null hypotheses of the test is that all exogenous variables are
@@ -185,10 +186,6 @@ Under this hypothesis both the 2SLS and the 3SLS estimator are consistent
 but only the 3SLS estimator is (asymptotically) efficient.
 Under the alternative hypothesis the 2SLS estimator is consistent
 but the 3SLS estimator is inconsistent.
-The resulting test statistic, distributed as a
-$\chi^2$, is the difference between the covariance of an
-3SLS estimator and the covariance of an 2SLS estimator.
-If the difference is (close to) zero, the model is correctly specified.
 The Hausman test statistic is,
 \begin{equation}
   m = \left( \hat{\beta}_2 - \hat{\beta}_3 \right)^{'}
@@ -201,7 +198,9 @@ where $\hat{\beta}_2$ and $Var \left[ \hat{\beta}_2 \right]$ are the estimated
 coefficient and variance-covariance matrix from 2SLS estimation, and
 $\hat{\beta}_3$ and $Var \left[ \hat{\beta}_3 \right]$ are the estimated
 coefficients and variance covariance-matrix from 3SLS estimation.
-
+Under the null hypotheses this test statistic has a
+$\chi^2$ distribution with degrees of freedom equal to the number of
+estimated parameters.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

@@ -332,3 +332,33 @@ if the argument \code{data} is specified and the number of observations
 times the number of equations is larger than 1000,
 and it is \code{FALSE} otherwise.
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Hausman test}
+A Hausman test, which is described in section~\ref{sec:hausman},
+can be carried out with following commands:
+<<>>=
+fit2sls  <- systemfit( "2SLS", list( demand = eqDemand, supply = eqSupply ),
+   inst = ~ income + farmPrice + trend, data = kmenta )
+fit3sls <- systemfit( "3SLS", list( demand = eqDemand, supply = eqSupply ),
+   inst = ~ income + farmPrice + trend, data = kmenta )
+hausmantest <- hausman.systemfit( fit2sls, fit3sls )
+print( hausmantest )
+@
+First, the model is estimated by 2SLS and then by 3SLS.
+The test is carried out by the command \code{hausman.systemfit}
+that requires two arguments:
+the result of a 2SLS estimation and
+the result of a 3SLS estimation.
+Finally the result of the test is printed.
+
+The results show that the Hausman statistic is
+\Sexpr{round( hausmantest$statistic, digits = 3)},
+which has a $\chi^2$ distribution
+with \Sexpr{hausmantest$parameter} degrees of freedom
+under the null hypotheses.
+The corresponding p-value is
+\Sexpr{round( hausmantest$p.value, digits = 3 )}.
+This shows that the null hypotheses is not rejected
+at any reasonable level of significance.
+Hence, we can assume that the 3SLS estimator is consistent.
