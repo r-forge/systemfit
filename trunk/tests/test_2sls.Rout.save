@@ -81,7 +81,7 @@ supply 0.901724 1.000000
 The determinant of the residual covariance matrix: 4.36424
 OLS R-squared value of the system: 0.697214
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -98,7 +98,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -158,7 +158,7 @@ supply 0.901724 1.000000
 The determinant of the residual covariance matrix: 4.36424
 OLS R-squared value of the system: 0.697214
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -175,7 +175,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -235,7 +235,7 @@ supply 0.901724 1.000000
 The determinant of the residual covariance matrix: 4.36424
 OLS R-squared value of the system: 0.697214
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -252,7 +252,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -312,7 +312,7 @@ supply 0.901724 1.000000
 The determinant of the residual covariance matrix: 2.96768
 OLS R-squared value of the system: 0.697214
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -329,7 +329,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -389,7 +389,7 @@ supply 0.901724 1.000000
 The determinant of the residual covariance matrix: 2.96768
 OLS R-squared value of the system: 0.697214
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -406,7 +406,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -467,7 +467,7 @@ supply 0.923017 1.000000
 The determinant of the residual covariance matrix: 3.60162
 OLS R-squared value of the system: 0.691227
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -484,7 +484,7 @@ SSR: 67.418139 MSE: 3.965773 Root MSE: 1.991425
 Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -544,7 +544,7 @@ supply 0.923017 1.000000
 The determinant of the residual covariance matrix: 3.60162
 OLS R-squared value of the system: 0.691227
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -561,7 +561,7 @@ SSR: 67.418139 MSE: 3.965773 Root MSE: 1.991425
 Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -621,7 +621,7 @@ supply 0.923017 1.000000
 The determinant of the residual covariance matrix: 3.60162
 OLS R-squared value of the system: 0.691227
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -638,7 +638,7 @@ SSR: 67.418139 MSE: 3.965773 Root MSE: 1.991425
 Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -698,7 +698,7 @@ supply 0.923017 1.000000
 The determinant of the residual covariance matrix: 2.4491
 OLS R-squared value of the system: 0.691227
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -715,7 +715,7 @@ SSR: 67.418139 MSE: 3.965773 Root MSE: 1.991425
 Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -775,7 +775,7 @@ supply 0.923017 1.000000
 The determinant of the residual covariance matrix: 2.4491
 OLS R-squared value of the system: 0.691227
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -792,7 +792,7 @@ SSR: 67.418139 MSE: 3.965773 Root MSE: 1.991425
 Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -853,7 +853,7 @@ supply 0.923017 1.000000
 The determinant of the residual covariance matrix: 2.4491
 OLS R-squared value of the system: 0.691227
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -870,7 +870,7 @@ SSR: 67.418139 MSE: 3.965773 Root MSE: 1.991425
 Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -922,7 +922,7 @@ supply 0.923017 1.000000
 The determinant of the residual covariance matrix: 2.4491
 OLS R-squared value of the system: 0.691227
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -939,7 +939,7 @@ SSR: 67.418139 MSE: 3.965773 Root MSE: 1.991425
 Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -992,7 +992,7 @@ supply 0.918943 1.000000
 The determinant of the residual covariance matrix: 3.77774
 OLS R-squared value of the system: 0.690334
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1009,7 +1009,7 @@ SSR: 66.081175 MSE: 3.887128 Root MSE: 1.97158
 Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1069,7 +1069,7 @@ supply 0.918943 1.000000
 The determinant of the residual covariance matrix: 3.77774
 OLS R-squared value of the system: 0.690334
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1086,7 +1086,7 @@ SSR: 66.081175 MSE: 3.887128 Root MSE: 1.97158
 Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1146,7 +1146,7 @@ supply 0.918943 1.000000
 The determinant of the residual covariance matrix: 3.77774
 OLS R-squared value of the system: 0.690334
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1163,7 +1163,7 @@ SSR: 66.081175 MSE: 3.887128 Root MSE: 1.97158
 Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1223,7 +1223,7 @@ supply 0.918943 1.000000
 The determinant of the residual covariance matrix: 2.56886
 OLS R-squared value of the system: 0.690334
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1240,7 +1240,7 @@ SSR: 66.081175 MSE: 3.887128 Root MSE: 1.97158
 Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1300,7 +1300,7 @@ supply 0.918943 1.000000
 The determinant of the residual covariance matrix: 2.56886
 OLS R-squared value of the system: 0.690334
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1317,7 +1317,7 @@ SSR: 66.081175 MSE: 3.887128 Root MSE: 1.97158
 Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1378,7 +1378,7 @@ supply 0.918943 1.000000
 The determinant of the residual covariance matrix: 3.77774
 OLS R-squared value of the system: 0.690334
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1395,7 +1395,7 @@ SSR: 66.081175 MSE: 3.887128 Root MSE: 1.97158
 Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1447,7 +1447,7 @@ supply 0.918943 1.000000
 The determinant of the residual covariance matrix: 3.77774
 OLS R-squared value of the system: 0.690334
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1464,7 +1464,7 @@ SSR: 66.081175 MSE: 3.887128 Root MSE: 1.97158
 Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1516,7 +1516,7 @@ supply 0.918943 1.000000
 The determinant of the residual covariance matrix: 3.77774
 OLS R-squared value of the system: 0.690334
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1533,7 +1533,7 @@ SSR: 66.081175 MSE: 3.887128 Root MSE: 1.97158
 Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1585,7 +1585,7 @@ supply 0.918943 1.000000
 The determinant of the residual covariance matrix: 2.56886
 OLS R-squared value of the system: 0.690334
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1602,7 +1602,7 @@ SSR: 66.081175 MSE: 3.887128 Root MSE: 1.97158
 Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1654,7 +1654,7 @@ supply 0.918943 1.000000
 The determinant of the residual covariance matrix: 2.56886
 OLS R-squared value of the system: 0.690334
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1671,7 +1671,7 @@ SSR: 66.081175 MSE: 3.887128 Root MSE: 1.97158
 Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1723,7 +1723,7 @@ supply 0.783569 1.000000
 The determinant of the residual covariance matrix: 9.24969
 OLS R-squared value of the system: 0.694011
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -1740,7 +1740,7 @@ SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845
 Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1800,7 +1800,7 @@ supply 0.783569 1.000000
 The determinant of the residual covariance matrix: 9.24969
 OLS R-squared value of the system: 0.694011
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -1817,7 +1817,7 @@ SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845
 Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1877,7 +1877,7 @@ supply 0.783569 1.000000
 The determinant of the residual covariance matrix: 9.24969
 OLS R-squared value of the system: 0.694011
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -1894,7 +1894,7 @@ SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845
 Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1954,7 +1954,7 @@ supply 0.783569 1.000000
 The determinant of the residual covariance matrix: 6.28979
 OLS R-squared value of the system: 0.694011
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -1971,7 +1971,7 @@ SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845
 Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2031,7 +2031,7 @@ supply 0.783569 1.000000
 The determinant of the residual covariance matrix: 6.28979
 OLS R-squared value of the system: 0.694011
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -2048,7 +2048,7 @@ SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845
 Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2109,7 +2109,7 @@ supply 0.891266 1.000000
 The determinant of the residual covariance matrix: 4.88798
 OLS R-squared value of the system: 0.692732
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -2126,7 +2126,7 @@ SSR: 64.445035 MSE: 3.790884 Root MSE: 1.947019
 Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2186,7 +2186,7 @@ supply 0.891266 1.000000
 The determinant of the residual covariance matrix: 4.88798
 OLS R-squared value of the system: 0.692732
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -2203,7 +2203,7 @@ SSR: 64.445035 MSE: 3.790884 Root MSE: 1.947019
 Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2263,7 +2263,7 @@ supply 0.891266 1.000000
 The determinant of the residual covariance matrix: 4.88798
 OLS R-squared value of the system: 0.692732
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -2280,7 +2280,7 @@ SSR: 64.445035 MSE: 3.790884 Root MSE: 1.947019
 Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2340,7 +2340,7 @@ supply 0.891266 1.000000
 The determinant of the residual covariance matrix: 3.32382
 OLS R-squared value of the system: 0.692732
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -2357,7 +2357,7 @@ SSR: 64.445035 MSE: 3.790884 Root MSE: 1.947019
 Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2417,7 +2417,7 @@ supply 0.891266 1.000000
 The determinant of the residual covariance matrix: 3.32382
 OLS R-squared value of the system: 0.692732
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -2434,7 +2434,7 @@ SSR: 64.445035 MSE: 3.790884 Root MSE: 1.947019
 Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2495,7 +2495,7 @@ supply 0.891266 1.000000
 The determinant of the residual covariance matrix: 4.88798
 OLS R-squared value of the system: 0.692732
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -2512,7 +2512,7 @@ SSR: 64.445035 MSE: 3.790884 Root MSE: 1.947019
 Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2564,7 +2564,7 @@ supply 0.891266 1.000000
 The determinant of the residual covariance matrix: 3.32382
 OLS R-squared value of the system: 0.692732
 
-2SLS estimates for demand  (equation 1 )
+2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -2581,7 +2581,7 @@ SSR: 64.445035 MSE: 3.790884 Root MSE: 1.947019
 Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358 
 
 
-2SLS estimates for supply  (equation 2 )
+2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 

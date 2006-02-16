@@ -45,26 +45,26 @@ John Wiley, New York.
 ## Repeating the estimations of Klein's (1950) Model I
 ## in Greene (2003, pp. 381 and 412)
 data( "KleinI" )
-kleinConsump  <- consump ~ corpProf + corpProfLag + wages
-kleinInvest   <- invest ~ corpProf + corpProfLag + capitalLag
-kleinPrivWage <- privWage ~ gnp + gnpLag + trend
-kleinInst <- ~ govExp + taxes + govWage + trend + capitalLag + corpProfLag + gnpLag
-kleinLabels <- list( "Consuption", "Investment", "Private Wages" )
-kleinSystem <- list( kleinConsump, kleinInvest, kleinPrivWage )
+eqConsump  <- consump ~ corpProf + corpProfLag + wages
+eqInvest   <- invest ~ corpProf + corpProfLag + capitalLag
+eqPrivWage <- privWage ~ gnp + gnpLag + trend
+inst <- ~ govExp + taxes + govWage + trend + capitalLag + corpProfLag + gnpLag
+system <- list( Consumption = eqConsump, Investment = eqInvest,
+   "Private Wages" = eqPrivWage )
 # OLS
-kleinOls <- systemfit( "OLS", kleinSystem, kleinLabels, data = KleinI )
+kleinOls <- systemfit( "OLS", system, data = KleinI )
 summary( kleinOls )
 # 2SLS
-klein2sls <- systemfit( "2SLS", kleinSystem, kleinLabels, kleinInst,
-   data = KleinI, rcovformula = 0 )
+klein2sls <- systemfit( "2SLS", system, inst = inst, data = KleinI,
+   rcovformula = 0 )
 summary( klein2sls )
 # 3SLS
-klein3sls <- systemfit( "3SLS", kleinSystem, kleinLabels, kleinInst,
-   data = KleinI, rcovformula = 0 )
+klein3sls <- systemfit( "3SLS", system, inst = inst, data = KleinI,
+   rcovformula = 0 )
 summary( klein3sls )
 # I3SLS
-kleinI3sls <- systemfit( "3SLS", kleinSystem, kleinLabels, kleinInst,
-   data = KleinI, rcovformula = 0, maxit = 500 )
+kleinI3sls <- systemfit( "3SLS", system, inst = inst, data = KleinI,
+   rcovformula = 0, maxit = 500 )
 summary( kleinI3sls )
 }
 \keyword{datasets}

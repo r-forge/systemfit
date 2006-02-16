@@ -16,7 +16,7 @@
 }
 
 \usage{
-systemfit( method, eqns, eqnlabels=c(as.character(1:length(eqns))),
+systemfit( method, eqns, eqnlabels=names(eqns),
            inst=NULL, data=list(), R.restr=NULL,
            q.restr=matrix(0,max(nrow(R.restr),0),1),
            TX=NULL, maxiter=1, tol=1e-5,
@@ -249,13 +249,12 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
 
 \examples{
 data( "kmenta" )
-demand <- consump ~ price + income
-supply <- consump ~ price + farmPrice + trend
-labels <- list( "demand", "supply" )
-system <- list( demand, supply )
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
+system <- list( demand = eqDemand, supply = eqSupply )
 
 ## OLS estimation
-fitols <- systemfit("OLS", system, labels, data=kmenta )
+fitols <- systemfit("OLS", system, data=kmenta )
 print( fitols )
 
 ## OLS estimation with 2 restrictions
@@ -266,29 +265,30 @@ Rrestr[1,7] <- -1
 Rrestr[2,2] <- -1
 Rrestr[2,5] <-  1
 qrestr[2,1] <-  0.5
-fitols2 <- systemfit("OLS", system, labels, data=kmenta,
-                      R.restr=Rrestr, q.restr=qrestr )
+fitols2 <- systemfit("OLS", system, data = kmenta,
+                      R.restr = Rrestr, q.restr = qrestr )
 print( fitols2 )
 
 ## iterated SUR estimation
-fitsur <- systemfit("SUR", system, labels, data=kmenta, maxit=100 )
+fitsur <- systemfit("SUR", system, data = kmenta, maxit = 100 )
 print( fitsur )
 
 ## 2SLS estimation
 inst <- ~ income + farmPrice + trend
-fit2sls <- systemfit( "2SLS", system, labels, inst, kmenta )
+fit2sls <- systemfit( "2SLS", system, inst = inst, data = kmenta )
 print( fit2sls )
 
 ## 2SLS estimation with different instruments in each equation
 inst1 <- ~ income + farmPrice
 inst2 <- ~ income + farmPrice + trend
 instlist <- list( inst1, inst2 )
-fit2sls2 <- systemfit( "2SLS", system, labels, instlist, kmenta )
+fit2sls2 <- systemfit( "2SLS", system, inst = instlist, data = kmenta )
 print( fit2sls2 )
 
 ## 3SLS estimation with GMM-3SLS formula
 inst <- ~ income + farmPrice + trend
-fit3sls <- systemfit( "3SLS", system, labels, inst, kmenta, formula3sls="GMM" )
+fit3sls <- systemfit( "3SLS", system, inst = inst, data = kmenta,
+   formula3sls = "GMM" )
 print( fit3sls )
 
 

@@ -44,26 +44,25 @@ Macmillan, New York.
 \examples{
 ## Replicating the estimations in Kmenta (1986), p. 712, Tab 13-2
 data( "kmenta" )
-demand <- consump ~ price + income
-supply <- consump ~ price + farmPrice + trend
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
 inst <- ~ income + farmPrice + trend
-labels <- list( "demand", "supply" )
-system <- list( demand, supply )
+system <- list( demand = eqDemand, supply = eqSupply )
 
 ## OLS estimation
-fitOls <- systemfit( "OLS", system, labels, data = kmenta )
+fitOls <- systemfit( "OLS", system, data = kmenta )
 summary( fitOls )
 
 ## 2SLS estimation
-fit2sls <- systemfit( "2SLS", system, labels, inst, data = kmenta )
+fit2sls <- systemfit( "2SLS", system, inst = inst, data = kmenta )
 summary( fit2sls )
 
 ## 3SLS estimation
-fit3sls <- systemfit( "3SLS", system, labels, inst, data = kmenta )
+fit3sls <- systemfit( "3SLS", system, inst = inst, data = kmenta )
 summary( fit3sls )
 
 ## I3LS estimation
-fitI3sls <- systemfit( "3SLS", system, labels, inst, data = kmenta,
+fitI3sls <- systemfit( "3SLS", system, inst = inst, data = kmenta,
    maxit = 250 )
 summary( fitI3sls )
 }

@@ -24,7 +24,7 @@
 
 systemfit <- function( method,
                         eqns,
-                        eqnlabels=c(as.character(1:length(eqns))),
+                        eqnlabels=names(eqns),
                         inst=NULL,
                         data=list(),
                         R.restr=NULL,
@@ -831,7 +831,11 @@ print.systemfit <- function( x, digits=6,... ) {
                   round( x$eq[[i]]$r2,    digits ),
                   round( x$eq[[i]]$adjr2, digits ))
     table  <- rbind( table, row )
-    labels <- rbind( labels, x$eq[[i]]$eqnlabel )
+    if( is.null( x$eq[[i]]$eqnlabel ) ) {
+      labels <- rbind( labels, paste( "equation", i ) )
+    } else {
+      labels <- rbind( labels, x$eq[[i]]$eqnlabel )
+    }
   }
   rownames(table) <- c( labels )
   colnames(table) <- c("N","DF", "SSR", "MSE", "RMSE", "R2", "Adj R2" )
@@ -903,8 +907,12 @@ print.systemfit.equation <- function( x, digits=6, ... ) {
   on.exit(options(digits=save.digits))
 
   cat("\n")
-  cat( paste( x$method, "estimates for", x$eqnlabel,
-       " (equation", x$i, ")\n" ) )
+  if( is.null( x$eqnlabel ) ) {
+    cat( x$method, " estimates for equation ", x$i, "\n", sep = "" )
+  } else {
+    cat( x$method, " estimates for '", x$eqnlabel,
+         "' (equation ", x$i, ")\n", sep = "" )
+  }
 
   cat("Model Formula: ")
   print(x$formula)

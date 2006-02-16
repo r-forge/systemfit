@@ -78,7 +78,7 @@ supply 0.891179 1.000000
 The determinant of the residual covariance matrix: 4.43485
 OLS R-squared value of the system: 0.709298
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -94,7 +94,7 @@ SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127
 Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -153,7 +153,7 @@ supply 0.891179 1.000000
 The determinant of the residual covariance matrix: 4.43485
 OLS R-squared value of the system: 0.709298
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -169,7 +169,7 @@ SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127
 Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -228,7 +228,7 @@ supply 0.891179 1.000000
 The determinant of the residual covariance matrix: 4.43485
 OLS R-squared value of the system: 0.709298
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -244,7 +244,7 @@ SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127
 Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -303,7 +303,7 @@ supply 0.891179 1.000000
 The determinant of the residual covariance matrix: 3.01569
 OLS R-squared value of the system: 0.709298
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -319,7 +319,7 @@ SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127
 Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -378,7 +378,7 @@ supply 0.891179 1.000000
 The determinant of the residual covariance matrix: 3.01569
 OLS R-squared value of the system: 0.709298
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -394,7 +394,7 @@ SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127
 Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -453,7 +453,7 @@ supply 0.891179 1.000000
 The determinant of the residual covariance matrix: 3.26308
 OLS R-squared value of the system: 0.709298
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -469,7 +469,7 @@ SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127
 Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -528,7 +528,7 @@ supply 0.891179 1.000000
 The determinant of the residual covariance matrix: 3.36519
 OLS R-squared value of the system: 0.709298
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -544,7 +544,7 @@ SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127
 Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -603,7 +603,7 @@ supply 0.891179 1.000000
 The determinant of the residual covariance matrix: 3.36519
 OLS R-squared value of the system: 0.709298
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -619,7 +619,7 @@ SSR: 63.33165 MSE: 3.725391 Root MSE: 1.930127
 Multiple R-Squared: 0.763789 Adjusted R-Squared: 0.735999 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -680,7 +680,7 @@ supply 0.942753 1.000000
 The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -696,7 +696,7 @@ SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105
 Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -755,7 +755,7 @@ supply 0.942753 1.000000
 The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -771,7 +771,7 @@ SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105
 Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -830,7 +830,7 @@ supply 0.942753 1.000000
 The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -846,7 +846,7 @@ SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105
 Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -905,7 +905,7 @@ supply 0.942753 1.000000
 The determinant of the residual covariance matrix: 1.69697
 OLS R-squared value of the system: 0.702974
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -921,7 +921,7 @@ SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105
 Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -980,7 +980,7 @@ supply 0.942753 1.000000
 The determinant of the residual covariance matrix: 1.69697
 OLS R-squared value of the system: 0.702974
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -996,7 +996,7 @@ SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105
 Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1055,7 +1055,7 @@ supply 0.942753 1.000000
 The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1071,7 +1071,7 @@ SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105
 Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1122,7 +1122,7 @@ supply 0.942753 1.000000
 The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1138,7 +1138,7 @@ SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105
 Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1189,7 +1189,7 @@ supply 0.942753 1.000000
 The determinant of the residual covariance matrix: 2.49554
 OLS R-squared value of the system: 0.702974
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1205,7 +1205,7 @@ SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105
 Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1256,7 +1256,7 @@ supply 0.942753 1.000000
 The determinant of the residual covariance matrix: 1.69697
 OLS R-squared value of the system: 0.702974
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1272,7 +1272,7 @@ SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105
 Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1323,7 +1323,7 @@ supply 0.942753 1.000000
 The determinant of the residual covariance matrix: 1.69697
 OLS R-squared value of the system: 0.702974
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1339,7 +1339,7 @@ SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105
 Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1391,7 +1391,7 @@ supply 0.938415 1.000000
 The determinant of the residual covariance matrix: 2.69142
 OLS R-squared value of the system: 0.701962
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1407,7 +1407,7 @@ SSR: 64.00342 MSE: 3.764907 Root MSE: 1.940337
 Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1466,7 +1466,7 @@ supply 0.938415 1.000000
 The determinant of the residual covariance matrix: 2.69142
 OLS R-squared value of the system: 0.701962
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1482,7 +1482,7 @@ SSR: 64.00342 MSE: 3.764907 Root MSE: 1.940337
 Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1541,7 +1541,7 @@ supply 0.938415 1.000000
 The determinant of the residual covariance matrix: 2.69142
 OLS R-squared value of the system: 0.701962
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1557,7 +1557,7 @@ SSR: 64.00342 MSE: 3.764907 Root MSE: 1.940337
 Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1616,7 +1616,7 @@ supply 0.938415 1.000000
 The determinant of the residual covariance matrix: 1.83017
 OLS R-squared value of the system: 0.701962
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1632,7 +1632,7 @@ SSR: 64.00342 MSE: 3.764907 Root MSE: 1.940337
 Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1691,7 +1691,7 @@ supply 0.938415 1.000000
 The determinant of the residual covariance matrix: 1.83017
 OLS R-squared value of the system: 0.701962
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1707,7 +1707,7 @@ SSR: 64.00342 MSE: 3.764907 Root MSE: 1.940337
 Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1767,7 +1767,7 @@ supply 0.938415 1.000000
 The determinant of the residual covariance matrix: 1.83017
 OLS R-squared value of the system: 0.701962
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1783,7 +1783,7 @@ SSR: 64.00342 MSE: 3.764907 Root MSE: 1.940337
 Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1834,7 +1834,7 @@ supply 0.938415 1.000000
 The determinant of the residual covariance matrix: 2.69142
 OLS R-squared value of the system: 0.701962
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1850,7 +1850,7 @@ SSR: 64.00342 MSE: 3.764907 Root MSE: 1.940337
 Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1901,7 +1901,7 @@ supply 0.938415 1.000000
 The determinant of the residual covariance matrix: 2.69142
 OLS R-squared value of the system: 0.701962
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1917,7 +1917,7 @@ SSR: 64.00342 MSE: 3.764907 Root MSE: 1.940337
 Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1968,7 +1968,7 @@ supply 0.938415 1.000000
 The determinant of the residual covariance matrix: 1.83017
 OLS R-squared value of the system: 0.701962
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1984,7 +1984,7 @@ SSR: 64.00342 MSE: 3.764907 Root MSE: 1.940337
 Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -2035,7 +2035,7 @@ supply 0.938415 1.000000
 The determinant of the residual covariance matrix: 1.83017
 OLS R-squared value of the system: 0.701962
 
-OLS estimates for demand  (equation 1 )
+OLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -2051,7 +2051,7 @@ SSR: 64.00342 MSE: 3.764907 Root MSE: 1.940337
 Multiple R-Squared: 0.761283 Adjusted R-Squared: 0.733199 
 
 
-OLS estimates for supply  (equation 2 )
+OLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    

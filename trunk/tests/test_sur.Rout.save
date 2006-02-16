@@ -83,7 +83,7 @@ The determinant of the residual covariance matrix: 0.879285
 OLS R-squared value of the system: 0.683453
 McElroy's R-squared value for the system: 0.788722
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -99,7 +99,7 @@ SSR: 65.682902 MSE: 3.8637 Root MSE: 1.96563
 Multiple R-Squared: 0.755019 Adjusted R-Squared: 0.726198 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -164,7 +164,7 @@ The determinant of the residual covariance matrix: 0.59835
 OLS R-squared value of the system: 0.683464
 McElroy's R-squared value for the system: 0.747844
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -180,7 +180,7 @@ SSR: 66.185679 MSE: 3.893275 Root MSE: 1.973138
 Multiple R-Squared: 0.753144 Adjusted R-Squared: 0.724102 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -246,7 +246,7 @@ The determinant of the residual covariance matrix: -0.896033
 OLS R-squared value of the system: 0.67901
 McElroy's R-squared value for the system: 1.00928
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -262,7 +262,7 @@ SSR: 66.802201 MSE: 3.929541 Root MSE: 1.982307
 Multiple R-Squared: 0.750844 Adjusted R-Squared: 0.721532 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -329,7 +329,7 @@ The determinant of the residual covariance matrix: -0.896033
 OLS R-squared value of the system: 0.67901
 McElroy's R-squared value for the system: 1.00928
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -345,7 +345,7 @@ SSR: 66.802201 MSE: 3.929541 Root MSE: 1.982307
 Multiple R-Squared: 0.750844 Adjusted R-Squared: 0.721532 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -411,7 +411,7 @@ The determinant of the residual covariance matrix: -0.735302
 OLS R-squared value of the system: 0.679506
 McElroy's R-squared value for the system: 0.95731
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -427,7 +427,7 @@ SSR: 66.67132 MSE: 3.921842 Root MSE: 1.980364
 Multiple R-Squared: 0.751332 Adjusted R-Squared: 0.722077 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -491,7 +491,7 @@ The determinant of the residual covariance matrix: 0.93322
 OLS R-squared value of the system: 0.665436
 McElroy's R-squared value for the system: 0.753405
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -507,7 +507,7 @@ SSR: 71.596524 MSE: 4.21156 Root MSE: 2.052209
 Multiple R-Squared: 0.732963 Adjusted R-Squared: 0.701547 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -572,7 +572,7 @@ The determinant of the residual covariance matrix: 0.619673
 OLS R-squared value of the system: 0.6634
 McElroy's R-squared value for the system: 0.707287
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -588,7 +588,7 @@ SSR: 72.577327 MSE: 4.269255 Root MSE: 2.066217
 Multiple R-Squared: 0.729305 Adjusted R-Squared: 0.697458 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -652,7 +652,7 @@ The determinant of the residual covariance matrix: 0.93322
 OLS R-squared value of the system: 0.665436
 McElroy's R-squared value for the system: 0.753405
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -668,7 +668,7 @@ SSR: 71.596524 MSE: 4.21156 Root MSE: 2.052209
 Multiple R-Squared: 0.732963 Adjusted R-Squared: 0.701547 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -725,7 +725,7 @@ The determinant of the residual covariance matrix: 0.619673
 OLS R-squared value of the system: 0.6634
 McElroy's R-squared value for the system: 0.707287
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -741,7 +741,7 @@ SSR: 72.577327 MSE: 4.269255 Root MSE: 2.066217
 Multiple R-Squared: 0.729305 Adjusted R-Squared: 0.697458 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -798,7 +798,7 @@ The determinant of the residual covariance matrix: 1.75786
 OLS R-squared value of the system: 0.691438
 McElroy's R-squared value for the system: 0.689596
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -814,7 +814,7 @@ SSR: 63.986801 MSE: 3.763929 Root MSE: 1.940085
 Multiple R-Squared: 0.761345 Adjusted R-Squared: 0.733268 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -879,7 +879,7 @@ The determinant of the residual covariance matrix: 1.19981
 OLS R-squared value of the system: 0.692955
 McElroy's R-squared value for the system: 0.652956
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -895,7 +895,7 @@ SSR: 63.811125 MSE: 3.753596 Root MSE: 1.93742
 Multiple R-Squared: 0.762 Adjusted R-Squared: 0.734 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -960,7 +960,7 @@ The determinant of the residual covariance matrix: 0.0335271
 OLS R-squared value of the system: 0.673153
 McElroy's R-squared value for the system: 0.707639
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -976,7 +976,7 @@ SSR: 67.047517 MSE: 3.943972 Root MSE: 1.985944
 Multiple R-Squared: 0.749929 Adjusted R-Squared: 0.720509 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1041,7 +1041,7 @@ The determinant of the residual covariance matrix: 0.217064
 OLS R-squared value of the system: 0.676763
 McElroy's R-squared value for the system: 0.701594
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1057,7 +1057,7 @@ SSR: 66.404772 MSE: 3.906163 Root MSE: 1.976402
 Multiple R-Squared: 0.752327 Adjusted R-Squared: 0.723189 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1122,7 +1122,7 @@ The determinant of the residual covariance matrix: 1.75786
 OLS R-squared value of the system: 0.691438
 McElroy's R-squared value for the system: 0.689596
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1138,7 +1138,7 @@ SSR: 63.986801 MSE: 3.763929 Root MSE: 1.940085
 Multiple R-Squared: 0.761345 Adjusted R-Squared: 0.733268 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1195,7 +1195,7 @@ The determinant of the residual covariance matrix: 1.19981
 OLS R-squared value of the system: 0.692955
 McElroy's R-squared value for the system: 0.652956
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1211,7 +1211,7 @@ SSR: 63.811125 MSE: 3.753596 Root MSE: 1.93742
 Multiple R-Squared: 0.762 Adjusted R-Squared: 0.734 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1269,7 +1269,7 @@ The determinant of the residual covariance matrix: 4.42447
 OLS R-squared value of the system: 0.88486
 McElroy's R-squared value for the system: 0.958178
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1285,7 +1285,7 @@ SSR: 66.286284 MSE: 3.899193 Root MSE: 1.974637
 Multiple R-Squared: 0.752769 Adjusted R-Squared: 0.723683 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error    t value Pr(>|t|)    
@@ -1352,7 +1352,7 @@ The determinant of the residual covariance matrix: 3.00734
 OLS R-squared value of the system: 0.884625
 McElroy's R-squared value for the system: 0.959109
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1368,7 +1368,7 @@ SSR: 66.742101 MSE: 3.926006 Root MSE: 1.981415
 Multiple R-Squared: 0.751068 Adjusted R-Squared: 0.721782 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error    t value Pr(>|t|)    
@@ -1435,7 +1435,7 @@ The determinant of the residual covariance matrix: 3.99651
 OLS R-squared value of the system: 0.883785
 McElroy's R-squared value for the system: 0.96062
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1451,7 +1451,7 @@ SSR: 66.939212 MSE: 3.937601 Root MSE: 1.984339
 Multiple R-Squared: 0.750333 Adjusted R-Squared: 0.720961 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error    t value Pr(>|t|)    
@@ -1518,7 +1518,7 @@ The determinant of the residual covariance matrix: 3.99651
 OLS R-squared value of the system: 0.883785
 McElroy's R-squared value for the system: 0.96062
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1534,7 +1534,7 @@ SSR: 66.939212 MSE: 3.937601 Root MSE: 1.984339
 Multiple R-Squared: 0.750333 Adjusted R-Squared: 0.720961 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error    t value Pr(>|t|)    
@@ -1601,7 +1601,7 @@ The determinant of the residual covariance matrix: 4.06276
 OLS R-squared value of the system: 0.883966
 McElroy's R-squared value for the system: 0.960247
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1617,7 +1617,7 @@ SSR: 66.825809 MSE: 3.93093 Root MSE: 1.982657
 Multiple R-Squared: 0.750756 Adjusted R-Squared: 0.721433 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error    t value Pr(>|t|)    
@@ -1684,7 +1684,7 @@ The determinant of the residual covariance matrix: 110.225
 OLS R-squared value of the system: 0.372061
 McElroy's R-squared value for the system: 0.66924
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1700,7 +1700,7 @@ SSR: 67.023783 MSE: 3.942575 Root MSE: 1.985592
 Multiple R-Squared: 0.750018 Adjusted R-Squared: 0.720608 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1767,7 +1767,7 @@ The determinant of the residual covariance matrix: 74.9437
 OLS R-squared value of the system: 0.371716
 McElroy's R-squared value for the system: 0.664223
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1783,7 +1783,7 @@ SSR: 67.470241 MSE: 3.968838 Root MSE: 1.992194
 Multiple R-Squared: 0.748353 Adjusted R-Squared: 0.718747 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1850,7 +1850,7 @@ The determinant of the residual covariance matrix: 110.225
 OLS R-squared value of the system: 0.372061
 McElroy's R-squared value for the system: 0.66924
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1866,7 +1866,7 @@ SSR: 67.023783 MSE: 3.942575 Root MSE: 1.985592
 Multiple R-Squared: 0.750018 Adjusted R-Squared: 0.720608 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1925,7 +1925,7 @@ The determinant of the residual covariance matrix: 74.9437
 OLS R-squared value of the system: 0.371716
 McElroy's R-squared value for the system: 0.664223
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -1941,7 +1941,7 @@ SSR: 67.470241 MSE: 3.968838 Root MSE: 1.992194
 Multiple R-Squared: 0.748353 Adjusted R-Squared: 0.718747 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2000,7 +2000,7 @@ The determinant of the residual covariance matrix: 1.74340
 OLS R-squared value of the system: 0.670962
 McElroy's R-squared value for the system: 0.704623
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2016,7 +2016,7 @@ SSR: 67.205652 MSE: 3.953274 Root MSE: 1.988284
 Multiple R-Squared: 0.74934 Adjusted R-Squared: 0.71985 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2083,7 +2083,7 @@ The determinant of the residual covariance matrix: 1.18302
 OLS R-squared value of the system: 0.6774
 McElroy's R-squared value for the system: 0.664522
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2099,7 +2099,7 @@ SSR: 66.264982 MSE: 3.89794 Root MSE: 1.97432
 Multiple R-Squared: 0.752848 Adjusted R-Squared: 0.723771 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2166,7 +2166,7 @@ The determinant of the residual covariance matrix: 1.74340
 OLS R-squared value of the system: 0.670962
 McElroy's R-squared value for the system: 0.704623
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2182,7 +2182,7 @@ SSR: 67.205652 MSE: 3.953274 Root MSE: 1.988284
 Multiple R-Squared: 0.74934 Adjusted R-Squared: 0.71985 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2241,7 +2241,7 @@ The determinant of the residual covariance matrix: 1.18302
 OLS R-squared value of the system: 0.6774
 McElroy's R-squared value for the system: 0.664522
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2257,7 +2257,7 @@ SSR: 66.264982 MSE: 3.89794 Root MSE: 1.97432
 Multiple R-Squared: 0.752848 Adjusted R-Squared: 0.723771 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2318,7 +2318,7 @@ The determinant of the residual covariance matrix: -1.67203
 OLS R-squared value of the system: 0.527259
 McElroy's R-squared value for the system: 0.926927
 
-SUR estimates for demand  (equation 1 )
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2334,7 +2334,7 @@ SSR: 95.760152 MSE: 5.63295 Root MSE: 2.373384
 Multiple R-Squared: 0.642838 Adjusted R-Squared: 0.600819 
 
 
-SUR estimates for supply  (equation 2 )
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
