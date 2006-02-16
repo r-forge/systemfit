@@ -75,19 +75,28 @@ Hence, °it is doubtful whether [this formula] is really superior to
 The WLS, SUR, W2SLS and 3SLS parameter estimates are consistent,
 if the estimated residual variance-covariance matrix is calculated
 using the residuals from a first-step OLS or 2SLS estimation.
-The software LIMDEP calculates SUR or 3SLS estimates by a
-slightly different approach.
-It uses the residuals of a first-step OLS or 2SLS estimation
-for a second-step WLS or W2SLS estimation,
-and then calculates the residual variance covariance matrix
-from the residuals of the WLS or W2SLS estimation
-to estimates the model by SUR or 3SLS in a third step
+There exists also an alternative slightly different approach.%
+\footnote{
+For instance, this approach is applied by
+the command °TSCS° of the software LIMDEP that carries out SUR estimations
+in which all coefficient vectors are constrained to be equal
 \citep{greene06}.
-It is also possible to iterate the estimation procedure and
-calculate the residual variance-covariance matrix from the
-residuals of the previous iteration. 
+}
+It uses the residuals of a first-step OLS or 2SLS estimation
+to apply a WLS or W2SLS estimation on a second step.
+Then, it calculates the residual variance covariance matrix
+from the residuals of the second-step estimation
+to estimates the model by SUR or 3SLS in a third step.
+If no cross-equation restrictions are imposed,
+the parameter estimates of OLS and WLS as well as 2SLS and W2SLS are identical.
+Hence, in this case the both approach generate the same results.
+
+It is also possible to iterate WLS, SUR, W2SLS and 3SLS estimations.
+At each iteration the residual variance-covariance matrix is calculated
+from the residuals of the previous iteration.
 If equation (\ref{eq:rcov0}) is applied to calculate the estimated
-residual variance-covariance matrix, the results converge to maximum
+residual variance-covariance matrix,
+an iterated SUR estimation converges to maximum
 likelihood \citep[p.\ 345]{greene03}.
 
 
