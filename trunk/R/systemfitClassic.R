@@ -39,3 +39,8 @@ systemfitClassic <- function( method, formula, eqnVar, timeVar, data,
 
    return( result )
 }
+
+
+
+## hi mom
+
