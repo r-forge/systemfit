@@ -34,7 +34,7 @@
    The F-statistic for sytems of equations is
    \deqn{F = \frac{
       ( R \hat{b} - q )'
-      ( R \hat{Cov} [ \hat{b} ] R' )^{-1}
+      ( R ( X' ( \hat{\Sigma} \otimes I )^{-1} X )^{-1} R' )^{-1}
       ( R \hat{b} - q ) /
       j
    }{
@@ -45,7 +45,10 @@
    \eqn{M} is the number of equations,
    \eqn{T} is the number of observations per equation,
    \eqn{K} is the total number of estimated coefficients, and
-   \eqn{\Sigma} is the residual covariance matrix
+   \eqn{\Sigma} is the residual covariance matrix used in the estimation.
+   Asymptotically, \eqn{F} has an F-distribution
+   with \eqn{j} and \eqn{M \cdot T - K} degrees of freedom
+   under the null hypothesis
    (Greene, 2003, p. 346).
 }
 
@@ -53,8 +56,8 @@
    \code{ftest.systemfit} returns a list of class \code{ftest.systemfit}
    that includes following objects:
 
-   \item{statistic}{the empirical F value.}
-   \item{p.value}{the p-value of an F-test.}
+   \item{statistic}{the empirical F statistic.}
+   \item{p.value}{the p-value of the F-test.}
    \item{nRestr}{number of restrictions (\eqn{j}, degrees of freedom of the
       numerator).}
    \item{dfSys}{degrees of freedom of the equation system
@@ -68,7 +71,8 @@
 
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
 
-\seealso{\code{\link{systemfit}}, \code{\link{lrtest.systemfit}}}
+\seealso{\code{\link{systemfit}}, \code{\link{waldtest.systemfit}},
+   \code{\link{lrtest.systemfit}}}
 
 \examples{
 data( "kmenta" )
