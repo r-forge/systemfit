@@ -75,6 +75,23 @@ Summary results can be printed by
 summary( fitsur )
 @
 
+First, the estimation method is reported
+and a few summary statistics for each equation are given.
+Then, some results regarding the whole equation system are printed:
+covariance matrix and correlations of the residuals,
+log of the determinant of the residual covariance matrix,
+$R^2$ value of the whole system, and
+McElroy's $R^2$ value.
+If the model is estimated by (W)SUR or (W)3SLS,
+the covariance matrix used for estimation is printed additionally.
+Finally, the estimation results of each equation are reported:
+formula of the estimated equation,
+estimated parameters, their standard errors, t-values, p-values
+and codes indicating their statistical significance,
+and some other statistics like
+standard error of the residuals or
+$R^2$ value of the equation.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{User options}
