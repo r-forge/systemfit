@@ -5,6 +5,7 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Standard usage}
+\label{sec:standard-usage}
 
 \pkg{systemfit} is generally called by
 <<eval=FALSE>>=
@@ -95,6 +96,7 @@ $R^2$ value of the equation.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{User options}
+\label{sec:user-options}
 
 Following additional options can be set by the user:
 
@@ -348,6 +350,66 @@ The default value of argument \code{saveMemory} is \code{TRUE},
 if the argument \code{data} is specified and the number of observations
 times the number of equations is larger than 1000,
 and it is \code{FALSE} otherwise.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{systemfitClassic}
+
+The \pkg{systemfit} package includes a wrapper function for \code{systemfit}
+that can be applied to (classical) panel-like data in long format
+if the regressors are the same for all equations.
+This function has the name \code{systemfitClassic}
+and is called by
+<<eval=FALSE>>=
+systemfitClassic( method, formula, eqnVar, timeVar, data )
+@
+
+The mandatory arguments are \code{method}, \code{formula}, \code{eqnVar},
+and \code{timeVar}.
+Argument \code{method} is the same as in \code{systemfit}
+(see section~\ref{sec:standard-usage}).
+The second argument \code{formula} is a standard formula in \proglang{R}
+that will be applied to all equations.
+Argument \code{eqnVar} specifies the variable name indicating
+the equation to which the observation belongs,
+and argument \code{timeVar} specifies the variable name indicating
+the time.
+Finally, \code{data} is a \code{data.frame} that contains all required data.
+
+We demonstrate the usage of \code{systemfitClassic}
+using an example taken from \citet[pp.\ 295, 300]{theil71}
+that is based on \citet{grunfeld58}.
+We want to estimate a model for gross investment of 2 US firms
+in the years 1935--1954:
+\begin{equation}
+\texttt{invest}_{it} = \beta_1 + \beta_2 * \texttt{value}_{it} +
+   \beta_3 * \texttt{capital}_{it}
+\end{equation}
+where \code{invest} is the gross investment of firm $i$ in year $t$,
+\code{value} is the market value of the firm at the end of the
+previous year, and
+\code{capital} is the capital stock of the firm at the end of the
+previous year.
+
+This model can be estimated by
+<<eval=FALSE>>=
+data( "GrunfeldTheil" )
+theilSur <- systemfitClassic( "SUR", invest ~ value + capital,
+   "firm", "year", data = GrunfeldTheil )
+@
+The first line loads example data that are included with the package.
+And then, a seemingly unrelated regression is performed,
+where the variable °firm° indicates the firm
+and the variable °year° indicates the time.
+
+The function \code{systemfitClassic} has also an optional argument
+\code{pooled} that is a logical variable indicating
+whether the coefficients should be restricted to be equal in all equations.
+By default, this argument is set to °\code{FALSE}°.
+In addition all optional arguments of \code{systemfit}
+(see section~\ref{sec:user-options})
+except for \code{eqnLabels} and \code{TX}
+can be used with \code{systemfitClassic}, too.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
