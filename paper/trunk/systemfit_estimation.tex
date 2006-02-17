@@ -71,10 +71,10 @@ These estimates are efficient only if the disturbance terms are not
 contemporaneously correlated, which means
 $\sigma_{ij} = 0 \; \forall \; i \neq j$.
 If the whole system is treated as one single equation,
-the variance-covariance matrix of the estimated parameters is
+the covariance matrix of the estimated parameters is
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = \sigma^2 \left( X'X \right)^{-1}
-   \label{eq:olsVarSameSigma}
+   \Cov \left[ \widehat{\beta} \right] = \sigma^2 \left( X'X \right)^{-1}
+   \label{eq:olsCovSameSigma}
 \end{equation}
 with $\sigma^2 = E \left( u' u \right)$.
 This assumes that the disturbances of all equations have the
@@ -82,10 +82,10 @@ same variance.
 
 If the disturbance terms of the individual equations
 are allowed to have different variances,
-the variance-covariance matrix of the estimated parameters is
+the covariance matrix of the estimated parameters is
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
-   \label{eq:olsVarSingleSigma}
+   \Cov \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
+   \label{eq:olsCovSingleSigma}
 \end{equation}
 with $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
@@ -94,9 +94,9 @@ $\sigma_{ii} = E \left( u_i' u_i \right)$.
 If no cross-equation parameter restrictions are imposed, the simultaneous 
 OLS estimation of the system leads to the same parameter estimates 
 as an equation-wise OLS estimation.
-The variance-covariance matrix of the parameters from an equation-wise
-OLS estimation is equal to the variance-covariance matrix obtained
-by equation (\ref{eq:olsVarSingleSigma}).
+The covariance matrix of the parameters from an equation-wise
+OLS estimation is equal to the covariance matrix obtained
+by equation (\ref{eq:olsCovSingleSigma}).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -112,9 +112,9 @@ $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
 $\sigma_{ii} = E \left( u_i' u_i \right)$.
 Like the OLS estimates these estimates are only efficient
 if the disturbance terms are not contemporaneously correlated.
-The variance-covariance matrix of the estimated parameters is
+The covariance matrix of the estimated parameters is
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
+   \Cov \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
 \end{equation}
 If no cross-equation parameter restrictions are imposed,
 the parameter estimates are equal to the OLS estimates.
@@ -147,9 +147,9 @@ calculate it by $\Omega^{-1} = \Sigma^{-1} \otimes I$
 \end{equation}
 with $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_i' u_j \right)$.
-And the variance-covariance matrix of the estimated parameters is
+And the covariance matrix of the estimated parameters is
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
+   \Cov \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
 \end{equation}
 
 
@@ -178,20 +178,20 @@ of $\beta$ are obtained by:
    \label{eq:beta2sls}
 \end{equation}
 If the whole system is treated as one single equation,
-the variance-covariance matrix of the estimated parameters is
+the covariance matrix of the estimated parameters is
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = \sigma^2 \left( \widehat{X}'
+   \Cov \left[ \widehat{\beta} \right] = \sigma^2 \left( \widehat{X}'
    \widehat{X} \right)^{-1}
-   \label{eq:2slsVarSameSigma}
+   \label{eq:2slsCovSameSigma}
 \end{equation}
 with $\sigma^2 = E \left( u' u \right)$.
 If the disturbance terms of the individual equations
 are allowed to have different variances, 
-the variance-covariance matrix of the estimated parameters is
+the covariance matrix of the estimated parameters is
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1} 
+   \Cov \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1}
    \widehat{X} \right)^{-1}
-   \label{eq:2slsVarSingleSigma}
+   \label{eq:2slsCovSingleSigma}
 \end{equation}
 with $\Omega = \Sigma \otimes I$, 
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
@@ -210,9 +210,9 @@ is obtained by
 with $\Omega = \Sigma \otimes I$, 
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
 $\sigma_{ii} = E \left( u_i' u_i \right)$.
-The variance-covariance matrix of the estimated parameters is
+The covariance matrix of the estimated parameters is
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1} 
+   \Cov \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1}
    \widehat{X} \right)^{-1}
 \end{equation}
 
@@ -237,9 +237,9 @@ The standard 3SLS estimator can be obtained by:
 \end{equation}
 with $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_i' u_j \right)$.
-Its variance-covariance matrix is:
+Its covariance matrix is:
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1} 
+   \Cov \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1}
    \widehat{X} \right)^{-1}
    \label{eq:cov3sls}
 \end{equation}
@@ -270,9 +270,9 @@ One of these approaches is based on instrumental variable estimation
    \right)^{-1} \widehat{X}' \Omega^{-1} y
    \label{eq:3slsIv}
 \end{equation}
-The variance-covariance matrix of this IV-3SLS estimator is:
+The covariance matrix of this IV-3SLS estimator is:
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1} 
+   \Cov \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1}
    X \right)^{-1}
 \end{equation}
 Another approach is based on the Generalized Method of Moments (GMM)
@@ -282,9 +282,9 @@ estimator (GMM-3SLS):
    H' X \right)^{-1} X' H \left( H' \Omega H \right)^{-1} H' y
    \label{eq:3slsGmm}
 \end{equation}
-The variance-covariance matrix of the GMM-3SLS estimator is:
+The covariance matrix of the GMM-3SLS estimator is:
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = 
+   \Cov \left[ \widehat{\beta} \right] =
    \left( X' H \left( H' \Omega H \right)^{-1} H' X \right)^{-1}
 \end{equation}
 A fourth approach developed by \cite{schmidt90} himself is:
@@ -294,9 +294,9 @@ A fourth approach developed by \cite{schmidt90} himself is:
    H \left( H' H \right)^{-1} H' y 
    \label{eq:3slsSchmidt}
 \end{equation}
-The variance-covariance matrix of this estimator is:
+The covariance matrix of this estimator is:
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = 
+   \Cov \left[ \widehat{\beta} \right] =
    \left( \widehat{X}' \Omega^{-1}  \widehat{X} \right)^{-1} 
    \widehat{X}' \Omega^{-1} H \left( H' H \right)^{-1} H' \Omega 
    H \left( H' H \right)^{-1} H' \Omega^{-1} \widehat{X}
@@ -312,7 +312,7 @@ The econometrics software EViews uses following approach:
 with $\widehat{\beta}_{2SLS}$ is the two-stage least squares estimator
 (equation \ref{eq:beta2sls}).
 EViews uses the standard 3SLS formula (\ref{eq:cov3sls}) to
-calculate the variance-covariance matrix of the 3SLS estimator.
+calculate the covariance matrix of the 3SLS estimator.
 
 
 If the same instrumental variables are used in all equations 

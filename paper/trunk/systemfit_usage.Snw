@@ -33,7 +33,7 @@ While six of these methods correspond to the estimation methods
 described in sections~\ref{sec:ols}--\ref{sec:3sls}
 and~\ref{sec:olsR}--\ref{sec:3slsR},
 the methods °WSUR° and °W3SLS° are °SUR° and °3SLS° estimations
-that take the residual variance covariance matrices from
+that take the residual covariance matrices from
 °WLS° and °W2SLS° estimations, respectively
 (see section~\ref{sec:residcov}).
 The other mandatory argument, \code{eqns}, is a list of the equations
@@ -234,12 +234,12 @@ $\beta_2 + \beta_5 = 0$ imposed.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Iteration control}   
 \paragraph{Iteration control}
-The estimation methods WLS, SUR, W2SLS and 3SLS need a variance
+The estimation methods WLS, SUR, W2SLS and 3SLS need a
 covariance matrix of the residuals
 that can be calculated from a first-step OLS or 2SLS estimation
 (see section~\ref{sec:residcov}).
 If the argument \code{maxiter} is set to a number large than one,
-this procedure is iterated and at each iteration the variance covariance
+this procedure is iterated and at each iteration the covariance
 matrix is calculated from the previous step estimation.
 This iteration is repeated until the maximum number of iterations
 is reached or the parameter estimates have converged.
@@ -258,7 +258,7 @@ The default value of \code{tol} is $10^{-5}$.
 %\subsubsection{Residual covariance matrix}   
 \paragraph{Residual covariance matrix}
 It was explained in section~\ref{sec:residcov} that several different
-formulas have been proposed to calculate the residual variance
+formulas have been proposed to calculate the residual
 covariance matrix.
 The user can specify, which formula \pkg{systemfit} should use.
 Possible values of the argument \code{rcovformula} are presented in
@@ -342,11 +342,11 @@ can be used to specify,
 whether different $\sigma^2$s for each single equation
 or the same $\sigma^2$ for all equations should be used.
 If argument \code{single.eq.sigma} is \code{TRUE},
-equations (\ref{eq:olsVarSingleSigma})
-and (\ref{eq:2slsVarSingleSigma}) are applied.
+equations (\ref{eq:olsCovSingleSigma})
+and (\ref{eq:2slsCovSingleSigma}) are applied.
 In contrast, if argument \code{single.eq.sigma} is \code{FALSE},
-equations (\ref{eq:olsVarSameSigma})
-and (\ref{eq:2slsVarSameSigma}) are applied.
+equations (\ref{eq:olsCovSameSigma})
+and (\ref{eq:2slsCovSameSigma}) are applied.
 By default, \code{single.eq.sigma} is \code{FALSE}, if any restrictions
 are specified using either the argument \code{R.restr} or the
 argument \code{TX}, and it is \code{TRUE} otherwise.

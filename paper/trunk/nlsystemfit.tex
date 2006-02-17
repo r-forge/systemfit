@@ -58,7 +58,7 @@ with respect to the parameters $\left( \frac{ \partial y }{ \theta} \right)$,
 %% thus we should use a different variable name here.
 $W$ is a matrix of the instrument variables, $Z(Z'Z)^{-1}Z$, $Z$ is a
 matrix of the instrument variables, and $I$ is an $n \times n $
-identity matrix and $S$ is the estimated variance-covariance matrix between the
+identity matrix and $S$ is the estimated covariance matrix between the
 equations
 
 \begin{equation}
@@ -66,7 +66,7 @@ equations
   \hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) / \sqrt{(T - k_i)*(T- k_j)} 
 \end{equation}
 
-\textbf{The residual variance-covariance matrix can be calculated in 
+\textbf{The residual covariance matrix can be calculated in
 different ways (section~\ref{sec:residcov}). 
 It should be relatively easy to implement this also in nlsystemfit(), 
 e.g. the function 'calcRCov' in systemfit() could be moved outside

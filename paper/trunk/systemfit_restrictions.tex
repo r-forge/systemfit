@@ -22,12 +22,12 @@ To impose these restrictions, the $X$ matrix is
 \end{equation}
 Then, a standard estimation is done by substituting $X^*$ for $X$.
 This results in the linear independent parameter estimates $\beta^*$ and
-the variance-covariance matrix of these parameters. 
+the covariance matrix of these parameters.
 The original parameters can be obtained by equation (\ref{eq:T-restr})
-and the variance-covariance matrix of the original parameters 
+and the covariance matrix of the original parameters
 can be obtained by:
 \begin{equation}
-   Var \left[ \widehat{\beta} \right] = T \cdot Var \left[ \widehat{\beta^*} \right] \cdot T'
+   \Cov \left[ \widehat{\beta} \right] = T \cdot \Cov \left[ \widehat{\beta^*} \right] \cdot T'
 \end{equation}
 The second way to impose linear parameter restrictions
 can be formulated by
@@ -86,9 +86,9 @@ The OLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \end{equation}
 where $\lambda$ is a vector of the Lagrangean multipliers of the restrictions.
 If the whole system is treated as one single equation,
-the variance-covariance matrix of the estimated parameters is
+the covariance matrix of the estimated parameters is
 \begin{equation}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -101,9 +101,9 @@ the variance-covariance matrix of the estimated parameters is
 with $\sigma^2 = E \left( u' u \right)$.
 If the disturbance terms of the individual equations
 are allowed to have different variances, 
-the variance-covariance matrix of the estimated parameters is
+the covariance matrix of the estimated parameters is
 \begin{equation}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -138,9 +138,9 @@ The WLS estimator restricted by $R \beta^0 = q$ can be obtained by
 with $\Omega = \Sigma \otimes I$, 
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
 $\sigma_{ii} = E \left( u_i' u_i \right)$.
-The variance-covariance matrix of the estimated parameters is
+The covariance matrix of the estimated parameters is
 \begin{equation}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -171,9 +171,9 @@ The SUR estimator restricted by $R \beta^0 = q$ can be obtained by
 \end{equation}
 with $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_i' u_j \right)$.
-The variance-covariance matrix of the estimated parameters is
+The covariance matrix of the estimated parameters is
 \begin{equation}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -204,9 +204,9 @@ The 2SLS estimator restricted by $R \beta^0 = q$ can be obtained by
    \label{eq:beta2SLSr}
 \end{equation}
 If the whole system is treated as one single equation,
-the variance-covariance matrix of the estimated parameters is
+the covariance matrix of the estimated parameters is
 \begin{equation}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -219,9 +219,9 @@ the variance-covariance matrix of the estimated parameters is
 with $\sigma^2 = E \left( u' u \right)$.
 If the disturbance terms of the individual equations
 are allowed to have different variances, 
-the variance-covariance matrix of the estimated parameters is
+the covariance matrix of the estimated parameters is
 \begin{equation}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -257,9 +257,9 @@ The W2SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 with $\Omega = \Sigma \otimes I$, 
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
 $\sigma_{ii} = E \left( u_i' u_i \right)$.
-The variance-covariance matrix of the estimated parameters is
+The covariance matrix of the estimated parameters is
 \begin{equation}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -293,9 +293,9 @@ The standard 3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \end{equation}
 with $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_i' u_j \right)$.
-The variance-covariance matrix of this estimator is
+The covariance matrix of this estimator is
 \begin{equation}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta^0} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -324,7 +324,7 @@ The IV-3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \end{equation}
 with
 \begin{equation}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta^0} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -352,7 +352,7 @@ The restricted 3SLS-GMM estimator can be obtained by
 \end{equation}
 with
 \begin{equation}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta^0} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -381,7 +381,7 @@ The restricted 3SLS estimator based on the suggestion of
 \end{equation}
 with
 \begin{eqnarray}
-   Var 
+   \Cov 
    \left[ \begin{array}{c}
       \widehat{\beta^0} \\ \widehat{\lambda}
    \end{array} \right] 
@@ -422,7 +422,7 @@ The econometrics software EViews calculates the restricted 3SLS estimator by:
 \end{equation}
 where $\widehat{\beta^0}_{2SLS}$ is the restricted 2SLS estimator calculated
 by equation (\ref{eq:beta2SLSr}). 
-To calculate the variance-covariance matrix 
+To calculate the covariance matrix
 EViews uses the standard formula of the restricted 3SLS
 estimator~(\ref{eq:cov3slsr}).
 
@@ -430,7 +430,7 @@ estimator~(\ref{eq:cov3slsr}).
 If the same instrumental variables are used in all equations 
 ($H_1 = H_2 = \ldots = H_G$), 
 all the above mentioned approaches lead to identical parameter estimates
-and identical variance-covariance matrices of the estimated parameters.
+and identical covariance matrices of the estimated parameters.
 
 %%% Local Variables: 
 %%% mode: latex
