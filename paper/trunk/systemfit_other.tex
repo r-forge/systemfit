@@ -166,22 +166,62 @@ $i$ is a column vector of $T$ ones.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Likelihood ratio test}
+\subsection{Testing Linear Restrictions}
 
-Currently, the \code{systemfit} package can perform a Likelihood Ratio
-test to test linear restrictions when estimating SUR equation systems.
-The function returns the empirical likelihood ratio, the $p$-value and
-the degrees of freedom of the test which is equivalent to the number
-of restrictions.
+Linear restrictions can be tested by an F test, Wald test or
+likelihood-ratio (LR) test.
 
-% This test calculates the likelihood ratio value by calculating the
-% estimated residual covariance matrix $\hat{S}$ by the maximum
-% likelihood formula,
+The F-statistic for sytems of equations is
+\begin{equation}
+F = \frac{
+   ( R \hat{b} - q )'
+   ( R ( X' ( \hat{\Sigma} \otimes I )^{-1} X )^{-1} R' )^{-1}
+   ( R \hat{b} - q ) /
+   j
+}{
+   \hat{e}' ( \Sigma \otimes I )^{-1} \hat{e} /
+   ( M \cdot T - K )
+}
+\end{equation}
+where $j$ is the number of restrictions,
+$M$ is the number of equations,
+$T$ is the number of observations per equation,
+$K$ is the total number of estimated coefficients, and
+$\hat{\Sigma}$ is the estimated residual covariance matrix
+used in the estimation.
+Asymptotically, $F$ has an F-distribution
+with $j$ and $M \cdot T - K$ degrees of freedom
+under the null hypothesis
+\citep[p.\ 346]{greene03}.
 
-% \begin{equation}
-% \hat{s}_{ij} = \frac{\hat{e}_i^{'} \hat{e}_j}{T} 
-% \end{equation}
-% where $T$ is vector of ones. 
+The Wald-statistic for sytems of equations is
+\begin{equation}
+W =
+   ( R \hat{b} - q )'
+   ( R \widehat{Cov} [ \hat{b} ] R' )^{-1}
+   ( R \hat{b} - q )
+\end{equation}
+Asymptotically, $W$ has a $\chi^2$
+distribution with $j$ degrees of freedom
+under the null hypothesis
+\citep[p.\ 347]{greene03}.
+
+The LR-statistic for sytems of equations is
+\begin{equation}
+LR = T \cdot \left(
+   log \left| \hat{ \hat{ \Sigma } }_r \right|
+   - log \left| \hat{ \hat{ \Sigma } }_u \right|
+   \right)
+\end{equation}
+where $T$ is the number of observations per equation, and 
+$\hat{\hat{\Sigma}}_r$ and $\hat{\hat{\Sigma}}_u$ are
+the residual covariance matrices calculated by formula (\ref{eq:rcov0})
+of the restricted and unrestricted estimation, respectively.
+Asymptotically, $LR$ has a $\chi^2$
+distribution with $j$ degrees of freedom
+under the null hypothesis
+\citep[p.\ 349]{greene03}.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
