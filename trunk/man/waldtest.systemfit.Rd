@@ -2,10 +2,10 @@
 \alias{waldtest.systemfit}
 \alias{print.waldtest.systemfit}
 
-\title{F-test for Equation Systems}
+\title{Wald-test for Equation Systems}
 
 \description{
-   F-test for linear parameter restrictions
+   Wald-test for linear parameter restrictions
    in equation systems.
 }
 
@@ -31,34 +31,25 @@
 }
 
 \details{
-   The F-statistic for sytems of equations is
-   \deqn{F = \frac{
+   The Wald-statistic for sytems of equations is
+   \deqn{ W =
       ( R \hat{b} - q )'
-      ( R \hat{Cov} [ \hat{b} ] R' )^{-1}
-      ( R \hat{b} - q ) /
-      j
-   }{
-      \hat{e}' ( \Sigma \otimes I )^{-1} \hat{e} /
-      ( M \cdot T - K )
-   } }
-   where \eqn{j} is the number of restrictions,
-   \eqn{M} is the number of equations,
-   \eqn{T} is the number of observations per equation,
-   \eqn{K} is the total number of estimated coefficients, and
-   \eqn{\Sigma} is the residual covariance matrix
-   (Greene, 2003, p. 346).
+      ( R \widehat{Cov} [ \hat{b} ] R' )^{-1}
+      ( R \hat{b} - q )
+   }
+   Asymptotically, \eqn{W} has a \eqn{\chi^2}
+   distribution with \eqn{j} degrees of freedom
+   under the null hypothesis
+   (Greene, 2003, p. 347).
 }
 
 \value{
    \code{waldtest.systemfit} returns a list of class \code{waldtest.systemfit}
    that includes following objects:
 
-   \item{statistic}{the empirical F value.}
-   \item{p.value}{the p-value of an F-test.}
-   \item{nRestr}{number of restrictions (\eqn{j}, degrees of freedom of the
-      numerator).}
-   \item{dfSys}{degrees of freedom of the equation system
-      (\eqn{M \cdot T - K}, degrees of freedom of the denominator).}
+   \item{statistic}{the empirical Wald statistic.}
+   \item{p.value}{the p-value of the Wald-test.}
+   \item{nRestr}{number of restrictions (\eqn{j}, degrees of freedom).}
 }
 
 \references{
@@ -68,7 +59,8 @@
 
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
 
-\seealso{\code{\link{systemfit}}, \code{\link{lrtest.systemfit}}}
+\seealso{\code{\link{systemfit}}, \code{\link{ftest.systemfit}},
+   \code{\link{lrtest.systemfit}}}
 
 \examples{
 data( "kmenta" )
@@ -84,7 +76,7 @@ R1 <- matrix( 0, nrow = 1, ncol = 7 )
 R1[ 1, 2 ] <- 1
 R1[ 1, 6 ] <- -1
 
-## perform F-test
+## perform Wald-test
 waldTest1 <- waldtest.systemfit( fitsur, R1 )
 print( waldTest1 )   # rejected
 
@@ -93,7 +85,7 @@ R2 <- matrix( 0, nrow = 1, ncol = 7 )
 R2[ 1, 2 ] <- 1
 R2[ 1, 6 ] <- 1
 
-## perform F-test
+## perform Wald-test
 waldTest2 <- waldtest.systemfit( fitsur, R2 )
 print( waldTest2 )   # accepted
 }
