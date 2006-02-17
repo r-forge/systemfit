@@ -2,12 +2,25 @@
 \section{Using systemfit}\label{sec:Usage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+The package \pkg{systemfit} includes functions
+to estimate systems of equations
+(\code{systemfit}, \code{systemfitClassic})
+and to test these models
+(\code{lrtest.systemfit}, \code{hausman.systemfit})
+as well as some helper functions
+e.g. to extract the estimated coefficients (\code{coef.systemfit})
+or for prediction (\code{predict.systemfit}).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Standard usage}
 \label{sec:standard-usage}
 
-\pkg{systemfit} is generally called by
+The basic functionaly of this package is provided by the
+function \code{systemfit}.
+This function does the estimation of the equation systems as described
+in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions}.
+It is generally called by
 <<eval=FALSE>>=
 systemfit( method, eqns )
 @
@@ -33,11 +46,14 @@ separated by plus signs%
 For Details see the \proglang{R} help files to \code{formula}.
 }.
 
-This is now demonstrated using an example taken from  \citet{kmenta86}.
+This is now demonstrated using an example taken from
+\citet[p.\ 687]{kmenta86}.
 We want to estimate a small model of US the food market:
 \begin{align}
-consump & = \beta_1 + \beta_2 * price + \beta_3 * income\\
-consump & = \beta_4 + \beta_5 * price + \beta_6 * farmPrice + \beta_7 * trend
+\texttt{consump} & = \beta_1 + \beta_2 * \texttt{price}
+   + \beta_3 * \texttt{income} \\
+\texttt{consump} & = \beta_4 + \beta_5 * \texttt{price}
+   + \beta_6 * \texttt{farmPrice} + \beta_7 * \texttt{trend}
 \end{align}
 The first equation represents the demand side of the food market.
 Variable \code{consump} (food consumption per capita) is the dependant variable.
@@ -98,7 +114,11 @@ $R^2$ value of the equation.
 \subsection{User options}
 \label{sec:user-options}
 
-Following additional options can be set by the user:
+The user can modify the default estimation method by providing
+additional optional arguments,
+e.g.\ to specify instrumental variables
+or to impose parameter restrictions.
+All optional arguments are described in the following:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % \subsubsection{Equation labels}
@@ -150,7 +170,7 @@ fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ), data = kmenta )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Restrictions}   
-\paragraph{Restrictions}
+\paragraph{Parameter restrictions}
 As outline in section~\ref{sec:Restrictions}, parameter restrictions
 can be imposed in two ways.
 The first way is to use the transformation matrix $T$
