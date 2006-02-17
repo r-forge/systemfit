@@ -1137,61 +1137,6 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
 }
 
 
-## this function returns test statistic for
-## the hausman test
-# The m-statistic is then distributed with k degrees of freedom, where k
-# is the rank of the matrix .A generalized inverse is used, as
-# recommended by Hausman (1982).
-
-hausman.systemfit <- function( results2sls, results3sls ) {
-
-   result <- list()
-
-   result$q <- results2sls$b - results3sls$b
-   result$qVar <- results2sls$bcov - results3sls$bcov
-
-#    if( min( eigen( hausman$qVar )$values ) < 0 ) {
-#       warning( "the matrix V is not 'positive definite'" )
-#    }
-
-   result$statistic <- t( result$q ) %*% solve( result$qVar, result$q )
-   names( result$statistic ) <- "Hausman"
-   result$parameter <- nrow( result$qVar )
-   names( result$parameter ) <- "df"
-   result$p.value <- 1 - pchisq( result$statistic, result$parameter )
-   result$method = paste( "Hausman specification test for consistency of",
-      "the 3SLS estimation" )
-   result$data.name = results2sls$data.name
-   class( result ) <- "htest"
-   return( result )
-}
-
-
-## Likelihood Ratio Test
-lrtest.systemfit <- function( resultc, resultu ) {
-  lrtest <- list()
-  if( resultc$method %in% c( "SUR", "WSUR" ) &
-      resultu$method %in% c( "SUR", "WSUR" ) ) {
-    n   <- resultu$eq[[1]]$n
-    lrtest$df  <- resultu$ki - resultc$ki
-    if(resultc$rcovformula != resultu$rcovformula) {
-      stop( paste( "both estimations must use the same formula to calculate",
-                   "the residual covariance matrix!" ) )
-    }
-    if(resultc$rcovformula == 0) {
-      lrtest$lr  <- n * ( log( resultc$drcov ) - log( resultu$drcov ) )
-    } else {
-      residc <- array(resultc$resids,c(n,resultc$g))
-      residu <- array(resultu$resids,c(n,resultu$g))
-      lrtest$lr <- n * ( log( det( (t(residc) %*% residc)) ) -
-                         log( det( (t(residu) %*% residu))))
-    }
-    lrtest$p <- 1-pchisq( lrtest$lr, lrtest$df )
-  }
-  lrtest
-}
-
-
 ## return all coefficients
 coef.systemfit <- function( object, ... ) {
    object$b
