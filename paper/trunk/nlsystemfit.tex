@@ -247,3 +247,104 @@ Multiple~R-Squared:~0.611888~Adjusted~R-Squared:~0.539117~\\
 % SUR fit and the 2SLS portion of the 3SLS fit are not included.  }
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Nonlinear estimation}
+
+As linear systems of equations can be estimated using
+\code{systemfit}, nonlinear systems of equations \citep{hausman75}
+can be estimated using a similar function; \code{nlsystemfit}.
+The usage for the nonlinear estimation function is similar to
+\code{systemfit} and can estimate system of equations using OLS, SUR,
+2SLS and 3SLS methods.
+The equations are defined as,
+
+\begin{equation}
+  \label{eq:non_linear_eq_1}
+  \epsilon_{t} = q( y_t, x_t, \beta )
+\end{equation}
+ 
+\noindent and
+
+\begin{equation}
+  \label{eq:non_linear_eq_2}
+  z_{t} = Z( x_t )
+\end{equation}
+where $\epsilon_{t}$ are the residuals from the $y_t$ observations,
+$x_t$ is a matrix of independent variables, $\beta$ is a vector is
+parameter estimates and $z_{t}$ are the functions evaluated at the
+parameter estimates.
+
+Similar to calling the \code{systemfit} function, \code{nlsystemfit}
+is called with a minimum of three arguments,
+
+\code{
+R> nlsystemfit( method, eqns, start )
+}
+
+where \code{method} is one of the following estimation methods: "OLS",
+"SUR", "2SLS", or "3SLS", \code{eqns} is a list of equations similar
+to those described for \code{systemfit}, and \code{start} is a list of
+starting values of the parameter estimates.
+The nlsystemfit function relies on \code{nlm} to perform the minimization
+of the objective functions and the \code{qr} set of functions.
+If the user does not have a set of estimates for the initial parameters,
+it is suggested using linearized forms in one of the linear methods,
+or simply using \code{nls} to obtain estimates for the equations.
+The outputs are similar to those obtained by \code{systemfit} objects.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% left over from the older docs
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The mandatory argument
+% \code{eqns} is a list of the equations to estimate.  Each equation is
+% a standard formula in \proglang{R}.  It starts with a dependent
+% variable on the left hand side.  After a tilde ($~$) the regressors
+% are listed  \footnote{For Details see the \proglang{R} help files to
+%   \code{formula}}.
+
+
+% The objective functions for the methods are:
+  
+% \begin{center}
+% \begin{tabular}{|l|c|c|c|} \hline
+%   Method & Instruments & Objective Function & Covariance of $\theta$ \\ \hline  
+%   OLS & No & $r'r$ & $(X(diag(S)^{-1}\otimes I)X)^{-1}$ \\ \hline
+%   SUR & No & $r'(diag(S)_{OLS}^{-1}\otimes I)r$ & $(X(S^{-1}\otimes I)X)^{-1}$ \\ \hline
+%   2SLS & Yes & $r'(I \otimes W)r$ & $(X(diag(S)^{-1}\otimes I)X)^{-1}$ \\ \hline 
+%   3SLS & Yes & $r'(S_{2SLS}^{-1} \otimes W)r$ & $(X(diag(S)^{-1}\otimes W)X)^{-1}$ \\ \hline
+% \end{tabular}
+% \end{center}
+
+% where, $r$ is a column vector for the residuals for each equation,
+% what is the difference to \epsilon?
+% $X$ is matrix of the partial derivatives of the dependent variable 
+% with respect to the parameters $\left( \frac{ \partial y }{ \theta} \right)$,
+% is this correct?
+% in the linear section X is used for the regressors, 
+% thus we should use a different variable name here.
+% $W$ is a matrix of the instrument variables, $Z(Z'Z)^{-1}Z$, $Z$ is a
+% matrix of the instrument variables, and $I$ is an $n \times n $
+% identity matrix and $S$ is the estimated covariance matrix between the
+% equations
+
+% \begin{equation}
+%   \label{eq:non-linear_varcov}
+%   \hat{\sigma}_{ij} = (\hat{e}_i' \hat{e}_j) / \sqrt{(T - k_i)*(T- k_j)} 
+% \end{equation}
+
+% Do we actually have the covariance function in place.
+
+% The argument \code{method} is a string determining the estimation method.
+% It must be one of "OLS", "WLS", "SUR", "2SLS", "W2SLS" or "3SLS".
+
+
+% \textbf{The residual covariance matrix can be calculated in
+%   different ways (section~\ref{sec:residcov}).  It should be
+%   relatively easy to implement this also in nlsystemfit(),  e.g. the
+%   function 'calcRCov' in systemfit() could be moved outside
+%   systemfit() that it can be used also by nlsystemfit().}
+
+% \textbf{You need to clear this up.}
+
