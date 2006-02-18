@@ -484,17 +484,18 @@ fit2sls  <- systemfit( "2SLS", list( demand = eqDemand, supply = eqSupply ),
    inst = ~ income + farmPrice + trend, data = kmenta )
 fit3sls <- systemfit( "3SLS", list( demand = eqDemand, supply = eqSupply ),
    inst = ~ income + farmPrice + trend, data = kmenta )
-hausmantest <- hausman.systemfit( fit2sls, fit3sls )
-print( hausmantest )
+hausman.systemfit( fit2sls, fit3sls )
 @
-First, the model is estimated by 2SLS and then by 3SLS.
-The test is carried out by the command \code{hausman.systemfit}
-that requires two arguments:
+<<echo=FALSE>>=
+hausmantest <- hausman.systemfit( fit2sls, fit3sls )
+@
+First of all, the model is estimated by 2SLS and then by 3SLS.
+Finally, in the last line
+the test is carried out by the command \code{hausman.systemfit}.
+This function requires two arguments:
 the result of a 2SLS estimation and
 the result of a 3SLS estimation.
-Finally the result of the test is printed.
-
-The results show that the Hausman statistic is
+The Hausman test statistic is
 \Sexpr{round( hausmantest$statistic, digits = 3)},
 which has a $\chi^2$ distribution
 with \Sexpr{hausmantest$parameter} degrees of freedom
