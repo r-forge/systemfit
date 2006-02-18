@@ -3,6 +3,8 @@
 
 
 \documentclass[article]{jss}
+\usepackage[pdftex]{thumbpdf}
+%   run: pdflatex *.tex -> thumbpdf *.tex -> pdflatex *.tex
 \usepackage{csquotes}
 \MakeOuterQuote{°}
 \usepackage{amsmath}
@@ -13,6 +15,9 @@
 \linenumbers
 
 \newcommand{\Cov}{\text{Cov}}
+\clubpenalty=10000
+\widowpenalty=10000
+
 
 \author{Arne Henningsen\\University of Kiel\And
         Jeff D. Hamann\\ Forest Informatics, Inc. }
@@ -153,8 +158,8 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\bibliography{systemfit} % a subset of my big bibtex file
-%\bibliography{/home/suapm095/Documents/Literatur/arne}
+%\bibliography{systemfit} % a subset of my big bibtex file
+\bibliography{/home/suapm095/Documents/Literatur/arne}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
