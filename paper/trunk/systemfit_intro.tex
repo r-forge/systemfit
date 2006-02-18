@@ -6,36 +6,43 @@
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Many theoretical models consist of more than one equation.
-These models can contain variables that appear on the left-hand side in one
-equation and on the right-hand side of another equation (simultaneity-bias).
-The system can have non-zero off-diagonal covariance elements resulting from
-related disturbances (contemporaneous correlation).
-Ignoring contemporaneous correlation leads to inefficient parameter
-estimates \citep{zellner62} and ignoring simultaneity-bias can lead to
-inconsistent parameter estimates.
-
-% If these models are econometrically estimated, it may not be
-% appropriate to estimate the equations individually, but all together,
-% because the disturbance terms of these equations are likely to be
-% contemporaneously correlated.  Estimating all equations
-% simultaneously, taking the covariance structure of the residuals into
-% account, leads to efficient estimates.  Ignoring this correlation
-% leads to an inefficient parameter estimation \citep{zellner62}.
-
+Many theoretical models that are econometrically estimated
+consist of more than one equation.
+In this case, the disturbance terms of these equations are likely
+to be contemporaneously correlated,
+because some unconsidered factors
+that influence the disturbance term in one equation
+probably influence the disturbance terms in other equations
+of these model, too.
+Ignoring this contemporaneous correlation
+and estimating these equations separately
+leads to inefficient parameter estimates.
+However, estimating all equations simultaneously,
+taking the covariance structure of the residuals into account,
+leads to efficient estimates.
+This estimation procedure is generally called
+°Seemingly Unrelated Regression° (SUR) \citep{zellner62}.
 Another reason to estimate an equation system simultaneously are
-cross-equation parameter restrictions.
-These restrictions can be tested and/or imposed only in a simultaneous
-estimation approach.
+cross-equation parameter restrictions.%
+\footnote{
 Especially the economic theory suggests many cross-equation parameter
 restrictions (e.g.\ the symmetry restriction in demand models).
+}
+These restrictions can be tested and/or imposed only in a simultaneous
+estimation approach.
 
-% (But we don't say why this is important...) Are we
-% imposing restrictions in the parameters, or the covariance
-% matrix or both and for what pupose?
+Furthermore, these models can contain variables
+that appear on the left-hand side in one equation
+and on the right-hand side of another equation.
+Ignoring the endogeneity of these variables can lead to inconsistent
+parameter estimates.
+This simultaneity bias can be circumvented by applying
+a °Two-Stage Least Squares° (2SLS) or °Three-Stage Least Squares° (3SLS)
+estimation of the equation system.
+
 
 % For all of the methods developed in the package, the disturbances of
-% the individual equations are assumed to be independent and identially
+% the individual equations are assumed to be independent and identically
 % distributed (iid).  
 % In the future, we would like to add the ability to fit equations were
 % the disturbances are serially correlated (wikins 1969).
@@ -53,14 +60,16 @@ requirements.
 Third, the (advanced) user can control estimation details generally
 not available in other software packages by overriding reasonable defaults.
 
-This paper is organized as follows: In Section~\ref{sec:Estimation} we
+This paper is organized as follows:
+In the following Section~\ref{sec:Estimation} we
 introduce the mathematics of estimating equation systems.
 Section~\ref{sec:Restrictions} shows how linear restrictions can be
 imposed.
+Some other relevant issues about estimation of equation systems
+are discussed in Section~\ref{sec:Other}.
 Section~\ref{sec:Usage} demonstrates how to run
 \pkg{systemfit}, especially how the features presented in the previous
 sections can be used.
-All other relevant issues are discussed in Section~\ref{sec:Other}.
 Finally, a summary and outlook are presented in
 Section~\ref{sec:Summmary}.
 
