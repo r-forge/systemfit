@@ -129,7 +129,7 @@ If this argument is not provided, the labels are taken from the names of
 the equations in argument \code{eqns}.
 And if the equations have no names, they are numbered consecutively.
 Hence, the following command has the same effect as the command above.
-<<eval=FALSE>>=
+<<>>=
 fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ),
    eqnlabels = c( "demand", "supply" ) )
 @
@@ -146,7 +146,7 @@ If different instruments should be used for the equations,
 for each equation.
 The first example uses the same instruments for all equations,
 and the second uses different instruments:
-<<eval=FALSE>>=
+<<>>=
 fit3sls  <- systemfit( "3SLS", list( demand = eqDemand, supply = eqSupply ),
    inst = ~ income + farmPrice + trend )
 fit3sls2 <- systemfit( "3SLS", list( demand = eqDemand, supply = eqSupply ),
@@ -163,7 +163,7 @@ that contains the variables in the model.
 In the following example we do not need to attach the data frame
 \code{kmenta} before calling systemfit:
 have to be
-<<eval=FALSE>>=
+<<>>=
 fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ), data = kmenta )
 @
 
@@ -175,18 +175,18 @@ As outline in section~\ref{sec:Restrictions}, parameter restrictions
 can be imposed in two ways.
 The first way is to use the transformation matrix $T$
 that can be specified by the argument \code{TX}.
-If we want to impose the restriction, say $\beta_2 = - \beta_5$,
+If we want to impose the restriction, say $\beta_2 = - \beta_6$,
 we can do this as follows
-<<eval=FALSE>>=
+<<>>=
 tx <- matrix( 0, nrow = 7, ncol = 6 )
-tx[ 1, 1 ] <-  1   # beta*_1 =  beta_1
-tx[ 2, 2 ] <-  1   # beta*_2 =  beta_2
-tx[ 3, 3 ] <-  1   # beta*_3 =  beta_3
-tx[ 4, 4 ] <-  1   # beta*_4 =  beta_4
-tx[ 2, 5 ] <- -1   # beta*_2 = -beta_5
-tx[ 5, 6 ] <-  1   # beta*_5 =  beta_6
-tx[ 6, 7 ] <-  1   # beta*_6 =  beta_7
-fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ), TX = tx )
+tx[ 1, 1 ] <-  1   # beta_1 =  beta*_1
+tx[ 2, 2 ] <-  1   # beta_2 =  beta*_2
+tx[ 3, 3 ] <-  1   # beta_3 =  beta*_3
+tx[ 4, 4 ] <-  1   # beta_4 =  beta*_4
+tx[ 5, 5 ] <-  1   # beta_5 =  beta*_5
+tx[ 6, 2 ] <- -1   # beta_6 = -beta*_2
+tx[ 7, 6 ] <-  1   # beta_7 =  beta*_6
+fitsurTx <- systemfit( "SUR", list( eqDemand, eqSupply ), TX = tx )
 @
 The first line creates a $7 \times 6$ matrix of zeros,
 where 7 is the number of unrestricted coefficients and
@@ -194,41 +194,42 @@ where 7 is the number of unrestricted coefficients and
 The following seven lines specify this matrix in a way
 that the unrestricted coefficients $( \beta )$ are assigned
 to the restricted coefficients $( \beta^* )$ with
-$\beta^*_1 = \beta_1$,
-$\beta^*_2 = \beta_2$,
-$\beta^*_3 = \beta_3$,
-$\beta^*_4 = \beta_4$,
-$\beta^*_2 = -\beta_5$,
-$\beta^*_5 = \beta_6$, and
-$\beta^*_6 = \beta_7$.
+$\beta_1 = \beta^*_1$,
+$\beta_2 = \beta^*_2$,
+$\beta_3 = \beta^*_3$,
+$\beta_4 = \beta^*_4$,
+$\beta_5 = \beta^*_5$,
+$\beta_6 = -\beta^*_2$, and
+$\beta_7 = \beta^*_6$.
 Finally the model is estimated with restriction
-$\beta^*_2 = \beta_2 = - \beta_5$ imposed.
+$\beta^*_2 = \beta_2 = - \beta_6$ imposed.
 
 The second way to impose parameter restrictions is to use
 the matrix $R$ and the vector $q$
 (see section~\ref{sec:Restrictions}).
 Matrix $R$ can be specified with the argument \code{R.restr}
 and vector $q$ with argument \code{q.restr}.
-We convert the restriction specified above to $\beta_2 + \beta_5 = 0$
+We convert the restriction specified above to $\beta_2 + \beta_6 = 0$
 and impose it in the second way:
-<<eval=FALSE>>=
+<<>>=
 Rmat <- matrix( 0, nrow = 1, ncol = 7 )
 Rmat[ 1, 2 ] <-  1   # beta_2
-Rmat[ 1, 5 ] <-  1   # beta_5
+Rmat[ 1, 6 ] <-  1   # beta_6
 qvec <- c( 0 )
-fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ),
+fitsurRmat <- systemfit( "SUR", list( eqDemand, eqSupply ),
    R.restr = Rmat, q.restr = qvec )
 @
+\label{code:Rmat}
 The first line creates a $1 \times 7$ matrix of zeros,
 where 1 is the number of restrictions and
 7 is the number of unrestricted coefficients.
 The following two lines specify this matrix in a way
 that the multiplication with the parameter vector
-results in $ \beta_2 + \beta_5 $.
+results in $ \beta_2 + \beta_6 $.
 The fourth line creates a vector with a single element
 that contains the left hand side of the restriction, i.e.\ zero.
 Finally the model is estimated with restriction
-$\beta_2 + \beta_5 = 0$ imposed.
+$\beta_2 + \beta_6 = 0$ imposed.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -412,7 +413,7 @@ previous year, and
 previous year.
 
 This model can be estimated by
-<<eval=FALSE>>=
+<<>>=
 data( "GrunfeldTheil" )
 theilSur <- systemfitClassic( "SUR", invest ~ value + capital,
    "firm", "year", data = GrunfeldTheil )
@@ -430,6 +431,48 @@ In addition all optional arguments of \code{systemfit}
 (see section~\ref{sec:user-options})
 except for \code{eqnLabels} and \code{TX}
 can be used with \code{systemfitClassic}, too.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Testing Linear Restrictions}
+
+As described in section~\ref{sec:testingRestrictions},
+linear restrictions can be tested by an F test, Wald test or
+LR test.
+The corresponding functions in package \pkg{systemfit} are
+\code{ftest.systemfit}, \code{waldtest.systemfit}, and
+\code{lrtest.systemfit}, respectively.
+
+We will now test the restriction $\beta_2 = -\beta_6$
+that was specified by the matrix \code{Rmat} and the vector \code{qvec}
+in the example above (p.~\pageref{code:Rmat}).
+<<>>=
+ftest.systemfit( fitsur, Rmat, qvec )
+
+waldtest.systemfit( fitsur, Rmat, qvec )
+
+lrtest.systemfit( fitsurRmat, fitsur )
+@
+The linear restrictions are tested by an F test first,
+then by a Wald test, and finally by an LR test.
+The functions \code{ftest.systemfit} and \code{waldtest.systemfit}
+have three arguments.
+The first argument must be an unrestricted regression
+returned by \code{systemfit}.
+The second and third argument are the restriction matrix $R$ and
+the vector $q$ as described in section~\ref{sec:Restrictions}.
+In contrast, the function \code{lrtest.systemfit} needs two arguments.
+The first argument must be a restricted and the second an unrestricted
+regression returned by \code{systemfit}.
+
+All tests print a short explanation first.
+Then the empirical test statistic and the degree(s) of freedom are reported.
+Finally the p-value is printed.
+While there is some variation of the p-values across
+the three different tests,
+all tests suggest the same decision:
+The null hypothesis $\beta_2 = -\beta_6$ cannot be rejected at any
+reasonable level of significance.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -455,9 +498,9 @@ The results show that the Hausman statistic is
 \Sexpr{round( hausmantest$statistic, digits = 3)},
 which has a $\chi^2$ distribution
 with \Sexpr{hausmantest$parameter} degrees of freedom
-under the null hypotheses.
+under the null hypothesis.
 The corresponding p-value is
 \Sexpr{round( hausmantest$p.value, digits = 3 )}.
-This shows that the null hypotheses is not rejected
+This shows that the null hypothesis is not rejected
 at any reasonable level of significance.
 Hence, we can assume that the 3SLS estimator is consistent.
