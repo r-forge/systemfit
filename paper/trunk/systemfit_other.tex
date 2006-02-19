@@ -21,8 +21,8 @@ The following formula is often applied:
    \label{eq:rcov0}
 \end{equation}
 where $T$ is the number of observations in each equation.
-However, this estimator is biased, because it is not corrected for
-degrees of freedom.
+However, in finite samples this estimator is biased,
+because it is not corrected for degrees of freedom.
 The usual single-equation procedure to correct for degrees of freedom
 cannot always be applied, because the number of regressors in each equation
 might differ.
@@ -82,14 +82,14 @@ the command °TSCS° of the software LIMDEP that carries out SUR estimations
 in which all coefficient vectors are constrained to be equal
 \citep{greene06}.
 }
-It uses the residuals of a first-step OLS or 2SLS estimation
+This alternative approach uses the residuals of a first-step OLS or 2SLS estimation
 to apply a WLS or W2SLS estimation on a second step.
 Then, it calculates the residual covariance matrix
 from the residuals of the second-step estimation
 to estimates the model by SUR or 3SLS in a third step.
 If no cross-equation restrictions are imposed,
 the parameter estimates of OLS and WLS as well as 2SLS and W2SLS are identical.
-Hence, in this case the both approach generate the same results.
+Hence, in this case both approaches generate the same results.
 
 It is also possible to iterate WLS, SUR, W2SLS and 3SLS estimations.
 At each iteration the residual covariance matrix is calculated
@@ -107,7 +107,7 @@ likelihood \citep[p.\ 345]{greene03}.
 To our knowledge the question about how to determine the degrees
 of freedom for single-parameter t-tests is not comprehensively
 discussed in the literature.
-While sometimes the degrees of freedom of the whole system
+While sometimes the degrees of freedom of the entire system
 (total number of observations in all equations minus
 total number of estimated parameters)
 are applied,
@@ -118,16 +118,16 @@ are used.
 Asymptotically, this distinction doesn't make a difference.
 However, in many empirical applications, the number of observations
 of each equation is rather small, and
-therefore, this makes a difference.
+therefore, it matters.
 
-If a system of equations is estimated by unrestricted OLS and
+If a system of equations is estimated by an unrestricted OLS and
 the covariance matrix of the parameters is calculated
 by~(\ref{eq:olsCovSingleSigma}),
 the estimated parameters and their standard errors are identical
 to an equation-wise OLS estimation.
 In this case, it is reasonable to use the degrees of freedom of
 each single equation,
-because this yields also the same p-values as the equation-wise
+because this yields the same p-values as the equation-wise
 OLS estimation.
 
 In contrast, if a system of equations is estimated with many
@@ -172,15 +172,15 @@ $i$ is a column vector of $T$ ones.
 Linear restrictions can be tested by an F test, Wald test or
 likelihood-ratio (LR) test.
 
-The F-statistic for sytems of equations is
+The F-statistic for systems of equations is
 \begin{equation}
 F = \frac{
-   ( R \hat{b} - q )'
+   ( R \hat{\beta} - q )'
    ( R ( X' ( \hat{\Sigma} \otimes I )^{-1} X )^{-1} R' )^{-1}
-   ( R \hat{b} - q ) /
+   ( R \hat{\beta} - q ) /
    j
 }{
-   \hat{e}' ( \Sigma \otimes I )^{-1} \hat{e} /
+   \hat{u}' ( \Sigma \otimes I )^{-1} \hat{u} /
    ( M \cdot T - K )
 }
 \end{equation}
@@ -190,24 +190,23 @@ $T$ is the number of observations per equation,
 $K$ is the total number of estimated coefficients, and
 $\hat{\Sigma}$ is the estimated residual covariance matrix
 used in the estimation.
-Asymptotically, $F$ has an F-distribution
+Under the null hypothesis, $F$ has an F-distribution
 with $j$ and $M \cdot T - K$ degrees of freedom
-under the null hypothesis
 \citep[p.\ 346]{greene03}.
 
-The Wald-statistic for sytems of equations is
+The Wald-statistic for systems of equations is
 \begin{equation}
 W =
-   ( R \hat{b} - q )'
-   ( R \widehat{Cov} [ \hat{b} ] R' )^{-1}
-   ( R \hat{b} - q )
+   ( R \hat{\beta} - q )'
+   ( R \widehat{Cov} [ \hat{\beta} ] R' )^{-1}
+   ( R \hat{\beta} - q )
 \end{equation}
 Asymptotically, $W$ has a $\chi^2$
 distribution with $j$ degrees of freedom
 under the null hypothesis
 \citep[p.\ 347]{greene03}.
 
-The LR-statistic for sytems of equations is
+The LR-statistic for systems of equations is
 \begin{equation}
 LR = T \cdot \left(
    log \left| \hat{ \hat{ \Sigma } }_r \right|

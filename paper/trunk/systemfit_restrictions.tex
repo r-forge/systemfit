@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 There are two ways to impose linear parameter restrictions.
-First, a matrix $T$ can be provided with
+First, a matrix $T$ can be specified that
 \begin{equation}
    \beta = T \cdot \beta^* \label{eq:T-restr} 
 \end{equation}
@@ -20,24 +20,28 @@ To impose these restrictions, the $X$ matrix is
 \begin{equation}
     X^* = X \cdot T
 \end{equation}
-Then, a standard estimation is done by substituting $X^*$ for $X$.
+Then, $X^*$ is substituted for $X$ and a standard estimation as described
+in the previous section is done
+(equations~\ref{eq:ols}--\ref{eq:3slsEViews}).
 This results in the linear independent parameter estimates $\beta^*$ and
-the covariance matrix of these parameters.
+their covariance matrix.
 The original parameters can be obtained by equation (\ref{eq:T-restr})
 and the covariance matrix of the original parameters
 can be obtained by:
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] = T \cdot \Cov \left[ \widehat{\beta^*} \right] \cdot T'
+   \Cov \left[ \widehat{\beta} \right] = T \cdot \Cov \left[ \widehat{\beta}^* \right] \cdot T'
 \end{equation}
+
 The second way to impose linear parameter restrictions
 can be formulated by
 \begin{equation}
    R \beta^0 = q
 \end{equation}
 where $\beta^0$ is the vector of the restricted coefficients, 
-$R$ is a matrix and $q$ is a vector (see \citealp[p.\ 100]{greene03}).
-Each restriction belongs to one row of $R$ and the corresponding 
-element of~$q$.
+and $R$ and $q$ are a matrix and vector, respectively,
+to impose the restrictions \citep[see][p.\ 100]{greene03}.
+Each linear independent restriction is represented by one row of $R$
+and the corresponding element of~$q$.
 
 The first way is less flexible than this latter one%
 \footnote{
@@ -72,7 +76,7 @@ where $\beta^{*0}$ is the vector of the restricted $\beta^*$ coefficients.
 The OLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{OLS} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -90,7 +94,7 @@ the covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{OLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = \sigma^2 
    \left[ \begin{array}{cc}
@@ -105,7 +109,7 @@ the covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{OLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -123,7 +127,7 @@ $\sigma_{ii} = E \left( u_i' u_i \right)$.
 The WLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{WLS} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -142,7 +146,7 @@ The covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{WLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -157,7 +161,7 @@ The covariance matrix of the estimated parameters is
 The SUR estimator restricted by $R \beta^0 = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{SUR} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -175,7 +179,7 @@ The covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{SUR} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -190,7 +194,7 @@ The covariance matrix of the estimated parameters is
 The 2SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{2SLS} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -208,7 +212,7 @@ the covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{2SLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = \sigma^2 
    \left[ \begin{array}{cc}
@@ -223,7 +227,7 @@ the covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{2SLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -242,7 +246,7 @@ $\sigma_{ii} = E \left( u_i' u_i \right)$.
 The W2SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{W2SLS} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -261,7 +265,7 @@ The covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{W2SLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -278,7 +282,7 @@ The covariance matrix of the estimated parameters is
 The standard 3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{3SLS} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -297,7 +301,7 @@ The covariance matrix of this estimator is
 \begin{equation}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{3SLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -306,10 +310,10 @@ The covariance matrix of this estimator is
    \end{array} \right]^{-1}
    \label{eq:cov3slsr}
 \end{equation}
-The IV-3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
+The 3SLS-IV estimator restricted by $R \beta^0 = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{3SLS-IV} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -326,7 +330,7 @@ with
 \begin{equation}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{3SLS-IV} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -337,7 +341,7 @@ with
 The restricted 3SLS-GMM estimator can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{3SLS-GMM} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -354,7 +358,7 @@ with
 \begin{equation}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{3SLS-GMM} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -366,7 +370,7 @@ The restricted 3SLS estimator based on the suggestion of
 \cite{schmidt90} is:
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{3SLS-Schmidt} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -383,14 +387,15 @@ with
 \begin{eqnarray}
    \Cov 
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{3SLS-Schmidt} \\ \widehat{\lambda}
    \end{array} \right] 
    & = & 
    \left[ \begin{array}{cc}
       \widehat{X}' \Omega^{-1} \widehat{X} & R' \\ 
       R & 0
    \end{array} \right]^{-1}
-   \cdot
+   \\
+   & & \cdot
    \left[ \begin{array}{cc}
       \widehat{X}' \Omega^{-1} H \left( H' H \right)^{-1} H' \Omega
       H \left( H' H \right)^{-1} H' \Omega^{-1} \widehat{X} & 0' \\ 
@@ -402,11 +407,12 @@ with
       \widehat{X}' \Omega^{-1} \widehat{X} & R' \\ 
       R & 0
    \end{array} \right]^{-1}
+   \nonumber
 \end{eqnarray}
 The econometrics software EViews calculates the restricted 3SLS estimator by:
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta^0} \\ \widehat{\lambda}
+      \widehat{\beta}^0_{3SLS-EViews} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -415,12 +421,12 @@ The econometrics software EViews calculates the restricted 3SLS estimator by:
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      \widehat{X}' \Omega^{-1} \left( y - X \widehat{\beta^0}_{2SLS} \right) 
+      \widehat{X}' \Omega^{-1} \left( y - X \widehat{\beta}^0_{2SLS} \right)
       \\ q 
    \end{array} \right]
    \label{eq:3slsEViewsR}
 \end{equation}
-where $\widehat{\beta^0}_{2SLS}$ is the restricted 2SLS estimator calculated
+where $\widehat{\beta}^0_{2SLS}$ is the restricted 2SLS estimator calculated
 by equation (\ref{eq:beta2SLSr}). 
 To calculate the covariance matrix
 EViews uses the standard formula of the restricted 3SLS

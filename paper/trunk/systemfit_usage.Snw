@@ -2,23 +2,24 @@
 \section{Using systemfit}\label{sec:Usage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The package \pkg{systemfit} includes functions
+The \pkg{systemfit} package includes functions
 to estimate systems of equations
 (\code{systemfit}, \code{systemfitClassic})
-and to test these models
-(\code{lrtest.systemfit}, \code{hausman.systemfit})
-as well as some helper functions
+and to test hypotheses in these systems
+(\code{ftest.systemfit}, \code{waldtest.systemfit},
+\code{lrtest.systemfit}, \code{hausman.systemfit}).
+Furthermore, this package provides some helper functions
 e.g. to extract the estimated coefficients (\code{coef.systemfit})
-or for prediction (\code{predict.systemfit}).
+or to calculate predicted values (\code{predict.systemfit}).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Standard usage}
 \label{sec:standard-usage}
 
-The basic functionaly of this package is provided by the
+The basic functionality of this package is provided by the
 function \code{systemfit}.
-This function does the estimation of the equation systems as described
+This function estimates the equation systems as described
 in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions}.
 It is generally called by
 <<eval=FALSE>>=
@@ -27,26 +28,26 @@ systemfit( method, eqns )
 
 There are two mandatory arguments: \code{method} and \code{eqns}.
 The argument \code{method} is a string determining the estimation method.
-It must be one of °OLS°, °WLS°, °SUR°, °WSUR°, °2SLS°, °W2SLS°, °3SLS°,
+It must be either °OLS°, °WLS°, °SUR°, °WSUR°, °2SLS°, °W2SLS°, °3SLS°,
 or °W3SLS°.
 While six of these methods correspond to the estimation methods
 described in sections~\ref{sec:ols}--\ref{sec:3sls}
 and~\ref{sec:olsR}--\ref{sec:3slsR},
 the methods °WSUR° and °W3SLS° are °SUR° and °3SLS° estimations
-that take the residual covariance matrices from
+using the residual covariance matrices from
 °WLS° and °W2SLS° estimations, respectively
 (see section~\ref{sec:residcov}).
 The other mandatory argument, \code{eqns}, is a list of the equations
-to estimate. 
-Each equation is a standard formula in \proglang{R}.
-It starts with a dependent variable on the left hand side.
+to be estimated.
+Each equation is a standard formula in \proglang{R} and
+starts with a dependent variable on the left hand side.
 After a tilde ($\sim$) the regressors are listed,
 separated by plus signs%
 \footnote{
 For Details see the \proglang{R} help files to \code{formula}.
 }.
 
-This is now demonstrated using an example taken from
+The following demonstration uses an example taken from
 \citet[p.\ 687]{kmenta86}.
 We want to estimate a small model of US the food market:
 \begin{align}
@@ -60,8 +61,7 @@ Variable \code{consump} (food consumption per capita) is the dependant variable.
 The regressors are \code{price} (ratio of food prices to general consumer prices)
 and \code{income} (disposable income) as well as a constant.
 The second equation specifies the supply side of the food market.
-Variable \code{consump} (food consumption per capita) is also the dependant
-variable of this equation.
+Variable \code{consump} is the dependant variable of this equation as well.
 The regressors are again \code{price} (ratio of food prices to general 
 consumer prices) and a constant as well as 
 \code{farmPrice} (ratio of preceding year's prices received by farmers) and 
@@ -158,11 +158,10 @@ fit3sls2 <- systemfit( "3SLS", list( demand = eqDemand, supply = eqSupply ),
 \paragraph{Data}
 Having all data in the global environment or attached to the search path
 is often inconvenient.
-Therefore, an data frame \code{data} can be provided
-that contains the variables in the model.
+Therefore, a data frame \code{data} can be provided
+that contains the variables of the model.
 In the following example we do not need to attach the data frame
 \code{kmenta} before calling systemfit:
-have to be
 <<>>=
 fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ), data = kmenta )
 @
@@ -171,7 +170,7 @@ fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ), data = kmenta )
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\subsubsection{Restrictions}   
 \paragraph{Parameter restrictions}
-As outline in section~\ref{sec:Restrictions}, parameter restrictions
+As outlined in section~\ref{sec:Restrictions}, parameter restrictions
 can be imposed in two ways.
 The first way is to use the transformation matrix $T$
 that can be specified by the argument \code{TX}.
@@ -329,7 +328,7 @@ This can be specified with argument \code{probdfsys}.
 If it is \code{TRUE},
 the degrees of freedom of the whole system are taken.
 In contrast, if \code{probdfsys} is \code{FALSE},
-the degrees of freedom of the single equationare taken.
+the degrees of freedom of the single equation are taken.
 By default, \code{probdfsys} is \code{TRUE}, if any restrictions
 are specified using either the argument \code{R.restr} or the
 argument \code{TX}, and it is \code{FALSE} otherwise.

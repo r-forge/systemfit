@@ -54,8 +54,8 @@ Thus, the covariance matrix of the total system is
 \begin{equation}
    E \left( u \, u' \right) = \Omega = \Sigma \otimes I
 \end{equation}
-where $\Sigma = \left[ \sigma_{ij} \right]$ and $I$ is an
-identity matrix.
+where $\Sigma = \left[ \sigma_{ij} \right]$ is the residual covariance matrix
+and $I$ is an identity matrix.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -65,7 +65,8 @@ identity matrix.
 The Ordinary Least Squares (OLS) estimator of the system 
 is obtained by
 \begin{equation}
-   \widehat{\beta} = \left( X'X \right)^{-1} X'y
+   \widehat{\beta}_{OLS} = \left( X'X \right)^{-1} X'y
+   \label{eq:ols}
 \end{equation}
 These estimates are efficient only if the disturbance terms are not
 contemporaneously correlated, which means
@@ -73,7 +74,7 @@ $\sigma_{ij} = 0 \; \forall \; i \neq j$.
 If the whole system is treated as one single equation,
 the covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] = \sigma^2 \left( X'X \right)^{-1}
+   \Cov \left[ \widehat{\beta}_{OLS} \right] = \sigma^2 \left( X'X \right)^{-1}
    \label{eq:olsCovSameSigma}
 \end{equation}
 with $\sigma^2 = E \left( u' u \right)$.
@@ -84,7 +85,7 @@ If the disturbance terms of the individual equations
 are allowed to have different variances,
 the covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
+   \Cov \left[ \widehat{\beta}_{OLS} \right] = \left( X' \Omega^{-1} X \right)^{-1}
    \label{eq:olsCovSingleSigma}
 \end{equation}
 with $\Omega = \Sigma \otimes I$,
@@ -105,7 +106,7 @@ by equation (\ref{eq:olsCovSingleSigma}).
 The Weighted Least Squares (WLS) estimator of the system 
 is obtained by
 \begin{equation}
-   \widehat{\beta} = \left( X' \Omega^{-1} X \right)^{-1} X' \Omega^{-1} y
+   \widehat{\beta}_{WLS} = \left( X' \Omega^{-1} X \right)^{-1} X' \Omega^{-1} y
 \end{equation}
 with $\Omega = \Sigma \otimes I$, 
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
@@ -114,7 +115,7 @@ Like the OLS estimates these estimates are only efficient
 if the disturbance terms are not contemporaneously correlated.
 The covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
+   \Cov \left[ \widehat{\beta}_{WLS} \right] = \left( X' \Omega^{-1} X \right)^{-1}
 \end{equation}
 If no cross-equation parameter restrictions are imposed,
 the parameter estimates are equal to the OLS estimates.
@@ -143,13 +144,13 @@ calculate it by $\Omega^{-1} = \Sigma^{-1} \otimes I$
 \citep[p.\ 342]{greene03}.
 }
 \begin{equation}
-   \widehat{\beta} = \left( X' \Omega^{-1} X \right)^{-1} X' \Omega^{-1} y
+   \widehat{\beta}_{SUR} = \left( X' \Omega^{-1} X \right)^{-1} X' \Omega^{-1} y
 \end{equation}
 with $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_i' u_j \right)$.
 And the covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] = \left( X' \Omega^{-1} X \right)^{-1}
+   \Cov \left[ \widehat{\beta}_{SUR} \right] = \left( X' \Omega^{-1} X \right)^{-1}
 \end{equation}
 
 
@@ -159,7 +160,8 @@ And the covariance matrix of the estimated parameters is
 If the regressors of one or more equations are correlated 
 with the disturbances ($E \left( u_i | X_i \right) \neq 0$), 
 the estimated coefficients are biased.
-This can be circumvented by a two-stage least squares (2SLS) estimation.
+This can be circumvented by an instrumental variable (IV)
+two-stage least squares (2SLS) estimation.
 The instrumental variables for each equation $H_i$ 
 can be either different or identical for all equations.
 The instrumental variables of each equation may not be correlated with 
@@ -173,14 +175,14 @@ At the first stage new ('fitted') regressors are obtained by
 At the second stage the unbiased two-stage least squares estimates
 of $\beta$ are obtained by:
 \begin{equation}
-   \widehat{\beta} = \left( \widehat{X}' \widehat{X} \right)^{-1} 
+   \widehat{\beta}_{2SLS} = \left( \widehat{X}' \widehat{X} \right)^{-1} 
    \widehat{X}' y 
    \label{eq:beta2sls}
 \end{equation}
 If the whole system is treated as one single equation,
 the covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] = \sigma^2 \left( \widehat{X}'
+   \Cov \left[ \widehat{\beta}_{2SLS} \right] = \sigma^2 \left( \widehat{X}'
    \widehat{X} \right)^{-1}
    \label{eq:2slsCovSameSigma}
 \end{equation}
@@ -189,7 +191,7 @@ If the disturbance terms of the individual equations
 are allowed to have different variances, 
 the covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1}
+   \Cov \left[ \widehat{\beta}_{2SLS} \right] = \left( \widehat{X}' \Omega^{-1}
    \widehat{X} \right)^{-1}
    \label{eq:2slsCovSingleSigma}
 \end{equation}
@@ -204,7 +206,7 @@ $\sigma_{ii} = E \left( u_i' u_i \right)$.
 The Weighted Two-Stage Least Squares (W2SLS) estimator of the system 
 is obtained by
 \begin{equation}
-   \widehat{\beta} = \left( \widehat{X}' \Omega^{-1} \widehat{X} 
+   \widehat{\beta}_{W2SLS} = \left( \widehat{X}' \Omega^{-1} \widehat{X} 
    \right)^{-1} \widehat{X}' \Omega^{-1} y
 \end{equation}
 with $\Omega = \Sigma \otimes I$, 
@@ -212,7 +214,7 @@ $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
 $\sigma_{ii} = E \left( u_i' u_i \right)$.
 The covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1}
+   \Cov \left[ \widehat{\beta}_{W2SLS} \right] = \left( \widehat{X}' \Omega^{-1}
    \widehat{X} \right)^{-1}
 \end{equation}
 
@@ -231,7 +233,7 @@ Squares° (3SLS).
 
 The standard 3SLS estimator can be obtained by:
 \begin{equation}
-   \widehat{\beta} = \left( \widehat{X}' \Omega^{-1} \widehat{X} 
+   \widehat{\beta}_{3SLS} = \left( \widehat{X}' \Omega^{-1} \widehat{X} 
    \right)^{-1} \widehat{X}' \Omega^{-1} y
    \label{eq:3slsGls}
 \end{equation}
@@ -239,7 +241,7 @@ with $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_i' u_j \right)$.
 Its covariance matrix is:
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1}
+   \Cov \left[ \widehat{\beta}_{3SLS} \right] = \left( \widehat{X}' \Omega^{-1}
    \widehat{X} \right)^{-1}
    \label{eq:cov3sls}
 \end{equation}
@@ -264,39 +266,39 @@ Since there might be occasions where this cannot be avoided,
 \cite{schmidt90} analyses other approaches to obtain 3SLS estimators:
 
 One of these approaches is based on instrumental variable estimation
-(IV-3SLS):
+(3SLS-IV):
 \begin{equation}
-   \widehat{\beta} = \left( \widehat{X}' \Omega^{-1} X 
+   \widehat{\beta}_{3SLS-IV} = \left( \widehat{X}' \Omega^{-1} X
    \right)^{-1} \widehat{X}' \Omega^{-1} y
    \label{eq:3slsIv}
 \end{equation}
-The covariance matrix of this IV-3SLS estimator is:
+The covariance matrix of this 3SLS-IV estimator is:
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] = \left( \widehat{X}' \Omega^{-1}
+   \Cov \left[ \widehat{\beta}_{3SLS-IV} \right] = \left( \widehat{X}' \Omega^{-1}
    X \right)^{-1}
 \end{equation}
 Another approach is based on the Generalized Method of Moments (GMM)
-estimator (GMM-3SLS):
+estimator (3SLS-GMM):
 \begin{equation}
-   \widehat{\beta} = \left( X' H \left( H' \Omega H \right)^{-1}
+   \widehat{\beta}_{3SLS-GMM} = \left( X' H \left( H' \Omega H \right)^{-1}
    H' X \right)^{-1} X' H \left( H' \Omega H \right)^{-1} H' y
    \label{eq:3slsGmm}
 \end{equation}
-The covariance matrix of the GMM-3SLS estimator is:
+The covariance matrix of the 3SLS-GMM estimator is:
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] =
+   \Cov \left[ \widehat{\beta}_{3SLS-GMM} \right] =
    \left( X' H \left( H' \Omega H \right)^{-1} H' X \right)^{-1}
 \end{equation}
 A fourth approach developed by \cite{schmidt90} himself is:
 \begin{equation}
-   \widehat{\beta} = \left( \widehat{X}' \Omega^{-1} \widehat{X} 
+   \widehat{\beta}_{3SLS-Schmidt} = \left( \widehat{X}' \Omega^{-1} \widehat{X}
    \right)^{-1} \widehat{X}' \Omega^{-1} 
    H \left( H' H \right)^{-1} H' y 
    \label{eq:3slsSchmidt}
 \end{equation}
 The covariance matrix of this estimator is:
 \begin{equation}
-   \Cov \left[ \widehat{\beta} \right] =
+   \Cov \left[ \widehat{\beta}_{3SLS-Schmidt} \right] =
    \left( \widehat{X}' \Omega^{-1}  \widehat{X} \right)^{-1} 
    \widehat{X}' \Omega^{-1} H \left( H' H \right)^{-1} H' \Omega 
    H \left( H' H \right)^{-1} H' \Omega^{-1} \widehat{X}
@@ -304,13 +306,13 @@ The covariance matrix of this estimator is:
 \end{equation}
 The econometrics software EViews uses following approach:
 \begin{equation}
-   \widehat{\beta} = \widehat{\beta}_{2SLS} + 
+   \widehat{\beta}_{3SLS-EViews} = \widehat{\beta}_{2SLS} + 
    \left( \widehat{X}' \Omega^{-1} \widehat{X} \right)^{-1} 
    \widehat{X}' \Omega^{-1} \left( y - X \widehat{\beta}_{2SLS} \right)
    \label{eq:3slsEViews}
 \end{equation}
-with $\widehat{\beta}_{2SLS}$ is the two-stage least squares estimator
-(equation \ref{eq:beta2sls}).
+where $\widehat{\beta}_{2SLS}$ is the two-stage least squares estimator
+as defined by (\ref{eq:beta2sls}).
 EViews uses the standard 3SLS formula (\ref{eq:cov3sls}) to
 calculate the covariance matrix of the 3SLS estimator.
 
@@ -319,13 +321,13 @@ If the same instrumental variables are used in all equations
 ($H_1 = H_2 = \ldots = H_G$), 
 all the above mentioned approaches lead to identical parameter estimates.
 However, if this is not the case, the results depend on the 
-equation used \citep{schmidt90}. 
-The only reason to use different instruments in the different equations 
-is that the instruments of one equation are correlated with the
-disturbance terms in another equation.
-Otherwise, one would simply use every instrument in every equation
+method used \citep{schmidt90}.
+The only reason to use different instruments for different equations
+is a correlation of the instruments of one equation with the
+disturbance terms of another equation.
+Otherwise, one could simply use all instruments in every equation
 \citep{schmidt90}.
-In this case, only the GMM-3SLS (\ref{eq:3slsGmm})
+In this case, only the 3SLS-GMM (\ref{eq:3slsGmm})
 and the 3SLS estimator developed by \cite{schmidt90} 
 (\ref{eq:3slsSchmidt}) are consistent.
 
