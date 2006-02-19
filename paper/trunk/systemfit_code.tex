@@ -1,0 +1,92 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Source code}\label{sec:code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The \pkg{systemfit} package includes functions
+to estimate systems of equations
+(\code{systemfit}, \code{systemfitClassic})
+and to test hypotheses in these systems
+(\code{ftest.systemfit}, \code{wald\-test.sys\-tem\-fit},
+\code{lrtest.systemfit}, \code{hausman.systemfit}).
+Furthermore, this package provides some helper functions
+e.g. to extract the estimated coefficients (\code{coef.systemfit})
+or to calculate predicted values (\code{predict.systemfit}).
+
+The source code of the \pkg{systemfit} is publicly available
+for download from °CRAN° (The Comprehensive R Archive Network,
+\url{http://cran.r-project.org/src/contrib/Descriptions/systemfit.html}).
+Since the whole package has more than 2,100 lines of code,
+it is not presented in this article.
+Furthermore, the code corresponds exactly to the procedures and formulas
+described in the previous section.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[Basic function systemfit]{The basic function \code{systemfit}}
+The basic functionality of this package is provided by the
+function \code{systemfit}.
+This function estimates the equation system as described
+in sections~\ref{sec:Estimation}.
+If parameter restrictions are provided, the formulas in
+section~\ref{sec:Restrictions} are applied.
+Furthermore, the user can control several details of the estimation.
+For instance, the
+formula to calculate the residual covariance matrix
+(see section~\ref{sec:residcov}),
+the degrees of freedom for the t-tests
+(see section~\ref{sec:degreesOfFreedom}), or
+the formula for the 3SLS estimation
+(see sections~\ref{sec:Estimation} and~\ref{sec:Restrictions})
+can be specified by the user.
+The \code{systemfit} function returns many objects
+that users might be interest in.
+A complete list is available in the documentation of this function
+that is included in the package.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[Wrapper function systemfitClassic]{The wrapper function
+   \code{systemfitClassic}}
+Furthermore, the \pkg{systemfit} package includes the function
+\code{systemfitClassic}.
+This is a wrapper function for \code{systemfit}
+that can be applied to (classical) panel-like data in long format
+if the regressors are the same for all equations.
+The data are reshaped and the formulas are modified to enable
+an estimation using the standard \code{systemfit} function.
+The user can specify whether the coefficients should be restricted
+to be equal in all equations.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Statistical tests}
+The statistical tests described in
+sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}
+are implemented as specified in these sections.
+The functions \code{ftest.systemfit}, \code{waldtest.systemfit} and
+\code{lrtest.systemfit} test linear restrictions on the
+estimated parameters.
+On the other hand, the function \code{hausman.systemfit}
+tests the consistency of the 3SLS estimator.
+All functions return the empirical test statistic,
+the degree(s) of freedom, and the p-value.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Efficiency of the code}
+We have followed \cite{bates04} to make the code faster and more stable.
+First, if a formula contains an inverse of a matrix
+that is post-multiplied by a vector,
+we use \code{solve(A, b)} instead of \code{solve(A) \%*\% b}.
+Second, we calculate crossproducts
+by \code{crossprod(X)} or \code{crossprod(X, y)}
+instead of \code{t(X) \%*\% X} or \code{t(X) \%*\% y},
+respectively.
+
+To calculate $\Omega^{-1}$ in sections~\ref{sec:Estimation}
+and~\ref{sec:Restrictions} it is not necessary to invert
+the (huge) $\Omega$ matrix,
+because it is sufficient to invert the (small) $\Sigma$ matrix and
+calculate it by $\Omega^{-1} = \Sigma^{-1} \otimes I$
+\citep[p.\ 342]{greene03}.
+

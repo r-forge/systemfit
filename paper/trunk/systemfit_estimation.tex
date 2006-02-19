@@ -79,22 +79,17 @@ a consistent SUR estimation requires that all disturbance terms and all
 regressors are uncorrelated
 $( E \left[ u | X \right] = 0 )$.
 
-The SUR estimator can be obtained by:%
-\footnote{
-To calculate $\Omega^{-1}$ it is not necessary to invert 
-the (huge) $\Omega$ matrix, 
-because it is sufficient to invert the (small) $\Sigma$ matrix and
-calculate it by $\Omega^{-1} = \Sigma^{-1} \otimes I$
-\citep[p.\ 342]{greene03}.
-}
+The SUR estimator can be obtained by:
 \begin{equation}
    \widehat{\beta}_{SUR} = \left( X' \Omega^{-1} X \right)^{-1} X' \Omega^{-1} y
+   \label{eq:sur}
 \end{equation}
 with $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_i' u_j \right)$.
 And the covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov \left[ \widehat{\beta}_{SUR} \right] = \left( X' \Omega^{-1} X \right)^{-1}
+   \label{eq:surCov}
 \end{equation}
 
 
