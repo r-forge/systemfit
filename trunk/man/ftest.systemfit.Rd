@@ -46,9 +46,8 @@
    \eqn{T} is the number of observations per equation,
    \eqn{K} is the total number of estimated coefficients, and
    \eqn{\Sigma} is the residual covariance matrix used in the estimation.
-   Asymptotically, \eqn{F} has an F-distribution
+   Under the null hypothesis, \eqn{F} has an F-distribution
    with \eqn{j} and \eqn{M \cdot T - K} degrees of freedom
-   under the null hypothesis
    (Greene, 2003, p. 346).
 }
 
