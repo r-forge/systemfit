@@ -1,66 +1,10 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Estimation}\label{sec:Estimation}
+\subsection{Estimation}\label{sec:Estimation}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Consider a system of $G$ equations, where the $i$th equation is of
-the form 
-\begin{equation}
-   y_{i} = X_i \beta_i + u_i, \quad i = 1, 2, \ldots, G
-\end{equation}
-where $y_i$ is a vector of the dependent variable,
-$X_i$ is a matrix of the exogenous variables,
-$\beta_i$ is the coefficient vector and
-$u_i$ is a vector of the disturbance terms of the $i$th equation.
-
-We can write the °stacked° system as
-\begin{equation}
-   \left[ \begin{array}{c}
-      y_1 \\ y_2\\ \vdots\\ y_G
-   \end{array} \right] = 
-   \left[ \begin{array}{cccc}
-      X_1 & 0 & \cdots & 0\\
-      0 & X_2 & \cdots & 0\\
-      \vdots & \vdots & \ddots & \vdots\\
-      0 & 0 & \cdots & X_G
-   \end{array}\right] \cdot 
-   \left[ \begin{array}{c}
-      \beta_1 \\ \beta_2 \\ \vdots\\ \beta_G
-   \end{array} \right] +
-   \left[ \begin{array}{c}
-      u_1 \\ u_2 \\ \vdots\\ u_G
-   \end{array} \right]
-\end{equation}
-
-or more simply as
-\begin{equation}
-   y = X \beta + u 
-\end{equation}   
-
-We assume that there is no correlation of the disturbance terms 
-across observations:
-\begin{equation}
-   E \left( u_{it} \, u_{jt^*} \right) = 0 
-   \; \forall \; t \neq t^*
-\end{equation}
-where $i$ and $j$ indicate the equation number 
-and $t$ and $t^*$ denote the observation number.
-
-However, we explicitly allow for contemporaneous correlation:
-\begin{equation}
-   E \left( u_{it} \, u_{jt} \right) = \sigma_{ij}
-\end{equation}
-
-Thus, the covariance matrix of the total system is
-\begin{equation}
-   E \left( u \, u' \right) = \Omega = \Sigma \otimes I
-\end{equation}
-where $\Sigma = \left[ \sigma_{ij} \right]$ is the residual covariance matrix
-and $I$ is an identity matrix.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Ordinary least squares (OLS)}
-\label{sec:ols}
+\subsubsection{Ordinary least squares (OLS)}
 
 The Ordinary Least Squares (OLS) estimator of the system 
 is obtained by
@@ -101,7 +45,7 @@ by equation (\ref{eq:olsCovSingleSigma}).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Weighted least squares (WLS)}
+\subsubsection{Weighted least squares (WLS)}
 
 The Weighted Least Squares (WLS) estimator of the system 
 is obtained by
@@ -121,7 +65,7 @@ If no cross-equation parameter restrictions are imposed,
 the parameter estimates are equal to the OLS estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Seemingly unrelated regression (SUR)}
+\subsubsection{Seemingly unrelated regression (SUR)}
 
 When the disturbances are contemporaneously correlated, a Generalized 
 Least Squares (GLS) estimation leads to efficient parameter estimates.
@@ -155,7 +99,7 @@ And the covariance matrix of the estimated parameters is
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Two-Stage least squares (2SLS)}
+\subsubsection{Two-Stage least squares (2SLS)}
 
 If the regressors of one or more equations are correlated 
 with the disturbances ($E \left( u_i | X_i \right) \neq 0$), 
@@ -201,7 +145,7 @@ $\sigma_{ii} = E \left( u_i' u_i \right)$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Weighted two-stage least squares (W2SLS)}
+\subsubsection{Weighted two-stage least squares (W2SLS)}
 
 The Weighted Two-Stage Least Squares (W2SLS) estimator of the system 
 is obtained by
@@ -220,8 +164,7 @@ The covariance matrix of the estimated parameters is
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Three-Stage least squares (3SLS)}
-\label{sec:3sls}
+\subsubsection{Three-Stage least squares (3SLS)}
 
 If the regressors are correlated with the disturbances 
 ($E \left( u | X \right) \neq 0$) and 

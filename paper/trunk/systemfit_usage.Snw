@@ -31,8 +31,7 @@ The argument \code{method} is a string determining the estimation method.
 It must be either °OLS°, °WLS°, °SUR°, °WSUR°, °2SLS°, °W2SLS°, °3SLS°,
 or °W3SLS°.
 While six of these methods correspond to the estimation methods
-described in sections~\ref{sec:ols}--\ref{sec:3sls}
-and~\ref{sec:olsR}--\ref{sec:3slsR},
+described in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions},
 the methods °WSUR° and °W3SLS° are °SUR° and °3SLS° estimations
 using the residual covariance matrices from
 °WLS° and °W2SLS° estimations, respectively
@@ -121,8 +120,7 @@ or to impose parameter restrictions.
 All optional arguments are described in the following:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \subsubsection{Equation labels}
-\paragraph{Equation labels}
+\subsubsection{Equation labels}
 The optional argument \code{eqnlabels} allows the user to label the equations.
 It has to be a vector of strings.
 If this argument is not provided, the labels are taken from the names of
@@ -135,8 +133,7 @@ fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ),
 @
  
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Instrumental variables}   
-\paragraph{Instrumental variables}   
+\subsubsection{Instrumental variables}
 The instruments for a 2SLS, W2SLS or 3SLS estimation can be specified
 by the argument \code{inst}.
 If the same instruments should be used for all equations,
@@ -154,8 +151,7 @@ fit3sls2 <- systemfit( "3SLS", list( demand = eqDemand, supply = eqSupply ),
 @
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Data}   
-\paragraph{Data}
+\subsubsection{Data}
 Having all data in the global environment or attached to the search path
 is often inconvenient.
 Therefore, a data frame \code{data} can be provided
@@ -168,8 +164,7 @@ fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ), data = kmenta )
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Restrictions}   
-\paragraph{Parameter restrictions}
+\subsubsection{Parameter restrictions}
 As outlined in section~\ref{sec:Restrictions}, parameter restrictions
 can be imposed in two ways.
 The first way is to use the transformation matrix $T$
@@ -232,8 +227,7 @@ $\beta_2 + \beta_6 = 0$ imposed.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Iteration control}   
-\paragraph{Iteration control}
+\subsubsection{Iteration control}
 The estimation methods WLS, SUR, W2SLS and 3SLS need a
 covariance matrix of the residuals
 that can be calculated from a first-step OLS or 2SLS estimation
@@ -255,8 +249,7 @@ The default value of \code{tol} is $10^{-5}$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Residual covariance matrix}   
-\paragraph{Residual covariance matrix}
+\subsubsection{Residual covariance matrix}
 It was explained in section~\ref{sec:residcov} that several different
 formulas have been proposed to calculate the residual
 covariance matrix.
@@ -287,9 +280,9 @@ argument & equation \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{3SLS formula}   
-\paragraph{3SLS formula}
-As discussed in section~\ref{sec:3sls}, there exist several different
+\subsubsection{3SLS formula}
+As discussed in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions},
+there exist several different
 formulas to perform a 3SLS estimation.
 The user can specify the applied formula by the argument \code{formula3sls}.
 Possible values are presented in table~\ref{tab:formula3sls}.
@@ -319,8 +312,7 @@ argument           & equation       & equation \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Degrees of freedom for t-tests}   
-\paragraph{Degrees of freedom for t-tests}   
+\subsubsection{Degrees of freedom for t-tests}
 There exist two different approaches to determine the degrees of freedom
 to perform t-tests of the estimated parameters
 (section~\ref{sec:degreesOfFreedom}).
@@ -335,8 +327,7 @@ argument \code{TX}, and it is \code{FALSE} otherwise.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{Sigma squared}   
-\paragraph{Sigma squared}
+\subsubsection{Sigma squared}
 In case of OLS or 2SLS estimations, argument \code{single.eq.sigma}
 can be used to specify,
 whether different $\sigma^2$s for each single equation
@@ -354,8 +345,7 @@ argument \code{TX}, and it is \code{TRUE} otherwise.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\subsubsection{System options}   
-\paragraph{System options}
+\subsubsection{System options}
 Finally, two options regarding some internal calculations are available.
 First, argument \code{solvetol} specifies the tolerance level
 for detecting linear dependencies when inverting a matrix or
