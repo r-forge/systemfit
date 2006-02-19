@@ -418,7 +418,7 @@ can be used with \code{systemfitClassic}, too.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Testing Linear Restrictions}
+\subsection{Testing linear restrictions}
 
 As described in section~\ref{sec:testingRestrictions},
 linear restrictions can be tested by an F test, Wald test or
