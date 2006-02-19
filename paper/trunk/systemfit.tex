@@ -33,22 +33,21 @@
 
 %% an abstract and keywords
 \Abstract{ 
-  
-  Many statistical analyses are based on models containing systems of
-  structurally related equations. If the cross-equation disturbances
-  are correlated, full information methods are required
-  \citep{zellner62}. If exogenous variables are stochastically
-  dependent on the disturbances in the system
-  \citep{zellner62b,theil71}, limited information methods should be
-  used for parameter estimation. The package \pkg{systemfit} provides
-  the capability to estimate systems of linear and non-linear
-  structural equations for limited (ordinary least squares (OLS), two
-  stage-least squares (2SLS)) and full-information
-  (seemingly-unrelated regression (SUR) and three-stage least squares
-  (3SLS)) methods within the \proglang{R} programming environment.}
-  
-\Keywords{R, simultaneous equations estimation, ordinary least
-  squares, seemingly unrelated regression, two-stage least squares,
+Many statistical analyses are based on models containing systems of
+structurally related equations.
+Since in most cases cross-equation disturbances are correlated,
+full information methods are required \citep{zellner62}.
+If exogenous variables are stochastically dependent
+on the disturbances in the system,
+instrumental variable estimations should be used for parameter estimation
+\citep{zellner62b}
+The package \pkg{systemfit} provides the capability
+to estimate systems of linear equations
+within the \proglang{R} programming environment.
+}
+
+\Keywords{R, simultaneous equations systems,
+  seemingly unrelated regression, two-stage least squares,
   three-stage least squares}
 
 %% at least one keyword must be supplied
