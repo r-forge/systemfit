@@ -63,8 +63,8 @@ consumer prices) and a constant as well as
 These equations can be estimated as SUR in \proglang{R} by
 <<>>=
 library( systemfit )
-data( kmenta )
-attach( kmenta )
+data( Kmenta )
+attach( Kmenta )
 eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
 fitsur <- systemfit( "SUR", list( demand = eqDemand, supply = eqSupply ) )
@@ -152,9 +152,9 @@ is often inconvenient.
 Therefore, a data frame \code{data} can be provided
 that contains the variables of the model.
 In the following example we do not need to attach the data frame
-\code{kmenta} before calling systemfit:
+\code{Kmenta} before calling systemfit:
 <<>>=
-fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ), data = kmenta )
+fitsur <- systemfit( "SUR", list( eqDemand, eqSupply ), data = Kmenta )
 @
 
 
@@ -465,9 +465,9 @@ A Hausman test, which is described in section~\ref{sec:hausman},
 can be carried out with following commands:
 <<>>=
 fit2sls  <- systemfit( "2SLS", list( demand = eqDemand, supply = eqSupply ),
-   inst = ~ income + farmPrice + trend, data = kmenta )
+   inst = ~ income + farmPrice + trend, data = Kmenta )
 fit3sls <- systemfit( "3SLS", list( demand = eqDemand, supply = eqSupply ),
-   inst = ~ income + farmPrice + trend, data = kmenta )
+   inst = ~ income + farmPrice + trend, data = Kmenta )
 hausman.systemfit( fit2sls, fit3sls )
 @
 <<echo=FALSE>>=
