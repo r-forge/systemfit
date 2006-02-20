@@ -8,7 +8,7 @@ GrunfeldGreene          Grunfeld Data as published by Greene (2003)
 GrunfeldTheil           Grunfeld Data as published in Theil (1971)
 hausman.systemfit       Hausman Test
 KleinI                  Klein Model I
-kmenta                  Partly Artificial Data on the U. S. Economy
+Kmenta                  Partly Artificial Data on the U. S. Economy
 lrtest.systemfit        Likelihood Ratio test for Equation Systems
 nlsystemfit             Nonlinear Equation System Estimation
 ppine                   Tree Growth Data for Ponderosa Pine
