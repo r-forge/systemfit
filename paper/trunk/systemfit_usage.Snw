@@ -42,7 +42,7 @@ For Details see the \proglang{R} help files to \code{formula}.
 }.
 
 The following demonstration uses an example taken from
-\citet[p.\ 687]{kmenta86}.
+\citet[p.\ 685]{kmenta86}.
 We want to estimate a small model of US the food market:
 \begin{align}
 \texttt{consump} & = \beta_1 + \beta_2 * \texttt{price}
