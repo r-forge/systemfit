@@ -17,7 +17,7 @@ Type 'q()' to quit R.
 
 > 
 > library( systemfit )
-> data( kmenta )
+> data( "Kmenta" )
 > 
 > demand <- consump ~ price + income
 > supply <- consump ~ price + farmPrice + trend
@@ -54,7 +54,7 @@ Type 'q()' to quit R.
 > 
 > 
 > ## *************** SUR estimation ************************
-> fitsur1 <- systemfit( "SUR", system, labels, data = kmenta )
+> fitsur1 <- systemfit( "SUR", system, labels, data = Kmenta )
 > print( fitsur1 )
 
 systemfit results 
@@ -134,7 +134,7 @@ income       0.002161
              0.004612
 > 
 > ## ********************* SUR (EViews-like) *****************
-> fitsur1e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 0,
+> fitsur1e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 0,
 +    probdfsys = TRUE )
 > print( fitsur1e )
 
@@ -215,7 +215,7 @@ income       0.001782
              0.003690
 > 
 > ## ********************* SUR (rcovformula=2) *****************
-> fitsur1c <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 2 )
+> fitsur1c <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2 )
 > print( fitsur1c )
 
 systemfit results 
@@ -297,7 +297,7 @@ income       0.002095
              0.004100
 > 
 > ## *************** SUR (rcovformula=2, probdfsys = TRUE ) ***************
-> fitsur1cp <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 2,
+> fitsur1cp <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
 +    probdfsys = TRUE )
 > print( fitsur1cp )
 
@@ -380,7 +380,7 @@ income       0.002095
              0.004100
 > 
 > ## ********************* SUR (rcovformula=3) *****************
-> fitsur1c <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 3 )
+> fitsur1c <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 3 )
 > print( fitsur1c )
 
 systemfit results 
@@ -462,7 +462,7 @@ income       0.002104
              0.004149
 > 
 > ## *************** SUR with cross-equation restriction **************
-> fitsur2 <- systemfit( "SUR", system, labels, data = kmenta, R.restr = restrm )
+> fitsur2 <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restrm )
 > print( fitsur2 )
 
 systemfit results 
@@ -542,7 +542,7 @@ income       0.001357
              0.001357
 > 
 > ## *************** SUR with cross-equation restriction (EViews-like) **
-> fitsur2e <- systemfit( "SUR", system, labels, data = kmenta, R.restr = restrm,
+> fitsur2e <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restrm,
 +    rcovformula = 0 )
 > print( fitsur2e )
 
@@ -623,7 +623,7 @@ income       0.001180
              0.001180
 > 
 > ## *************** SUR with restriction via TX *******************
-> fitsur3 <- systemfit( "SUR", system, labels, data = kmenta, TX = tc )
+> fitsur3 <- systemfit( "SUR", system, labels, data = Kmenta, TX = tc )
 > print( fitsur3 )
 
 systemfit results 
@@ -695,7 +695,7 @@ Multiple R-Squared: 0.597909 Adjusted R-Squared: 0.522517
 [7,]  0.021160 -0.001535  0.001357  -0.165599  0.000440  0.001111  0.001357
 > 
 > ## *************** SUR with restriction via TX (EViews-like) **************
-> fitsur3e <- systemfit( "SUR", system, labels, data = kmenta, TX = tc,
+> fitsur3e <- systemfit( "SUR", system, labels, data = Kmenta, TX = tc,
 +    rcovformula = 0 )
 > print( fitsur3e )
 
@@ -768,7 +768,7 @@ Multiple R-Squared: 0.597497 Adjusted R-Squared: 0.522027
 [7,]  0.018400 -0.001335  0.001180 -0.140738  0.000373  0.000942  0.001180
 > 
 > ## *************** SUR with 2 restrictions ***************************
-> fitsur4 <- systemfit( "SUR", system, labels, data = kmenta, R.restr = restr2m,
+> fitsur4 <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restr2m,
 +    q.restr = restr2q )
 > print( fitsur4 )
 
@@ -849,7 +849,7 @@ income       0.000426
              0.000426
 > 
 > ## *************** SUR with 2 restrictions (EViews-like) **************
-> fitsur4e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 0,
+> fitsur4e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 0,
 +    R.restr = restr2m, q.restr = restr2q )
 > print( fitsur4e )
 
@@ -930,7 +930,7 @@ income       0.000340
              0.000340
 > 
 > ## *************** SUR with 2 restrictions (rcovformula = 2) **************
-> fitsur4e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 2,
+> fitsur4e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
 +    R.restr = restr2m, q.restr = restr2q )
 > print( fitsur4e )
 
@@ -1011,7 +1011,7 @@ income       0.000276
              0.000276
 > 
 > ## *************** SUR with 2 restrictions (rcovformula = 3) **************
-> fitsur4e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 3,
+> fitsur4e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 3,
 +    R.restr = restr2m, q.restr = restr2q )
 > print( fitsur4e )
 
@@ -1092,7 +1092,7 @@ income       0.000290
              0.000290
 > 
 > ## *************** SUR with 2 restrictions via R and TX ****************
-> fitsur5 <- systemfit( "SUR", system, labels, data = kmenta, R.restr = restr3m,
+> fitsur5 <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restr3m,
 +    q.restr = restr3q, TX = tc )
 > print( fitsur5 )
 
@@ -1165,7 +1165,7 @@ Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567
 [7,]  0.056016 -0.000975  0.000426  0.063771 -0.000975  0.000303  0.000426
 > 
 > ## *************** SUR with 2 restrictions via R and TX (EViews-like) **************
-> fitsur5e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 0,
+> fitsur5e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 0,
 +    R.restr = restr3m, q.restr = restr3q, TX = tc )
 > print( fitsur5e )
 
@@ -1238,7 +1238,7 @@ Multiple R-Squared: 0.62391 Adjusted R-Squared: 0.553393
 [7,]  0.040579 -0.000738  0.000340  0.047594 -0.000738  0.000234  0.000340
 > 
 > ## ************** iterated SUR ****************************
-> fitsuri1 <- systemfit( "SUR", system2, labels, data = kmenta, maxit = 100 )
+> fitsuri1 <- systemfit( "SUR", system2, labels, data = Kmenta, maxit = 100 )
 > print( fitsuri1 )
 
 systemfit results 
@@ -1320,7 +1320,7 @@ income      -0.000993
              0.004299
 > 
 > ## ************** iterated SUR (EViews-like) *****************
-> fitsuri1e <- systemfit( "SUR", system2, labels, data = kmenta, rcovformula = 0,
+> fitsuri1e <- systemfit( "SUR", system2, labels, data = Kmenta, rcovformula = 0,
 +    probdfsys = TRUE, maxit = 100 )
 > print( fitsuri1e )
 
@@ -1403,7 +1403,7 @@ income      -0.000820
              0.003418
 > 
 > ## ************** iterated SUR (rcovformula = 2) ****************************
-> fitsuri1c <- systemfit( "SUR", system2, labels, data = kmenta, maxit = 100,
+> fitsuri1c <- systemfit( "SUR", system2, labels, data = Kmenta, maxit = 100,
 +    rcovformula = 2 )
 > print( fitsuri1c )
 
@@ -1486,7 +1486,7 @@ income      -0.001023
              0.004128
 > 
 > ## ************** iterated SUR (rcovformula=2, probdfsys=TRUE) *****************
-> fitsuri1cp <- systemfit( "SUR", system2, labels, data = kmenta, rcovformula = 2,
+> fitsuri1cp <- systemfit( "SUR", system2, labels, data = Kmenta, rcovformula = 2,
 +    probdfsys = TRUE, maxit = 100 )
 > print( fitsuri1cp )
 
@@ -1569,7 +1569,7 @@ income      -0.001023
              0.004128
 > 
 > ## ************** iterated SUR (rcovformula = 3) ****************************
-> fitsuri1c <- systemfit( "SUR", system2, labels, data = kmenta, maxit = 100,
+> fitsuri1c <- systemfit( "SUR", system2, labels, data = Kmenta, maxit = 100,
 +    rcovformula = 3 )
 > print( fitsuri1c )
 
@@ -1652,7 +1652,7 @@ income      -0.001019
              0.004156
 > 
 > ## *********** iterated SUR with restriction *******************
-> fitsuri2 <- systemfit( "SUR", system2, labels, data = kmenta, R.restr = restrm,
+> fitsuri2 <- systemfit( "SUR", system2, labels, data = Kmenta, R.restr = restrm,
 +    maxit = 100 )
 > print( fitsuri2 )
 
@@ -1735,7 +1735,7 @@ income       0.002173
              0.002173
 > 
 > ## *********** iterated SUR with restriction (EViews-like) ***************
-> fitsuri2e <- systemfit( "SUR", system2, labels, data = kmenta, R.restr = restrm,
+> fitsuri2e <- systemfit( "SUR", system2, labels, data = Kmenta, R.restr = restrm,
 +    rcovformula = 0, maxit = 100 )
 > print( fitsuri2e )
 
@@ -1818,7 +1818,7 @@ income       0.001859
              0.001859
 > 
 > ## *********** iterated SUR with restriction via TX ********************
-> fitsuri3 <- systemfit( "SUR", system2, labels, data = kmenta, TX = tc,
+> fitsuri3 <- systemfit( "SUR", system2, labels, data = Kmenta, TX = tc,
 +    maxit = 100 )
 > print( fitsuri3 )
 
@@ -1893,7 +1893,7 @@ Multiple R-Squared: 0.220191 Adjusted R-Squared: 0.073977
 [7,]  0.033216 -0.002451  0.002173  -0.203885  0.000518  0.001351  0.002173
 > 
 > ## *********** iterated SUR with restriction via TX (EViews-like) ***************
-> fitsuri3e <- systemfit( "SUR", system2, labels, data = kmenta, TX = tc,
+> fitsuri3e <- systemfit( "SUR", system2, labels, data = Kmenta, TX = tc,
 +    rcovformula = 0, maxit = 100 )
 > print( fitsuri3e )
 
@@ -1968,7 +1968,7 @@ Multiple R-Squared: 0.220377 Adjusted R-Squared: 0.074197
 [7,]  0.028570 -0.002098  0.001859  -0.172089  0.000428  0.001147  0.001859
 > 
 > ## *************** iterated SUR with 2 restrictions ***************************
-> fitsuri4 <- systemfit( "SUR", system, labels, data = kmenta, R.restr = restr2m,
+> fitsuri4 <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restr2m,
 +    q.restr = restr2q, maxit = 100 )
 > print( fitsuri4 )
 
@@ -2051,7 +2051,7 @@ income       0.000342
              0.000342
 > 
 > ## *************** iterated SUR with 2 restrictions (EViews-like) **************
-> fitsuri4e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 0,
+> fitsuri4e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 0,
 +    R.restr = restr2m, q.restr = restr2q, maxit = 100 )
 > print( fitsuri4e )
 
@@ -2134,7 +2134,7 @@ income       0.000266
              0.000266
 > 
 > ## *************** iterated SUR with 2 restrictions via R and TX ****************
-> fitsuri5 <- systemfit( "SUR", system, labels, data = kmenta, R.restr = restr3m,
+> fitsuri5 <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restr3m,
 +    q.restr = restr3q, TX = tc, maxit = 100 )
 > print( fitsuri5 )
 
@@ -2209,7 +2209,7 @@ Multiple R-Squared: 0.592585 Adjusted R-Squared: 0.516195
 [7,]  0.077710 -0.001110  0.000342  0.081310 -0.001110  0.000271  0.000342
 > 
 > ## ********* iterated SUR with 2 restrictions via R and TX (EViews-like) **********
-> fitsuri5e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 0,
+> fitsuri5e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 0,
 +    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
 > print( fitsuri5e )
 
@@ -2284,7 +2284,7 @@ Multiple R-Squared: 0.601952 Adjusted R-Squared: 0.527318
 [7,]  0.058300 -0.000842  0.000266  0.061997 -0.000842  0.000201  0.000266
 > 
 > ## ********* iterated SUR with 2 restrictions via R and TX (rcovformula=2) **********
-> fitsuri5e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 2,
+> fitsuri5e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
 +    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
 > print( fitsuri5e )
 
@@ -2361,7 +2361,7 @@ Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369
 [7,]  0.070528 -0.000872  0.000171  0.072036 -0.000872  0.000138  0.000171
 > 
 > ## ********* iterated SUR with 2 restrictions via R and TX (rcovformula=3) **********
-> # fitsuri5e <- systemfit( "SUR", system, labels, data = kmenta, rcovformula = 3,
+> # fitsuri5e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 3,
 > #    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
 > # print( fitsuri5e )
 > # print( round( fitsuri5e$bcov, digits = 6 ) )

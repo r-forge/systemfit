@@ -74,14 +74,14 @@
 }
 
 \examples{
-data( "kmenta" )
+data( "Kmenta" )
 demand <- consump ~ price + income
 supply <- consump ~ price + farmPrice + trend
 labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
 ## OLS estimation
-fitols <- systemfit("OLS", system, labels, data=kmenta )
+fitols <- systemfit("OLS", system, labels, data=Kmenta )
 
 ## predicted values and limits
 predict( fitols )

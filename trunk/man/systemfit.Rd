@@ -260,13 +260,13 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
 \seealso{\code{\link{lm}} and \code{\link{nlsystemfit}}}
 
 \examples{
-data( "kmenta" )
+data( "Kmenta" )
 eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
 system <- list( demand = eqDemand, supply = eqSupply )
 
 ## OLS estimation
-fitols <- systemfit("OLS", system, data=kmenta )
+fitols <- systemfit("OLS", system, data=Kmenta )
 print( fitols )
 
 ## OLS estimation with 2 restrictions
@@ -277,29 +277,29 @@ Rrestr[1,7] <- -1
 Rrestr[2,2] <- -1
 Rrestr[2,5] <-  1
 qrestr[2,1] <-  0.5
-fitols2 <- systemfit("OLS", system, data = kmenta,
+fitols2 <- systemfit("OLS", system, data = Kmenta,
                       R.restr = Rrestr, q.restr = qrestr )
 print( fitols2 )
 
 ## iterated SUR estimation
-fitsur <- systemfit("SUR", system, data = kmenta, maxit = 100 )
+fitsur <- systemfit("SUR", system, data = Kmenta, maxit = 100 )
 print( fitsur )
 
 ## 2SLS estimation
 inst <- ~ income + farmPrice + trend
-fit2sls <- systemfit( "2SLS", system, inst = inst, data = kmenta )
+fit2sls <- systemfit( "2SLS", system, inst = inst, data = Kmenta )
 print( fit2sls )
 
 ## 2SLS estimation with different instruments in each equation
 inst1 <- ~ income + farmPrice
 inst2 <- ~ income + farmPrice + trend
 instlist <- list( inst1, inst2 )
-fit2sls2 <- systemfit( "2SLS", system, inst = instlist, data = kmenta )
+fit2sls2 <- systemfit( "2SLS", system, inst = instlist, data = Kmenta )
 print( fit2sls2 )
 
 ## 3SLS estimation with GMM-3SLS formula
 inst <- ~ income + farmPrice + trend
-fit3sls <- systemfit( "3SLS", system, inst = inst, data = kmenta,
+fit3sls <- systemfit( "3SLS", system, inst = inst, data = Kmenta,
    formula3sls = "GMM" )
 print( fit3sls )
 

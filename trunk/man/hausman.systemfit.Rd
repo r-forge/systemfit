@@ -73,7 +73,7 @@
 \seealso{\code{\link{systemfit}}}
 
 \examples{
-data( "kmenta" )
+data( "Kmenta" )
 demand <- consump ~ price + income
 supply <- consump ~ price + farmPrice + trend
 inst <- ~ income + farmPrice + trend
@@ -81,8 +81,8 @@ labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
 ## perform the estimations
-fit2sls <- systemfit( "2SLS", system, labels, inst, data = kmenta )
-fit3sls <- systemfit( "3SLS", system, labels, inst, data = kmenta )
+fit2sls <- systemfit( "2SLS", system, labels, inst, data = Kmenta )
+fit3sls <- systemfit( "3SLS", system, labels, inst, data = Kmenta )
 
 ## perform the Hausman test
 h <- hausman.systemfit( fit2sls, fit3sls )

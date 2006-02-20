@@ -57,7 +57,7 @@ correlation.systemfit( results, eqni, eqnj )
 
 
 \examples{
-data( "kmenta" )
+data( "Kmenta" )
 demand <- consump ~ price + income
 supply <- consump ~ price + farmPrice + trend
 inst <- ~ income + farmPrice + trend
@@ -65,12 +65,12 @@ labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
 ## perform 2SLS on each of the equations in the system
-fit2sls <- systemfit( "2SLS", system, labels, inst, data = kmenta )
+fit2sls <- systemfit( "2SLS", system, labels, inst, data = Kmenta )
 print( fit2sls )
 print( fit2sls$rcov )
 
 ## perform the 3SLS
-fit3sls <- systemfit( "3SLS", system, labels, inst, data = kmenta )
+fit3sls <- systemfit( "3SLS", system, labels, inst, data = Kmenta )
 print( fit3sls )
 print( "covariance of residuals used for estimation (from 2sls)" )
 print( fit3sls$rcovest )
@@ -81,7 +81,7 @@ print( fit3sls$rcov )
 ## of suppy and demand by plotting the correlation over
 ## the value of q
 r12 <- correlation.systemfit( fit3sls, 1, 2 )
-plot( kmenta$consump, r12, main="correlation between predictions from supply and demand" )
+plot( Kmenta$consump, r12, main="correlation between predictions from supply and demand" )
 }
 
 \keyword{models}

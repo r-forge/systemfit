@@ -17,7 +17,7 @@ Type 'q()' to quit R.
 
 > 
 > library( systemfit )
-> data( kmenta )
+> data( "Kmenta" )
 > 
 > demand <- consump ~ price + income
 > supply <- consump ~ price + farmPrice + trend
@@ -55,7 +55,7 @@ Type 'q()' to quit R.
 > 
 > ## *************** OLS estimation ************************
 > ## ********** OLS estimation (default) ********************
-> fitols1 <- systemfit( "OLS", system, labels, data = kmenta )
+> fitols1 <- systemfit( "OLS", system, labels, data = Kmenta )
 > print( fitols1 )
 
 systemfit results 
@@ -129,7 +129,7 @@ income       0.000000
              0.009510
 > 
 > ## ********** OLS estimation (no single.eq sigma=F) ******************
-> fitols1s <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols1s <- systemfit( "OLS", system, labels, data = Kmenta,
 +    single.eq.sigma = FALSE )
 > print( fitols1s )
 
@@ -204,7 +204,7 @@ income       0.000000
              0.007766
 > 
 > ## ****************  OLS (probdfsys=T) ***********************
-> fitols1p <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols1p <- systemfit( "OLS", system, labels, data = Kmenta,
 +    probdfsys = TRUE )
 > print( fitols1p )
 
@@ -279,7 +279,7 @@ income       0.000000
              0.009510
 > 
 > ## ****************  OLS (rcovformula=0) ***********************
-> fitols1r <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
 +    rcovformula = 0 )
 > print( fitols1r )
 
@@ -354,7 +354,7 @@ income       0.000000
              0.007608
 > 
 > ## ********  OLS (rcovformula=0, single.eq.sigma=F) ***********
-> fitols1rs <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols1rs <- systemfit( "OLS", system, labels, data = Kmenta,
 +    rcovformula = 0, single.eq.sigma = FALSE )
 > print( fitols1rs )
 
@@ -429,7 +429,7 @@ income       0.000000
              0.006407
 > 
 > ## ****************  OLS (rcovformula=2 ) ***********************
-> fitols1r <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
 +    rcovformula = 2 )
 > print( fitols1r )
 
@@ -504,7 +504,7 @@ income       0.000000
              0.009510
 > 
 > ## ****************  OLS (rcovformula=3) ***********************
-> fitols1r <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
 +    rcovformula = 3 )
 > print( fitols1r )
 
@@ -579,7 +579,7 @@ income       0.000000
              0.009510
 > 
 > ## ********  OLS (rcovformula=3, single.eq.sigma=F) ***********
-> fitols1rs <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols1rs <- systemfit( "OLS", system, labels, data = Kmenta,
 +    rcovformula = 3, single.eq.sigma = FALSE )
 > print( fitols1rs )
 
@@ -656,7 +656,7 @@ income       0.000000
 > 
 > ## ********* OLS with cross-equation restriction ************
 > ## ****** OLS with cross-equation restriction (default) *********
-> fitols2 <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols2 <- systemfit( "OLS", system, labels, data = Kmenta,
 +    R.restr = restrm )
 > print( fitols2 )
 
@@ -731,7 +731,7 @@ income       0.001941
              0.001941
 > 
 > ## ****** OLS with cross-equation restriction (single.eq.sigma=T) *******
-> fitols2s <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols2s <- systemfit( "OLS", system, labels, data = Kmenta,
 +    R.restr = restrm, single.eq.sigma = TRUE )
 > print( fitols2s )
 
@@ -806,7 +806,7 @@ income       0.001722
              0.001722
 > 
 > ## ****** OLS with cross-equation restriction (probdfsys=F) *******
-> fitols2p <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols2p <- systemfit( "OLS", system, labels, data = Kmenta,
 +    R.restr = restrm, probdfsys = FALSE )
 > print( fitols2p )
 
@@ -881,7 +881,7 @@ income       0.001941
              0.001941
 > 
 > ## ****** OLS with cross-equation restriction (rcovformula=0) *******
-> fitols2r <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols2r <- systemfit( "OLS", system, labels, data = Kmenta,
 +    R.restr = restrm, rcovformula = 0 )
 > print( fitols2r )
 
@@ -956,7 +956,7 @@ income       0.001650
              0.001650
 > 
 > ## ** OLS with cross-equation restriction (rcovformula=0,single.eq.sigma=T) ***
-> fitols2rs <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols2rs <- systemfit( "OLS", system, labels, data = Kmenta,
 +    R.restr = restrm, rcovformula = 0 )
 > print( fitols2rs )
 
@@ -1032,7 +1032,7 @@ income       0.001650
 > 
 > ## *** OLS with cross-equation restriction via TX ***
 > ## *** OLS with cross-equation restriction via TX (default) ***
-> fitols3 <- systemfit( "OLS", system, labels, data = kmenta, TX = tc )
+> fitols3 <- systemfit( "OLS", system, labels, data = Kmenta, TX = tc )
 > print( fitols3 )
 
 systemfit results 
@@ -1098,7 +1098,7 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 [7,]  0.030252 -0.002195  0.001941  -0.056972  0.000107  0.000268  0.001941
 > 
 > ## *** OLS with cross-equation restriction via TX (single.eq.sigma=T) ***
-> fitols3s <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols3s <- systemfit( "OLS", system, labels, data = Kmenta,
 +    TX = tc, single.eq.sigma = TRUE )
 > print( fitols3s )
 
@@ -1165,7 +1165,7 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 [7,]  0.026850 -0.001948  0.001722  -0.050565  0.000095  0.000238  0.001722
 > 
 > ## *** OLS with cross-equation restriction via TX (probdfsys=F) ***
-> fitols3p <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols3p <- systemfit( "OLS", system, labels, data = Kmenta,
 +    TX = tc, probdfsys = FALSE )
 > print( fitols3p )
 
@@ -1232,7 +1232,7 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 [7,]  0.030252 -0.002195  0.001941  -0.056972  0.000107  0.000268  0.001941
 > 
 > ## *** OLS with cross-equation restriction via TX (rcovformula=0) ***
-> fitols3r <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols3r <- systemfit( "OLS", system, labels, data = Kmenta,
 +    TX = tc, rcovformula = 0 )
 > print( fitols3r )
 
@@ -1299,7 +1299,7 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 [7,]  0.025714 -0.001866  0.001650 -0.048426  0.000091  0.000228  0.001650
 > 
 > ## OLS with cross-equation restriction via TX (rcovformula=0,single.eq.sigma=T)
-> fitols3rs <- systemfit( "OLS", system, labels, data = kmenta,
+> fitols3rs <- systemfit( "OLS", system, labels, data = Kmenta,
 +    TX = tc, rcovformula = 0, single.eq.sigma = TRUE )
 > print( fitols3rs )
 
@@ -1367,7 +1367,7 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > 
 > ## ********* OLS with 2 cross-equation restrictions ***********
 > ## ********* OLS with 2 cross-equation restrictions (default) ***********
-> fitols4 <- systemfit( "OLS", system, labels, data = kmenta, R.restr = restr2m,
+> fitols4 <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
 +    q.restr = restr2q )
 > print( fitols4 )
 
@@ -1442,7 +1442,7 @@ income       0.001588
              0.001588
 > 
 > ## ****** OLS with 2 cross-equation restrictions (single.eq.sigma=T) *******
-> fitols4s <- systemfit( "OLS", system, labels, data = kmenta, R.restr = restr2m,
+> fitols4s <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
 +    q.restr = restr2q, single.eq.sigma = T )
 > print( fitols4s )
 
@@ -1517,7 +1517,7 @@ income       0.001481
              0.001481
 > 
 > ## ****** OLS with 2 cross-equation restrictions (probdfsys=F) *******
-> fitols4p <- systemfit( "OLS", system, labels, data = kmenta, R.restr = restr2m,
+> fitols4p <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
 +    q.restr = restr2q, probdfsys = F )
 > print( fitols4p )
 
@@ -1592,7 +1592,7 @@ income       0.001588
              0.001588
 > 
 > ## ****** OLS with 2 cross-equation restrictions (rcovformula=0) *******
-> fitols4r <- systemfit( "OLS", system, labels, data = kmenta, R.restr = restr2m,
+> fitols4r <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
 +    q.restr = restr2q, rcovformula = 0 )
 > print( fitols4r )
 
@@ -1667,7 +1667,7 @@ income       0.001390
              0.001390
 > 
 > ## OLS with 2 cross-equation restrictions (rcovformula=0, single.eq.sigma=T) *
-> fitols4rs <- systemfit( "OLS", system, labels, data = kmenta, R.restr = restr2m,
+> fitols4rs <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
 +    q.restr = restr2q, rcovformula = 0, single.eq.sigma = T )
 > print( fitols4rs )
 
@@ -1743,7 +1743,7 @@ income       0.001240
 > 
 > ## ***** OLS with 2 cross-equation restrictions via R and TX ****
 > ## ***** OLS with 2 cross-equation restrictions via R and TX (default) ****
-> fitols5 <- systemfit( "OLS", system, labels, data = kmenta, R.restr = restr3m,
+> fitols5 <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr3m,
 +    q.restr = restr3q, TX = tc, rcovformula = 0)
 > print( fitols5 )
 
@@ -1810,7 +1810,7 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 [7,] -0.059329 -0.000762  0.001390  0.050012 -0.000762  0.000120  0.001390
 > 
 > ## ***** OLS with 2 cross-equation restrictions via R and TX (single.eq.sigma=T) ****
-> fitols5s <- systemfit( "OLS", system, labels, data = kmenta,R.restr = restr3m,
+> fitols5s <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
 +    q.restr = restr3q, TX = tc, single.eq.sigma = T )
 > print( fitols5s )
 
@@ -1877,7 +1877,7 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 [7,] -0.043279 -0.001011  0.001481  0.074877 -0.001011  0.000111  0.001481
 > 
 > ## ***** OLS with 2 cross-equation restrictions via R and TX (probdfsys=F) ****
-> fitols5p <- systemfit( "OLS", system, labels, data = kmenta,R.restr = restr3m,
+> fitols5p <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
 +    q.restr = restr3q, TX = tc, probdfsys = F )
 > print( fitols5p )
 
@@ -1944,7 +1944,7 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 [7,] -0.067804 -0.000871  0.001588  0.057157 -0.000871  0.000137  0.001588
 > 
 > ## ***** OLS with 2 cross-equation restrictions via R and TX (rcovformula=0) ****
-> fitols5r <- systemfit( "OLS", system, labels, data = kmenta,R.restr = restr3m,
+> fitols5r <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
 +    q.restr = restr3q, TX = tc, rcovformula = 0 )
 > print( fitols5r )
 
@@ -2011,7 +2011,7 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 [7,] -0.059329 -0.000762  0.001390  0.050012 -0.000762  0.000120  0.001390
 > 
 > ## OLS with 2 cross-equation restr. via R and TX (rcovformula=0,single.eq.sigma=T)
-> fitols5rs <- systemfit( "OLS", system, labels, data = kmenta,R.restr = restr3m,
+> fitols5rs <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
 +    q.restr = restr3q, TX = tc, rcovformula = 0, single.eq.sigma = T )
 > print( fitols5rs )
 

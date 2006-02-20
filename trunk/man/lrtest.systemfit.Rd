@@ -67,13 +67,13 @@
    \code{\link{waldtest.systemfit}}}
 
 \examples{
-data( "kmenta" )
+data( "Kmenta" )
 eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
 system <- list( demand = eqDemand, supply = eqSupply )
 
 ## unconstrained SUR estimation
-fitsur <- systemfit( "SUR", system, data = kmenta )
+fitsur <- systemfit( "SUR", system, data = Kmenta )
 
 # create restriction matrix to impose \eqn{beta_2 = \beta_6}
 R1 <- matrix( 0, nrow = 1, ncol = 7 )
@@ -81,7 +81,7 @@ R1[ 1, 2 ] <- 1
 R1[ 1, 6 ] <- -1
 
 ## constrained SUR estimation
-fitsur1 <- systemfit( "SUR", system, data = kmenta, R.restr = R1 )
+fitsur1 <- systemfit( "SUR", system, data = Kmenta, R.restr = R1 )
 
 ## perform LR-test
 lrTest1 <- lrtest.systemfit( fitsur1, fitsur )
@@ -93,7 +93,7 @@ R2[ 1, 2 ] <- 1
 R2[ 1, 6 ] <- 1
 
 ## constrained SUR estimation
-fitsur2 <- systemfit( "SUR", system, data = kmenta, R.restr = R2 )
+fitsur2 <- systemfit( "SUR", system, data = Kmenta, R.restr = R2 )
 
 ## perform LR-test
 lrTest2 <- lrtest.systemfit( fitsur2, fitsur )

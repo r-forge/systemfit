@@ -1,8 +1,8 @@
 
 %  $Id$
 
-\name{kmenta}
-\alias{kmenta}
+\name{Kmenta}
+\alias{Kmenta}
 \title{Partly Artificial Data on the U. S. Economy}
 \description{
    These are partly contrived data from Kmenta (1986), constructed
@@ -10,7 +10,7 @@
 }
 
 \usage{
-   data("kmenta")
+   data("Kmenta")
 }
 
 \format{
@@ -43,26 +43,26 @@ Macmillan, New York.
 
 \examples{
 ## Replicating the estimations in Kmenta (1986), p. 712, Tab 13-2
-data( "kmenta" )
+data( "Kmenta" )
 eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
 inst <- ~ income + farmPrice + trend
 system <- list( demand = eqDemand, supply = eqSupply )
 
 ## OLS estimation
-fitOls <- systemfit( "OLS", system, data = kmenta )
+fitOls <- systemfit( "OLS", system, data = Kmenta )
 summary( fitOls )
 
 ## 2SLS estimation
-fit2sls <- systemfit( "2SLS", system, inst = inst, data = kmenta )
+fit2sls <- systemfit( "2SLS", system, inst = inst, data = Kmenta )
 summary( fit2sls )
 
 ## 3SLS estimation
-fit3sls <- systemfit( "3SLS", system, inst = inst, data = kmenta )
+fit3sls <- systemfit( "3SLS", system, inst = inst, data = Kmenta )
 summary( fit3sls )
 
 ## I3LS estimation
-fitI3sls <- systemfit( "3SLS", system, inst = inst, data = kmenta,
+fitI3sls <- systemfit( "3SLS", system, inst = inst, data = Kmenta,
    maxit = 250 )
 summary( fitI3sls )
 }

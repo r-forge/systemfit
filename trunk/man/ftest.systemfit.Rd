@@ -74,13 +74,13 @@
    \code{\link{lrtest.systemfit}}}
 
 \examples{
-data( "kmenta" )
+data( "Kmenta" )
 eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
 system <- list( demand = eqDemand, supply = eqSupply )
 
 ## unconstrained SUR estimation
-fitsur <- systemfit( "SUR", system, data=kmenta )
+fitsur <- systemfit( "SUR", system, data=Kmenta )
 
 # create restriction matrix to test whether \eqn{beta_2 = \beta_6}
 R1 <- matrix( 0, nrow = 1, ncol = 7 )
