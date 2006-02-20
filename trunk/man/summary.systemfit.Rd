@@ -1,21 +1,31 @@
 \name{summary.systemfit}
 \alias{summary.systemfit}
 \alias{summary.systemfit.equation}
+\alias{print.summary.systemfit}
+\alias{print.summary.systemfit.equation}
 \title{Summary of systemfit estimation}
 
 \description{
-   These functions print a summary of the estimated equation system.
+   These functions create and print summary results
+   of the estimated equation system.
 }
 
 \usage{
    \method{summary}{systemfit}( object, ... )
 
    \method{summary}{systemfit.equation}( object, ... )
+
+   \method{print}{summary.systemfit}( x, digits = 6, ... )
+
+   \method{print}{summary.systemfit.equation}( x, digits = 6, ... )
 }
 
 \arguments{
    \item{object}{an object of class \code{systemfit} or
       \code{systemfit.equation}.}
+   \item{x}{an object of class \code{summary.systemfit} or
+      \code{summary.systemfit.equation}.}
+   \item{digits}{number of digits to print.}
    \item{...}{not used by user.}
 }
 

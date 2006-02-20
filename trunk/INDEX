@@ -17,7 +17,7 @@ print.confint.systemfit
                         Print confidence intervals of coefficients
 print.nlsystemfit.system
                         Print output of nlsystemfit estimation
-print.systemfit         Print output of systemfit estimation
+print.systemfit         Print results of systemfit estimation
 residuals.systemfit     Residuals of systemfit object
 se.ratio.systemfit      Ratio of the Standard Errors
 summary.nlsystemfit.system

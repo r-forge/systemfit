@@ -4,10 +4,10 @@
 \name{print.systemfit}
 \alias{print.systemfit}
 \alias{print.systemfit.equation}
-\title{Print output of systemfit estimation}
+\title{Print results of systemfit estimation}
 
 \description{
-   These functions print a summary of the estimated equation system.
+   These functions print a few results of the estimated equation system.
 }
 
 \usage{
