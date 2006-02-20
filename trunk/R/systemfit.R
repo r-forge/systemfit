@@ -803,6 +803,9 @@ systemfit <- function( method,
 
 ## print the (summary) results that belong to the whole system
 summary.systemfit <- function(object,...) {
+   object$coef <- cbind( object$b, object$se, object$t, object$p )
+   colnames( object$coef ) <- c( "Estimate", "Std. Error",
+      "t value", "Pr(>|t|)" )
    class( object ) <- "summary.systemfit"
    return( object )
 }
@@ -931,6 +934,9 @@ print.systemfit <- function( x, digits=6,... ) {
 
 ## print the (summary) results for a single equation
 summary.systemfit.equation <- function(object,...) {
+   object$coef <- cbind( object$b, object$se, object$t, object$p )
+   colnames( object$coef ) <- c( "Estimate", "Std. Error",
+      "t value", "Pr(>|t|)" )
    class( object ) <- "summary.systemfit.equation"
    return( object )
 }
@@ -1194,9 +1200,19 @@ coef.systemfit <- function( object, ... ) {
    object$b
 }
 
+## return all coefficients, std.errors, t-values and p-values
+coef.summary.systemfit <- function( object, ... ) {
+   object$coef
+}
+
 ## return the coefficients of a single equation
 coef.systemfit.equation <- function( object, ... ) {
    object$b
+}
+
+## return coefficients, std.errors, t-values and p-values of a single equation
+coef.summary.systemfit.equation <- function( object, ... ) {
+   object$coef
 }
 
 ## return all residuals
