@@ -751,6 +751,8 @@ systemfit <- function( method,
   names(t)       <- xnames
   prob           <- c(prob)
   names(prob)    <- xnames
+  colnames( bcov ) <- xnames
+  rownames( bcov ) <- xnames
 
   ## build the "return" structure for the whole system
   results$method  <- method
