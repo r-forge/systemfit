@@ -218,9 +218,6 @@ Furthermore, the correlation matrix of the residuals
 returned by \code{systemfitClassic}
 is neither equal to the one published in the book
 nor to the one presented in the errata.
-Therefore, we have estimated the same model in EViews.
-Since the residual covariance and correlation matrices returned by EViews
-are equal to the matrices returned by \code{systemfitClassic},
-we assume that the results from \code{systemfitClassic} are correct.
+However, we assume that the results from \code{systemfitClassic} are correct.
 }
 
