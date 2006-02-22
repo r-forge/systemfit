@@ -58,6 +58,7 @@ systemfit <- function( method,
       result <- matrix( 0, G, G )
       for( i in 1:G ) {
          residi[[i]] <- resids[ ( 1 + sum(n[1:i]) - n[i] ):( sum(n[1:i]) ) ]
+         residi[[i]] <- residi[[i]] - mean( residi[[i]] )
       }
       for( i in 1:G ) {
          for( j in ifelse( diag, i, 1 ):ifelse( diag, i, G ) ) {
@@ -724,13 +725,6 @@ systemfit <- function( method,
       method == "W3SLS" ) {
     rcovest <- rcov                   # residual covariance matrix used for estimation
   }
-  rcor <- matrix( 0, G, G )                        # residual covariance matrix
-  for( i in 1:G ) {
-     for( j in 1:G ) {
-        rcor[i,j] <- sum( residi[[i]] * residi[[j]] ) /
-           sqrt( sum( residi[[i]]^2 ) * sum( residi[[j]]^2 ) )
-     }
-  }
   rcov <- calcRCov( resids )
   drcov <- det(rcov, tol=solvetol)
   if( !saveMemory ) {
@@ -755,8 +749,6 @@ systemfit <- function( method,
   rownames( bcov ) <- xnames
   colnames( rcov ) <- eqnlabels
   rownames( rcov ) <- eqnlabels
-  colnames( rcor ) <- eqnlabels
-  rownames( rcor ) <- eqnlabels
 
   ## build the "return" structure for the whole system
   results$method  <- method
@@ -774,7 +766,6 @@ systemfit <- function( method,
   results$btcov   <- btcov          # covariance matrix for transformed coeff. vector
   results$rcov    <- rcov           # residual covarance matrix
   results$drcov   <- drcov          # determinant of residual covarance matrix
-  results$rcor    <- rcor           # residual correlation matrix
   results$olsr2   <- olsr2          # R-squared value of the equation system
   results$iter    <- iter           # residual correlation matrix
   results$y       <- y              # vector of all (stacked) endogenous variables
@@ -812,6 +803,8 @@ summary.systemfit <- function(object,...) {
    object$coef <- cbind( object$b, object$se, object$t, object$p )
    colnames( object$coef ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
+   object$rcor <- cor( residuals( object ) )
+   dimnames( object$rcor ) <- dimnames( object$rcov )
    class( object ) <- "summary.systemfit"
    return( object )
 }

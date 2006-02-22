@@ -179,7 +179,6 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
   \item{rcov}{estimated residual covariance matrix.}
   \item{drcov}{determinant of \code{rcov}.}
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
-  \item{rcor}{estimated residual correlation matrix.}
   \item{olsr2}{System OLS R-squared value.}
   \item{mcelr2}{McElroys R-squared value for the system (only SUR and 3SLS).}
   \item{y}{vector of all (stacked) endogenous variables}
