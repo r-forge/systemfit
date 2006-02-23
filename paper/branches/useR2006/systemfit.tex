@@ -1,0 +1,88 @@
+\documentclass[12pt]{scrartcl}
+\input{systemfit_commands}
+
+\begin{document}
+
+\begin{center}
+
+\title{
+systemfit: A Package to Estimate\\
+Simultaneous Equation Systems in \proglang{R}
+}
+
+\vspace{6mm}
+
+\author{
+Arne Henningsen and Jeff D.\ Hamann
+}
+
+\end{center}
+
+
+Many theoretical models that are econometrically estimated
+consist of more than one equation.
+In this case, the disturbance terms of these equations are likely
+to be contemporaneously correlated,
+because some unconsidered factors
+that influence the disturbance term in one equation
+probably influence the disturbance terms in other equations
+of this model, too.
+Ignoring this contemporaneous correlation
+and estimating these equations separately
+leads to inefficient parameter estimates.
+However, estimating all equations simultaneously,
+taking the covariance structure of the residuals into account,
+leads to efficient estimates.
+This estimation procedure is generally called
+°Seemingly Unrelated Regression° (SUR) \citep{zellner62}.
+Another reason to estimate an equation system simultaneously are
+cross-equation parameter restrictions.%
+\footnote{
+Especially the economic theory suggests many cross-equation parameter
+restrictions (e.g.\ the symmetry restriction in demand models).
+}
+These restrictions can be tested and/or imposed only in a simultaneous
+estimation approach.
+
+Furthermore, these models can contain variables
+that appear on the left-hand side in one equation
+and on the right-hand side of another equation.
+Ignoring the endogeneity of these variables can lead to inconsistent
+parameter estimates.
+This simultaneity bias can be circumvented by applying
+a °Two-Stage Least Squares° (2SLS) or °Three-Stage Least Squares° (3SLS)
+estimation of the equation system.
+
+The \pkg{systemfit} package provides the capability to estimate
+linear equation systems in \proglang{R}
+\citep{r-project}.
+Although linear equation systems can be estimated
+with several other statistical and econometric software packages,
+\pkg{systemfit} has several advantages.
+First, all estimation procedures are publicly available in the source code.
+Second, the estimation algorithms can be easily modified to meet specific
+requirements.
+Third, the (advanced) user can control estimation details generally
+not available in other software packages by overriding reasonable defaults.
+
+The \pkg{systemfit} package has been tested on a variety of datasets and
+has produced satisfactory for a few years.
+On the useR! conference,
+we would like to present some of the basic features of the
+\pkg{systemfit} package,
+some of the many details that can be controlled by the user,
+and the statistical tests for parameter restrictions and
+consistency of 3SLS estimation that are included in the package.
+While the \pkg{systemfit} package performs the basic fitting methods,
+more sophisticated methods are still missing.
+We hope to implement missing functionalities
+in the near future
+--- maybe with the help of other useRs.
+
+
+
+\bibliographystyle{jss}
+\bibliography{systemfit} % a subset of my big bibtex file
+%\bibliography{/home/suapm095/Documents/Literatur/arne}
+
+\end{document}
