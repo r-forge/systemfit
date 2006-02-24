@@ -48,7 +48,7 @@
    \eqn{\Sigma} is the residual covariance matrix used in the estimation.
    Under the null hypothesis, \eqn{F} has an F-distribution
    with \eqn{j} and \eqn{M \cdot T - K} degrees of freedom
-   (Greene, 2003, p. 346).
+   (Theil, 1971, p. 314).
 }
 
 \value{
@@ -64,8 +64,7 @@
 }
 
 \references{
-  Greene, W. H. (2003)
-  \emph{Econometric Analysis, Fifth Edition}, Prentice Hall.
+Theil, Henri (1971). \emph{Principles of Econometrics}, John Wiley & Sons, New York.
 }
 
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
