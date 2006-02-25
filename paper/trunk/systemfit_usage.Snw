@@ -362,7 +362,13 @@ and it is \code{FALSE} otherwise.
    \code{systemfitClassic}}
 
 The wrapper function \code{systemfitClassic}
-can be applied to (classical) panel-like data in long format
+can be applied to (classical) panel-like data in long format%
+\footnote{
+Panel data can be either in °long format°
+(different individuals are arranged below each other)
+or in °wide format°
+(different individuals are arranged next to each other).
+}
 if the regressors are the same for all equations.
 This function is called by
 <<eval=FALSE>>=
