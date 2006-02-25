@@ -237,7 +237,7 @@ under the null hypothesis
 \subsection{Hausman test}
 \label{sec:hausman}
 
-Hausman \citep{hausman78} developed a test for misspecification.
+\citet{hausman78} developed a test for misspecification.
 The null hypotheses of the test is that all exogenous variables are
 uncorrelated with all disturbance terms.
 Under this hypothesis both the 2SLS and the 3SLS estimator are consistent
@@ -246,15 +246,15 @@ Under the alternative hypothesis the 2SLS estimator is consistent
 but the 3SLS estimator is inconsistent.
 The Hausman test statistic is,
 \begin{equation}
-  m = \left( \hat{\beta}_2 - \hat{\beta}_3 \right)^{'}
-      \left( \Cov \left[ \hat{\beta}_2 \right] -
-             \Cov \left[ \hat{\beta}_3 \right] \right)
-      \left( \hat{\beta}_2 - \hat{\beta}_3 \right)
+  m = \left( \hat{\beta}_{2SLS} - \hat{\beta}_{3SLS} \right)^{'}
+      \left( \Cov \left[ \hat{\beta}_{2SLS} \right] -
+             \Cov \left[ \hat{\beta}_{3SLS} \right] \right)
+      \left( \hat{\beta}_{2SLS} - \hat{\beta}_{3SLS} \right)
 \label{eq:hausman}
 \end{equation}
-where $\hat{\beta}_2$ and $\Cov \left[ \hat{\beta}_2 \right]$ are the estimated
+where $\hat{\beta}_{2SLS}$ and $\Cov \left[ \hat{\beta}_{2SLS} \right]$ are the estimated
 coefficient and covariance matrix from 2SLS estimation, and
-$\hat{\beta}_3$ and $\Cov \left[ \hat{\beta}_3 \right]$ are the estimated
+$\hat{\beta}_{3SLS}$ and $\Cov \left[ \hat{\beta}_{3SLS} \right]$ are the estimated
 coefficients and covariance matrix from 3SLS estimation.
 Under the null hypotheses this test statistic has a
 $\chi^2$ distribution with degrees of freedom equal to the number of
