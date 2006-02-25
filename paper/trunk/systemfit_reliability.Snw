@@ -204,7 +204,7 @@ round( greeneSurPooled$rcov, digits = 3 ) #$
 round( summary( greeneSurPooled )$rcor, digits = 3 ) #$
 @
 
-For this example the function \code{systemfitClassic} returns
+For this example, the function \code{systemfitClassic} returns
 nearly the same results as published in \citet{greene03}
 except for the pooled SUR estimation.%
 \footnote{
@@ -217,7 +217,7 @@ returned by \code{systemfitClassic}
 are neither equal to the values published in the book,
 nor to the values presented in the errata.
 However, we could exactly reproduce the results in the errata
-when we calculate the residual covariance matrix for the SUR estimation
+when we calculated the residual covariance matrix for the SUR estimation
 by using (\ref{eq:rcov0})
 with residuals $\widehat{u}_i$ that have non-zero means
 and not with $\widehat{u}_i - \overline{ \widehat{u} }_i$
