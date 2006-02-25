@@ -309,7 +309,7 @@ argument           & equation       & equation \\
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Degrees of freedom for t-tests}
 There exist two different approaches to determine the degrees of freedom
-to perform t-tests of the estimated parameters
+to perform t-tests on the estimated parameters
 (section~\ref{sec:degreesOfFreedom}).
 This can be specified with argument \code{probdfsys}.
 If it is \code{TRUE},
