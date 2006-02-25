@@ -8,12 +8,11 @@
 
 Many theoretical models that are econometrically estimated
 consist of more than one equation.
-In this case, the disturbance terms of these equations are likely
+The disturbance terms of these equations are likely
 to be contemporaneously correlated,
-because some unconsidered factors
+because unconsidered factors
 that influence the disturbance term in one equation
-probably influence the disturbance terms in other equations
-of this model, too.
+probably influence the disturbance terms in other equations.
 Ignoring this contemporaneous correlation
 and estimating these equations separately
 leads to inefficient parameter estimates.
@@ -21,7 +20,7 @@ However, estimating all equations simultaneously,
 taking the covariance structure of the residuals into account,
 leads to efficient estimates.
 This estimation procedure is generally called
-°Seemingly Unrelated Regression° (SUR) \citep{zellner62}.
+"Seemingly Unrelated Regression" (SUR) \citep{zellner62}.
 Another reason to estimate an equation system simultaneously are
 cross-equation parameter restrictions.%
 \footnote{
@@ -36,9 +35,11 @@ that appear on the left-hand side in one equation
 and on the right-hand side of another equation.
 Ignoring the endogeneity of these variables can lead to inconsistent
 parameter estimates.
-This simultaneity bias can be circumvented by applying
-a °Two-Stage Least Squares° (2SLS) or °Three-Stage Least Squares° (3SLS)
-estimation of the equation system.
+This simultaneity bias can be corrected for in each equation by
+applying a "Two-Stage Least Squares" (2SLS) method or for all
+equations simultaneously when combined with SUR resulting in a
+"Three-Stage Least Squares" (3SLS) estimation of the system of
+equations.
 
 
 % For all of the methods developed in the package, the disturbances of
@@ -60,16 +61,16 @@ requirements.
 Third, the (advanced) user can control estimation details generally
 not available in other software packages by overriding reasonable defaults.
 
-This paper is organized as follows:
-In the following Section~\ref{sec:statistics} we
-introduce the statistical background of estimating equation systems.
-The implementation of the statistical procedures in \proglang{R}
-is shortly explained in Section~\ref{sec:code}.
+% This paper is organized as follows:
+In Section~\ref{sec:statistics} we introduce the statistical
+background of estimating equation systems.
+The implementation of the statistical procedures in \proglang{R} is
+shortly explained in Section~\ref{sec:code}.
 Section~\ref{sec:Usage} demonstrates how to run
-\pkg{systemfit} and especially how the features presented in the previous
-section can be used.
+\pkg{systemfit} and how some of the features presented in the previous
+section can be utilized.
 In Section~\ref{sec:reliability} the reliability of the results from
-\pkg{systemfit} are tested.
+\pkg{systemfit} are presented.
 Finally, a summary and outlook are presented in
 Section~\ref{sec:Summmary}.
 
