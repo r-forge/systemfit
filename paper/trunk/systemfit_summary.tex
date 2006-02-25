@@ -25,17 +25,16 @@ that all equations have the same number of observations.
 However, many data sets have unbalanced observations.%
 \footnote{
 For instance,
-forestry datasets typically contain observations of many inexpensive
-observations (stem diameter) and few expensive observations such
-as stem height.
+forestry datasets typically contain many observations of inexpensive
+variables (stem diameter, tree count) and few expensive variables such
+as stem height or volume.
 }
-Simply dropping data points
-that do not contain observations for all equations
-may considerably reduce the number of observations,
-and thus, the information utilized in the estimation.
+Simply dropping data points that do not contain observations for all
+equations may reduce the number of observations considerably, and
+thus, the information utilized in the estimation.
 Hence, it is our intention to include the capability for estimations
-with unbalanced data sets as described in \citet{schmidt77}
-in future releases of \pkg{systemfit}.
+with unbalanced data sets as described in \citet{schmidt77} in future
+releases of \pkg{systemfit}.
 
 \subsubsection*{Serial correlation and heteroscedasticity}
 For all of the methods developed in the package, the disturbances of
