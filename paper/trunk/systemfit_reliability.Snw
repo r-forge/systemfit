@@ -204,20 +204,28 @@ round( greeneSurPooled$rcov, digits = 3 ) #$
 round( greeneSurPooled$rcor, digits = 3 ) #$
 @
 
-Also for this example the function \code{systemfitClassic} returns
-nearly the same results as published in \citet{greene03}.%
+For this example the function \code{systemfitClassic} returns
+nearly the same results as published in \citet{greene03}
+except for the pooled SUR estimation.%
 \footnote{
 There are several typos and errors in Table~14.1 (p.~412).
 Please take a look at the errata of this book
 (\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
-The covariance matrix of the residuals from the pooled SUR estimation
+}
+The results of this estimation
 returned by \code{systemfitClassic}
-is equal to the one published in the book,
-but is not equal to the one presented in the errata.
-Furthermore, the correlation matrix of the residuals
-returned by \code{systemfitClassic}
-is neither equal to the one published in the book
-nor to the one presented in the errata.
-However, we assume that the results from \code{systemfitClassic} are correct.
+are neither equal to the values published in the book,
+nor to the values presented in the errata.
+However, we could exactly reproduce the results in the errata
+when we calculate the residual covariance matrix for the SUR estimation
+by using (\ref{eq:rcov0})
+with residuals $\widehat{u}_i$ that have non-zero means
+and not with $\widehat{u}_i - \overline{ \widehat{u} }_i$
+(see section~\ref{sec:residcov}).
+We consider this as an error and
+assume that the results from \code{systemfitClassic} are correct.%
+\footnote{
+We have informed the author of \citet{greene03} and hope
+that the correct results will be presented in the errata soon.
 }
 
