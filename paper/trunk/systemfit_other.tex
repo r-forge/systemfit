@@ -99,6 +99,15 @@ residual covariance matrix,
 an iterated SUR estimation converges to maximum
 likelihood \citep[p.\ 345]{greene03}.
 
+In some uncommon cases,
+for instance in pooled estimations,
+where the coefficients are restricted to be equal in all equations,
+the means of the residuals of each equation are not equal to zero
+$( \overline{ \widehat{u} }_i \neq 0 )$.
+Therefore, we subtract the means from the residuals
+and substitute $\widehat{u}_i - \overline{ \widehat{u} }_i$
+for $\widehat{u}_i$ in (\ref{eq:rcov0}--\ref{eq:rcov2}).
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Degrees of freedom}
