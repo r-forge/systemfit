@@ -1297,3 +1297,7 @@ fitted.systemfit <- function( object, ... ) {
 fitted.systemfit.equation <- function( object, ... ) {
    object$fitted
 }
+
+
+
+
