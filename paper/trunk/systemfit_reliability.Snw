@@ -193,7 +193,7 @@ greeneSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
    data = GrunfeldGreene, rcovformula = 0 )
 round( coef( summary( greeneSur ) ), digits = 4 )
 round( greeneSur$rcov, digits = 3 ) #$
-round( greeneSur$rcor, digits = 3 ) #$
+round( summary( greeneSur )$rcor, digits = 3 ) #$
 @
 pooled SUR estimation (Table~14.1):
 <<>>=
@@ -201,7 +201,7 @@ greeneSurPooled <- systemfitClassic( "WSUR", formulaGrunfeld, "firm", "year",
    data = GrunfeldGreene, pooled = TRUE, rcovformula = 0 )
 round( coef( summary( greeneSurPooled$eq[[1]] ) ), digits = 4 ) #$
 round( greeneSurPooled$rcov, digits = 3 ) #$
-round( greeneSurPooled$rcor, digits = 3 ) #$
+round( summary( greeneSurPooled )$rcor, digits = 3 ) #$
 @
 
 For this example the function \code{systemfitClassic} returns

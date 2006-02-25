@@ -7,7 +7,7 @@
 \nopagebreak
 In this article, we have described some of the basic features of the
 \pkg{systemfit} package for estimation of linear systems of
-equations with various estimation methods.
+equations.
 Many details of the estimation can be controlled by the user.
 Furthermore, the package provides some statistical tests
 for parameter restrictions and consistency of 3SLS estimation.
@@ -17,7 +17,7 @@ While the \pkg{systemfit} package performs the basic fitting methods,
 more sophisticated tools exist.
 We hope to implement missing functionalities
 in the near future.
-Some of these are discussed in the following.
+% Some of these are discussed in the following.
 
 \subsubsection*{Unbalanced datasets}
 Currently, the \pkg{systemfit} package requires
@@ -42,21 +42,22 @@ For all of the methods developed in the package, the disturbances of
 the individual equations are assumed to be independent and identically
 distributed (iid).
 The package could be enhanced by the inclusion of methods to fit
-equations with serially correlated and heteroscedastic disturbances.
+equations with serially correlated and heteroscedastic disturbances
+(parks, 1967). 
 
 \subsubsection*{Estimation methods}
-We wish to include more sophisticated estimation methods such
-as limited-information maximum likelihood (LIML),
-full-information maximum likelihood (FIML),
-and generalized methods of moments (GMM), in future releases.
+In the future, we wish to include more sophisticated estimation
+methods such as limited-information maximum likelihood (LIML),
+full-information maximum likelihood (FIML), and generalized methods of
+moments (GMM).
 
 \subsubsection*{Non-linear estimation}
-The \pkg{systemfit} package provides a function to estimate
+Finally, the \pkg{systemfit} package provides a function to estimate
 systems of non-linear estimations.
-However, the function \code{nlsystemfit} is currently under development
-and the results are not yet always reliable
-due to convergence problems.
-We hope to improve this behavior soon.
+However, the function \code{nlsystemfit} is currently under
+development and the results are not yet always reliable due to
+convergence difficulties.
+% We hope to improve this behavior soon.
 
 
 %% testing for the new svn repos
