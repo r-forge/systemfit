@@ -1175,14 +1175,13 @@ coef.summary.systemfit.equation <- function( object, ... ) {
 
 ## return all residuals
 residuals.systemfit <- function( object, ... ) {
-   residuals <- data.frame( eq1 = object$eq[[1]]$residuals )
-   if( object$g > 1 ) {
-      for( i in 2:object$g ) {
-         residuals <- cbind( residuals, new=object$eq[[i]]$residuals )
-         names( residuals )[ i ] <- paste( "eq", as.character(i), sep="" )
-      }
+   eqNames <- colnames( object$rcov )
+   residuals <- data.frame( obsNo = c( 1:length( object$eq[[1]]$residuals ) ) )
+   for( i in 1:object$g ) {
+      residuals[[ eqNames[ i ] ]] <- object$eq[[i]]$residuals
    }
-   residuals
+   residuals$obsNo <- NULL
+   return( residuals )
 }
 
 ## return residuals of a single equation
