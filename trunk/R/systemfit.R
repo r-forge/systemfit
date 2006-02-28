@@ -53,64 +53,6 @@ systemfit <- function( method,
       stop( "The methods '2SLS', 'W2SLS', '3SLS', and 'W3SLS' need instruments!" )
    }
 
-   ## Calculate the residual covariance matrix
-   calcRCov <- function( resids, diag = FALSE, centered = FALSE ) {
-      residi <- list()
-      result <- matrix( 0, G, G )
-      for( i in 1:G ) {
-         residi[[i]] <- resids[ ( 1 + sum(n[1:i]) - n[i] ):( sum(n[1:i]) ) ]
-         if( centered ) {
-            residi[[i]] <- residi[[i]] - mean( residi[[i]] )
-         }
-      }
-      for( i in 1:G ) {
-         for( j in ifelse( diag, i, 1 ):ifelse( diag, i, G ) ) {
-            if( rcovformula == 0 ) {
-               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) / n[i]
-            } else if( rcovformula == 1 || rcovformula == "geomean" ) {
-               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
-                  sqrt( ( n[i] - ki[i] ) * ( n[j] - ki[j] ) )
-            } else if( rcovformula == 2 || rcovformula == "Theil" ) {
-               #result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
-               #   ( n[i] - ki[i] - ki[j] + sum( diag(
-               #   x[[i]] %*% solve( crossprod( x[[i]] ), tol=solvetol ) %*%
-               #   crossprod( x[[i]], x[[j]]) %*%
-               #   solve( crossprod( x[[j]] ), tol=solvetol ) %*%
-               #   t( x[[j]] ) ) ) )
-               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
-                  ( n[i] - ki[i] - ki[j] + sum( diag(
-                  solve( crossprod( x[[i]] ), tol=solvetol ) %*%
-                  crossprod( x[[i]], x[[j]]) %*%
-                  solve( crossprod( x[[j]] ), tol=solvetol ) %*%
-                  crossprod( x[[j]], x[[i]] ) ) ) )
-
-            } else if( rcovformula == 3 || rcovformula == "max" ) {
-               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
-                  ( n[i] - max( ki[i], ki[j] ) )
-            } else {
-               stop( paste( "Argument 'rcovformula' must be either 0, 1,",
-                   "'geomean', 2, 'Theil', 3 or 'max'." ) )
-            }
-         }
-      }
-      return( result )
-   }
-
-   ## Calculate Sigma squared
-   calcSigma2 <- function( resids ) {
-      if( rcovformula == 0 ) {
-         result <- sum( resids^2 ) / N
-      } else if( rcovformula == 1 || rcovformula == "geomean" ||
-         rcovformula == 3 || rcovformula == "max") {
-         result <- sum( resids^2 )/ ( N - Ki )
-      } else {
-         stop( paste( "Sigma^2 can only be calculated if argument",
-            "'rcovformula' is either 0, 1, 'geomean', 3 or 'max'" ) )
-      }
-   }
-
-
-
   results <- list()               # results to be returned
   results$eq <- list()            # results for the individual equations
   resulti <- list()               # results of the ith equation
@@ -242,8 +184,9 @@ systemfit <- function( method,
   if(method=="OLS") {
     resids <- Y - X %*% b                                        # residuals
     if(single.eq.sigma) {
-      rcov <- calcRCov( resids, diag = TRUE, centered = centerResiduals )
-                                                      # residual covariance matrix
+      rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
+         nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
+         solvetol = solvetol )               # residual covariance matrix
       #Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])# Omega inverse
       Xs <- X * rep( 1 / diag( rcov ), n )
       if(is.null(R.restr)) {
@@ -258,7 +201,8 @@ systemfit <- function( method,
          bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
       }
     } else {
-      s2 <- calcSigma2( resids )     # sigma squared
+      s2 <- .calcSigma2( resids, nObs = N, nCoef = Ki, rcovformula = rcovformula )
+                           # sigma squared
       if(is.null(R.restr)) {
         bcov   <- s2 * solve( crossprod( X ), tol=solvetol )
                           # coefficient covariance matrix
@@ -278,7 +222,9 @@ systemfit <- function( method,
       iter  <- iter+1
       bl    <- b                # coefficients of previous step
       resids <- Y - X %*% b     # residuals
-      rcov <- calcRCov( resids, diag = TRUE, centered = centerResiduals )
+      rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
+         nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
+         solvetol = solvetol )
       Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
                # Omega inverse (= weight. matrix)
       if(is.null(R.restr)) {
@@ -312,7 +258,9 @@ systemfit <- function( method,
       iter  <- iter+1
       bl    <- b                           # coefficients of previous step
       resids <- Y-X%*%b                     # residuals
-      rcov <- calcRCov( resids, centered = centerResiduals )
+      rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
+         nCoefEq = ki, xEq = x, centered = centerResiduals,
+         solvetol = solvetol )
       Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
                   # Omega inverse (= weighting matrix)
       if(is.null(R.restr)) {
@@ -389,7 +337,9 @@ systemfit <- function( method,
   if(method=="2SLS") {
     resids <- Y - X %*% b                        # residuals
     if(single.eq.sigma) {
-      rcov <- calcRCov( resids, diag = TRUE, centered = centerResiduals )
+      rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
+         nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
+         solvetol = solvetol )
       #Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1]) # Omega inverse
       Xfs <- Xf * rep( 1 / diag( rcov ), n )
       if(is.null(R.restr)) {
@@ -404,7 +354,8 @@ systemfit <- function( method,
          bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
       }
     } else {
-      s2 <- calcSigma2( resids ) # sigma squared
+      s2 <- .calcSigma2( resids, nObs = N, nCoef = Ki, rcovformula = rcovformula )
+                           # sigma squared
       if(is.null(R.restr)) {
         bcov   <- s2 * solve( crossprod( Xf ), tol=solvetol )
                   # coefficient covariance matrix
@@ -424,7 +375,9 @@ systemfit <- function( method,
       iter  <- iter+1
       bl    <- b                           # coefficients of previous step
       resids <- Y-X%*%b                     # residuals
-      rcov <- calcRCov( resids, diag = TRUE, centered = centerResiduals )
+      rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
+         nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
+         solvetol = solvetol )
       Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
                # Omega inverse(= weight. matrix)
       if(is.null(R.restr)) {
@@ -457,7 +410,8 @@ systemfit <- function( method,
       iter  <- iter+1
       bl    <- b                           # coefficients of previous step
       resids <- Y-X%*%b                     # residuals
-      rcov <- calcRCov( resids, centered = centerResiduals )
+      rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
+         nCoefEq = ki, xEq = x, centered = centerResiduals, solvetol = solvetol )
       Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
               # Omega inverse (= weighting matrix)
       if(formula3sls=="GLS") {
@@ -729,7 +683,8 @@ systemfit <- function( method,
       method == "W3SLS" ) {
     rcovest <- rcov                   # residual covariance matrix used for estimation
   }
-  rcov <- calcRCov( resids, centered = centerResiduals )
+  rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
+      nCoefEq = ki, xEq = x, centered = centerResiduals, solvetol = solvetol )
   drcov <- det(rcov, tol=solvetol)
   if( !saveMemory ) {
       mcelr2 <- 1 - ( t(resids) %*% ( solve(rcov, tol=solvetol) %x%
