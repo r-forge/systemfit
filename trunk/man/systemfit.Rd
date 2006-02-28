@@ -20,7 +20,7 @@ systemfit( method, eqns, eqnlabels=names(eqns),
            inst=NULL, data=list(), R.restr=NULL,
            q.restr=matrix(0,max(nrow(R.restr),0),1),
            TX=NULL, maxiter=1, tol=1e-5,
-           rcovformula=1, formula3sls="GLS",
+           rcovformula=1, centerResiduals = FALSE, formula3sls="GLS",
            probdfsys=!(is.null(R.restr) & is.null(TX)),
            single.eq.sigma=(is.null(R.restr) & is.null(TX)),
            solvetol=.Machine$double.eps,
@@ -60,6 +60,8 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
       WLS, SUR, W2SLS and 3SLS estimations).}
    \item{rcovformula}{formula to calculate the estimated residual covariance
       matrix (see details).}
+   \item{centerResiduals}{logical. Subtract the means from the residuals
+      of each equation before calculating the estimated residual covariance matrix.}
    \item{formula3sls}{formula for calculating the 3SLS estimator,
       one of "GLS", "IV", "GMM", "Schmidt" or "EViews" (see details).}
    \item{probdfsys}{use the degrees of freedom of the whole system

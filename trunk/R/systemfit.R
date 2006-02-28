@@ -33,6 +33,7 @@ systemfit <- function( method,
                         maxiter=1,
                         tol=1e-5,
                         rcovformula=1,
+                        centerResiduals = FALSE,
                         formula3sls="GLS",
                         probdfsys=!(is.null(R.restr) & is.null(TX)),
                         single.eq.sigma=(is.null(R.restr) & is.null(TX)),
@@ -53,12 +54,14 @@ systemfit <- function( method,
    }
 
    ## Calculate the residual covariance matrix
-   calcRCov <- function( resids, diag = FALSE ) {
+   calcRCov <- function( resids, diag = FALSE, centered = FALSE ) {
       residi <- list()
       result <- matrix( 0, G, G )
       for( i in 1:G ) {
          residi[[i]] <- resids[ ( 1 + sum(n[1:i]) - n[i] ):( sum(n[1:i]) ) ]
-         residi[[i]] <- residi[[i]] - mean( residi[[i]] )
+         if( centered ) {
+            residi[[i]] <- residi[[i]] - mean( residi[[i]] )
+         }
       }
       for( i in 1:G ) {
          for( j in ifelse( diag, i, 1 ):ifelse( diag, i, G ) ) {
@@ -239,7 +242,8 @@ systemfit <- function( method,
   if(method=="OLS") {
     resids <- Y - X %*% b                                        # residuals
     if(single.eq.sigma) {
-      rcov <- calcRCov( resids, diag = TRUE )   # residual covariance matrix
+      rcov <- calcRCov( resids, diag = TRUE, centered = centerResiduals )
+                                                      # residual covariance matrix
       #Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])# Omega inverse
       Xs <- X * rep( 1 / diag( rcov ), n )
       if(is.null(R.restr)) {
@@ -274,7 +278,7 @@ systemfit <- function( method,
       iter  <- iter+1
       bl    <- b                # coefficients of previous step
       resids <- Y - X %*% b     # residuals
-      rcov <- calcRCov( resids, diag = TRUE )
+      rcov <- calcRCov( resids, diag = TRUE, centered = centerResiduals )
       Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
                # Omega inverse (= weight. matrix)
       if(is.null(R.restr)) {
@@ -308,7 +312,7 @@ systemfit <- function( method,
       iter  <- iter+1
       bl    <- b                           # coefficients of previous step
       resids <- Y-X%*%b                     # residuals
-      rcov <- calcRCov( resids )
+      rcov <- calcRCov( resids, centered = centerResiduals )
       Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
                   # Omega inverse (= weighting matrix)
       if(is.null(R.restr)) {
@@ -385,7 +389,7 @@ systemfit <- function( method,
   if(method=="2SLS") {
     resids <- Y - X %*% b                        # residuals
     if(single.eq.sigma) {
-      rcov <- calcRCov( resids, diag = TRUE )
+      rcov <- calcRCov( resids, diag = TRUE, centered = centerResiduals )
       #Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1]) # Omega inverse
       Xfs <- Xf * rep( 1 / diag( rcov ), n )
       if(is.null(R.restr)) {
@@ -420,7 +424,7 @@ systemfit <- function( method,
       iter  <- iter+1
       bl    <- b                           # coefficients of previous step
       resids <- Y-X%*%b                     # residuals
-      rcov <- calcRCov( resids, diag = TRUE )
+      rcov <- calcRCov( resids, diag = TRUE, centered = centerResiduals )
       Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
                # Omega inverse(= weight. matrix)
       if(is.null(R.restr)) {
@@ -453,7 +457,7 @@ systemfit <- function( method,
       iter  <- iter+1
       bl    <- b                           # coefficients of previous step
       resids <- Y-X%*%b                     # residuals
-      rcov <- calcRCov( resids )
+      rcov <- calcRCov( resids, centered = centerResiduals )
       Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
               # Omega inverse (= weighting matrix)
       if(formula3sls=="GLS") {
@@ -725,7 +729,7 @@ systemfit <- function( method,
       method == "W3SLS" ) {
     rcovest <- rcov                   # residual covariance matrix used for estimation
   }
-  rcov <- calcRCov( resids )
+  rcov <- calcRCov( resids, centered = centerResiduals )
   drcov <- det(rcov, tol=solvetol)
   if( !saveMemory ) {
       mcelr2 <- 1 - ( t(resids) %*% ( solve(rcov, tol=solvetol) %x%

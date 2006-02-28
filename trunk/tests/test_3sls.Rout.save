@@ -1,6 +1,6 @@
 
 R : Copyright 2005, The R Foundation for Statistical Computing
-Version 2.2.0  (2005-10-06 r35749)
+Version 2.2.1  (2005-12-20 r36812)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -12,7 +12,7 @@ Type 'contributors()' for more information and
 'citation()' on how to cite R or R packages in publications.
 
 Type 'demo()' for some demos, 'help()' for on-line help, or
-'help.start()' for a HTML browser interface to help.
+'help.start()' for an HTML browser interface to help.
 Type 'q()' to quit R.
 
 > 
@@ -2143,7 +2143,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 55.960438  11.577676 4.833478  2.8e-05 ***
+(Intercept) 55.960439  11.577676 4.833478  2.8e-05 ***
 price        0.219277   0.100158 2.189307 0.035536   *
 farmPrice    0.205974   0.040347 5.105022  1.3e-05 ***
 trend        0.295588   0.045022 6.565414        0 ***
@@ -4910,7 +4910,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.937766 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
-SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
+SSR: 138.087514 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -6360,10 +6360,10 @@ SSR: 112.431326 MSE: 7.026958 Root MSE: 2.650841
 Multiple R-Squared: 0.580659 Adjusted R-Squared: 0.502033 
 
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        62.739680  -0.673422    0.049302        74.154668
+eq 1 (Intercept)        62.739680  -0.673422    0.049302        74.154669
 eq 1 price              -0.673422   0.009309   -0.002642        -0.415368
 eq 1 income              0.049302  -0.002642    0.002204        -0.331718
-eq 2 (Intercept)        74.154668  -0.415368   -0.331718       163.970743
+eq 2 (Intercept)        74.154669  -0.415368   -0.331718       163.970743
 eq 2 price              -0.792885   0.007049    0.000901        -1.257823
 eq 2 farmPrice           0.048056  -0.002575    0.002148        -0.336970
 eq 2 trend               0.072514  -0.003886    0.003241        -0.500327
@@ -6427,7 +6427,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 52.552667  11.395624 4.611653  5.8e-05 ***
+(Intercept) 52.552668  11.395624 4.611653  5.8e-05 ***
 price        0.227057   0.095631 2.374309 0.023553   *
 farmPrice    0.224497   0.041626 5.393178    6e-06 ***
 trend        0.375574   0.064095 5.859668    1e-06 ***
@@ -6654,7 +6654,7 @@ Instruments: ~income + farmPrice + trend
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 92.035347    8.92142 10.316222        0 ***
 price       -0.104341   0.095776 -1.089428 0.283627    
-income       0.197867   0.029919  6.613411        0 ***
+income       0.197867   0.029919   6.61341        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -6672,7 +6672,7 @@ Instruments: ~income + farmPrice + trend
 (Intercept) 68.282985  11.153002 6.122386    1e-06 ***
 price        0.185084   0.105254  1.75845  0.08767   .
 farmPrice    0.124457   0.025087 4.961019  1.9e-05 ***
-trend        0.197867   0.029919 6.613411        0 ***
+trend        0.197867   0.029919  6.61341        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -6762,10 +6762,10 @@ SSR: 141.147347 MSE: 8.821709 Root MSE: 2.970136
 Multiple R-Squared: 0.473555 Adjusted R-Squared: 0.374847 
 
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        92.743109  -0.943554    0.019683       110.770122
+eq 1 (Intercept)        92.743109  -0.943554    0.019683       110.770123
 eq 1 price              -0.943554   0.010462   -0.001055        -0.993446
 eq 1 income              0.019683  -0.001055    0.000880        -0.113305
-eq 2 (Intercept)       110.770122  -0.993446   -0.113305       155.848674
+eq 2 (Intercept)       110.770123  -0.993446   -0.113305       155.848674
 eq 2 price              -1.122234   0.010913    0.000315        -1.444074
 eq 2 farmPrice           0.016801  -0.000900    0.000751        -0.101247
 eq 2 trend               0.019683  -0.001055    0.000880        -0.113305
@@ -6814,7 +6814,7 @@ Instruments: ~income + farmPrice + trend
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 92.035347    8.92142 10.316222        0 ***
 price       -0.104341   0.095776 -1.089428 0.283627    
-income       0.197867   0.029919  6.613411        0 ***
+income       0.197867   0.029919   6.61341        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -6832,7 +6832,7 @@ Instruments: ~income + farmPrice + trend
 (Intercept) 68.282985  11.153002 6.122386    1e-06 ***
 price        0.185084   0.105254  1.75845  0.08767   .
 farmPrice    0.124457   0.025087 4.961019  1.9e-05 ***
-trend        0.197867   0.029919 6.613411        0 ***
+trend        0.197867   0.029919  6.61341        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
