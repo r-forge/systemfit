@@ -2,6 +2,12 @@
 .calcRCov <- function( resids, rcovformula, nObsEq = NULL, nCoefEq = NULL, xEq = NULL,
       diag = FALSE, centered = FALSE, solvetol = .Machine$double.eps ) {
 
+   eqNames <- NULL
+   if( class( resids ) == "data.frame" ) {
+      nObsEq <- rep( nrow( resids ), ncol( resids ) )
+      eqNames <- names( resids )
+      resids <- unlist( resids )
+   }
    nEq <- length( nObsEq )
    residi <- list()
    result <- matrix( 0, nEq, nEq )
@@ -40,6 +46,10 @@
                   "'geomean', 2, 'Theil', 3 or 'max'." ) )
          }
       }
+   }
+   if( !is.null( eqNames ) ) {
+      rownames( result ) <- eqNames
+      colnames( result ) <- eqNames
    }
    return( result )
 }
