@@ -273,6 +273,17 @@ argument & equation \\
 \end{tabular}
 \end{table}
 
+Furthermore, the user can specify
+whether the means should be subtracted from the residuals
+before (\ref{eq:rcov0}), (\ref{eq:rcov1}), (\ref{eq:rcov3}),
+or (\ref{eq:rcov2}) are applied
+to calculate the residual covariance matrix
+(see section~\ref{sec:residcov}).
+The corresponding argument is called \code{centerResiduals}.
+It must be either °\code{TRUE}° (subtract the means) or
+°\code{FALSE}° (take the unmodified residuals).
+The default value of \code{centerResiduals} is °\code{FALSE}°.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{3SLS formula}
