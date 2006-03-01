@@ -101,6 +101,13 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
    If no cross-equation restrictions are imposed, "WSUR" and "W3SLS"
    generate identical results compared to "SUR" and "3SLS", respectively.
 
+   If argument \code{method} is "ITOLS", "ITSUR, "IT2SLS", or "IT3SLS",
+   the maxiter argument is checked to verify the value is greater
+   than one. If the value is greater than one, then the \code{method}
+   argument is converted to "WLS", "WSUR", "W2SLS", or "W3SLS",
+   respectively. This is to facilitate users familar with other
+   statistical packages. 
+   
    The matrix \code{TX} transforms the regressor matrix (\eqn{X}) by
    \eqn{X^{*} = X *} \code{TX}. Thus, the vector of coefficients is now
    \eqn{b =} \code{TX} \eqn{\cdot b^{*}} , where \eqn{b} is the original (stacked) vector
