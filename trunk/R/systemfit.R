@@ -89,60 +89,6 @@ systemfit <- function( method,
   
 ##  print( paste( "method = ", method ) )
   
-  ## Calculate the residual covariance matrix
-   calcRCov <- function( resids, diag = FALSE ) {
-      residi <- list()
-      result <- matrix( 0, G, G )
-      for( i in 1:G ) {
-         residi[[i]] <- resids[ ( 1 + sum(n[1:i]) - n[i] ):( sum(n[1:i]) ) ]
-         residi[[i]] <- residi[[i]] - mean( residi[[i]] )
-      }
-      for( i in 1:G ) {
-         for( j in ifelse( diag, i, 1 ):ifelse( diag, i, G ) ) {
-            if( rcovformula == 0 ) {
-               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) / n[i]
-            } else if( rcovformula == 1 || rcovformula == "geomean" ) {
-               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
-                  sqrt( ( n[i] - ki[i] ) * ( n[j] - ki[j] ) )
-            } else if( rcovformula == 2 || rcovformula == "Theil" ) {
-               #result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
-               #   ( n[i] - ki[i] - ki[j] + sum( diag(
-               #   x[[i]] %*% solve( crossprod( x[[i]] ), tol=solvetol ) %*%
-               #   crossprod( x[[i]], x[[j]]) %*%
-               #   solve( crossprod( x[[j]] ), tol=solvetol ) %*%
-               #   t( x[[j]] ) ) ) )
-               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
-                  ( n[i] - ki[i] - ki[j] + sum( diag(
-                  solve( crossprod( x[[i]] ), tol=solvetol ) %*%
-                  crossprod( x[[i]], x[[j]]) %*%
-                  solve( crossprod( x[[j]] ), tol=solvetol ) %*%
-                  crossprod( x[[j]], x[[i]] ) ) ) )
-
-            } else if( rcovformula == 3 || rcovformula == "max" ) {
-               result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
-                  ( n[i] - max( ki[i], ki[j] ) )
-            } else {
-               stop( paste( "Argument 'rcovformula' must be either 0, 1,",
-                   "'geomean', 2, 'Theil', 3 or 'max'." ) )
-            }
-         }
-      }
-      return( result )
-   }
-
-   ## Calculate Sigma squared
-   calcSigma2 <- function( resids ) {
-      if( rcovformula == 0 ) {
-         result <- sum( resids^2 ) / N
-      } else if( rcovformula == 1 || rcovformula == "geomean" ||
-         rcovformula == 3 || rcovformula == "max") {
-         result <- sum( resids^2 )/ ( N - Ki )
-      } else {
-         stop( paste( "Sigma^2 can only be calculated if argument",
-            "'rcovformula' is either 0, 1, 'geomean', 3 or 'max'" ) )
-      }
-   }
-
 
 
   results <- list()               # results to be returned
