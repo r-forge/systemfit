@@ -43,53 +43,15 @@ systemfit <- function( method,
 {
 
    ## some tests
-##    if(!( method=="OLS" | method=="WLS" | method=="SUR" | method=="WSUR" |
-##          method=="2SLS" | method=="W2SLS" | method=="3SLS" | method=="W3SLS" )){
-##       stop( "The method must be 'OLS', 'WLS', 'SUR', 'WSUR',",
-##          " '2SLS', 'W2SLS', '3SLS', or 'W3SLS'" )
-##    }
-##    if( ( method=="2SLS" | method=="W2SLS" | method=="3SLS" | method=="W3SLS" ) &
-##          is.null(inst) ) {
-##       stop( "The methods '2SLS', 'W2SLS', '3SLS', and 'W3SLS' need instruments!" )
-##    }
-
-  if(!( method=="OLS" | method=="WLS" | method=="ITOLS" |
-       method=="SUR" | method=="WSUR" | method=="ITSUR" |
-       method=="2SLS" | method=="W2SLS" | method=="IT2SLS" |
-       method=="3SLS" | method=="W3SLS" | method=="IT3SLS" ) ) {
-    stop( "The method must be 'OLS', 'WLS', 'SUR', 'WSUR',",
-         " '2SLS', 'W2SLS', '3SLS', 'W3SLS'",
-         " 'ITOLS', 'ITSUR', 'IT2SLS', or 'IT3SLS'" )
-  }
-  
-  if( ( method=="2SLS" |
-       method=="W2SLS" |
-       method=="3SLS" |
-       method=="W3SLS" |
-       method=="IT2SLS" |
-       method=="IT3SLS" ) &
-     is.null(inst) ) {
-    stop( "The methods '2SLS', 'W2SLS', '3SLS', and 'W3SLS' need instruments!" )
-  }
-  
-##  print( paste( "method = ", method ) )
-
-  ## now perform a check to verify that IT methods have a maxiter value > 1
-  if( ( method=="ITOLS" |
-       method=="ITSUR" |
-       method=="IT2SLS" |
-       method=="IT3SLS" ) & maxiter==1 ) {
-    stop( "The methods 'ITOLS', 'ITSUR', 'IT22SLS', and 'IT3SLS' need to have maxiter > 1!" )
-  } else {
-    if( method=="ITOLS" ) method <- "WOLS"
-    if( method=="ITSUR" ) method <- "WSUR"
-    if( method=="IT2SLS" ) method <- "W2SLS"
-    if( method=="IT3SLS" ) method <- "W3SLS"    
-  }
-  
-##  print( paste( "method = ", method ) )
-  
-
+   if(!( method=="OLS" | method=="WLS" | method=="SUR" | method=="WSUR" |
+         method=="2SLS" | method=="W2SLS" | method=="3SLS" | method=="W3SLS" )){
+      stop( "The method must be 'OLS', 'WLS', 'SUR', 'WSUR',",
+         " '2SLS', 'W2SLS', '3SLS', or 'W3SLS'" )
+   }
+   if( ( method=="2SLS" | method=="W2SLS" | method=="3SLS" | method=="W3SLS" ) &
+         is.null(inst) ) {
+      stop( "The methods '2SLS', 'W2SLS', '3SLS', and 'W3SLS' need instruments!" )
+   }
 
   results <- list()               # results to be returned
   results$eq <- list()            # results for the individual equations
