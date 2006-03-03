@@ -1,6 +1,10 @@
-.calcXtOmegaInv <- function( x, sigma, nObsEq, solvetol = 1e-5 ){
+.calcXtOmegaInv <- function( x, sigma, nObsEq, solvetol = 1e-5, invertSigma = TRUE ){
    nEq <- length( nObsEq )
-   sigmaInv <- solve( sigma, tol = solvetol )
+   if( invertSigma ) {
+      sigmaInv <- solve( sigma, tol = solvetol )
+   } else {
+      sigmaInv <- sigma
+   }
    eqSelect <- rep( 0, nrow( x ) )
    for( i in 1:nEq ) {
       eqSelect[ ( sum( nObsEq[ 0:( i - 1 ) ] ) + 1 ):sum( nObsEq[ 1:i ] ) ] <- i

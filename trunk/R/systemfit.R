@@ -361,16 +361,18 @@ systemfit <- function( method,
             sigma = rcov, nObsEq = n, solvetol = solvetol )   # (unrestr.) coeffic.
       }
       if(formula3sls=="GMM") {
+        HtOmega <- .calcXtOmegaInv( x = H, sigma = rcov, nObsEq = n,
+           invertSigma = FALSE )
         if(is.null(R.restr)) {
-          b <- solve(t(X) %*% H %*% solve( t(H) %*% ( rcov %x% diag(1,n[1],n[1])) %*%
+          b <- solve(t(X) %*% H %*% solve( HtOmega %*%
                  H, tol=solvetol) %*% t(H) %*% X, tol=solvetol) %*% t(X) %*% H %*%
-                 solve( t(H) %*% ( rcov %x% diag(1,n[1],n[1])) %*%
+                 solve( HtOmega %*%
                  H, tol=solvetol) %*% t(H) %*% Y  #(unrestr.) coeffic.
         } else {
-          W <- rbind( cbind( t(X) %*% H %*% solve( t(H) %*% ( rcov %x% diag(1,n[1],n[1]))
+          W <- rbind( cbind( t(X) %*% H %*% solve( HtOmega
                               %*% H, tol=solvetol) %*% t(H) %*% X, t(R.restr) ),
                       cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-          V <- rbind( t(X) %*% H %*% solve( t(H) %*% ( rcov %x% diag(1,n[1],n[1]))
+          V <- rbind( t(X) %*% H %*% solve( HtOmega
                       %*% H, tol=solvetol) %*% t(H) %*% Y , q.restr )
           Winv <- solve( W, tol=solvetol )
           b <- ( Winv %*% V )[1:ncol(X)]     # restricted coefficients
@@ -409,8 +411,7 @@ systemfit <- function( method,
     }
     if(formula3sls=="GMM") {
       if(is.null(R.restr)) {
-        bcov <- solve( t(X) %*% H %*% solve( t(H) %*%
-           ( rcov %x% diag( 1, n[1], n[1] ) ) %*% H, tol=solvetol ) %*%
+        bcov <- solve( t(X) %*% H %*% solve( HtOmega %*% H, tol=solvetol ) %*%
            t(H) %*% X, tol=solvetol )
                 # final step coefficient covariance matrix
       } else {
