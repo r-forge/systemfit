@@ -377,16 +377,16 @@ systemfit <- function( method,
         }
       }
       if(formula3sls=="Schmidt") {
-        Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
-              # Omega inverse (= weighting matrix)
+        XftOmegaInv <- .calcXtOmegaInv( x = Xf, sigma = rcov, nObsEq = n,
+           solvetol = solvetol )
         if(is.null(R.restr)) {
-          b <- solve( t(Xf) %*% Oinv %*% Xf, tol=solvetol) %*% ( t(Xf) %*% Oinv
+          b <- solve( t(Xf) %*% t( XftOmegaInv ), tol=solvetol) %*% ( XftOmegaInv
                       %*% H %*% solve( crossprod( H ), tol=solvetol ) %*% crossprod(H, Y) )
                            # (unrestr.) coeffic.
         } else {
-          W <- rbind( cbind( t(Xf) %*% Oinv %*% Xf, t(R.restr) ),
+          W <- rbind( cbind( t(Xf) %*% t( XftOmegaInv ), t(R.restr) ),
                       cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-          V <- rbind( t(Xf) %*% Oinv %*% H %*% solve( crossprod( H ), tol=solvetol ) %*%
+          V <- rbind( XftOmegaInv %*% H %*% solve( crossprod( H ), tol=solvetol ) %*%
                       crossprod( H, Y ), q.restr )
           Winv <- solve( W, tol=solvetol )
           b <- ( Winv %*% V )[1:ncol(X)]     # restricted coefficients
@@ -418,17 +418,17 @@ systemfit <- function( method,
       }
     }
     if(formula3sls=="Schmidt") {
-      Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
-              # Omega inverse (= weighting matrix)
+      XftOmegaInv <- .calcXtOmegaInv( x = Xf, sigma = rcov, nObsEq = n,
+         solvetol = solvetol )
       PH <- H %*%  solve( t(H) %*% H, tol=solvetol ) %*% t(H)
       if(is.null(R.restr)) {
-         bcov <- solve( t(Xf) %*% Oinv %*% Xf, tol=solvetol ) %*%
-            t(Xf) %*% Oinv %*% PH %*% ( rcov %x% diag( 1, n[1], n[1] ) ) %*%
-            PH %*% Oinv %*% Xf %*% solve( t(Xf) %*% Oinv %*% Xf, tol=solvetol )
+         bcov <- solve( XftOmegaInv %*% Xf, tol=solvetol ) %*%
+            XftOmegaInv %*% PH %*% ( rcov %x% diag( 1, n[1], n[1] ) ) %*%
+            PH %*% t( XftOmegaInv ) %*% solve( XftOmegaInv %*% Xf, tol=solvetol )
                   # final step coefficient covariance matrix
       } else {
-         VV <- t(Xf) %*% Oinv %*% PH %*% ( rcov %x% diag( 1, n[1], n[1] ) ) %*%
-            PH %*% Oinv %*% Xf
+         VV <- XftOmegaInv %*% PH %*% ( rcov %x% diag( 1, n[1], n[1] ) ) %*%
+            PH %*% t( XftOmegaInv )
          VV <- rbind( cbind( VV, matrix( 0, nrow( VV ), nrow( R.restr ) ) ),
             matrix( 0, nrow( R.restr ), nrow( VV ) + nrow( R.restr ) ) )
          bcov <- ( Winv %*% VV %*% Winv )[ 1:ncol(X), 1:ncol(X) ]
