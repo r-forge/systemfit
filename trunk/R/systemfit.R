@@ -187,18 +187,9 @@ systemfit <- function( method,
       rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
          nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )               # residual covariance matrix
-      if(is.null(R.restr)) {
-         bcov <- .calcGLS( x = X, sigma = rcov, nObsEq = n, solvetol = solvetol )
+      bcov <- .calcGLS( x = X, R.restr = R.restr, q.restr = q.restr, 
+         sigma = rcov, nObsEq = n, solvetol = solvetol )
                     # coefficient covariance matrix
-      } else {
-         #Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])# Omega inverse
-         Xs <- X * rep( 1 / diag( rcov ), n )
-         #W <- rbind( cbind( t(X) %*% Oinv %*% X, t(R.restr) ),
-         #           cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
-         W <- rbind( cbind( t(Xs) %*% X, t(R.restr) ),
-                    cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
-         bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
-      }
     } else {
       s2 <- .calcSigma2( resids, nObs = N, nCoef = Ki, rcovformula = rcovformula )
                            # sigma squared
@@ -224,26 +215,13 @@ systemfit <- function( method,
       rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
          nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )
-      if(is.null(R.restr)) {
-        b  <- .calcGLS( x = X, y = Y, sigma = rcov, nObsEq = n,
-           solvetol = solvetol ) # coefficients
-      } else {
-        Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
-               # Omega inverse (= weight. matrix)
-        W <- rbind( cbind( t(X) %*% Oinv %*% X, t(R.restr) ),
-                    cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr) )))
-        V <- rbind( t(X) %*% Oinv %*% Y , q.restr )
-        Winv <- solve( W, tol=solvetol )
-        b <- ( Winv %*% V )[1:ncol(X)]     # restricted coefficients
-      }
+      b  <- .calcGLS( x = X, y = Y, R.restr = R.restr, q.restr = q.restr,
+         sigma = rcov, nObsEq = n, solvetol = solvetol ) # coefficients
       bdif <- b-bl # difference of coefficients between this and previous step
     }
-    if(is.null(R.restr)) {
-      bcov <- .calcGLS( x = X, sigma = rcov, nObsEq = n, solvetol = solvetol )
-         # final step coefficient covariance matrix
-    } else {
-      bcov   <- Winv[1:ncol(X),1:ncol(X)]     # coefficient covariance matrix
-    }
+    bcov <- .calcGLS( x = X, R.restr = R.restr, q.restr = q.restr, 
+       sigma = rcov, nObsEq = n, solvetol = solvetol )
+       # final step coefficient covariance matrix
     resids <- Y - X %*% b                        # residuals
     for(i in 1:G) residi[[i]] <- resids[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
   }
@@ -260,26 +238,13 @@ systemfit <- function( method,
       rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
          nCoefEq = ki, xEq = x, centered = centerResiduals,
          solvetol = solvetol )
-      if(is.null(R.restr)) {
-        b  <- .calcGLS( x = X, y = Y, sigma = rcov, nObsEq = n,
-           solvetol = solvetol )          # coefficients
-      } else {
-        Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
-                  # Omega inverse (= weighting matrix)
-        W <- rbind( cbind( t(X) %*% Oinv %*% X, t(R.restr) ),
-                    cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr) )))
-        V <- rbind( t(X) %*% Oinv %*% Y , q.restr )
-        Winv <- solve( W, tol=solvetol )
-        b <- ( Winv %*% V )[1:ncol(X)]     # restricted coefficients
-      }
+      b <- .calcGLS( x = X, y = Y, R.restr = R.restr, q.restr = q.restr, 
+         sigma = rcov, nObsEq = n, solvetol = solvetol )     # coefficients
       bdif <- b-bl  # difference of coefficients between this and previous step
     }
-    if(is.null(R.restr)) {
-      bcov <- .calcGLS( x = X, sigma = rcov, nObsEq = n, solvetol = solvetol )
+    bcov <- .calcGLS( x = X, R.restr = R.restr, q.restr = q.restr, 
+       sigma = rcov, nObsEq = n, solvetol = solvetol )
             # final step coefficient covariance matrix
-    } else {
-      bcov   <- Winv[1:ncol(X),1:ncol(X)]     # coefficient covariance matrix
-    }
     resids <- Y - X %*% b                        # residuals
     for(i in 1:G) residi[[i]] <- resids[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
   }
@@ -339,18 +304,8 @@ systemfit <- function( method,
       rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
          nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )
-      if(is.null(R.restr)) {
-         bcov <- .calcGLS( x = Xf, sigma = rcov, nObsEq = n,
-            solvetol = solvetol )  # coefficient covariance matrix
-      } else {
-         #Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1]) # Omega inverse
-         Xfs <- Xf * rep( 1 / diag( rcov ), n )
-         #W <- rbind( cbind( t(Xf) %*% Oinv %*% Xf, t(R.restr) ),
-         #           cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
-         W <- rbind( cbind( t(Xfs) %*% Xf, t(R.restr) ),
-                    cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
-         bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
-      }
+      bcov <- .calcGLS( x = Xf, R.restr = R.restr, q.restr = q.restr, 
+         sigma = rcov, nObsEq = n, solvetol = solvetol )  # coefficient covariance matrix
     } else {
       s2 <- .calcSigma2( resids, nObs = N, nCoef = Ki, rcovformula = rcovformula )
                            # sigma squared
@@ -376,26 +331,12 @@ systemfit <- function( method,
       rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
          nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )
-      if(is.null(R.restr)) {
-        b <- .calcGLS( x = Xf, y = Y, sigma = rcov, nObsEq = n,
-           solvetol = solvetol )          # (unrestr.) coeffic.
-      } else {
-        Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
-               # Omega inverse(= weight. matrix)
-        W <- rbind( cbind( t(Xf) %*% Oinv %*% Xf, t(R.restr) ),
-                    cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-        V <- rbind( t(Xf) %*% Oinv %*% Y , q.restr )
-        Winv <- solve( W, tol=solvetol )
-        b <- ( Winv %*% V )[1:ncol(X)]    # restricted coefficients
-      }
+      b <- .calcGLS( x = Xf, y = Y, R.restr = R.restr, q.restr = q.restr, 
+         sigma = rcov, nObsEq = n, solvetol = solvetol )          # (unrestr.) coeffic.
       bdif <- b - bl # difference of coefficients between this and previous step
     }
-    if(is.null(R.restr)) {
-      bcov <- .calcGLS( x = Xf, sigma = rcov, nObsEq = n,
-         solvetol = solvetol )                # coefficient covariance matrix
-    } else {
-      bcov   <- Winv[1:ncol(X),1:ncol(X)]     # coefficient covariance matrix
-    }
+    bcov <- .calcGLS( x = Xf, R.restr = R.restr, q.restr = q.restr, 
+       sigma = rcov, nObsEq = n, solvetol = solvetol )  # coefficient covariance matrix
     resids <- Y - X %*% b                        # residuals
     for(i in 1:G) residi[[i]] <- resids[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
   }
@@ -412,32 +353,12 @@ systemfit <- function( method,
       rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
          nCoefEq = ki, xEq = x, centered = centerResiduals, solvetol = solvetol )
       if(formula3sls=="GLS") {
-        if(is.null(R.restr)) {
-          b <- .calcGLS( x = Xf, y = Y, sigma = rcov, nObsEq = n,
-             solvetol = solvetol )           # (unrestr.) coeffic.
-        } else {
-          Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
-              # Omega inverse (= weighting matrix)
-          W <- rbind( cbind( t(Xf) %*% Oinv %*% Xf, t(R.restr) ),
-                      cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-          V <- rbind( t(Xf) %*% Oinv %*% Y , q.restr )
-          Winv <- solve( W, tol=solvetol )
-          b <- ( Winv %*% V )[1:ncol(X)]     # restricted coefficients
-        }
+         b <- .calcGLS( x = Xf, y = Y, R.restr = R.restr, q.restr = q.restr, 
+            sigma = rcov, nObsEq = n, solvetol = solvetol )  # (unrestr.) coeffic.
       }
       if(formula3sls=="IV") {
-        if(is.null(R.restr)) {
-          b <- .calcGLS( x = Xf, x2 = X, y = Y, sigma = rcov, nObsEq = n,
-             solvetol = solvetol )           # (unrestr.) coeffic.
-        } else {
-          Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
-              # Omega inverse (= weighting matrix)
-          W <- rbind( cbind( t(Xf) %*% Oinv %*% X, t(R.restr) ),
-                      cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-          V <- rbind( t(Xf) %*% Oinv %*% Y , q.restr )
-          Winv <- solve( W, tol=solvetol )
-          b <- ( Winv %*% V )[1:ncol(X)]     # restricted coefficients
-        }
+         b <- .calcGLS( x = Xf, x2 = X, y = Y, R.restr = R.restr, q.restr = q.restr, 
+            sigma = rcov, nObsEq = n, solvetol = solvetol )   # (unrestr.) coeffic.
       }
       if(formula3sls=="GMM") {
         if(is.null(R.restr)) {
@@ -472,36 +393,19 @@ systemfit <- function( method,
         }
       }
       if(formula3sls=="EViews") {
-        if(is.null(R.restr)) {
-          b  <- b2 + .calcGLS( x = Xf, y = ( Y -  X %*% b2 ), sigma = rcov,
-             nObsEq = n, solvetol = solvetol )  # (unrestr.) coeffic.
-        } else {
-          Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
-              # Omega inverse (= weighting matrix)
-          W <- rbind( cbind( t(Xf) %*% Oinv %*% Xf, t(R.restr) ),
-                      cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-          V <- rbind( t(Xf) %*% Oinv %*% (Y -  X %*% b2) , q.restr )
-          Winv <- solve( W, tol=solvetol )
-          b <- b2 + ( Winv %*% V )[1:ncol(X)]     # restricted coefficients
-        }
+         b <- b2 + .calcGLS( x = Xf, y = ( Y -  X %*% b2 ), 
+            R.restr = R.restr, q.restr = q.restr, sigma = rcov,
+            nObsEq = n, solvetol = solvetol )  # (unrestr.) coeffic.
       }
       bdif <- b - bl # difference of coefficients between this and previous step
     }
     if(formula3sls=="GLS") {
-      if(is.null(R.restr)) {
-        bcov <- .calcGLS( x = Xf, sigma = rcov, nObsEq = n,
-           solvetol = solvetol )            # coefficient covariance matrix
-      } else {
-        bcov   <- Winv[1:ncol(X),1:ncol(X)] # coefficient covariance matrix
-      }
+       bcov <- .calcGLS( x = Xf, R.restr = R.restr, q.restr = q.restr, 
+          sigma = rcov, nObsEq = n, solvetol = solvetol )  # coefficient covariance matrix
     }
     if(formula3sls=="IV") {
-      if(is.null(R.restr)) {
-        bcov <- .calcGLS( x = Xf, x2 = X, sigma = rcov, nObsEq = n,
-           solvetol = solvetol )   # final step coefficient covariance matrix
-      } else {
-        bcov   <- Winv[1:ncol(X),1:ncol(X)] # coefficient covariance matrix
-      }
+       bcov <- .calcGLS( x = Xf, x2 = X, R.restr = R.restr, q.restr = q.restr, 
+          sigma = rcov, nObsEq = n, solvetol = solvetol )   
     }
     if(formula3sls=="GMM") {
       if(is.null(R.restr)) {
@@ -532,18 +436,8 @@ systemfit <- function( method,
       }
     }
     if(formula3sls=="EViews") {
-      if(is.null(R.restr)) {
-        bcov <- .calcGLS( x = Xf, sigma = rcov, nObsEq = n,
-           solvetol = solvetol )  # final step coefficient covariance matrix
-      } else {
-        Oinv <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])
-              # Omega inverse (= weighting matrix)
-        W <- rbind( cbind( t(Xf) %*% Oinv %*% Xf, t(R.restr) ),
-          cbind( R.restr, matrix( 0, nrow( R.restr ), nrow( R.restr ))))
-        V <- rbind( t(Xf) %*% Oinv %*% Y , q.restr )
-        bcov <- solve( W, tol=solvetol )[1:ncol(X),1:ncol(X)]
-                # coefficient covariance matrix
-      }
+       bcov <- .calcGLS( x = Xf, R.restr = R.restr, q.restr = q.restr, 
+          sigma = rcov, nObsEq = n, solvetol = solvetol )  # final step coefficient covariance matrix
     }
     resids <- Y - X %*% b                        # residuals
   }

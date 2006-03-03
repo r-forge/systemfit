@@ -4910,7 +4910,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.937766 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
-SSR: 138.087514 MSE: 8.63047 Root MSE: 2.937766 
+SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
