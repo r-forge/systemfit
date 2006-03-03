@@ -422,13 +422,15 @@ systemfit <- function( method,
       XftOmegaInv <- .calcXtOmegaInv( x = Xf, sigma = rcov, nObsEq = n,
          solvetol = solvetol )
       PH <- H %*%  solve( t(H) %*% H, tol=solvetol ) %*% t(H)
+      PHOmega <- .calcXtOmegaInv( x = t( PH ), sigma = rcov, nObsEq = n,
+           invertSigma = FALSE )
       if(is.null(R.restr)) {
          bcov <- solve( XftOmegaInv %*% Xf, tol=solvetol ) %*%
-            XftOmegaInv %*% PH %*% ( rcov %x% diag( 1, n[1], n[1] ) ) %*%
+            XftOmegaInv %*% PHOmega %*%
             PH %*% t( XftOmegaInv ) %*% solve( XftOmegaInv %*% Xf, tol=solvetol )
                   # final step coefficient covariance matrix
       } else {
-         VV <- XftOmegaInv %*% PH %*% ( rcov %x% diag( 1, n[1], n[1] ) ) %*%
+         VV <- XftOmegaInv %*% PHOmega %*%
             PH %*% t( XftOmegaInv )
          VV <- rbind( cbind( VV, matrix( 0, nrow( VV ), nrow( R.restr ) ) ),
             matrix( 0, nrow( R.restr ), nrow( VV ) + nrow( R.restr ) ) )
