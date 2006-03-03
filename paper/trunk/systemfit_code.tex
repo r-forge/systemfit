@@ -83,10 +83,26 @@ by \code{crossprod(X)} or \code{crossprod(X, y)}
 instead of \code{t(X) \%*\% X} or \code{t(X) \%*\% y},
 respectively.
 
-To calculate $\Omega^{-1}$ in sections~\ref{sec:Estimation}
-and~\ref{sec:Restrictions} it is not necessary to invert
-the (huge) $\Omega$ matrix,
-because it is sufficient to invert the (small) $\Sigma$ matrix and
-calculate it by $\Omega^{-1} = \Sigma^{-1} \otimes I$
-\citep[p.\ 342]{greene03}.
+The matrix $\Omega^{-1}$ that is used to compute the estimated
+coefficients and their covariance matrix is of size
+$( G \cdot T ) \times ( G \cdot T )$
+(see sections~\ref{sec:Estimation} and~\ref{sec:Restrictions}).
+In case of large data sets, this matrix $\Omega^{-1}$ gets really huge
+and needs a lot of memory.
+Therefore, we use the following transformation and compute $X' \Omega^{-1}$
+by deviding the $X$ matrix into submatrices,
+doing some calculations with these submatrices,
+adding up some of these submatrices, and
+finally putting the submatrices together:
+\begin{equation}
+X' \Omega^{-1}
+%= X' \left( \Sigma^{-1} \otimes I \right)
+= \sum_{i=1} \left[
+   {X^1}' \sigma^{1i} \quad {X^2}' \sigma^{2i}
+   \quad \cdots \quad  \quad {X^G}' \sigma^{Gi}
+\right]
+\end{equation}
+where $\sigma^{ij}$ are the elements of the matrix $\Sigma^{-1}$,
+and $X^i$ is a submatrix of $X$ that contains the rows
+that belong to the $i$'s equation.
 
