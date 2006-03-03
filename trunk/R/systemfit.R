@@ -187,13 +187,12 @@ systemfit <- function( method,
       rcov <- .calcRCov( resids, rcovformula = rcovformula, nObsEq = n,
          nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )               # residual covariance matrix
-      #Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])# Omega inverse
-      Xs <- X * rep( 1 / diag( rcov ), n )
       if(is.null(R.restr)) {
-         #bcov   <- solve( t(X) %*% Oinv %*% X, tol=solvetol )
-         bcov <- solve( t( Xs ) %*% X, tol=solvetol )
+         bcov <- .calcGLS( x = X, sigma = rcov, nObsEq = n, solvetol = solvetol )
                     # coefficient covariance matrix
       } else {
+         #Oinv   <- solve( rcov, tol=solvetol ) %x% diag(1,n[1],n[1])# Omega inverse
+         Xs <- X * rep( 1 / diag( rcov ), n )
          #W <- rbind( cbind( t(X) %*% Oinv %*% X, t(R.restr) ),
          #           cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
          W <- rbind( cbind( t(Xs) %*% X, t(R.restr) ),
