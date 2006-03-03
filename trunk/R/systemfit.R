@@ -594,11 +594,32 @@ systemfit <- function( method,
       nCoefEq = ki, xEq = x, centered = centerResiduals, solvetol = solvetol )
   drcov <- det(rcov, tol=solvetol)
   if( !saveMemory ) {
-      mcelr2 <- 1 - ( t(resids) %*% ( solve(rcov, tol=solvetol) %x%
-                diag(1, n[1],n[1])) %*% resids ) /
-                ( t(Y) %*% ( solve(rcov, tol=solvetol ) %x%
-                ( diag(1,n[1],n[1] ) - rep(1,n[1]) %*%
-                t(rep(1,n[1])) / n[1] )) %*% Y )   # McElroy's (1977a) R2
+#       # original formula from McElroy (1977)
+#       mcelr2 <- 1 - ( t(resids) %*% ( solve(rcov, tol=solvetol) %x%
+#                 diag(1, n[1],n[1])) %*% resids ) /
+#                 ( t(Y) %*% ( solve(rcov, tol=solvetol ) %x%
+#                 ( diag(1,n[1],n[1] ) - rep(1,n[1]) %*%
+#                 t(rep(1,n[1])) / n[1] )) %*% Y )   # McElroy's (1977a) R2
+      # first formula from Greene (2003, p. 345) (numerator modified to save memory)
+      rtOmega <- .calcXtOmegaInv( x = resids, sigma = rcov, nObsEq = n,
+         solvetol = solvetol )
+      yCov <- .calcRCov( Y, rcovformula = 0, nObsEq = n, centered = TRUE,
+         solvetol = solvetol )
+      residCovInv <- solve( rcov, tol = solvetol )
+      denominator <- 0
+      for( i in 1:G ) {
+         for( j in 1:G ) {
+            denominator <- denominator + residCovInv[ i, j ] * yCov[ i, j ] * n[1]
+         }
+      }
+      mcelr2 <- 1 - ( rtOmega %*% resids ) / denominator
+#       # second formula from Greene (2003, p. 345)
+#        yCov <- sum(diag(.calcRCov( Y, rcovformula = 0, nObsEq = n, centered = TRUE,
+#           solvetol = solvetol )))
+#        yCov <- drop( t(Y-mean(Y)) %*% (Y-mean(Y)) / sum(n) )
+#       yCov <- .calcRCov( Y, rcovformula = 1, nObsEq = n, nCoefEq=rep(1,G), 
+#          centered = TRUE, solvetol = solvetol )
+#        mcelr2 <- 1 - G / sum( diag( solve( rcov, tol = solvetol ) * yCov ) )
   } else {
      mcelr2 <- NA
   }
