@@ -97,10 +97,12 @@ finally putting the submatrices together:
 \begin{equation}
 X' \Omega^{-1}
 %= X' \left( \Sigma^{-1} \otimes I \right)
-= \sum_{i=1} \left[
-   {X^1}' \sigma^{1i} \quad {X^2}' \sigma^{2i}
-   \quad \cdots \quad  \quad {X^G}' \sigma^{Gi}
-\right]
+= \sum_{i=1} \left[ \begin{array}{c}
+   \sigma^{1i} {X^1} \\
+   \sigma^{2i} {X^2} \\
+   \vdots \\
+   \sigma^{Gi} {X^G} \\
+\end{array} \right]'
 \end{equation}
 where $\sigma^{ij}$ are the elements of the matrix $\Sigma^{-1}$,
 and $X^i$ is a submatrix of $X$ that contains the rows
