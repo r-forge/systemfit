@@ -1,0 +1,70 @@
+\documentclass[12pt,DIV20,abstracton]{scrartcl}
+
+\usepackage{Sweave}
+\usepackage{hyperref}
+\usepackage[pdftex]{thumbpdf}
+%   run: pdflatex *.tex -> thumbpdf *.tex -> pdflatex *.tex
+\usepackage{csquotes}
+\MakeOuterQuote{°}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{natbib}
+\usepackage{url}
+\usepackage{color}
+
+\definecolor{Red}{rgb}{0.7,0,0}
+\definecolor{Blue}{rgb}{0,0,0.8}
+\hypersetup{%
+   colorlinks = {true},
+   linktocpage = {true},
+   plainpages = {false},
+   linkcolor = {Blue},
+   citecolor = {Blue},
+   urlcolor = {Red},
+   pdfstartview = {Fit},
+   pdfpagemode = {UseOutlines},
+   pdfauthor = {Arne Henningsen and Jeff D. Hamann},
+   pdftitle = {systemfit: A Package to Estimate Simultaneous Equation Systems in R},
+   pdfkeywords = {R, simultaneous equations systems,
+      seemingly unrelated regression, two-stage least squares,
+      three-stage least squares}
+}
+
+
+\newcommand{\Cov}{\text{Cov}}
+\let\Abstract=\abstract
+\newcommand{\Keywords}{\textbf{Keywords}: \textit }
+\newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
+\let\proglang=\textsf
+\let\code=\texttt
+
+\clubpenalty=10000
+\widowpenalty=10000
+
+\hyphenation{sys-tem-fit}
+
+\author{Arne Henningsen, University of Kiel \\
+        Jeff D. Hamann, Forest Informatics, Inc.} 
+        
+\title{systemfit: A Package to Estimate\\
+       Simultaneous Equation Systems in \proglang{R}}
+
+
+\begin{document}
+
+\maketitle
+
+\input{systemfit_abstract.tex}
+\input{systemfit_intro.tex}
+\input{systemfit_statistics.tex}
+\input{systemfit_code.tex}
+\input{systemfit_usage.tex}
+\input{systemfit_reliability.tex}
+\input{systemfit_summary.tex}
+
+
+\bibliographystyle{jss}
+\bibliography{systemfit}
+
+
+\end{document}
