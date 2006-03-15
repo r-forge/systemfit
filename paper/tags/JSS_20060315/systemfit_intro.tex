@@ -1,0 +1,81 @@
+
+%       $Id$    
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Many theoretical models that are econometrically estimated
+consist of more than one equation.
+The disturbance terms of these equations are likely
+to be contemporaneously correlated,
+because unconsidered factors
+that influence the disturbance term in one equation
+probably influence the disturbance terms in other equations.
+Ignoring this contemporaneous correlation
+and estimating these equations separately
+leads to inefficient parameter estimates.
+However, estimating all equations simultaneously,
+taking the covariance structure of the residuals into account,
+leads to efficient estimates.
+This estimation procedure is generally called
+°Seemingly Unrelated Regression° (SUR) \citep{zellner62}.
+Another reason to estimate an equation system simultaneously are
+cross-equation parameter restrictions.%
+\footnote{
+Especially the economic theory suggests many cross-equation parameter
+restrictions (e.g.\ the symmetry restriction in demand models).
+}
+These restrictions can be tested and/or imposed only in a simultaneous
+estimation approach.
+
+Furthermore, these models can contain variables
+that appear on the left-hand side in one equation
+and on the right-hand side of another equation.
+Ignoring the endogeneity of these variables can lead to inconsistent
+parameter estimates.
+This simultaneity bias can be corrected for in each equation by
+applying a °Two-Stage Least Squares° (2SLS) method or for all
+equations simultaneously when combined with SUR resulting in a
+°Three-Stage Least Squares° (3SLS) estimation of the system of
+equations.
+
+
+% For all of the methods developed in the package, the disturbances of
+% the individual equations are assumed to be independent and identically
+% distributed (iid).  
+% In the future, we would like to add the ability to fit equations were
+% the disturbances are serially correlated (wikins 1969).
+
+The \pkg{systemfit} package provides the capability to estimate
+linear equation systems in \proglang{R}
+\citep{r-project}.
+Although linear equation systems can be estimated
+with several other statistical and econometric software packages
+(e.g.\ \proglang{SAS}, \proglang{EViews}, \proglang{TSP}),
+\pkg{systemfit} has several advantages.
+First, all estimation procedures are publicly available in the source code.
+Second, the estimation algorithms can be easily modified to meet specific
+requirements.
+Third, the (advanced) user can control estimation details generally
+not available in other software packages by overriding reasonable defaults.
+
+% This paper is organized as follows:
+In Section~\ref{sec:statistics} we introduce the statistical
+background of estimating equation systems.
+The implementation of the statistical procedures in \proglang{R} is
+shortly explained in Section~\ref{sec:code}.
+Section~\ref{sec:Usage} demonstrates how to run
+\pkg{systemfit} and how some of the features presented in the previous
+section can be utilized.
+In Section~\ref{sec:reliability} the reliability of the results from
+\pkg{systemfit} are presented.
+Finally, a summary and outlook are presented in
+Section~\ref{sec:Summmary}.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "systemfit"
+%%% End: 

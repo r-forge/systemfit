@@ -1,0 +1,99 @@
+
+%       $Id$    
+
+
+\documentclass[article]{jss}
+\usepackage[pdftex]{thumbpdf}
+%   run: pdflatex *.tex -> thumbpdf *.tex -> pdflatex *.tex
+\usepackage{csquotes}
+\MakeOuterQuote{°}
+\usepackage{amsmath}
+\usepackage{float}
+
+\usepackage{lineno}
+
+\linenumbers
+
+\newcommand{\Cov}{\text{Cov}}
+\clubpenalty=10000
+\widowpenalty=10000
+
+\hyphenation{sys-tem-fit}
+
+\author{Arne Henningsen\\University of Kiel\And
+        Jeff D. Hamann\\ Forest Informatics, Inc. }
+        
+\title{systemfit: A Package to Estimate\\
+       Simultaneous Equation Systems in \proglang{R}}
+
+%% for pretty printing and a nice hypersummary also set:
+\Plainauthor{Arne Henningsen, Jeff D.\ Hamann} %% comma-separated
+\Plaintitle{systemfit: A Package to Estimate Simultaneous Equation Systems 
+            in R} %% without formatting
+\Shorttitle{systemfit} %% a short title (if necessary)
+
+%% an abstract and keywords
+\input{systemfit_abstract.tex}
+
+
+%% publication information
+%% NOTE: This needs to filled out ONLY IF THE PAPER WAS ACCEPTED.
+%% If it was not (yet) accepted, leave them commented.
+%% \Volume{13}
+%% \Issue{9}
+%% \Month{September}
+%% \Year{2006}
+%% \Submitdate{2006-02-28}
+%% \Acceptdate{2006-09-29}
+
+%% The address of (at least) one author should be given
+%% in the following format:
+\Address{
+   Arne Henningsen\\
+   Department of Agricultural Economics\\
+   University of Kiel\\
+   D-24098 Kiel, Germany\\
+   E-mail: \email{ahenningsen@agric-econ.uni-kiel.de}\\
+   URL: \url{http://www.uni-kiel.de/agrarpol/ahenningsen/}\\
+   \\
+   Jeff D.\ Hamann\\
+   Forest Informatics, Inc.\\
+   PO Box 1421\\
+   Corvallis, Oregon 97339-1421\\
+   e-mail: \email{jeff.hamann@forestinformatics.com}\\
+   URL: \url{http://www.forestinformatics.com}\\
+}
+%% It is also possible to add a telephone and fax number
+%% before the e-mail in the following format:
+%% Telephone: +43/1/31336-5053
+%% Fax: +43/1/31336-734
+
+%% for those who use Sweave please include the following line (with % symbols):
+%% need no \usepackage{Sweave.sty}
+
+%% end of declarations %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\input{systemfit_intro.tex}
+\input{systemfit_statistics.tex}
+\input{systemfit_code.tex}
+\input{systemfit_usage.tex}
+\input{systemfit_reliability.tex}
+\input{systemfit_summary.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{systemfit} % a subset of my big bibtex file
+%\bibliography{/home/suapm095/Documents/Literatur/arne}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\end{document}
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: t
+%%% End: 
+
