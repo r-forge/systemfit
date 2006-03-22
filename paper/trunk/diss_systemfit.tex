@@ -1,0 +1,42 @@
+\renewcommand{\input}[1]{\inputOrig{../../Econometrics/R/systemfit/jss-article/#1}}
+\newcommand{\Cov}{\text{Cov}}
+\let\Abstract=\abstract
+\newcommand{\Keywords}{\textbf{Keywords}: \textit }
+\newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
+\let\proglang=\textsf
+\let\code=\texttt
+\hyphenation{sys-tem-fit}
+\selectlanguage{ngerman}
+
+\title[%
+systemfit: Simultaneous Equation Systems in R
+]{%
+systemfit: A Package to Estimate
+Simultaneous Equation Systems in \proglang{R}
+}
+
+\author{%
+Arne Henningsen und Jeff D. Hamann
+}
+
+\publication{%
+zur Veröffentlichung eingereicht beim:
+Journal of Statistical Software
+(am 15.3.2006)
+}
+
+\clearpage
+\selectlanguage{english}
+
+
+\input{systemfit_abstract.tex}
+\input{systemfit_intro.tex}
+\input{systemfit_statistics.tex}
+\input{systemfit_code.tex}
+\input{systemfit_usage.tex}
+\input{systemfit_reliability.tex}
+\input{systemfit_summary.tex}
+
+
+\bibliographystyle{jss}
+\bibliography{systemfit}
