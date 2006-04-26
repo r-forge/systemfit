@@ -7,7 +7,7 @@ In this section we test the reliability of the results from
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Kmenta (1986): Example on p. 685 (food market)}
+\subsection{Kmenta (1986): Example on p.\ 685 (food market)}
 
 First, we reproduce an example taken from \citet[p.~685]{kmenta86}.
 The data are available from Table~13-1 (p.~687),
@@ -64,7 +64,7 @@ is so small that it empirically doesn't matter.
 \subsection{Greene (2003): Example 15.1 (Klein's model I)}
 
 Second, we try to replicate Klein's Model I \citep{klein50}
-that is described in \citet[pp.~381]{greene03}.
+that is described in \citet[p.~381]{greene03}.
 The data are available from the online complements to \citet{greene03},
 Table~F15.1
 (\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}),
@@ -120,7 +120,7 @@ where only the last digit is different.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Theil (1971): Example on p. 295 (General Electric and Westinghouse)}
+\subsection{Theil (1971): Example on p.\ 295 (General Electric and Westinghouse)}
 
 Third, we estimate an example taken from \citet[p.~295]{theil71}
 that is based on \citet{grunfeld58}.
