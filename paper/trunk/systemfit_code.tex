@@ -33,7 +33,7 @@ Furthermore, the user can control several details of the estimation.
 For instance, the
 formula to calculate the residual covariance matrix
 (see section~\ref{sec:residcov}),
-the degrees of freedom for the t-tests
+the degrees of freedom for the $t$ tests
 (see section~\ref{sec:degreesOfFreedom}), or
 the formula for the 3SLS estimation
 (see sections~\ref{sec:Estimation} and~\ref{sec:Restrictions})
@@ -69,7 +69,7 @@ estimated parameters.
 On the other hand, the function \code{hausman.systemfit}
 tests the consistency of the 3SLS estimator.
 All functions return the empirical test statistic,
-the degree(s) of freedom, and the p-value.
+the degree(s) of freedom, and the $p$ value.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -77,9 +77,9 @@ the degree(s) of freedom, and the p-value.
 We have followed \cite{bates04} to make the code faster and more stable.
 First, if a formula contains an inverse of a matrix
 that is post-multiplied by a vector,
-we use \code{solve(A, b)} instead of \code{solve(A) \%*\% b}.
+we use \code{solve(A,b)} instead of \code{solve(A) \%*\% b}.
 Second, we calculate crossproducts
-by \code{crossprod(X)} or \code{crossprod(X, y)}
+by \code{crossprod(X)} or \code{crossprod(X,y)}
 instead of \code{t(X) \%*\% X} or \code{t(X) \%*\% y},
 respectively.
 
@@ -90,7 +90,7 @@ $( G \cdot T ) \times ( G \cdot T )$
 In case of large data sets, this matrix $\Omega^{-1}$ gets really huge
 and needs a lot of memory.
 Therefore, we use the following transformation and compute $X' \Omega^{-1}$
-by deviding the $X$ matrix into submatrices,
+by dividing the $X$ matrix into submatrices,
 doing some calculations with these submatrices,
 adding up some of these submatrices, and
 finally putting the submatrices together:

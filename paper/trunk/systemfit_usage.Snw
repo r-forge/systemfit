@@ -38,12 +38,12 @@ starts with a dependent variable on the left hand side.
 After a tilde ($\sim$) the regressors are listed,
 separated by plus signs%
 \footnote{
-For Details see the \proglang{R} help files to \code{formula}.
+For details see the \proglang{R} help files to \code{formula}.
 }.
 
 The following demonstration uses an example taken from
 \citet[p.\ 685]{kmenta86}.
-We want to estimate a small model of US the food market:
+We want to estimate a small model of the US food market:
 \begin{align}
 \texttt{consump} & = \beta_1 + \beta_2 * \texttt{price}
    + \beta_3 * \texttt{income} \\
@@ -97,7 +97,7 @@ If the model is estimated by (W)SUR or (W)3SLS,
 the covariance matrix used for estimation is printed additionally.
 Finally, the estimation results of each equation are reported:
 formula of the estimated equation,
-estimated parameters, their standard errors, t-values, p-values
+estimated parameters, their standard errors, $t$ values, $p$ values
 and codes indicating their statistical significance,
 and some other statistics like
 standard error of the residuals or
@@ -227,7 +227,7 @@ The estimation methods WLS, SUR, W2SLS and 3SLS need a
 covariance matrix of the residuals
 that can be calculated from a first-step OLS or 2SLS estimation
 (see section~\ref{sec:residcov}).
-If the argument \code{maxiter} is set to a number large than one,
+If the argument \code{maxiter} is set to a number larger than one,
 this procedure is iterated and at each iteration the covariance
 matrix is calculated from the previous step estimation.
 This iteration is repeated until the maximum number of iterations
@@ -318,9 +318,9 @@ argument           & equation       & equation \\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Degrees of freedom for t-tests}
+\subsubsection[Degrees of freedom for t tests]{Degrees of freedom for $\boldsymbol{t}$ tests}
 There exist two different approaches to determine the degrees of freedom
-to perform t-tests on the estimated parameters
+to perform $t$ tests on the estimated parameters
 (section~\ref{sec:degreesOfFreedom}).
 This can be specified with argument \code{probdfsys}.
 If it is \code{TRUE},
@@ -438,7 +438,7 @@ can be used with \code{systemfitClassic}, too.
 \subsection{Testing linear restrictions}
 
 As described in section~\ref{sec:testingRestrictions},
-linear restrictions can be tested by an F test, Wald test or
+linear restrictions can be tested by an $F$ test, Wald test or
 LR test.
 The corresponding functions in package \pkg{systemfit} are
 \code{ftest.systemfit}, \code{waldtest.systemfit}, and
@@ -454,7 +454,7 @@ waldtest.systemfit( fitsur, Rmat, qvec )
 
 lrtest.systemfit( fitsurRmat, fitsur )
 @
-The linear restrictions are tested by an F test first,
+The linear restrictions are tested by an $F$ test first,
 then by a Wald test, and finally by an LR test.
 The functions \code{ftest.systemfit} and \code{waldtest.systemfit}
 have three arguments.
@@ -468,8 +468,8 @@ regression returned by \code{systemfit}.
 
 All tests print a short explanation first.
 Then the empirical test statistic and the degree(s) of freedom are reported.
-Finally the p-value is printed.
-While there is some variation of the p-values across
+Finally the $p$ value is printed.
+While there is some variation of the $p$ values across
 the three different tests,
 all tests suggest the same decision:
 The null hypothesis $\beta_2 = -\beta_6$ cannot be rejected at any
@@ -501,7 +501,7 @@ The Hausman test statistic is
 which has a $\chi^2$ distribution
 with \Sexpr{hausmantest$parameter} degrees of freedom
 under the null hypothesis.
-The corresponding p-value is
+The corresponding $p$ value is
 \Sexpr{round( hausmantest$p.value, digits = 3 )}.
 This shows that the null hypothesis is not rejected
 at any reasonable level of significance.

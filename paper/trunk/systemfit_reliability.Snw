@@ -16,7 +16,7 @@ and the results are presented in Table~13-2 (p.~712) of this book.
 Before starting the estimation,
 we load the data and specify the two formulas to estimate
 as well as the instrumental variables.
-Then the equation system ist estimated by OLS, 2SLS, 3SLS, and
+Then the equation system is estimated by OLS, 2SLS, 3SLS, and
 iterated 3SLS.
 After each estimation the estimated coefficients are reported.
 <<echo=FALSE>>=
@@ -57,7 +57,7 @@ except for two minor exemptions.
 Two standard errors of the 2SLS estimation deviate by $0.0001$.
 However, this difference is likely due to rounding errors
 in \code{systemfit} or \citet{kmenta86} and
-is so small that it empirically doesn't matter.
+is so small that it empirically does not matter.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -72,7 +72,7 @@ and the estimation results are presented in Table~15.3 (p.~412).
 
 Initially, the data are loaded and three equations
 as well as the instrumental variables are specified.
-As in the example before, the equation system ist estimated by
+As in the example before, the equation system is estimated by
 OLS, 2SLS, 3SLS, and iterated 3SLS, and
 estimated coefficients of each estimation are reported.
 <<>>=
@@ -164,7 +164,7 @@ and the estimation results are presented in Tables~14.1
 and~14.2 (p.~351).
 
 First, we load the data and specify the formula to estimate.
-Then, the systems is estimated by OLS, pooled OLS, SUR, and pooled SUR.
+Then, the system is estimated by OLS, pooled OLS, SUR, and pooled SUR.
 Immediately after each estimation, the estimated coefficients are reported.
 Furthermore, the $\sigma^2$ values of the OLS estimations, and
 the residual covariance matrix as well as the residual correlation matrix

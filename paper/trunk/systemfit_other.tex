@@ -72,7 +72,7 @@ Hence, °it is doubtful whether [this formula] is really superior to
 [(\ref{eq:rcov0})]° \citep[p.\ 322]{theil71}.
 
 
-The WLS, SUR, W2SLS and 3SLS parameter estimates are consistent,
+The WLS, SUR, W2SLS and 3SLS parameter estimates are consistent
 if the estimated residual covariance matrix is calculated
 using the residuals from a first-step OLS or 2SLS estimation.
 There exists also an alternative slightly different approach.%
@@ -116,7 +116,7 @@ for $\widehat{u}_i$ in (\ref{eq:rcov0}--\ref{eq:rcov2}).
 \label{sec:degreesOfFreedom}
 
 To our knowledge the question about how to determine the degrees
-of freedom for single-parameter t-tests is not comprehensively
+of freedom for single-parameter $t$ tests is not comprehensively
 discussed in the literature.
 While sometimes the degrees of freedom of the entire system
 (total number of observations in all equations minus
@@ -126,7 +126,7 @@ in other cases the degrees of freedom of each single equation
 (number of observations in the equations minus
 number of estimated parameters in the equation)
 are used.
-Asymptotically, this distinction doesn't make a difference.
+Asymptotically, this distinction does not make a difference.
 However, in many empirical applications, the number of observations
 of each equation is rather small, and
 therefore, it matters.
@@ -138,7 +138,7 @@ the estimated parameters and their standard errors are identical
 to an equation-wise OLS estimation.
 In this case, it is reasonable to use the degrees of freedom of
 each single equation,
-because this yields the same p-values as the equation-wise
+because this yields the same $p$ values as the equation-wise
 OLS estimation.
 
 In contrast, if a system of equations is estimated with many
@@ -147,7 +147,7 @@ the covariance matrix of an OLS estimation is calculated
 by~(\ref{eq:olsCovSameSigma}),
 the system estimation is similar to a single equation estimation.
 Therefore, in this case, it seems to be reasonable to use the degrees
-of freedom of whole system.
+of freedom of the entire system.
 
 
 
@@ -180,10 +180,10 @@ $i$ is a column vector of $T$ ones.
 \subsection{Testing linear restrictions}
 \label{sec:testingRestrictions}
 
-Linear restrictions can be tested by an F test, Wald test or
-likelihood-ratio (LR) test.
+Linear restrictions can be tested by an $F$ test, Wald test or
+likelihood ratio (LR) test.
 
-The F-statistic for systems of equations is
+The $F$ statistic for systems of equations is
 \begin{equation}
 F = \frac{
    ( R \hat{\beta} - q )'
@@ -201,11 +201,11 @@ $T$ is the number of observations per equation,
 $K$ is the total number of estimated coefficients, and
 $\hat{\Sigma}$ is the estimated residual covariance matrix
 used in the estimation.
-Under the null hypothesis, $F$ has an F-distribution
+Under the null hypothesis, $F$ has an $F$ distribution
 with $j$ and $M \cdot T - K$ degrees of freedom
 \citep[p.\ 314]{theil71}.
 
-The Wald-statistic for systems of equations is
+The Wald statistic for systems of equations is
 \begin{equation}
 W =
    ( R \hat{\beta} - q )'
@@ -217,7 +217,7 @@ distribution with $j$ degrees of freedom
 under the null hypothesis
 \citep[p.\ 347]{greene03}.
 
-The LR-statistic for systems of equations is
+The LR statistic for systems of equations is
 \begin{equation}
 LR = T \cdot \left(
    log \left| \hat{ \hat{ \Sigma } }_r \right|
@@ -240,7 +240,7 @@ under the null hypothesis
 \label{sec:hausman}
 
 \citet{hausman78} developed a test for misspecification.
-The null hypotheses of the test is that all exogenous variables are
+The null hypothesis of the test is that all exogenous variables are
 uncorrelated with all disturbance terms.
 Under this hypothesis both the 2SLS and the 3SLS estimator are consistent
 but only the 3SLS estimator is (asymptotically) efficient.
@@ -258,7 +258,7 @@ where $\hat{\beta}_{2SLS}$ and $\Cov \left[ \hat{\beta}_{2SLS} \right]$ are the 
 coefficient and covariance matrix from 2SLS estimation, and
 $\hat{\beta}_{3SLS}$ and $\Cov \left[ \hat{\beta}_{3SLS} \right]$ are the estimated
 coefficients and covariance matrix from 3SLS estimation.
-Under the null hypotheses this test statistic has a
+Under the null hypothesis this test statistic has a
 $\chi^2$ distribution with degrees of freedom equal to the number of
 estimated parameters.
 

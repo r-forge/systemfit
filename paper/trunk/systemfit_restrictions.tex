@@ -2,7 +2,7 @@
 \subsection{Imposing linear restrictions}\label{sec:Restrictions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-It is common to perform hypothosis tests by imposing restrictions on
+It is common to perform hypothesis tests by imposing restrictions on
 the parameter estimates.
 There are two ways to impose linear parameter restrictions.
 First, a matrix $T$ can be specified that
@@ -18,7 +18,7 @@ $T$ can be used to map each unrestricted coefficient to one or more
 restricted coefficients.
 
 To impose these restrictions, the $X$ matrix is
-(post-)multiplied by this $T$ matrix.
+(post-)\hspace{0pt}multiplied by this $T$ matrix.
 \begin{equation}
     X^* = X \cdot T
 \end{equation}
@@ -60,7 +60,7 @@ However, while the latter method increases the dimension of the
 matrices to be inverted during estimation, the first reduces it. 
 Thus, in some cases the latter way leads to estimation problems
 (e.g.\ (near) singularity of the matrices to be inverted),
-while the first doesn't.
+while the first does not.
 
 These two methods can be combined.
 In this case the restrictions imposed using the latter method are
