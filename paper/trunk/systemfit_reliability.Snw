@@ -7,7 +7,7 @@ In this section we test the reliability of the results from
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Kmenta (1986): Example on p.\ 685 (food market)}
+\subsection{Kmenta (1986): Example on p. 685 (food market)}
 
 First, we reproduce an example taken from \citet[p.~685]{kmenta86}.
 The data are available from Table~13-1 (p.~687),
@@ -120,7 +120,7 @@ where only the last digit is different.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Theil (1971): Example on p.\ 295 (General Electric and Westinghouse)}
+\subsection{Theil (1971): Example on p. 295 (General Electric and Westinghouse)}
 
 Third, we estimate an example taken from \citet[p.~295]{theil71}
 that is based on \citet{grunfeld58}.
