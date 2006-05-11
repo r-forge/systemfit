@@ -1,0 +1,271 @@
+
+%       $Id$    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\section{Other issues and tools}\label{sec:Other}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Residual covariance matrix}\label{sec:residcov}
+
+Since the true residuals of the estimated equations are generally not known,
+the true covariance matrix of the residuals cannot be determined.
+Thus, this covariance matrix must be calculated from the
+\emph{estimated} residuals. 
+Generally, the estimated covariance matrix of the residuals
+($\widehat{\Sigma} = \left[ \widehat{\sigma}_{ij} \right]$)
+can be calculated from the residuals of a first-step OLS or 2SLS estimation.
+The following formula is often applied:
+\begin{equation}
+   \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }{ T }
+   \label{eq:rcov0}
+\end{equation}
+where $T$ is the number of observations in each equation.
+However, in finite samples this estimator is biased,
+because it is not corrected for degrees of freedom.
+The usual single-equation procedure to correct for degrees of freedom
+cannot always be applied, because the number of regressors in each equation
+might differ.
+Two alternative approaches to calculate the residual covariance
+matrix are
+\begin{equation}
+   \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
+   { \sqrt{ \left( T - K_i \right) \cdot \left( T - K_j \right) } }
+   \label{eq:rcov1}
+\end{equation}
+and
+\begin{equation}
+   \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
+   { T - \max \left( K_i , K_j \right) }
+   \label{eq:rcov3}
+\end{equation}
+where $K_i$ and $K_j$ are the number of regressors in equation
+$i$ and $j$, respectively.
+However, these formulas yield unbiased estimators only if $K_i = K_j$
+\citep[p.\ 469]{judge85}. 
+% Greene (2003, p. 344) says that the second is unbiased if i = j or K_i = K_j,
+% whereas the first is unbiased only if i = j. 
+% However, if K_i = K_j the first and the second are equal.
+% Why is the first biased if K_i = K_j ???????????
+
+
+A further approach to obtain the estimated residual covariance
+matrix is \citep[p.\ 309]{zellner62c}
+\begin{eqnarray}
+   \widehat{\sigma}_{ij} & = & 
+   \frac{ \widehat{u}_i' \widehat{u}_j } 
+   { T - K_i - K_j + tr \left[ X_i \left( X_i' X_i \right)^{-1}
+   X_i' X_j \left( X_j' X_j \right)^{-1} X_j' \right] }
+   \label{eq:rcov2} \\
+   & = &
+   \frac{ \widehat{u}_i' \widehat{u}_j } 
+   { T - K_i - K_j + tr \left[ \left( X_i' X_i \right)^{-1}
+   X_i' X_j \left( X_j' X_j \right)^{-1} X_j' X_i \right] }
+\end{eqnarray} 
+This yields an unbiased estimator for all elements of $\widehat{\Sigma}$,
+but even if $\widehat{\Sigma}$ is an unbiased estimator of $\Sigma$, 
+its inverse $\widehat{\Sigma}^{-1}$ is not an unbiased estimator 
+of $\Sigma^{-1}$ \citep[p.\ 322]{theil71}.
+Furthermore, the covariance matrix calculated by (\ref{eq:rcov2})
+is not necessarily positive semidefinite \citep[p.\ 322]{theil71}. 
+Hence, °it is doubtful whether [this formula] is really superior to 
+[(\ref{eq:rcov0})]° \citep[p.\ 322]{theil71}.
+
+
+The WLS, SUR, W2SLS and 3SLS parameter estimates are consistent
+if the estimated residual covariance matrix is calculated
+using the residuals from a first-step OLS or 2SLS estimation.
+There exists also an alternative slightly different approach.%
+\footnote{
+For instance, this approach is applied by
+the command °TSCS° of the software LIMDEP that carries out SUR estimations
+in which all coefficient vectors are constrained to be equal
+\citep{greene06}.
+}
+This alternative approach uses the residuals of a first-step OLS or 2SLS estimation
+to apply a WLS or W2SLS estimation on a second step.
+Then, it calculates the residual covariance matrix
+from the residuals of the second-step estimation
+to estimates the model by SUR or 3SLS in a third step.
+If no cross-equation restrictions are imposed,
+the parameter estimates of OLS and WLS as well as 2SLS and W2SLS are identical.
+Hence, in this case both approaches generate the same results.
+
+It is also possible to iterate WLS, SUR, W2SLS and 3SLS estimations.
+At each iteration the residual covariance matrix is calculated
+from the residuals of the previous iteration.
+If equation (\ref{eq:rcov0}) is applied to calculate the estimated
+residual covariance matrix,
+an iterated SUR estimation converges to maximum
+likelihood \citep[p.\ 345]{greene03}.
+
+In some uncommon cases,
+for instance in pooled estimations,
+where the coefficients are restricted to be equal in all equations,
+the means of the residuals of each equation are not equal to zero
+$( \overline{ \widehat{u} }_i \neq 0 )$.
+Therefore, it might be argued
+that the residual covariance matrix should be calculated
+by subtracting the means from the residuals
+and substituting $\widehat{u}_i - \overline{ \widehat{u} }_i$
+for $\widehat{u}_i$ in (\ref{eq:rcov0}--\ref{eq:rcov2}).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Degrees of freedom}
+\label{sec:degreesOfFreedom}
+
+To our knowledge the question about how to determine the degrees
+of freedom for single-parameter $t$ tests is not comprehensively
+discussed in the literature.
+While sometimes the degrees of freedom of the entire system
+(total number of observations in all equations minus
+total number of estimated parameters)
+are applied,
+in other cases the degrees of freedom of each single equation
+(number of observations in the equations minus
+number of estimated parameters in the equation)
+are used.
+Asymptotically, this distinction does not make a difference.
+However, in many empirical applications, the number of observations
+of each equation is rather small, and
+therefore, it matters.
+
+If a system of equations is estimated by an unrestricted OLS and
+the covariance matrix of the parameters is calculated
+by~(\ref{eq:olsCovSingleSigma}),
+the estimated parameters and their standard errors are identical
+to an equation-wise OLS estimation.
+In this case, it is reasonable to use the degrees of freedom of
+each single equation,
+because this yields the same $p$ values as the equation-wise
+OLS estimation.
+
+In contrast, if a system of equations is estimated with many
+cross-equation restrictions and
+the covariance matrix of an OLS estimation is calculated
+by~(\ref{eq:olsCovSameSigma}),
+the system estimation is similar to a single equation estimation.
+Therefore, in this case, it seems to be reasonable to use the degrees
+of freedom of the entire system.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Goodness of fit}
+
+The goodness of fit of each single equation can be measured by the
+traditional $R^2$ values:
+\begin{equation}
+   R_i^2 = 1 - \frac{ \widehat{u}_i' \widehat{u}_i }
+   { ( y_i - \overline{y_i} )' ( y_i - \overline{y_i} ) }
+\end{equation}
+where $R_i^2$ is the $R^2$ value of the $i$th equation
+and $\overline{y_i}$ is the mean value of $y_i$.
+
+The goodness of fit of the whole system can be measured by the
+McElroy's $R^2$ value \citep{mcelroy77}: 
+% also: \citep[p.\ 345]{greene03}
+\begin{equation}
+   R_*^2 = 1 - \frac{ \widehat{u}' \widehat{ \Omega }^{-1} \widehat{u} }
+   { y' \left( \widehat{ \Sigma }^{-1} \otimes
+   \left( I - \frac{i i'}{T} \right) \right) y }
+\end{equation}
+where $T$ is the number of observations in each equation,
+$I$ is an $T \times T$ identity matrix and 
+$i$ is a column vector of $T$ ones.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Testing linear restrictions}
+\label{sec:testingRestrictions}
+
+Linear restrictions can be tested by an $F$ test, Wald test or
+likelihood ratio (LR) test.
+
+The $F$ statistic for systems of equations is
+\begin{equation}
+F = \frac{
+   ( R \hat{\beta} - q )'
+   ( R ( X' ( \hat{\Sigma} \otimes I )^{-1} X )^{-1} R' )^{-1}
+   ( R \hat{\beta} - q ) /
+   j
+}{
+   \hat{u}' ( \Sigma \otimes I )^{-1} \hat{u} /
+   ( M \cdot T - K )
+}
+\end{equation}
+where $j$ is the number of restrictions,
+$M$ is the number of equations,
+$T$ is the number of observations per equation,
+$K$ is the total number of estimated coefficients, and
+$\hat{\Sigma}$ is the estimated residual covariance matrix
+used in the estimation.
+Under the null hypothesis, $F$ has an $F$ distribution
+with $j$ and $M \cdot T - K$ degrees of freedom
+\citep[p.\ 314]{theil71}.
+
+The Wald statistic for systems of equations is
+\begin{equation}
+W =
+   ( R \hat{\beta} - q )'
+   ( R \widehat{Cov} [ \hat{\beta} ] R' )^{-1}
+   ( R \hat{\beta} - q )
+\end{equation}
+Asymptotically, $W$ has a $\chi^2$
+distribution with $j$ degrees of freedom
+under the null hypothesis
+\citep[p.\ 347]{greene03}.
+
+The LR statistic for systems of equations is
+\begin{equation}
+LR = T \cdot \left(
+   log \left| \hat{ \hat{ \Sigma } }_r \right|
+   - log \left| \hat{ \hat{ \Sigma } }_u \right|
+   \right)
+\end{equation}
+where $T$ is the number of observations per equation, and 
+$\hat{\hat{\Sigma}}_r$ and $\hat{\hat{\Sigma}}_u$ are
+the residual covariance matrices calculated by formula (\ref{eq:rcov0})
+of the restricted and unrestricted estimation, respectively.
+Asymptotically, $LR$ has a $\chi^2$
+distribution with $j$ degrees of freedom
+under the null hypothesis
+\citep[p.\ 349]{greene03}.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Hausman test}
+\label{sec:hausman}
+
+\citet{hausman78} developed a test for misspecification.
+The null hypothesis of the test is that all exogenous variables are
+uncorrelated with all disturbance terms.
+Under this hypothesis both the 2SLS and the 3SLS estimator are consistent
+but only the 3SLS estimator is (asymptotically) efficient.
+Under the alternative hypothesis the 2SLS estimator is consistent
+but the 3SLS estimator is inconsistent.
+The Hausman test statistic is,
+\begin{equation}
+  m = \left( \hat{\beta}_{2SLS} - \hat{\beta}_{3SLS} \right)^{'}
+      \left( \Cov \left[ \hat{\beta}_{2SLS} \right] -
+             \Cov \left[ \hat{\beta}_{3SLS} \right] \right)
+      \left( \hat{\beta}_{2SLS} - \hat{\beta}_{3SLS} \right)
+\label{eq:hausman}
+\end{equation}
+where $\hat{\beta}_{2SLS}$ and $\Cov \left[ \hat{\beta}_{2SLS} \right]$ are the estimated
+coefficient and covariance matrix from 2SLS estimation, and
+$\hat{\beta}_{3SLS}$ and $\Cov \left[ \hat{\beta}_{3SLS} \right]$ are the estimated
+coefficients and covariance matrix from 3SLS estimation.
+Under the null hypothesis this test statistic has a
+$\chi^2$ distribution with degrees of freedom equal to the number of
+estimated parameters.
+
+
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "systemfit"
+%%% End: 

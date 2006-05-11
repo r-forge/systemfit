@@ -1,0 +1,66 @@
+
+%       $Id$    
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary and outlook}\label{sec:Summmary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\nopagebreak
+In this article, we have described some of the basic features of the
+\pkg{systemfit} package for estimation of linear systems of
+equations.
+Many details of the estimation can be controlled by the user.
+Furthermore, the package provides some statistical tests
+for parameter restrictions and consistency of 3SLS estimation.
+It has been tested on a variety of datasets and has produced satisfactory
+for a few years.
+While the \pkg{systemfit} package performs the basic fitting methods,
+more sophisticated tools exist.
+We hope to implement missing functionalities
+in the near future.
+% Some of these are discussed in the following.
+
+\subsubsection*{Unbalanced datasets}
+Currently, the \pkg{systemfit} package requires
+that all equations have the same number of observations.
+However, many data sets have unbalanced observations.%
+\footnote{
+For instance,
+forestry datasets typically contain many observations of inexpensive
+variables (stem diameter, tree count) and few expensive variables such
+as stem height or volume.
+}
+Simply dropping data points that do not contain observations for all
+equations may reduce the number of observations considerably, and
+thus, the information utilized in the estimation.
+Hence, it is our intention to include the capability for estimations
+with unbalanced data sets as described in \citet{schmidt77} in future
+releases of \pkg{systemfit}.
+
+\subsubsection*{Serial correlation and heteroscedasticity}
+For all of the methods developed in the package, the disturbances of
+the individual equations are assumed to be independent and identically
+distributed (iid).
+The package could be enhanced by the inclusion of methods to fit
+equations with serially correlated and heteroscedastic disturbances
+\citep{parks67}. 
+
+\subsubsection*{Estimation methods}
+In the future, we wish to include more sophisticated estimation
+methods such as limited information maximum likelihood (LIML),
+full information maximum likelihood (FIML), generalized methods of
+moments (GMM) and spatial econometric methods. 
+
+\subsubsection*{Non-linear estimation}
+Finally, the \pkg{systemfit} package provides a function to estimate
+systems of non-linear estimations.
+However, the function \code{nlsystemfit} is currently under
+development and the results are not yet always reliable due to
+convergence difficulties.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "systemfit"
+%%% End: 
+
+

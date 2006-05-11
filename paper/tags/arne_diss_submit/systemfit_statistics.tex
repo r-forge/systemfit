@@ -1,0 +1,76 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Statistical background}\label{sec:statistics}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this section we provide the statistical background
+of the functionality provided by the \pkg{systemfit} package.
+After introducing notations and assumptions,
+we provide the formulas to estimate systems of linear equations.
+We then demonstrate how to impose linear restrictions on parameters.
+Finally, we present additional relevant issues about estimation of
+equation systems.
+
+Consider a system of $G$ equations, where the $i$th equation is of
+the form 
+\begin{equation}
+   y_{i} = X_i \beta_i + u_i, \quad i = 1, 2, \ldots, G
+\end{equation}
+where $y_i$ is a vector of the dependent variable,
+$X_i$ is a matrix of the exogenous variables,
+$\beta_i$ is the coefficient vector and
+$u_i$ is a vector of the disturbance terms of the $i$th equation.
+
+We can write the °stacked° system as
+\begin{equation}
+   \left[ \begin{array}{c}
+      y_1 \\ y_2\\ \vdots\\ y_G
+   \end{array} \right] = 
+   \left[ \begin{array}{cccc}
+      X_1 & 0 & \cdots & 0\\
+      0 & X_2 & \cdots & 0\\
+      \vdots & \vdots & \ddots & \vdots\\
+      0 & 0 & \cdots & X_G
+   \end{array}\right] \cdot 
+   \left[ \begin{array}{c}
+      \beta_1 \\ \beta_2 \\ \vdots\\ \beta_G
+   \end{array} \right] +
+   \left[ \begin{array}{c}
+      u_1 \\ u_2 \\ \vdots\\ u_G
+   \end{array} \right]
+\end{equation}
+
+or more simply as
+\begin{equation}
+   y = X \beta + u 
+\end{equation}   
+
+We assume that there is no correlation of the disturbance terms 
+across observations:
+\begin{equation}
+   E \left( u_{it} \, u_{jt^*} \right) = 0 
+   \; \forall \; t \neq t^*
+\end{equation}
+where $i$ and $j$ indicate the equation number 
+and $t$ and $t^*$ denote the observation number.
+
+However, we explicitly allow for contemporaneous correlation:
+\begin{equation}
+   E \left( u_{it} \, u_{jt} \right) = \sigma_{ij}
+\end{equation}
+
+Thus, the covariance matrix of the total system is
+\begin{equation}
+   E \left( u \, u' \right) = \Omega = \Sigma \otimes I
+\end{equation}
+where $\Sigma = \left[ \sigma_{ij} \right]$ is the residual covariance matrix
+and $I$ is an identity matrix.
+
+
+\input{systemfit_estimation.tex}
+\input{systemfit_restrictions.tex}
+\input{systemfit_other.tex}
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "systemfit"
+%%% End: 

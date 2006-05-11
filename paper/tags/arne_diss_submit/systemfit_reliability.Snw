@@ -1,0 +1,225 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Testing reliability}\label{sec:reliability}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this section we test the reliability of the results from
+\code{systemfit} and \code{systemfitClassic}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Kmenta (1986): Example on p. 685 (food market)}
+
+First, we reproduce an example taken from \citet[p.~685]{kmenta86}.
+The data are available from Table~13-1 (p.~687),
+and the results are presented in Table~13-2 (p.~712) of this book.
+
+Before starting the estimation,
+we load the data and specify the two formulas to estimate
+as well as the instrumental variables.
+Then the equation system is estimated by OLS, 2SLS, 3SLS, and
+iterated 3SLS.
+After each estimation the estimated coefficients are reported.
+<<echo=FALSE>>=
+library( systemfit )
+@
+<<>>=
+data( "Kmenta" )
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
+inst <- ~ income + farmPrice + trend
+system <- list( demand = eqDemand, supply = eqSupply )
+@
+OLS estimation:
+<<>>=
+fitOls <- systemfit( "OLS", system, data = Kmenta )
+round( coef( summary( fitOls ) ), digits = 4 )
+@
+2SLS estimation:
+<<>>=
+fit2sls <- systemfit( "2SLS", system, inst = inst, data = Kmenta )
+round( coef( summary( fit2sls ) ), digits = 4 )
+@
+3SLS estimation:
+<<>>=
+fit3sls <- systemfit( "3SLS", system, inst = inst, data = Kmenta )
+round( coef( summary( fit3sls ) ), digits = 4 )
+@
+Iterated 3SLS estimation:
+<<>>=
+fitI3sls <- systemfit( "3SLS", system, inst = inst, data = Kmenta,
+   maxit = 250 )
+round( coef( summary( fitI3sls ) ), digits = 4 )
+@
+
+The results above show that \code{systemfit} returns exactly the same
+coefficients and standard errors as published in \citet[p.~712]{kmenta86}
+except for two minor exemptions.
+Two standard errors of the 2SLS estimation deviate by $0.0001$.
+However, this difference is likely due to rounding errors
+in \code{systemfit} or \citet{kmenta86} and
+is so small that it empirically does not matter.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Greene (2003): Example 15.1 (Klein's model I)}
+
+Second, we try to replicate Klein's Model I \citep{klein50}
+that is described in \citet[p.~381]{greene03}.
+The data are available from the online complements to \citet{greene03},
+Table~F15.1
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}),
+and the estimation results are presented in Table~15.3 (p.~412).
+
+Initially, the data are loaded and three equations
+as well as the instrumental variables are specified.
+As in the example before, the equation system is estimated by
+OLS, 2SLS, 3SLS, and iterated 3SLS, and
+estimated coefficients of each estimation are reported.
+<<>>=
+data( "KleinI" )
+eqConsump  <- consump ~ corpProf + corpProfLag + wages
+eqInvest   <- invest ~ corpProf + corpProfLag + capitalLag
+eqPrivWage <- privWage ~ gnp + gnpLag + trend
+inst <- ~ govExp + taxes + govWage + trend + capitalLag + corpProfLag + gnpLag
+system <- list( Consumption = eqConsump, Investment = eqInvest,
+   "Private Wages" = eqPrivWage )
+@
+OLS estimation:
+<<>>=
+kleinOls <- systemfit( "OLS", system, data = KleinI )
+round( coef( summary( kleinOls ) ), digits = 3 )
+@
+2SLS estimation:
+<<>>=
+klein2sls <- systemfit( "2SLS", system, inst = inst, data = KleinI,
+   rcovformula = 0 )
+round( coef( summary( klein2sls ) ), digits = 3 )
+@
+3SLS estimation:
+<<>>=
+klein3sls <- systemfit( "3SLS", system, inst = inst, data = KleinI,
+   rcovformula = 0 )
+round( coef( summary( klein3sls ) ), digits = 3 )
+@
+iterated 3SLS estimation:
+<<>>=
+kleinI3sls <- systemfit( "3SLS", system, inst = inst, data = KleinI,
+   rcovformula = 0, maxit = 500 )
+round( coef( summary( kleinI3sls ) ), digits = 3 )
+@
+
+Again, the results show that \code{systemfit} returns the same results
+as published in \citet{greene03}.%
+\footnote{
+There are two typos in Table~15.3 (p.~412).
+Please take a look at the errata
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+}
+Also in this case we have two minor deviations,
+where only the last digit is different.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Theil (1971): Example on p. 295 (General Electric and Westinghouse)}
+
+Third, we estimate an example taken from \citet[p.~295]{theil71}
+that is based on \citet{grunfeld58}.
+The data are available from Table~7.1 (p.~296),
+and the results are presented on pages~295 and 300 of this book.
+
+After loading the data and specifying the formula,
+the model is estimated by OLS and SUR.
+The coefficients of each estimation are reported.
+<<>>=
+data( "GrunfeldTheil" )
+formulaGrunfeld <- invest ~ value + capital
+@
+OLS estimation (page 295)
+<<>>=
+theilOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+   data = GrunfeldTheil )
+round( coef( summary( theilOls ) ), digits = 3 )
+@
+SUR estimation (page 300)
+<<>>=
+theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+   data = GrunfeldTheil, rcovformula = 0 )
+round( coef( summary( theilSur ) ), digits = 3 )
+@
+
+The function \code{systemfitClassic}, which is a wrapper function to
+\code{systemfit} returns exactly the same results as published in
+\citet[pp.~295,~300]{theil71}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Greene (2003): Example 14.1 (Grunfeld's investment data)}
+
+Finally, we reproduce Example~14.1 of \citet[p.~340]{greene03}
+that is also based on \citet{grunfeld58}.
+The data are available from the online complements to \citet{greene03},
+Table~F13.1
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}),
+and the estimation results are presented in Tables~14.1
+and~14.2 (p.~351).
+
+First, we load the data and specify the formula to estimate.
+Then, the system is estimated by OLS, pooled OLS, SUR, and pooled SUR.
+Immediately after each estimation, the estimated coefficients are reported.
+Furthermore, the $\sigma^2$ values of the OLS estimations, and
+the residual covariance matrix as well as the residual correlation matrix
+of the SUR estimations are printed.
+<<>>=
+data( "GrunfeldGreene" )
+formulaGrunfeld <- invest ~ value + capital
+@
+OLS estimation (Table 14.2):
+<<>>=
+greeneOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene )
+round( coef( summary( greeneOls ) ), digits = 4 )
+round( sapply( greeneOls$eq, function(x){return(x$ssr/20)} ), digits = 3 )
+@
+pooled OLS (Table 14.2):
+<<>>=
+greeneOlsPooled <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene, pooled = TRUE )
+round( coef( summary( greeneOlsPooled$eq[[1]] ) ), digits = 4 ) #$
+sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/100
+@
+SUR estimation (Table~14.1):
+<<>>=
+greeneSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene, rcovformula = 0 )
+round( coef( summary( greeneSur ) ), digits = 4 )
+round( greeneSur$rcov, digits = 3 ) #$
+round( summary( greeneSur )$rcor, digits = 3 ) #$
+@
+pooled SUR estimation (Table~14.1):
+<<>>=
+greeneSurPooled <- systemfitClassic( "WSUR", formulaGrunfeld, "firm", "year",
+   data = GrunfeldGreene, pooled = TRUE, rcovformula = 0 )
+round( coef( summary( greeneSurPooled$eq[[1]] ) ), digits = 4 ) #$
+
+round( greeneSurPooled$rcov, digits = 3 ) #$
+round( cov( residuals( greeneSurPooled ) ), digits = 3 )
+round( summary( greeneSurPooled )$rcor, digits = 3 ) #$
+@
+
+For this example, the function \code{systemfitClassic} returns
+nearly the same results as published in \citet{greene03}.%
+\footnote{
+There are several typos and errors in Table~14.1 (p.~412).
+Please take a look at the errata of this book
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+}
+Two different residual covariance matrices of the pooled SUR estimation
+are presented.
+The first is calculated without centering the results
+(see section~\ref{sec:residcov}).
+It is equal to the one published in the book \citep[p.~351]{greene03}.
+The second residual covariance matrix is calculated after centering the results.
+It is equal to the one published in the errata
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+
+
