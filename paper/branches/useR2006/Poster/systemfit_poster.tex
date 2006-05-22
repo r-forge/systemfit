@@ -1,0 +1,155 @@
+\documentclass[portrait,a0b,final]{a0poster}
+\input{systemfit_poster_commands}
+
+\begin{document}
+% set background color (gradient)
+\psframe[fillstyle=gradient, gradbegin=white, gradend=whiteblue,
+   gradmidpoint=1.0](-3,3)(1.1\textwidth,-1.1\textheight)
+
+\begin{center}
+% \fbox{
+\begin{postercolumn}{1}
+% main header
+\posterbox{0.96\textwidth}{}{linewidth=2mm, framearc=0.3,
+   linecolor=lightblue, fillstyle=gradient, gradangle=0,
+   gradbegin=white, gradend=whiteblue, gradmidpoint=1.0,
+   framesep=1em}{
+% left useR logo
+\begin{minipage}[c][9cm][c]{0.2\textwidth}
+  \begin{center}
+    \includegraphics[width=12cm]{useR-large}
+  \end{center}
+\end{minipage}
+% title etc
+\begin{minipage}[c][13cm][c]{0.59\textwidth}
+  \begin{center}
+    {\VeryHuge \textbf{systemfit}}\\[12mm]
+    {\Huge Simultaneous Equation Systems in R}\\[8mm]
+    {\Huge Arne Henningsen and Jeff D.\ Hamann}\\[8mm]
+    {\LARGE University of Kiel (Germany) and Forest Informatics, Inc. (Corvallis, OR, USA)}
+  \end{center}
+\end{minipage}
+% right useR logo
+\begin{minipage}[c][9cm][c]{0.2\textwidth}
+  \begin{center}
+    \includegraphics[width=12cm]{useR-large}
+  \end{center}
+\end{minipage}
+}
+\end{postercolumn}
+
+\vspace{15mm}
+
+% \fbox{
+\begin{postercolumn}{0.49}
+% Features
+\posterbox{0.92\textwidth}{}{linewidth=2mm, framearc=0.1,
+   linecolor=lightblue, fillstyle=gradient, gradangle=0,
+   gradbegin=white, gradend=whiteblue, gradmidpoint=1.0,
+   framesep=1em}{
+{\boxheaderfontsize \textbf{Features}}
+{\standardfontsize
+\begin{itemize}
+\item several estimation methods, e.g.:
+\begin{itemize}
+\item Ordinary Least Squares (OLS)
+\item Two-Stage Least Squares (2SLS)
+\item Seemingly Unrelated Regression (SUR)
+\item Three-Stage Least Squares (3SLS)
+\end{itemize}
+\item imposition of linear restrictions by two different methods
+\item instrumental variables: the same for all equations or different for each equation
+\item several different formulas to calculate the residual covariance matrix
+\item several different formulas for the 3SLS estimation
+\item $t$ tests: degrees of freedom of the whole system
+or degrees of freedom of the single equation
+\item OLS/2SLS estimation: different $\sigma^2$s for each single equation
+or the same $\sigma^2$ for all equations
+\item wrapper function for (classical) panel-like data in long format
+(\texttt{systemfitClassic})
+\item testing linear hypothesis using the F-, Wald-, and LR-statistic
+\item Hausman test for the consistency of the 3SLS estimator
+\end{itemize}
+}}
+
+\end{postercolumn}
+% }
+\hfill
+% \fbox{
+\begin{postercolumn}{0.49}
+% Advantages
+\posterbox{0.92\textwidth}{}{linewidth=2mm, framearc=0.1,
+   linecolor=lightblue, fillstyle=gradient, gradangle=0,
+   gradbegin=white, gradend=whiteblue, gradmidpoint=1.0,
+   framesep=1em}{
+{\boxheaderfontsize \textbf{Advantages of \texttt{systemfit}}}
+{\standardfontsize
+\begin{itemize}
+\item all estimation procedures are publicly available in the source code
+\item estimation algorithms can be easily modified to meet specific
+requirements
+\item the (advanced) user can control many estimation details generally
+not available in other software packages
+\item novices can safely ignore these estimation details
+because they have reasonable defaults
+\item reliability of \texttt{systemfit} has been demonstrated by comparing its estimation
+results with results published in the literature
+\end{itemize}
+}}
+
+\vspace{15mm}
+
+% Future
+\posterbox{0.92\textwidth}{}{linewidth=2mm, framearc=0.1,
+   linecolor=lightblue, fillstyle=gradient, gradangle=0,
+   gradbegin=white, gradend=whiteblue, gradmidpoint=1.0,
+   framesep=1em}{
+{\boxheaderfontsize \textbf{Plans for the Future}}
+{\standardfontsize
+\begin{itemize}
+\item estimation with unbalanced data sets
+\item estimation methods: LIML, FIML,  and GMM
+\item fitting equation systems with serially correlated and
+heteroscedastic disturbances
+\item spatial econometric methods
+\item improving the function \texttt{nlsystemfit}
+to estimate systems of non-linear estimations
+\end{itemize}
+}}
+
+\end{postercolumn}
+% }
+
+\vspace{15mm}
+
+\begin{postercolumn}{1}
+\posterbox{0.96\textwidth}{}{linewidth=2mm, framearc=0.3,
+   linecolor=lightblue, fillstyle=gradient, gradangle=0,
+   gradbegin=white, gradend=whiteblue, gradmidpoint=1.0,
+   framesep=1em}{
+\begin{spacing}{1.5}
+{\Large
+\textbf{Arne Henningsen} $\cdot$
+Department of Agricultural Economics $\cdot$
+University of Kiel $\cdot$
+Olshausenstr.~40 $\cdot$
+D-24098 Kiel (Germany) $\cdot$
+Phone~+49-431-880-4445 $\cdot$
+Fax~+49-431-880-1397 $\cdot$
+\url{ahenningsen@agric-econ.uni-kiel.de} $\cdot$
+\url{http://www.uni-kiel.de/agrarpol/ahenningsen/}\\[5mm]
+\textbf{Jeff D. Hamann} $\cdot$
+Forest Informatics, Inc. $\cdot$
+PO Box 1421 $\cdot$
+Corvallis, Oregon USA 97339-1421 $\cdot$
+Phone~+1-541-754-1428 $\cdot$
+Fax~+1-541-752-0288 $\cdot$
+\url{jeff.hamann@forestinformatics.com} $\cdot$
+\url{http://www.forestinformatics.com}
+}
+\end{spacing}
+}
+\end{postercolumn}
+% }
+\end{center}
+\end{document}
