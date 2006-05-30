@@ -44,7 +44,8 @@ systemfit <- function( method,
 
    ## some tests
    if(!( method=="OLS" | method=="WLS" | method=="SUR" | method=="WSUR" |
-         method=="2SLS" | method=="W2SLS" | method=="3SLS" | method=="W3SLS" )){
+         method=="2SLS" | method=="W2SLS" | method=="3SLS" | method=="W3SLS" |
+         method=="LIML" | method=="FIML")){
       stop( "The method must be 'OLS', 'WLS', 'SUR', 'WSUR',",
          " '2SLS', 'W2SLS', '3SLS', or 'W3SLS'" )
    }
@@ -443,6 +444,17 @@ systemfit <- function( method,
           sigma = rcov, nObsEq = n, solvetol = solvetol )  # final step coefficient covariance matrix
     }
     resids <- Y - X %*% b                        # residuals
+  }
+
+  ## FIML estimation
+  if( method == "FIML" ) {
+    fimlResult <- .systemfitFiml( systemfitCall = call, nObsEq = n,
+      nCoefEq = ki, yVec = Y, xMat = X, xEq = x, rcovformula = rcovformula,
+      centerResiduals = centerResiduals, solvetol = solvetol )
+    #print( fimlResult )
+    b <- fimlResult$coef
+    bcov <- fimlResult$coefCov
+    resids <- fimlResult$resids
   }
 
   ## for all estimation methods
