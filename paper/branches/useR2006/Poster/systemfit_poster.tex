@@ -102,6 +102,43 @@ or the same $\sigma^2$ for all equations
 \hfill
 % \fbox{
 \begin{postercolumn}{0.49}
+
+\begin{SaveVerbatim}{specSystem}
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
+system <- list(demand=eqDemand, supply=eqSupply)
+\end{SaveVerbatim}
+% \end{Verbatim}
+\begin{SaveVerbatim}{estSystem}
+fitsur <- systemfit( "SUR", system )
+\end{SaveVerbatim}
+% \end{Verbatim}
+\begin{SaveVerbatim}{printResults}
+summary( fitsur )
+\end{SaveVerbatim}
+% \end{Verbatim}
+
+% Example
+\posterbox{0.92\textwidth}{}{linewidth=2mm, framearc=0.1,
+   linecolor=lightblue, fillstyle=gradient, gradangle=0,
+   gradbegin=white, gradend=whiteblue, gradmidpoint=1.0,
+   framesep=1em}{
+{\boxheaderfontsize \textbf{Example}}
+{\standardfontsize
+\begin{itemize}
+\item from Kmenta (1986): Elements of Econometrics, p.~685
+\item specification of the equation system:
+   \bigskip\\
+   \BUseVerbatim{specSystem}
+\item estimation using method °SUR°:\\
+   \BUseVerbatim{estSystem}
+\item printing summary results:\\
+   \BUseVerbatim{printResults}
+\end{itemize}
+}}
+
+\vspace{15mm}
+
 % Advantages
 \posterbox{0.92\textwidth}{}{linewidth=2mm, framearc=0.1,
    linecolor=lightblue, fillstyle=gradient, gradangle=0,
