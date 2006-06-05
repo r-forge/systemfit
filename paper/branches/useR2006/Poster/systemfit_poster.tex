@@ -42,12 +42,37 @@
 
 % \fbox{
 \begin{postercolumn}{0.49}
+% Motivation
+\posterbox{0.92\textwidth}{}{linewidth=2mm, framearc=0.1,
+   linecolor=lightblue, fillstyle=gradient, gradangle=0,
+   gradbegin=white, gradend=whiteblue, gradmidpoint=1.0,
+   framesep=1em}{
+{\boxheaderfontsize \textbf{Motivation}}
+{\standardfontsize
+\begin{itemize}
+\item many theoretical models consist of more than one equation\\
+$\Rightarrow$ contemporaneously correlation of disturbance terms (likely)\\
+$\Rightarrow$ \parbox[t]{0.95\textwidth}{\raggedright
+   simultaneously estimation of all equations as 
+   °Seemingly Unrelated Regression° (SUR) leads to efficient results}
+\mbox{}
+\item theoretically derived cross-equation parameter restrictions\\
+$\Rightarrow$ simultaneous estimation of all equations required
+\item endogeneity of some variables\\
+$\Rightarrow$ \parbox[t]{0.95\textwidth}{\raggedright
+   estimation using °Two-Stage Least Squares° (2SLS)
+   or °Three-Stage Least Squares° (3SLS) required}
+\end{itemize}
+}}
+
+\vspace{15mm}
+
 % Features
 \posterbox{0.92\textwidth}{}{linewidth=2mm, framearc=0.1,
    linecolor=lightblue, fillstyle=gradient, gradangle=0,
    gradbegin=white, gradend=whiteblue, gradmidpoint=1.0,
    framesep=1em}{
-{\boxheaderfontsize \textbf{Features}}
+{\boxheaderfontsize \textbf{Features of \texttt{systemfit}}}
 {\standardfontsize
 \begin{itemize}
 \item several estimation methods, e.g.:
