@@ -1,0 +1,326 @@
+\documentclass{beamer}
+%\documentclass[notes=show,handout]{beamer}
+%\documentclass[handout]{beamer}
+
+\input{systemfit_slides_commands.tex}
+
+
+\title[systemfit]{
+   \textbf{systemfit}\\ Simultaneous Equation Systems in R}
+\author{Arne Henningsen and Jeff D.\ Hamann}
+\date{University of Kiel (Germany) and\\Forest Informatics, Inc. (Corvallis, OR, USA)}
+
+\begin{document}
+\frame{ \titlepage }
+\note{
+\begin{itemize}
+\item Welcome!
+\item authors
+\item package systemfit: Estimating simultaneous equation systems in R
+\end{itemize}
+}
+
+% ============== Introduction ==============================
+\section{Introduction}
+
+% ----------------- Motivation ----------------------------
+\subsection{Motivation}
+\frame{
+   \frametitle{Motivation}
+\begin{itemize}
+\item many theoretical models consist of more than one equation
+   \begin{itemize}
+   \item contemporaneous correlation of disturbance terms (likely)
+   \item simultaneous estimation of all equations as
+      °Seemingly Unrelated Regression° (SUR) leads to efficient results
+   \end{itemize}
+\item theoretically derived cross-equation parameter restrictions\\
+   \begin{itemize}
+   \item simultaneous estimation of all equations required
+   \end{itemize}
+\item endogeneity of some variables\\
+   \begin{itemize}
+   \item estimation using °Two-Stage Least Squares° (2SLS)
+      or °Three-Stage Least Squares° (3SLS) required
+   \end{itemize}
+\end{itemize}
+}
+\note{
+\begin{itemize}
+\item ?
+\end{itemize}
+}
+
+% ----------------- Outline ----------------------------
+\subsection{Outline}
+\frame{
+   \frametitle{Outline}
+\begin{itemize}
+\item Introduction
+\item Features of systemfit
+\item Examples
+\item Advantages
+\item Plans for the Future
+\end{itemize}
+}
+\note{
+\begin{itemize}
+\item ?
+\end{itemize}
+}
+
+% ============== Features ==============================
+\section{Features}
+
+% ----------------- Estimation Methods ----------------------------
+\subsection{Methods}
+\frame{
+   \frametitle{Estimation Methods}
+\begin{itemize}
+\item Ordinary Least Squares (OLS)
+\item Two-Stage Least Squares (2SLS)
+\item Seemingly Unrelated Regression (SUR)
+\item Three-Stage Least Squares (3SLS)
+\item \ldots
+\end{itemize}
+}
+\note{
+\begin{itemize}
+\item 2SLS often used for single-equations
+\end{itemize}
+}
+
+% ----------------- Estimation Control ----------------------------
+\subsection{Estimation Control}
+\frame{
+   \frametitle{Estimation Control}
+\begin{itemize}
+\item imposition of linear restrictions
+\item instrumental variables
+\item formulas for the residual covariance matrix
+\item formulas for 3SLS estimation
+\item degrees of freedom for $t$ tests
+\item homogenous residual variance in OLS/2SLS estimations
+\end{itemize}
+}
+\note{
+\begin{itemize}
+\item imposition of linear restrictions by two different methods
+\item instrumental variables: the same for all equations or different for each equation
+\item several different formulas to calculate the residual covariance matrix
+\item several different formulas for the 3SLS estimation
+\item $t$ tests: degrees of freedom of the whole system
+   or degrees of freedom of the single equation
+\item OLS/2SLS estimation: different $\sigma^2$s for each single equation
+   or the same $\sigma^2$ for all equations
+\end{itemize}
+}
+
+% ----------------- Other Tools ----------------------------
+\subsection{Other Tools}
+\frame{
+   \frametitle{Other Tools}
+\begin{itemize}
+\item wrapper function for (classical) panel-like data in long format:
+   \texttt{systemfitClassic}
+\item testing linear hypotheses using the F-, Wald-, and LR-statistic
+\item Hausman test for the consistency of the 3SLS estimator
+\end{itemize}
+}
+\note{
+\begin{itemize}
+\item ?
+\end{itemize}
+}
+
+
+% ======================= Example ======================================
+\section{Example}
+
+% ----------------- Commands ----------------------------
+\subsection{Commands}
+\begin{SaveVerbatim}{specSystem}
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
+system <- list(demand=eqDemand, supply=eqSupply)
+\end{SaveVerbatim}
+% \end{Verbatim}
+\begin{SaveVerbatim}{estSystem}
+fitsur <- systemfit( "SUR", system )
+\end{SaveVerbatim}
+% \end{Verbatim}
+\begin{SaveVerbatim}{printResults}
+summary( fitsur )
+\end{SaveVerbatim}
+% \end{Verbatim}
+\frame{
+   \frametitle{Example: Commands}
+\begin{itemize}
+\item from Kmenta (1986): Elements of Econometrics, p.~685
+\item specification of the equation system:\\[2mm]
+   \BUseVerbatim{specSystem}
+\item estimation using method °SUR°:
+   \BUseVerbatim{estSystem}
+\item printing summary results:\\
+   \BUseVerbatim{printResults}
+\end{itemize}
+}
+\note{
+\begin{itemize}
+\item ?
+\end{itemize}
+}
+
+% ----------------- Output ----------------------------
+\subsection{Output}
+\begin{SaveVerbatim}{output}
+???
+\end{SaveVerbatim}
+% \end{Verbatim}
+\frame{
+   \frametitle{Example: Output}
+\BUseVerbatim{output}
+}
+\note{
+\begin{itemize}
+\item ?
+\end{itemize}
+}
+
+
+% ============== Advantages ==============================
+\section{Advantages}
+\frame{
+   \frametitle{Advantages}
+\begin{itemize}
+\item all estimation procedures are publicly available
+\item estimation algorithms can be easily modified
+\item many estimation details can be controlled by the user
+\item novices can safely ignore these estimation details
+\item reliability of \texttt{systemfit} has been demonstrated
+\end{itemize}
+}
+\note{
+\begin{itemize}
+\item all estimation procedures are publicly available in the source code
+\item estimation algorithms can be easily modified to meet specific
+requirements
+\item the (advanced) user can control many estimation details generally
+not available in other software packages
+\item novices can safely ignore these estimation details
+because they have reasonable defaults
+\item reliability of \texttt{systemfit} has been demonstrated by comparing its estimation
+results with results published in the literature
+\end{itemize}
+}
+
+
+% ============== Future ==============================
+\section{Future}
+
+% ----------------- General Plans for the Future ----------------------------
+\subsection{General}
+\frame{
+   \frametitle{Plans for the Future}
+\begin{itemize}
+\item estimation with unbalanced data sets
+\item estimation methods: LIML, FIML,  and GMM
+\item fitting equation systems with serially correlated and
+heteroscedastic disturbances
+\item spatial econometric methods
+\item improving the function \texttt{nlsystemfit}
+to estimate systems of non-linear estimations
+\end{itemize}
+}
+\note{
+\begin{itemize}
+\item ?
+\end{itemize}
+}
+
+% ----------------- Arguments ----------------------------
+\subsection{Arguments}
+\frame{
+   \frametitle{User Interface: Arguments}
+Arguments of \texttt{systemfit}:\\[3mm]
+\begin{minipage}{0.22\textwidth}
+\begin{itemize}
+\item method
+\item eqns
+\item eqnlabels
+\item inst
+\item data
+\item R.restr
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.32\textwidth}
+\begin{itemize}
+\item q.restr
+\item TX
+\item maxiter
+\item tol
+\item rcovformula
+\item centerResiduals
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.40\textwidth}
+\begin{itemize}
+\item formula3sls
+\item probdfsys
+\item single.eq.sigma
+\item solvetol
+\item saveMemory
+\item (more in the future)
+\end{itemize}
+\end{minipage}\\[5mm]
+\textbf{Too many?}
+}
+\note{
+\begin{itemize}
+\item ?
+\end{itemize}
+}
+
+\frame{
+   \frametitle{Arguments}
+Reducing arguments:\\[3mm]
+\begin{minipage}{0.25\textwidth}
+\begin{itemize}
+\item method
+\item eqns
+\item inst
+\item data
+\end{itemize}
+\end{minipage}
+\begin{minipage}{0.55\textwidth}
+\begin{itemize}
+\item R.restr
+\item q.restr
+\item TX
+\item \textbf{control} (like in \texttt{optim})
+\end{itemize}
+\end{minipage}\\[5mm]
+However: This would break existing code!
+}
+\note{
+\begin{itemize}
+\item ?
+\end{itemize}
+}
+
+% ==================== The End ===========================
+\section{ }
+\frame{
+   \frametitle{The End . . .}
+
+\begin{center}
+{\LARGE \emph{Thank you for your attention!}}
+\end{center}
+}
+\note{
+   Thank you for your attention!
+}
+
+% ------------ End -------------
+
+\end{document}
