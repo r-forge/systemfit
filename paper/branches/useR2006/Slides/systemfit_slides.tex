@@ -146,7 +146,7 @@ system <- list(demand=eqDemand, supply=eqSupply)
 \end{SaveVerbatim}
 % \end{Verbatim}
 \begin{SaveVerbatim}{estSystem}
-fitsur <- systemfit( "SUR", system )
+fitsur <- systemfit("SUR", system, data=Kmenta)
 \end{SaveVerbatim}
 % \end{Verbatim}
 \begin{SaveVerbatim}{printResults}
@@ -158,11 +158,11 @@ summary( fitsur )
 \begin{itemize}
 \item from Kmenta (1986): Elements of Econometrics, p.~685
 \item specification of the equation system:\\[2mm]
-   \BUseVerbatim{specSystem}
+   {\small \BUseVerbatim{specSystem}}
 \item estimation using method °SUR°:
-   \BUseVerbatim{estSystem}
+   {\small \BUseVerbatim{estSystem}}
 \item printing summary results:\\
-   \BUseVerbatim{printResults}
+   {\small \BUseVerbatim{printResults}}
 \end{itemize}
 }
 \note{
@@ -173,13 +173,56 @@ summary( fitsur )
 
 % ----------------- Output ----------------------------
 \subsection{Output}
-\begin{SaveVerbatim}{output}
-???
+\begin{SaveVerbatim}{outputSystem}
+systemfit results
+method: SUR
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  65.6829 3.86370 1.96563 0.755019 0.726198
+supply 20 16 104.0584 6.50365 2.55023 0.611888 0.539117
+
+[...]
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.982348
+supply 0.982348 1.000000
+
+The determinant of the residual covariance matrix: 0.879285
+OLS R-squared value of the system: 0.683453
+McElroy's R-squared value for the system: 0.788722
 \end{SaveVerbatim}
 % \end{Verbatim}
 \frame{
-   \frametitle{Example: Output}
-\BUseVerbatim{output}
+   \frametitle{Results of the Entire System}
+{\small \BUseVerbatim{outputSystem}}
+}
+\note{
+\begin{itemize}
+\item ?
+\end{itemize}
+}
+
+\begin{SaveVerbatim}{outputEq}
+SUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)
+(Intercept) 99.332894   7.514452 13.218913        0 ***
+price       -0.275486   0.088509 -3.112513 0.006332  **
+income        0.29855   0.041945  7.117605    2e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.96563 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17
+SSR: 65.682902 MSE: 3.8637 Root MSE: 1.96563
+Multiple R-Squared: 0.755019 Adjusted R-Squared: 0.726198
+\end{SaveVerbatim}
+% \end{Verbatim}
+\frame{
+   \frametitle{Results of a Single Equation}
+{\small \BUseVerbatim{outputEq}}
 }
 \note{
 \begin{itemize}
@@ -283,7 +326,7 @@ Arguments of \texttt{systemfit}:\\[3mm]
 
 \frame{
    \frametitle{Arguments}
-Reducing arguments:\\[3mm]
+Reducing arguments?\\[3mm]
 \begin{minipage}{0.25\textwidth}
 \begin{itemize}
 \item method
