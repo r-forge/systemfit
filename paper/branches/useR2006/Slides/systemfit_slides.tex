@@ -14,9 +14,10 @@
 \frame{ \titlepage }
 \note{
 \begin{itemize}
-\item Welcome!
-\item authors
-\item package systemfit: Estimating simultaneous equation systems in R
+\item Welcome to my presentation about the R package systemfit.
+\item This package is written by me, Arne Henningsen,
+   and by my co-author Jeff Hamann.
+\item The package can used to estimate simultaneous equation systems in R.
 \end{itemize}
 }
 
@@ -27,27 +28,55 @@
 \subsection{Motivation}
 \frame{
    \frametitle{Motivation}
-\begin{itemize}
-\item many theoretical models consist of more than one equation
+Many theoretical models consist of more than one equation
    \begin{itemize}
    \item contemporaneous correlation of disturbance terms (likely)
    \item simultaneous estimation of all equations as
       °Seemingly Unrelated Regression° (SUR) leads to efficient results
    \end{itemize}
-\item theoretically derived cross-equation parameter restrictions\\
+\medskip
+Theoretically derived cross-equation parameter restrictions\\
    \begin{itemize}
    \item simultaneous estimation of all equations required
    \end{itemize}
-\item endogeneity of some variables\\
+\medskip
+Endogeneity of some variables
    \begin{itemize}
    \item estimation using °Two-Stage Least Squares° (2SLS)
       or °Three-Stage Least Squares° (3SLS) required
    \end{itemize}
-\end{itemize}
+\bigskip
+$\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
 }
 \note{
 \begin{itemize}
-\item ?
+\item Many theoretical models that are econometrically estimated
+   consist of more than one equation.
+\item For instance, economists like me model the supply
+   and the demand of a certain good.
+\item Or forest engineers like my co-author Jeff model the growth of trees
+   and take the height as well as the diameter of the trees into account.
+\item The disturbance terms of the single equations of such a equation system
+   are likely contemporaneously correlated.
+\item For instance, if you have a specific tree with a below average
+   diameter growth,
+   the growth of the height will probably be also below average.
+\item A standard OLS regression of each equation separately
+   ignores this correlation and leads to inefficient estimates.
+\item However, efficients estimates can be obtained,
+   if all equations are estimated simultaneously,
+   using Zellner's °Seemingly Unrelated Regression° method.
+\myhrule
+\item Furthermore, when the underlying theory suggests cross-equation
+   parameter restrictions,
+   a simultaneous estimation of all equations required, too.
+\myhrule
+\item Finally, it might be that some variables are the endogenous variable
+    in some equations and a regressor in other equations.
+\item In this case, °Two-Stage Least Squares° or °Three-Stage Least Squares°
+   regressions of the system have to be applied to obtain unbiased estimates.
+\myhrule
+\item All these models can be estimated by \texttt{systemfit}.
 \end{itemize}
 }
 
@@ -56,16 +85,21 @@
 \frame{
    \frametitle{Outline}
 \begin{itemize}
+\setlength{\itemsep}{0.75em}
 \item Introduction
 \item Features of systemfit
 \item Examples
-\item Advantages
+% \item Advantages
 \item Plans for the Future
 \end{itemize}
 }
 \note{
 \begin{itemize}
-\item ?
+\item After this introduction, I will present the features of systemfit.
+\item Then, I will demonstrate the usage of systemfit by a simple example.
+% \item Thereafter, I will highlight some advantages of systemfit compared to
+%    other software packages.
+\item Finally, I will present our future plans to extend and improve systemfit.
 \end{itemize}
 }
 
@@ -77,6 +111,7 @@
 \frame{
    \frametitle{Estimation Methods}
 \begin{itemize}
+\setlength{\itemsep}{0.75em}
 \item Ordinary Least Squares (OLS)
 \item Two-Stage Least Squares (2SLS)
 \item Seemingly Unrelated Regression (SUR)
@@ -86,7 +121,22 @@
 }
 \note{
 \begin{itemize}
-\item 2SLS often used for single-equations
+\item The most important features of \texttt{systemfit}
+   are -- of course -- the estimation methods.
+\item It provides
+   \begin{itemize}
+   \item Ordinary Least Squares
+   \item Two-Stage Least Squares
+   \item Seemingly Unrelated Regression
+   \item Three-Stage Least Squares
+   \item and some other less important methods
+   \end{itemize}
+\item Although the °Two-Stage Least Squares° estimator is designed
+   for estimating equation systems,
+   it can be applied to single equations, too.
+\item I have heard from several people -- among them Jeff Racine --
+   that they generally use systemfit to fit single-equation models
+   by °Two-Stage Least Squares°.
 \end{itemize}
 }
 
@@ -95,24 +145,34 @@
 \frame{
    \frametitle{Estimation Control}
 \begin{itemize}
+\setlength{\itemsep}{0.75em}
 \item imposition of linear restrictions
 \item instrumental variables
+\item iterated estimation
 \item formulas for the residual covariance matrix
 \item formulas for 3SLS estimation
-\item degrees of freedom for $t$ tests
-\item homogenous residual variance in OLS/2SLS estimations
+% \item degrees of freedom for $t$ tests
+% \item homogenous residual variance in OLS/2SLS estimations
+\item \ldots
 \end{itemize}
 }
 \note{
 \begin{itemize}
-\item imposition of linear restrictions by two different methods
-\item instrumental variables: the same for all equations or different for each equation
-\item several different formulas to calculate the residual covariance matrix
-\item several different formulas for the 3SLS estimation
-\item $t$ tests: degrees of freedom of the whole system
-   or degrees of freedom of the single equation
-\item OLS/2SLS estimation: different $\sigma^2$s for each single equation
-   or the same $\sigma^2$ for all equations
+\item Besides the estimation method,
+   the user can control many details of the estimation.
+\item For instance, she or he can impose linear restrictions
+   by two different methods,
+\item and can specify instrumental variables:
+   either the same for all equations or different for each equation.
+\item Furthermore, it can be indicated whether the feasable least squares
+   estimations should be iterated.
+\item The literature suggests several different formulas to calculate
+   the residual covariance matrix and the Three-Stage Least Squares estimator.
+\item To my knowledge, systemfit is the only popular software
+   where the user can decide which formula is applied.
+\item There exist some further details that can be controlled by the user.
+\item If you are interested in them please don't hesitate to ask me or
+   take a look into the documentation.
 \end{itemize}
 }
 
@@ -121,6 +181,7 @@
 \frame{
    \frametitle{Other Tools}
 \begin{itemize}
+\setlength{\itemsep}{0.75em}
 \item wrapper function for (classical) panel-like data in long format:
    \texttt{systemfitClassic}
 \item testing linear hypotheses using the F-, Wald-, and LR-statistic
@@ -129,7 +190,15 @@
 }
 \note{
 \begin{itemize}
-\item ?
+\item The package systemfit does not just provide the function systemfit
+   to estimate equation systems,
+   but also a few other functions.
+\item For instance, the package includes the wrapper function systemfitClassic
+   that can be applied to panel-like data in long format.
+\item Then, there are functions to test linear hypotheses using the
+   F-, Wald-, and Likelihood-ratio-statistic
+\item Finally, the consistency of the 3SLS estimator can be tested
+   by a hausman test.
 \end{itemize}
 }
 
@@ -156,6 +225,7 @@ summary( fitsur )
 \frame{
    \frametitle{Example: Commands}
 \begin{itemize}
+\setlength{\itemsep}{0.75em}
 \item from Kmenta (1986): Elements of Econometrics, p.~685
 \item specification of the equation system:\\[2mm]
    {\small \BUseVerbatim{specSystem}}
@@ -232,30 +302,30 @@ Multiple R-Squared: 0.755019 Adjusted R-Squared: 0.726198
 
 
 % ============== Advantages ==============================
-\section{Advantages}
-\frame{
-   \frametitle{Advantages}
-\begin{itemize}
-\item all estimation procedures are publicly available
-\item estimation algorithms can be easily modified
-\item many estimation details can be controlled by the user
-\item novices can safely ignore these estimation details
-\item reliability of \texttt{systemfit} has been demonstrated
-\end{itemize}
-}
-\note{
-\begin{itemize}
-\item all estimation procedures are publicly available in the source code
-\item estimation algorithms can be easily modified to meet specific
-requirements
-\item the (advanced) user can control many estimation details generally
-not available in other software packages
-\item novices can safely ignore these estimation details
-because they have reasonable defaults
-\item reliability of \texttt{systemfit} has been demonstrated by comparing its estimation
-results with results published in the literature
-\end{itemize}
-}
+% \section{Advantages}
+% \frame{
+%    \frametitle{Advantages}
+% \begin{itemize}
+% \item all estimation procedures are publicly available
+% \item estimation algorithms can be easily modified
+% \item many estimation details can be controlled by the user
+% \item novices can safely ignore these estimation details
+% \item reliability of \texttt{systemfit} has been demonstrated
+% \end{itemize}
+% }
+% \note{
+% \begin{itemize}
+% \item all estimation procedures are publicly available in the source code
+% \item estimation algorithms can be easily modified to meet specific
+% requirements
+% \item the (advanced) user can control many estimation details generally
+% not available in other software packages
+% \item novices can safely ignore these estimation details
+% because they have reasonable defaults
+% \item reliability of \texttt{systemfit} has been demonstrated by comparing its estimation
+% results with results published in the literature
+% \end{itemize}
+% }
 
 
 % ============== Future ==============================
@@ -266,6 +336,7 @@ results with results published in the literature
 \frame{
    \frametitle{Plans for the Future}
 \begin{itemize}
+\setlength{\itemsep}{0.75em}
 \item estimation with unbalanced data sets
 \item estimation methods: LIML, FIML,  and GMM
 \item fitting equation systems with serially correlated and
