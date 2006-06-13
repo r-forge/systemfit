@@ -1,5 +1,5 @@
-\documentclass{beamer}
-%\documentclass[notes=show,handout]{beamer}
+%\documentclass{beamer}
+\documentclass[notes=show,handout]{beamer}
 %\documentclass[handout]{beamer}
 
 \input{systemfit_slides_commands.tex}
@@ -17,7 +17,7 @@
 \item Welcome to my presentation about the R package systemfit.
 \item This package is written by me, Arne Henningsen,
    and by my co-author Jeff Hamann.
-\item The package can used to estimate simultaneous equation systems in R.
+\item The package can be used to estimate simultaneous equation systems in R.
 \end{itemize}
 }
 
@@ -61,21 +61,18 @@ $\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
 \item For instance, if you have a specific tree with a below average
    diameter growth,
    the growth of the height will probably be also below average.
-\item A standard OLS regression of each equation separately
+\item A standard Ordinary Least Squares regression of each equation separately
    ignores this correlation and leads to inefficient estimates.
 \item However, efficients estimates can be obtained,
-   if all equations are estimated simultaneously,
+   if all equations are estimated simultaneously
    using Zellner's °Seemingly Unrelated Regression° method.
-\myhrule
-\item Furthermore, when the underlying theory suggests cross-equation
+\item Furthermore, when the theory suggests cross-equation
    parameter restrictions,
-   a simultaneous estimation of all equations required, too.
-\myhrule
+   a simultaneous estimation of all equations is required, too.
 \item Finally, it might be that some variables are the endogenous variable
     in some equations and a regressor in other equations.
 \item In this case, °Two-Stage Least Squares° or °Three-Stage Least Squares°
-   regressions of the system have to be applied to obtain unbiased estimates.
-\myhrule
+   regressions have to be applied to obtain unbiased estimates.
 \item All these models can be estimated by \texttt{systemfit}.
 \end{itemize}
 }
@@ -99,7 +96,7 @@ $\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
 \item Then, I will demonstrate the usage of systemfit by a simple example.
 % \item Thereafter, I will highlight some advantages of systemfit compared to
 %    other software packages.
-\item Finally, I will present our future plans to extend and improve systemfit.
+\item And finally, I will present our future plans to extend and improve systemfit.
 \end{itemize}
 }
 
@@ -159,19 +156,20 @@ $\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
 \note{
 \begin{itemize}
 \item Besides the estimation method,
-   the user can control many details of the estimation.
+   the user can control many further details of the estimation.
 \item For instance, she or he can impose linear restrictions
-   by two different methods,
-\item and can specify instrumental variables:
-   either the same for all equations or different for each equation.
-\item Furthermore, it can be indicated whether the feasable least squares
-   estimations should be iterated.
+   by two different methods.
+\item Instrumental variables can be provided
+   either by specifying the same variables for all equations or
+   by specifying different variables for each equation.
+\item Furthermore, it can be indicated whether feasible least squares
+   estimations should be iterated or not.
 \item The literature suggests several different formulas to calculate
    the residual covariance matrix and the Three-Stage Least Squares estimator.
-\item To my knowledge, systemfit is the only popular software
-   where the user can decide which formula is applied.
+\item To my knowledge, systemfit is the only statistical software
+   where the user can decide which formula should be applied.
 \item There exist some further details that can be controlled by the user.
-\item If you are interested in them please don't hesitate to ask me or
+\item If you are interested in these, please don't hesitate to ask me or
    take a look into the documentation.
 \end{itemize}
 }
@@ -196,9 +194,9 @@ $\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
 \item For instance, the package includes the wrapper function systemfitClassic
    that can be applied to panel-like data in long format.
 \item Then, there are functions to test linear hypotheses using the
-   F-, Wald-, and Likelihood-ratio-statistic
-\item Finally, the consistency of the 3SLS estimator can be tested
-   by a hausman test.
+   F-, Wald-, and Likelihood-ratio-statistic.
+\item Finally, the consistency of the Three-Stage Least Squares estimator
+   can be tested by a Hausman test.
 \end{itemize}
 }
 
@@ -211,11 +209,11 @@ $\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
 \begin{SaveVerbatim}{specSystem}
 eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
-system <- list(demand=eqDemand, supply=eqSupply)
+eqSystem <- list(demand=eqDemand, supply=eqSupply)
 \end{SaveVerbatim}
 % \end{Verbatim}
 \begin{SaveVerbatim}{estSystem}
-fitsur <- systemfit("SUR", system, data=Kmenta)
+fitsur <- systemfit("SUR", eqSystem, data=Kmenta)
 \end{SaveVerbatim}
 % \end{Verbatim}
 \begin{SaveVerbatim}{printResults}
@@ -237,7 +235,26 @@ summary( fitsur )
 }
 \note{
 \begin{itemize}
-\item ?
+\item Now, I will shortly demonstrate how to use systemfit.
+\item I have selected an example from Kmenta's textbook °Elements of
+   Econometrics°.
+\item In this example, the demand and the supply of food in the U.S.\ is
+   analyzed.
+\item The demand and the supply equation are specified first.
+\item The consumed food quantity is a function of the food price and
+   the income of the consumers.
+\item The produced quantity equals the consumed quantity and depends
+   on the food price, the average price of farm products
+   and a time trend to account for technical progress.
+\item In the third line, these two equations are combined into a list
+   named °eqSystem°.
+\item Then the equation system is estimated by °Seemingly Unrelated
+   Regression°
+\item Of course, the food price is endogenous and therefore,
+   the system should be estimated by Three-Stage Least Squares
+   using instrumental variables.
+   However, I want to keep this example as simple as possible.
+\item Finally, summary results of the regression are printed.
 \end{itemize}
 }
 
@@ -269,7 +286,20 @@ McElroy's R-squared value for the system: 0.788722
 }
 \note{
 \begin{itemize}
-\item ?
+\item First, the summary results of the entire system are presented.
+\item For instance, the number of observations, \texttt{N},
+   the degrees of freedom, \texttt{DF},
+   as well as R-squared and adjusted R-squared values
+   are printed for each equation.
+\item Besides some other results, the correlation matrix of the residuals
+   is presented.
+\item A coefficient of correlation of 0.98 shows that the residuals
+   of the two equations are highly correlated.
+\item This indicates that OLS results that do not take this correlation
+   into account are rather inefficient.
+\item Finally, the determinant of the residual covariance matrix,
+   the OLS R-squared value and McElroy's R-squared value of
+   the equation system are printed.
 \end{itemize}
 }
 
@@ -296,7 +326,11 @@ Multiple R-Squared: 0.755019 Adjusted R-Squared: 0.726198
 }
 \note{
 \begin{itemize}
-\item ?
+\item Summary results of each equation are printed then.
+\item The results of the demand equation are presented on this slide.
+\item The output is pretty similar to the output of °summary.lm°.
+\item For instance, the estimated coefficients, their standard errors,
+   the t-values, and the marginal levels of significance are shown.
 \end{itemize}
 }
 
@@ -343,12 +377,26 @@ Multiple R-Squared: 0.755019 Adjusted R-Squared: 0.726198
 heteroscedastic disturbances
 \item spatial econometric methods
 \item improving the function \texttt{nlsystemfit}
-to estimate systems of non-linear estimations
+to estimate systems of non-linear equations
 \end{itemize}
 }
 \note{
 \begin{itemize}
-\item ?
+\item Although systemfit has many features and produces
+   reliable results,
+   there are still many things that can be added to the package.
+\item For instance, we plan to allow for an estimation with
+   unbalanced data sets -- that are datasets with unequal numbers
+   of observations for each equation.
+\item Then we would like to add the estimation methods
+   °Limited Information Maximum Likelihood°,
+   °Full Information Maximum Likelihood°, and
+   °Generalized Method of Moments°.
+\item Furthermore, we plan to add estimation procedures
+   that account for serially correlated and heteroscedastic disturbances
+   as well as for spatial data.
+\item Finally, we would like to improve the function \texttt{nlsystemfit}
+   to estimate systems of non-linear equations.
 \end{itemize}
 }
 
@@ -391,7 +439,14 @@ Arguments of \texttt{systemfit}:\\[3mm]
 }
 \note{
 \begin{itemize}
-\item ?
+\item As I have indicated before,
+   the user can control many estimation details of systemfit.
+\item However, this has also an important drawback:
+\item the systemfit function has a lot of arguments.
+\item And the number of arguments will increase when we add further features
+   in the future.
+\item Although most arguments have reasonable default values,
+   the long list of arguments might confuse many newbies.
 \end{itemize}
 }
 
@@ -418,7 +473,16 @@ However: This would break existing code!
 }
 \note{
 \begin{itemize}
-\item ?
+\item Therefore, we are consider whether we should reduce the number
+   of arguments.
+\item All arguments that are generally used by advanced users only,
+   could be subsumed into a list of control parameters
+   like in the function °optim°.
+\item However: This would break existing code!
+\item I would like to know what you think about this issue.
+\item Do you think we should reduce the arguments
+   or keep all arguments as they are?
+\item Or do you have a better solution to make the function more concise?
 \end{itemize}
 }
 
