@@ -1,5 +1,5 @@
-%\documentclass{beamer}
-\documentclass[notes=show,handout]{beamer}
+\documentclass{beamer}
+%\documentclass[notes=show,handout]{beamer}
 %\documentclass[handout]{beamer}
 
 \input{systemfit_slides_commands.tex}
@@ -7,17 +7,18 @@
 
 \title[systemfit]{
    \textbf{systemfit}\\ Simultaneous Equation Systems in R}
-\author{Arne Henningsen and Jeff D.\ Hamann}
-\date{University of Kiel (Germany) and\\Forest Informatics, Inc. (Corvallis, OR, USA)}
+\author{Arne Henningsen (University of Kiel, Germany)\\[0.4em]
+   Jeff D.\ Hamann (Forest Informatics, Inc., Corvallis, USA)}
+\date{Vienna, June 16, 2006}
 
 \begin{document}
 \frame{ \titlepage }
 \note{
 \begin{itemize}
 \item Welcome to my presentation about the R package systemfit.
-\item This package is written by me, Arne Henningsen,
-   and by my co-author Jeff Hamann.
 \item The package can be used to estimate simultaneous equation systems in R.
+\item It has been written by me, Arne Henningsen,
+   and by my co-author Jeff Hamann.
 \end{itemize}
 }
 
@@ -46,7 +47,7 @@ Endogeneity of some variables
       or °Three-Stage Least Squares° (3SLS) required
    \end{itemize}
 \bigskip
-$\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
+$\Rightarrow$ All these models can be estimated by \texttt{systemfit}
 }
 \note{
 \begin{itemize}
@@ -56,17 +57,17 @@ $\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
    and the demand of a certain good.
 \item Or forest engineers like my co-author Jeff model the growth of trees
    and take the height as well as the diameter of the trees into account.
-\item The disturbance terms of the single equations of such a equation system
+\item The disturbance terms of the equations of an equation system
    are likely contemporaneously correlated.
 \item For instance, if you have a specific tree with a below average
    diameter growth,
    the growth of the height will probably be also below average.
 \item A standard Ordinary Least Squares regression of each equation separately
    ignores this correlation and leads to inefficient estimates.
-\item However, efficients estimates can be obtained,
+\item However, efficient estimates can be obtained,
    if all equations are estimated simultaneously
    using Zellner's °Seemingly Unrelated Regression° method.
-\item Furthermore, when the theory suggests cross-equation
+\item Moreover, if the underlying theory suggests cross-equation
    parameter restrictions,
    a simultaneous estimation of all equations is required, too.
 \item Finally, it might be that some variables are the endogenous variable
@@ -85,7 +86,7 @@ $\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
 \setlength{\itemsep}{0.75em}
 \item Introduction
 \item Features of systemfit
-\item Examples
+\item Example
 % \item Advantages
 \item Plans for the Future
 \end{itemize}
@@ -145,7 +146,7 @@ $\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
 \setlength{\itemsep}{0.75em}
 \item imposition of linear restrictions
 \item instrumental variables
-\item iterated estimation
+\item iteration of FGLS estimation
 \item formulas for the residual covariance matrix
 \item formulas for 3SLS estimation
 % \item degrees of freedom for $t$ tests
@@ -162,7 +163,7 @@ $\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
 \item Instrumental variables can be provided
    either by specifying the same variables for all equations or
    by specifying different variables for each equation.
-\item Furthermore, it can be indicated whether feasible least squares
+\item Furthermore, it can be indicated whether feasible generalized least squares
    estimations should be iterated or not.
 \item The literature suggests several different formulas to calculate
    the residual covariance matrix and the Three-Stage Least Squares estimator.
@@ -180,8 +181,8 @@ $\Rightarrow$ All these models can be estimated by \texttt{systemfit}.
    \frametitle{Other Tools}
 \begin{itemize}
 \setlength{\itemsep}{0.75em}
-\item wrapper function for (classical) panel-like data in long format:
-   \texttt{systemfitClassic}
+\item \texttt{systemfitClassic}: wrapper function for (classical)
+   panel-like data in long format
 \item testing linear hypotheses using the F-, Wald-, and LR-statistic
 \item Hausman test for the consistency of the 3SLS estimator
 \end{itemize}
@@ -251,7 +252,7 @@ summary( fitsur )
 \item Then the equation system is estimated by °Seemingly Unrelated
    Regression°
 \item Of course, the food price is endogenous and therefore,
-   the system should be estimated by Three-Stage Least Squares
+   the system should be estimated by °Three-Stage Least Squares°
    using instrumental variables.
    However, I want to keep this example as simple as possible.
 \item Finally, summary results of the regression are printed.
@@ -286,14 +287,14 @@ McElroy's R-squared value for the system: 0.788722
 }
 \note{
 \begin{itemize}
-\item First, the summary results of the entire system are presented.
+\item First, the general results of the entire system are presented.
 \item For instance, the number of observations, \texttt{N},
    the degrees of freedom, \texttt{DF},
    as well as R-squared and adjusted R-squared values
    are printed for each equation.
 \item Besides some other results, the correlation matrix of the residuals
    is presented.
-\item A coefficient of correlation of 0.98 shows that the residuals
+\item A coefficient of correlation of about 0.98 shows that the residuals
    of the two equations are highly correlated.
 \item This indicates that OLS results that do not take this correlation
    into account are rather inefficient.
@@ -378,6 +379,7 @@ heteroscedastic disturbances
 \item spatial econometric methods
 \item improving the function \texttt{nlsystemfit}
 to estimate systems of non-linear equations
+\item \ldots
 \end{itemize}
 }
 \note{
@@ -386,7 +388,7 @@ to estimate systems of non-linear equations
    reliable results,
    there are still many things that can be added to the package.
 \item For instance, we plan to allow for an estimation with
-   unbalanced data sets -- that are datasets with unequal numbers
+   unbalanced data sets -- these are datasets with unequal numbers
    of observations for each equation.
 \item Then we would like to add the estimation methods
    °Limited Information Maximum Likelihood°,
@@ -397,6 +399,9 @@ to estimate systems of non-linear equations
    as well as for spatial data.
 \item Finally, we would like to improve the function \texttt{nlsystemfit}
    to estimate systems of non-linear equations.
+\item And there are of other things that can be improved.
+\item If you are interested,
+   you are invited to help us improving systemfit.
 \end{itemize}
 }
 
@@ -439,13 +444,16 @@ Arguments of \texttt{systemfit}:\\[3mm]
 }
 \note{
 \begin{itemize}
+\item At the end of my presentation,
+   I would like to ask a question to the users of systemfit.
 \item As I have indicated before,
    the user can control many estimation details of systemfit.
 \item However, this has also an important drawback:
 \item the systemfit function has a lot of arguments.
 \item And the number of arguments will increase when we add further features
    in the future.
-\item Although most arguments have reasonable default values,
+\item Although most arguments have reasonable default values
+   and can be ignored by unexperienced users,
    the long list of arguments might confuse many newbies.
 \end{itemize}
 }
@@ -475,7 +483,7 @@ However: This would break existing code!
 \begin{itemize}
 \item Therefore, we are consider whether we should reduce the number
    of arguments.
-\item All arguments that are generally used by advanced users only,
+\item All arguments that are generally not used by unadvanced,
    could be subsumed into a list of control parameters
    like in the function °optim°.
 \item However: This would break existing code!
@@ -496,7 +504,7 @@ However: This would break existing code!
 \end{center}
 }
 \note{
-   Thank you for your attention!
+   Thank you very much for your attention!
 }
 
 % ------------ End -------------
