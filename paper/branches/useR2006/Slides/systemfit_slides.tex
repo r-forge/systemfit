@@ -7,9 +7,10 @@
 
 \title[systemfit]{
    \textbf{systemfit}\\ Simultaneous Equation Systems in R}
-\author{Arne Henningsen (University of Kiel, Germany)\\[0.4em]
+\author[Arne Henningsen and Jeff D.\ Hamann]{
+   Arne Henningsen (University of Kiel, Germany)\\[0.4em]
    Jeff D.\ Hamann (Forest Informatics, Inc., Corvallis, USA)}
-\date{Vienna, June 16, 2006}
+\date{useR!, Vienna, June 16, 2006}
 
 \begin{document}
 \frame{ \titlepage }
@@ -377,6 +378,7 @@ Multiple R-Squared: 0.755019 Adjusted R-Squared: 0.726198
 \item fitting equation systems with serially correlated and
 heteroscedastic disturbances
 \item spatial econometric methods
+\item simplify specification of parameter restrictions
 \item improving the function \texttt{nlsystemfit}
 to estimate systems of non-linear equations
 \item \ldots
@@ -397,6 +399,8 @@ to estimate systems of non-linear equations
 \item Furthermore, we plan to add estimation procedures
    that account for serially correlated and heteroscedastic disturbances
    as well as for spatial data.
+\item And we would like to simplify the specification of parameter
+   restrictions.
 \item Finally, we would like to improve the function \texttt{nlsystemfit}
    to estimate systems of non-linear equations.
 \item And there are of other things that can be improved.
@@ -481,9 +485,9 @@ However: This would break existing code!
 }
 \note{
 \begin{itemize}
-\item Therefore, we are consider whether we should reduce the number
+\item Therefore, we consider whether we should reduce the number
    of arguments.
-\item All arguments that are generally not used by unadvanced,
+\item All arguments that are generally not used by unadvanced users,
    could be subsumed into a list of control parameters
    like in the function °optim°.
 \item However: This would break existing code!
