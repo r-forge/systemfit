@@ -488,10 +488,6 @@ systemfit <- function( method,
               # t-values of estim. param. of equation i
     bcovi  <- bcov[(1+sum(k[1:i])-k[i]):(sum(k[1:i])),(1+sum(k[1:i])-k[i]):(sum(k[1:i]))]
               # covariance matrix of estimated coefficients of equation i
-    bi     <- array(bi,c(k[i],1))
-    rownames(bi) <- colnames(x[[i]])
-    attr(bi,"names") <- colnames(x[[i]])
-
     if(probdfsys) {
       probi <- c(prob[(1+sum(k[1:i])-k[i]):(sum(k[1:i]))])
                # p-values of estim. param. of equation i
@@ -500,6 +496,15 @@ systemfit <- function( method,
                # p-values of estim. param. of equation i
       prob <- c(prob,probi) # p-values of all estimated coefficients
     }
+
+    # set names
+    names( bi ) <- colnames( x[[i]] )
+    names( sei ) <- colnames( x[[i]] )
+    names( ti ) <- colnames( x[[i]] )
+    names( probi ) <- colnames( x[[i]] )
+    colnames( bcovi ) <- colnames( x[[i]] )
+    rownames( bcovi ) <- colnames( x[[i]] )
+
     ssr    <- sum(residi[[i]]^2)                         # sum of squared residuals
     mse    <- ssr/df[i]                                  # estimated variance of residuals
     rmse   <- sqrt( mse )                                # estimated standard error of residuals
