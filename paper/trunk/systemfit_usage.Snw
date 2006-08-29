@@ -51,11 +51,11 @@ We want to estimate a small model of the US food market:
    + \beta_6 * \texttt{farmPrice} + \beta_7 * \texttt{trend}
 \end{align}
 The first equation represents the demand side of the food market.
-Variable \code{consump} (food consumption per capita) is the dependant variable.
+Variable \code{consump} (food consumption per capita) is the dependent variable.
 The regressors are \code{price} (ratio of food prices to general consumer prices)
 and \code{income} (disposable income) as well as a constant.
 The second equation specifies the supply side of the food market.
-Variable \code{consump} is the dependant variable of this equation as well.
+Variable \code{consump} is the dependent variable of this equation as well.
 The regressors are again \code{price} (ratio of food prices to general 
 consumer prices) and a constant as well as 
 \code{farmPrice} (ratio of preceding year's prices received by farmers) and 

@@ -62,7 +62,7 @@ matrix is \citep[p.\ 309]{zellner62c}
    { T - K_i - K_j + tr \left[ \left( X_i' X_i \right)^{-1}
    X_i' X_j \left( X_j' X_j \right)^{-1} X_j' X_i \right] }
 \end{eqnarray} 
-This yields an unbiased estimator for all elements of $\widehat{\Sigma}$,
+This yields an unbiased estimator for all elements of $\Sigma$,
 but even if $\widehat{\Sigma}$ is an unbiased estimator of $\Sigma$, 
 its inverse $\widehat{\Sigma}^{-1}$ is not an unbiased estimator 
 of $\Sigma^{-1}$ \citep[p.\ 322]{theil71}.
@@ -191,7 +191,7 @@ F = \frac{
    ( R \hat{\beta} - q ) /
    j
 }{
-   \hat{u}' ( \Sigma \otimes I )^{-1} \hat{u} /
+   \hat{u}' ( \widehat{\Sigma} \otimes I )^{-1} \hat{u} /
    ( M \cdot T - K )
 }
 \end{equation}
@@ -220,12 +220,12 @@ under the null hypothesis
 The LR statistic for systems of equations is
 \begin{equation}
 LR = T \cdot \left(
-   log \left| \hat{ \hat{ \Sigma } }_r \right|
-   - log \left| \hat{ \hat{ \Sigma } }_u \right|
+   log \left| \hat{ \Sigma }_r \right|
+   - log \left| \hat{ \Sigma }_u \right|
    \right)
 \end{equation}
 where $T$ is the number of observations per equation, and 
-$\hat{\hat{\Sigma}}_r$ and $\hat{\hat{\Sigma}}_u$ are
+$\hat{\Sigma}_r$ and $\hat{\Sigma}_u$ are
 the residual covariance matrices calculated by formula (\ref{eq:rcov0})
 of the restricted and unrestricted estimation, respectively.
 Asymptotically, $LR$ has a $\chi^2$
