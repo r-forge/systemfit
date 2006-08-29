@@ -15,12 +15,12 @@ Thus, this covariance matrix must be calculated from the
 Generally, the estimated covariance matrix of the residuals
 ($\widehat{\Sigma} = \left[ \widehat{\sigma}_{ij} \right]$)
 can be calculated from the residuals of a first-step OLS or 2SLS estimation.
-The following formula is often applied:
+In many cases, the formula
 \begin{equation}
    \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }{ T }
    \label{eq:rcov0}
 \end{equation}
-where $T$ is the number of observations in each equation.
+is applied, where $T$ is the number of observations in each equation.
 However, in finite samples this estimator is biased,
 because it is not corrected for degrees of freedom.
 The usual single-equation procedure to correct for degrees of freedom
@@ -36,7 +36,7 @@ matrix are
 and
 \begin{equation}
    \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
-   { T - \max \left( K_i , K_j \right) }
+   { T - \max \left( K_i , K_j \right) } \; ,
    \label{eq:rcov3}
 \end{equation}
 where $K_i$ and $K_j$ are the number of regressors in equation
@@ -50,7 +50,7 @@ However, these formulas yield unbiased estimators only if $K_i = K_j$
 
 
 A further approach to obtain the estimated residual covariance
-matrix is \citep[p.\ 309]{zellner62c}
+matrix is
 \begin{eqnarray}
    \widehat{\sigma}_{ij} & = & 
    \frac{ \widehat{u}_i' \widehat{u}_j } 
@@ -62,6 +62,7 @@ matrix is \citep[p.\ 309]{zellner62c}
    { T - K_i - K_j + tr \left[ \left( X_i' X_i \right)^{-1}
    X_i' X_j \left( X_j' X_j \right)^{-1} X_j' X_i \right] }
 \end{eqnarray} 
+\citep[p.\ 309]{zellner62c}.
 This yields an unbiased estimator for all elements of $\Sigma$,
 but even if $\widehat{\Sigma}$ is an unbiased estimator of $\Sigma$, 
 its inverse $\widehat{\Sigma}^{-1}$ is not an unbiased estimator 
@@ -155,22 +156,23 @@ of freedom of the entire system.
 \subsection{Goodness of fit}
 
 The goodness of fit of each single equation can be measured by the
-traditional $R^2$ values:
+traditional $R^2$ values
 \begin{equation}
    R_i^2 = 1 - \frac{ \widehat{u}_i' \widehat{u}_i }
-   { ( y_i - \overline{y_i} )' ( y_i - \overline{y_i} ) }
+   { ( y_i - \overline{y_i} )' ( y_i - \overline{y_i} ) } \; ,
 \end{equation}
 where $R_i^2$ is the $R^2$ value of the $i$th equation
 and $\overline{y_i}$ is the mean value of $y_i$.
 
 The goodness of fit of the whole system can be measured by the
-McElroy's $R^2$ value \citep{mcelroy77}: 
+McElroy's $R^2$ value 
 % also: \citep[p.\ 345]{greene03}
 \begin{equation}
    R_*^2 = 1 - \frac{ \widehat{u}' \widehat{ \Omega }^{-1} \widehat{u} }
    { y' \left( \widehat{ \Sigma }^{-1} \otimes
    \left( I - \frac{i i'}{T} \right) \right) y }
 \end{equation}
+\citep{mcelroy77},
 where $T$ is the number of observations in each equation,
 $I$ is an $T \times T$ identity matrix and 
 $i$ is a column vector of $T$ ones.
@@ -193,7 +195,7 @@ F = \frac{
 }{
    \widehat{u}' ( \widehat{\Sigma} \otimes I )^{-1} \widehat{u} /
    ( M \cdot T - K )
-}
+} \; ,
 \end{equation}
 where $j$ is the number of restrictions,
 $M$ is the number of equations,
@@ -210,7 +212,7 @@ The Wald statistic for systems of equations is
 W =
    ( R \widehat{\beta} - q )'
    ( R \widehat{Cov} [ \widehat{\beta} ] R' )^{-1}
-   ( R \widehat{\beta} - q )
+   ( R \widehat{\beta} - q ) .
 \end{equation}
 Asymptotically, $W$ has a $\chi^2$
 distribution with $j$ degrees of freedom
@@ -222,7 +224,7 @@ The LR statistic for systems of equations is
 LR = T \cdot \left(
    log \left| \widehat{ \Sigma }_r \right|
    - log \left| \widehat{ \Sigma }_u \right|
-   \right)
+   \right) ,
 \end{equation}
 where $T$ is the number of observations per equation, and 
 $\widehat{\Sigma}_r$ and $\widehat{\Sigma}_u$ are
@@ -246,12 +248,12 @@ Under this hypothesis both the 2SLS and the 3SLS estimator are consistent
 but only the 3SLS estimator is (asymptotically) efficient.
 Under the alternative hypothesis the 2SLS estimator is consistent
 but the 3SLS estimator is inconsistent.
-The Hausman test statistic is,
+The Hausman test statistic is
 \begin{equation}
   m = \left( \widehat{\beta}_{2SLS} - \widehat{\beta}_{3SLS} \right)^{'}
       \left( \Cov \left[ \widehat{\beta}_{2SLS} \right] -
              \Cov \left[ \widehat{\beta}_{3SLS} \right] \right)
-      \left( \widehat{\beta}_{2SLS} - \widehat{\beta}_{3SLS} \right)
+      \left( \widehat{\beta}_{2SLS} - \widehat{\beta}_{3SLS} \right) ,
 \label{eq:hausman}
 \end{equation}
 where $\widehat{\beta}_{2SLS}$ and $\Cov \left[ \widehat{\beta}_{2SLS} \right]$ are the estimated

@@ -13,7 +13,7 @@ equation systems.
 Consider a system of $G$ equations, where the $i$th equation is of
 the form 
 \begin{equation}
-   y_{i} = X_i \beta_i + u_i, \quad i = 1, 2, \ldots, G
+   y_{i} = X_i \beta_i + u_i, \quad i = 1, 2, \ldots, G ,
 \end{equation}
 where $y_i$ is a vector of the dependent variable,
 $X_i$ is a matrix of the exogenous variables,
@@ -41,26 +41,26 @@ We can write the °stacked° system as
 
 or more simply as
 \begin{equation}
-   y = X \beta + u 
+   y = X \beta + u .
 \end{equation}   
 
 We assume that there is no correlation of the disturbance terms 
-across observations:
+across observations, so that
 \begin{equation}
    E \left( u_{it} \, u_{jt^*} \right) = 0 
-   \; \forall \; t \neq t^*
+   \; \forall \; t \neq t^* ,
 \end{equation}
 where $i$ and $j$ indicate the equation number 
 and $t$ and $t^*$ denote the observation number.
 
-However, we explicitly allow for contemporaneous correlation:
+However, we explicitly allow for contemporaneous correlation, i.e.\
 \begin{equation}
-   E \left( u_{it} \, u_{jt} \right) = \sigma_{ij}
+   E \left( u_{it} \, u_{jt} \right) = \sigma_{ij} .
 \end{equation}
 
 Thus, the covariance matrix of the total system is
 \begin{equation}
-   E \left( u \, u' \right) = \Omega = \Sigma \otimes I
+   E \left( u \, u' \right) = \Omega = \Sigma \otimes I ,
 \end{equation}
 where $\Sigma = \left[ \sigma_{ij} \right]$ is the residual covariance matrix
 and $I$ is an identity matrix.

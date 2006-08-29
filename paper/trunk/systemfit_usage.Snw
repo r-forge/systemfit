@@ -237,7 +237,7 @@ Its default value is one, which means no iteration.
 The convergence criterion is
 \begin{equation}
    \sqrt{ \frac{ \sum_i (b_{i,g} - b_{i,g-1})^2 }{ \sum_i b_{i,g-1}^2 }}
-      < \texttt{tol}
+      < \texttt{tol} ,
 \end{equation}
 where $b_{i,g}$ is the $i$th coefficient of the $g$th iteration.
 The default value of \code{tol} is $10^{-5}$.
