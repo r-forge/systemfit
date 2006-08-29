@@ -21,7 +21,7 @@ the covariance matrix of the estimated parameters is
    \Cov \left[ \widehat{\beta}_{OLS} \right] = \sigma^2 \left( X'X \right)^{-1} ,
    \label{eq:olsCovSameSigma}
 \end{equation}
-where $\sigma^2 = E \left( u' u \right)$.
+where $\sigma^2 = E \left( u_{it}^2 \right)$.
 This assumes that the disturbances of all equations have the
 same variance.
 
@@ -34,7 +34,7 @@ the covariance matrix of the estimated parameters is
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = E \left( u_i' u_i \right)$.
+$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
 
 If no cross-equation parameter restrictions are imposed, the simultaneous 
 OLS estimation of the system leads to the same parameter estimates 
@@ -54,7 +54,7 @@ is obtained by
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = E \left( u_i' u_i \right)$.
+$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
 Like the OLS estimates these estimates are only efficient
 if the disturbance terms are not contemporaneously correlated.
 The covariance matrix of the estimated parameters is
@@ -69,15 +69,15 @@ the parameter estimates are equal to the OLS estimates.
 
 When the disturbances are contemporaneously correlated, a Generalized 
 Least Squares (GLS) estimation leads to efficient parameter estimates.
-In this case, the GLS is generally called °Seemingly Unrelated Regression°
-(SUR) \citep{zellner62}.
+In this case, the GLS estimator is generally called °Seemingly Unrelated Regression°
+(SUR) estimator \citep{zellner62}.
 It should be noted that while an unbiased OLS or WLS estimation requires only that 
 the regressors and the disturbance terms of each single 
 equation are uncorrelated
-$( E \left[ u_i | X_i \right] = 0 \; \forall \; i )$,
+$( E \left[ u_i ' X_i \right] = 0 \; \forall \; i )$,
 a consistent SUR estimation requires that all disturbance terms and all 
 regressors are uncorrelated
-$( E \left[ u | X \right] = 0 )$.
+$( E \left[ u_i ' X_j \right] = 0 \; \forall \; i, j )$.
 
 The SUR estimator can be obtained by
 \begin{equation}
@@ -85,7 +85,7 @@ The SUR estimator can be obtained by
    \label{eq:sur}
 \end{equation}
 where $\Omega = \Sigma \otimes I$ and
-$\sigma_{ij} = E \left( u_i' u_j \right)$.
+$\sigma_{ij} = E \left( u_{it} u_{jt} \right)$.
 And the covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov \left[ \widehat{\beta}_{SUR} \right] = \left( X' \Omega^{-1} X \right)^{-1} .
@@ -97,15 +97,15 @@ And the covariance matrix of the estimated parameters is
 \subsubsection{Two-stage least squares (2SLS)}
 
 If the regressors of one or more equations are correlated 
-with the disturbances ($E \left( u_i | X_i \right) \neq 0$), 
-the estimated coefficients are biased.
+with the disturbances ($E \left( u_i' X_i \right) \neq 0$),
+OLS estimates are biased.
 This can be circumvented by an instrumental variable (IV)
 two-stage least squares (2SLS) estimation.
 The instrumental variables for each equation $H_i$ 
 can be either different or identical for all equations.
 The instrumental variables of each equation may not be correlated with 
 the disturbance terms of the corresponding equation 
-($E \left( u_i | H_i \right) = 0$).
+($E \left( u_i' H_i \right) = 0$).
 
 At the first stage new ('fitted') regressors are obtained by
 \begin{equation}
@@ -125,7 +125,7 @@ the covariance matrix of the estimated parameters is
    \widehat{X} \right)^{-1} ,
    \label{eq:2slsCovSameSigma}
 \end{equation}
-where $\sigma^2 = E \left( u' u \right)$.
+where $\sigma^2 = E \left( u_{it}^2 \right)$.
 If the disturbance terms of the individual equations
 are allowed to have different variances, 
 the covariance matrix of the estimated parameters is
@@ -136,7 +136,7 @@ the covariance matrix of the estimated parameters is
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = E \left( u_i' u_i \right)$.
+$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -150,7 +150,7 @@ is obtained by
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = E \left( u_i' u_i \right)$.
+$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
 The covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov \left[ \widehat{\beta}_{W2SLS} \right] = \left( \widehat{X}' \Omega^{-1}
@@ -162,7 +162,7 @@ The covariance matrix of the estimated parameters is
 \subsubsection{Three-stage least squares (3SLS)}
 
 If the regressors are correlated with the disturbances 
-($E \left( u | X \right) \neq 0$) and 
+($E \left( u_i' X_i \right) \neq 0$) and
 the disturbances are contemporaneously correlated, 
 a Generalized Least Squares (GLS) version of the two-stage least squares
 estimation leads to consistent and efficient estimates.
@@ -176,7 +176,7 @@ The standard 3SLS estimator can be obtained by
    \label{eq:3slsGls}
 \end{equation}
 where $\Omega = \Sigma \otimes I$ and
-$\sigma_{ij} = E \left( u_i' u_j \right)$.
+$\sigma_{ij} = E \left( u_{it} u_{jt} \right)$.
 Its covariance matrix is
 \begin{equation}
    \Cov \left[ \widehat{\beta}_{3SLS} \right] = \left( \widehat{X}' \Omega^{-1}
@@ -186,10 +186,10 @@ Its covariance matrix is
 While an unbiased 2SLS or W2SLS estimation requires only that
 the instrumental variables and the disturbance terms of each single 
 equation are uncorrelated
-$( E \left[ u_i | H_i \right]) = 0 \; \forall \; i )$,
+$( E \left[ u_i' H_i \right]) = 0 \; \forall \; i )$,
 \cite{schmidt90} points out that this estimator is only consistent 
 if all disturbance terms and all instrumental variables are uncorrelated
-$( E \left[ u | H \right]) = 0 )$
+$( E \left[ u_i' H_j \right]) = 0 \; \forall \; i, j )$
 with
 \begin{equation}
    H =

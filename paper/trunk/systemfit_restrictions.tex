@@ -5,22 +5,22 @@
 It is common to perform hypothesis tests by imposing restrictions on
 the parameter estimates.
 There are two ways to impose linear parameter restrictions.
-First, a matrix $T$ can be specified that
+First, a matrix $M$ can be specified that
 \begin{equation}
-   \beta = T \cdot \beta^* \label{eq:T-restr} ,
+   \beta = M \cdot \beta^* \label{eq:T-restr} ,
 \end{equation}
 where $\beta^*$ is a vector of restricted (linear independent) coefficients,
-and $T$ is a matrix with the number of rows equal to the number of
+and $M$ is a matrix with the number of rows equal to the number of
 unrestricted coefficients ($\beta$) and
 the number of columns equal to the number of restricted coefficients
 ($\beta^*$).
-$T$ can be used to map each unrestricted coefficient to one or more
+$M$ can be used to map each unrestricted coefficient to one or more
 restricted coefficients.
 
 To impose these restrictions, the $X$ matrix is
-(post-)\hspace{0pt}multiplied by this $T$ matrix, so that
+(post-)\hspace{0pt}multiplied by this $M$ matrix, so that
 \begin{equation}
-    X^* = X \cdot T .
+    X^* = X \cdot M .
 \end{equation}
 Then, $X^*$ is substituted for $X$ and a standard estimation as described
 in the previous section is done
@@ -32,7 +32,7 @@ and the covariance matrix of the original parameters
 can be obtained by
 \begin{equation}
    \Cov \left[ \widehat{\beta} \right]
-   = T \cdot \Cov \left[ \widehat{\beta}^* \right] \cdot T' .
+   = M \cdot \Cov \left[ \widehat{\beta}^* \right] \cdot M' .
 \end{equation}
 
 The second way to impose linear parameter restrictions
@@ -104,7 +104,7 @@ the covariance matrix of the estimated parameters is
       R & 0
    \end{array} \right]^{-1} ,
 \end{equation}
-where $\sigma^2 = E \left( u' u \right)$.
+where $\sigma^2 = E \left( u_{it}^2 \right)$.
 If the disturbance terms of the individual equations
 are allowed to have different variances, 
 the covariance matrix of the estimated parameters is
@@ -121,7 +121,7 @@ the covariance matrix of the estimated parameters is
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = E \left( u_i' u_i \right)$.
+$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Restricted WLS estimation}
@@ -143,7 +143,7 @@ The WLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = E \left( u_i' u_i \right)$.
+$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
 The covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov 
@@ -176,7 +176,7 @@ The SUR estimator restricted by $R \beta^0 = q$ can be obtained by
    \end{array} \right] ,
 \end{equation}
 where $\Omega = \Sigma \otimes I$ and
-$\sigma_{ij} = E \left( u_i' u_j \right)$.
+$\sigma_{ij} = E \left( u_{it} u_{jt} \right)$.
 The covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov 
@@ -222,7 +222,7 @@ the covariance matrix of the estimated parameters is
       R & 0
    \end{array} \right]^{-1} ,
 \end{equation}
-where $\sigma^2 = E \left( u' u \right)$.
+where $\sigma^2 = E \left( u_{it}^2 \right)$.
 If the disturbance terms of the individual equations
 are allowed to have different variances, 
 the covariance matrix of the estimated parameters is
@@ -239,7 +239,7 @@ the covariance matrix of the estimated parameters is
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = E \left( u_i' u_i \right)$.
+$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -262,7 +262,7 @@ The W2SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = E \left( u_i' u_i \right)$.
+$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
 The covariance matrix of the estimated parameters is
 \begin{equation}
    \Cov 
@@ -297,7 +297,7 @@ The standard 3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
    \label{eq:3slsGlsR}
 \end{equation}
 where $\Omega = \Sigma \otimes I$ and
-$\sigma_{ij} = E \left( u_i' u_j \right)$.
+$\sigma_{ij} = E \left( u_{it} u_{jt} \right)$.
 The covariance matrix of this estimator is
 \begin{equation}
    \Cov 
