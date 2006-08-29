@@ -186,12 +186,12 @@ likelihood ratio (LR) test.
 The $F$ statistic for systems of equations is
 \begin{equation}
 F = \frac{
-   ( R \hat{\beta} - q )'
-   ( R ( X' ( \hat{\Sigma} \otimes I )^{-1} X )^{-1} R' )^{-1}
-   ( R \hat{\beta} - q ) /
+   ( R \widehat{\beta} - q )'
+   ( R ( X' ( \widehat{\Sigma} \otimes I )^{-1} X )^{-1} R' )^{-1}
+   ( R \widehat{\beta} - q ) /
    j
 }{
-   \hat{u}' ( \widehat{\Sigma} \otimes I )^{-1} \hat{u} /
+   \widehat{u}' ( \widehat{\Sigma} \otimes I )^{-1} \widehat{u} /
    ( M \cdot T - K )
 }
 \end{equation}
@@ -199,7 +199,7 @@ where $j$ is the number of restrictions,
 $M$ is the number of equations,
 $T$ is the number of observations per equation,
 $K$ is the total number of estimated coefficients, and
-$\hat{\Sigma}$ is the estimated residual covariance matrix
+$\widehat{\Sigma}$ is the estimated residual covariance matrix
 used in the estimation.
 Under the null hypothesis, $F$ has an $F$ distribution
 with $j$ and $M \cdot T - K$ degrees of freedom
@@ -208,9 +208,9 @@ with $j$ and $M \cdot T - K$ degrees of freedom
 The Wald statistic for systems of equations is
 \begin{equation}
 W =
-   ( R \hat{\beta} - q )'
-   ( R \widehat{Cov} [ \hat{\beta} ] R' )^{-1}
-   ( R \hat{\beta} - q )
+   ( R \widehat{\beta} - q )'
+   ( R \widehat{Cov} [ \widehat{\beta} ] R' )^{-1}
+   ( R \widehat{\beta} - q )
 \end{equation}
 Asymptotically, $W$ has a $\chi^2$
 distribution with $j$ degrees of freedom
@@ -220,12 +220,12 @@ under the null hypothesis
 The LR statistic for systems of equations is
 \begin{equation}
 LR = T \cdot \left(
-   log \left| \hat{ \Sigma }_r \right|
-   - log \left| \hat{ \Sigma }_u \right|
+   log \left| \widehat{ \Sigma }_r \right|
+   - log \left| \widehat{ \Sigma }_u \right|
    \right)
 \end{equation}
 where $T$ is the number of observations per equation, and 
-$\hat{\Sigma}_r$ and $\hat{\Sigma}_u$ are
+$\widehat{\Sigma}_r$ and $\widehat{\Sigma}_u$ are
 the residual covariance matrices calculated by formula (\ref{eq:rcov0})
 of the restricted and unrestricted estimation, respectively.
 Asymptotically, $LR$ has a $\chi^2$
@@ -248,15 +248,15 @@ Under the alternative hypothesis the 2SLS estimator is consistent
 but the 3SLS estimator is inconsistent.
 The Hausman test statistic is,
 \begin{equation}
-  m = \left( \hat{\beta}_{2SLS} - \hat{\beta}_{3SLS} \right)^{'}
-      \left( \Cov \left[ \hat{\beta}_{2SLS} \right] -
-             \Cov \left[ \hat{\beta}_{3SLS} \right] \right)
-      \left( \hat{\beta}_{2SLS} - \hat{\beta}_{3SLS} \right)
+  m = \left( \widehat{\beta}_{2SLS} - \widehat{\beta}_{3SLS} \right)^{'}
+      \left( \Cov \left[ \widehat{\beta}_{2SLS} \right] -
+             \Cov \left[ \widehat{\beta}_{3SLS} \right] \right)
+      \left( \widehat{\beta}_{2SLS} - \widehat{\beta}_{3SLS} \right)
 \label{eq:hausman}
 \end{equation}
-where $\hat{\beta}_{2SLS}$ and $\Cov \left[ \hat{\beta}_{2SLS} \right]$ are the estimated
+where $\widehat{\beta}_{2SLS}$ and $\Cov \left[ \widehat{\beta}_{2SLS} \right]$ are the estimated
 coefficient and covariance matrix from 2SLS estimation, and
-$\hat{\beta}_{3SLS}$ and $\Cov \left[ \hat{\beta}_{3SLS} \right]$ are the estimated
+$\widehat{\beta}_{3SLS}$ and $\Cov \left[ \widehat{\beta}_{3SLS} \right]$ are the estimated
 coefficients and covariance matrix from 3SLS estimation.
 Under the null hypothesis this test statistic has a
 $\chi^2$ distribution with degrees of freedom equal to the number of
