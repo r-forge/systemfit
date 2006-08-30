@@ -242,23 +242,23 @@ The default value of \code{tol} is $10^{-5}$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Residual covariance matrix}
 It was explained in section~\ref{sec:residcov} that several different
-formulas have been proposed to calculate the residual
+methods have been proposed to calculate the residual
 covariance matrix.
-The user can specify, which formula \pkg{systemfit} should use.
-Possible values of the argument \code{rcovformula} are presented in
-table~\ref{tab:rcovformula}.
+The user can specify, which method \pkg{systemfit} should use.
+Possible values of the argument \code{methodRCov} are presented in
+table~\ref{tab:methodRCov}.
 By default, \pkg{systemfit} uses equation (\ref{eq:rcov1}).
 
 \begin{table}[H]
-\caption{Possible values of argument \code{rcovformula}}
-\label{tab:rcovformula}
+\caption{Possible values of argument \code{methodRCov}}
+\label{tab:methodRCov}
 \centering
 \begin{tabular}{|c|c|}
 \hline
 argument & equation \\
-\code{rcovformula} & \\
+\code{methodRCov} & \\
 \hline
-0              & \ref{eq:rcov0} \\
+0 or 'noDfCor' & \ref{eq:rcov0} \\
 \hline
 1 or 'geomean' & \ref{eq:rcov1} \\
 \hline
@@ -285,19 +285,19 @@ The default value of \code{centerResiduals} is °\code{FALSE}°.
 \subsubsection{3SLS formula}
 As discussed in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions},
 there exist several different
-formulas to perform a 3SLS estimation.
-The user can specify the applied formula by the argument \code{formula3sls}.
-Possible values are presented in table~\ref{tab:formula3sls}.
+methods to perform a 3SLS estimation.
+The user can specify the method by the argument \code{method3sls}.
+Possible values are presented in table~\ref{tab:method3sls}.
 The default value is 'GLS'.
 
 \begin{table}[H]
-\caption{Possible values of argument \code{formula3sls}}
-\label{tab:formula3sls}
+\caption{Possible values of argument \code{method3sls}}
+\label{tab:method3sls}
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
 argument           & equation       & equation \\
-\code{formula3sls} & (unrestricted) & (restricted) \\
+\code{method3sls} & (unrestricted) & (restricted) \\
 \hline
 'GLS'     & \ref{eq:3slsGls}     & \ref{eq:3slsGlsR} \\
 \hline

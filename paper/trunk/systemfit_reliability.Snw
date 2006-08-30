@@ -92,19 +92,19 @@ round( coef( summary( kleinOls ) ), digits = 3 )
 2SLS estimation:
 <<>>=
 klein2sls <- systemfit( "2SLS", system, inst = inst, data = KleinI,
-   rcovformula = 0 )
+   methodRCov = 0 )
 round( coef( summary( klein2sls ) ), digits = 3 )
 @
 3SLS estimation:
 <<>>=
 klein3sls <- systemfit( "3SLS", system, inst = inst, data = KleinI,
-   rcovformula = 0 )
+   methodRCov = 0 )
 round( coef( summary( klein3sls ) ), digits = 3 )
 @
 iterated 3SLS estimation:
 <<>>=
 kleinI3sls <- systemfit( "3SLS", system, inst = inst, data = KleinI,
-   rcovformula = 0, maxit = 500 )
+   methodRCov = 0, maxit = 500 )
 round( coef( summary( kleinI3sls ) ), digits = 3 )
 @
 
@@ -143,7 +143,7 @@ round( coef( summary( theilOls ) ), digits = 3 )
 SUR estimation (page 300)
 <<>>=
 theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
-   data = GrunfeldTheil, rcovformula = 0 )
+   data = GrunfeldTheil, methodRCov = 0 )
 round( coef( summary( theilSur ) ), digits = 3 )
 @
 
@@ -190,7 +190,7 @@ sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/100
 SUR estimation (Table~14.1):
 <<>>=
 greeneSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
-   data = GrunfeldGreene, rcovformula = 0 )
+   data = GrunfeldGreene, methodRCov = 0 )
 round( coef( summary( greeneSur ) ), digits = 4 )
 round( greeneSur$rcov, digits = 3 ) #$
 round( summary( greeneSur )$rcor, digits = 3 ) #$
@@ -198,7 +198,7 @@ round( summary( greeneSur )$rcor, digits = 3 ) #$
 pooled SUR estimation (Table~14.1):
 <<>>=
 greeneSurPooled <- systemfitClassic( "WSUR", formulaGrunfeld, "firm", "year",
-   data = GrunfeldGreene, pooled = TRUE, rcovformula = 0 )
+   data = GrunfeldGreene, pooled = TRUE, methodRCov = 0 )
 round( coef( summary( greeneSurPooled$eq[[1]] ) ), digits = 4 ) #$
 
 round( greeneSurPooled$rcov, digits = 3 ) #$
