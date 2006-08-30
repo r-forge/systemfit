@@ -32,7 +32,7 @@ systemfit <- function( method,
                         TX=NULL,
                         maxiter=1,
                         tol=1e-5,
-                        methodRCov=1,
+                        methodRCov="geomean",
                         centerResiduals = FALSE,
                         method3sls="GLS",
                         probdfsys=!(is.null(R.restr) & is.null(TX)),
@@ -620,7 +620,7 @@ systemfit <- function( method,
       # first formula from Greene (2003, p. 345) (numerator modified to save memory)
       rtOmega <- .calcXtOmegaInv( x = resids, sigma = rcov, nObsEq = n,
          solvetol = solvetol )
-      yCov <- .calcRCov( Y, methodRCov = 0, nObsEq = n, centered = TRUE,
+      yCov <- .calcRCov( Y, methodRCov = "noDfCor", nObsEq = n, centered = TRUE,
          solvetol = solvetol )
       residCovInv <- solve( rcov, tol = solvetol )
       denominator <- 0
@@ -631,10 +631,10 @@ systemfit <- function( method,
       }
       mcelr2 <- 1 - ( rtOmega %*% resids ) / denominator
 #       # second formula from Greene (2003, p. 345)
-#        yCov <- sum(diag(.calcRCov( Y, methodRCov = 0, nObsEq = n, centered = TRUE,
+#        yCov <- sum(diag(.calcRCov( Y, methodRCov = "noDfCor", nObsEq = n, centered = TRUE,
 #           solvetol = solvetol )))
 #        yCov <- drop( t(Y-mean(Y)) %*% (Y-mean(Y)) / sum(n) )
-#       yCov <- .calcRCov( Y, methodRCov = 1, nObsEq = n, nCoefEq=rep(1,G),
+#       yCov <- .calcRCov( Y, methodRCov = "geomean", nObsEq = n, nCoefEq=rep(1,G),
 #          centered = TRUE, solvetol = solvetol )
 #        mcelr2 <- 1 - G / sum( diag( solve( rcov, tol = solvetol ) * yCov ) )
   } else {

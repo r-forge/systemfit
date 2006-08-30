@@ -37,7 +37,7 @@ print( summary( fitwls1 ) )
 print( round( fitwls1$bcov, digits = 6 ) )
 
 ## *************** WLS estimation (EViews-like) ************************
-fitwls1e <- systemfit( "WLS", system, labels, data = Kmenta, methodRCov = 0,
+fitwls1e <- systemfit( "WLS", system, labels, data = Kmenta, methodRCov = "noDfCor",
    probdfsys = TRUE )
 print( summary( fitwls1e ) )
 print( round( fitwls1e$bcov, digits = 6 ) )
@@ -49,7 +49,7 @@ print( round( fitwls2$bcov, digits = 6 ) )
 
 ## ************** WLS with cross-equation restriction (EViews-like) *******
 fitwls2e <- systemfit( "WLS", system, labels, data = Kmenta, R.restr = restrm,
-   methodRCov = 0 )
+   methodRCov = "noDfCor" )
 print( summary( fitwls2e ) )
 print( round( fitwls2e$bcov, digits = 6 ) )
 
@@ -60,7 +60,7 @@ print( round( fitwls3$bcov, digits = 6 ) )
 
 ## ******* WLS with cross-equation restriction via TX (EViews-like) *****
 fitwls3e <- systemfit("WLS", system, labels, data = Kmenta, TX = tc,
-   methodRCov = 0 )
+   methodRCov = "noDfCor" )
 print( summary( fitwls3e ) )
 print( round( fitwls3e$bcov, digits = 6 ) )
 
@@ -71,7 +71,7 @@ print( summary( fitwls4 ) )
 print( round( fitwls4$bcov, digits = 6 ) )
 
 ## ***** WLS with 2 cross-equation restrictions (EViews-like) **********
-fitwls4e <- systemfit("WLS", system, labels, data = Kmenta, methodRCov = 0,
+fitwls4e <- systemfit("WLS", system, labels, data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr2m, q.restr = restr2q )
 print( summary( fitwls4e ) )
 print( round( fitwls4e$bcov, digits = 6 ) )
@@ -83,7 +83,7 @@ print( summary( fitwls5 ) )
 print( round( fitwls5$bcov, digits = 6 ) )
 
 ## *********** WLS with 2 cross-equation restrictions via R and TX (EViews-like)
-fitwls5e <- systemfit( "WLS", system, labels, data = Kmenta, methodRCov = 0,
+fitwls5e <- systemfit( "WLS", system, labels, data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr3m, q.restr = restr3q, TX = tc )
 print( summary( fitwls5e ) )
 print( round( fitwls5e$bcov, digits = 6 ) )
@@ -95,7 +95,7 @@ print( summary( fitwlsi1 ) )
 print( round( fitwlsi1$bcov, digits = 6 ) )
 
 ## *************** iterated WLS estimation (EViews-like) ************
-fitwlsi1e <- systemfit( "WLS", system, labels, data = Kmenta, methodRCov = 0,
+fitwlsi1e <- systemfit( "WLS", system, labels, data = Kmenta, methodRCov = "noDfCor",
    probdfsys = TRUE, maxit = 100 )
 print( summary( fitwlsi1e ) )
 print( round( fitwlsi1e$bcov, digits = 6 ) )
@@ -108,7 +108,7 @@ print( round( fitwlsi2$bcov, digits = 6 ) )
 
 ## ****** iterated WLS with cross-equation restriction (EViews-like) ********
 fitwlsi2e <- systemfit( "WLS", system, labels, data = Kmenta, R.restr = restrm,
-   methodRCov = 0, maxit = 100 )
+   methodRCov = "noDfCor", maxit = 100 )
 print( summary( fitwlsi2e ) )
 print( round( fitwlsi2e$bcov, digits = 6 ) )
 
@@ -120,7 +120,7 @@ print( round( fitwlsi3$bcov, digits = 6 ) )
 
 ## ******* iterated WLS with cross-equation restriction via TX (EViews-like) ***
 fitwlsi3e <- systemfit( "WLS", system, labels, data = Kmenta, TX = tc,
-   methodRCov = 0, maxit = 100 )
+   methodRCov = "noDfCor", maxit = 100 )
 print( summary( fitwlsi3e ) )
 print( round( fitwlsi3e$bcov, digits = 6 ) )
 
@@ -131,7 +131,7 @@ print( summary( fitwlsi4 ) )
 print( round( fitwlsi4$bcov, digits = 6 ) )
 
 ## ******* iterated WLS with 2 cross-equation restrictions (EViews-like) *****
-fitwlsi4e <- systemfit( "WLS", system, labels, data = Kmenta, methodRCov = 0,
+fitwlsi4e <- systemfit( "WLS", system, labels, data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr2m, q.restr = restr2q, maxit = 100 )
 print( summary( fitwlsi4e ) )
 print( round( fitwlsi4e$bcov, digits = 6 ) )
@@ -143,7 +143,7 @@ print( summary( fitwlsi5 ) )
 print( round( fitwlsi5$bcov, digits = 6 ) )
 
 ## *** iterated WLS with 2 cross-equation restrictions via R and TX (EViews-like)
-fitwlsi5e <- systemfit( "WLS", system, labels, data = Kmenta, methodRCov = 0,
+fitwlsi5e <- systemfit( "WLS", system, labels, data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
 print( summary( fitwlsi5e ) )
 print( round( fitwlsi5e$bcov, digits = 6 ) )

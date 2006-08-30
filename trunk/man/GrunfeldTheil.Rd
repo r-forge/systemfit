@@ -40,7 +40,7 @@ theilOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
 summary( theilOls )
 # SUR
 theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
-   data = GrunfeldTheil, methodRCov = 0 )
+   data = GrunfeldTheil, methodRCov = "noDfCor" )
 summary( theilSur )
 }
 

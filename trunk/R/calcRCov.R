@@ -19,12 +19,12 @@
    }
    for( i in 1:nEq ) {
       for( j in ifelse( diag, i, 1 ):ifelse( diag, i, nEq ) ) {
-         if( methodRCov == 0 || methodRCov == "noDfCor" ) {
+         if( methodRCov == "noDfCor" ) {
             result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) / nObsEq[i]
-         } else if( methodRCov == 1 || methodRCov == "geomean" ) {
+         } else if( methodRCov == "geomean" ) {
             result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
                sqrt( ( nObsEq[i] - nCoefEq[i] ) * ( nObsEq[j] - nCoefEq[j] ) )
-         } else if( methodRCov == 2 || methodRCov == "Theil" ) {
+         } else if( methodRCov == "Theil" ) {
             #result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
             #   ( nObsEq[i] - nCoefEq[i] - nCoefEq[j] + sum( diag(
             #   xEq[[i]] %*% solve( crossprod( xEq[[i]] ), tol=solvetol ) %*%
@@ -38,12 +38,12 @@
                solve( crossprod( xEq[[j]] ), tol=solvetol ) %*%
                crossprod( xEq[[j]], xEq[[i]] ) ) ) )
 
-         } else if( methodRCov == 3 || methodRCov == "max" ) {
+         } else if( methodRCov == "max" ) {
             result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
                ( nObsEq[i] - max( nCoefEq[i], nCoefEq[j] ) )
          } else {
-            stop( paste( "Argument 'methodRCov' must be either 0, 'noDfCor', 1,",
-                  "'geomean', 2, 'Theil', 3 or 'max'." ) )
+            stop( paste( "Argument 'methodRCov' must be either 'noDfCor',",
+                  "'geomean', 'max', or 'Theil'." ) )
          }
       }
    }
@@ -56,14 +56,13 @@
 
 ## Calculate Sigma squared
 .calcSigma2 <- function( resids, methodRCov, nObs, nCoef ) {
-   if( methodRCov == 0 || methodRCov == "noDfCor" ) {
+   if( methodRCov == "noDfCor" ) {
       result <- sum( resids^2 ) / nObs
-   } else if( methodRCov == 1 || methodRCov == "geomean" ||
-      methodRCov == 3 || methodRCov == "max") {
+   } else if( methodRCov == "geomean" || methodRCov == "max") {
       result <- sum( resids^2 )/ ( nObs - nCoef )
    } else {
       stop( paste( "Sigma^2 can only be calculated if argument",
-         "'methodRCov' is either 0, 'noDfCor', 1, 'geomean', 3 or 'max'" ) )
+         "'methodRCov' is either 'noDfCor', 'geomean', or 'max'" ) )
    }
 }
 

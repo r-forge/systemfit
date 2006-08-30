@@ -50,13 +50,13 @@ for( i in seq( along = formulas ) ) {
 
    print( "********************* 3SLS EViews-like *****************" )
    fit3sls[[ i ]]$e1e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, methodRCov = 0, probdfsys = TRUE, method3sls = formulas[ i ] )
+      inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e1e ) )
    print( round( fit3sls[[ i ]]$e1e$bcov, digits = 6 ) )
 
-   print( "********************* 3SLS with methodRCov = 2 *****************" )
+   print( "********************* 3SLS with methodRCov = Theil *****************" )
    fit3sls[[ i ]]$e1c <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, methodRCov = 2, probdfsys = TRUE, method3sls = formulas[ i ] )
+      inst = inst, methodRCov = "Theil", probdfsys = TRUE, method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e1c ) )
    print( round( fit3sls[[ i ]]$e1c$bcov, digits = 6 ) )
 
@@ -68,7 +68,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "************** 3SLS with restriction (EViews-like) *****************" )
    fit3sls[[ i ]]$e2e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, methodRCov = 0, probdfsys = TRUE, R.restr = restrm,
+      inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restrm,
       method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e2e ) )
    print( round( fit3sls[[ i ]]$e2e$bcov, digits = 6 ) )
@@ -81,7 +81,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "*************** 3SLS with restriction via TX (EViews-like) *******" )
    fit3sls[[ i ]]$e3e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, methodRCov = 0, probdfsys = TRUE, TX = tc,
+      inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, TX = tc,
       method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e3e ) )
    print( round( fit3sls[[ i ]]$e3e$bcov, digits = 6 ) )
@@ -95,7 +95,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "*************** 3SLS with 2 restrictions (EViews-like) ************" )
    fit3sls[[ i ]]$e4e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, methodRCov = 0, probdfsys = TRUE, R.restr = restr2m,
+      inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restr2m,
       q.restr = restr2q, method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e4e ) )
    print( round( fit3sls[[ i ]]$e4e$bcov, digits = 6 ) )
@@ -109,7 +109,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "******** 3SLS with 2 restrictions via R and TX (EViews-like)*****" )
    fit3sls[[ i ]]$e5e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, TX = tc, methodRCov = 0, probdfsys = TRUE,
+      inst = inst, TX = tc, methodRCov = "noDfCor", probdfsys = TRUE,
       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e5e ) )
    print( round( fit3sls[[ i ]]$e5e$bcov, digits = 6 ) )
@@ -131,14 +131,14 @@ for( i in seq( along = formulas ) ) {
 
    print( "********************* iterated 3SLS EViews-like ****************" )
    fit3slsi[[ i ]]$e1e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, methodRCov = 0, probdfsys = TRUE, method3sls = formulas[ i ],
+      inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, method3sls = formulas[ i ],
       maxiter = 100  )
    print( summary( fit3slsi[[ i ]]$e1e ) )
    print( round( fit3slsi[[ i ]]$e1e$bcov, digits = 6 ) )
 
-   print( "************** iterated 3SLS with methodRCov = 2 **************" )
+   print( "************** iterated 3SLS with methodRCov = Theil **************" )
    fit3slsi[[ i ]]$e1c <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, methodRCov = 2, probdfsys = TRUE, method3sls = formulas[ i ],
+      inst = inst, methodRCov = "Theil", probdfsys = TRUE, method3sls = formulas[ i ],
       maxiter = 100  )
    print( summary( fit3slsi[[ i ]]$e1c ) )
    print( round( fit3slsi[[ i ]]$e1c$bcov, digits = 6 ) )
@@ -151,7 +151,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "********* iterated 3SLS with restriction (EViews-like) *********" )
    fit3slsi[[ i ]]$e2e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, methodRCov = 0, probdfsys = TRUE, R.restr = restrm,
+      inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restrm,
       method3sls = formulas[ i ], maxiter = 100 )
    print( summary( fit3slsi[[ i ]]$e2e ) )
    print( round( fit3slsi[[ i ]]$e2e$bcov, digits = 6 ) )
@@ -164,7 +164,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "********* iterated 3SLS with restriction via TX (EViews-like) ***" )
    fit3slsi[[ i ]]$e3e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, methodRCov = 0, probdfsys = TRUE, TX = tc,
+      inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, TX = tc,
       method3sls = formulas[ i ], maxiter = 100 )
    print( summary( fit3slsi[[ i ]]$e3e ) )
    print( round( fit3slsi[[ i ]]$e3e$bcov, digits = 6 ) )
@@ -178,7 +178,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "********* iterated 3SLS with 2 restrictions (EViews-like) *******" )
    fit3slsi[[ i ]]$e4e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, methodRCov = 0, probdfsys = TRUE, R.restr = restr2m,
+      inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restr2m,
       q.restr = restr2q, method3sls = formulas[ i ], maxiter = 100 )
    print( summary( fit3slsi[[ i ]]$e4e ) )
    print( round( fit3slsi[[ i ]]$e4e$bcov, digits = 6 ) )
@@ -192,7 +192,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "*** iterated 3SLS with 2 restrictions via R and TX (EViews-like)**" )
    fit3slsi[[ i ]]$e5e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = inst, TX = tc, methodRCov = 0, probdfsys = TRUE,
+      inst = inst, TX = tc, methodRCov = "noDfCor", probdfsys = TRUE,
       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ],
       maxiter = 100  )
    print( summary( fit3slsi[[ i ]]$e5e ) )
@@ -215,13 +215,13 @@ for( i in seq( along = formulas ) ) {
 
    print( "******* 3SLS with different instruments (EViews-like) **********" )
    fit3slsd[[ i ]]$e1e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = instlist, methodRCov = 0, probdfsys = TRUE, method3sls = formulas[ i ] )
+      inst = instlist, methodRCov = "noDfCor", probdfsys = TRUE, method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e1e ) )
    print( round( fit3slsd[[ i ]]$e1e$bcov, digits = 6 ) )
 
-   print( "**** 3SLS with different instruments and methodRCov = 2 ***" )
+   print( "**** 3SLS with different instruments and methodRCov = Theil ***" )
    fit3slsd[[ i ]]$e1c <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = instlist, methodRCov = 2, probdfsys = TRUE, method3sls = formulas[ i ] )
+      inst = instlist, methodRCov = "Theil", probdfsys = TRUE, method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e1c ) )
    print( round( fit3slsd[[ i ]]$e1c$bcov, digits = 6 ) )
 
@@ -233,7 +233,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "** 3SLS with different instruments and restriction (EViews-like) *" )
    fit3slsd[[ i ]]$e2e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = instlist, methodRCov = 0, probdfsys = TRUE, R.restr = restrm,
+      inst = instlist, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restrm,
       method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e2e ) )
    print( round( fit3slsd[[ i ]]$e2e$bcov, digits = 6 ) )
@@ -246,7 +246,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "3SLS with different instruments with restriction via TX (EViews-like)" )
    fit3slsd[[ i ]]$e3e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = instlist, methodRCov = 0, probdfsys = TRUE, TX = tc,
+      inst = instlist, methodRCov = "noDfCor", probdfsys = TRUE, TX = tc,
       method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e3e ) )
    print( round( fit3slsd[[ i ]]$e3e$bcov, digits = 6 ) )
@@ -260,7 +260,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "** 3SLS with different instruments and 2 restrictions (EViews-like) *" )
    fit3slsd[[ i ]]$e4e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = instlist, methodRCov = 0, probdfsys = TRUE, R.restr = restr2m,
+      inst = instlist, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restr2m,
       q.restr = restr2q, method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e4e ) )
    print( round( fit3slsd[[ i ]]$e4$bcov, digits = 6 ) )
@@ -274,7 +274,7 @@ for( i in seq( along = formulas ) ) {
 
    print( "3SLS with diff. instruments and 2 restr. via R and TX (EViews-like)" )
    fit3slsd[[ i ]]$e5e <- systemfit( "3SLS", system, labels, data = Kmenta,
-      inst = instlist, TX = tc, methodRCov = 0, probdfsys = TRUE,
+      inst = instlist, TX = tc, methodRCov = "noDfCor", probdfsys = TRUE,
       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e5e ) )
    print( round( fit3slsd[[ i ]]$e5e$bcov, digits = 6 ) )

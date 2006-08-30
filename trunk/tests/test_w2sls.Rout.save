@@ -129,7 +129,7 @@ eq 2 trend         0.000579       0.001377   0.009931
 > 
 > ## ********************* W2SLS (EViews-like) *****************
 > fitw2sls1e <- systemfit( "W2SLS", system, labels, data = Kmenta, inst = inst,
-+    methodRCov = 0, probdfsys = TRUE )
++    methodRCov = "noDfCor", probdfsys = TRUE )
 > print( summary( fitw2sls1e ) )
 
 systemfit results 
@@ -283,7 +283,7 @@ eq 2 trend         0.000108       0.000256   0.001847
 > 
 > ## ********************* W2SLS with restriction (EViews-like) **************
 > fitw2sls2e <- systemfit( "W2SLS", system, labels, data = Kmenta, R.restr = restrm,
-+    inst = inst, methodRCov = 0, probdfsys = TRUE )
++    inst = inst, methodRCov = "noDfCor", probdfsys = TRUE )
 > print( summary( fitw2sls2e ) )
 
 systemfit results 
@@ -436,7 +436,7 @@ eq 2 trend         0.000108       0.000256   0.001847
 > 
 > ## ********************* W2SLS with restriction via TX (EViews-like) **************
 > fitw2sls3e <- systemfit( "W2SLS", system, labels, data = Kmenta, TX = tc, inst = inst,
-+    methodRCov = 0, probdfsys = TRUE )
++    methodRCov = "noDfCor", probdfsys = TRUE )
 > print( summary( fitw2sls3e ) )
 
 systemfit results 
@@ -590,7 +590,7 @@ eq 2 trend        -0.001129       0.000110   0.001551
 > 
 > ## ***************** W2SLS with 2 restrictions (EViews-like) **************
 > fitw2sls4e <- systemfit( "W2SLS", system, labels, data = Kmenta, R.restr = restr2m,
-+    q.restr = restr2q, inst = inst, methodRCov = 0, probdfsys = TRUE )
++    q.restr = restr2q, inst = inst, methodRCov = "noDfCor", probdfsys = TRUE )
 > print( summary( fitw2sls4e ) )
 
 systemfit results 
@@ -744,7 +744,7 @@ eq 2 trend        -0.001129       0.000110   0.001551
 > 
 > ## ***************** W2SLS with 2 restrictions via R and TX (EViews-like) **************
 > fitw2sls5e <- systemfit( "W2SLS", system, labels, data = Kmenta, R.restr = restr3m,
-+    q.restr = restr3q, TX = tc, inst = inst, methodRCov = 0, probdfsys = TRUE )
++    q.restr = restr3q, TX = tc, inst = inst, methodRCov = "noDfCor", probdfsys = TRUE )
 > print( summary( fitw2sls5e ) )
 
 systemfit results 
@@ -897,7 +897,7 @@ eq 2 trend         0.000579       0.001377   0.009931
 > 
 > ## ****** 2SLS estimation with different instruments (EViews-like)******************
 > fitw2slsd1e <- systemfit( "W2SLS", system, labels, data = Kmenta, inst = instlist,
-+    methodRCov = 0, probdfsys = TRUE )
++    methodRCov = "noDfCor", probdfsys = TRUE )
 > print( summary( fitw2slsd1e ) )
 
 systemfit results 
@@ -1051,7 +1051,7 @@ eq 2 trend         0.000137       0.000325   0.002348
 > 
 > ## **** W2SLS estimation with different instruments and restriction (EViews-like)*
 > fitw2slsd2e <- systemfit( "W2SLS", system, labels, data = Kmenta, R.restr = restrm,
-+    inst = instlist, methodRCov = 0, probdfsys = TRUE )
++    inst = instlist, methodRCov = "noDfCor", probdfsys = TRUE )
 > print( summary( fitw2slsd2e ) )
 
 systemfit results 
@@ -1205,7 +1205,7 @@ eq 2 trend         0.000137       0.000325   0.002348
 > 
 > ## W2SLS estimation with different instruments and restriction via TX (EViews-like)
 > fitw2slsd3e <- systemfit( "W2SLS", system, labels, data = Kmenta, TX = tc,
-+    inst = instlist, methodRCov = 0, probdfsys = TRUE )
++    inst = instlist, methodRCov = "noDfCor", probdfsys = TRUE )
 > print( summary( fitw2slsd3e ) )
 
 systemfit results 

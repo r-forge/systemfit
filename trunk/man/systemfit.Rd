@@ -20,7 +20,7 @@ systemfit( method, eqns, eqnlabels=names(eqns),
            inst=NULL, data=list(), R.restr=NULL,
            q.restr=matrix(0,max(nrow(R.restr),0),1),
            TX=NULL, maxiter=1, tol=1e-5,
-           methodRCov=1, centerResiduals = FALSE, method3sls="GLS",
+           methodRCov="geomean", centerResiduals = FALSE, method3sls="GLS",
            probdfsys=!(is.null(R.restr) & is.null(TX)),
            single.eq.sigma=(is.null(R.restr) & is.null(TX)),
            solvetol=.Machine$double.eps,
@@ -61,11 +61,11 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
    \item{tol}{tolerance level indicating when to stop the iteration (only
       WLS, SUR, W2SLS and 3SLS estimations).}
    \item{methodRCov}{method for calculating the estimated residual covariance
-      matrix (see details).}
+      matrix, one of "noDfCor", "geomean", "max", or "Theil" (see details).}
    \item{centerResiduals}{logical. Subtract the means from the residuals
       of each equation before calculating the estimated residual covariance matrix.}
    \item{method3sls}{method for calculating the 3SLS estimator,
-      one of "GLS", "IV", "GMM", "Schmidt" or "EViews" (see details).}
+      one of "GLS", "IV", "GMM", "Schmidt", or "EViews" (see details).}
    \item{probdfsys}{use the degrees of freedom of the whole system
       (in place of the degrees of freedom of the single equation)
       to calculate prob values for the t-test of individual parameters.}
@@ -128,15 +128,15 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
    The method for calculating the estimated covariance matrix of the residuals
    (\eqn{\hat{\Sigma}}) can be one of the following
    (see Judge et al., 1985, p. 469): \cr
-   if methodRCov=0 or methodRCov='noDfCor':
+   if methodRCov='noDfCor':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}{T}}
-   if methodRCov=1 or methodRCov='geomean':
+   if methodRCov='geomean':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}
          {\sqrt{(T - k_i)*(T - k_j)}}}
-   if methodRCov=2 or methodRCov='Theil':
+   if methodRCov='Theil':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}{T - k_i - k_j
       + tr[X_i(X_i'X_i)^{-1}X_i'X_j(X_j'X_j)^{-1}X_j']}}
-   if methodRCov=3 or methodRCov='max':
+   if methodRCov='max':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}
          {T - \max( k_i, k_j)}}
    If \eqn{i = j}, formula 1, 2 and 3 are equal.
@@ -317,7 +317,7 @@ theilOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
 summary( theilOls )
 # SUR
 theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
-   data = GrunfeldTheil, methodRCov = 0 )
+   data = GrunfeldTheil, methodRCov = "noDfCor" )
 summary( theilSur )
 
 

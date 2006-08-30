@@ -67,13 +67,13 @@ Type 'q()' to quit R.
 + 
 +    print( "********************* 3SLS EViews-like *****************" )
 +    fit3sls[[ i ]]$e1e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, methodRCov = 0, probdfsys = TRUE, method3sls = formulas[ i ] )
++       inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e1e ) )
 +    print( round( fit3sls[[ i ]]$e1e$bcov, digits = 6 ) )
 + 
-+    print( "********************* 3SLS with methodRCov = 2 *****************" )
++    print( "********************* 3SLS with methodRCov = Theil *****************" )
 +    fit3sls[[ i ]]$e1c <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, methodRCov = 2, probdfsys = TRUE, method3sls = formulas[ i ] )
++       inst = inst, methodRCov = "Theil", probdfsys = TRUE, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e1c ) )
 +    print( round( fit3sls[[ i ]]$e1c$bcov, digits = 6 ) )
 + 
@@ -85,7 +85,7 @@ Type 'q()' to quit R.
 + 
 +    print( "************** 3SLS with restriction (EViews-like) *****************" )
 +    fit3sls[[ i ]]$e2e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, methodRCov = 0, probdfsys = TRUE, R.restr = restrm,
++       inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restrm,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e2e ) )
 +    print( round( fit3sls[[ i ]]$e2e$bcov, digits = 6 ) )
@@ -98,7 +98,7 @@ Type 'q()' to quit R.
 + 
 +    print( "*************** 3SLS with restriction via TX (EViews-like) *******" )
 +    fit3sls[[ i ]]$e3e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, methodRCov = 0, probdfsys = TRUE, TX = tc,
++       inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, TX = tc,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e3e ) )
 +    print( round( fit3sls[[ i ]]$e3e$bcov, digits = 6 ) )
@@ -112,7 +112,7 @@ Type 'q()' to quit R.
 + 
 +    print( "*************** 3SLS with 2 restrictions (EViews-like) ************" )
 +    fit3sls[[ i ]]$e4e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, methodRCov = 0, probdfsys = TRUE, R.restr = restr2m,
++       inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restr2m,
 +       q.restr = restr2q, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e4e ) )
 +    print( round( fit3sls[[ i ]]$e4e$bcov, digits = 6 ) )
@@ -126,7 +126,7 @@ Type 'q()' to quit R.
 + 
 +    print( "******** 3SLS with 2 restrictions via R and TX (EViews-like)*****" )
 +    fit3sls[[ i ]]$e5e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, TX = tc, methodRCov = 0, probdfsys = TRUE,
++       inst = inst, TX = tc, methodRCov = "noDfCor", probdfsys = TRUE,
 +       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e5e ) )
 +    print( round( fit3sls[[ i ]]$e5e$bcov, digits = 6 ) )
@@ -289,7 +289,7 @@ eq 2 (Intercept)  -0.866671      -0.235979  -0.327163
 eq 2 price         0.007948       0.000650   0.000855
 eq 2 farmPrice     0.000650       0.001548   0.002039
 eq 2 trend         0.000855       0.002039   0.004250
-[1] "********************* 3SLS with methodRCov = 2 *****************"
+[1] "********************* 3SLS with methodRCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -1151,7 +1151,7 @@ eq 2 (Intercept)  -0.866671      -0.235979  -0.327163
 eq 2 price         0.007948       0.000650   0.000855
 eq 2 farmPrice     0.000650       0.001548   0.002039
 eq 2 trend         0.000855       0.002039   0.004250
-[1] "********************* 3SLS with methodRCov = 2 *****************"
+[1] "********************* 3SLS with methodRCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -2013,7 +2013,7 @@ eq 2 (Intercept)  -0.866671      -0.235979  -0.327163
 eq 2 price         0.007948       0.000650   0.000855
 eq 2 farmPrice     0.000650       0.001548   0.002039
 eq 2 trend         0.000855       0.002039   0.004250
-[1] "********************* 3SLS with methodRCov = 2 *****************"
+[1] "********************* 3SLS with methodRCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -2875,7 +2875,7 @@ eq 2 (Intercept)  -0.866671      -0.235979  -0.327163
 eq 2 price         0.007948       0.000650   0.000855
 eq 2 farmPrice     0.000650       0.001548   0.002039
 eq 2 trend         0.000855       0.002039   0.004250
-[1] "********************* 3SLS with methodRCov = 2 *****************"
+[1] "********************* 3SLS with methodRCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -3737,7 +3737,7 @@ eq 2 (Intercept)  -0.866671      -0.235979  -0.327163
 eq 2 price         0.007948       0.000650   0.000855
 eq 2 farmPrice     0.000650       0.001548   0.002039
 eq 2 trend         0.000855       0.002039   0.004250
-[1] "********************* 3SLS with methodRCov = 2 *****************"
+[1] "********************* 3SLS with methodRCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -4458,14 +4458,14 @@ eq 2 trend        -0.000855       0.000293   0.000435
 + 
 +    print( "********************* iterated 3SLS EViews-like ****************" )
 +    fit3slsi[[ i ]]$e1e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, methodRCov = 0, probdfsys = TRUE, method3sls = formulas[ i ],
++       inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, method3sls = formulas[ i ],
 +       maxiter = 100  )
 +    print( summary( fit3slsi[[ i ]]$e1e ) )
 +    print( round( fit3slsi[[ i ]]$e1e$bcov, digits = 6 ) )
 + 
-+    print( "************** iterated 3SLS with methodRCov = 2 **************" )
++    print( "************** iterated 3SLS with methodRCov = Theil **************" )
 +    fit3slsi[[ i ]]$e1c <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, methodRCov = 2, probdfsys = TRUE, method3sls = formulas[ i ],
++       inst = inst, methodRCov = "Theil", probdfsys = TRUE, method3sls = formulas[ i ],
 +       maxiter = 100  )
 +    print( summary( fit3slsi[[ i ]]$e1c ) )
 +    print( round( fit3slsi[[ i ]]$e1c$bcov, digits = 6 ) )
@@ -4478,7 +4478,7 @@ eq 2 trend        -0.000855       0.000293   0.000435
 + 
 +    print( "********* iterated 3SLS with restriction (EViews-like) *********" )
 +    fit3slsi[[ i ]]$e2e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, methodRCov = 0, probdfsys = TRUE, R.restr = restrm,
++       inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restrm,
 +       method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e2e ) )
 +    print( round( fit3slsi[[ i ]]$e2e$bcov, digits = 6 ) )
@@ -4491,7 +4491,7 @@ eq 2 trend        -0.000855       0.000293   0.000435
 + 
 +    print( "********* iterated 3SLS with restriction via TX (EViews-like) ***" )
 +    fit3slsi[[ i ]]$e3e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, methodRCov = 0, probdfsys = TRUE, TX = tc,
++       inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, TX = tc,
 +       method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e3e ) )
 +    print( round( fit3slsi[[ i ]]$e3e$bcov, digits = 6 ) )
@@ -4505,7 +4505,7 @@ eq 2 trend        -0.000855       0.000293   0.000435
 + 
 +    print( "********* iterated 3SLS with 2 restrictions (EViews-like) *******" )
 +    fit3slsi[[ i ]]$e4e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, methodRCov = 0, probdfsys = TRUE, R.restr = restr2m,
++       inst = inst, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restr2m,
 +       q.restr = restr2q, method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e4e ) )
 +    print( round( fit3slsi[[ i ]]$e4e$bcov, digits = 6 ) )
@@ -4519,7 +4519,7 @@ eq 2 trend        -0.000855       0.000293   0.000435
 + 
 +    print( "*** iterated 3SLS with 2 restrictions via R and TX (EViews-like)**" )
 +    fit3slsi[[ i ]]$e5e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = inst, TX = tc, methodRCov = 0, probdfsys = TRUE,
++       inst = inst, TX = tc, methodRCov = "noDfCor", probdfsys = TRUE,
 +       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ],
 +       maxiter = 100  )
 +    print( summary( fit3slsi[[ i ]]$e5e ) )
@@ -4687,7 +4687,7 @@ eq 2 (Intercept)  -0.996157      -0.266878  -0.396206
 eq 2 price         0.009145       0.000727   0.001069
 eq 2 farmPrice     0.000727       0.001733   0.002548
 eq 2 trend         0.001069       0.002548   0.004108
-[1] "************** iterated 3SLS with methodRCov = 2 **************"
+[1] "************** iterated 3SLS with methodRCov = Theil **************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -5571,7 +5571,7 @@ eq 2 (Intercept)  -0.996157      -0.266878  -0.396206
 eq 2 price         0.009145       0.000727   0.001069
 eq 2 farmPrice     0.000727       0.001733   0.002548
 eq 2 trend         0.001069       0.002548   0.004108
-[1] "************** iterated 3SLS with methodRCov = 2 **************"
+[1] "************** iterated 3SLS with methodRCov = Theil **************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -6455,7 +6455,7 @@ eq 2 (Intercept)  -0.996157      -0.266878  -0.396206
 eq 2 price         0.009145       0.000727   0.001069
 eq 2 farmPrice     0.000727       0.001733   0.002548
 eq 2 trend         0.001069       0.002548   0.004108
-[1] "************** iterated 3SLS with methodRCov = 2 **************"
+[1] "************** iterated 3SLS with methodRCov = Theil **************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -7339,7 +7339,7 @@ eq 2 (Intercept)  -0.996157      -0.266878  -0.396206
 eq 2 price         0.009145       0.000727   0.001069
 eq 2 farmPrice     0.000727       0.001733   0.002548
 eq 2 trend         0.001069       0.002548   0.004108
-[1] "************** iterated 3SLS with methodRCov = 2 **************"
+[1] "************** iterated 3SLS with methodRCov = Theil **************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -8223,7 +8223,7 @@ eq 2 (Intercept)  -0.996157      -0.266878  -0.396206
 eq 2 price         0.009145       0.000727   0.001069
 eq 2 farmPrice     0.000727       0.001733   0.002548
 eq 2 trend         0.001069       0.002548   0.004108
-[1] "************** iterated 3SLS with methodRCov = 2 **************"
+[1] "************** iterated 3SLS with methodRCov = Theil **************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -8962,13 +8962,13 @@ eq 2 trend        -0.003774       0.001525   0.001479
 + 
 +    print( "******* 3SLS with different instruments (EViews-like) **********" )
 +    fit3slsd[[ i ]]$e1e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = instlist, methodRCov = 0, probdfsys = TRUE, method3sls = formulas[ i ] )
++       inst = instlist, methodRCov = "noDfCor", probdfsys = TRUE, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e1e ) )
 +    print( round( fit3slsd[[ i ]]$e1e$bcov, digits = 6 ) )
 + 
-+    print( "**** 3SLS with different instruments and methodRCov = 2 ***" )
++    print( "**** 3SLS with different instruments and methodRCov = Theil ***" )
 +    fit3slsd[[ i ]]$e1c <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = instlist, methodRCov = 2, probdfsys = TRUE, method3sls = formulas[ i ] )
++       inst = instlist, methodRCov = "Theil", probdfsys = TRUE, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e1c ) )
 +    print( round( fit3slsd[[ i ]]$e1c$bcov, digits = 6 ) )
 + 
@@ -8980,7 +8980,7 @@ eq 2 trend        -0.003774       0.001525   0.001479
 + 
 +    print( "** 3SLS with different instruments and restriction (EViews-like) *" )
 +    fit3slsd[[ i ]]$e2e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = instlist, methodRCov = 0, probdfsys = TRUE, R.restr = restrm,
++       inst = instlist, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restrm,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e2e ) )
 +    print( round( fit3slsd[[ i ]]$e2e$bcov, digits = 6 ) )
@@ -8993,7 +8993,7 @@ eq 2 trend        -0.003774       0.001525   0.001479
 + 
 +    print( "3SLS with different instruments with restriction via TX (EViews-like)" )
 +    fit3slsd[[ i ]]$e3e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = instlist, methodRCov = 0, probdfsys = TRUE, TX = tc,
++       inst = instlist, methodRCov = "noDfCor", probdfsys = TRUE, TX = tc,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e3e ) )
 +    print( round( fit3slsd[[ i ]]$e3e$bcov, digits = 6 ) )
@@ -9007,7 +9007,7 @@ eq 2 trend        -0.003774       0.001525   0.001479
 + 
 +    print( "** 3SLS with different instruments and 2 restrictions (EViews-like) *" )
 +    fit3slsd[[ i ]]$e4e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = instlist, methodRCov = 0, probdfsys = TRUE, R.restr = restr2m,
++       inst = instlist, methodRCov = "noDfCor", probdfsys = TRUE, R.restr = restr2m,
 +       q.restr = restr2q, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e4e ) )
 +    print( round( fit3slsd[[ i ]]$e4$bcov, digits = 6 ) )
@@ -9021,7 +9021,7 @@ eq 2 trend        -0.003774       0.001525   0.001479
 + 
 +    print( "3SLS with diff. instruments and 2 restr. via R and TX (EViews-like)" )
 +    fit3slsd[[ i ]]$e5e <- systemfit( "3SLS", system, labels, data = Kmenta,
-+       inst = instlist, TX = tc, methodRCov = 0, probdfsys = TRUE,
++       inst = instlist, TX = tc, methodRCov = "noDfCor", probdfsys = TRUE,
 +       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e5e ) )
 +    print( round( fit3slsd[[ i ]]$e5e$bcov, digits = 6 ) )
@@ -9184,7 +9184,7 @@ eq 2 (Intercept)  -0.758700      -0.270967  -0.401038
 eq 2 price         0.006432       0.000907   0.002646
 eq 2 farmPrice     0.000907       0.001770   0.000880
 eq 2 trend         0.002646       0.000880   0.004885
-[1] "**** 3SLS with different instruments and methodRCov = 2 ***"
+[1] "**** 3SLS with different instruments and methodRCov = Theil ***"
 
 systemfit results 
 method: 3SLS 
@@ -10044,7 +10044,7 @@ eq 2 (Intercept)  -0.851564      -0.199880  -0.469482
 eq 2 price         0.007661      -0.000035   0.003553
 eq 2 farmPrice     0.000782       0.001865   0.000789
 eq 2 trend         0.000923       0.002200   0.003615
-[1] "**** 3SLS with different instruments and methodRCov = 2 ***"
+[1] "**** 3SLS with different instruments and methodRCov = Theil ***"
 
 systemfit results 
 method: 3SLS 
@@ -10904,7 +10904,7 @@ eq 2 (Intercept)  -0.876328      -0.259055  -0.236183
 eq 2 price         0.007989       0.000749   0.000463
 eq 2 farmPrice     0.000749       0.001786   0.001101
 eq 2 trend         0.000463       0.001101   0.007945
-[1] "**** 3SLS with different instruments and methodRCov = 2 ***"
+[1] "**** 3SLS with different instruments and methodRCov = Theil ***"
 
 systemfit results 
 method: 3SLS 
@@ -11764,7 +11764,7 @@ eq 2 (Intercept)  -0.876328      -0.259055  -0.236183
 eq 2 price         0.007989       0.000749   0.000463
 eq 2 farmPrice     0.000749       0.001786   0.001101
 eq 2 trend         0.000463       0.001101   0.007945
-[1] "**** 3SLS with different instruments and methodRCov = 2 ***"
+[1] "**** 3SLS with different instruments and methodRCov = Theil ***"
 
 systemfit results 
 method: 3SLS 
@@ -12624,7 +12624,7 @@ eq 2 (Intercept)  -0.758700      -0.270967  -0.401038
 eq 2 price         0.006432       0.000907   0.002646
 eq 2 farmPrice     0.000907       0.001770   0.000880
 eq 2 trend         0.002646       0.000880   0.004885
-[1] "**** 3SLS with different instruments and methodRCov = 2 ***"
+[1] "**** 3SLS with different instruments and methodRCov = Theil ***"
 
 systemfit results 
 method: 3SLS 

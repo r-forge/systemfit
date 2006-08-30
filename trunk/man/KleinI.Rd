@@ -56,15 +56,15 @@ kleinOls <- systemfit( "OLS", system, data = KleinI )
 summary( kleinOls )
 # 2SLS
 klein2sls <- systemfit( "2SLS", system, inst = inst, data = KleinI,
-   methodRCov = 0 )
+   methodRCov = "noDfCor" )
 summary( klein2sls )
 # 3SLS
 klein3sls <- systemfit( "3SLS", system, inst = inst, data = KleinI,
-   methodRCov = 0 )
+   methodRCov = "noDfCor" )
 summary( klein3sls )
 # I3SLS
 kleinI3sls <- systemfit( "3SLS", system, inst = inst, data = KleinI,
-   methodRCov = 0, maxit = 500 )
+   methodRCov = "noDfCor", maxit = 500 )
 summary( kleinI3sls )
 }
 \keyword{datasets}

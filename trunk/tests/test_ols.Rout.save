@@ -49,8 +49,8 @@ Type 'q()' to quit R.
 > 
 > # It is not possible to estimate OLS with systemfit
 > # exactly as EViews does, because EViews uses
-> # methodRCov == 1 for the coefficient covariance matrix and
-> # methodRCov == 0 for the residual covariance matrix, while
+> # methodRCov == "geomean" for the coefficient covariance matrix and
+> # methodRCov == "noDfCor" for the residual covariance matrix, while
 > # systemfit uses always the same formulas for both calculations.
 > 
 > ## *************** OLS estimation ************************
@@ -278,9 +278,9 @@ eq 2 price         0.009003       0.000844   0.000522
 eq 2 farmPrice     0.000844       0.002133   0.001316
 eq 2 trend         0.000522       0.001316   0.009510
 > 
-> ## ****************  OLS (methodRCov=0) ***********************
+> ## ****************  OLS (methodRCov="noDfCor") ***********************
 > fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
-+    methodRCov = 0 )
++    methodRCov = "noDfCor" )
 > print( summary( fitols1r ) )
 
 systemfit results 
@@ -353,9 +353,9 @@ eq 2 price         0.007202       0.000675   0.000418
 eq 2 farmPrice     0.000675       0.001707   0.001052
 eq 2 trend         0.000418       0.001052   0.007608
 > 
-> ## ********  OLS (methodRCov=0, single.eq.sigma=F) ***********
+> ## ********  OLS (methodRCov="noDfCor", single.eq.sigma=F) ***********
 > fitols1rs <- systemfit( "OLS", system, labels, data = Kmenta,
-+    methodRCov = 0, single.eq.sigma = FALSE )
++    methodRCov = "noDfCor", single.eq.sigma = FALSE )
 > print( summary( fitols1rs ) )
 
 systemfit results 
@@ -428,9 +428,9 @@ eq 2 price         0.006065       0.000569   0.000352
 eq 2 farmPrice     0.000569       0.001437   0.000886
 eq 2 trend         0.000352       0.000886   0.006407
 > 
-> ## ****************  OLS (methodRCov=2 ) ***********************
+> ## ****************  OLS (methodRCov="Theil" ) ***********************
 > fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
-+    methodRCov = 2 )
++    methodRCov = "Theil" )
 > print( summary( fitols1r ) )
 
 systemfit results 
@@ -503,9 +503,9 @@ eq 2 price         0.009003       0.000844   0.000522
 eq 2 farmPrice     0.000844       0.002133   0.001316
 eq 2 trend         0.000522       0.001316   0.009510
 > 
-> ## ****************  OLS (methodRCov=3) ***********************
+> ## ****************  OLS (methodRCov="max") ***********************
 > fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
-+    methodRCov = 3 )
++    methodRCov = "max" )
 > print( summary( fitols1r ) )
 
 systemfit results 
@@ -578,9 +578,9 @@ eq 2 price         0.009003       0.000844   0.000522
 eq 2 farmPrice     0.000844       0.002133   0.001316
 eq 2 trend         0.000522       0.001316   0.009510
 > 
-> ## ********  OLS (methodRCov=3, single.eq.sigma=F) ***********
+> ## ********  OLS (methodRCov="max", single.eq.sigma=F) ***********
 > fitols1rs <- systemfit( "OLS", system, labels, data = Kmenta,
-+    methodRCov = 3, single.eq.sigma = FALSE )
++    methodRCov = "max", single.eq.sigma = FALSE )
 > print( summary( fitols1rs ) )
 
 systemfit results 
@@ -880,9 +880,9 @@ eq 2 price         0.007274       0.000640   0.000107
 eq 2 farmPrice     0.000640       0.001617   0.000268
 eq 2 trend         0.000107       0.000268   0.001941
 > 
-> ## ****** OLS with cross-equation restriction (methodRCov=0) *******
+> ## ****** OLS with cross-equation restriction (methodRCov="noDfCor") *******
 > fitols2r <- systemfit( "OLS", system, labels, data = Kmenta,
-+    R.restr = restrm, methodRCov = 0 )
++    R.restr = restrm, methodRCov = "noDfCor" )
 > print( summary( fitols2r ) )
 
 systemfit results 
@@ -955,9 +955,9 @@ eq 2 price         0.006183       0.000544   0.000091
 eq 2 farmPrice     0.000544       0.001375   0.000228
 eq 2 trend         0.000091       0.000228   0.001650
 > 
-> ## ** OLS with cross-equation restriction (methodRCov=0,single.eq.sigma=T) ***
+> ## ** OLS with cross-equation restriction (methodRCov="noDfCor",single.eq.sigma=T) ***
 > fitols2rs <- systemfit( "OLS", system, labels, data = Kmenta,
-+    R.restr = restrm, methodRCov = 0 )
++    R.restr = restrm, methodRCov = "noDfCor" )
 > print( summary( fitols2rs ) )
 
 systemfit results 
@@ -1255,9 +1255,9 @@ eq 2 price         0.007274       0.000640   0.000107
 eq 2 farmPrice     0.000640       0.001617   0.000268
 eq 2 trend         0.000107       0.000268   0.001941
 > 
-> ## *** OLS with cross-equation restriction via TX (methodRCov=0) ***
+> ## *** OLS with cross-equation restriction via TX (methodRCov="noDfCor") ***
 > fitols3r <- systemfit( "OLS", system, labels, data = Kmenta,
-+    TX = tc, methodRCov = 0 )
++    TX = tc, methodRCov = "noDfCor" )
 > print( summary( fitols3r ) )
 
 systemfit results 
@@ -1330,9 +1330,9 @@ eq 2 price         0.006183       0.000544   0.000091
 eq 2 farmPrice     0.000544       0.001375   0.000228
 eq 2 trend         0.000091       0.000228   0.001650
 > 
-> ## OLS with cross-equation restriction via TX (methodRCov=0,single.eq.sigma=T)
+> ## OLS with cross-equation restriction via TX (methodRCov="noDfCor",single.eq.sigma=T)
 > fitols3rs <- systemfit( "OLS", system, labels, data = Kmenta,
-+    TX = tc, methodRCov = 0, single.eq.sigma = TRUE )
++    TX = tc, methodRCov = "noDfCor", single.eq.sigma = TRUE )
 > print( summary( fitols3rs ) )
 
 systemfit results 
@@ -1631,9 +1631,9 @@ eq 2 price         0.003958       0.000224  -0.000871
 eq 2 farmPrice     0.000224       0.001526   0.000137
 eq 2 trend        -0.000871       0.000137   0.001588
 > 
-> ## ****** OLS with 2 cross-equation restrictions (methodRCov=0) *******
+> ## ****** OLS with 2 cross-equation restrictions (methodRCov="noDfCor") *******
 > fitols4r <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
-+    q.restr = restr2q, methodRCov = 0 )
++    q.restr = restr2q, methodRCov = "noDfCor" )
 > print( summary( fitols4r ) )
 
 systemfit results 
@@ -1706,9 +1706,9 @@ eq 2 price         0.003464       0.000196  -0.000762
 eq 2 farmPrice     0.000196       0.001335   0.000120
 eq 2 trend        -0.000762       0.000120   0.001390
 > 
-> ## OLS with 2 cross-equation restrictions (methodRCov=0, single.eq.sigma=T) *
+> ## OLS with 2 cross-equation restrictions (methodRCov="noDfCor", single.eq.sigma=T) *
 > fitols4rs <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
-+    q.restr = restr2q, methodRCov = 0, single.eq.sigma = T )
++    q.restr = restr2q, methodRCov = "noDfCor", single.eq.sigma = T )
 > print( summary( fitols4rs ) )
 
 systemfit results 
@@ -1784,7 +1784,7 @@ eq 2 trend        -0.000826       0.000095   0.001240
 > ## ***** OLS with 2 cross-equation restrictions via R and TX ****
 > ## ***** OLS with 2 cross-equation restrictions via R and TX (default) ****
 > fitols5 <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr3m,
-+    q.restr = restr3q, TX = tc, methodRCov = 0)
++    q.restr = restr3q, TX = tc, methodRCov = "noDfCor")
 > print( summary( fitols5 ) )
 
 systemfit results 
@@ -2007,9 +2007,9 @@ eq 2 price         0.003958       0.000224  -0.000871
 eq 2 farmPrice     0.000224       0.001526   0.000137
 eq 2 trend        -0.000871       0.000137   0.001588
 > 
-> ## ***** OLS with 2 cross-equation restrictions via R and TX (methodRCov=0) ****
+> ## ***** OLS with 2 cross-equation restrictions via R and TX (methodRCov="noDfCor") ****
 > fitols5r <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
-+    q.restr = restr3q, TX = tc, methodRCov = 0 )
++    q.restr = restr3q, TX = tc, methodRCov = "noDfCor" )
 > print( summary( fitols5r ) )
 
 systemfit results 
@@ -2082,9 +2082,9 @@ eq 2 price         0.003464       0.000196  -0.000762
 eq 2 farmPrice     0.000196       0.001335   0.000120
 eq 2 trend        -0.000762       0.000120   0.001390
 > 
-> ## OLS with 2 cross-equation restr. via R and TX (methodRCov=0,single.eq.sigma=T)
+> ## OLS with 2 cross-equation restr. via R and TX (methodRCov="noDfCor",single.eq.sigma=T)
 > fitols5rs <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
-+    q.restr = restr3q, TX = tc, methodRCov = 0, single.eq.sigma = T )
++    q.restr = restr3q, TX = tc, methodRCov = "noDfCor", single.eq.sigma = T )
 > print( summary( fitols5rs ) )
 
 systemfit results 
