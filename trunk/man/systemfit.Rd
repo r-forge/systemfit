@@ -128,7 +128,7 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
    The method for calculating the estimated covariance matrix of the residuals
    (\eqn{\hat{\Sigma}}) can be one of the following
    (see Judge et al., 1985, p. 469): \cr
-   if methodRCov=0:
+   if methodRCov=0 or methodRCov='noDfCor':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}{T}}
    if methodRCov=1 or methodRCov='geomean':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}
