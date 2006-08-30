@@ -247,7 +247,7 @@ covariance matrix.
 The user can specify, which method \pkg{systemfit} should use.
 Possible values of the argument \code{methodRCov} are presented in
 table~\ref{tab:methodRCov}.
-By default, \pkg{systemfit} uses equation (\ref{eq:rcov1}).
+By default, \pkg{systemfit} uses equation (\ref{eq:rcovGeomean}).
 
 \begin{table}[H]
 \caption{Possible values of argument \code{methodRCov}}
@@ -258,21 +258,21 @@ By default, \pkg{systemfit} uses equation (\ref{eq:rcov1}).
 argument & equation \\
 \code{methodRCov} & \\
 \hline
-0 or 'noDfCor' & \ref{eq:rcov0} \\
+'noDfCor' & \ref{eq:rcovNoDfCor} \\
 \hline
-1 or 'geomean' & \ref{eq:rcov1} \\
+'geomean' & \ref{eq:rcovGeomean} \\
 \hline
-2 or 'Theil'   & \ref{eq:rcov2} \\
+'max'     & \ref{eq:rcovMax} \\
 \hline
-3 or 'max'     & \ref{eq:rcov3} \\
+'Theil'   & \ref{eq:rcovTheil} \\
 \hline
 \end{tabular}
 \end{table}
 
 Furthermore, the user can specify
 whether the means should be subtracted from the residuals
-before (\ref{eq:rcov0}), (\ref{eq:rcov1}), (\ref{eq:rcov3}),
-or (\ref{eq:rcov2}) are applied
+before (\ref{eq:rcovNoDfCor}), (\ref{eq:rcovGeomean}), (\ref{eq:rcovMax}),
+or (\ref{eq:rcovTheil}) are applied
 to calculate the residual covariance matrix
 (see section~\ref{sec:residcov}).
 The corresponding argument is called \code{centerResiduals}.

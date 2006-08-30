@@ -18,7 +18,7 @@ can be calculated from the residuals of a first-step OLS or 2SLS estimation.
 In many cases, the formula
 \begin{equation}
    \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }{ T }
-   \label{eq:rcov0}
+   \label{eq:rcovNoDfCor}
 \end{equation}
 is applied, where $T$ is the number of observations in each equation.
 However, in finite samples this estimator is biased,
@@ -31,13 +31,13 @@ matrix are
 \begin{equation}
    \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
    { \sqrt{ \left( T - K_i \right) \cdot \left( T - K_j \right) } }
-   \label{eq:rcov1}
+   \label{eq:rcovGeomean}
 \end{equation}
 and
 \begin{equation}
    \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
    { T - \max \left( K_i , K_j \right) } \; ,
-   \label{eq:rcov3}
+   \label{eq:rcovMax}
 \end{equation}
 where $K_i$ and $K_j$ are the number of regressors in equation
 $i$ and $j$, respectively.
@@ -56,7 +56,7 @@ matrix is
    \frac{ \widehat{u}_i' \widehat{u}_j } 
    { T - K_i - K_j + tr \left[ X_i \left( X_i' X_i \right)^{-1}
    X_i' X_j \left( X_j' X_j \right)^{-1} X_j' \right] }
-   \label{eq:rcov2} \\
+   \label{eq:rcovTheil} \\
    & = &
    \frac{ \widehat{u}_i' \widehat{u}_j } 
    { T - K_i - K_j + tr \left[ \left( X_i' X_i \right)^{-1}
@@ -67,10 +67,10 @@ This yields an unbiased estimator for all elements of $\Sigma$,
 but even if $\widehat{\Sigma}$ is an unbiased estimator of $\Sigma$, 
 its inverse $\widehat{\Sigma}^{-1}$ is not an unbiased estimator 
 of $\Sigma^{-1}$ \citep[p.\ 322]{theil71}.
-Furthermore, the covariance matrix calculated by (\ref{eq:rcov2})
+Furthermore, the covariance matrix calculated by (\ref{eq:rcovTheil})
 is not necessarily positive semidefinite \citep[p.\ 322]{theil71}. 
 Hence, °it is doubtful whether [this formula] is really superior to 
-[(\ref{eq:rcov0})]° \citep[p.\ 322]{theil71}.
+[(\ref{eq:rcovNoDfCor})]° \citep[p.\ 322]{theil71}.
 
 
 The WLS, SUR, W2SLS and 3SLS parameter estimates are consistent
@@ -95,7 +95,7 @@ Hence, in this case both approaches generate the same results.
 It is also possible to iterate WLS, SUR, W2SLS and 3SLS estimations.
 At each iteration the residual covariance matrix is calculated
 from the residuals of the previous iteration.
-If equation (\ref{eq:rcov0}) is applied to calculate the estimated
+If equation (\ref{eq:rcovNoDfCor}) is applied to calculate the estimated
 residual covariance matrix,
 an iterated SUR estimation converges to maximum
 likelihood \citep[p.\ 345]{greene03}.
@@ -109,7 +109,7 @@ Therefore, it might be argued
 that the residual covariance matrix should be calculated
 by subtracting the means from the residuals
 and substituting $\widehat{u}_i - \overline{ \widehat{u} }_i$
-for $\widehat{u}_i$ in (\ref{eq:rcov0}--\ref{eq:rcov2}).
+for $\widehat{u}_i$ in (\ref{eq:rcovNoDfCor}--\ref{eq:rcovTheil}).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -228,7 +228,7 @@ LR = T \cdot \left(
 \end{equation}
 where $T$ is the number of observations per equation, and 
 $\widehat{\Sigma}_r$ and $\widehat{\Sigma}_u$ are
-the residual covariance matrices calculated by formula (\ref{eq:rcov0})
+the residual covariance matrices calculated by formula (\ref{eq:rcovNoDfCor})
 of the restricted and unrestricted estimation, respectively.
 Asymptotically, $LR$ has a $\chi^2$
 distribution with $j$ degrees of freedom
