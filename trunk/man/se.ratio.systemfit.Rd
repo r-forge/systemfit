@@ -51,8 +51,8 @@ labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
 ## perform 2SLS on each of the equations in the system
-fit2sls <- systemfit( "2SLS", system, labels, inst, data = Kmenta )
-fit3sls <- systemfit( "3SLS", system, labels, inst, data = Kmenta )
+fit2sls <- systemfit( system, "2SLS", labels, inst, data = Kmenta )
+fit3sls <- systemfit( system, "3SLS", labels, inst, data = Kmenta )
 
 ## print the results from the fits
 print( fit2sls )

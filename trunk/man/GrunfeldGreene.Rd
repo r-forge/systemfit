@@ -47,21 +47,21 @@ Unpublished Ph.D. Dissertation, University of Chicago.
 data( "GrunfeldGreene" )
 formulaGrunfeld <- invest ~ value + capital
 # OLS
-greeneOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+greeneOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
    data = GrunfeldGreene )
 summary( greeneOls )
 sapply( greeneOls$eq, function(x){return(x$ssr/20)} ) # sigma^2
 # OLS Pooled
-greeneOlsPooled <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+greeneOlsPooled <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
    data = GrunfeldGreene, pooled = TRUE )
 summary( greeneOlsPooled )
 sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/97 # sigma^2
 # SUR
-greeneSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+greeneSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
    data = GrunfeldGreene, methodRCov = "noDfCor" )
 summary( greeneSur )
 # SUR Pooled
-greeneSurPooled <- systemfitClassic( "WSUR", formulaGrunfeld, "firm", "year",
+greeneSurPooled <- systemfitClassic( formulaGrunfeld, "WSUR", "firm", "year",
    data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor" )
 summary( greeneSurPooled )
 }

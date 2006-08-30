@@ -35,11 +35,11 @@ Theil, Henri (1971). \emph{Principles of Econometrics}, John Wiley & Sons, New Y
 data( "GrunfeldTheil" )
 formulaGrunfeld <- invest ~ value + capital
 # OLS
-theilOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+theilOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
    data = GrunfeldTheil )
 summary( theilOls )
 # SUR
-theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+theilSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
    data = GrunfeldTheil, methodRCov = "noDfCor" )
 summary( theilSur )
 }

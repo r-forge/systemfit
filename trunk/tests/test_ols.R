@@ -38,48 +38,48 @@ restr3q[1,1] <-  0.5
 
 ## *************** OLS estimation ************************
 ## ********** OLS estimation (default) ********************
-fitols1 <- systemfit( "OLS", system, labels, data = Kmenta )
+fitols1 <- systemfit( system, "OLS", labels, data = Kmenta )
 print( summary( fitols1 ) )
 print( round( fitols1$bcov, digits = 6 ) )
 
 ## ********** OLS estimation (no single.eq sigma=F) ******************
-fitols1s <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols1s <- systemfit( system, "OLS", labels, data = Kmenta,
    single.eq.sigma = FALSE )
 print( summary( fitols1s ) )
 print( round( fitols1s$bcov, digits = 6 ) )
 
 ## ****************  OLS (probdfsys=T) ***********************
-fitols1p <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols1p <- systemfit( system, "OLS", labels, data = Kmenta,
    probdfsys = TRUE )
 print( summary( fitols1p ) )
 print( round( fitols1p$bcov, digits = 6 ) )
 
 ## ****************  OLS (methodRCov="noDfCor") ***********************
-fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols1r <- systemfit( system, "OLS", labels, data = Kmenta,
    methodRCov = "noDfCor" )
 print( summary( fitols1r ) )
 print( round( fitols1r$bcov, digits = 6 ) )
 
 ## ********  OLS (methodRCov="noDfCor", single.eq.sigma=F) ***********
-fitols1rs <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols1rs <- systemfit( system, "OLS", labels, data = Kmenta,
    methodRCov = "noDfCor", single.eq.sigma = FALSE )
 print( summary( fitols1rs ) )
 print( round( fitols1rs$bcov, digits = 6 ) )
 
 ## ****************  OLS (methodRCov="Theil" ) ***********************
-fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols1r <- systemfit( system, "OLS", labels, data = Kmenta,
    methodRCov = "Theil" )
 print( summary( fitols1r ) )
 print( round( fitols1r$bcov, digits = 6 ) )
 
 ## ****************  OLS (methodRCov="max") ***********************
-fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols1r <- systemfit( system, "OLS", labels, data = Kmenta,
    methodRCov = "max" )
 print( summary( fitols1r ) )
 print( round( fitols1r$bcov, digits = 6 ) )
 
 ## ********  OLS (methodRCov="max", single.eq.sigma=F) ***********
-fitols1rs <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols1rs <- systemfit( system, "OLS", labels, data = Kmenta,
    methodRCov = "max", single.eq.sigma = FALSE )
 print( summary( fitols1rs ) )
 print( round( fitols1rs$bcov, digits = 6 ) )
@@ -87,123 +87,123 @@ print( round( fitols1rs$bcov, digits = 6 ) )
 
 ## ********* OLS with cross-equation restriction ************
 ## ****** OLS with cross-equation restriction (default) *********
-fitols2 <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols2 <- systemfit( system, "OLS", labels, data = Kmenta,
    R.restr = restrm )
 print( summary( fitols2 ) )
 print( round( fitols2$bcov, digits = 6 ) )
 
 ## ****** OLS with cross-equation restriction (single.eq.sigma=T) *******
-fitols2s <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols2s <- systemfit( system, "OLS", labels, data = Kmenta,
    R.restr = restrm, single.eq.sigma = TRUE )
 print( summary( fitols2s ) )
 print( round( fitols2s$bcov, digits = 6 ) )
 
 ## ****** OLS with cross-equation restriction (probdfsys=F) *******
-fitols2p <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols2p <- systemfit( system, "OLS", labels, data = Kmenta,
    R.restr = restrm, probdfsys = FALSE )
 print( summary( fitols2p ) )
 print( round( fitols2p$bcov, digits = 6 ) )
 
 ## ****** OLS with cross-equation restriction (methodRCov="noDfCor") *******
-fitols2r <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols2r <- systemfit( system, "OLS", labels, data = Kmenta,
    R.restr = restrm, methodRCov = "noDfCor" )
 print( summary( fitols2r ) )
 print( round( fitols2r$bcov, digits = 6 ) )
 
 ## ** OLS with cross-equation restriction (methodRCov="noDfCor",single.eq.sigma=T) ***
-fitols2rs <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols2rs <- systemfit( system, "OLS", labels, data = Kmenta,
    R.restr = restrm, methodRCov = "noDfCor" )
 print( summary( fitols2rs ) )
 print( round( fitols2rs$bcov, digits = 6 ) )
 
 ## *** OLS with cross-equation restriction via TX ***
 ## *** OLS with cross-equation restriction via TX (default) ***
-fitols3 <- systemfit( "OLS", system, labels, data = Kmenta, TX = tc )
+fitols3 <- systemfit( system, "OLS", labels, data = Kmenta, TX = tc )
 print( summary( fitols3 ) )
 print( round( fitols3$bcov, digits = 6 ) )
 
 ## *** OLS with cross-equation restriction via TX (single.eq.sigma=T) ***
-fitols3s <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols3s <- systemfit( system, "OLS", labels, data = Kmenta,
    TX = tc, single.eq.sigma = TRUE )
 print( summary( fitols3s ) )
 print( round( fitols3s$bcov, digits = 6 ) )
 
 ## *** OLS with cross-equation restriction via TX (probdfsys=F) ***
-fitols3p <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols3p <- systemfit( system, "OLS", labels, data = Kmenta,
    TX = tc, probdfsys = FALSE )
 print( summary( fitols3p ) )
 print( round( fitols3p$bcov, digits = 6 ) )
 
 ## *** OLS with cross-equation restriction via TX (methodRCov="noDfCor") ***
-fitols3r <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols3r <- systemfit( system, "OLS", labels, data = Kmenta,
    TX = tc, methodRCov = "noDfCor" )
 print( summary( fitols3r ) )
 print( round( fitols3r$bcov, digits = 6 ) )
 
 ## OLS with cross-equation restriction via TX (methodRCov="noDfCor",single.eq.sigma=T)
-fitols3rs <- systemfit( "OLS", system, labels, data = Kmenta,
+fitols3rs <- systemfit( system, "OLS", labels, data = Kmenta,
    TX = tc, methodRCov = "noDfCor", single.eq.sigma = TRUE )
 print( summary( fitols3rs ) )
 print( round( fitols3rs$bcov, digits = 6 ) )
 
 ## ********* OLS with 2 cross-equation restrictions ***********
 ## ********* OLS with 2 cross-equation restrictions (default) ***********
-fitols4 <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
+fitols4 <- systemfit( system, "OLS", labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q )
 print( summary( fitols4 ) )
 print( round( fitols4$bcov, digits = 6 ) )
 
 ## ****** OLS with 2 cross-equation restrictions (single.eq.sigma=T) *******
-fitols4s <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
+fitols4s <- systemfit( system, "OLS", labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, single.eq.sigma = T )
 print( summary( fitols4s ) )
 print( round( fitols4s$bcov, digits = 6 ) )
 
 ## ****** OLS with 2 cross-equation restrictions (probdfsys=F) *******
-fitols4p <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
+fitols4p <- systemfit( system, "OLS", labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, probdfsys = F )
 print( summary( fitols4p ) )
 print( round( fitols4p$bcov, digits = 6 ) )
 
 ## ****** OLS with 2 cross-equation restrictions (methodRCov="noDfCor") *******
-fitols4r <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
+fitols4r <- systemfit( system, "OLS", labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, methodRCov = "noDfCor" )
 print( summary( fitols4r ) )
 print( round( fitols4r$bcov, digits = 6 ) )
 
 ## OLS with 2 cross-equation restrictions (methodRCov="noDfCor", single.eq.sigma=T) *
-fitols4rs <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
+fitols4rs <- systemfit( system, "OLS", labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, methodRCov = "noDfCor", single.eq.sigma = T )
 print( summary( fitols4rs ) )
 print( round( fitols4rs$bcov, digits = 6 ) )
 
 ## ***** OLS with 2 cross-equation restrictions via R and TX ****
 ## ***** OLS with 2 cross-equation restrictions via R and TX (default) ****
-fitols5 <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr3m,
+fitols5 <- systemfit( system, "OLS", labels, data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc, methodRCov = "noDfCor")
 print( summary( fitols5 ) )
 print( round( fitols5$bcov, digits = 6 ) )
 
 ## ***** OLS with 2 cross-equation restrictions via R and TX (single.eq.sigma=T) ****
-fitols5s <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
+fitols5s <- systemfit( system, "OLS", labels, data = Kmenta,R.restr = restr3m,
    q.restr = restr3q, TX = tc, single.eq.sigma = T )
 print( summary( fitols5s ) )
 print( round( fitols5s$bcov, digits = 6 ) )
 
 ## ***** OLS with 2 cross-equation restrictions via R and TX (probdfsys=F) ****
-fitols5p <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
+fitols5p <- systemfit( system, "OLS", labels, data = Kmenta,R.restr = restr3m,
    q.restr = restr3q, TX = tc, probdfsys = F )
 print( summary( fitols5p ) )
 print( round( fitols5p$bcov, digits = 6 ) )
 
 ## ***** OLS with 2 cross-equation restrictions via R and TX (methodRCov="noDfCor") ****
-fitols5r <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
+fitols5r <- systemfit( system, "OLS", labels, data = Kmenta,R.restr = restr3m,
    q.restr = restr3q, TX = tc, methodRCov = "noDfCor" )
 print( summary( fitols5r ) )
 print( round( fitols5r$bcov, digits = 6 ) )
 
 ## OLS with 2 cross-equation restr. via R and TX (methodRCov="noDfCor",single.eq.sigma=T)
-fitols5rs <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
+fitols5rs <- systemfit( system, "OLS", labels, data = Kmenta,R.restr = restr3m,
    q.restr = restr3q, TX = tc, methodRCov = "noDfCor", single.eq.sigma = T )
 print( summary( fitols5rs ) )
 print( round( fitols5rs$bcov, digits = 6 ) )

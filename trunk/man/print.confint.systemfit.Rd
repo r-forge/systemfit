@@ -30,7 +30,7 @@ labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
 ## perform OLS on each of the equations in the system
-fitols <- systemfit( "OLS", system, labels, data = Kmenta )
+fitols <- systemfit( system, eqnlabels = labels, data = Kmenta )
 
 ## calculate and print the confidence intervals
 ## of all coefficients

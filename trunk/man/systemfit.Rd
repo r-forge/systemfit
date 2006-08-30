@@ -16,7 +16,7 @@
 }
 
 \usage{
-systemfit( method, eqns, eqnlabels=names(eqns),
+systemfit( eqns, method = "OLS", eqnlabels=names(eqns),
            inst=NULL, data=list(), R.restr=NULL,
            q.restr=matrix(0,max(nrow(R.restr),0),1),
            TX=NULL, maxiter=1, tol=1e-5,
@@ -27,17 +27,17 @@ systemfit( method, eqns, eqnlabels=names(eqns),
            saveMemory=( nrow(data) * length(eqns) > 1000 &&
               length(data) > 0 ) )
 
-systemfitClassic( method, formula, eqnVar, timeVar, data,
+systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
                   pooled = FALSE, ... )
 }
 
 \arguments{
+   \item{eqns}{a list of structural equations to be estimated; a regression
+      constant is implied if not explicitly omitted.}
    \item{method}{the estimation method, one of "OLS", "WLS", "SUR", "WSUR",
       "2SLS", "W2SLS", "3SLS", or "W3SLS" (see details);
       iterated estimation methods can be specified by setting argument
       \code{maxiter} larger than 1 (e.g. 500).}
-   \item{eqns}{a list of structural equations to be estimated; a regression
-      constant is implied if not explicitly omitted.}
    \item{eqnlabels}{an optional list of character vectors of names
       for the equation labels.}
    \item{inst}{one-sided model formula specifying instrumental variables
@@ -269,7 +269,7 @@ eqSupply <- consump ~ price + farmPrice + trend
 system <- list( demand = eqDemand, supply = eqSupply )
 
 ## OLS estimation
-fitols <- systemfit("OLS", system, data=Kmenta )
+fitols <- systemfit( system, data=Kmenta )
 print( fitols )
 
 ## OLS estimation with 2 restrictions
@@ -280,29 +280,29 @@ Rrestr[1,7] <- -1
 Rrestr[2,2] <- -1
 Rrestr[2,5] <-  1
 qrestr[2,1] <-  0.5
-fitols2 <- systemfit("OLS", system, data = Kmenta,
+fitols2 <- systemfit( system, data = Kmenta,
                       R.restr = Rrestr, q.restr = qrestr )
 print( fitols2 )
 
 ## iterated SUR estimation
-fitsur <- systemfit("SUR", system, data = Kmenta, maxit = 100 )
+fitsur <- systemfit( system, "SUR", data = Kmenta, maxit = 100 )
 print( fitsur )
 
 ## 2SLS estimation
 inst <- ~ income + farmPrice + trend
-fit2sls <- systemfit( "2SLS", system, inst = inst, data = Kmenta )
+fit2sls <- systemfit( system, "2SLS", inst = inst, data = Kmenta )
 print( fit2sls )
 
 ## 2SLS estimation with different instruments in each equation
 inst1 <- ~ income + farmPrice
 inst2 <- ~ income + farmPrice + trend
 instlist <- list( inst1, inst2 )
-fit2sls2 <- systemfit( "2SLS", system, inst = instlist, data = Kmenta )
+fit2sls2 <- systemfit( system, "2SLS", inst = instlist, data = Kmenta )
 print( fit2sls2 )
 
 ## 3SLS estimation with GMM-3SLS formula
 inst <- ~ income + farmPrice + trend
-fit3sls <- systemfit( "3SLS", system, inst = inst, data = Kmenta,
+fit3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta,
    method3sls = "GMM" )
 print( fit3sls )
 
@@ -312,11 +312,11 @@ print( fit3sls )
 data( "GrunfeldTheil" )
 formulaGrunfeld <- invest ~ value + capital
 # OLS
-theilOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+theilOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
    data = GrunfeldTheil )
 summary( theilOls )
 # SUR
-theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+theilSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
    data = GrunfeldTheil, methodRCov = "noDfCor" )
 summary( theilSur )
 

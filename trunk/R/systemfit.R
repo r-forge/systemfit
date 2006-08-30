@@ -22,8 +22,8 @@
 ### MA 02111-1307, USA
 
 
-systemfit <- function( method,
-                        eqns,
+systemfit <- function(  eqns,
+                        method = "OLS",
                         eqnlabels=names(eqns),
                         inst=NULL,
                         data=list(),

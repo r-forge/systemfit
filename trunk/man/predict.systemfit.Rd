@@ -81,7 +81,7 @@ labels <- list( "demand", "supply" )
 system <- list( demand, supply )
 
 ## OLS estimation
-fitols <- systemfit("OLS", system, labels, data=Kmenta )
+fitols <- systemfit( system, eqnlabels = labels, data=Kmenta )
 
 ## predicted values and limits
 predict( fitols )

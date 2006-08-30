@@ -1,4 +1,4 @@
-systemfitClassic <- function( method, formula, eqnVar, timeVar, data,
+systemfitClassic <- function( formula, method = "OLS", eqnVar, timeVar, data,
    pooled = FALSE, ... ) {
 
    eqnLabels <- levels( as.factor( data[[ eqnVar ]] ) )
@@ -34,7 +34,7 @@ systemfitClassic <- function( method, formula, eqnVar, timeVar, data,
       }
    }
 
-   result <- systemfit( method = method, eqns = eqnSystem,
+   result <- systemfit( eqns = eqnSystem, method = method,
       eqnlabels = eqnLabels, data = wideData, TX = TX, ... )
 
    return( result )
