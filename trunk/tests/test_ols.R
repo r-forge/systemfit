@@ -32,8 +32,8 @@ restr3q[1,1] <-  0.5
 
 # It is not possible to estimate OLS with systemfit
 # exactly as EViews does, because EViews uses
-# rcovformula == 1 for the coefficient covariance matrix and
-# rcovformula == 0 for the residual covariance matrix, while
+# methodRCov == 1 for the coefficient covariance matrix and
+# methodRCov == 0 for the residual covariance matrix, while
 # systemfit uses always the same formulas for both calculations.
 
 ## *************** OLS estimation ************************
@@ -54,33 +54,33 @@ fitols1p <- systemfit( "OLS", system, labels, data = Kmenta,
 print( summary( fitols1p ) )
 print( round( fitols1p$bcov, digits = 6 ) )
 
-## ****************  OLS (rcovformula=0) ***********************
+## ****************  OLS (methodRCov=0) ***********************
 fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
-   rcovformula = 0 )
+   methodRCov = 0 )
 print( summary( fitols1r ) )
 print( round( fitols1r$bcov, digits = 6 ) )
 
-## ********  OLS (rcovformula=0, single.eq.sigma=F) ***********
+## ********  OLS (methodRCov=0, single.eq.sigma=F) ***********
 fitols1rs <- systemfit( "OLS", system, labels, data = Kmenta,
-   rcovformula = 0, single.eq.sigma = FALSE )
+   methodRCov = 0, single.eq.sigma = FALSE )
 print( summary( fitols1rs ) )
 print( round( fitols1rs$bcov, digits = 6 ) )
 
-## ****************  OLS (rcovformula=2 ) ***********************
+## ****************  OLS (methodRCov=2 ) ***********************
 fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
-   rcovformula = 2 )
+   methodRCov = 2 )
 print( summary( fitols1r ) )
 print( round( fitols1r$bcov, digits = 6 ) )
 
-## ****************  OLS (rcovformula=3) ***********************
+## ****************  OLS (methodRCov=3) ***********************
 fitols1r <- systemfit( "OLS", system, labels, data = Kmenta,
-   rcovformula = 3 )
+   methodRCov = 3 )
 print( summary( fitols1r ) )
 print( round( fitols1r$bcov, digits = 6 ) )
 
-## ********  OLS (rcovformula=3, single.eq.sigma=F) ***********
+## ********  OLS (methodRCov=3, single.eq.sigma=F) ***********
 fitols1rs <- systemfit( "OLS", system, labels, data = Kmenta,
-   rcovformula = 3, single.eq.sigma = FALSE )
+   methodRCov = 3, single.eq.sigma = FALSE )
 print( summary( fitols1rs ) )
 print( round( fitols1rs$bcov, digits = 6 ) )
 
@@ -104,15 +104,15 @@ fitols2p <- systemfit( "OLS", system, labels, data = Kmenta,
 print( summary( fitols2p ) )
 print( round( fitols2p$bcov, digits = 6 ) )
 
-## ****** OLS with cross-equation restriction (rcovformula=0) *******
+## ****** OLS with cross-equation restriction (methodRCov=0) *******
 fitols2r <- systemfit( "OLS", system, labels, data = Kmenta,
-   R.restr = restrm, rcovformula = 0 )
+   R.restr = restrm, methodRCov = 0 )
 print( summary( fitols2r ) )
 print( round( fitols2r$bcov, digits = 6 ) )
 
-## ** OLS with cross-equation restriction (rcovformula=0,single.eq.sigma=T) ***
+## ** OLS with cross-equation restriction (methodRCov=0,single.eq.sigma=T) ***
 fitols2rs <- systemfit( "OLS", system, labels, data = Kmenta,
-   R.restr = restrm, rcovformula = 0 )
+   R.restr = restrm, methodRCov = 0 )
 print( summary( fitols2rs ) )
 print( round( fitols2rs$bcov, digits = 6 ) )
 
@@ -134,15 +134,15 @@ fitols3p <- systemfit( "OLS", system, labels, data = Kmenta,
 print( summary( fitols3p ) )
 print( round( fitols3p$bcov, digits = 6 ) )
 
-## *** OLS with cross-equation restriction via TX (rcovformula=0) ***
+## *** OLS with cross-equation restriction via TX (methodRCov=0) ***
 fitols3r <- systemfit( "OLS", system, labels, data = Kmenta,
-   TX = tc, rcovformula = 0 )
+   TX = tc, methodRCov = 0 )
 print( summary( fitols3r ) )
 print( round( fitols3r$bcov, digits = 6 ) )
 
-## OLS with cross-equation restriction via TX (rcovformula=0,single.eq.sigma=T)
+## OLS with cross-equation restriction via TX (methodRCov=0,single.eq.sigma=T)
 fitols3rs <- systemfit( "OLS", system, labels, data = Kmenta,
-   TX = tc, rcovformula = 0, single.eq.sigma = TRUE )
+   TX = tc, methodRCov = 0, single.eq.sigma = TRUE )
 print( summary( fitols3rs ) )
 print( round( fitols3rs$bcov, digits = 6 ) )
 
@@ -165,22 +165,22 @@ fitols4p <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
 print( summary( fitols4p ) )
 print( round( fitols4p$bcov, digits = 6 ) )
 
-## ****** OLS with 2 cross-equation restrictions (rcovformula=0) *******
+## ****** OLS with 2 cross-equation restrictions (methodRCov=0) *******
 fitols4r <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
-   q.restr = restr2q, rcovformula = 0 )
+   q.restr = restr2q, methodRCov = 0 )
 print( summary( fitols4r ) )
 print( round( fitols4r$bcov, digits = 6 ) )
 
-## OLS with 2 cross-equation restrictions (rcovformula=0, single.eq.sigma=T) *
+## OLS with 2 cross-equation restrictions (methodRCov=0, single.eq.sigma=T) *
 fitols4rs <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr2m,
-   q.restr = restr2q, rcovformula = 0, single.eq.sigma = T )
+   q.restr = restr2q, methodRCov = 0, single.eq.sigma = T )
 print( summary( fitols4rs ) )
 print( round( fitols4rs$bcov, digits = 6 ) )
 
 ## ***** OLS with 2 cross-equation restrictions via R and TX ****
 ## ***** OLS with 2 cross-equation restrictions via R and TX (default) ****
 fitols5 <- systemfit( "OLS", system, labels, data = Kmenta, R.restr = restr3m,
-   q.restr = restr3q, TX = tc, rcovformula = 0)
+   q.restr = restr3q, TX = tc, methodRCov = 0)
 print( summary( fitols5 ) )
 print( round( fitols5$bcov, digits = 6 ) )
 
@@ -196,14 +196,14 @@ fitols5p <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
 print( summary( fitols5p ) )
 print( round( fitols5p$bcov, digits = 6 ) )
 
-## ***** OLS with 2 cross-equation restrictions via R and TX (rcovformula=0) ****
+## ***** OLS with 2 cross-equation restrictions via R and TX (methodRCov=0) ****
 fitols5r <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
-   q.restr = restr3q, TX = tc, rcovformula = 0 )
+   q.restr = restr3q, TX = tc, methodRCov = 0 )
 print( summary( fitols5r ) )
 print( round( fitols5r$bcov, digits = 6 ) )
 
-## OLS with 2 cross-equation restr. via R and TX (rcovformula=0,single.eq.sigma=T)
+## OLS with 2 cross-equation restr. via R and TX (methodRCov=0,single.eq.sigma=T)
 fitols5rs <- systemfit( "OLS", system, labels, data = Kmenta,R.restr = restr3m,
-   q.restr = restr3q, TX = tc, rcovformula = 0, single.eq.sigma = T )
+   q.restr = restr3q, TX = tc, methodRCov = 0, single.eq.sigma = T )
 print( summary( fitols5rs ) )
 print( round( fitols5rs$bcov, digits = 6 ) )

@@ -9,7 +9,7 @@
          length( mlCoef ), " but must have length ", ncol( mlVars$xMat ) )
    }
    mlResids <- mlVars$yVec - mlVars$xMat %*% mlCoef
-   mlSigma <- .calcRCov( resids = mlResids, rcovformula = mlVars$rcovformula,
+   mlSigma <- .calcRCov( resids = mlResids, methodRCov = mlVars$methodRCov,
       nObsEq = mlVars$nObsEq, nCoefEq = mlVars$nCoefEq, xEq = mlVars$xEq,
       centered = mlVars$centerResiduals, diag = FALSE,
       solvetol = mlVars$solvetol )
@@ -22,7 +22,7 @@
 
 ## FIML estimation
 .systemfitFiml <- function( systemfitCall, nObsEq, nCoefEq, yVec, xMat, xEq,
-      rcovformula, centerResiduals, solvetol, startCoef = "ITSUR" ) {
+      methodRCov, centerResiduals, solvetol, startCoef = "ITSUR" ) {
 
    nObs <- sum( nObsEq )
    nEq <- length( nObsEq )
@@ -49,7 +49,7 @@
    mlVars$yVec    <- yVec
    mlVars$xMat    <- xMat
    mlVars$xEq     <- xEq
-   mlVars$rcovformula     <- rcovformula
+   mlVars$methodRCov     <- methodRCov
    mlVars$centerResiduals <- centerResiduals
    mlVars$sollvetol       <- solvetol
 

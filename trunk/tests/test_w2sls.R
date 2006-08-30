@@ -41,7 +41,7 @@ print( round( fitw2sls1$bcov, digits = 6 ) )
 
 ## ********************* W2SLS (EViews-like) *****************
 fitw2sls1e <- systemfit( "W2SLS", system, labels, data = Kmenta, inst = inst,
-   rcovformula = 0, probdfsys = TRUE )
+   methodRCov = 0, probdfsys = TRUE )
 print( summary( fitw2sls1e ) )
 print( round( fitw2sls1e$bcov, digits = 6 ) )
 
@@ -53,7 +53,7 @@ print( round( fitw2sls2$bcov, digits = 6 ) )
 
 ## ********************* W2SLS with restriction (EViews-like) **************
 fitw2sls2e <- systemfit( "W2SLS", system, labels, data = Kmenta, R.restr = restrm,
-   inst = inst, rcovformula = 0, probdfsys = TRUE )
+   inst = inst, methodRCov = 0, probdfsys = TRUE )
 print( summary( fitw2sls2e ) )
 print( round( fitw2sls2e$bcov, digits = 6 ) )
 
@@ -64,7 +64,7 @@ print( round( fitw2sls3$bcov, digits = 6 ) )
 
 ## ********************* W2SLS with restriction via TX (EViews-like) **************
 fitw2sls3e <- systemfit( "W2SLS", system, labels, data = Kmenta, TX = tc, inst = inst,
-   rcovformula = 0, probdfsys = TRUE )
+   methodRCov = 0, probdfsys = TRUE )
 print( summary( fitw2sls3e ) )
 print( round( fitw2sls3e$bcov, digits = 6 ) )
 
@@ -76,7 +76,7 @@ print( round( fitw2sls4$bcov, digits = 6 ) )
 
 ## ***************** W2SLS with 2 restrictions (EViews-like) **************
 fitw2sls4e <- systemfit( "W2SLS", system, labels, data = Kmenta, R.restr = restr2m,
-   q.restr = restr2q, inst = inst, rcovformula = 0, probdfsys = TRUE )
+   q.restr = restr2q, inst = inst, methodRCov = 0, probdfsys = TRUE )
 print( summary( fitw2sls4e ) )
 print( round( fitw2sls4e$bcov, digits = 6 ) )
 
@@ -88,7 +88,7 @@ print( round( fitw2sls5$bcov, digits = 6 ) )
 
 ## ***************** W2SLS with 2 restrictions via R and TX (EViews-like) **************
 fitw2sls5e <- systemfit( "W2SLS", system, labels, data = Kmenta, R.restr = restr3m,
-   q.restr = restr3q, TX = tc, inst = inst, rcovformula = 0, probdfsys = TRUE )
+   q.restr = restr3q, TX = tc, inst = inst, methodRCov = 0, probdfsys = TRUE )
 print( summary( fitw2sls5e ) )
 print( round( fitw2sls5e$bcov, digits = 6 ) )
 
@@ -99,7 +99,7 @@ print( round( fitw2slsd1$bcov, digits = 6 ) )
 
 ## ****** 2SLS estimation with different instruments (EViews-like)******************
 fitw2slsd1e <- systemfit( "W2SLS", system, labels, data = Kmenta, inst = instlist,
-   rcovformula = 0, probdfsys = TRUE )
+   methodRCov = 0, probdfsys = TRUE )
 print( summary( fitw2slsd1e ) )
 print( round( fitw2slsd1e$bcov, digits = 6 ) )
 
@@ -111,7 +111,7 @@ print( round( fitw2slsd2$bcov, digits = 6 ) )
 
 ## **** W2SLS estimation with different instruments and restriction (EViews-like)*
 fitw2slsd2e <- systemfit( "W2SLS", system, labels, data = Kmenta, R.restr = restrm,
-   inst = instlist, rcovformula = 0, probdfsys = TRUE )
+   inst = instlist, methodRCov = 0, probdfsys = TRUE )
 print( summary( fitw2slsd2e ) )
 print( round( fitw2slsd2e$bcov, digits = 6 ) )
 
@@ -123,6 +123,6 @@ print( round( fitw2slsd3$bcov, digits = 6 ) )
 
 ## W2SLS estimation with different instruments and restriction via TX (EViews-like)
 fitw2slsd3e <- systemfit( "W2SLS", system, labels, data = Kmenta, TX = tc,
-   inst = instlist, rcovformula = 0, probdfsys = TRUE )
+   inst = instlist, methodRCov = 0, probdfsys = TRUE )
 print( summary( fitw2slsd3e ) )
 print( round( fitw2slsd3e$bcov, digits = 6 ) )

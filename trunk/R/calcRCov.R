@@ -1,5 +1,5 @@
 ## Calculate the residual covariance matrix
-.calcRCov <- function( resids, rcovformula, nObsEq = NULL, nCoefEq = NULL, xEq = NULL,
+.calcRCov <- function( resids, methodRCov, nObsEq = NULL, nCoefEq = NULL, xEq = NULL,
       diag = FALSE, centered = FALSE, solvetol = .Machine$double.eps ) {
 
    eqNames <- NULL
@@ -19,12 +19,12 @@
    }
    for( i in 1:nEq ) {
       for( j in ifelse( diag, i, 1 ):ifelse( diag, i, nEq ) ) {
-         if( rcovformula == 0 ) {
+         if( methodRCov == 0 ) {
             result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) / nObsEq[i]
-         } else if( rcovformula == 1 || rcovformula == "geomean" ) {
+         } else if( methodRCov == 1 || methodRCov == "geomean" ) {
             result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
                sqrt( ( nObsEq[i] - nCoefEq[i] ) * ( nObsEq[j] - nCoefEq[j] ) )
-         } else if( rcovformula == 2 || rcovformula == "Theil" ) {
+         } else if( methodRCov == 2 || methodRCov == "Theil" ) {
             #result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
             #   ( nObsEq[i] - nCoefEq[i] - nCoefEq[j] + sum( diag(
             #   xEq[[i]] %*% solve( crossprod( xEq[[i]] ), tol=solvetol ) %*%
@@ -38,11 +38,11 @@
                solve( crossprod( xEq[[j]] ), tol=solvetol ) %*%
                crossprod( xEq[[j]], xEq[[i]] ) ) ) )
 
-         } else if( rcovformula == 3 || rcovformula == "max" ) {
+         } else if( methodRCov == 3 || methodRCov == "max" ) {
             result[ i, j ] <- sum( residi[[i]] * residi[[j]] ) /
                ( nObsEq[i] - max( nCoefEq[i], nCoefEq[j] ) )
          } else {
-            stop( paste( "Argument 'rcovformula' must be either 0, 1,",
+            stop( paste( "Argument 'methodRCov' must be either 0, 1,",
                   "'geomean', 2, 'Theil', 3 or 'max'." ) )
          }
       }
@@ -55,15 +55,15 @@
 }
 
 ## Calculate Sigma squared
-.calcSigma2 <- function( resids, rcovformula, nObs, nCoef ) {
-   if( rcovformula == 0 ) {
+.calcSigma2 <- function( resids, methodRCov, nObs, nCoef ) {
+   if( methodRCov == 0 ) {
       result <- sum( resids^2 ) / nObs
-   } else if( rcovformula == 1 || rcovformula == "geomean" ||
-      rcovformula == 3 || rcovformula == "max") {
+   } else if( methodRCov == 1 || methodRCov == "geomean" ||
+      methodRCov == 3 || methodRCov == "max") {
       result <- sum( resids^2 )/ ( nObs - nCoef )
    } else {
       stop( paste( "Sigma^2 can only be calculated if argument",
-         "'rcovformula' is either 0, 1, 'geomean', 3 or 'max'" ) )
+         "'methodRCov' is either 0, 1, 'geomean', 3 or 'max'" ) )
    }
 }
 

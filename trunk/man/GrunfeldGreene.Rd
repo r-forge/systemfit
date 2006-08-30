@@ -58,11 +58,11 @@ summary( greeneOlsPooled )
 sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/97 # sigma^2
 # SUR
 greeneSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
-   data = GrunfeldGreene, rcovformula = 0 )
+   data = GrunfeldGreene, methodRCov = 0 )
 summary( greeneSur )
 # SUR Pooled
 greeneSurPooled <- systemfitClassic( "WSUR", formulaGrunfeld, "firm", "year",
-   data = GrunfeldGreene, pooled = TRUE, rcovformula = 0 )
+   data = GrunfeldGreene, pooled = TRUE, methodRCov = 0 )
 summary( greeneSurPooled )
 }
 

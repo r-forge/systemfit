@@ -52,8 +52,8 @@ Type 'q()' to quit R.
 > 
 > # It is not possible to estimate 2SLS with systemfit exactly
 > # as EViews does, because EViews uses
-> # rcovformula == 1 for the coefficient covariance matrix and
-> # rcovformula == 0 for the residual covariance matrix.
+> # methodRCov == 1 for the coefficient covariance matrix and
+> # methodRCov == 0 for the residual covariance matrix.
 > # systemfit uses always the same formulas for both calculations.
 > 
 > ## *************** 2SLS estimation ************************
@@ -287,9 +287,9 @@ eq 2 price         0.009987       0.000936   0.000579
 eq 2 farmPrice     0.000936       0.002233   0.001377
 eq 2 trend         0.000579       0.001377   0.009931
 > 
-> ## ********************* 2SLS (rcovformula = 0) *****************
+> ## ********************* 2SLS (methodRCov = 0) *****************
 > fit2sls1r <- systemfit( "2SLS", system, labels, data = Kmenta, inst = inst,
-+    rcovformula = 0 )
++    methodRCov = 0 )
 > print( summary( fit2sls1r ) )
 
 systemfit results 
@@ -364,9 +364,9 @@ eq 2 price         0.007989       0.000749   0.000463
 eq 2 farmPrice     0.000749       0.001786   0.001101
 eq 2 trend         0.000463       0.001101   0.007945
 > 
-> ## *************** 2SLS (rcovformula=0, single.eq.sigma=F) *************
+> ## *************** 2SLS (methodRCov=0, single.eq.sigma=F) *************
 > fit2sls1rs <- systemfit( "2SLS", system, labels, data = Kmenta, inst = inst,
-+    rcovformula = 0, single.eq.sigma = FALSE )
++    methodRCov = 0, single.eq.sigma = FALSE )
 > print( summary( fit2sls1rs ) )
 
 systemfit results 
@@ -673,9 +673,9 @@ eq 2 price         0.008032       0.000707   0.000120
 eq 2 farmPrice     0.000707       0.001686   0.000286
 eq 2 trend         0.000120       0.000286   0.002061
 > 
-> ## ********************* 2SLS with restriction (rcovformula = 0) **************
+> ## ********************* 2SLS with restriction (methodRCov = 0) **************
 > fit2sls2r <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
-+    inst = inst, rcovformula = 0 )
++    inst = inst, methodRCov = 0 )
 > print( summary( fit2sls2r ) )
 
 systemfit results 
@@ -750,9 +750,9 @@ eq 2 price         0.006827       0.000601   0.000102
 eq 2 farmPrice     0.000601       0.001433   0.000243
 eq 2 trend         0.000102       0.000243   0.001752
 > 
-> ## ******** 2SLS with restriction (rcovformula=0, single.eq.sigma=TRUE) *********
+> ## ******** 2SLS with restriction (methodRCov=0, single.eq.sigma=TRUE) *********
 > fit2sls2rs <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
-+    inst = inst, rcovformula = 0, single.eq.sigma = TRUE )
++    inst = inst, methodRCov = 0, single.eq.sigma = TRUE )
 > print( summary( fit2sls2rs ) )
 
 systemfit results 
@@ -830,7 +830,7 @@ eq 2 trend         0.000090       0.000215   0.001552
 > ## ********************* 2SLS with restriction via TX ******************
 > ## *************** 2SLS with restriction via TX (default )***************
 > fit2sls3 <- systemfit( "2SLS", system, labels, data = Kmenta, TX = tc,
-+    inst = inst, rcovformula = 0, probdfsys = TRUE )
++    inst = inst, methodRCov = 0, probdfsys = TRUE )
 > print( summary( fit2sls3 ) )
 
 systemfit results 
@@ -907,7 +907,7 @@ eq 2 trend         0.000102       0.000243   0.001752
 > 
 > ## ********************* 2SLS with restriction via TX (EViews-like) *******
 > fit2sls3e <- systemfit( "2SLS", system, labels, data = Kmenta, TX = tc,
-+    inst = inst, rcovformula = 0, probdfsys = TRUE )
++    inst = inst, methodRCov = 0, probdfsys = TRUE )
 > print( summary( fit2sls3e ) )
 
 systemfit results 
@@ -1214,9 +1214,9 @@ eq 2 price         0.004401       0.000249  -0.000968
 eq 2 farmPrice     0.000249       0.001586   0.000139
 eq 2 trend        -0.000968       0.000139   0.001664
 > 
-> ## ***************** 2SLS with 2 restrictions (rcovformula=0) **************
+> ## ***************** 2SLS with 2 restrictions (methodRCov=0) **************
 > fit2sls4r <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr2m,
-+    q.restr = restr2q, inst = inst, rcovformula = 0 )
++    q.restr = restr2q, inst = inst, methodRCov = 0 )
 > print( summary( fit2sls4r ) )
 
 systemfit results 
@@ -1291,9 +1291,9 @@ eq 2 price         0.003851       0.000218  -0.000847
 eq 2 farmPrice     0.000218       0.001388   0.000122
 eq 2 trend        -0.000847       0.000122   0.001456
 > 
-> ## ***** 2SLS with 2 restrictions (rcovformula=0, single.eq.sigma=T) *******
+> ## ***** 2SLS with 2 restrictions (methodRCov=0, single.eq.sigma=T) *******
 > fit2sls4rs <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr2m,
-+    q.restr = restr2q, inst = inst, rcovformula = 0, single.eq.sigma = TRUE )
++    q.restr = restr2q, inst = inst, methodRCov = 0, single.eq.sigma = TRUE )
 > print( summary( fit2sls4rs ) )
 
 systemfit results 
@@ -1600,9 +1600,9 @@ eq 2 price         0.004401       0.000249  -0.000968
 eq 2 farmPrice     0.000249       0.001586   0.000139
 eq 2 trend        -0.000968       0.000139   0.001664
 > 
-> ## ************* 2SLS with 2 restrictions via R and TX (rcovformula=0) *********
+> ## ************* 2SLS with 2 restrictions via R and TX (methodRCov=0) *********
 > fit2sls5r <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr3m,
-+    q.restr = restr3q, TX = tc, inst = inst, rcovformula = 0 )
++    q.restr = restr3q, TX = tc, inst = inst, methodRCov = 0 )
 > print( summary( fit2sls5r ) )
 
 systemfit results 
@@ -1677,9 +1677,9 @@ eq 2 price         0.003851       0.000218  -0.000847
 eq 2 farmPrice     0.000218       0.001388   0.000122
 eq 2 trend        -0.000847       0.000122   0.001456
 > 
-> ## ** 2SLS with 2 restrictions via R and TX (rcovformula=0, single.eq.sigma=T) **
+> ## ** 2SLS with 2 restrictions via R and TX (methodRCov=0, single.eq.sigma=T) **
 > fit2sls5rs <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr3m,
-+    q.restr = restr3q, TX = tc, inst = inst, rcovformula = 0, single.eq.sigma = TRUE )
++    q.restr = restr3q, TX = tc, inst = inst, methodRCov = 0, single.eq.sigma = TRUE )
 > print( summary( fit2sls5rs ) )
 
 systemfit results 
@@ -1985,9 +1985,9 @@ eq 2 price         0.009987       0.000936   0.000579
 eq 2 farmPrice     0.000936       0.002233   0.001377
 eq 2 trend         0.000579       0.001377   0.009931
 > 
-> ## ********* 2SLS estimation with different instruments (rcovformula=0) ******
+> ## ********* 2SLS estimation with different instruments (methodRCov=0) ******
 > fit2slsd1r <- systemfit( "2SLS", system, labels, data = Kmenta, inst = instlist,
-+    rcovformula = 0 )
++    methodRCov = 0 )
 > print( summary( fit2slsd1r ) )
 
 systemfit results 
@@ -2062,9 +2062,9 @@ eq 2 price         0.007989       0.000749   0.000463
 eq 2 farmPrice     0.000749       0.001786   0.001101
 eq 2 trend         0.000463       0.001101   0.007945
 > 
-> ## 2SLS estimation with different instruments (rcovformula=0,single.eq.sigma=F)
+> ## 2SLS estimation with different instruments (methodRCov=0,single.eq.sigma=F)
 > fit2slsd1r <- systemfit( "2SLS", system, labels, data = Kmenta, inst = instlist,
-+    rcovformula = 0, single.eq.sigma = FALSE )
++    methodRCov = 0, single.eq.sigma = FALSE )
 > print( summary( fit2slsd1r ) )
 
 systemfit results 
@@ -2371,9 +2371,9 @@ eq 2 price         0.007995       0.000708   0.000152
 eq 2 farmPrice     0.000708       0.001688   0.000362
 eq 2 trend         0.000152       0.000362   0.002612
 > 
-> ## **** 2SLS estimation with different instruments and restriction (rcovformula=0)
+> ## **** 2SLS estimation with different instruments and restriction (methodRCov=0)
 > fit2slsd2r <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
-+    inst = instlist, rcovformula = 0 )
++    inst = instlist, methodRCov = 0 )
 > print( summary( fit2slsd2r ) )
 
 systemfit results 
@@ -2448,9 +2448,9 @@ eq 2 price         0.006796       0.000602   0.000129
 eq 2 farmPrice     0.000602       0.001435   0.000308
 eq 2 trend         0.000129       0.000308   0.002220
 > 
-> ## 2SLS estimation with different instr. and restr. (rcovformula=0, single.eq.sigma=T)
+> ## 2SLS estimation with different instr. and restr. (methodRCov=0, single.eq.sigma=T)
 > fit2slsd2rs <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
-+    inst = instlist, rcovformula = 0, single.eq.sigma = TRUE )
++    inst = instlist, methodRCov = 0, single.eq.sigma = TRUE )
 > print( summary( fit2slsd2rs ) )
 
 systemfit results 
@@ -2603,9 +2603,9 @@ eq 2 price         0.007995       0.000708   0.000152
 eq 2 farmPrice     0.000708       0.001688   0.000362
 eq 2 trend         0.000152       0.000362   0.002612
 > 
-> ## **** 2SLS estimation with different instr. and restr. via TX (rcovformula=0)
+> ## **** 2SLS estimation with different instr. and restr. via TX (methodRCov=0)
 > fit2slsd3r <- systemfit( "2SLS", system, labels, data = Kmenta, TX = tc,
-+    inst = instlist, rcovformula = 0 )
++    inst = instlist, methodRCov = 0 )
 > print( summary( fit2slsd3r ) )
 
 systemfit results 

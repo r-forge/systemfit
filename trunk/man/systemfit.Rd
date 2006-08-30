@@ -20,7 +20,7 @@ systemfit( method, eqns, eqnlabels=names(eqns),
            inst=NULL, data=list(), R.restr=NULL,
            q.restr=matrix(0,max(nrow(R.restr),0),1),
            TX=NULL, maxiter=1, tol=1e-5,
-           rcovformula=1, centerResiduals = FALSE, formula3sls="GLS",
+           methodRCov=1, centerResiduals = FALSE, method3sls="GLS",
            probdfsys=!(is.null(R.restr) & is.null(TX)),
            single.eq.sigma=(is.null(R.restr) & is.null(TX)),
            solvetol=.Machine$double.eps,
@@ -60,11 +60,11 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
       3SLS estimations.}
    \item{tol}{tolerance level indicating when to stop the iteration (only
       WLS, SUR, W2SLS and 3SLS estimations).}
-   \item{rcovformula}{formula to calculate the estimated residual covariance
+   \item{methodRCov}{method for calculating the estimated residual covariance
       matrix (see details).}
    \item{centerResiduals}{logical. Subtract the means from the residuals
       of each equation before calculating the estimated residual covariance matrix.}
-   \item{formula3sls}{formula for calculating the 3SLS estimator,
+   \item{method3sls}{method for calculating the 3SLS estimator,
       one of "GLS", "IV", "GMM", "Schmidt" or "EViews" (see details).}
    \item{probdfsys}{use the degrees of freedom of the whole system
       (in place of the degrees of freedom of the single equation)
@@ -125,18 +125,18 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
       < \code{tol}}
    (\eqn{b_{i,g}} is the ith coefficient of the gth iteration step).
 
-   The formula to calculate the estimated covariance matrix of the residuals
+   The method for calculating the estimated covariance matrix of the residuals
    (\eqn{\hat{\Sigma}}) can be one of the following
    (see Judge et al., 1985, p. 469): \cr
-   if rcovformula=0:
+   if methodRCov=0:
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}{T}}
-   if rcovformula=1 or rcovformula='geomean':
+   if methodRCov=1 or methodRCov='geomean':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}
          {\sqrt{(T - k_i)*(T - k_j)}}}
-   if rcovformula=2 or rcovformula='Theil':
+   if methodRCov=2 or methodRCov='Theil':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}{T - k_i - k_j
       + tr[X_i(X_i'X_i)^{-1}X_i'X_j(X_j'X_j)^{-1}X_j']}}
-   if rcovformula=3 or rcovformula='max':
+   if methodRCov=3 or methodRCov='max':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}
          {T - \max( k_i, k_j)}}
    If \eqn{i = j}, formula 1, 2 and 3 are equal.
@@ -147,7 +147,7 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
    doubtful whether formula 2 is really superior to formula 1
    (Theil, 1971, p. 322).
 
-   The formulas to calculate the 3SLS estimator lead to identical results
+   The methods for calculating the 3SLS estimator lead to identical results
    if the same instruments are used in all equations. If different instruments
    are used in the different equations, only the GMM-3SLS estimator ("GMM")
    and the 3SLS estimator proposed by Schmidt (1990) ("Schmidt") are consistent,
@@ -194,9 +194,9 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
   \item{TX}{matrix used to transform the regressor matrix.}
   \item{maxiter}{maximum number of iterations.}
   \item{tol}{tolerance level indicating when to stop the iteration}
-  \item{rcovformula}{formula to calculate the estimated residual covariance
+  \item{methodRCov}{method for calculating the estimated residual covariance
     matrix}
-  \item{formula3sls}{formula for calculating the 3SLS estimator.}
+  \item{method3sls}{method for calculating the 3SLS estimator.}
   \item{probdfsys}{system degrees of freedom to calculate prob values?.}
   \item{single.eq.sigma}{different \eqn{\sigma^2}s for each single equation?.}
   \item{solvetol}{tolerance level when inverting a matrix or calculating a determinant.}
@@ -303,7 +303,7 @@ print( fit2sls2 )
 ## 3SLS estimation with GMM-3SLS formula
 inst <- ~ income + farmPrice + trend
 fit3sls <- systemfit( "3SLS", system, inst = inst, data = Kmenta,
-   formula3sls = "GMM" )
+   method3sls = "GMM" )
 print( fit3sls )
 
 
@@ -317,7 +317,7 @@ theilOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
 summary( theilOls )
 # SUR
 theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
-   data = GrunfeldTheil, rcovformula = 0 )
+   data = GrunfeldTheil, methodRCov = 0 )
 summary( theilSur )
 
 
