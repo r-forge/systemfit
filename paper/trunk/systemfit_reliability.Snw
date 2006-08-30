@@ -31,22 +31,22 @@ system <- list( demand = eqDemand, supply = eqSupply )
 @
 OLS estimation:
 <<>>=
-fitOls <- systemfit( "OLS", system, data = Kmenta )
+fitOls <- systemfit( system, data = Kmenta )
 round( coef( summary( fitOls ) ), digits = 4 )
 @
 2SLS estimation:
 <<>>=
-fit2sls <- systemfit( "2SLS", system, inst = inst, data = Kmenta )
+fit2sls <- systemfit( system, "2SLS", inst = inst, data = Kmenta )
 round( coef( summary( fit2sls ) ), digits = 4 )
 @
 3SLS estimation:
 <<>>=
-fit3sls <- systemfit( "3SLS", system, inst = inst, data = Kmenta )
+fit3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta )
 round( coef( summary( fit3sls ) ), digits = 4 )
 @
 Iterated 3SLS estimation:
 <<>>=
-fitI3sls <- systemfit( "3SLS", system, inst = inst, data = Kmenta,
+fitI3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta,
    maxit = 250 )
 round( coef( summary( fitI3sls ) ), digits = 4 )
 @
@@ -86,24 +86,24 @@ system <- list( Consumption = eqConsump, Investment = eqInvest,
 @
 OLS estimation:
 <<>>=
-kleinOls <- systemfit( "OLS", system, data = KleinI )
+kleinOls <- systemfit( system, data = KleinI )
 round( coef( summary( kleinOls ) ), digits = 3 )
 @
 2SLS estimation:
 <<>>=
-klein2sls <- systemfit( "2SLS", system, inst = inst, data = KleinI,
+klein2sls <- systemfit( system, "2SLS", inst = inst, data = KleinI,
    methodRCov = "noDfCor" )
 round( coef( summary( klein2sls ) ), digits = 3 )
 @
 3SLS estimation:
 <<>>=
-klein3sls <- systemfit( "3SLS", system, inst = inst, data = KleinI,
+klein3sls <- systemfit( system, "3SLS", inst = inst, data = KleinI,
    methodRCov = "noDfCor" )
 round( coef( summary( klein3sls ) ), digits = 3 )
 @
 iterated 3SLS estimation:
 <<>>=
-kleinI3sls <- systemfit( "3SLS", system, inst = inst, data = KleinI,
+kleinI3sls <- systemfit( system, "3SLS", inst = inst, data = KleinI,
    methodRCov = "noDfCor", maxit = 500 )
 round( coef( summary( kleinI3sls ) ), digits = 3 )
 @
@@ -136,13 +136,13 @@ formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (page 295)
 <<>>=
-theilOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+theilOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
    data = GrunfeldTheil )
 round( coef( summary( theilOls ) ), digits = 3 )
 @
 SUR estimation (page 300)
 <<>>=
-theilSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+theilSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
    data = GrunfeldTheil, methodRCov = "noDfCor" )
 round( coef( summary( theilSur ) ), digits = 3 )
 @
@@ -175,21 +175,21 @@ formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (Table 14.2):
 <<>>=
-greeneOls <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+greeneOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
    data = GrunfeldGreene )
 round( coef( summary( greeneOls ) ), digits = 4 )
 round( sapply( greeneOls$eq, function(x){return(x$ssr/20)} ), digits = 3 )
 @
 pooled OLS (Table 14.2):
 <<>>=
-greeneOlsPooled <- systemfitClassic( "OLS", formulaGrunfeld, "firm", "year",
+greeneOlsPooled <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
    data = GrunfeldGreene, pooled = TRUE )
 round( coef( summary( greeneOlsPooled$eq[[1]] ) ), digits = 4 ) #$
 sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/100
 @
 SUR estimation (Table~14.1):
 <<>>=
-greeneSur <- systemfitClassic( "SUR", formulaGrunfeld, "firm", "year",
+greeneSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
    data = GrunfeldGreene, methodRCov = "noDfCor" )
 round( coef( summary( greeneSur ) ), digits = 4 )
 round( greeneSur$rcov, digits = 3 ) #$
@@ -197,7 +197,7 @@ round( summary( greeneSur )$rcor, digits = 3 ) #$
 @
 pooled SUR estimation (Table~14.1):
 <<>>=
-greeneSurPooled <- systemfitClassic( "WSUR", formulaGrunfeld, "firm", "year",
+greeneSurPooled <- systemfitClassic( formulaGrunfeld, "WSUR", "firm", "year",
    data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor" )
 round( coef( summary( greeneSurPooled$eq[[1]] ) ), digits = 4 ) #$
 
