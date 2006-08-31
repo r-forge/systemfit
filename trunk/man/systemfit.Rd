@@ -166,7 +166,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
 
   \item{method}{estimation method.}
   \item{nEq}{number of equations.}
-  \item{n}{total number of observations.}
+  \item{nObsTotal}{total number of observations.}
   \item{nObsEq}{number of observations in each equation.}
   \item{k}{total number of coefficients.}
   \item{ki}{total number of linear independent coefficients.}

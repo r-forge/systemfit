@@ -143,7 +143,7 @@ systemfit <- function(  eqns,
          "require this setting.\n" ) )
    }
 
-   N  <- sum( nObsEq )    # total number of observations
+   nObsTotal  <- sum( nObsEq )    # total number of observations
    K  <- sum( k )    # total number of (unrestricted) coefficients/regressors
    Ki <- K           # total number of linear independent coefficients
    ki <- k           # total number of linear independent coefficients in each equation
@@ -197,7 +197,7 @@ systemfit <- function(  eqns,
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )
                     # coefficient covariance matrix
     } else {
-      s2 <- .calcSigma2( resids, nObs = N, nCoef = Ki, methodRCov = methodRCov )
+      s2 <- .calcSigma2( resids, nObs = nObsTotal, nCoef = Ki, methodRCov = methodRCov )
                            # sigma squared
       if(is.null(R.restr)) {
         bcov   <- s2 * solve( crossprod( X ), tol=solvetol )
@@ -313,7 +313,7 @@ systemfit <- function(  eqns,
       bcov <- .calcGLS( x = Xf, R.restr = R.restr, q.restr = q.restr, 
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )  # coefficient covariance matrix
     } else {
-      s2 <- .calcSigma2( resids, nObs = N, nCoef = Ki, methodRCov = methodRCov )
+      s2 <- .calcSigma2( resids, nObs = nObsTotal, nCoef = Ki, methodRCov = methodRCov )
                            # sigma squared
       if(is.null(R.restr)) {
         bcov   <- s2 * solve( crossprod( Xf ), tol=solvetol )
@@ -475,7 +475,7 @@ systemfit <- function(  eqns,
   se     <- diag(bcov)^0.5                       # standard errors of all estimated coefficients
   t      <- b/se                                 # t-values of all estimated coefficients
   if(probdfsys) {
-    prob <- 2*( 1-pt(abs(t), N - Ki))            # p-values of all estimated coefficients
+    prob <- 2*( 1-pt(abs(t), nObsTotal - Ki))            # p-values of all estimated coefficients
   } else {
     prob <- matrix( 0, 0, 1 )                    # p-values of all estimated coefficients
   }
@@ -568,7 +568,7 @@ systemfit <- function(  eqns,
     resulti$k            <- k[i]            # number of coefficients/regressors
     resulti$ki           <- ki[i]           # number of linear independent coefficients
     resulti$df           <- df[i]           # degrees of freedom of residuals
-    resulti$dfSys        <- N- Ki           # degrees of freedom of residuals of the whole system
+    resulti$dfSys        <- nObsTotal- Ki   # degrees of freedom of residuals of the whole system
     resulti$probdfsys    <- probdfsys       #
     resulti$b            <- c( bi )         # estimated coefficients
     resulti$se           <- c( sei )        # standard errors of estimated coefficients
@@ -662,11 +662,11 @@ systemfit <- function(  eqns,
   ## build the "return" structure for the whole system
   results$method  <- method
   results$nEq     <- nEq            # number of equations
-  results$n       <- N              # total number of observations
+  results$nObsTotal <- nObsTotal    # total number of observations
   results$nObsEq  <- nObsEq         # number of observations in each equation
   results$k       <- K              # total number of coefficients
   results$ki      <- Ki             # total number of linear independent coefficients
-  results$df      <- N - Ki         # dewgrees of freedom of the whole system
+  results$df      <- nObsTotal - Ki # dewgrees of freedom of the whole system
   results$b       <- b              # all estimated coefficients
   results$bt      <- bt             # transformed vector of estimated coefficients
   results$se      <- se             # standard errors of estimated coefficients

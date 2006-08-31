@@ -3,7 +3,7 @@ lrtest.systemfit <- function( resultc, resultu ) {
   lrtest <- list()
   if( resultc$method %in% c( "SUR", "WSUR" ) &
       resultu$method %in% c( "SUR", "WSUR" ) ) {
-    nObs <- resultu$n / resultu$nEq
+    nObs <- resultu$nObsTotal / resultu$nEq
     lrtest$nRestr  <- resultu$ki - resultc$ki
     if(resultc$methodRCov != resultu$methodRCov) {
       stop( paste( "both estimations must use the same formula to calculate",
