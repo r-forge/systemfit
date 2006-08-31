@@ -144,8 +144,8 @@ systemfit <- function(  eqns,
    }
 
    nObsTotal  <- sum( nObsEq )    # total number of observations
-   K  <- sum( k )    # total number of (unrestricted) coefficients/regressors
-   Ki <- K           # total number of linear independent coefficients
+   nExogTotal <- sum( k ) # total number of exogenous variables/(unrestricted) coefficients
+   Ki <- nExogTotal           # total number of linear independent coefficients
    ki <- k           # total number of linear independent coefficients in each equation
    if(!is.null(TX)) {
       XU <- X
@@ -664,7 +664,7 @@ systemfit <- function(  eqns,
   results$nEq     <- nEq            # number of equations
   results$nObsTotal <- nObsTotal    # total number of observations
   results$nObsEq  <- nObsEq         # number of observations in each equation
-  results$k       <- K              # total number of coefficients
+  results$nExogTotal <- nExogTotal  # total number of exogenous variables/coefficients
   results$ki      <- Ki             # total number of linear independent coefficients
   results$df      <- nObsTotal - Ki # dewgrees of freedom of the whole system
   results$b       <- b              # all estimated coefficients
