@@ -58,29 +58,29 @@ systemfit <- function(  eqns,
   resulti <- list()               # results of the ith equation
   residi  <- list()               # residuals equation wise
   iter    <- NULL                 # number of iterations
-  G       <- length( eqns )       # number of equations
+  nEq     <- length( eqns )       # number of equations
   y       <- list()               # endogenous variables equation wise
   Y       <- matrix( 0, 0, 1 )    # stacked endogenous variables
   x       <- list()               # regressors equation-wise
   X       <- matrix( 0, 0, 0 )    # stacked matrices of all regressors (unrestricted)
-  n       <- array( 0, c(G))      # number of observations in each equation
-  k       <- array( 0, c(G) )     # number of (unrestricted) coefficients/
+  n       <- array( 0, c(nEq))    # number of observations in each equation
+  k       <- array( 0, c(nEq) )   # number of (unrestricted) coefficients/
                                   # regressors in each equation
   instl   <- list()               # list of the instruments for each equation
-  ssr     <- array( 0, c(G))      # sum of squared residuals of each equation
-  mse     <- array( 0, c(G))      # mean square error (residuals) of each equation
-  rmse    <- array( 0, c(G))      # root of mse
-  r2      <- array( 0, c(G))      # R-squared value
-  adjr2   <- array( 0, c(G))      # adjusted R-squared value
+  ssr     <- array( 0, c(nEq))    # sum of squared residuals of each equation
+  mse     <- array( 0, c(nEq))    # mean square error (residuals) of each equation
+  rmse    <- array( 0, c(nEq))    # root of mse
+  r2      <- array( 0, c(nEq))    # R-squared value
+  adjr2   <- array( 0, c(nEq))    # adjusted R-squared value
   xnames  <- NULL                 # names of regressors
 
    if( is.null( names( eqns ) ) ) {
-      eqnlabels <- paste( "eq", c( 1:G ), sep = "" )
+      eqnlabels <- paste( "eq", c( 1:nEq ), sep = "" )
    } else {
       eqnlabels <- names(eqns)
    }
 
-#   for(i in 1:G )  {
+#   for(i in 1:nEq )  {
 #     y[[i]] <-  eval( attr( terms( eqns[[i]] ), "variables" )[[2]] )
 #     Y      <-  c( Y, y[[i]] )
 #     x[[i]] <-  model.matrix( eqns[[i]] )
@@ -114,7 +114,7 @@ systemfit <- function(  eqns,
             # positions of temp-arguments
    m0[[1]] <- as.name("model.frame")
             # find matrices for individual models
-   for(i in 1:G ) {
+   for(i in 1:nEq ) {
       m <- m0
       Terms <- terms(eqns[[i]], data = data)
       m$formula <- Terms
@@ -131,7 +131,7 @@ systemfit <- function(  eqns,
          xnames <- c( xnames, paste("eq",as.character(i),colnames( x[[i]] )[j] ))
       }
    }
-   if( G > 1 ) {
+   if( nEq > 1 ) {
       if( var ( n ) != 0 ) {
          stop( "Systems with unequal numbers of observations are not supported yet." )
       }
@@ -151,7 +151,7 @@ systemfit <- function(  eqns,
       XU <- X
       X  <- XU %*% TX
       Ki <- Ki - ( nrow( TX ) - ncol( TX ) )
-      for(i in 1:G) {
+      for(i in 1:nEq) {
          ki[i] <- ncol(X)
          for(j in 1: ncol(X) ) {
             if(sum(X[(1+sum(n[1:i])-n[i]):(sum(n[1:i])),j]^2)==0) ki[i] <- ki[i]-1
@@ -162,7 +162,7 @@ systemfit <- function(  eqns,
       Ki  <- Ki - nrow(R.restr)
       if(is.null(TX)) {
          for(j in 1:nrow(R.restr)) {
-            for(i in 1:G) {  # search for restrictions that are NOT cross-equation
+            for(i in 1:nEq) {  # search for restrictions that are NOT cross-equation
                if( sum( R.restr[ j, (1+sum(k[1:i])-k[i]):(sum(k[1:i]))]^2) ==
                    sum(R.restr[j,]^2)) {
                   ki[i] <- ki[i]-1
@@ -229,7 +229,7 @@ systemfit <- function(  eqns,
        sigma = rcov, nObsEq = n, solvetol = solvetol )
        # final step coefficient covariance matrix
     resids <- Y - X %*% b                        # residuals
-    for(i in 1:G) residi[[i]] <- resids[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
+    for(i in 1:nEq) residi[[i]] <- resids[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
   }
 
   ## only for SUR estimation
@@ -252,13 +252,13 @@ systemfit <- function(  eqns,
        sigma = rcov, nObsEq = n, solvetol = solvetol )
             # final step coefficient covariance matrix
     resids <- Y - X %*% b                        # residuals
-    for(i in 1:G) residi[[i]] <- resids[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
+    for(i in 1:nEq) residi[[i]] <- resids[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
   }
 
   ## only for 2SLS, W2SLS and 3SLS estimation
   if( method == "2SLS" | method == "W2SLS" | method == "3SLS" |
       method == "W3SLS" ) {
-    for(i in 1:G) {
+    for(i in 1:nEq) {
       if(is.list(inst)) {
          instl[[i]] <- inst[[i]]
       } else {
@@ -268,7 +268,7 @@ systemfit <- function(  eqns,
     Xf <- array(0,c(0,ncol(X)))       # fitted X values
     H  <- matrix( 0, 0, 0 )           # stacked matrices of all instruments
     h  <- list()
-    for(i in 1:G) {
+    for(i in 1:nEq) {
       Xi <- X[(1+sum(n[1:i])-n[i]):(sum(n[1:i])),]
             # regressors of the ith equation (including zeros)
       #h[[i]] <- model.matrix( instl[[i]] )
@@ -344,7 +344,7 @@ systemfit <- function(  eqns,
     bcov <- .calcGLS( x = Xf, R.restr = R.restr, q.restr = q.restr, 
        sigma = rcov, nObsEq = n, solvetol = solvetol )  # coefficient covariance matrix
     resids <- Y - X %*% b                        # residuals
-    for(i in 1:G) residi[[i]] <- resids[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
+    for(i in 1:nEq) residi[[i]] <- resids[(1+sum(n[1:i])-n[i]):(sum(n[1:i]))]
   }
 
   ## only for 3SLS estimation
@@ -483,7 +483,7 @@ systemfit <- function(  eqns,
 
 
   ## equation wise results
-  for(i in 1:G) {
+  for(i in 1:nEq) {
     residi[[i]] <- resids[ ( 1 + sum(n[1:i]) -n[i] ):( sum(n[1:i]) ) ]
     bi     <- b[(1+sum(k[1:i])-k[i]):(sum(k[1:i]))]
               # estimated coefficients of equation i
@@ -597,12 +597,12 @@ systemfit <- function(  eqns,
   }
 
   ## results of the total system
-  #olsr2 <- 1 - t(resids) %*% resids / ( t(Y) %*% ( diag(1,G,G)     # OLS system R2
+  #olsr2 <- 1 - t(resids) %*% resids / ( t(Y) %*% ( diag(1,nEq,nEq)     # OLS system R2
   #             %x% ( diag( 1, n[1], n[1]) - rep(1, n[1]) %*% t(rep(1,n[1])) / n[1])) %*% Y)
   # the following lines are substituted for the previous 2 lines to increase
   # speed ( idea suggested by Ott Toomet )
    meanY <- numeric(length(Y)) # compute mean of Y by equations
-   for(i in 1:G) {
+   for(i in 1:nEq) {
       meanY[ (1+sum(n[1:i])-n[i]):(sum(n[1:i])) ] <-
          mean( Y[ (1+sum(n[1:i])-n[i]):(sum(n[1:i])) ])
    }
@@ -629,8 +629,8 @@ systemfit <- function(  eqns,
          solvetol = solvetol )
       residCovInv <- solve( rcov, tol = solvetol )
       denominator <- 0
-      for( i in 1:G ) {
-         for( j in 1:G ) {
+      for( i in 1:nEq ) {
+         for( j in 1:nEq ) {
             denominator <- denominator + residCovInv[ i, j ] * yCov[ i, j ] * n[1]
          }
       }
@@ -639,9 +639,9 @@ systemfit <- function(  eqns,
 #        yCov <- sum(diag(.calcRCov( Y, methodRCov = "noDfCor", nObsEq = n, centered = TRUE,
 #           solvetol = solvetol )))
 #        yCov <- drop( t(Y-mean(Y)) %*% (Y-mean(Y)) / sum(n) )
-#       yCov <- .calcRCov( Y, methodRCov = "geomean", nObsEq = n, nCoefEq=rep(1,G),
+#       yCov <- .calcRCov( Y, methodRCov = "geomean", nObsEq = n, nCoefEq=rep(1,nEq),
 #          centered = TRUE, solvetol = solvetol )
-#        mcelr2 <- 1 - G / sum( diag( solve( rcov, tol = solvetol ) * yCov ) )
+#        mcelr2 <- 1 - nEq / sum( diag( solve( rcov, tol = solvetol ) * yCov ) )
   } else {
      mcelr2 <- NA
   }
@@ -661,7 +661,7 @@ systemfit <- function(  eqns,
 
   ## build the "return" structure for the whole system
   results$method  <- method
-  results$g       <- G              # number of equations
+  results$nEq     <- nEq            # number of equations
   results$n       <- N              # total number of observations
   results$k       <- K              # total number of coefficients
   results$ki      <- Ki             # total number of linear independent coefficients
@@ -742,7 +742,7 @@ print.summary.systemfit <- function( x, digits=6,... ) {
       }
     }
   }
-  for(i in 1:x$g) {
+  for(i in 1:x$nEq) {
     row <- NULL
     row <- cbind( round( x$eq[[i]]$n,     digits ),
                   round( x$eq[[i]]$df,    digits ),
@@ -808,7 +808,7 @@ print.summary.systemfit <- function( x, digits=6,... ) {
     cat("\n")
   }
   ## now print the individual equations
-  for(i in 1:x$g) {
+  for(i in 1:x$nEq) {
       print( summary( x$eq[[i]] ), digits )
   }
   invisible( x )
@@ -943,7 +943,7 @@ predict.systemfit <- function( object, data=object$data,
 
    predicted <- data.frame( obs=seq( nrow( data ) ) )
    colnames( predicted ) <- as.character( 1:ncol( predicted ) )
-   g       <- object$g
+   g       <- object$nEq
    n       <- array(NA,c(g))
    eqns    <- list()
    x       <- list()               # regressors equation-wise
@@ -1066,8 +1066,8 @@ predict.systemfit.equation <- function( object, data=object$data, ... ) {
 ## cross-equation corrlations between eq i and eq j
 ## from the results set for equation ij
 correlation.systemfit <- function( results, eqni, eqnj ) {
-  k <- array( 0, c(results$g))
-  for(i in 1:results$g) k[i] <- results$eq[[i]]$k
+  k <- array( 0, c(results$nEq))
+  for(i in 1:results$nEq) k[i] <- results$eq[[i]]$k
   cij <- results$bcov[(1+sum(k[1:eqni])-k[eqni]):(sum(k[1:eqni])),
                       (1+sum(k[1:eqnj])-k[eqnj]):(sum(k[1:eqnj]))]
   cii <- results$bcov[(1+sum(k[1:eqni])-k[eqni]):(sum(k[1:eqni])),
@@ -1126,12 +1126,12 @@ coef.summary.systemfit.equation <- function( object, ... ) {
 ## return all residuals
 residuals.systemfit <- function( object, ... ) {
    if( is.null( colnames( object$rcov ) ) ) {
-      eqNames <- paste( "eq", c( 1:object$g ) )
+      eqNames <- paste( "eq", c( 1:object$nEq ) )
    } else {
       eqNames <- colnames( object$rcov )
    }
    residuals <- data.frame( obsNo = c( 1:length( object$eq[[1]]$residuals ) ) )
-   for( i in 1:object$g ) {
+   for( i in 1:object$nEq ) {
       residuals[[ eqNames[ i ] ]] <- object$eq[[i]]$residuals
    }
    residuals$obsNo <- NULL
@@ -1161,7 +1161,7 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95, ... ) {
    ci <- array( NA, dim = c( length( object$b ), 2),
             dimnames = list( names( object$b ), pct ) )
    j <- 1
-   for( i in 1:object$g ) {
+   for( i in 1:object$nEq ) {
       object$eq[[i]]$dfSys <- object$df
       object$eq[[i]]$probdfsys <- object$probdfsys
       ci[ j:(j+object$eq[[ i ]]$k-1), ] <- confint( object$eq[[ i ]] )
@@ -1196,9 +1196,9 @@ print.confint.systemfit <- function( x, digits = 3, ... ) {
 
 ## return the fitted values
 fitted.systemfit <- function( object, ... ) {
-   fitted <- array( NA, c( length( object$eq[[1]]$fitted ), object$g ) )
+   fitted <- array( NA, c( length( object$eq[[1]]$fitted ), object$nEq ) )
    colnames( fitted ) <- as.character( 1:ncol( fitted ) )
-   for(i in 1:object$g )  {
+   for(i in 1:object$nEq )  {
       fitted[ , i ]           <- object$eq[[ i ]]$fitted
       colnames( fitted )[ i ] <- paste( "eq", as.character(i), sep="" )
    }

@@ -165,7 +165,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   the latter are marked with an asterisk (\eqn{*})):
 
   \item{method}{estimation method.}
-  \item{g}{number of equations.}
+  \item{nEq}{number of equations.}
   \item{n}{total number of observations.}
   \item{k}{total number of coefficients.}
   \item{ki}{total number of linear independent coefficients.}

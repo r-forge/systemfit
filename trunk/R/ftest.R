@@ -4,7 +4,7 @@ ftest.systemfit <- function( object, R.restr,
    coef <- coef( object )
    vcov <- vcov( object )
    resid <- unlist( residuals( object ) )
-   nEq   <- object$g
+   nEq   <- object$nEq
    nObsEq <- object$n / nEq
    if( is.null( object$rcovest ) ) {
       rcov <- diag( nEq )
