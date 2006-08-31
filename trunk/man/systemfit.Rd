@@ -177,11 +177,11 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{nExogLiEq}{number of linear independent coefficients in each equation.}
   \item{df}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}
-  \item{b}{vector of all estimated coefficients.}
+  \item{coef}{vector of all estimated coefficients.}
   \item{bt}{coefficient vector transformed by \code{TX}.}
-  \item{se}{estimated standard errors of \code{b}.}
-  \item{t}{t values for \code{b}.}
-  \item{p}{p values for \code{b}.}
+  \item{se}{estimated standard errors of \code{coef}.}
+  \item{t}{t values for \code{coef}.}
+  \item{p}{p values for \code{coef}.}
   \item{bcov}{estimated covariance matrix of \code{b}.}
   \item{btcov}{covariance matrix of \code{bt}.}
   \item{rcov}{estimated residual covariance matrix.}
