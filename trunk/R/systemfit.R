@@ -59,7 +59,7 @@ systemfit <- function(  eqns,
   residi  <- list()               # residuals equation wise
   iter    <- NULL                 # number of iterations
   nEq     <- length( eqns )       # number of equations
-  y       <- list()               # endogenous variables equation wise
+  yVecEq  <- list()               # list for vectors of endogenous variables in each equation
   Y       <- matrix( 0, 0, 1 )    # stacked endogenous variables
   x       <- list()               # regressors equation-wise
   X       <- matrix( 0, 0, 0 )    # stacked matrices of all regressors (unrestricted)
@@ -81,12 +81,12 @@ systemfit <- function(  eqns,
    }
 
 #   for(i in 1:nEq )  {
-#     y[[i]] <-  eval( attr( terms( eqns[[i]] ), "variables" )[[2]] )
-#     Y      <-  c( Y, y[[i]] )
+#     yVecEq[[i]] <-  eval( attr( terms( eqns[[i]] ), "variables" )[[2]] )
+#     Y      <-  c( Y, yVecEq[[i]] )
 #     x[[i]] <-  model.matrix( eqns[[i]] )
 #     X      <-  rbind( cbind( X, matrix( 0, nrow( X ), ncol( x[[i]] ))),
 #                        cbind( matrix( 0, nrow( x[[i]] ), ncol( X )), x[[i]]))
-#     nObsEq[i]   <-  length( y[[i]] )
+#     nObsEq[i]   <-  length( yVecEq[[i]] )
 #     nExogEq[i]   <-  ncol(x[[i]])
 #     for(j in 1:nExogEq[i]) {
 #       xnames <- c( xnames, paste("eq",as.character(i),colnames( x[[i]] )[j] ))
@@ -120,12 +120,12 @@ systemfit <- function(  eqns,
       m$formula <- Terms
       m <- eval(m, parent.frame())
       weights <- model.extract(m, "weights")
-      y[[i]] <- model.extract(m, "response")
+      yVecEq[[i]] <- model.extract(m, "response")
       x[[i]] <- model.matrix(Terms, m)
-      Y <- c(Y,y[[i]])
+      Y <- c(Y,yVecEq[[i]])
       X <- rbind( cbind( X, matrix( 0, nrow( X ), ncol( x[[i]] ))),
                   cbind( matrix( 0, nrow( x[[i]] ), ncol( X )), x[[i]]))
-      nObsEq[i] <- length( y[[i]] )
+      nObsEq[i] <- length( yVecEq[[i]] )
       nExogEq[i] <- ncol(x[[i]])
       for(j in 1:nExogEq[i]) {
          xnames <- c( xnames, paste("eq",as.character(i),colnames( x[[i]] )[j] ))
@@ -516,7 +516,7 @@ systemfit <- function(  eqns,
     ssr    <- sum(residi[[i]]^2)                         # sum of squared residuals
     mse    <- ssr/df[i]                                  # estimated variance of residuals
     rmse   <- sqrt( mse )                                # estimated standard error of residuals
-    r2     <- 1 - ssr/(t(y[[i]])%*%y[[i]]-nObsEq[i]*mean(y[[i]])^2)
+    r2     <- 1 - ssr/(t(yVecEq[[i]])%*%yVecEq[[i]]-nObsEq[i]*mean(yVecEq[[i]])^2)
     adjr2  <- 1 - ((nObsEq[i]-1)/df[i])*(1-r2)
     fittedi <- fitted[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
     #datai  <- model.frame( eqns[[i]] )
@@ -579,7 +579,7 @@ systemfit <- function(  eqns,
     resulti$t            <- c( ti )         # t-values of estimated coefficients
     resulti$p            <- c( probi )      # p-values of estimated coefficients
     resulti$bcov         <- bcovi           # covariance matrix of estimated coefficients
-    resulti$y            <- y[[i]]          # vector of endogenous variables
+    resulti$yVec         <- yVecEq[[i]]     # vector of endogenous variables
     resulti$x            <- x[[i]]          # matrix of regressors
     resulti$data         <- datai           # data frame of this equation (incl. instruments)
     resulti$fitted       <- fittedi         # fitted values
@@ -688,7 +688,7 @@ systemfit <- function(  eqns,
   results$drcov   <- drcov          # determinant of residual covarance matrix
   results$olsr2   <- olsr2          # R-squared value of the equation system
   results$iter    <- iter           # residual correlation matrix
-  results$y       <- y              # vector of all (stacked) endogenous variables
+  results$y       <- Y              # vector of all (stacked) endogenous variables
   results$x       <- X              # matrix of all (diagonally stacked) regressors
   results$resids  <- resids         # vector of all (stacked) residuals
   results$data    <- alldata        # data frame for all data used in the system

@@ -225,7 +225,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{p*}{p values for \code{b}.}
   \item{covb*}{estimated covariance matrix of \code{b}.}
 
-  \item{y*}{vector of endogenous variable (response values) of the ith equation.}
+  \item{yVec*}{vector of endogenous variable (response values) of the ith equation.}
   \item{x*}{matrix of regressors (model matrix) of the ith equation.}
   \item{h*}{matrix of instrumental variables of the ith equation (only 2SLS and 3SLS).}
   \item{data*}{data frame (including instruments) of the ith equation.}
