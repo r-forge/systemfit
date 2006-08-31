@@ -167,6 +167,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{method}{estimation method.}
   \item{nEq}{number of equations.}
   \item{n}{total number of observations.}
+  \item{nObsEq}{number of observations in each equation.}
   \item{k}{total number of coefficients.}
   \item{ki}{total number of linear independent coefficients.}
   \item{df}{degrees of freedom of the whole system.}
@@ -205,7 +206,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{eqnlabel*}{the equation label of the ith equation (from the labels list).}
   \item{formula*}{model formula of the ith equation.}
   \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
-  \item{n*}{number of observations of the ith equation.}
+  \item{nObs*}{number of observations of the ith equation.}
   \item{k*}{number of coefficients/regressors in the ith equation (including the constant).}
   \item{ki*}{number of linear independent coefficients in the ith equation (including the constant
               differs from \code{k} only if there are restrictions that are not cross-equation).}
