@@ -166,13 +166,14 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
 
   \item{method}{estimation method.}
   \item{nEq}{number of equations.}
-  \item{nObsTotal}{total number of observations.}
+  \item{nObsAll}{total number of observations of all equations.}
   \item{nObsEq}{number of observations in each equation.}
-  \item{nExogTotal}{total number of exogenous variables/coefficients
-      (including the constants).}
+  \item{nExogAll}{total number of exogenous variables/coefficients
+      in all equations (including the constants).}
   \item{nExogEq}{number of exogenous variables/coefficients in each equation
       (including the constants).}
-  \item{nExogLiTotal}{total number of linear independent coefficients.}
+  \item{nExogLiAll}{total number of linear independent coefficients
+      in all equations.}
   \item{nExogLiEq}{number of linear independent coefficients in each equation.}
   \item{df}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}

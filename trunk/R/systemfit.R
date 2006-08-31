@@ -143,14 +143,14 @@ systemfit <- function(  eqns,
          "require this setting.\n" ) )
    }
 
-   nObsTotal  <- sum( nObsEq )  # total number of observations
-   nExogTotal <- sum( nExogEq ) # total number of exogenous variables/(unrestricted) coefficients
-   nExogLiTotal <- nExogTotal   # total number of linear independent coefficients
-   nExogLiEq  <- nExogEq        # total number of linear independent coefficients in each equation
+   nObsAll  <- sum( nObsEq )  # total number of observations of all equations
+   nExogAll <- sum( nExogEq ) # total number of exogenous variables/(unrestricted) coefficients in all equations
+   nExogLiAll <- nExogAll     # total number of linear independent coefficients in all equations
+   nExogLiEq  <- nExogEq      # total number of linear independent coefficients in each equation
    if(!is.null(TX)) {
       XU <- X
       X  <- XU %*% TX
-      nExogLiTotal <- nExogLiTotal - ( nrow( TX ) - ncol( TX ) )
+      nExogLiAll <- nExogLiAll - ( nrow( TX ) - ncol( TX ) )
       for(i in 1:nEq) {
          nExogLiEq[i] <- ncol(X)
          for(j in 1: ncol(X) ) {
@@ -161,7 +161,7 @@ systemfit <- function(  eqns,
       }
    }
    if(!is.null(R.restr)) {
-      nExogLiTotal  <- nExogLiTotal - nrow(R.restr)
+      nExogLiAll  <- nExogLiAll - nrow(R.restr)
       if(is.null(TX)) {
          for(j in 1:nrow(R.restr)) {
             for(i in 1:nEq) {  # search for restrictions that are NOT cross-equation
@@ -199,7 +199,7 @@ systemfit <- function(  eqns,
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )
                     # coefficient covariance matrix
     } else {
-      s2 <- .calcSigma2( resids, nObs = nObsTotal, nCoef = nExogLiTotal, methodRCov = methodRCov )
+      s2 <- .calcSigma2( resids, nObs = nObsAll, nCoef = nExogLiAll, methodRCov = methodRCov )
                            # sigma squared
       if(is.null(R.restr)) {
         bcov   <- s2 * solve( crossprod( X ), tol=solvetol )
@@ -315,7 +315,7 @@ systemfit <- function(  eqns,
       bcov <- .calcGLS( x = Xf, R.restr = R.restr, q.restr = q.restr, 
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )  # coefficient covariance matrix
     } else {
-      s2 <- .calcSigma2( resids, nObs = nObsTotal, nCoef = nExogLiTotal, methodRCov = methodRCov )
+      s2 <- .calcSigma2( resids, nObs = nObsAll, nCoef = nExogLiAll, methodRCov = methodRCov )
                            # sigma squared
       if(is.null(R.restr)) {
         bcov   <- s2 * solve( crossprod( Xf ), tol=solvetol )
@@ -477,7 +477,7 @@ systemfit <- function(  eqns,
   se     <- diag(bcov)^0.5                       # standard errors of all estimated coefficients
   t      <- b/se                                 # t-values of all estimated coefficients
   if(probdfsys) {
-    prob <- 2*( 1-pt(abs(t), nObsTotal - nExogLiTotal))
+    prob <- 2*( 1-pt(abs(t), nObsAll - nExogLiAll))
        # p-values of all estimated coefficients
   } else {
     prob <- matrix( 0, 0, 1 )                    # p-values of all estimated coefficients
@@ -571,7 +571,7 @@ systemfit <- function(  eqns,
     resulti$nExog        <- nExogEq[i]      # number of exogenous variables/coefficients
     resulti$nExogLi      <- nExogLiEq[i]    # number of linear independent coefficients
     resulti$df           <- df[i]           # degrees of freedom of residuals
-    resulti$dfSys        <- nObsTotal- nExogLiTotal
+    resulti$dfSys        <- nObsAll- nExogLiAll
        # degrees of freedom of residuals of the whole system
     resulti$probdfsys    <- probdfsys       #
     resulti$b            <- c( bi )         # estimated coefficients
@@ -666,16 +666,16 @@ systemfit <- function(  eqns,
   ## build the "return" structure for the whole system
   results$method  <- method
   results$nEq     <- nEq            # number of equations
-  results$nObsTotal <- nObsTotal    # total number of observations
+  results$nObsAll <- nObsAll        # total number of observations of all equations
   results$nObsEq  <- nObsEq         # number of observations in each equation
-  results$nExogTotal <- nExogTotal  # total number of exogenous variables/coefficients
+  results$nExogAll <- nExogAll      # total number of exogenous variables/coefficients in all equations
   results$nExogEq <- nExogEq        # number of exogenous variables/coefficients
                                        # in each equation
-  results$nExogLiTotal <- nExogLiTotal
-     # total number of linear independent coefficients
+  results$nExogLiAll <- nExogLiAll
+     # total number of linear independent coefficients of all equations
   results$nExogLiEq  <- nExogLiEq
      # number of linear independent coefficients in each equation
-  results$df      <- nObsTotal - nExogLiTotal
+  results$df      <- nObsAll - nExogLiAll
      # degrees of freedom of the whole system
   results$b       <- b              # all estimated coefficients
   results$bt      <- bt             # transformed vector of estimated coefficients
