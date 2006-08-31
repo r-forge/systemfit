@@ -60,7 +60,7 @@ systemfit <- function(  eqns,
   iter    <- NULL                 # number of iterations
   nEq     <- length( eqns )       # number of equations
   yVecEq  <- list()               # list for vectors of endogenous variables in each equation
-  Y       <- matrix( 0, 0, 1 )    # stacked endogenous variables
+  yVecAll <- matrix( 0, 0, 1 )    # stacked endogenous variables of all equations
   x       <- list()               # regressors equation-wise
   X       <- matrix( 0, 0, 0 )    # stacked matrices of all regressors (unrestricted)
   nObsEq  <- array( 0, c(nEq))    # number of observations in each equation
@@ -82,7 +82,7 @@ systemfit <- function(  eqns,
 
 #   for(i in 1:nEq )  {
 #     yVecEq[[i]] <-  eval( attr( terms( eqns[[i]] ), "variables" )[[2]] )
-#     Y      <-  c( Y, yVecEq[[i]] )
+#     yVecAll      <-  c( yVecAll, yVecEq[[i]] )
 #     x[[i]] <-  model.matrix( eqns[[i]] )
 #     X      <-  rbind( cbind( X, matrix( 0, nrow( X ), ncol( x[[i]] ))),
 #                        cbind( matrix( 0, nrow( x[[i]] ), ncol( X )), x[[i]]))
@@ -122,7 +122,7 @@ systemfit <- function(  eqns,
       weights <- model.extract(m, "weights")
       yVecEq[[i]] <- model.extract(m, "response")
       x[[i]] <- model.matrix(Terms, m)
-      Y <- c(Y,yVecEq[[i]])
+      yVecAll <- c(yVecAll,yVecEq[[i]])
       X <- rbind( cbind( X, matrix( 0, nrow( X ), ncol( x[[i]] ))),
                   cbind( matrix( 0, nrow( x[[i]] ), ncol( X )), x[[i]]))
       nObsEq[i] <- length( yVecEq[[i]] )
@@ -178,19 +178,19 @@ systemfit <- function(  eqns,
   ## only for OLS, WLS and SUR estimation
   if(method=="OLS" | method=="WLS" | method=="SUR" | method=="WSUR") {
     if(is.null(R.restr)) {
-      b <- solve( crossprod( X ), crossprod( X, Y ), tol=solvetol )
+      b <- solve( crossprod( X ), crossprod( X, yVecAll ), tol=solvetol )
                # estimated coefficients
     } else {
       W <- rbind( cbind( t(X) %*% X, t(R.restr) ),
                   cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
-      V <- rbind( t(X) %*% Y , q.restr )
+      V <- rbind( t(X) %*% yVecAll , q.restr )
       b <- ( solve( W, tol=solvetol ) %*% V )[1:ncol(X)]
     }
   }
 
   ## only for OLS estimation
   if(method=="OLS") {
-    resids <- Y - X %*% b                                        # residuals
+    resids <- yVecAll - X %*% b                                        # residuals
     if(single.eq.sigma) {
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
          nCoefEq = nExogLiEq, xEq = x, diag = TRUE, centered = centerResiduals,
@@ -219,18 +219,18 @@ systemfit <- function(  eqns,
     while((sum(bdif^2)/sum(bl^2))^0.5>tol & iter < maxiter^( method == "WLS" ) ) {
       iter  <- iter+1
       bl    <- b                # coefficients of previous step
-      resids <- Y - X %*% b     # residuals
+      resids <- yVecAll - X %*% b     # residuals
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
          nCoefEq = nExogLiEq, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )
-      b  <- .calcGLS( x = X, y = Y, R.restr = R.restr, q.restr = q.restr,
+      b  <- .calcGLS( x = X, y = yVecAll, R.restr = R.restr, q.restr = q.restr,
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol ) # coefficients
       bdif <- b-bl # difference of coefficients between this and previous step
     }
     bcov <- .calcGLS( x = X, R.restr = R.restr, q.restr = q.restr, 
        sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )
        # final step coefficient covariance matrix
-    resids <- Y - X %*% b                        # residuals
+    resids <- yVecAll - X %*% b                        # residuals
     for(i in 1:nEq) residi[[i]] <- resids[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
   }
 
@@ -242,18 +242,18 @@ systemfit <- function(  eqns,
     while((sum(bdif^2)/sum(bl^2))^0.5>tol & iter < maxiter) {
       iter  <- iter+1
       bl    <- b                           # coefficients of previous step
-      resids <- Y-X%*%b                     # residuals
+      resids <- yVecAll-X%*%b                     # residuals
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
          nCoefEq = nExogLiEq, xEq = x, centered = centerResiduals,
          solvetol = solvetol )
-      b <- .calcGLS( x = X, y = Y, R.restr = R.restr, q.restr = q.restr, 
+      b <- .calcGLS( x = X, y = yVecAll, R.restr = R.restr, q.restr = q.restr,
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )     # coefficients
       bdif <- b-bl  # difference of coefficients between this and previous step
     }
     bcov <- .calcGLS( x = X, R.restr = R.restr, q.restr = q.restr, 
        sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )
             # final step coefficient covariance matrix
-    resids <- Y - X %*% b                        # residuals
+    resids <- yVecAll - X %*% b                        # residuals
     for(i in 1:nEq) residi[[i]] <- resids[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
   }
 
@@ -294,12 +294,12 @@ systemfit <- function(  eqns,
 
     }
     if(is.null(R.restr)) {
-      b <- solve( crossprod( Xf ), crossprod( Xf, Y ), tol=solvetol )
+      b <- solve( crossprod( Xf ), crossprod( Xf, yVecAll ), tol=solvetol )
          # 2nd stage coefficients
     } else {
       W <- rbind( cbind( crossprod(Xf), t(R.restr) ),
                   cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-      V <- rbind( t(Xf) %*% Y , q.restr )
+      V <- rbind( t(Xf) %*% yVecAll , q.restr )
       b <- ( solve( W, tol=solvetol ) %*% V )[1:ncol(X)] # restricted coefficients
     }
     b2 <- b
@@ -307,7 +307,7 @@ systemfit <- function(  eqns,
 
   ## only for 2SLS estimation
   if(method=="2SLS") {
-    resids <- Y - X %*% b                        # residuals
+    resids <- yVecAll - X %*% b                        # residuals
     if(single.eq.sigma) {
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
          nCoefEq = nExogLiEq, xEq = x, diag = TRUE, centered = centerResiduals,
@@ -335,17 +335,17 @@ systemfit <- function(  eqns,
     while((sum(bdif^2)/sum(bl^2))^0.5>tol & iter < maxiter^( method == "W2LS" ) ) {
       iter  <- iter+1
       bl    <- b                           # coefficients of previous step
-      resids <- Y-X%*%b                     # residuals
+      resids <- yVecAll-X%*%b                     # residuals
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
          nCoefEq = nExogLiEq, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )
-      b <- .calcGLS( x = Xf, y = Y, R.restr = R.restr, q.restr = q.restr, 
+      b <- .calcGLS( x = Xf, y = yVecAll, R.restr = R.restr, q.restr = q.restr,
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )          # (unrestr.) coeffic.
       bdif <- b - bl # difference of coefficients between this and previous step
     }
     bcov <- .calcGLS( x = Xf, R.restr = R.restr, q.restr = q.restr, 
        sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )  # coefficient covariance matrix
-    resids <- Y - X %*% b                        # residuals
+    resids <- yVecAll - X %*% b                        # residuals
     for(i in 1:nEq) residi[[i]] <- resids[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
   }
 
@@ -357,15 +357,15 @@ systemfit <- function(  eqns,
     while((sum(bdif^2)/sum(bl^2))^0.5>tol & iter < maxiter) {
       iter  <- iter+1
       bl    <- b                           # coefficients of previous step
-      resids <- Y-X%*%b                     # residuals
+      resids <- yVecAll-X%*%b                     # residuals
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
          nCoefEq = nExogLiEq, xEq = x, centered = centerResiduals, solvetol = solvetol )
       if(method3sls=="GLS") {
-         b <- .calcGLS( x = Xf, y = Y, R.restr = R.restr, q.restr = q.restr, 
+         b <- .calcGLS( x = Xf, y = yVecAll, R.restr = R.restr, q.restr = q.restr,
             sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )  # (unrestr.) coeffic.
       }
       if(method3sls=="IV") {
-         b <- .calcGLS( x = Xf, x2 = X, y = Y, R.restr = R.restr, q.restr = q.restr, 
+         b <- .calcGLS( x = Xf, x2 = X, y = yVecAll, R.restr = R.restr, q.restr = q.restr,
             sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )   # (unrestr.) coeffic.
       }
       if(method3sls=="GMM") {
@@ -375,13 +375,13 @@ systemfit <- function(  eqns,
           b <- solve(t(X) %*% H %*% solve( HtOmega %*%
                  H, tol=solvetol) %*% t(H) %*% X, tol=solvetol) %*% t(X) %*% H %*%
                  solve( HtOmega %*%
-                 H, tol=solvetol) %*% t(H) %*% Y  #(unrestr.) coeffic.
+                 H, tol=solvetol) %*% t(H) %*% yVecAll  #(unrestr.) coeffic.
         } else {
           W <- rbind( cbind( t(X) %*% H %*% solve( HtOmega
                               %*% H, tol=solvetol) %*% t(H) %*% X, t(R.restr) ),
                       cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
           V <- rbind( t(X) %*% H %*% solve( HtOmega
-                      %*% H, tol=solvetol) %*% t(H) %*% Y , q.restr )
+                      %*% H, tol=solvetol) %*% t(H) %*% yVecAll , q.restr )
           Winv <- solve( W, tol=solvetol )
           b <- ( Winv %*% V )[1:ncol(X)]     # restricted coefficients
         }
@@ -391,19 +391,19 @@ systemfit <- function(  eqns,
            solvetol = solvetol )
         if(is.null(R.restr)) {
           b <- solve( t(Xf) %*% t( XftOmegaInv ), tol=solvetol) %*% ( XftOmegaInv
-                      %*% H %*% solve( crossprod( H ), tol=solvetol ) %*% crossprod(H, Y) )
+                      %*% H %*% solve( crossprod( H ), tol=solvetol ) %*% crossprod(H, yVecAll) )
                            # (unrestr.) coeffic.
         } else {
           W <- rbind( cbind( t(Xf) %*% t( XftOmegaInv ), t(R.restr) ),
                       cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
           V <- rbind( XftOmegaInv %*% H %*% solve( crossprod( H ), tol=solvetol ) %*%
-                      crossprod( H, Y ), q.restr )
+                      crossprod( H, yVecAll ), q.restr )
           Winv <- solve( W, tol=solvetol )
           b <- ( Winv %*% V )[1:ncol(X)]     # restricted coefficients
         }
       }
       if(method3sls=="EViews") {
-         b <- b2 + .calcGLS( x = Xf, y = ( Y -  X %*% b2 ), 
+         b <- b2 + .calcGLS( x = Xf, y = ( yVecAll -  X %*% b2 ),
             R.restr = R.restr, q.restr = q.restr, sigma = rcov,
             nObsEq = nObsEq, solvetol = solvetol )  # (unrestr.) coeffic.
       }
@@ -450,13 +450,13 @@ systemfit <- function(  eqns,
        bcov <- .calcGLS( x = Xf, R.restr = R.restr, q.restr = q.restr, 
           sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )  # final step coefficient covariance matrix
     }
-    resids <- Y - X %*% b                        # residuals
+    resids <- yVecAll - X %*% b                        # residuals
   }
 
   ## FIML estimation
   if( method == "FIML" ) {
     fimlResult <- .systemfitFiml( systemfitCall = call, nObsEq = nObsEq,
-      nCoefEq = nExogLiEq, yVec = Y, xMat = X, xEq = x, methodRCov = methodRCov,
+      nCoefEq = nExogLiEq, yVec = yVecAll, xMat = X, xEq = x, methodRCov = methodRCov,
       centerResiduals = centerResiduals, solvetol = solvetol )
     #print( fimlResult )
     b <- fimlResult$coef
@@ -601,16 +601,16 @@ systemfit <- function(  eqns,
   }
 
   ## results of the total system
-  #olsr2 <- 1 - t(resids) %*% resids / ( t(Y) %*% ( diag(1,nEq,nEq)     # OLS system R2
-  # %x% ( diag( 1, nObsEq[1], nObsEq[1]) - rep(1, nObsEq[1]) %*% t(rep(1,nObsEq[1])) / nObsEq[1])) %*% Y)
+  #olsr2 <- 1 - t(resids) %*% resids / ( t(yVecAll) %*% ( diag(1,nEq,nEq)     # OLS system R2
+  # %x% ( diag( 1, nObsEq[1], nObsEq[1]) - rep(1, nObsEq[1]) %*% t(rep(1,nObsEq[1])) / nObsEq[1])) %*% yVecAll)
   # the following lines are substituted for the previous 2 lines to increase
   # speed ( idea suggested by Ott Toomet )
-   meanY <- numeric(length(Y)) # compute mean of Y by equations
+   meanY <- numeric(length(yVecAll)) # compute mean of Y by equations
    for(i in 1:nEq) {
       meanY[ (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) ] <-
-         mean( Y[ (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) ])
+         mean( yVecAll[ (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) ])
    }
-   olsr2 <- 1 - t(resids) %*% resids / sum( ( Y - meanY )^2 )
+   olsr2 <- 1 - t(resids) %*% resids / sum( ( yVecAll - meanY )^2 )
                         # OLS system R2
   if( method == "SUR" | method == "WSUR" | method == "3SLS" |
       method == "W3SLS" ) {
@@ -623,13 +623,13 @@ systemfit <- function(  eqns,
 #       # original formula from McElroy (1977)
 #       mcelr2 <- 1 - ( t(resids) %*% ( solve(rcov, tol=solvetol) %x%
 #                 diag(1, nObsEq[1],nObsEq[1])) %*% resids ) /
-#                 ( t(Y) %*% ( solve(rcov, tol=solvetol ) %x%
+#                 ( t(yVecAll) %*% ( solve(rcov, tol=solvetol ) %x%
 #                 ( diag(1,nObsEq[1],nObsEq[1] ) - rep(1,nObsEq[1]) %*%
-#                 t(rep(1,nObsEq[1])) / nObsEq[1] )) %*% Y )   # McElroy's (1977a) R2
+#                 t(rep(1,nObsEq[1])) / nObsEq[1] )) %*% yVecAll )   # McElroy's (1977a) R2
       # first formula from Greene (2003, p. 345) (numerator modified to save memory)
       rtOmega <- .calcXtOmegaInv( x = resids, sigma = rcov, nObsEq = nObsEq,
          solvetol = solvetol )
-      yCov <- .calcRCov( Y, methodRCov = "noDfCor", nObsEq = nObsEq, centered = TRUE,
+      yCov <- .calcRCov( yVecAll, methodRCov = "noDfCor", nObsEq = nObsEq, centered = TRUE,
          solvetol = solvetol )
       residCovInv <- solve( rcov, tol = solvetol )
       denominator <- 0
@@ -640,10 +640,10 @@ systemfit <- function(  eqns,
       }
       mcelr2 <- 1 - ( rtOmega %*% resids ) / denominator
 #       # second formula from Greene (2003, p. 345)
-#        yCov <- sum(diag(.calcRCov( Y, methodRCov = "noDfCor", nObsEq = nObsEq, centered = TRUE,
+#        yCov <- sum(diag(.calcRCov( yVecAll, methodRCov = "noDfCor", nObsEq = nObsEq, centered = TRUE,
 #           solvetol = solvetol )))
-#        yCov <- drop( t(Y-mean(Y)) %*% (Y-mean(Y)) / sum(nObsEq) )
-#       yCov <- .calcRCov( Y, methodRCov = "geomean", nObsEq = nObsEq, nCoefEq=rep(1,nEq),
+#        yCov <- drop( t(yVecAll-mean(yVecAll)) %*% (yVecAll-mean(yVecAll)) / sum(nObsEq) )
+#       yCov <- .calcRCov( yVecAll, methodRCov = "geomean", nObsEq = nObsEq, nCoefEq=rep(1,nEq),
 #          centered = TRUE, solvetol = solvetol )
 #        mcelr2 <- 1 - nEq / sum( diag( solve( rcov, tol = solvetol ) * yCov ) )
   } else {
@@ -688,7 +688,7 @@ systemfit <- function(  eqns,
   results$drcov   <- drcov          # determinant of residual covarance matrix
   results$olsr2   <- olsr2          # R-squared value of the equation system
   results$iter    <- iter           # residual correlation matrix
-  results$y       <- Y              # vector of all (stacked) endogenous variables
+  results$yVec    <- yVecAll        # vector of all (stacked) endogenous variables
   results$x       <- X              # matrix of all (diagonally stacked) regressors
   results$resids  <- resids         # vector of all (stacked) residuals
   results$data    <- alldata        # data frame for all data used in the system
@@ -966,7 +966,7 @@ predict.systemfit <- function( object, data=object$data,
                        cbind( matrix( 0, nrow( x[[i]] ), ncol( X )), x[[i]]))
       nObsEq[i]   <-  nrow( x[[i]] )
    }
-   Y <- X %*% object$b
+   yVecAll <- X %*% object$b
    if( object$method == "SUR" | object$method == "WSUR" |
        object$method == "3SLS" | object$method == "W3SLS") {
       if( se.fit | interval == "confidence" ) {
@@ -978,7 +978,7 @@ predict.systemfit <- function( object, data=object$data,
    }
    for(i in 1:g) {
       # fitted values
-      Yi <- Y[(1+sum(nObsEq[1:i])-nObsEq[i]):sum(nObsEq[1:i]),]
+      Yi <- yVecAll[(1+sum(nObsEq[1:i])-nObsEq[i]):sum(nObsEq[1:i]),]
       predicted <- cbind( predicted, Yi )
       names( predicted )[ length( predicted ) ] <- paste( "eq", as.character(i),
                                                           ".pred", sep="" )

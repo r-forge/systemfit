@@ -189,7 +189,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
   \item{olsr2}{System OLS R-squared value.}
   \item{mcelr2}{McElroys R-squared value for the system (only SUR and 3SLS).}
-  \item{y}{vector of all (stacked) endogenous variables}
+  \item{yVec}{vector of all (stacked) endogenous variables}
   \item{x}{matrix of all (diagonally stacked) regressors}
   \item{h}{matrix of all (diagonally stacked) instrumental variables (only 2SLS and 3SLS)}
   \item{data}{data frame of the whole system (including instruments)}
