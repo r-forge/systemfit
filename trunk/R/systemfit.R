@@ -146,15 +146,17 @@ systemfit <- function(  eqns,
    nObsTotal  <- sum( nObsEq )  # total number of observations
    nExogTotal <- sum( nExogEq ) # total number of exogenous variables/(unrestricted) coefficients
    nExogLiTotal <- nExogTotal   # total number of linear independent coefficients
-   ki <- nExogEq           # total number of linear independent coefficients in each equation
+   nExogLiEq  <- nExogEq        # total number of linear independent coefficients in each equation
    if(!is.null(TX)) {
       XU <- X
       X  <- XU %*% TX
       nExogLiTotal <- nExogLiTotal - ( nrow( TX ) - ncol( TX ) )
       for(i in 1:nEq) {
-         ki[i] <- ncol(X)
+         nExogLiEq[i] <- ncol(X)
          for(j in 1: ncol(X) ) {
-            if(sum(X[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])),j]^2)==0) ki[i] <- ki[i]-1
+            if(sum(X[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])),j]^2)==0) {
+               nExogLiEq[i] <- nExogLiEq[i]-1
+            }
          }
       }
    }
@@ -165,13 +167,13 @@ systemfit <- function(  eqns,
             for(i in 1:nEq) {  # search for restrictions that are NOT cross-equation
                if( sum( R.restr[ j, (1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))]^2) ==
                    sum(R.restr[j,]^2)) {
-                  ki[i] <- ki[i]-1
+                  nExogLiEq[i] <- nExogLiEq[i]-1
                }
             }
          }
       }
     }
-    df <- nObsEq - ki    # degress of freedom of each equation
+    df <- nObsEq - nExogLiEq    # degress of freedom of each equation
 
   ## only for OLS, WLS and SUR estimation
   if(method=="OLS" | method=="WLS" | method=="SUR" | method=="WSUR") {
@@ -191,7 +193,7 @@ systemfit <- function(  eqns,
     resids <- Y - X %*% b                                        # residuals
     if(single.eq.sigma) {
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
-         nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
+         nCoefEq = nExogLiEq, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )               # residual covariance matrix
       bcov <- .calcGLS( x = X, R.restr = R.restr, q.restr = q.restr, 
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )
@@ -219,7 +221,7 @@ systemfit <- function(  eqns,
       bl    <- b                # coefficients of previous step
       resids <- Y - X %*% b     # residuals
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
-         nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
+         nCoefEq = nExogLiEq, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )
       b  <- .calcGLS( x = X, y = Y, R.restr = R.restr, q.restr = q.restr,
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol ) # coefficients
@@ -242,7 +244,7 @@ systemfit <- function(  eqns,
       bl    <- b                           # coefficients of previous step
       resids <- Y-X%*%b                     # residuals
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
-         nCoefEq = ki, xEq = x, centered = centerResiduals,
+         nCoefEq = nExogLiEq, xEq = x, centered = centerResiduals,
          solvetol = solvetol )
       b <- .calcGLS( x = X, y = Y, R.restr = R.restr, q.restr = q.restr, 
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )     # coefficients
@@ -308,7 +310,7 @@ systemfit <- function(  eqns,
     resids <- Y - X %*% b                        # residuals
     if(single.eq.sigma) {
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
-         nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
+         nCoefEq = nExogLiEq, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )
       bcov <- .calcGLS( x = Xf, R.restr = R.restr, q.restr = q.restr, 
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )  # coefficient covariance matrix
@@ -335,7 +337,7 @@ systemfit <- function(  eqns,
       bl    <- b                           # coefficients of previous step
       resids <- Y-X%*%b                     # residuals
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
-         nCoefEq = ki, xEq = x, diag = TRUE, centered = centerResiduals,
+         nCoefEq = nExogLiEq, xEq = x, diag = TRUE, centered = centerResiduals,
          solvetol = solvetol )
       b <- .calcGLS( x = Xf, y = Y, R.restr = R.restr, q.restr = q.restr, 
          sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )          # (unrestr.) coeffic.
@@ -357,7 +359,7 @@ systemfit <- function(  eqns,
       bl    <- b                           # coefficients of previous step
       resids <- Y-X%*%b                     # residuals
       rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
-         nCoefEq = ki, xEq = x, centered = centerResiduals, solvetol = solvetol )
+         nCoefEq = nExogLiEq, xEq = x, centered = centerResiduals, solvetol = solvetol )
       if(method3sls=="GLS") {
          b <- .calcGLS( x = Xf, y = Y, R.restr = R.restr, q.restr = q.restr, 
             sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )  # (unrestr.) coeffic.
@@ -454,7 +456,7 @@ systemfit <- function(  eqns,
   ## FIML estimation
   if( method == "FIML" ) {
     fimlResult <- .systemfitFiml( systemfitCall = call, nObsEq = nObsEq,
-      nCoefEq = ki, yVec = Y, xMat = X, xEq = x, methodRCov = methodRCov,
+      nCoefEq = nExogLiEq, yVec = Y, xMat = X, xEq = x, methodRCov = methodRCov,
       centerResiduals = centerResiduals, solvetol = solvetol )
     #print( fimlResult )
     b <- fimlResult$coef
@@ -567,7 +569,7 @@ systemfit <- function(  eqns,
     resulti$formula      <- eqns[[i]]
     resulti$nObs         <- nObsEq[i]       # number of observations
     resulti$nExog        <- nExogEq[i]      # number of exogenous variables/coefficients
-    resulti$ki           <- ki[i]           # number of linear independent coefficients
+    resulti$nExogLi      <- nExogLiEq[i]    # number of linear independent coefficients
     resulti$df           <- df[i]           # degrees of freedom of residuals
     resulti$dfSys        <- nObsTotal- nExogLiTotal
        # degrees of freedom of residuals of the whole system
@@ -615,7 +617,7 @@ systemfit <- function(  eqns,
     rcovest <- rcov                   # residual covariance matrix used for estimation
   }
   rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
-      nCoefEq = ki, xEq = x, centered = centerResiduals, solvetol = solvetol )
+      nCoefEq = nExogLiEq, xEq = x, centered = centerResiduals, solvetol = solvetol )
   drcov <- det(rcov, tol=solvetol)
   if( !saveMemory ) {
 #       # original formula from McElroy (1977)
@@ -671,6 +673,8 @@ systemfit <- function(  eqns,
                                        # in each equation
   results$nExogLiTotal <- nExogLiTotal
      # total number of linear independent coefficients
+  results$nExogLiEq  <- nExogLiEq
+     # number of linear independent coefficients in each equation
   results$df      <- nObsTotal - nExogLiTotal
      # degrees of freedom of the whole system
   results$b       <- b              # all estimated coefficients

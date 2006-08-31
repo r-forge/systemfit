@@ -173,6 +173,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{nExogEq}{number of exogenous variables/coefficients in each equation
       (including the constants).}
   \item{nExogLiTotal}{total number of linear independent coefficients.}
+  \item{nExogLiEq}{number of linear independent coefficients in each equation.}
   \item{df}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}
   \item{b}{vector of all estimated coefficients.}
@@ -210,9 +211,11 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{formula*}{model formula of the ith equation.}
   \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
   \item{nObs*}{number of observations of the ith equation.}
-  \item{nExog*}{number of exogenous variables/coefficients in the ith equation (including the constant).}
-  \item{ki*}{number of linear independent coefficients in the ith equation (including the constant
-              differs from \code{k} only if there are restrictions that are not cross-equation).}
+  \item{nExog*}{number of exogenous variables/coefficients in the ith equation
+     (including the constant).}
+  \item{nExogLi*}{number of linear independent coefficients in the ith equation
+     (including the constant differs from \code{nExog*} only if there are
+     restrictions that are not cross-equation).}
   \item{df*}{degrees of freedom of the ith equation.}
 
   \item{b*}{estimated coefficients of the ith equation.}
