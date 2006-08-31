@@ -44,15 +44,14 @@ se.ratio.systemfit( resultsi, resultsj, eqni )
 
 \examples{
 data( "Kmenta" )
-demand <- consump ~ price + income
-supply <- consump ~ price + farmPrice + trend
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
 inst <- ~ income + farmPrice + trend
-labels <- list( "demand", "supply" )
-system <- list( demand, supply )
+system <- list( demand = eqDemand, supply = eqSupply )
 
 ## perform 2SLS on each of the equations in the system
-fit2sls <- systemfit( system, "2SLS", labels, inst, data = Kmenta )
-fit3sls <- systemfit( system, "3SLS", labels, inst, data = Kmenta )
+fit2sls <- systemfit( system, "2SLS", inst = inst, data = Kmenta )
+fit3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta )
 
 ## print the results from the fits
 print( fit2sls )

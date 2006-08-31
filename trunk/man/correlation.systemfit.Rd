@@ -58,19 +58,18 @@ correlation.systemfit( results, eqni, eqnj )
 
 \examples{
 data( "Kmenta" )
-demand <- consump ~ price + income
-supply <- consump ~ price + farmPrice + trend
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
 inst <- ~ income + farmPrice + trend
-labels <- list( "demand", "supply" )
-system <- list( demand, supply )
+system <- list( demand = eqDemand, supply = eqSupply )
 
 ## perform 2SLS on each of the equations in the system
-fit2sls <- systemfit( system, "2SLS", labels, inst = inst, data = Kmenta )
+fit2sls <- systemfit( system, "2SLS", inst = inst, data = Kmenta )
 print( fit2sls )
 print( fit2sls$rcov )
 
 ## perform the 3SLS
-fit3sls <- systemfit( system, "3SLS", labels, inst = inst, data = Kmenta )
+fit3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta )
 print( fit3sls )
 print( "covariance of residuals used for estimation (from 2sls)" )
 print( fit3sls$rcovest )

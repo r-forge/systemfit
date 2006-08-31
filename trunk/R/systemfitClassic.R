@@ -25,6 +25,7 @@ systemfitClassic <- function( formula, method = "OLS", eqnVar, timeVar, data,
       }
       eqnSystem[[ eqnNo ]] <- as.formula( paste( endogVar, "~", exogVar ) )
    }
+   names( eqnSystem ) <- eqnLabels
    #reshape( data, idvar=timevar, timevar=eqnVar,direction="wide")
 
    TX <- NULL
@@ -35,7 +36,7 @@ systemfitClassic <- function( formula, method = "OLS", eqnVar, timeVar, data,
    }
 
    result <- systemfit( eqns = eqnSystem, method = method,
-      eqnlabels = eqnLabels, data = wideData, TX = TX, ... )
+      data = wideData, TX = TX, ... )
 
    return( result )
 }

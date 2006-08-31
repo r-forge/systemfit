@@ -75,13 +75,12 @@
 
 \examples{
 data( "Kmenta" )
-demand <- consump ~ price + income
-supply <- consump ~ price + farmPrice + trend
-labels <- list( "demand", "supply" )
-system <- list( demand, supply )
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
+system <- list( demand = eqDemand, supply = eqSupply )
 
 ## OLS estimation
-fitols <- systemfit( system, eqnlabels = labels, data=Kmenta )
+fitols <- systemfit( system, data=Kmenta )
 
 ## predicted values and limits
 predict( fitols )

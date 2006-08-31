@@ -24,7 +24,6 @@
 
 systemfit <- function(  eqns,
                         method = "OLS",
-                        eqnlabels=names(eqns),
                         inst=NULL,
                         data=list(),
                         R.restr=NULL,
@@ -74,6 +73,12 @@ systemfit <- function(  eqns,
   r2      <- array( 0, c(G))      # R-squared value
   adjr2   <- array( 0, c(G))      # adjusted R-squared value
   xnames  <- NULL                 # names of regressors
+
+   if( is.null( names( eqns ) ) ) {
+      eqnlabels <- paste( "eq", c( 1:G ), sep = "" )
+   } else {
+      eqnlabels <- names(eqns)
+   }
 
 #   for(i in 1:G )  {
 #     y[[i]] <-  eval( attr( terms( eqns[[i]] ), "variables" )[[2]] )

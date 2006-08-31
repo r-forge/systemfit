@@ -37,14 +37,13 @@
 
 \examples{
 data( "Kmenta" )
-demand <- consump ~ price + income
-supply <- consump ~ price + farmPrice + trend
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
 inst <- ~ income + farmPrice + trend
-labels <- list( "demand", "supply" )
-system <- list( demand, supply )
+system <- list( demand = eqDemand, supply = eqSupply )
 
 ## perform OLS on each of the equations in the system
-fitols <- systemfit( system, eqnlabels = labels, data = Kmenta )
+fitols <- systemfit( system, data = Kmenta )
 
 ## results of the whole system
 summary( fitols )

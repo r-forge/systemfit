@@ -16,7 +16,7 @@
 }
 
 \usage{
-systemfit( eqns, method = "OLS", eqnlabels=names(eqns),
+systemfit( eqns, method = "OLS",
            inst=NULL, data=list(), R.restr=NULL,
            q.restr=matrix(0,max(nrow(R.restr),0),1),
            TX=NULL, maxiter=1, tol=1e-5,
@@ -38,8 +38,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
       "2SLS", "W2SLS", "3SLS", or "W3SLS" (see details);
       iterated estimation methods can be specified by setting argument
       \code{maxiter} larger than 1 (e.g. 500).}
-   \item{eqnlabels}{an optional list of character vectors of names
-      for the equation labels.}
    \item{inst}{one-sided model formula specifying instrumental variables
       or a list of one-sided model formulas if different instruments should
       be used for the different equations (only needed for 2SLS, W2SLS and

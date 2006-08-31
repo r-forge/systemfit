@@ -4,8 +4,7 @@ data( "Kmenta" )
 
 demand <- consump ~ price + income
 supply <- consump ~ price + farmPrice + trend
-labels <- list( "demand", "supply" )
-system <- list( demand, supply )
+system <- list( demand = demand, supply = supply )
 restrm <- matrix(0,1,7)  # restriction matrix "R"
 restrm[1,3] <-  1
 restrm[1,7] <- -1
@@ -32,118 +31,118 @@ restr3q[1,1] <-  0.5
 
 
 ## *************** WLS estimation ************************
-fitwls1 <- systemfit( system, "WLS", labels, data = Kmenta )
+fitwls1 <- systemfit( system, "WLS", data = Kmenta )
 print( summary( fitwls1 ) )
 print( round( fitwls1$bcov, digits = 6 ) )
 
 ## *************** WLS estimation (EViews-like) ************************
-fitwls1e <- systemfit( system, "WLS", labels, data = Kmenta, methodRCov = "noDfCor",
+fitwls1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
    probdfsys = TRUE )
 print( summary( fitwls1e ) )
 print( round( fitwls1e$bcov, digits = 6 ) )
 
 ## ************** WLS with cross-equation restriction ***************
-fitwls2 <- systemfit( system, "WLS", labels, data = Kmenta, R.restr = restrm )
+fitwls2 <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm )
 print( summary( fitwls2 ) )
 print( round( fitwls2$bcov, digits = 6 ) )
 
 ## ************** WLS with cross-equation restriction (EViews-like) *******
-fitwls2e <- systemfit( system, "WLS", labels, data = Kmenta, R.restr = restrm,
+fitwls2e <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
    methodRCov = "noDfCor" )
 print( summary( fitwls2e ) )
 print( round( fitwls2e$bcov, digits = 6 ) )
 
 ## ******* WLS with cross-equation restriction via TX **********
-fitwls3 <- systemfit( system,"WLS", labels, data = Kmenta, TX = tc,)
+fitwls3 <- systemfit( system,"WLS", data = Kmenta, TX = tc,)
 print( summary( fitwls3 ) )
 print( round( fitwls3$bcov, digits = 6 ) )
 
 ## ******* WLS with cross-equation restriction via TX (EViews-like) *****
-fitwls3e <- systemfit( system,"WLS", labels, data = Kmenta, TX = tc,
+fitwls3e <- systemfit( system,"WLS", data = Kmenta, TX = tc,
    methodRCov = "noDfCor" )
 print( summary( fitwls3e ) )
 print( round( fitwls3e$bcov, digits = 6 ) )
 
 ## ***** WLS with 2 cross-equation restrictions ***************
-fitwls4 <- systemfit( system,"WLS", labels, data = Kmenta, R.restr = restr2m,
+fitwls4 <- systemfit( system,"WLS", data = Kmenta, R.restr = restr2m,
    q.restr = restr2q )
 print( summary( fitwls4 ) )
 print( round( fitwls4$bcov, digits = 6 ) )
 
 ## ***** WLS with 2 cross-equation restrictions (EViews-like) **********
-fitwls4e <- systemfit( system,"WLS", labels, data = Kmenta, methodRCov = "noDfCor",
+fitwls4e <- systemfit( system,"WLS", data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr2m, q.restr = restr2q )
 print( summary( fitwls4e ) )
 print( round( fitwls4e$bcov, digits = 6 ) )
 
 ## *********** WLS with 2 cross-equation restrictions via R and TX ******
-fitwls5 <- systemfit( system, "WLS", labels, data = Kmenta, R.restr = restr3m,
+fitwls5 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc )
 print( summary( fitwls5 ) )
 print( round( fitwls5$bcov, digits = 6 ) )
 
 ## *********** WLS with 2 cross-equation restrictions via R and TX (EViews-like)
-fitwls5e <- systemfit( system, "WLS", labels, data = Kmenta, methodRCov = "noDfCor",
+fitwls5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr3m, q.restr = restr3q, TX = tc )
 print( summary( fitwls5e ) )
 print( round( fitwls5e$bcov, digits = 6 ) )
 
 ## *************** iterated WLS estimation *********************
-fitwlsi1 <- systemfit( system, "WLS", labels, data = Kmenta, probdfsys = TRUE,
+fitwlsi1 <- systemfit( system, "WLS", data = Kmenta, probdfsys = TRUE,
    maxit = 100 )
 print( summary( fitwlsi1 ) )
 print( round( fitwlsi1$bcov, digits = 6 ) )
 
 ## *************** iterated WLS estimation (EViews-like) ************
-fitwlsi1e <- systemfit( system, "WLS", labels, data = Kmenta, methodRCov = "noDfCor",
+fitwlsi1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
    probdfsys = TRUE, maxit = 100 )
 print( summary( fitwlsi1e ) )
 print( round( fitwlsi1e$bcov, digits = 6 ) )
 
 ## ****** iterated WLS with cross-equation restriction ***************
-fitwlsi2 <- systemfit( system, "WLS", labels, data = Kmenta, R.restr = restrm,
+fitwlsi2 <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
    maxit = 100 )
 print( summary( fitwlsi2 ) )
 print( round( fitwlsi2$bcov, digits = 6 ) )
 
 ## ****** iterated WLS with cross-equation restriction (EViews-like) ********
-fitwlsi2e <- systemfit( system, "WLS", labels, data = Kmenta, R.restr = restrm,
+fitwlsi2e <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
    methodRCov = "noDfCor", maxit = 100 )
 print( summary( fitwlsi2e ) )
 print( round( fitwlsi2e$bcov, digits = 6 ) )
 
 ## ******* iterated WLS with cross-equation restriction via TX **********
-fitwlsi3 <- systemfit( system, "WLS", labels, data = Kmenta, TX = tc,
+fitwlsi3 <- systemfit( system, "WLS", data = Kmenta, TX = tc,
    maxit = 100 )
 print( summary( fitwlsi3 ) )
 print( round( fitwlsi3$bcov, digits = 6 ) )
 
 ## ******* iterated WLS with cross-equation restriction via TX (EViews-like) ***
-fitwlsi3e <- systemfit( system, "WLS", labels, data = Kmenta, TX = tc,
+fitwlsi3e <- systemfit( system, "WLS", data = Kmenta, TX = tc,
    methodRCov = "noDfCor", maxit = 100 )
 print( summary( fitwlsi3e ) )
 print( round( fitwlsi3e$bcov, digits = 6 ) )
 
 ## ******* iterated WLS with 2 cross-equation restrictions ***********
-fitwlsi4 <- systemfit( system, "WLS", labels, data = Kmenta, R.restr = restr2m,
+fitwlsi4 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, maxit = 100 )
 print( summary( fitwlsi4 ) )
 print( round( fitwlsi4$bcov, digits = 6 ) )
 
 ## ******* iterated WLS with 2 cross-equation restrictions (EViews-like) *****
-fitwlsi4e <- systemfit( system, "WLS", labels, data = Kmenta, methodRCov = "noDfCor",
+fitwlsi4e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr2m, q.restr = restr2q, maxit = 100 )
 print( summary( fitwlsi4e ) )
 print( round( fitwlsi4e$bcov, digits = 6 ) )
 
 ## ***** iterated WLS with 2 cross-equation restrictions via R and TX ******
-fitwlsi5 <- systemfit( system, "WLS", labels, data = Kmenta, R.restr = restr3m,
+fitwlsi5 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc, maxit = 100 )
 print( summary( fitwlsi5 ) )
 print( round( fitwlsi5$bcov, digits = 6 ) )
 
 ## *** iterated WLS with 2 cross-equation restrictions via R and TX (EViews-like)
-fitwlsi5e <- systemfit( system, "WLS", labels, data = Kmenta, methodRCov = "noDfCor",
+fitwlsi5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
 print( summary( fitwlsi5e ) )
 print( round( fitwlsi5e$bcov, digits = 6 ) )
