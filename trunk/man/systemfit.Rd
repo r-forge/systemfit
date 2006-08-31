@@ -168,7 +168,10 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{nEq}{number of equations.}
   \item{nObsTotal}{total number of observations.}
   \item{nObsEq}{number of observations in each equation.}
-  \item{nExogTotal}{total number of exogenous variables/coefficients.}
+  \item{nExogTotal}{total number of exogenous variables/coefficients
+      (including the constants).}
+  \item{nExogEq}{number of exogenous variables/coefficients in each equation
+      (including the constants).}
   \item{ki}{total number of linear independent coefficients.}
   \item{df}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}
@@ -207,7 +210,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{formula*}{model formula of the ith equation.}
   \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
   \item{nObs*}{number of observations of the ith equation.}
-  \item{k*}{number of coefficients/regressors in the ith equation (including the constant).}
+  \item{nExog*}{number of exogenous variables/coefficients in the ith equation (including the constant).}
   \item{ki*}{number of linear independent coefficients in the ith equation (including the constant
               differs from \code{k} only if there are restrictions that are not cross-equation).}
   \item{df*}{degrees of freedom of the ith equation.}

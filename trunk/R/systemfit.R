@@ -64,8 +64,8 @@ systemfit <- function(  eqns,
   x       <- list()               # regressors equation-wise
   X       <- matrix( 0, 0, 0 )    # stacked matrices of all regressors (unrestricted)
   nObsEq  <- array( 0, c(nEq))    # number of observations in each equation
-  k       <- array( 0, c(nEq) )   # number of (unrestricted) coefficients/
-                                  # regressors in each equation
+  nExogEq <- array( 0, c(nEq) )   # number of exogenous variables /(unrestricted) coefficients
+                                     # in each equation
   instl   <- list()               # list of the instruments for each equation
   ssr     <- array( 0, c(nEq))    # sum of squared residuals of each equation
   mse     <- array( 0, c(nEq))    # mean square error (residuals) of each equation
@@ -87,8 +87,8 @@ systemfit <- function(  eqns,
 #     X      <-  rbind( cbind( X, matrix( 0, nrow( X ), ncol( x[[i]] ))),
 #                        cbind( matrix( 0, nrow( x[[i]] ), ncol( X )), x[[i]]))
 #     nObsEq[i]   <-  length( y[[i]] )
-#     k[i]   <-  ncol(x[[i]])
-#     for(j in 1:k[i]) {
+#     nExogEq[i]   <-  ncol(x[[i]])
+#     for(j in 1:nExogEq[i]) {
 #       xnames <- c( xnames, paste("eq",as.character(i),colnames( x[[i]] )[j] ))
 #     }
 #   }
@@ -126,8 +126,8 @@ systemfit <- function(  eqns,
       X <- rbind( cbind( X, matrix( 0, nrow( X ), ncol( x[[i]] ))),
                   cbind( matrix( 0, nrow( x[[i]] ), ncol( X )), x[[i]]))
       nObsEq[i] <- length( y[[i]] )
-      k[i] <- ncol(x[[i]])
-      for(j in 1:k[i]) {
+      nExogEq[i] <- ncol(x[[i]])
+      for(j in 1:nExogEq[i]) {
          xnames <- c( xnames, paste("eq",as.character(i),colnames( x[[i]] )[j] ))
       }
    }
@@ -144,9 +144,9 @@ systemfit <- function(  eqns,
    }
 
    nObsTotal  <- sum( nObsEq )    # total number of observations
-   nExogTotal <- sum( k ) # total number of exogenous variables/(unrestricted) coefficients
+   nExogTotal <- sum( nExogEq ) # total number of exogenous variables/(unrestricted) coefficients
    Ki <- nExogTotal           # total number of linear independent coefficients
-   ki <- k           # total number of linear independent coefficients in each equation
+   ki <- nExogEq           # total number of linear independent coefficients in each equation
    if(!is.null(TX)) {
       XU <- X
       X  <- XU %*% TX
@@ -163,7 +163,7 @@ systemfit <- function(  eqns,
       if(is.null(TX)) {
          for(j in 1:nrow(R.restr)) {
             for(i in 1:nEq) {  # search for restrictions that are NOT cross-equation
-               if( sum( R.restr[ j, (1+sum(k[1:i])-k[i]):(sum(k[1:i]))]^2) ==
+               if( sum( R.restr[ j, (1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))]^2) ==
                    sum(R.restr[j,]^2)) {
                   ki[i] <- ki[i]-1
                }
@@ -485,16 +485,16 @@ systemfit <- function(  eqns,
   ## equation wise results
   for(i in 1:nEq) {
     residi[[i]] <- resids[ ( 1 + sum(nObsEq[1:i]) -nObsEq[i] ):( sum(nObsEq[1:i]) ) ]
-    bi     <- b[(1+sum(k[1:i])-k[i]):(sum(k[1:i]))]
+    bi     <- b[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))]
               # estimated coefficients of equation i
-    sei    <- c(se[(1+sum(k[1:i])-k[i]):(sum(k[1:i]))])
+    sei    <- c(se[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))])
               # std. errors of est. param. of equation i
-    ti     <- c(t[(1+sum(k[1:i])-k[i]):(sum(k[1:i]))])
+    ti     <- c(t[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))])
               # t-values of estim. param. of equation i
-    bcovi  <- bcov[(1+sum(k[1:i])-k[i]):(sum(k[1:i])),(1+sum(k[1:i])-k[i]):(sum(k[1:i]))]
+    bcovi  <- bcov[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i])),(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))]
               # covariance matrix of estimated coefficients of equation i
     if(probdfsys) {
-      probi <- c(prob[(1+sum(k[1:i])-k[i]):(sum(k[1:i]))])
+      probi <- c(prob[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))])
                # p-values of estim. param. of equation i
     } else {
       probi <- 2*( 1 - pt(abs(ti), df[i] ))
@@ -565,7 +565,7 @@ systemfit <- function(  eqns,
     resulti$eqnlabel     <- eqnlabels[[i]]
     resulti$formula      <- eqns[[i]]
     resulti$nObs         <- nObsEq[i]       # number of observations
-    resulti$k            <- k[i]            # number of coefficients/regressors
+    resulti$nExog        <- nExogEq[i]      # number of exogenous variables/coefficients
     resulti$ki           <- ki[i]           # number of linear independent coefficients
     resulti$df           <- df[i]           # degrees of freedom of residuals
     resulti$dfSys        <- nObsTotal- Ki   # degrees of freedom of residuals of the whole system
@@ -665,6 +665,8 @@ systemfit <- function(  eqns,
   results$nObsTotal <- nObsTotal    # total number of observations
   results$nObsEq  <- nObsEq         # number of observations in each equation
   results$nExogTotal <- nExogTotal  # total number of exogenous variables/coefficients
+  results$nExogEq <- nExogEq        # number of exogenous variables/coefficients
+                                       # in each equation
   results$ki      <- Ki             # total number of linear independent coefficients
   results$df      <- nObsTotal - Ki # dewgrees of freedom of the whole system
   results$b       <- b              # all estimated coefficients
@@ -1067,14 +1069,13 @@ predict.systemfit.equation <- function( object, data=object$data, ... ) {
 ## cross-equation corrlations between eq i and eq j
 ## from the results set for equation ij
 correlation.systemfit <- function( results, eqni, eqnj ) {
-  k <- array( 0, c(results$nEq))
-  for(i in 1:results$nEq) k[i] <- results$eq[[i]]$k
-  cij <- results$bcov[(1+sum(k[1:eqni])-k[eqni]):(sum(k[1:eqni])),
-                      (1+sum(k[1:eqnj])-k[eqnj]):(sum(k[1:eqnj]))]
-  cii <- results$bcov[(1+sum(k[1:eqni])-k[eqni]):(sum(k[1:eqni])),
-                      (1+sum(k[1:eqni])-k[eqni]):(sum(k[1:eqni]))]
-  cjj <- results$bcov[(1+sum(k[1:eqnj])-k[eqnj]):(sum(k[1:eqnj])),
-                      (1+sum(k[1:eqnj])-k[eqnj]):(sum(k[1:eqnj]))]
+  nExogEq <- results$nExogEq
+  cij <- results$bcov[(1+sum(nExogEq[1:eqni])-nExogEq[eqni]):(sum(nExogEq[1:eqni])),
+                      (1+sum(nExogEq[1:eqnj])-nExogEq[eqnj]):(sum(nExogEq[1:eqnj]))]
+  cii <- results$bcov[(1+sum(nExogEq[1:eqni])-nExogEq[eqni]):(sum(nExogEq[1:eqni])),
+                      (1+sum(nExogEq[1:eqni])-nExogEq[eqni]):(sum(nExogEq[1:eqni]))]
+  cjj <- results$bcov[(1+sum(nExogEq[1:eqnj])-nExogEq[eqnj]):(sum(nExogEq[1:eqnj])),
+                      (1+sum(nExogEq[1:eqnj])-nExogEq[eqnj]):(sum(nExogEq[1:eqnj]))]
   rij <- NULL
 
   for(i in 1:results$eq[[1]]$nObs ) {
@@ -1165,8 +1166,8 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95, ... ) {
    for( i in 1:object$nEq ) {
       object$eq[[i]]$dfSys <- object$df
       object$eq[[i]]$probdfsys <- object$probdfsys
-      ci[ j:(j+object$eq[[ i ]]$k-1), ] <- confint( object$eq[[ i ]] )
-      j <- j + object$eq[[ i ]]$k
+      ci[ j:(j+object$eq[[ i ]]$nExog-1), ] <- confint( object$eq[[ i ]] )
+      j <- j + object$eq[[ i ]]$nExog
    }
    class( ci ) <- "confint.systemfit"
    ci
