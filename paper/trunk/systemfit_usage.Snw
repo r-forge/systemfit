@@ -59,7 +59,8 @@ data( Kmenta )
 attach( Kmenta )
 eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
-fitols <- systemfit( list( demand = eqDemand, supply = eqSupply ) )
+eqSystem <- list( demand = eqDemand, supply = eqSupply )
+fitols <- systemfit( eqSystem )
 @
 
 The first line loads the \pkg{systemfit} package.
@@ -70,6 +71,12 @@ respectively%
 \footnote{
 A regression constant is always implied if not explicitly omitted.
 }.
+In the sixth line, these equations are concatenated into a list and
+are labeled °demand° and °supply°, respectively.%
+\footnote{
+If no labels are provided, the equations are numbered consecutively
+( °eq1°, °eq2°, \ldots ).
+}
 Finally, in the last line, the regression is performed
 and the result is assigned to the variable \code{fitols}.
 
@@ -129,19 +136,6 @@ fitsur <- systemfit( list( demand = eqDemand, supply = eqSupply ), "SUR" )
 @
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Equation labels}
-The optional argument \code{eqnlabels} allows the user to label the equations.
-It has to be a vector of strings.
-If this argument is not provided, the labels are taken from the names of
-the equations in argument \code{eqns}.
-And if the equations have no names, they are numbered consecutively.
-Hence, the following command has the same effect as the command above.
-<<>>=
-fitsur <- systemfit( list( eqDemand, eqSupply ), "SUR",
-   eqnlabels = c( "demand", "supply" ) )
-@
- 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Instrumental variables}
 The instruments for a 2SLS, W2SLS or 3SLS estimation can be specified
