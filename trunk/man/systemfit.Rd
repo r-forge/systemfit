@@ -172,7 +172,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
       (including the constants).}
   \item{nExogEq}{number of exogenous variables/coefficients in each equation
       (including the constants).}
-  \item{ki}{total number of linear independent coefficients.}
+  \item{nExogLiTotal}{total number of linear independent coefficients.}
   \item{df}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}
   \item{b}{vector of all estimated coefficients.}
