@@ -15,13 +15,24 @@ summary.systemfit <- function(object,...) {
    result$residCor <- cor( residuals( object ) )
    dimnames( result$residCor ) <- dimnames( result$residCov )
    result$detResidCov <- object$drcov
-   result$coefficients <- cbind( object$coef, object$se, object$t, object$p )
+
+   # coefficients, standard errors, ... 
+   result$coefCov <- object$bcov
+   coef <- object$coef
+   stdEr <- diag( result$coefCov )^0.5  # standard errors
+   tStat <- coef / stdEr                # t-statistic
+   if( object$probdfsys ) {             # p-values
+      pVal <- 2 * ( 1 - pt( abs( tStat ), object$df ) )
+   } else {
+      pVal <- rep( NA, length( coef ) )
+   }
+   result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
    result$df <- c( object$nExogAll, object$nObsAll - object$nExogAll )
    result$ols.r.squared <- object$olsr2
    result$mcelroy.r.squared <- object$mcelr2
-   result$coefCov <- object$bcov
+
    # now prepare summury results for the individual equations
    result$eq <- list()
    for( i in 1:object$nEq ) {
@@ -129,7 +140,18 @@ summary.systemfit.equation <- function(object,...) {
    result$instruments <- object$inst
    result$method <- object$method
    result$residuals <- object$residuals
-   result$coefficients <- cbind( object$b, object$se, object$t, object$p )
+
+   # coefficients, standard errors, ... 
+   result$coefCov <- object$bcov
+   coef <- object$b
+   stdEr <- diag( result$coefCov )^0.5  # standard errors
+   tStat <- coef / stdEr                # t-statistic
+   if( object$probdfsys ) {             # p-values
+      pVal <- 2 * ( 1 - pt( abs( tStat ), object$dfSys ) )
+   } else {
+      pVal <- 2 * ( 1 - pt( abs( tStat ), object$df ) )
+   }
+   result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
    result$df <- c( object$nExog, object$nObs - object$nExog )
@@ -140,7 +162,6 @@ summary.systemfit.equation <- function(object,...) {
    result$rmse <- object$rmse
    result$r.squared <- object$r2
    result$adj.r.squared <- object$adjr2
-   result$coefCov <- object$bcov
    class( result ) <- "summary.systemfit.equation"
    return( result )
 }

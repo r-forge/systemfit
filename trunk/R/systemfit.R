@@ -474,15 +474,6 @@ systemfit <- function(  eqns,
     btcov <- bcov
     bcov  <- TX %*% btcov %*% t(TX)
   }
-  se     <- diag(bcov)^0.5                       # standard errors of all estimated coefficients
-  t      <- coef/se                                 # t-values of all estimated coefficients
-  if(probdfsys) {
-    prob <- 2*( 1-pt(abs(t), nObsAll - nExogLiAll))
-       # p-values of all estimated coefficients
-  } else {
-    prob <- matrix( 0, 0, 1 )                    # p-values of all estimated coefficients
-  }
-
 
 
   ## equation wise results
@@ -490,26 +481,11 @@ systemfit <- function(  eqns,
     residi[[i]] <- resids[ ( 1 + sum(nObsEq[1:i]) -nObsEq[i] ):( sum(nObsEq[1:i]) ) ]
     bi     <- coef[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))]
               # estimated coefficients of equation i
-    sei    <- c(se[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))])
-              # std. errors of est. param. of equation i
-    ti     <- c(t[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))])
-              # t-values of estim. param. of equation i
     bcovi  <- bcov[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i])),(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))]
               # covariance matrix of estimated coefficients of equation i
-    if(probdfsys) {
-      probi <- c(prob[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))])
-               # p-values of estim. param. of equation i
-    } else {
-      probi <- 2*( 1 - pt(abs(ti), df[i] ))
-               # p-values of estim. param. of equation i
-      prob <- c(prob,probi) # p-values of all estimated coefficients
-    }
 
     # set names
     names( bi ) <- colnames( xMatEq[[i]] )
-    names( sei ) <- colnames( xMatEq[[i]] )
-    names( ti ) <- colnames( xMatEq[[i]] )
-    names( probi ) <- colnames( xMatEq[[i]] )
     colnames( bcovi ) <- colnames( xMatEq[[i]] )
     rownames( bcovi ) <- colnames( xMatEq[[i]] )
 
@@ -575,9 +551,6 @@ systemfit <- function(  eqns,
        # degrees of freedom of residuals of the whole system
     resulti$probdfsys    <- probdfsys       #
     resulti$b            <- c( bi )         # estimated coefficients
-    resulti$se           <- c( sei )        # standard errors of estimated coefficients
-    resulti$t            <- c( ti )         # t-values of estimated coefficients
-    resulti$p            <- c( probi )      # p-values of estimated coefficients
     resulti$bcov         <- bcovi           # covariance matrix of estimated coefficients
     resulti$yVec         <- yVecEq[[i]]     # vector of endogenous variables
     resulti$xMat         <- xMatEq[[i]]     # matrix of regressors
@@ -652,12 +625,6 @@ systemfit <- function(  eqns,
 
   coef           <- drop(coef)
   names(coef)    <- xnames
-  se             <- c(se)
-  names(se)      <- xnames
-  t              <- c(t)
-  names(t)       <- xnames
-  prob           <- c(prob)
-  names(prob)    <- xnames
   colnames( bcov ) <- xnames
   rownames( bcov ) <- xnames
   colnames( rcov ) <- eqnlabels
@@ -680,9 +647,6 @@ systemfit <- function(  eqns,
      # degrees of freedom of the whole system
   results$coef    <- coef           # all estimated coefficients
   results$bt      <- bt             # transformed vector of estimated coefficients
-  results$se      <- se             # standard errors of estimated coefficients
-  results$t       <- t              # t-values of estimated coefficients
-  results$p       <- prob           # p-values of estimated coefficients
   results$bcov    <- bcov           # coefficients covariance matrix
   results$btcov   <- btcov          # covariance matrix for transformed coeff. vector
   results$rcov    <- rcov           # residual covarance matrix
@@ -1015,12 +979,13 @@ confint.systemfit.equation <- function( object, parm = NULL, level = 0.95, ... )
    pct <- paste( round( 100 * a, 1 ), "%" )
    ci <- array( NA, dim = c( length( object$b ), 2),
             dimnames = list( names( object$b ), pct ) )
-   if( object$ probdfsys ) {
+   if( object$probdfsys ) {
       fac <- qt( a, object$dfSys )
    } else {
       fac <- qt( a, object$df )
    }
-   ci[] <- object$b + object$se %o% fac
+   coef <- summary( object )$coefficients
+   ci[] <- coef[ , 1 ] + coef[ , 2 ] %o% fac
    class( ci ) <- "confint.systemfit"
    ci
 }

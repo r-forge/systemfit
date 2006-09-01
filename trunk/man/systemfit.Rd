@@ -180,9 +180,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{iter}{number of iteration steps.}
   \item{coef}{vector of all estimated coefficients.}
   \item{bt}{coefficient vector transformed by \code{TX}.}
-  \item{se}{estimated standard errors of \code{coef}.}
-  \item{t}{t values for \code{coef}.}
-  \item{p}{p values for \code{coef}.}
   \item{bcov}{estimated covariance matrix of \code{b}.}
   \item{btcov}{covariance matrix of \code{bt}.}
   \item{rcov}{estimated residual covariance matrix.}
@@ -221,9 +218,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{df*}{degrees of freedom of the ith equation.}
 
   \item{b*}{estimated coefficients of the ith equation.}
-  \item{se*}{estimated standard errors of \code{b}.}
-  \item{t*}{t values for \code{b}.}
-  \item{p*}{p values for \code{b}.}
   \item{covb*}{estimated covariance matrix of \code{b}.}
 
   \item{yVec*}{vector of endogenous variable (response values) of the ith equation.}
