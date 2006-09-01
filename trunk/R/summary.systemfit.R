@@ -1,12 +1,35 @@
 ## prepare summary results that belong to the whole system
 summary.systemfit <- function(object,...) {
-   object$coefTab <- cbind( object$coef, object$se, object$t, object$p )
-   colnames( object$coefTab ) <- c( "Estimate", "Std. Error",
+   result <- list()
+   result$nEq <- object$nEq
+   result$method <- object$method
+   result$iter <- object$iter
+   result$maxiter <- object$maxiter
+   result$residuals <- residuals( object )
+   result$residCovEst <- object$rcovest
+   result$residCov <- object$rcov
+   rownames( result$residCov ) <- colnames( result$residCov ) <- object$eqnLabels
+   if( !is.null( result$residCovEst ) ) {
+      dimnames( result$residCovEst ) <- dimnames( result$residCov )
+   }
+   result$residCor <- cor( residuals( object ) )
+   dimnames( result$residCor ) <- dimnames( result$residCov )
+   result$detResidCov <- object$drcov
+   result$coefficients <- cbind( object$coef, object$se, object$t, object$p )
+   colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
-   object$rcor <- cor( residuals( object ) )
-   dimnames( object$rcor ) <- dimnames( object$rcov )
-   class( object ) <- "summary.systemfit"
-   return( object )
+   result$df <- c( object$nExogAll, object$nObsAll - object$nExogAll )
+   result$ols.r.squared <- object$olsr2
+   result$mcelroy.r.squared <- object$mcelr2
+   result$coefCov <- object$bcov
+   # now prepare summury results for the individual equations
+   result$eq <- list()
+   for( i in 1:object$nEq ) {
+       result$eq[[ i ]] <- summary( object$eq[[i]] )
+   }
+
+   class( result ) <- "summary.systemfit"
+   return( result )
 }
 
 ## print summary results of the whole system
@@ -36,17 +59,17 @@ print.summary.systemfit <- function( x, digits=6,... ) {
   for(i in 1:x$nEq) {
     row <- NULL
     row <- cbind( round( x$eq[[i]]$nObs,  digits ),
-                  round( x$eq[[i]]$df,    digits ),
+                  round( x$eq[[i]]$df[2], digits ),
                   round( x$eq[[i]]$ssr,   digits ),
                   round( x$eq[[i]]$mse,   digits ),
                   round( x$eq[[i]]$rmse,  digits ),
-                  round( x$eq[[i]]$r2,    digits ),
-                  round( x$eq[[i]]$adjr2, digits ))
+                  round( x$eq[[i]]$r.squared,     digits ),
+                  round( x$eq[[i]]$adj.r.squared, digits ))
     table  <- rbind( table, row )
-    if( is.null( x$eq[[i]]$eqnlabel ) ) {
+    if( is.null( x$eq[[i]]$eqnLabel ) ) {
       labels <- rbind( labels, paste( "equation", i ) )
     } else {
-      labels <- rbind( labels, x$eq[[i]]$eqnlabel )
+      labels <- rbind( labels, x$eq[[i]]$eqnLabel )
     }
   }
   rownames(table) <- c( labels )
@@ -58,49 +81,40 @@ print.summary.systemfit <- function( x, digits=6,... ) {
 
   cat("\n")
 
-  if(!is.null(x$rcovest)) {
+  if(!is.null(x$residCovEst)) {
     cat("The covariance matrix of the residuals used for estimation\n")
-    rcov <- x$rcovest
-    rownames(rcov) <- labels
-    colnames(rcov) <- labels
-    print( rcov )
+    print( x$residCovEst )
     cat("\n")
-    if( min(eigen( x$rcov, only.values=TRUE)$values) < 0 ) {
+    if( min(eigen( x$residCov, only.values=TRUE)$values) < 0 ) {
       cat("warning: this covariance matrix is NOT positive semidefinit!\n")
       cat("\n")
     }
   }
 
   cat("The covariance matrix of the residuals\n")
-  rcov <- x$rcov
-  rownames(rcov) <- labels
-  colnames(rcov) <- labels
-  print( rcov )
+  print( x$residCov )
   cat("\n")
 
   cat("The correlations of the residuals\n")
-  rcor <- x$rcor
-  rownames(rcor) <- labels
-  colnames(rcor) <- labels
-  print( rcor )
+  print( x$residCor )
   cat("\n")
 
   cat("The determinant of the residual covariance matrix: ")
-  cat(x$drcov)
+  cat( x$detResidCov )
   cat("\n")
 
   cat("OLS R-squared value of the system: ")
-  cat(x$olsr2)
+  cat( x$ols.r.squared )
   cat("\n")
 
-  if(!is.null(x$mcelr2)) {
+  if(!is.null(x$mcelroy.r.squared)) {
     cat("McElroy's R-squared value for the system: ")
-    cat(x$mcelr2)
+    cat(x$mcelroy.r.squared)
     cat("\n")
   }
   ## now print the individual equations
   for(i in 1:x$nEq) {
-      print( summary( x$eq[[i]] ), digits )
+      print( x$eq[[i]], digits )
   }
   invisible( x )
 }

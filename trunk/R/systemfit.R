@@ -665,6 +665,7 @@ systemfit <- function(  eqns,
 
   ## build the "return" structure for the whole system
   results$method  <- method
+  results$eqnLabels <- eqnlabels
   results$nEq     <- nEq            # number of equations
   results$nObsAll <- nObsAll        # total number of observations of all equations
   results$nObsEq  <- nObsEq         # number of observations in each equation
