@@ -1,4 +1,4 @@
-## print the (summary) results that belong to the whole system
+## prepare summary results that belong to the whole system
 summary.systemfit <- function(object,...) {
    object$coefTab <- cbind( object$coef, object$se, object$t, object$p )
    colnames( object$coefTab ) <- c( "Estimate", "Std. Error",
@@ -106,13 +106,29 @@ print.summary.systemfit <- function( x, digits=6,... ) {
 }
 
 
-## print the (summary) results for a single equation
+## prepare summary results for a single equation
 summary.systemfit.equation <- function(object,...) {
-   object$coef <- cbind( object$b, object$se, object$t, object$p )
-   colnames( object$coef ) <- c( "Estimate", "Std. Error",
+   result <- list()
+   result$eqnLabel <- object$eqnlabel
+   result$eqnNo <- object$i
+   result$formula <- object$formula
+   result$instruments <- object$inst
+   result$method <- object$method
+   result$residuals <- object$residuals
+   result$coefficients <- cbind( object$b, object$se, object$t, object$p )
+   colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
-   class( object ) <- "summary.systemfit.equation"
-   return( object )
+   result$df <- c( object$nExog, object$nObs - object$nExog )
+   result$nObs <- object$nObs
+   result$sigma <- object$s
+   result$ssr <- object$ssr
+   result$mse <- object$mse
+   result$rmse <- object$rmse
+   result$r.squared <- object$r2
+   result$adj.r.squared <- object$adjr2
+   result$coefCov <- object$bcov
+   class( result ) <- "summary.systemfit.equation"
+   return( result )
 }
 
 
@@ -123,11 +139,11 @@ print.summary.systemfit.equation <- function( x, digits=6, ... ) {
   on.exit(options(digits=save.digits))
 
   cat("\n")
-  if( is.null( x$eqnlabel ) ) {
-    cat( x$method, " estimates for equation ", x$i, "\n", sep = "" )
+  if( is.null( x$eqnLabel ) ) {
+    cat( x$method, " estimates for equation ", x$eqnNo, "\n", sep = "" )
   } else {
-    cat( x$method, " estimates for '", x$eqnlabel,
-         "' (equation ", x$i, ")\n", sep = "" )
+    cat( x$method, " estimates for '", x$eqnLabel,
+         "' (equation ", x$eqnNo, ")\n", sep = "" )
   }
 
   cat("Model Formula: ")
@@ -138,17 +154,14 @@ print.summary.systemfit.equation <- function( x, digits=6, ... ) {
   }
   cat("\n")
 
-  Signif <- symnum(x$p, corr = FALSE, na = FALSE,
+  Signif <- symnum(x$coefficients[,4], corr = FALSE, na = FALSE,
                    cutpoints = c( 0, 0.001, 0.01, 0.05, 0.1, 1 ),
                    symbols   = c( "***", "**", "*", "." ," " ))
 
-  table <- cbind(round( x$b,  digits ),
-                 round( x$se, digits ),
-                 round( x$t,  digits ),
-                 round( x$p,  digits ),
+  table <- cbind(round( x$coefficients,  digits ),
                  Signif)
 
-  rownames(table) <- names(x$b)
+  rownames(table) <- rownames(x$coefficients)
   colnames(table) <- c("Estimate","Std. Error","t value","Pr(>|t|)","")
 
   ##print.matrix(table, quote = FALSE, right = TRUE )
@@ -156,19 +169,19 @@ print.summary.systemfit.equation <- function( x, digits=6, ... ) {
   print(table, quote = FALSE, right = TRUE )
   cat("---\nSignif. codes: ",attr(Signif,"legend"),"\n")
 
-  cat(paste("\nResidual standard error:", round(x$s, digits),
-            "on", x$df, "degrees of freedom\n"))
+  cat(paste("\nResidual standard error:", round( x$sigma, digits ),
+            "on", x$df[ 2 ], "degrees of freedom\n" ))
             # s ist the variance, isn't it???
 
-  cat( paste( "Number of observations:", round(x$nObs, digits),
-              "Degrees of Freedom:", round(x$df, digits),"\n" ) )
+  cat( paste( "Number of observations:", round( x$nObs, digits ),
+              "Degrees of Freedom:", round( x$df[ 2 ], digits ),"\n" ) )
 
-  cat( paste( "SSR:",     round(x$ssr,    digits),
-              "MSE:", round(x$mse, digits),
-              "Root MSE:",   round(x$rmse,  digits), "\n" ) )
+  cat( paste( "SSR:", round( x$ssr, digits ),
+              "MSE:", round( x$mse, digits ),
+              "Root MSE:", round(x$rmse, digits), "\n" ) )
 
-  cat( paste( "Multiple R-Squared:", round(x$r2,    digits),
-              "Adjusted R-Squared:", round(x$adjr2, digits),
+  cat( paste( "Multiple R-Squared:", round( x$r.squared, digits ),
+              "Adjusted R-Squared:", round( x$adj.r.squared, digits ),
               "\n" ) )
   cat("\n")
   invisible( x )
