@@ -29,6 +29,59 @@
    \item{...}{not used by user.}
 }
 
+\value{
+   Applying \code{summary} on an object of class \code{systemfit}
+   returns a list of class \code{summary.}\hspace{0pt}\code{systemfit}.
+   Applying \code{summary} on an object of class
+   \code{systemfit.}\hspace{0pt}\code{equation}
+   returns a list of class
+   \code{summary.}\hspace{0pt}\code{systemfit.}\hspace{0pt}\code{equation}.
+   An object of class \code{summary.}\hspace{0pt}\code{systemfit}
+   contains all results that belong to the whole system.
+   This list contains one special object: \code{eq}.
+   This is a list and contains objects of class
+   \code{summary.}\hspace{0pt}\code{systemfit.}\hspace{0pt}\code{equation}.
+   These objects contain the results that belong to each of the eatimated equations.
+
+   The objects of classes \code{summary.}\hspace{0pt}\code{systemfit} and
+   \code{summary.}\hspace{0pt}\code{systemfit.}\hspace{0pt}\code{equation}
+   have the following components
+   (elements that are marked with a \eqn{*} are available only in objects of
+   class \code{summary.}\hspace{0pt}\code{systemfit};
+   elements that are marked with a \eqn{+} are available only in objects of
+   class \code{summary.}\hspace{0pt}\code{systemfit.}\hspace{0pt}\code{equation}):
+
+   \item{method}{estimation method.}
+   \item{residuals}{residuals.}
+   \item{coefficients}{a matrix with columns for the estimated coefficients,
+      their standard errors, t-statistic and corresponding (two-sided) p-values.}
+   \item{df}{degrees of freedom, a 2-vector, where the first element is the number
+      of coefficients and the second element is the number of observations minus
+      the number of coefficients.}
+   \item{coefCov}{estimated covariance matrix of the coefficients.}
+   \item{ols.r.squared*}{OLS \eqn{R^2} value of the entire system.}
+   \item{mcelroy.r.squared*}{McElroys \eqn{R^2} value for the system (only SUR and 3SLS).}
+   \item{nEq*}{number of equations.}
+   \item{iter*}{number of iteration steps (only if the estimation is iterated).}
+   \item{maxiter*}{maximum number of iterations.}
+   \item{residCov*}{estimated residual covariance matrix.}
+   \item{residCovEst*}{residual covariance matrix used for estimation (only SUR and 3SLS).}
+   \item{residCor*}{correlation matrix of the residuals.}
+   \item{detResidCov*}{determinant of \code{residCov}.}
+   \item{eqnLabel+}{equation label.}
+   \item{eqnNo+}{equation number.}
+   \item{formula+}{formula of the equation.}
+   \item{r.squared+}{\eqn{R^2} value of the respective equation.}
+   \item{adj.r.squared+}{adjusted \eqn{R^2} value of the respective equation.}
+   \item{sigma+}{the square root of the estimated variance of the random error
+      of the respective equation.}
+   \item{ssr+}{sum of squared residuals of the respective equation.}
+   \item{mse+}{estimated variance of the residuals (mean of squared errors)
+      of the respective equation.}
+   \item{rmse+}{estimated standard error of the residulas (square root of mse)
+      of the respective equation.}
+}
+
 \author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com},\cr
    Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de} }
 
