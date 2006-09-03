@@ -209,10 +209,9 @@ eq 2 price         0.008136       0.000763   0.000472
 eq 2 farmPrice     0.000763       0.001819   0.001122
 eq 2 trend         0.000472       0.001122   0.008090
 > 
-> ## ********************* 2SLS (probdfsys = TRUE) *****************
-> fit2sls1p <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
-+    probdfsys = TRUE )
-> print( summary( fit2sls1p ) )
+> ## ********************* 2SLS (probDfSys = TRUE) *****************
+> fit2sls1p <- systemfit( system, "2SLS", data = Kmenta, inst = inst )
+> print( summary( fit2sls1p, probDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -595,10 +594,10 @@ eq 2 price         0.010116       0.000884   0.000108
 eq 2 farmPrice     0.000884       0.002109   0.000256
 eq 2 trend         0.000108       0.000256   0.001847
 > 
-> ## ********************* 2SLS with restriction (probdfsys=T) **************
+> ## ********************* 2SLS with restriction (probDfSys=T) **************
 > fit2sls2p <- systemfit( system, "2SLS", data = Kmenta, R.restr = restrm,
-+    inst = inst, probdfsys = TRUE )
-> print( summary( fit2sls2p ) )
++    inst = inst )
+> print( summary( fit2sls2p, probDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -829,8 +828,8 @@ eq 2 trend         0.000090       0.000215   0.001552
 > ## ********************* 2SLS with restriction via TX ******************
 > ## *************** 2SLS with restriction via TX (default )***************
 > fit2sls3 <- systemfit( system, "2SLS", data = Kmenta, TX = tc,
-+    inst = inst, methodRCov = "noDfCor", probdfsys = TRUE )
-> print( summary( fit2sls3 ) )
++    inst = inst, methodRCov = "noDfCor" )
+> print( summary( fit2sls3, probDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -906,8 +905,8 @@ eq 2 trend         0.000102       0.000243   0.001752
 > 
 > ## ********************* 2SLS with restriction via TX (EViews-like) *******
 > fit2sls3e <- systemfit( system, "2SLS", data = Kmenta, TX = tc,
-+    inst = inst, methodRCov = "noDfCor", probdfsys = TRUE )
-> print( summary( fit2sls3e ) )
++    inst = inst, methodRCov = "noDfCor" )
+> print( summary( fit2sls3e, probDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -1136,10 +1135,10 @@ eq 2 price         0.004681       0.000252  -0.001129
 eq 2 farmPrice     0.000252       0.002072   0.000110
 eq 2 trend        -0.001129       0.000110   0.001551
 > 
-> ## ***************** 2SLS with 2 restrictions (probdfsys=T) **************
+> ## ***************** 2SLS with 2 restrictions (probDfSys=T) **************
 > fit2sls4p <- systemfit( system, "2SLS", data = Kmenta, R.restr = restr2m,
-+    q.restr = restr2q, inst = inst, probdfsys = TRUE )
-> print( summary( fit2sls4p ) )
++    q.restr = restr2q, inst = inst )
+> print( summary( fit2sls4p, probDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -1522,10 +1521,10 @@ eq 2 price         0.004681       0.000252  -0.001129
 eq 2 farmPrice     0.000252       0.002072   0.000110
 eq 2 trend        -0.001129       0.000110   0.001551
 > 
-> ## ********** 2SLS with 2 restrictions via R and TX (probdfsys=T) *******
+> ## ********** 2SLS with 2 restrictions via R and TX (probDfSys=T) *******
 > fit2sls5p <- systemfit( system, "2SLS", data = Kmenta, R.restr = restr3m,
-+    q.restr = restr3q, TX = tc, inst = inst, probdfsys = TRUE )
-> print( summary( fit2sls5p ) )
++    q.restr = restr3q, TX = tc, inst = inst )
+> print( summary( fit2sls5p, probDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -1907,10 +1906,9 @@ eq 2 price         0.008222       0.000771   0.000477
 eq 2 farmPrice     0.000771       0.001838   0.001133
 eq 2 trend         0.000477       0.001133   0.008176
 > 
-> ## ********* 2SLS estimation with different instruments (probdfsys=T) *******
-> fit2slsd1p <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
-+    probdfsys = TRUE )
-> print( summary( fit2slsd1p ) )
+> ## ********* 2SLS estimation with different instruments (probDfSys=T) *******
+> fit2slsd1p <- systemfit( system, "2SLS", data = Kmenta, inst = instlist )
+> print( summary( fit2slsd1p, probDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -2293,10 +2291,10 @@ eq 2 price         0.010341       0.000908   0.000137
 eq 2 farmPrice     0.000908       0.002165   0.000325
 eq 2 trend         0.000137       0.000325   0.002348
 > 
-> ## **** 2SLS estimation with different instruments and restriction (probdfsys=F)
+> ## **** 2SLS estimation with different instruments and restriction (probDfSys=F)
 > fit2slsd2p <- systemfit( system, "2SLS", data = Kmenta, R.restr = restrm,
-+    inst = instlist, probdfsys = FALSE )
-> print( summary( fit2slsd2p ) )
++    inst = instlist )
+> print( summary( fit2slsd2p, probDfSys = FALSE ) )
 
 systemfit results 
 method: 2SLS 

@@ -133,9 +133,8 @@ eq 2 farmPrice     0.000629       0.001589   0.002018
 eq 2 trend         0.000799       0.002018   0.004612
 > 
 > ## ********************* SUR (EViews-like) *****************
-> fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
-+    probdfsys = TRUE )
-> print( summary( fitsur1e ) )
+> fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor" )
+> print( summary( fitsur1e, probDfSys = TRUE ) )
 
 systemfit results 
 method: SUR 
@@ -295,10 +294,9 @@ eq 2 price         0.008900       0.000584   0.000772
 eq 2 farmPrice     0.000584       0.001476   0.001950
 eq 2 trend         0.000772       0.001950   0.004100
 > 
-> ## *************** SUR (methodRCov="Theil", probdfsys = TRUE ) ***************
-> fitsur1cp <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
-+    probdfsys = TRUE )
-> print( summary( fitsur1cp ) )
+> ## *************** SUR (methodRCov="Theil", probDfSys = TRUE ) ***************
+> fitsur1cp <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
+> print( summary( fitsur1cp, probDfSys = TRUE ) )
 
 systemfit results 
 method: SUR 
@@ -1352,8 +1350,8 @@ eq 2 trend         -0.001656       0.001795   0.004299
 > 
 > ## ************** iterated SUR (EViews-like) *****************
 > fitsuri1e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
-+    probdfsys = TRUE, maxit = 100 )
-> print( summary( fitsuri1e ) )
++    maxit = 100 )
+> print( summary( fitsuri1e, probDfSys = TRUE ) )
 
 systemfit results 
 method: iterated SUR 
@@ -1516,10 +1514,10 @@ eq 2 income         0.001786      -0.001016  -0.001626
 eq 2 farmPrice     -0.001016       0.001365   0.001793
 eq 2 trend         -0.001626       0.001793   0.004128
 > 
-> ## ************** iterated SUR (methodRCov="Theil", probdfsys=TRUE) *****************
+> ## ************** iterated SUR (methodRCov="Theil", probDfSys=TRUE) *****************
 > fitsuri1cp <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
-+    probdfsys = TRUE, maxit = 100 )
-> print( summary( fitsuri1cp ) )
++    maxit = 100 )
+> print( summary( fitsuri1cp, probDfSys = TRUE ) )
 
 systemfit results 
 method: iterated SUR 

@@ -11,9 +11,9 @@
 }
 
 \usage{
-   \method{summary}{systemfit}( object, ... )
+   \method{summary}{systemfit}( object, probDfSys = NULL, ... )
 
-   \method{summary}{systemfit.equation}( object, ... )
+   \method{summary}{systemfit.equation}( object, probDfSys = NULL, ... )
 
    \method{print}{summary.systemfit}( x, digits = 6, ... )
 
@@ -25,6 +25,11 @@
       \code{systemfit.equation}.}
    \item{x}{an object of class \code{summary.systemfit} or
       \code{summary.systemfit.equation}.}
+   \item{probDfSys}{logical. Use the degrees of freedom of the whole system
+      (in place of the degrees of freedom of the single equation)
+      to calculate prob values for the t-test of individual parameters.
+      If it not specified (\code{NULL}), it is set to \code{TRUE}
+      if there are parameter restrictions and \code{FALSE} otherwise.}
    \item{digits}{number of digits to print.}
    \item{...}{not used by user.}
 }

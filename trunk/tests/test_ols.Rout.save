@@ -202,10 +202,9 @@ eq 2 price         0.007352       0.000689   0.000426
 eq 2 farmPrice     0.000689       0.001742   0.001074
 eq 2 trend         0.000426       0.001074   0.007766
 > 
-> ## ****************  OLS (probdfsys=T) ***********************
-> fitols1p <- systemfit( system, "OLS", data = Kmenta,
-+    probdfsys = TRUE )
-> print( summary( fitols1p ) )
+> ## ****************  OLS (probDfSys=T) ***********************
+> fitols1p <- systemfit( system, "OLS", data = Kmenta )
+> print( summary( fitols1p, probDfSys = TRUE ) )
 
 systemfit results 
 method: OLS 
@@ -804,10 +803,10 @@ eq 2 price         0.009225       0.000806   0.000095
 eq 2 farmPrice     0.000806       0.002038   0.000238
 eq 2 trend         0.000095       0.000238   0.001722
 > 
-> ## ****** OLS with cross-equation restriction (probdfsys=F) *******
+> ## ****** OLS with cross-equation restriction (probDfSys=F) *******
 > fitols2p <- systemfit( system, "OLS", data = Kmenta,
-+    R.restr = restrm, probdfsys = FALSE )
-> print( summary( fitols2p ) )
++    R.restr = restrm )
+> print( summary( fitols2p, probDfSys = FALSE ) )
 
 systemfit results 
 method: OLS 
@@ -1179,10 +1178,10 @@ eq 2 price         0.009225       0.000806   0.000095
 eq 2 farmPrice     0.000806       0.002038   0.000238
 eq 2 trend         0.000095       0.000238   0.001722
 > 
-> ## *** OLS with cross-equation restriction via TX (probdfsys=F) ***
+> ## *** OLS with cross-equation restriction via TX (probDfSys=F) ***
 > fitols3p <- systemfit( system, "OLS", data = Kmenta,
-+    TX = tc, probdfsys = FALSE )
-> print( summary( fitols3p ) )
++    TX = tc )
+> print( summary( fitols3p, probDfSys = FALSE ) )
 
 systemfit results 
 method: OLS 
@@ -1555,10 +1554,10 @@ eq 2 price         0.004201       0.000226  -0.001011
 eq 2 farmPrice     0.000226       0.001986   0.000111
 eq 2 trend        -0.001011       0.000111   0.001481
 > 
-> ## ****** OLS with 2 cross-equation restrictions (probdfsys=F) *******
+> ## ****** OLS with 2 cross-equation restrictions (probDfSys=F) *******
 > fitols4p <- systemfit( system, "OLS", data = Kmenta, R.restr = restr2m,
-+    q.restr = restr2q, probdfsys = F )
-> print( summary( fitols4p ) )
++    q.restr = restr2q )
+> print( summary( fitols4p, probDfSys = FALSE ) )
 
 systemfit results 
 method: OLS 
@@ -1931,10 +1930,10 @@ eq 2 price         0.004201       0.000226  -0.001011
 eq 2 farmPrice     0.000226       0.001986   0.000111
 eq 2 trend        -0.001011       0.000111   0.001481
 > 
-> ## ***** OLS with 2 cross-equation restrictions via R and TX (probdfsys=F) ****
+> ## ***** OLS with 2 cross-equation restrictions via R and TX (probDfSys=F) ****
 > fitols5p <- systemfit( system, "OLS", data = Kmenta,R.restr = restr3m,
-+    q.restr = restr3q, TX = tc, probdfsys = F )
-> print( summary( fitols5p ) )
++    q.restr = restr3q, TX = tc )
+> print( summary( fitols5p, probDfSys = FALSE ) )
 
 systemfit results 
 method: OLS 

@@ -12,7 +12,8 @@
 \usage{
 \method{predict}{systemfit}( object, data = object$data,
                              se.fit = FALSE, se.pred = FALSE,
-                             interval = "none", level=0.95, ... )
+                             interval = "none", level=0.95,
+                             probDfSys = NULL, ... )
 
 \method{predict}{systemfit.equation}( object, data, ... )
 }
@@ -26,6 +27,11 @@
    \item{interval}{Type of interval calculation ("none", "confidence"
       or "prediction")}
    \item{level}{Tolerance/confidence level.}
+   \item{probDfSys}{logical. Use the degrees of freedom of the whole system
+      (in place of the degrees of freedom of the single equation)
+      to calculate prob values for the t-test of individual parameters.
+      If it not specified (\code{NULL}), it is set to \code{TRUE}
+      if there are parameter restrictions and \code{FALSE} otherwise.}
    \item{...}{additional optional arguments.}
 }
 

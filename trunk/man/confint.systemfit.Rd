@@ -9,15 +9,22 @@
 }
 
 \usage{
-   \method{confint}{systemfit}( object, parm = NULL, level = 0.95, \dots )
+   \method{confint}{systemfit}( object, parm = NULL, level = 0.95,
+      probDfSys = NULL, \dots )
 
-   \method{confint}{systemfit.equation}( object, parm, level = 0.95, \dots )
+   \method{confint}{systemfit.equation}( object, parm, level = 0.95,
+      probDfSys = NULL, \dots )
 }
 
 \arguments{
    \item{object}{an object of class \code{systemfit} or \code{systemfit.equation}.}
    \item{parm}{not used yet.}
    \item{level}{confidence level.}
+   \item{probDfSys}{logical. Use the degrees of freedom of the whole system
+      (in place of the degrees of freedom of the single equation)
+      to calculate prob values for the t-test of individual parameters.
+      If it not specified (\code{NULL}), it is set to \code{TRUE}
+      if there are parameter restrictions and \code{FALSE} otherwise.}
    \item{\dots}{other arguments.}
 }
 

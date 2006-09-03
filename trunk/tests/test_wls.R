@@ -36,9 +36,8 @@ print( summary( fitwls1 ) )
 print( round( fitwls1$bcov, digits = 6 ) )
 
 ## *************** WLS estimation (EViews-like) ************************
-fitwls1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-   probdfsys = TRUE )
-print( summary( fitwls1e ) )
+fitwls1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor" )
+print( summary( fitwls1e, probDfSys = TRUE ) )
 print( round( fitwls1e$bcov, digits = 6 ) )
 
 ## ************** WLS with cross-equation restriction ***************
@@ -88,15 +87,15 @@ print( summary( fitwls5e ) )
 print( round( fitwls5e$bcov, digits = 6 ) )
 
 ## *************** iterated WLS estimation *********************
-fitwlsi1 <- systemfit( system, "WLS", data = Kmenta, probdfsys = TRUE,
+fitwlsi1 <- systemfit( system, "WLS", data = Kmenta,
    maxit = 100 )
-print( summary( fitwlsi1 ) )
+print( summary( fitwlsi1, probDfSys = TRUE ) )
 print( round( fitwlsi1$bcov, digits = 6 ) )
 
 ## *************** iterated WLS estimation (EViews-like) ************
 fitwlsi1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-   probdfsys = TRUE, maxit = 100 )
-print( summary( fitwlsi1e ) )
+   maxit = 100 )
+print( summary( fitwlsi1e, probDfSys = TRUE ) )
 print( round( fitwlsi1e$bcov, digits = 6 ) )
 
 ## ****** iterated WLS with cross-equation restriction ***************

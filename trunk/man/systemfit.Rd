@@ -21,7 +21,6 @@ systemfit( eqns, method = "OLS",
            q.restr=matrix(0,max(nrow(R.restr),0),1),
            TX=NULL, maxiter=1, tol=1e-5,
            methodRCov="geomean", centerResiduals = FALSE, method3sls="GLS",
-           probdfsys=!(is.null(R.restr) & is.null(TX)),
            single.eq.sigma=(is.null(R.restr) & is.null(TX)),
            solvetol=.Machine$double.eps,
            saveMemory=( nrow(data) * length(eqns) > 1000 &&
@@ -64,9 +63,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
       of each equation before calculating the estimated residual covariance matrix.}
    \item{method3sls}{method for calculating the 3SLS estimator,
       one of "GLS", "IV", "GMM", "Schmidt", or "EViews" (see details).}
-   \item{probdfsys}{use the degrees of freedom of the whole system
-      (in place of the degrees of freedom of the single equation)
-      to calculate prob values for the t-test of individual parameters.}
    \item{single.eq.sigma}{use different \eqn{\sigma^2}s for each
       single equation to calculate the covariance matrix and the
       standard errors of the coefficients (only OLS and 2SLS).}
@@ -199,7 +195,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{methodRCov}{method for calculating the estimated residual covariance
     matrix}
   \item{method3sls}{method for calculating the 3SLS estimator.}
-  \item{probdfsys}{system degrees of freedom to calculate prob values?.}
   \item{single.eq.sigma}{different \eqn{\sigma^2}s for each single equation?.}
   \item{solvetol}{tolerance level when inverting a matrix or calculating a determinant.}
   \item{data.name}{name of the data.frame used for estimation.}
@@ -215,6 +210,10 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{nExogLi*}{number of linear independent coefficients in the ith equation
      (including the constant differs from \code{nExog*} only if there are
      restrictions that are not cross-equation).}
+  \item{nExogAll*}{total number of exogenous variables/coefficients
+      in all equation (including constants).}
+  \item{nExogLiAll*}{total number of linear independent coefficients
+      in all equations (including constants).}
   \item{df*}{degrees of freedom of the ith equation.}
 
   \item{b*}{estimated coefficients of the ith equation.}

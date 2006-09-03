@@ -34,7 +34,6 @@ systemfit <- function(  eqns,
                         methodRCov="geomean",
                         centerResiduals = FALSE,
                         method3sls="GLS",
-                        probdfsys=!(is.null(R.restr) & is.null(TX)),
                         single.eq.sigma=(is.null(R.restr) & is.null(TX)),
                         solvetol=.Machine$double.eps,
                         saveMemory = ( nrow( data ) * length( eqns ) > 1000 &&
@@ -546,10 +545,11 @@ systemfit <- function(  eqns,
     resulti$nObs         <- nObsEq[i]       # number of observations
     resulti$nExog        <- nExogEq[i]      # number of exogenous variables/coefficients
     resulti$nExogLi      <- nExogLiEq[i]    # number of linear independent coefficients
+    resulti$nExogAll     <- nExogAll        # number of exogenous variables/coefficients
+    resulti$nExogLiAll   <- nExogLiAll      # number of linear independent coefficients
     resulti$df           <- df[i]           # degrees of freedom of residuals
     resulti$dfSys        <- nObsAll- nExogLiAll
        # degrees of freedom of residuals of the whole system
-    resulti$probdfsys    <- probdfsys       #
     resulti$b            <- c( bi )         # estimated coefficients
     resulti$bcov         <- bcovi           # covariance matrix of estimated coefficients
     resulti$yVec         <- yVecEq[[i]]     # vector of endogenous variables
@@ -674,7 +674,6 @@ systemfit <- function(  eqns,
   results$tol     <- tol
   results$methodRCov     <- methodRCov
   results$method3sls     <- method3sls
-  results$probdfsys       <- probdfsys
   results$single.eq.sigma <- single.eq.sigma
   results$solvetol        <- solvetol
   class(results)  <- "systemfit"
@@ -740,7 +739,14 @@ print.systemfit.equation <- function( x, digits=6, ... ) {
 ## calculate predicted values, its standard errors and the prediction intervals
 predict.systemfit <- function( object, data=object$data,
                                se.fit=FALSE, se.pred=FALSE,
-                               interval="none", level=0.95, ... ) {
+                               interval="none", level=0.95,
+                               probDfSys = NULL, ... ) {
+
+   if( is.null( probDfSys ) ) {
+      probDfSys <- object$nExogAll != object$nExogLiAll
+         # TRUE if there are restrictions imposed
+   }
+
    attach(data); on.exit( detach( data ) )
 
    predicted <- data.frame( obs=seq( nrow( data ) ) )
@@ -816,7 +822,7 @@ predict.systemfit <- function( object, data=object$data,
 
       # confidence intervals
       if( interval == "confidence" ) {
-         if( object$probdfsys ) {
+         if( probDfSys ) {
             tval   <- qt( 1 - ( 1- level )/2, object$df )
          } else {
             tval   <- qt( 1 - ( 1- level )/2, object$eq[[i]]$df )
@@ -835,7 +841,7 @@ predict.systemfit <- function( object, data=object$data,
       }
       # prediction intervals
       if( interval == "prediction" ) {
-         if( object$probdfsys ) {
+         if( probDfSys ) {
             tval   <- qt( 1 - ( 1- level )/2, object$df )
          } else {
             tval   <- qt( 1 - ( 1- level )/2, object$eq[[i]]$df )
@@ -955,7 +961,14 @@ vcov.systemfit.equation <- function( object, ... ) {
 }
 
 ## return the variance covariance matrix of the coefficients
-confint.systemfit <- function( object, parm = NULL, level = 0.95, ... ) {
+confint.systemfit <- function( object, parm = NULL, level = 0.95,
+      probDfSys = NULL, ... ) {
+
+   if( is.null( probDfSys ) ) {
+      probDfSys <- object$nExogAll != object$nExogLiAll
+         # TRUE if there are restrictions imposed
+   }
+
    a <- ( 1 - level ) / 2
    a <- c( a, 1 - a )
    pct <- paste( round( 100 * a, 1 ), "%" )
@@ -964,8 +977,8 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95, ... ) {
    j <- 1
    for( i in 1:object$nEq ) {
       object$eq[[i]]$dfSys <- object$df
-      object$eq[[i]]$probdfsys <- object$probdfsys
-      ci[ j:(j+object$eq[[ i ]]$nExog-1), ] <- confint( object$eq[[ i ]] )
+      ci[ j:(j+object$eq[[ i ]]$nExog-1), ] <- confint( object$eq[[ i ]],
+         probDfSys = probDfSys )
       j <- j + object$eq[[ i ]]$nExog
    }
    class( ci ) <- "confint.systemfit"
@@ -973,13 +986,20 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95, ... ) {
 }
 
 ## return the variance covariance matrix of the coefficients of a single equation
-confint.systemfit.equation <- function( object, parm = NULL, level = 0.95, ... ) {
+confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
+   probDfSys = NULL, ... ) {
+
+   if( is.null( probDfSys ) ) {
+      probDfSys <- object$nExogAll != object$nExogLiAll
+         # TRUE if there are restrictions imposed
+   }
+
    a <- ( 1 - level ) / 2
    a <- c( a, 1 - a )
    pct <- paste( round( 100 * a, 1 ), "%" )
    ci <- array( NA, dim = c( length( object$b ), 2),
             dimnames = list( names( object$b ), pct ) )
-   if( object$probdfsys ) {
+   if( probDfSys ) {
       fac <- qt( a, object$dfSys )
    } else {
       fac <- qt( a, object$df )

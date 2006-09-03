@@ -122,9 +122,8 @@ eq 2 farmPrice     0.000844       0.002133   0.001316
 eq 2 trend         0.000522       0.001316   0.009510
 > 
 > ## *************** WLS estimation (EViews-like) ************************
-> fitwls1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-+    probdfsys = TRUE )
-> print( summary( fitwls1e ) )
+> fitwls1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor" )
+> print( summary( fitwls1e, probDfSys = TRUE ) )
 
 systemfit results 
 method: WLS 
@@ -795,9 +794,9 @@ eq 2 farmPrice     0.000188       0.001590   0.000095
 eq 2 trend        -0.000826       0.000095   0.001240
 > 
 > ## *************** iterated WLS estimation *********************
-> fitwlsi1 <- systemfit( system, "WLS", data = Kmenta, probdfsys = TRUE,
+> fitwlsi1 <- systemfit( system, "WLS", data = Kmenta,
 +    maxit = 100 )
-> print( summary( fitwlsi1 ) )
+> print( summary( fitwlsi1, probDfSys = TRUE ) )
 
 systemfit results 
 method: WLS 
@@ -871,8 +870,8 @@ eq 2 trend         0.000522       0.001316   0.009510
 > 
 > ## *************** iterated WLS estimation (EViews-like) ************
 > fitwlsi1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-+    probdfsys = TRUE, maxit = 100 )
-> print( summary( fitwlsi1e ) )
++    maxit = 100 )
+> print( summary( fitwlsi1e, probDfSys = TRUE ) )
 
 systemfit results 
 method: WLS 

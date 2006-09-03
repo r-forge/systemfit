@@ -41,9 +41,8 @@ print( summary( fitsur1 ) )
 print( round( fitsur1$bcov, digits = 6 ) )
 
 ## ********************* SUR (EViews-like) *****************
-fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
-   probdfsys = TRUE )
-print( summary( fitsur1e ) )
+fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor" )
+print( summary( fitsur1e, probDfSys = TRUE ) )
 print( round( fitsur1e$bcov, digits = 6 ) )
 
 ## ********************* SUR (methodRCov="Theil") *****************
@@ -51,10 +50,9 @@ fitsur1c <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
 print( summary( fitsur1c ) )
 print( round( fitsur1c$bcov, digits = 6 ) )
 
-## *************** SUR (methodRCov="Theil", probdfsys = TRUE ) ***************
-fitsur1cp <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
-   probdfsys = TRUE )
-print( summary( fitsur1cp ) )
+## *************** SUR (methodRCov="Theil", probDfSys = TRUE ) ***************
+fitsur1cp <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
+print( summary( fitsur1cp, probDfSys = TRUE ) )
 print( round( fitsur1cp$bcov, digits = 6 ) )
 
 ## ********************* SUR (methodRCov="max") *****************
@@ -127,8 +125,8 @@ print( round( fitsuri1$bcov, digits = 6 ) )
 
 ## ************** iterated SUR (EViews-like) *****************
 fitsuri1e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
-   probdfsys = TRUE, maxit = 100 )
-print( summary( fitsuri1e ) )
+   maxit = 100 )
+print( summary( fitsuri1e, probDfSys = TRUE ) )
 print( round( fitsuri1e$bcov, digits = 6 ) )
 
 ## ************** iterated SUR (methodRCov = "Theil") ****************************
@@ -137,10 +135,10 @@ fitsuri1c <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
 print( summary( fitsuri1c ) )
 print( round( fitsuri1c$bcov, digits = 6 ) )
 
-## ************** iterated SUR (methodRCov="Theil", probdfsys=TRUE) *****************
+## ************** iterated SUR (methodRCov="Theil", probDfSys=TRUE) *****************
 fitsuri1cp <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
-   probdfsys = TRUE, maxit = 100 )
-print( summary( fitsuri1cp ) )
+   maxit = 100 )
+print( summary( fitsuri1cp, probDfSys = TRUE ) )
 print( round( fitsuri1cp$bcov, digits = 6 ) )
 
 ## ************** iterated SUR (methodRCov = "max") ****************************
