@@ -267,7 +267,7 @@ systemfit <- function(  eqns,
       }
     }
     xMatHatAll <- array(0,c(0,ncol(xMatAll)))       # fitted X values
-    H  <- matrix( 0, 0, 0 )           # stacked matrices of all instruments
+    hMatAll  <- matrix( 0, 0, 0 )           # stacked matrices of all instruments
     h  <- list()
     for(i in 1:nEq) {
       Xi <- xMatAll[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])),]
@@ -288,8 +288,8 @@ systemfit <- function(  eqns,
       # extract instrument matrix
       xMatHatAll <- rbind(xMatHatAll, h[[i]] %*% solve( crossprod( h[[i]]) , tol=solvetol )
               %*% crossprod( h[[i]], Xi ))       # 'fitted' X-values
-      H  <-  rbind( cbind( H, matrix( 0, nrow( H ), ncol( h[[i]] ))),
-                         cbind( matrix( 0, nrow( h[[i]] ), ncol( H )), h[[i]]))
+      hMatAll  <-  rbind( cbind( hMatAll, matrix( 0, nrow( hMatAll ), ncol( h[[i]] ))),
+                         cbind( matrix( 0, nrow( h[[i]] ), ncol( hMatAll )), h[[i]]))
 
     }
     if(is.null(R.restr)) {
@@ -368,19 +368,19 @@ systemfit <- function(  eqns,
             sigma = rcov, nObsEq = nObsEq, solvetol = solvetol )   # (unrestr.) coeffic.
       }
       if(method3sls=="GMM") {
-        HtOmega <- .calcXtOmegaInv( xMat = H, sigma = rcov, nObsEq = nObsEq,
+        HtOmega <- .calcXtOmegaInv( xMat = hMatAll, sigma = rcov, nObsEq = nObsEq,
            invertSigma = FALSE )
         if(is.null(R.restr)) {
-          coef <- solve(t(xMatAll) %*% H %*% solve( HtOmega %*%
-                 H, tol=solvetol) %*% t(H) %*% xMatAll, tol=solvetol) %*% t(xMatAll) %*% H %*%
+          coef <- solve(t(xMatAll) %*% hMatAll %*% solve( HtOmega %*%
+                 hMatAll, tol=solvetol) %*% t(hMatAll) %*% xMatAll, tol=solvetol) %*% t(xMatAll) %*% hMatAll %*%
                  solve( HtOmega %*%
-                 H, tol=solvetol) %*% t(H) %*% yVecAll  #(unrestr.) coeffic.
+                 hMatAll, tol=solvetol) %*% t(hMatAll) %*% yVecAll  #(unrestr.) coeffic.
         } else {
-          W <- rbind( cbind( t(xMatAll) %*% H %*% solve( HtOmega
-                              %*% H, tol=solvetol) %*% t(H) %*% xMatAll, t(R.restr) ),
+          W <- rbind( cbind( t(xMatAll) %*% hMatAll %*% solve( HtOmega
+                              %*% hMatAll, tol=solvetol) %*% t(hMatAll) %*% xMatAll, t(R.restr) ),
                       cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-          V <- rbind( t(xMatAll) %*% H %*% solve( HtOmega
-                      %*% H, tol=solvetol) %*% t(H) %*% yVecAll , q.restr )
+          V <- rbind( t(xMatAll) %*% hMatAll %*% solve( HtOmega
+                      %*% hMatAll, tol=solvetol) %*% t(hMatAll) %*% yVecAll , q.restr )
           Winv <- solve( W, tol=solvetol )
           coef <- ( Winv %*% V )[1:ncol(xMatAll)]     # restricted coefficients
         }
@@ -390,13 +390,13 @@ systemfit <- function(  eqns,
            solvetol = solvetol )
         if(is.null(R.restr)) {
           coef <- solve( t(xMatHatAll) %*% t( xMatHatOmegaInv ), tol=solvetol) %*% ( xMatHatOmegaInv
-                      %*% H %*% solve( crossprod( H ), tol=solvetol ) %*% crossprod(H, yVecAll) )
+                      %*% hMatAll %*% solve( crossprod( hMatAll ), tol=solvetol ) %*% crossprod(hMatAll, yVecAll) )
                            # (unrestr.) coeffic.
         } else {
           W <- rbind( cbind( t(xMatHatAll) %*% t( xMatHatOmegaInv ), t(R.restr) ),
                       cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-          V <- rbind( xMatHatOmegaInv %*% H %*% solve( crossprod( H ), tol=solvetol ) %*%
-                      crossprod( H, yVecAll ), q.restr )
+          V <- rbind( xMatHatOmegaInv %*% hMatAll %*% solve( crossprod( hMatAll ), tol=solvetol ) %*%
+                      crossprod( hMatAll, yVecAll ), q.restr )
           Winv <- solve( W, tol=solvetol )
           coef <- ( Winv %*% V )[1:ncol(xMatAll)]     # restricted coefficients
         }
@@ -418,8 +418,8 @@ systemfit <- function(  eqns,
     }
     if(method3sls=="GMM") {
       if(is.null(R.restr)) {
-        bcov <- solve( t(xMatAll) %*% H %*% solve( HtOmega %*% H, tol=solvetol ) %*%
-           t(H) %*% xMatAll, tol=solvetol )
+        bcov <- solve( t(xMatAll) %*% hMatAll %*% solve( HtOmega %*% hMatAll, tol=solvetol ) %*%
+           t(hMatAll) %*% xMatAll, tol=solvetol )
                 # final step coefficient covariance matrix
       } else {
         bcov   <- Winv[1:ncol(xMatAll),1:ncol(xMatAll)] # coefficient covariance matrix
@@ -428,7 +428,7 @@ systemfit <- function(  eqns,
     if(method3sls=="Schmidt") {
       xMatHatOmegaInv <- .calcXtOmegaInv( xMat = xMatHatAll, sigma = rcov, nObsEq = nObsEq,
          solvetol = solvetol )
-      PH <- H %*%  solve( t(H) %*% H, tol=solvetol ) %*% t(H)
+      PH <- hMatAll %*%  solve( t(hMatAll) %*% hMatAll, tol=solvetol ) %*% t(hMatAll)
       PHOmega <- .calcXtOmegaInv( xMat = t( PH ), sigma = rcov, nObsEq = nObsEq,
            invertSigma = FALSE )
       if(is.null(R.restr)) {
@@ -659,7 +659,7 @@ systemfit <- function(  eqns,
   results$data    <- alldata        # data frame for all data used in the system
   if( method == "2SLS" | method == "W2SLS" | method == "3SLS" |
       method == "W3SLS" ) {
-    results$h       <- H            # matrix of all (diagonally stacked) instr. variables
+    results$hMat    <- hMatAll            # matrix of all (diagonally stacked) instr. variables
     results$xHat    <- xMatHatAll           # matrix of "fitted" regressors
   }
   if( method == "SUR" | method == "WSUR" | method == "3SLS" |

@@ -185,7 +185,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{mcelr2}{McElroys R-squared value for the system (only SUR and 3SLS).}
   \item{yVec}{vector of all (stacked) endogenous variables}
   \item{xMat}{matrix of all (diagonally stacked) regressors}
-  \item{h}{matrix of all (diagonally stacked) instrumental variables (only 2SLS and 3SLS)}
+  \item{hMat}{matrix of all (diagonally stacked) instrumental variables (only 2SLS and 3SLS)}
   \item{data}{data frame of the whole system (including instruments)}
   \item{R.restr}{the restriction matrix.}
   \item{q.restr}{the restriction vector.}
