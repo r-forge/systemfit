@@ -227,10 +227,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{residuals*}{vector of residuals of the ith equation.}
 
   \item{ssr*}{sum of squared residuals of the ith equation.}
-  \item{mse*}{estimated variance of the residuals (mean of squared errors) of the ith equation.}
-  \item{s2*}{estimated variance of the residuals (\eqn{\hat{\sigma}^2}) of the ith equation.}
-  \item{rmse*}{estimated standard error of the residulas (square root of mse) of the ith equation.}
-  \item{s*}{estimated standard error of the residuals (\eqn{\hat{\sigma}}) of the ith equation.}
+  \item{sigma*}{estimated standard error of the residuals (\eqn{\hat{\sigma}}) of the ith equation.}
 
   \item{r2*}{R-squared (coefficient of determination).}
   \item{adjr2*}{adjusted R-squared value.}

@@ -78,13 +78,9 @@
    \item{formula+}{formula of the equation.}
    \item{r.squared+}{\eqn{R^2} value of the respective equation.}
    \item{adj.r.squared+}{adjusted \eqn{R^2} value of the respective equation.}
-   \item{sigma+}{the square root of the estimated variance of the random error
+   \item{sigma+}{estimated standard error of the residuals
       of the respective equation.}
    \item{ssr+}{sum of squared residuals of the respective equation.}
-   \item{mse+}{estimated variance of the residuals (mean of squared errors)
-      of the respective equation.}
-   \item{rmse+}{estimated standard error of the residulas (square root of mse)
-      of the respective equation.}
 }
 
 \author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com},\cr

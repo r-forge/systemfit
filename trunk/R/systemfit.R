@@ -66,8 +66,7 @@ systemfit <- function(  eqns,
                                      # in each equation
   instl   <- list()               # list of the instruments for each equation
   ssr     <- array( 0, c(nEq))    # sum of squared residuals of each equation
-  mse     <- array( 0, c(nEq))    # mean square error (residuals) of each equation
-  rmse    <- array( 0, c(nEq))    # root of mse
+  sigma   <- array( 0, c(nEq))    # estimated sigma (std. dev. of residuals) of each equation
   r2      <- array( 0, c(nEq))    # R-squared value
   adjr2   <- array( 0, c(nEq))    # adjusted R-squared value
   xnames  <- NULL                 # names of regressors
@@ -487,8 +486,7 @@ systemfit <- function(  eqns,
     rownames( bcovi ) <- colnames( xMatEq[[i]] )
 
     ssr    <- sum(residi[[i]]^2)                         # sum of squared residuals
-    mse    <- ssr/df[i]                                  # estimated variance of residuals
-    rmse   <- sqrt( mse )                                # estimated standard error of residuals
+    sigma  <- sqrt( ssr / df[i] ) # estimated standand deviation of residuals
     r2     <- 1 - ssr/(t(yVecEq[[i]])%*%yVecEq[[i]]-nObsEq[i]*mean(yVecEq[[i]])^2)
     adjr2  <- 1 - ((nObsEq[i]-1)/df[i])*(1-r2)
     fittedi <- fitted[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
@@ -555,10 +553,7 @@ systemfit <- function(  eqns,
     resulti$fitted       <- fittedi         # fitted values
     resulti$residuals    <- residi[[i]]     # residuals
     resulti$ssr          <- ssr             # sum of squared errors/residuals
-    resulti$mse          <- mse             # estimated variance of the residuals (mean squared error)
-    resulti$s2           <- mse             #        the same (sigma hat squared)
-    resulti$rmse         <- rmse            # estimated standard error of the residuals
-    resulti$s            <- rmse            #        the same (sigma hat)
+    resulti$sigma        <- sigma           # estimated standard error of the residuals
     resulti$r2           <- r2              # R-sqared value
     resulti$adjr2        <- adjr2           # adjusted R-squared value
     if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {

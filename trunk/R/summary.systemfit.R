@@ -79,8 +79,8 @@ print.summary.systemfit <- function( x, digits=6,... ) {
     row <- cbind( round( x$eq[[i]]$nObs,  digits ),
                   round( x$eq[[i]]$df[2], digits ),
                   round( x$eq[[i]]$ssr,   digits ),
-                  round( x$eq[[i]]$mse,   digits ),
-                  round( x$eq[[i]]$rmse,  digits ),
+                  round( x$eq[[i]]$sigma^2, digits ),
+                  round( x$eq[[i]]$sigma,   digits ),
                   round( x$eq[[i]]$r.squared,     digits ),
                   round( x$eq[[i]]$adj.r.squared, digits ))
     table  <- rbind( table, row )
@@ -170,10 +170,8 @@ summary.systemfit.equation <- function( object, probDfSys = NULL, ... ) {
       "t value", "Pr(>|t|)" )
    result$df <- c( object$nExog, object$nObs - object$nExog )
    result$nObs <- object$nObs
-   result$sigma <- object$s
+   result$sigma <- object$sigma
    result$ssr <- object$ssr
-   result$mse <- object$mse
-   result$rmse <- object$rmse
    result$r.squared <- object$r2
    result$adj.r.squared <- object$adjr2
    class( result ) <- "summary.systemfit.equation"
@@ -220,14 +218,13 @@ print.summary.systemfit.equation <- function( x, digits=6, ... ) {
 
   cat(paste("\nResidual standard error:", round( x$sigma, digits ),
             "on", x$df[ 2 ], "degrees of freedom\n" ))
-            # s ist the variance, isn't it???
 
   cat( paste( "Number of observations:", round( x$nObs, digits ),
               "Degrees of Freedom:", round( x$df[ 2 ], digits ),"\n" ) )
 
   cat( paste( "SSR:", round( x$ssr, digits ),
-              "MSE:", round( x$mse, digits ),
-              "Root MSE:", round(x$rmse, digits), "\n" ) )
+              "MSE:", round( x$sigma^2, digits ),
+              "Root MSE:", round(x$sigma, digits), "\n" ) )
 
   cat( paste( "Multiple R-Squared:", round( x$r.squared, digits ),
               "Adjusted R-Squared:", round( x$adj.r.squared, digits ),
