@@ -41,13 +41,12 @@ systemfit <- function(  eqns,
 {
 
    ## some tests
-   if(!( method=="OLS" | method=="WLS" | method=="SUR" | method=="WSUR" |
-         method=="2SLS" | method=="W2SLS" | method=="3SLS" | method=="W3SLS" |
-         method=="LIML" | method=="FIML")){
+   if(!( method %in% c( "OLS", "WLS", "SUR", "WSUR", "2SLS", "W2SLS", "3SLS",
+         "W3SLS", "LIML", "FIML" ) ) ){
       stop( "The method must be 'OLS', 'WLS', 'SUR', 'WSUR',",
          " '2SLS', 'W2SLS', '3SLS', or 'W3SLS'" )
    }
-   if( ( method=="2SLS" | method=="W2SLS" | method=="3SLS" | method=="W3SLS" ) &
+   if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) &
          is.null(inst) ) {
       stop( "The methods '2SLS', 'W2SLS', '3SLS', and 'W3SLS' need instruments!" )
    }
@@ -175,7 +174,7 @@ systemfit <- function(  eqns,
     df <- nObsEq - nExogLiEq    # degress of freedom of each equation
 
   ## only for OLS, WLS and SUR estimation
-  if(method=="OLS" | method=="WLS" | method=="SUR" | method=="WSUR") {
+  if( method %in% c( "OLS", "WLS", "SUR", "WSUR" ) ) {
     if(is.null(R.restr)) {
       coef <- solve( crossprod( xMatAll ), crossprod( xMatAll, yVecAll ), tol=solvetol )
                # estimated coefficients
@@ -211,7 +210,7 @@ systemfit <- function(  eqns,
   }
 
   ## only for WLS estimation
-  if( method == "WLS" | method == "WSUR" ) {
+  if( method %in% c( "WLS", "WSUR" ) ) {
     bl    <- coef   # coefficients of previous step
     bdif  <- coef   # difference of coefficients between this and previous step
     iter  <- 0
@@ -234,7 +233,7 @@ systemfit <- function(  eqns,
   }
 
   ## only for SUR estimation
-  if( method == "SUR" | method == "WSUR" ) {
+  if( method %in% c( "SUR", "WSUR" ) ) {
     bl    <- coef    # coefficients of previous step
     bdif  <- coef    # difference of coefficients between this and previous step
     iter  <- 0
@@ -257,8 +256,7 @@ systemfit <- function(  eqns,
   }
 
   ## only for 2SLS, W2SLS and 3SLS estimation
-  if( method == "2SLS" | method == "W2SLS" | method == "3SLS" |
-      method == "W3SLS" ) {
+  if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
     for(i in 1:nEq) {
       if(is.list(inst)) {
          instl[[i]] <- inst[[i]]
@@ -327,7 +325,7 @@ systemfit <- function(  eqns,
   }
 
   ## only for W2SLS estimation
-  if( method == "W2SLS" | method == "W3SLS" ) {
+  if( method %in% c( "W2SLS", "W3SLS" ) ) {
     bl     <- coef   # coefficients of previous step
     bdif   <- coef   # difference of coefficients between this and previous step
     iter  <- 0
@@ -349,7 +347,7 @@ systemfit <- function(  eqns,
   }
 
   ## only for 3SLS estimation
-  if( method == "3SLS" | method == "W3SLS" ) {
+  if( method %in% c( "3SLS", "W3SLS" ) ) {
     bl     <- coef  # coefficients of previous step
     bdif   <- coef  # difference of coefficients between this and previous step
     iter  <- 0
@@ -513,8 +511,7 @@ systemfit <- function(  eqns,
     # I guess there's a better way to extract the name of the output variable?
     names( datai )[1] <- as.character( terms( eqns[[ i ]] ) )[2]
     rm( resp )
-    if( method == "2SLS" | method == "W2SLS" | method == "3SLS" |
-        method == "W3SLS" ) {
+    if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
       #datai <- cbind( datai, model.frame( instl[[i]] ))
       # the following lines have to be substituted for the previous
       # line due to changes in the data handling.
@@ -564,8 +561,7 @@ systemfit <- function(  eqns,
     resulti$s            <- rmse            #        the same (sigma hat)
     resulti$r2           <- r2              # R-sqared value
     resulti$adjr2        <- adjr2           # adjusted R-squared value
-    if( method == "2SLS" | method == "W2SLS" | method == "3SLS" |
-        method == "W3SLS" ) {
+    if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
       resulti$inst         <- instl[[i]]
       resulti$hMat         <- hMatEq[[i]]          # matrix of instrumental variables
     }
@@ -585,8 +581,7 @@ systemfit <- function(  eqns,
    }
    olsr2 <- 1 - t(resids) %*% resids / sum( ( yVecAll - meanY )^2 )
                         # OLS system R2
-  if( method == "SUR" | method == "WSUR" | method == "3SLS" |
-      method == "W3SLS" ) {
+  if( method %in% c(  "SUR", "WSUR", "3SLS", "W3SLS" ) ) {
     rcovest <- rcov                   # residual covariance matrix used for estimation
   }
   rcov <- .calcRCov( resids, methodRCov = methodRCov, nObsEq = nObsEq,
@@ -657,13 +652,11 @@ systemfit <- function(  eqns,
   results$xMat    <- xMatAll        # matrix of all (diagonally stacked) regressors
   results$resids  <- resids         # vector of all (stacked) residuals
   results$data    <- alldata        # data frame for all data used in the system
-  if( method == "2SLS" | method == "W2SLS" | method == "3SLS" |
-      method == "W3SLS" ) {
+  if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ){
     results$hMat    <- hMatAll            # matrix of all (diagonally stacked) instr. variables
     results$xHat    <- xMatHatAll           # matrix of "fitted" regressors
   }
-  if( method == "SUR" | method == "WSUR" | method == "3SLS" |
-      method == "W3SLS" ) {
+  if( method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
     results$rcovest <- rcovest      # residual covarance matrix used for estimation
     results$mcelr2  <- mcelr2       # McElroy's R-squared value for the equation system
   }
@@ -764,8 +757,7 @@ predict.systemfit <- function( object, data=object$data,
       nObsEq[i]   <-  nrow( xMatEq[[i]] )
    }
    yVecAll <- xMatAll %*% object$coef
-   if( object$method == "SUR" | object$method == "WSUR" |
-       object$method == "3SLS" | object$method == "W3SLS") {
+   if( object$method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
       if( se.fit | interval == "confidence" ) {
          ycovc <- xMatAll %*% object$bcov %*% t(xMatAll)
       }
@@ -781,8 +773,7 @@ predict.systemfit <- function( object, data=object$data,
                                                           ".pred", sep="" )
       # calculate variance covariance matrices
       if( se.fit | interval == "confidence" ) {
-         if( object$method == "SUR" | object$method == "WSUR" |
-             object$method == "3SLS" | object$method== "W3SLS" ) {
+         if( object$method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
             ycovci <- ycovc[ ( 1 + sum( nObsEq[1:i] ) - nObsEq[i] ) : sum( nObsEq[1:i] ),
                              ( 1 + sum( nObsEq[1:i] ) - nObsEq[i] ) : sum( nObsEq[1:i] ) ]
          } else {
@@ -790,8 +781,7 @@ predict.systemfit <- function( object, data=object$data,
          }
       }
       if( se.pred | interval == "prediction" ) {
-         if( object$method == "SUR" | object$method == "WSUR" |
-             object$method == "3SLS" | object$method == "W3SLS" ) {
+         if( object$method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
             ycovpi <- ycovp[ ( 1 + sum( nObsEq[1:i] ) - nObsEq[i] ) : sum( nObsEq[1:i] ),
                             ( 1 + sum( nObsEq[1:i] ) - nObsEq[i] ) : sum( nObsEq[1:i] ) ]
          } else {

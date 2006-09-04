@@ -58,7 +58,7 @@
 .calcSigma2 <- function( resids, methodRCov, nObs, nCoef ) {
    if( methodRCov == "noDfCor" ) {
       result <- sum( resids^2 ) / nObs
-   } else if( methodRCov == "geomean" || methodRCov == "max") {
+   } else if( methodRCov %in% c( "geomean", "max" ) ){
       result <- sum( resids^2 )/ ( nObs - nCoef )
    } else {
       stop( paste( "Sigma^2 can only be calculated if argument",
