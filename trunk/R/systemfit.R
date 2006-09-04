@@ -268,11 +268,11 @@ systemfit <- function(  eqns,
     }
     xMatHatAll <- array(0,c(0,ncol(xMatAll)))       # fitted X values
     hMatAll  <- matrix( 0, 0, 0 )           # stacked matrices of all instruments
-    h  <- list()
+    hMatEq  <- list()
     for(i in 1:nEq) {
       Xi <- xMatAll[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])),]
             # regressors of the ith equation (including zeros)
-      #h[[i]] <- model.matrix( instl[[i]] )
+      #hMatEq[[i]] <- model.matrix( instl[[i]] )
       # the following lines have been substituted for the previous
       # line due to changes in the data handling.
       # code provided by Ott Toomet
@@ -280,16 +280,16 @@ systemfit <- function(  eqns,
       Terms <- terms(instl[[i]], data = data)
       m$formula <- Terms
       m <- eval(m, parent.frame())
-      h[[i]] <- model.matrix(Terms, m)
-      if( nrow( h[[ i ]] ) != nrow( Xi ) ) {
+      hMatEq[[i]] <- model.matrix(Terms, m)
+      if( nrow( hMatEq[[ i ]] ) != nrow( Xi ) ) {
          stop( paste( "The instruments and the regressors of equation",
             as.character( i ), "have different numbers of observations." ) )
       }
       # extract instrument matrix
-      xMatHatAll <- rbind(xMatHatAll, h[[i]] %*% solve( crossprod( h[[i]]) , tol=solvetol )
-              %*% crossprod( h[[i]], Xi ))       # 'fitted' X-values
-      hMatAll  <-  rbind( cbind( hMatAll, matrix( 0, nrow( hMatAll ), ncol( h[[i]] ))),
-                         cbind( matrix( 0, nrow( h[[i]] ), ncol( hMatAll )), h[[i]]))
+      xMatHatAll <- rbind(xMatHatAll, hMatEq[[i]] %*% solve( crossprod( hMatEq[[i]]) , tol=solvetol )
+              %*% crossprod( hMatEq[[i]], Xi ))       # 'fitted' X-values
+      hMatAll  <-  rbind( cbind( hMatAll, matrix( 0, nrow( hMatAll ), ncol( hMatEq[[i]] ))),
+                         cbind( matrix( 0, nrow( hMatEq[[i]] ), ncol( hMatAll )), hMatEq[[i]]))
 
     }
     if(is.null(R.restr)) {
@@ -567,7 +567,7 @@ systemfit <- function(  eqns,
     if( method == "2SLS" | method == "W2SLS" | method == "3SLS" |
         method == "W3SLS" ) {
       resulti$inst         <- instl[[i]]
-      resulti$h            <- h[[i]]          # matrix of instrumental variables
+      resulti$hMat         <- hMatEq[[i]]          # matrix of instrumental variables
     }
     class(resulti)        <- "systemfit.equation"
     results$eq[[i]]      <- resulti
