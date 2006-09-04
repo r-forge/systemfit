@@ -157,7 +157,7 @@ summary.systemfit.equation <- function( object, probDfSys = NULL, ... ) {
 
    # coefficients, standard errors, ... 
    result$coefCov <- object$bcov
-   coef <- object$b
+   coef <- object$coef
    stdEr <- diag( result$coefCov )^0.5  # standard errors
    tStat <- coef / stdEr                # t-statistic
    if( probDfSys ) {             # p-values

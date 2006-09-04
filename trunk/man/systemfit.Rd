@@ -216,8 +216,8 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
       in all equations (including constants).}
   \item{df*}{degrees of freedom of the ith equation.}
 
-  \item{b*}{estimated coefficients of the ith equation.}
-  \item{covb*}{estimated covariance matrix of \code{b}.}
+  \item{coef*}{estimated coefficients of the ith equation.}
+  \item{covb*}{estimated covariance matrix of \code{coef}.}
 
   \item{yVec*}{vector of endogenous variable (response values) of the ith equation.}
   \item{xMat*}{matrix of regressors (model matrix) of the ith equation.}

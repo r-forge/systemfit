@@ -475,13 +475,13 @@ systemfit <- function(  eqns,
   ## equation wise results
   for(i in 1:nEq) {
     residi[[i]] <- resids[ ( 1 + sum(nObsEq[1:i]) -nObsEq[i] ):( sum(nObsEq[1:i]) ) ]
-    bi     <- coef[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))]
+    coefEqI <- drop( coef[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))] )
               # estimated coefficients of equation i
     bcovi  <- bcov[(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i])),(1+sum(nExogEq[1:i])-nExogEq[i]):(sum(nExogEq[1:i]))]
               # covariance matrix of estimated coefficients of equation i
 
     # set names
-    names( bi ) <- colnames( xMatEq[[i]] )
+    names( coefEqI ) <- colnames( xMatEq[[i]] )
     colnames( bcovi ) <- colnames( xMatEq[[i]] )
     rownames( bcovi ) <- colnames( xMatEq[[i]] )
 
@@ -545,7 +545,7 @@ systemfit <- function(  eqns,
     resulti$df           <- df[i]           # degrees of freedom of residuals
     resulti$dfSys        <- nObsAll- nExogLiAll
        # degrees of freedom of residuals of the whole system
-    resulti$b            <- c( bi )         # estimated coefficients
+    resulti$coef         <- coefEqI         # estimated coefficients
     resulti$bcov         <- bcovi           # covariance matrix of estimated coefficients
     resulti$yVec         <- yVecEq[[i]]     # vector of endogenous variables
     resulti$xMat         <- xMatEq[[i]]     # matrix of regressors
@@ -719,7 +719,7 @@ print.systemfit.equation <- function( x, digits=6, ... ) {
    }
 
    cat("\nCoefficients:")
-   print( x$b )
+   print( x$coef )
    invisible( x )
 }
 
@@ -851,7 +851,7 @@ predict.systemfit <- function( object, data=object$data,
 predict.systemfit.equation <- function( object, data=object$data, ... ) {
    attach( data ); on.exit( detach( data ) )
    x <-  model.matrix( object$formula )
-   predicted <- drop( x %*% object$b )
+   predicted <- drop( x %*% object$coef )
    predicted
 }
 
@@ -907,7 +907,7 @@ coef.summary.systemfit <- function( object, ... ) {
 
 ## return the coefficients of a single equation
 coef.systemfit.equation <- function( object, ... ) {
-   object$b
+   object$coef
 }
 
 ## return coefficients, std.errors, t-values and p-values of a single equation
@@ -982,8 +982,8 @@ confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
    a <- ( 1 - level ) / 2
    a <- c( a, 1 - a )
    pct <- paste( round( 100 * a, 1 ), "%" )
-   ci <- matrix( NA, length( object$b ), 2,
-            dimnames = list( names( object$b ), pct ) )
+   ci <- matrix( NA, length( object$coef ), 2,
+            dimnames = list( names( object$coef ), pct ) )
    if( probDfSys ) {
       fac <- qt( a, object$dfSys )
    } else {
