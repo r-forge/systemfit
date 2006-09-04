@@ -12,8 +12,8 @@ lrtest.systemfit <- function( resultc, resultu ) {
     if(resultc$methodRCov == 0) {
       lrtest$statistic  <- nObs * ( log( resultc$drcov ) - log( resultu$drcov ) )
     } else {
-      residc <- array(resultc$resids,c(nObs,resultc$nEq))
-      residu <- array(resultu$resids,c(nObs,resultu$nEq))
+      residc <- matrix( resultc$resids, nObs, resultc$nEq )
+      residu <- matrix( resultu$resids, nObs, resultu$nEq )
       lrtest$statistic <- nObs * ( log( det( (t(residc) %*% residc)) ) -
                          log( det( (t(residu) %*% residu))))
     }

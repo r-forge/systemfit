@@ -61,15 +61,15 @@ systemfit <- function(  eqns,
   yVecAll <- matrix( 0, 0, 1 )    # stacked endogenous variables of all equations
   xMatEq  <- list()               # list for matrices of regressors in each equation
   xMatAll <- matrix( 0, 0, 0 )    # stacked matrices of all regressors (unrestricted)
-  nObsEq  <- array( 0, c(nEq))    # number of observations in each equation
-  nExogEq <- array( 0, c(nEq) )   # number of exogenous variables /(unrestricted) coefficients
+  nObsEq  <- numeric( nEq ) # number of observations in each equation
+  nExogEq <- numeric( nEq ) # number of exogenous variables /(unrestricted) coefficients
                                      # in each equation
-  instl   <- list()               # list of the instruments for each equation
-  ssr     <- array( 0, c(nEq))    # sum of squared residuals of each equation
-  sigma   <- array( 0, c(nEq))    # estimated sigma (std. dev. of residuals) of each equation
-  r2      <- array( 0, c(nEq))    # R-squared value
-  adjr2   <- array( 0, c(nEq))    # adjusted R-squared value
-  xnames  <- NULL                 # names of regressors
+  instl   <- list()         # list of the instruments for each equation
+  ssr     <- numeric( nEq ) # sum of squared residuals of each equation
+  sigma   <- numeric( nEq ) # estimated sigma (std. dev. of residuals) of each equation
+  r2      <- numeric( nEq ) # R-squared value
+  adjr2   <- numeric( nEq ) # adjusted R-squared value
+  xnames  <- NULL           # names of regressors
 
    if( is.null( names( eqns ) ) ) {
       eqnlabels <- paste( "eq", c( 1:nEq ), sep = "" )
@@ -263,7 +263,7 @@ systemfit <- function(  eqns,
          instl[[i]] <- inst
       }
     }
-    xMatHatAll <- array(0,c(0,ncol(xMatAll)))       # fitted X values
+    xMatHatAll <- matrix( 0, 0, ncol( xMatAll ) ) # fitted X values
     hMatAll  <- matrix( 0, 0, 0 )           # stacked matrices of all instruments
     hMatEq  <- list()
     for(i in 1:nEq) {
@@ -740,7 +740,7 @@ predict.systemfit <- function( object, data=object$data,
    predicted <- data.frame( obs=seq( nrow( data ) ) )
    colnames( predicted ) <- as.character( 1:ncol( predicted ) )
    g       <- object$nEq
-   nObsEq       <- array(NA,c(g))
+   nObsEq       <- numeric( g )
    eqns    <- list()
    xMatEq  <- list()               # regressors equation-wise
    xMatAll <- matrix( 0, 0, 0 )    # stacked matrices of all regressors (unrestricted)
@@ -957,7 +957,7 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95,
    a <- ( 1 - level ) / 2
    a <- c( a, 1 - a )
    pct <- paste( round( 100 * a, 1 ), "%" )
-   ci <- array( NA, dim = c( length( object$coef ), 2),
+   ci <- matrix( NA, length( object$coef ), 2,
             dimnames = list( names( object$coef ), pct ) )
    j <- 1
    for( i in 1:object$nEq ) {
@@ -982,7 +982,7 @@ confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
    a <- ( 1 - level ) / 2
    a <- c( a, 1 - a )
    pct <- paste( round( 100 * a, 1 ), "%" )
-   ci <- array( NA, dim = c( length( object$b ), 2),
+   ci <- matrix( NA, length( object$b ), 2,
             dimnames = list( names( object$b ), pct ) )
    if( probDfSys ) {
       fac <- qt( a, object$dfSys )
@@ -1003,7 +1003,7 @@ print.confint.systemfit <- function( x, digits = 3, ... ) {
 
 ## return the fitted values
 fitted.systemfit <- function( object, ... ) {
-   fitted <- array( NA, c( length( object$eq[[1]]$fitted ), object$nEq ) )
+   fitted <- matrix( NA, length( object$eq[[1]]$fitted ), object$nEq )
    colnames( fitted ) <- as.character( 1:ncol( fitted ) )
    for(i in 1:object$nEq )  {
       fitted[ , i ]           <- object$eq[[ i ]]$fitted
