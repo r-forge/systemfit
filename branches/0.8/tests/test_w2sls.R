@@ -179,3 +179,40 @@ print( confint( fitw2slsd2e$eq[[ 1 ]], level = 0.01 ) )
 print( confint( fitw2slsd3e, level = 0.01 ) )
 print( confint( fitw2slsd3e$eq[[ 2 ]] ) )
 
+
+## *********** predicted values *************
+predictData <- Kmenta
+predictData$price <- Kmenta$price * 0.9
+predictData$income <- Kmenta$income * 1.1
+
+print( predict( fitw2sls1e, se.fit = TRUE, interval = "prediction" ) )
+print( predict( fitw2sls1e$eq[[ 1 ]] ) )
+
+print( predict( fitw2sls2, se.pred = TRUE, interval = "confidence",
+   level = 0.999, data = predictData ) )
+print( predict( fitw2sls2$eq[[ 2 ]] ) )
+
+print( predict( fitw2sls3, se.pred = TRUE, interval = "prediction",
+   level = 0.975 ) )
+print( predict( fitw2sls3$eq[[ 1 ]] ) )
+
+print( predict( fitw2sls4e, se.fit = TRUE, interval = "confidence",
+   level = 0.25 ) )
+print( predict( fitw2sls4e$eq[[ 2 ]] ) )
+
+print( predict( fitw2sls5, se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.5, data = predictData ) )
+print( predict( fitw2sls5$eq[[ 1 ]] ) )
+
+print( predict( fitw2slsd1, se.fit = TRUE, se.pred = TRUE,
+   interval = "confidence", level = 0.99 ) )
+print( predict( fitw2slsd1$eq[[ 2 ]] ) )
+
+print( predict( fitw2slsd2e, se.fit = TRUE, interval = "prediction",
+   level = 0.9, data = predictData ) )
+print( predict( fitw2slsd2e$eq[[ 1 ]] ) )
+
+print( predict( fitw2slsd3e, se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.01 ) )
+print( predict( fitw2slsd3e$eq[[ 2 ]] ) )
+

@@ -245,3 +245,28 @@ print( confint( fitols5$eq[[ 2 ]], level = 0.999 ) )
 print( confint( fitols3p, level = 0.999 ) )
 print( confint( fitols3p$eq[[ 1 ]] ) )
 
+
+## *********** predicted values *************
+predictData <- Kmenta
+predictData$price <- Kmenta$price * 0.9
+predictData$income <- Kmenta$income * 1.1
+
+print( predict( fitols1p, se.fit = TRUE, interval = "prediction" ) )
+print( predict( fitols1p$eq[[ 2 ]] ) )
+
+print( predict( fitols2r, se.pred = TRUE, interval = "confidence",
+   level = 0.999, data = predictData ) )
+print( predict( fitols2r$eq[[ 1 ]] ) )
+
+print( predict( fitols3s, se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.5, data = predictData ) )
+print( predict( fitols3s$eq[[ 2 ]] ) )
+
+print( predict( fitols4rs, se.fit = TRUE, se.pred = TRUE,
+   interval = "confidence", level = 0.99 ) )
+print( predict( fitols4rs$eq[[ 1 ]] ) )
+
+print( predict( fitols5, se.fit = TRUE, interval = "prediction",
+   level = 0.9, data = predictData ) )
+print( predict( fitols5$eq[[ 2 ]] ) )
+
