@@ -739,12 +739,11 @@ predict.systemfit <- function( object, data=object$data,
 
    predicted <- data.frame( obs=seq( nrow( data ) ) )
    colnames( predicted ) <- as.character( 1:ncol( predicted ) )
-   g       <- object$nEq
-   nObsEq       <- numeric( g )
+   nObsEq  <- numeric( object$nEq )
    eqns    <- list()
    xMatEq  <- list()               # regressors equation-wise
    xMatAll <- matrix( 0, 0, 0 )    # stacked matrices of all regressors (unrestricted)
-   for(i in 1:g )  {
+   for(i in 1:object$nEq )  {
       eqns[[i]] <- object$eq[[i]]$formula
       xMatEq[[i]] <-  model.matrix( eqns[[i]] )
       xMatAll      <-  rbind( cbind( xMatAll, matrix( 0, nrow( xMatAll ), ncol( xMatEq[[i]] ))),
@@ -760,7 +759,7 @@ predict.systemfit <- function( object, data=object$data,
          ycovp <- xMatAll %*% object$bcov %*% t(xMatAll) + object$rcov %x% diag(1,nObsEq[1],nObsEq[1])
       }
    }
-   for(i in 1:g) {
+   for(i in 1:object$nEq) {
       # fitted values
       Yi <- yVecAll[(1+sum(nObsEq[1:i])-nObsEq[i]):sum(nObsEq[1:i]),]
       predicted <- cbind( predicted, Yi )
