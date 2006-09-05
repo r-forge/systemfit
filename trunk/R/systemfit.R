@@ -953,9 +953,9 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95,
          # TRUE if there are restrictions imposed
    }
 
-   a <- ( 1 - level ) / 2
-   a <- c( a, 1 - a )
-   pct <- paste( round( 100 * a, 1 ), "%" )
+   probLower <- ( 1 - level ) / 2
+   probBoth <- c( probLower, 1 - probLower )
+   pct <- paste( round( 100 * probBoth, 1 ), "%" )
    ci <- matrix( NA, length( object$coef ), 2,
             dimnames = list( names( object$coef ), pct ) )
    j <- 1
@@ -978,15 +978,15 @@ confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
          # TRUE if there are restrictions imposed
    }
 
-   a <- ( 1 - level ) / 2
-   a <- c( a, 1 - a )
-   pct <- paste( round( 100 * a, 1 ), "%" )
+   probLower <- ( 1 - level ) / 2
+   probBoth <- c( probLower, 1 - probLower )
+   pct <- paste( round( 100 * probBoth, 1 ), "%" )
    ci <- matrix( NA, length( object$coef ), 2,
             dimnames = list( names( object$coef ), pct ) )
    if( probDfSys ) {
-      fac <- qt( a, object$dfSys )
+      fac <- qt( probBoth, object$dfSys )
    } else {
-      fac <- qt( a, object$df )
+      fac <- qt( probBoth, object$df )
    }
    coef <- summary( object )$coefficients
    ci[] <- coef[ , 1 ] + coef[ , 2 ] %o% fac
