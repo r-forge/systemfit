@@ -205,3 +205,21 @@ fitols5rs <- systemfit( system, "OLS", data = Kmenta,R.restr = restr3m,
    q.restr = restr3q, TX = tc, methodRCov = "noDfCor", single.eq.sigma = T )
 print( summary( fitols5rs ) )
 print( round( fitols5rs$bcov, digits = 6 ) )
+
+
+## ****************** residuals **************************
+print( residuals( fitols1p ) )
+print( residuals( fitols1p$eq[[ 2 ]] ) )
+
+print( residuals( fitols2r ) )
+print( residuals( fitols2r$eq[[ 1 ]] ) )
+
+print( residuals( fitols3s ) )
+print( residuals( fitols3s$eq[[ 2 ]] ) )
+
+print( residuals( fitols4rs ) )
+print( residuals( fitols4rs$eq[[ 1 ]] ) )
+
+print( residuals( fitols5 ) )
+print( residuals( fitols5$eq[[ 2 ]] ) )
+

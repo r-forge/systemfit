@@ -278,3 +278,26 @@ for( i in seq( along = formulas ) ) {
    print( summary( fit3slsd[[ i ]]$e5e, probDfSys = TRUE ) )
    print( round( fit3slsd[[ i ]]$e5e$bcov, digits = 6 ) )
 }
+
+
+## ****************** residuals **************************
+print( residuals( fit3sls[[ 1 ]]$e1c ) )
+print( residuals( fit3sls[[ 1 ]]$e1c$eq[[ 1 ]] ) )
+
+print( residuals( fit3sls[[ 2 ]]$e2e ) )
+print( residuals( fit3sls[[ 2 ]]$e2e$eq[[ 2 ]] ) )
+
+print( residuals( fit3sls[[ 3 ]]$e3 ) )
+print( residuals( fit3sls[[ 3 ]]$e3$eq[[ 1 ]] ) )
+
+print( residuals( fit3sls[[ 4 ]]$e4e ) )
+print( residuals( fit3sls[[ 4 ]]$e4e$eq[[ 2 ]] ) )
+
+print( residuals( fit3sls[[ 5 ]]$e5 ) )
+print( residuals( fit3sls[[ 5 ]]$e5$eq[[ 1 ]] ) )
+
+print( residuals( fit3slsi[[ 2 ]]$e3e ) )
+print( residuals( fit3slsi[[ 2 ]]$e3e$eq[[ 1 ]] ) )
+
+print( residuals( fit3slsd[[ 3 ]]$e4 ) )
+print( residuals( fit3slsd[[ 3 ]]$e4$eq[[ 2 ]] ) )

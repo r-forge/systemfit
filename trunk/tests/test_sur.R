@@ -207,3 +207,36 @@ print( round( fitsuri5e$bcov, digits = 6 ) )
 # print( summary( fitsuri5e ) )
 # print( round( fitsuri5e$bcov, digits = 6 ) )
 # disabled, because the estimation does not converge
+
+
+## ****************** residuals **************************
+print( residuals( fitsur1cp ) )
+print( residuals( fitsur1cp$eq[[ 2 ]] ) )
+
+print( residuals( fitsur2e ) )
+print( residuals( fitsur2e$eq[[ 1 ]] ) )
+
+print( residuals( fitsur3 ) )
+print( residuals( fitsur3$eq[[ 2 ]] ) )
+
+print( residuals( fitsur4e ) )
+print( residuals( fitsur4e$eq[[ 1 ]] ) )
+
+print( residuals( fitsur5 ) )
+print( residuals( fitsur5$eq[[ 2 ]] ) )
+
+print( residuals( fitsuri1c ) )
+print( residuals( fitsuri1c$eq[[ 1 ]] ) )
+
+print( residuals( fitsuri2 ) )
+print( residuals( fitsuri2$eq[[ 2 ]] ) )
+
+print( residuals( fitsuri3e ) )
+print( residuals( fitsuri3e$eq[[ 1 ]] ) )
+
+print( residuals( fitsuri4 ) )
+print( residuals( fitsuri4$eq[[ 2 ]] ) )
+
+print( residuals( fitsuri5e ) )
+print( residuals( fitsuri5e$eq[[ 1 ]] ) )
+

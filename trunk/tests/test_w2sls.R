@@ -125,3 +125,29 @@ fitw2slsd3e <- systemfit( system, "W2SLS", data = Kmenta, TX = tc,
    inst = instlist, methodRCov = "noDfCor" )
 print( summary( fitw2slsd3e, probDfSys = TRUE ) )
 print( round( fitw2slsd3e$bcov, digits = 6 ) )
+
+
+## ****************** residuals **************************
+print( residuals( fitw2sls1e ) )
+print( residuals( fitw2sls1e$eq[[ 1 ]] ) )
+
+print( residuals( fitw2sls2 ) )
+print( residuals( fitw2sls2$eq[[ 2 ]] ) )
+
+print( residuals( fitw2sls3 ) )
+print( residuals( fitw2sls3$eq[[ 1 ]] ) )
+
+print( residuals( fitw2sls4e ) )
+print( residuals( fitw2sls4e$eq[[ 2 ]] ) )
+
+print( residuals( fitw2sls5 ) )
+print( residuals( fitw2sls5$eq[[ 1 ]] ) )
+
+print( residuals( fitw2slsd1 ) )
+print( residuals( fitw2slsd1$eq[[ 2 ]] ) )
+
+print( residuals( fitw2slsd2e ) )
+print( residuals( fitw2slsd2e$eq[[ 1 ]] ) )
+
+print( residuals( fitw2slsd3e ) )
+print( residuals( fitw2slsd3e$eq[[ 2 ]] ) )
