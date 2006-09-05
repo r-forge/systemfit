@@ -849,8 +849,8 @@ predict.systemfit <- function( object, data=object$data,
 ## calculate predicted values, its standard errors and the prediction intervals
 predict.systemfit.equation <- function( object, data=object$data, ... ) {
    attach( data ); on.exit( detach( data ) )
-   x <-  model.matrix( object$formula )
-   predicted <- drop( x %*% object$coef )
+   xMat <-  model.matrix( object$formula )
+   predicted <- drop( xMat %*% object$coef )
    predicted
 }
 
