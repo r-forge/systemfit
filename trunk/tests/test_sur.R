@@ -271,3 +271,47 @@ print( confint( fitsuri4$eq[[ 2 ]], level = 0.33 ) )
 
 print( confint( fitsuri5e, level = 0.33 ) )
 print( confint( fitsuri5e$eq[[ 1 ]] ) )
+
+
+## *********** predicted values *************
+predictData <- Kmenta
+predictData$price <- Kmenta$price * 0.9
+predictData$income <- Kmenta$income * 1.1
+
+print( predict( fitsur1cp, se.fit = TRUE, interval = "prediction",
+   probDfSys = TRUE ) )
+print( predict( fitsur1cp$eq[[ 2 ]] ) )
+
+print( predict( fitsur2e, se.pred = TRUE, interval = "confidence",
+   level = 0.999, data = predictData ) )
+print( predict( fitsur2e$eq[[ 1 ]] ) )
+
+print( predict( fitsur3, se.pred = TRUE, interval = "prediction",
+   level = 0.975 ) )
+print( predict( fitsur3$eq[[ 2 ]] ) )
+
+print( predict( fitsur4e, se.fit = TRUE, interval = "confidence",
+   level = 0.25 ) )
+print( predict( fitsur4e$eq[[ 1 ]] ) )
+
+print( predict( fitsur5, se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.5, data = predictData ) )
+print( predict( fitsur5$eq[[ 2 ]] ) )
+
+print( predict( fitsuri1c, se.fit = TRUE, se.pred = TRUE,
+   interval = "confidence", level = 0.99 ) )
+print( predict( fitsuri1c$eq[[ 1 ]] ) )
+
+print( predict( fitsuri2, se.fit = TRUE, interval = "prediction",
+   level = 0.9, data = predictData ) )
+print( predict( fitsuri2$eq[[ 2 ]] ) )
+
+print( predict( fitsuri3e, interval = "prediction", level = 0.925 ) )
+print( predict( fitsuri3e$eq[[ 1 ]] ) )
+
+print( predict( fitsuri4, interval = "confidence", data = predictData ) )
+print( predict( fitsuri4$eq[[ 2 ]] ) )
+
+print( predict( fitsuri5e ) )
+print( predict( fitsuri5e$eq[[ 1 ]] ) )
+
