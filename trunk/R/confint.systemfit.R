@@ -1,0 +1,56 @@
+## calculate confidence intervals of the coefficients
+confint.systemfit <- function( object, parm = NULL, level = 0.95,
+      probDfSys = NULL, ... ) {
+
+   if( is.null( probDfSys ) ) {
+      probDfSys <- object$nExogAll != object$nExogLiAll
+         # TRUE if there are restrictions imposed
+   }
+
+   probLower <- ( 1 - level ) / 2
+   probBoth <- c( probLower, 1 - probLower )
+   pct <- paste( round( 100 * probBoth, 1 ), "%" )
+   ci <- matrix( NA, length( object$coef ), 2,
+            dimnames = list( names( object$coef ), pct ) )
+   j <- 1
+   for( i in 1:object$nEq ) {
+      object$eq[[i]]$dfSys <- object$df
+      ci[ j:(j+object$eq[[ i ]]$nExog-1), ] <- confint( object$eq[[ i ]],
+         probDfSys = probDfSys )
+      j <- j + object$eq[[ i ]]$nExog
+   }
+   class( ci ) <- "confint.systemfit"
+   ci
+}
+
+## calculate confidence intervals of the coefficients of a single equation
+confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
+   probDfSys = NULL, ... ) {
+
+   if( is.null( probDfSys ) ) {
+      probDfSys <- object$nExogAll != object$nExogLiAll
+         # TRUE if there are restrictions imposed
+   }
+
+   probLower <- ( 1 - level ) / 2
+   probBoth <- c( probLower, 1 - probLower )
+   pct <- paste( round( 100 * probBoth, 1 ), "%" )
+   ci <- matrix( NA, length( object$coef ), 2,
+            dimnames = list( names( object$coef ), pct ) )
+   if( probDfSys ) {
+      fac <- qt( probBoth, object$dfSys )
+   } else {
+      fac <- qt( probBoth, object$df )
+   }
+   coef <- summary( object )$coefficients
+   ci[] <- coef[ , 1 ] + coef[ , 2 ] %o% fac
+   class( ci ) <- "confint.systemfit"
+   ci
+}
+
+## print the confidence intervals of the coefficients
+print.confint.systemfit <- function( x, digits = 3, ... ) {
+   print( unclass( round( x, digits = digits, ...) ) )
+   invisible(x)
+}
+
