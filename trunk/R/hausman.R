@@ -8,8 +8,8 @@ hausman.systemfit <- function( results2sls, results3sls ) {
 
    result <- list()
 
-   result$q <- results2sls$b - results3sls$b
-   result$qVar <- results2sls$bcov - results3sls$bcov
+   result$q <- coef( results2sls ) - coef( results3sls )
+   result$qVar <- vcov( results2sls ) - vcov( results3sls )
 
 #    if( min( eigen( hausman$qVar )$values ) < 0 ) {
 #       warning( "the matrix V is not 'positive definite'" )
