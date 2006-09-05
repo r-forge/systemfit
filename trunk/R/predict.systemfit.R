@@ -54,7 +54,7 @@ predict.systemfit <- function( object, data=object$data,
                             ( 1 + sum( nObsEq[1:i] ) - nObsEq[i] ) : sum( nObsEq[1:i] ) ]
          } else {
             ycovpi <- xMatEq[[i]] %*% object$eq[[i]]$bcov %*% t(xMatEq[[i]]) +
-                                 object$eq[[i]]$s2
+                                 object$eq[[i]]$sigma^2
          }
       }
       # standard errors of fitted values
