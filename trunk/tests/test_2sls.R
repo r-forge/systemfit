@@ -269,3 +269,26 @@ print( residuals( fit2slsd1p$eq[[ 2 ]] ) )
 print( residuals( fit2slsd2r ) )
 print( residuals( fit2slsd2r$eq[[ 1 ]] ) )
 
+
+## *********** confidence intervals of coefficients *************
+print( confint( fit2sls1 ) )
+print( confint( fit2sls1$eq[[ 1 ]], level = 0.9 ) )
+
+print( confint( fit2sls2s, level = 0.9 ) )
+print( confint( fit2sls2s$eq[[ 2 ]], level = 0.99 ) )
+
+print( confint( fit2sls3e, level = 0.99, probDfSys = TRUE ) )
+print( confint( fit2sls3e$eq[[ 1 ]], level = 0.5, probDfSys = TRUE ) )
+
+print( confint( fit2sls4r, level = 0.5 ) )
+print( confint( fit2sls4r$eq[[ 2 ]], level = 0.25 ) )
+
+print( confint( fit2sls5rs, level = 0.25 ) )
+print( confint( fit2sls5rs$eq[[ 1 ]], level = 0.975 ) )
+
+print( confint( fit2slsd1p, level = 0.975, probDfSys = TRUE ) )
+print( confint( fit2slsd1p$eq[[ 2 ]], level = 0.999, probDfSys = TRUE ) )
+
+print( confint( fit2slsd2r, level = 0.999 ) )
+print( confint( fit2slsd2r$eq[[ 1 ]] ) )
+

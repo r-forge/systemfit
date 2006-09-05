@@ -301,3 +301,27 @@ print( residuals( fit3slsi[[ 2 ]]$e3e$eq[[ 1 ]] ) )
 
 print( residuals( fit3slsd[[ 3 ]]$e4 ) )
 print( residuals( fit3slsd[[ 3 ]]$e4$eq[[ 2 ]] ) )
+
+
+## *********** confidence intervals of coefficients *************
+print( confint( fit3sls[[ 1 ]]$e1c, probDfSys = TRUE ) )
+print( confint( fit3sls[[ 1 ]]$e1c$eq[[ 1 ]], level = 0.9, probDfSys = TRUE ) )
+
+print( confint( fit3sls[[ 2 ]]$e2e, level = 0.9, probDfSys = TRUE ) )
+print( confint( fit3sls[[ 2 ]]$e2e$eq[[ 2 ]], level = 0.99, probDfSys = TRUE ) )
+
+print( confint( fit3sls[[ 3 ]]$e3, level = 0.99 ) )
+print( confint( fit3sls[[ 3 ]]$e3$eq[[ 1 ]], level = 0.5 ) )
+
+print( confint( fit3sls[[ 4 ]]$e4e, level = 0.5, probDfSys = TRUE ) )
+print( confint( fit3sls[[ 4 ]]$e4e$eq[[ 2 ]], level = 0.25, probDfSys = TRUE ) )
+
+print( confint( fit3sls[[ 5 ]]$e5, level = 0.25 ) )
+print( confint( fit3sls[[ 5 ]]$e5$eq[[ 1 ]], level = 0.975 ) )
+
+print( confint( fit3slsi[[ 2 ]]$e3e, level = 0.975, probDfSys = TRUE ) )
+print( confint( fit3slsi[[ 2 ]]$e3e$eq[[ 1 ]], level = 0.999, probDfSys = TRUE ) )
+
+print( confint( fit3slsd[[ 3 ]]$e4, level = 0.999 ) )
+print( confint( fit3slsd[[ 3 ]]$e4$eq[[ 2 ]] ) )
+

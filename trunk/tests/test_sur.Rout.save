@@ -2719,3 +2719,159 @@ eq 2 trend        -0.000872       0.000138   0.000171
 [19]  0.7373786 -2.6864700
 > 
 > 
+> ## *********** confidence intervals of coefficients *************
+> print( confint( fitsur1cp, probDfSys = TRUE ) )
+                  2.5 %  97.5 %
+eq 1 (Intercept) 83.927 114.497
+eq 1 price       -0.445  -0.088
+eq 1 income       0.208   0.373
+eq 2 (Intercept) 40.751  85.403
+eq 2 price       -0.048   0.336
+eq 2 farmPrice    0.128   0.285
+eq 2 trend        0.202   0.463
+> print( confint( fitsur1cp$eq[[ 2 ]], level = 0.9, probDfSys = TRUE ) )
+               5 %   95 %
+(Intercept) 44.506 81.648
+price       -0.016  0.304
+farmPrice    0.141  0.271
+trend        0.224  0.441
+> 
+> print( confint( fitsur2e, level = 0.9 ) )
+                    5 %    95 %
+eq 1 (Intercept) 84.618 112.942
+eq 1 price       -0.397  -0.074
+eq 1 income       0.193   0.333
+eq 2 (Intercept) 48.153  87.055
+eq 2 price       -0.040   0.306
+eq 2 farmPrice    0.116   0.240
+eq 2 trend        0.193   0.333
+> print( confint( fitsur2e$eq[[ 1 ]], level = 0.99 ) )
+             0.5 %  99.5 %
+(Intercept) 79.767 117.793
+price       -0.452  -0.018
+income       0.169   0.357
+> 
+> print( confint( fitsur3, level = 0.99 ) )
+                  0.5 %  99.5 %
+eq 1 (Intercept) 83.481 114.201
+eq 1 price       -0.415  -0.065
+eq 1 income       0.192   0.342
+eq 2 (Intercept) 45.755  89.102
+eq 2 price       -0.060   0.327
+eq 2 farmPrice    0.111   0.248
+eq 2 trend        0.192   0.342
+> print( confint( fitsur3$eq[[ 2 ]], level = 0.5 ) )
+              25 %   75 %
+(Intercept) 60.157 74.699
+price        0.068  0.198
+farmPrice    0.157  0.202
+trend        0.242  0.292
+> 
+> print( confint( fitsur4e, level = 0.5 ) )
+                   25 %    75 %
+eq 1 (Intercept) 78.344 108.052
+eq 1 price       -0.406  -0.070
+eq 1 income       0.289   0.358
+eq 2 (Intercept) 34.267  64.468
+eq 2 price        0.094   0.430
+eq 2 farmPrice    0.192   0.262
+eq 2 trend        0.289   0.358
+> print( confint( fitsur4e$eq[[ 1 ]], level = 0.25 ) )
+            37.5 % 62.5 %
+(Intercept) 90.848 95.548
+price       -0.265 -0.211
+income       0.318  0.329
+> 
+> print( confint( fitsur5, level = 0.25 ) )
+                 37.5 %  62.5 %
+eq 1 (Intercept) 81.670 111.985
+eq 1 price       -0.450  -0.109
+eq 1 income       0.287   0.371
+eq 2 (Intercept) 37.377  68.500
+eq 2 price        0.050   0.391
+eq 2 farmPrice    0.190   0.276
+eq 2 trend        0.287   0.371
+> print( confint( fitsur5$eq[[ 2 ]], level = 0.975 ) )
+             1.3 % 98.8 %
+(Intercept) 34.986 70.891
+price        0.024  0.417
+farmPrice    0.183  0.282
+trend        0.280  0.377
+> 
+> print( confint( fitsuri1c, level = 0.975 ) )
+                  1.3 %  98.8 %
+eq 1 (Intercept) 77.960 109.125
+eq 1 price       -0.414  -0.043
+eq 1 income       0.213   0.406
+eq 2 (Intercept) 82.005  96.361
+eq 2 income       0.574   0.753
+eq 2 farmPrice   -0.550  -0.393
+eq 2 trend       -0.932  -0.659
+> print( confint( fitsuri1c$eq[[ 1 ]], level = 0.999 ) )
+             0.1 %   100 %
+(Intercept) 64.257 122.828
+price       -0.576   0.119
+income       0.128   0.491
+> 
+> print( confint( fitsuri2, level = 0.999 ) )
+                  0.1 %   100 %
+eq 1 (Intercept) 92.129 122.607
+eq 1 price       -0.580  -0.209
+eq 1 income       0.243   0.433
+eq 2 (Intercept) 60.441 109.649
+eq 2 income       0.062   0.563
+eq 2 farmPrice   -0.432   0.038
+eq 2 trend        0.243   0.433
+> print( confint( fitsuri2$eq[[ 2 ]], level = 0.1 ) )
+              45 %   55 %
+(Intercept) 83.512 86.578
+income       0.297  0.328
+farmPrice   -0.212 -0.183
+trend        0.332  0.344
+> 
+> print( confint( fitsuri3e, level = 0.1 ) )
+                   45 %    55 %
+eq 1 (Intercept) 93.728 121.882
+eq 1 price       -0.570  -0.227
+eq 1 income       0.250   0.426
+eq 2 (Intercept) 63.100 107.114
+eq 2 income       0.087   0.534
+eq 2 farmPrice   -0.406   0.014
+eq 2 trend        0.250   0.426
+> print( confint( fitsuri3e$eq[[ 1 ]], level = 0.01 ) )
+             49.5 %  50.5 %
+(Intercept) 107.718 107.893
+price        -0.400  -0.398
+income        0.337   0.338
+> 
+> print( confint( fitsuri4, level = 0.01 ) )
+                 49.5 %  50.5 %
+eq 1 (Intercept) 77.496 107.356
+eq 1 price       -0.400  -0.055
+eq 1 income       0.283   0.358
+eq 2 (Intercept) 33.588  63.871
+eq 2 price        0.100   0.445
+eq 2 farmPrice    0.185   0.262
+eq 2 trend        0.283   0.358
+> print( confint( fitsuri4$eq[[ 2 ]], level = 0.33 ) )
+            33.5 % 66.5 %
+(Intercept) 45.524 51.935
+price        0.236  0.309
+farmPrice    0.215  0.231
+trend        0.312  0.328
+> 
+> print( confint( fitsuri5e, level = 0.33 ) )
+                 33.5 % 66.5 %
+eq 1 (Intercept) 63.491 92.577
+eq 1 price       -0.230  0.101
+eq 1 income       0.274  0.327
+eq 2 (Intercept) 19.527 48.865
+eq 2 price        0.270  0.601
+eq 2 farmPrice    0.182  0.232
+eq 2 trend        0.274  0.327
+> print( confint( fitsuri5e$eq[[ 1 ]] ) )
+             2.5 % 97.5 %
+(Intercept) 63.491 92.577
+price       -0.230  0.101
+income       0.274  0.327
+> 
