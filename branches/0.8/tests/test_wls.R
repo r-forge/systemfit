@@ -179,3 +179,36 @@ print( residuals( fitwlsi4$eq[[ 2 ]] ) )
 
 print( residuals( fitwlsi5e ) )
 print( residuals( fitwlsi5e$eq[[ 1 ]] ) )
+
+
+## *********** confidence intervals of coefficients *************
+print( confint( fitwls1 ) )
+print( confint( fitwls1$eq[[ 2 ]], level = 0.9 ) )
+
+print( confint( fitwls2e, level = 0.9 ) )
+print( confint( fitwls2e$eq[[ 1 ]], level = 0.99 ) )
+
+print( confint( fitwls3, level = 0.99 ) )
+print( confint( fitwls3$eq[[ 2 ]], level = 0.5 ) )
+
+print( confint( fitwls4e, level = 0.5 ) )
+print( confint( fitwls4e$eq[[ 1 ]], level = 0.25 ) )
+
+print( confint( fitwls5, level = 0.25 ) )
+print( confint( fitwls5$eq[[ 2 ]], level = 0.975 ) )
+
+print( confint( fitwlsi1e, level = 0.975 ) )
+print( confint( fitwlsi1e$eq[[ 1 ]], level = 0.999 ) )
+
+print( confint( fitwlsi2, level = 0.999 ) )
+print( confint( fitwlsi2$eq[[ 2 ]], level = 0.1 ) )
+
+print( confint( fitwlsi3e, level = 0.1 ) )
+print( confint( fitwlsi3e$eq[[ 1 ]], level = 0.01 ) )
+
+print( confint( fitwlsi4, level = 0.01 ) )
+print( confint( fitwlsi4$eq[[ 2 ]], level = 0.33 ) )
+
+print( confint( fitwlsi5e, level = 0.33 ) )
+print( confint( fitwlsi5e$eq[[ 1 ]] ) )
+

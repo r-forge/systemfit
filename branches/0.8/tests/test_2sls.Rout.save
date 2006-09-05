@@ -2879,3 +2879,113 @@ eq 2 trend         0.000129       0.000308   0.002220
 [19]  2.0156788  0.3406315
 > 
 > 
+> ## *********** confidence intervals of coefficients *************
+> print( confint( fit2sls1 ) )
+                  2.5 %  97.5 %
+eq 1 (Intercept) 77.922 111.345
+eq 1 price       -0.447  -0.040
+eq 1 income       0.215   0.413
+eq 2 (Intercept) 24.071  74.994
+eq 2 price        0.028   0.452
+eq 2 farmPrice    0.155   0.356
+eq 2 trend        0.042   0.464
+> print( confint( fit2sls1$eq[[ 1 ]], level = 0.9 ) )
+               5 %    95 %
+(Intercept) 80.854 108.412
+price       -0.411  -0.076
+income       0.232   0.396
+> 
+> print( confint( fit2sls2s, level = 0.9 ) )
+                    5 %    95 %
+eq 1 (Intercept) 78.005 110.558
+eq 1 price       -0.417  -0.032
+eq 1 income       0.211   0.386
+eq 2 (Intercept) 24.204  72.165
+eq 2 price        0.038   0.447
+eq 2 farmPrice    0.169   0.355
+eq 2 trend        0.211   0.386
+> print( confint( fit2sls2s$eq[[ 2 ]], level = 0.99 ) )
+             0.5 % 99.5 %
+(Intercept) 15.989 80.380
+price       -0.032  0.517
+farmPrice    0.137  0.387
+trend        0.181  0.416
+> 
+> print( confint( fit2sls3e, level = 0.99 ) )
+                  0.5 %  99.5 %
+eq 1 (Intercept) 77.664 110.899
+eq 1 price       -0.419  -0.031
+eq 1 income       0.213   0.383
+eq 2 (Intercept) 28.439  67.929
+eq 2 price        0.075   0.411
+eq 2 farmPrice    0.185   0.339
+eq 2 trend        0.213   0.383
+> print( confint( fit2sls3e$eq[[ 1 ]], level = 0.5 ) )
+              25 %   75 %
+(Intercept) 88.707 99.857
+price       -0.290 -0.160
+income       0.270  0.327
+> 
+> print( confint( fit2sls4r, level = 0.5 ) )
+                   25 %    75 %
+eq 1 (Intercept) 83.516 107.895
+eq 1 price       -0.369  -0.117
+eq 1 income       0.225   0.380
+eq 2 (Intercept) 31.573  61.554
+eq 2 price        0.131   0.383
+eq 2 farmPrice    0.188   0.339
+eq 2 trend        0.225   0.380
+> print( confint( fit2sls4r$eq[[ 2 ]], level = 0.25 ) )
+            37.5 % 62.5 %
+(Intercept) 44.192 48.935
+price        0.237  0.277
+farmPrice    0.252  0.276
+trend        0.290  0.315
+> 
+> print( confint( fit2sls5rs, level = 0.25 ) )
+                 37.5 %  62.5 %
+eq 1 (Intercept) 84.017 107.395
+eq 1 price       -0.369  -0.117
+eq 1 income       0.230   0.376
+eq 2 (Intercept) 31.265  61.863
+eq 2 price        0.131   0.383
+eq 2 farmPrice    0.181   0.346
+eq 2 trend        0.230   0.376
+> print( confint( fit2sls5rs$eq[[ 1 ]], level = 0.975 ) )
+             1.3 %  98.8 %
+(Intercept) 82.221 109.191
+price       -0.389  -0.098
+income       0.218   0.387
+> 
+> print( confint( fit2slsd1p, level = 0.975 ) )
+                  1.3 %  98.8 %
+eq 1 (Intercept) 84.118 129.461
+eq 1 price       -0.706  -0.117
+eq 1 income       0.247   0.476
+eq 2 (Intercept) 25.097  73.968
+eq 2 price        0.037   0.443
+eq 2 farmPrice    0.159   0.352
+eq 2 trend        0.050   0.456
+> print( confint( fit2slsd1p$eq[[ 2 ]], level = 0.999 ) )
+             0.1 %  100 %
+(Intercept)  6.163 92.901
+price       -0.121  0.601
+farmPrice    0.085  0.426
+trend       -0.107  0.613
+> 
+> print( confint( fit2slsd2r, level = 0.999 ) )
+                  0.1 %   100 %
+eq 1 (Intercept) 81.311 125.877
+eq 1 price       -0.617  -0.072
+eq 1 income       0.230   0.422
+eq 2 (Intercept) 27.618  67.100
+eq 2 price        0.077   0.412
+eq 2 farmPrice    0.189   0.343
+eq 2 trend        0.230   0.422
+> print( confint( fit2slsd2r$eq[[ 1 ]] ) )
+             2.5 %  97.5 %
+(Intercept) 81.311 125.877
+price       -0.617  -0.072
+income       0.230   0.422
+> 
+> 

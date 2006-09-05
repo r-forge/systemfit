@@ -243,3 +243,34 @@ print( residuals( fitsuri4$eq[[ 2 ]] ) )
 print( residuals( fitsuri5e ) )
 print( residuals( fitsuri5e$eq[[ 1 ]] ) )
 
+
+## *********** confidence intervals of coefficients *************
+print( confint( fitsur1cp ) )
+print( confint( fitsur1cp$eq[[ 2 ]], level = 0.9 ) )
+
+print( confint( fitsur2e, level = 0.9 ) )
+print( confint( fitsur2e$eq[[ 1 ]], level = 0.99 ) )
+
+print( confint( fitsur3, level = 0.99 ) )
+print( confint( fitsur3$eq[[ 2 ]], level = 0.5 ) )
+
+print( confint( fitsur4e, level = 0.5 ) )
+print( confint( fitsur4e$eq[[ 1 ]], level = 0.25 ) )
+
+print( confint( fitsur5, level = 0.25 ) )
+print( confint( fitsur5$eq[[ 2 ]], level = 0.975 ) )
+
+print( confint( fitsuri1c, level = 0.975 ) )
+print( confint( fitsuri1c$eq[[ 1 ]], level = 0.999 ) )
+
+print( confint( fitsuri2, level = 0.999 ) )
+print( confint( fitsuri2$eq[[ 2 ]], level = 0.1 ) )
+
+print( confint( fitsuri3e, level = 0.1 ) )
+print( confint( fitsuri3e$eq[[ 1 ]], level = 0.01 ) )
+
+print( confint( fitsuri4, level = 0.01 ) )
+print( confint( fitsuri4$eq[[ 2 ]], level = 0.33 ) )
+
+print( confint( fitsuri5e, level = 0.33 ) )
+print( confint( fitsuri5e$eq[[ 1 ]] ) )

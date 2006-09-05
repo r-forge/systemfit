@@ -2300,3 +2300,98 @@ eq 2 trend        -0.000826       0.000095   0.001240
 [19]  2.4619269  0.7772942
 > 
 > 
+> ## *********** confidence intervals of coefficients *************
+> print( confint( fitols1p ) )
+                  2.5 %  97.5 %
+eq 1 (Intercept) 84.597 115.194
+eq 1 price       -0.501  -0.132
+eq 1 income       0.242   0.427
+eq 2 (Intercept) 34.954  81.597
+eq 2 price       -0.033   0.353
+eq 2 farmPrice    0.154   0.342
+eq 2 trend        0.050   0.447
+> print( confint( fitols1p$eq[[ 2 ]], level = 0.9 ) )
+               5 %   95 %
+(Intercept) 38.876 77.675
+price        0.000  0.321
+farmPrice    0.170  0.326
+trend        0.083  0.413
+> 
+> print( confint( fitols2r, level = 0.9 ) )
+                    5 %    95 %
+eq 1 (Intercept) 83.776 115.337
+eq 1 price       -0.474  -0.109
+eq 1 income       0.230   0.395
+eq 2 (Intercept) 37.508  75.251
+eq 2 price        0.004   0.324
+eq 2 farmPrice    0.182   0.332
+eq 2 trend        0.230   0.395
+> print( confint( fitols2r$eq[[ 1 ]], level = 0.99 ) )
+             0.5 %  99.5 %
+(Intercept) 78.370 120.743
+price       -0.537  -0.046
+income       0.202   0.424
+> 
+> print( confint( fitols3s, level = 0.99 ) )
+                  0.5 %  99.5 %
+eq 1 (Intercept) 84.184 114.928
+eq 1 price       -0.472  -0.112
+eq 1 income       0.229   0.397
+eq 2 (Intercept) 33.382  79.377
+eq 2 price       -0.031   0.359
+eq 2 farmPrice    0.165   0.349
+eq 2 trend        0.229   0.397
+> print( confint( fitols3s$eq[[ 2 ]], level = 0.5 ) )
+              25 %   75 %
+(Intercept) 48.664 64.095
+price        0.098  0.229
+farmPrice    0.226  0.288
+trend        0.285  0.341
+> 
+> print( confint( fitols4rs, level = 0.5 ) )
+                   25 %    75 %
+eq 1 (Intercept) 90.269 112.695
+eq 1 price       -0.436  -0.197
+eq 1 income       0.247   0.390
+eq 2 (Intercept) 39.515  68.784
+eq 2 price        0.064   0.303
+eq 2 farmPrice    0.179   0.340
+eq 2 trend        0.247   0.390
+> print( confint( fitols4rs$eq[[ 1 ]], level = 0.25 ) )
+            37.5 %  62.5 %
+(Intercept) 99.708 103.256
+price       -0.336  -0.298
+income       0.308   0.330
+> 
+> print( confint( fitols5, level = 0.25 ) )
+                 37.5 %  62.5 %
+eq 1 (Intercept) 89.784 113.179
+eq 1 price       -0.436  -0.197
+eq 1 income       0.243   0.395
+eq 2 (Intercept) 39.809  68.490
+eq 2 price        0.064   0.303
+eq 2 farmPrice    0.185   0.334
+eq 2 trend        0.243   0.395
+> print( confint( fitols5$eq[[ 2 ]], level = 0.999 ) )
+             0.1 %  100 %
+(Intercept) 28.782 79.517
+price       -0.028  0.395
+farmPrice    0.128  0.391
+trend        0.185  0.453
+> 
+> print( confint( fitols3p, level = 0.999 ) )
+                  0.1 %   100 %
+eq 1 (Intercept) 81.786 117.326
+eq 1 price       -0.497  -0.086
+eq 1 income       0.220   0.406
+eq 2 (Intercept) 35.028  77.731
+eq 2 price       -0.017   0.345
+eq 2 farmPrice    0.172   0.342
+eq 2 trend        0.219   0.406
+> print( confint( fitols3p$eq[[ 1 ]] ) )
+             2.5 %  97.5 %
+(Intercept) 81.786 117.326
+price       -0.497  -0.086
+income       0.220   0.406
+> 
+> 

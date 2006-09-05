@@ -225,3 +225,23 @@ print( residuals( fitols4rs$eq[[ 1 ]] ) )
 print( residuals( fitols5 ) )
 print( residuals( fitols5$eq[[ 2 ]] ) )
 
+
+## *********** confidence intervals of coefficients *************
+print( confint( fitols1p ) )
+print( confint( fitols1p$eq[[ 2 ]], level = 0.9 ) )
+
+print( confint( fitols2r, level = 0.9 ) )
+print( confint( fitols2r$eq[[ 1 ]], level = 0.99 ) )
+
+print( confint( fitols3s, level = 0.99 ) )
+print( confint( fitols3s$eq[[ 2 ]], level = 0.5 ) )
+
+print( confint( fitols4rs, level = 0.5 ) )
+print( confint( fitols4rs$eq[[ 1 ]], level = 0.25 ) )
+
+print( confint( fitols5, level = 0.25 ) )
+print( confint( fitols5$eq[[ 2 ]], level = 0.999 ) )
+
+print( confint( fitols3p, level = 0.999 ) )
+print( confint( fitols3p$eq[[ 1 ]] ) )
+
