@@ -248,3 +248,27 @@ fit2slsd3r <- systemfit( "2SLS", system, labels, data = Kmenta, TX = tc,
    inst = instlist, rcovformula = 0 )
 print( summary( fit2slsd3r ) )
 print( round( fit2slsd3r$bcov, digits = 6 ) )
+
+
+## ****************** residuals **************************
+print( residuals( fit2sls1 ) )
+print( residuals( fit2sls1$eq[[ 1 ]] ) )
+
+print( residuals( fit2sls2s ) )
+print( residuals( fit2sls2s$eq[[ 2 ]] ) )
+
+print( residuals( fit2sls3e ) )
+print( residuals( fit2sls3e$eq[[ 1 ]] ) )
+
+print( residuals( fit2sls4r ) )
+print( residuals( fit2sls4r$eq[[ 2 ]] ) )
+
+print( residuals( fit2sls5rs ) )
+print( residuals( fit2sls5rs$eq[[ 1 ]] ) )
+
+print( residuals( fit2slsd1p ) )
+print( residuals( fit2slsd1p$eq[[ 2 ]] ) )
+
+print( residuals( fit2slsd2r ) )
+print( residuals( fit2slsd2r$eq[[ 1 ]] ) )
+

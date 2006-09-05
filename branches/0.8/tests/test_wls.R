@@ -148,3 +148,34 @@ fitwlsi5e <- systemfit( "WLS", system, labels, data = Kmenta, rcovformula = 0,
 print( summary( fitwlsi5e ) )
 print( round( fitwlsi5e$bcov, digits = 6 ) )
 
+
+## ****************** residuals **************************
+print( residuals( fitwls1 ) )
+print( residuals( fitwls1$eq[[ 2 ]] ) )
+
+print( residuals( fitwls2e ) )
+print( residuals( fitwls2e$eq[[ 1 ]] ) )
+
+print( residuals( fitwls3 ) )
+print( residuals( fitwls3$eq[[ 2 ]] ) )
+
+print( residuals( fitwls4e ) )
+print( residuals( fitwls4e$eq[[ 1 ]] ) )
+
+print( residuals( fitwls5 ) )
+print( residuals( fitwls5$eq[[ 2 ]] ) )
+
+print( residuals( fitwlsi1e ) )
+print( residuals( fitwlsi1e$eq[[ 1 ]] ) )
+
+print( residuals( fitwlsi2 ) )
+print( residuals( fitwlsi2$eq[[ 2 ]] ) )
+
+print( residuals( fitwlsi3e ) )
+print( residuals( fitwlsi3e$eq[[ 1 ]] ) )
+
+print( residuals( fitwlsi4 ) )
+print( residuals( fitwlsi4$eq[[ 2 ]] ) )
+
+print( residuals( fitwlsi5e ) )
+print( residuals( fitwlsi5e$eq[[ 1 ]] ) )
