@@ -3336,3 +3336,246 @@ income       0.274  0.327
 101.43140 102.70430 104.48562 108.91847 
 > 
 > 
+> ## *********** likelihood ratio tests *************
+> # testing first restriction
+> # non-iterating, methodRCov = 1
+> print( lrtest.systemfit( fitsur2, fitsur1 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 1.191 
+degrees of freedom: 1 
+p-value: 0.2752 
+
+> print( lrtest.systemfit( fitsur3, fitsur1 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 1.191 
+degrees of freedom: 1 
+p-value: 0.2752 
+
+> # non-iterating, methodRCov = 0
+> print( lrtest.systemfit( fitsur2e, fitsur1e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 0.7003 
+degrees of freedom: 1 
+p-value: 0.4027 
+
+> print( lrtest.systemfit( fitsur3e, fitsur1e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 0.7003 
+degrees of freedom: 1 
+p-value: 0.4027 
+
+> # iterating, methodRCov = 1
+> print( lrtest.systemfit( fitsuri2, fitsuri1 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 64.31 
+degrees of freedom: 1 
+p-value: 1.11e-15 
+
+> print( lrtest.systemfit( fitsuri3, fitsuri1 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 64.31 
+degrees of freedom: 1 
+p-value: 1.11e-15 
+
+> # iterating, methodRCov = 0
+> print( lrtest.systemfit( fitsuri2e, fitsuri1e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 64.31 
+degrees of freedom: 1 
+p-value: 1.11e-15 
+
+> print( lrtest.systemfit( fitsuri3e, fitsuri1e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 64.31 
+degrees of freedom: 1 
+p-value: 1.11e-15 
+
+> 
+> # testing second restriction
+> # non-iterating, methodRCov = 1
+> print( lrtest.systemfit( fitsur4, fitsur2 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 12.66 
+degrees of freedom: 1 
+p-value: 0.0003727 
+
+> print( lrtest.systemfit( fitsur4, fitsur3 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 12.66 
+degrees of freedom: 1 
+p-value: 0.0003727 
+
+> print( lrtest.systemfit( fitsur5, fitsur2 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 12.66 
+degrees of freedom: 1 
+p-value: 0.0003727 
+
+> print( lrtest.systemfit( fitsur5, fitsur3 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 12.66 
+degrees of freedom: 1 
+p-value: 0.0003727 
+
+> # non-iterating, methodRCov = 0
+> print( lrtest.systemfit( fitsur4e, fitsur2e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 13.21 
+degrees of freedom: 1 
+p-value: 0.0002778 
+
+> print( lrtest.systemfit( fitsur4e, fitsur3e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 13.21 
+degrees of freedom: 1 
+p-value: 0.0002778 
+
+> print( lrtest.systemfit( fitsur5e, fitsur2e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 13.21 
+degrees of freedom: 1 
+p-value: 0.0002778 
+
+> print( lrtest.systemfit( fitsur5e, fitsur3e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 13.21 
+degrees of freedom: 1 
+p-value: 0.0002778 
+
+> # iterating, methodRCov = 1
+> print( lrtest.systemfit( fitsuri4, fitsuri2 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -82.93 
+degrees of freedom: 1 
+p-value:     1 
+
+> print( lrtest.systemfit( fitsuri4, fitsuri3 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -82.93 
+degrees of freedom: 1 
+p-value:     1 
+
+> print( lrtest.systemfit( fitsuri5, fitsuri2 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -82.93 
+degrees of freedom: 1 
+p-value:     1 
+
+> print( lrtest.systemfit( fitsuri5, fitsuri3 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -82.93 
+degrees of freedom: 1 
+p-value:     1 
+
+> # iterating, methodRCov = 0
+> print( lrtest.systemfit( fitsuri4e, fitsuri2e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -82.97 
+degrees of freedom: 1 
+p-value:     1 
+
+> print( lrtest.systemfit( fitsuri4e, fitsuri3e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -82.97 
+degrees of freedom: 1 
+p-value:     1 
+
+> print( lrtest.systemfit( fitsuri5e, fitsuri2e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -82.97 
+degrees of freedom: 1 
+p-value:     1 
+
+> print( lrtest.systemfit( fitsuri5e, fitsuri3e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -82.97 
+degrees of freedom: 1 
+p-value:     1 
+
+> 
+> # testing both of the restrictions
+> # non-iterating, methodRCov = 1
+> print( lrtest.systemfit( fitsur4, fitsur1 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 13.85 
+degrees of freedom: 2 
+p-value: 0.0009805 
+
+> print( lrtest.systemfit( fitsur5, fitsur1 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 13.85 
+degrees of freedom: 2 
+p-value: 0.0009805 
+
+> # non-iterating, methodRCov = 0
+> print( lrtest.systemfit( fitsur4e, fitsur1e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 13.91 
+degrees of freedom: 2 
+p-value: 0.0009515 
+
+> print( lrtest.systemfit( fitsur5e, fitsur1e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: 13.91 
+degrees of freedom: 2 
+p-value: 0.0009515 
+
+> # iterating, methodRCov = 1
+> print( lrtest.systemfit( fitsuri4, fitsuri1 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -18.63 
+degrees of freedom: 2 
+p-value:     1 
+
+> print( lrtest.systemfit( fitsuri5, fitsuri1 ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -18.63 
+degrees of freedom: 2 
+p-value:     1 
+
+> # iterating, methodRCov = 0
+> print( lrtest.systemfit( fitsuri4e, fitsuri1e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -18.66 
+degrees of freedom: 2 
+p-value:     1 
+
+> print( lrtest.systemfit( fitsuri5e, fitsuri1e ) )
+
+Likelihood-Ratio-test for parameter restrictions in equation systems
+LR-statistic: -18.66 
+degrees of freedom: 2 
+p-value:     1 
+
+> 
