@@ -64,7 +64,7 @@ systemfit <- function(  eqns,
   nObsEq  <- numeric( nEq ) # number of observations in each equation
   nExogEq <- numeric( nEq ) # number of exogenous variables /(unrestricted) coefficients
                                      # in each equation
-  instl   <- list()         # list of the instruments for each equation
+  instEq  <- list()         # list of the instruments for each equation
   ssr     <- numeric( nEq ) # sum of squared residuals of each equation
   sigma   <- numeric( nEq ) # estimated sigma (std. dev. of residuals) of each equation
   r2      <- numeric( nEq ) # R-squared value
@@ -239,9 +239,9 @@ systemfit <- function(  eqns,
   if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
     for(i in 1:nEq) {
       if(is.list(inst)) {
-         instl[[i]] <- inst[[i]]
+         instEq[[i]] <- inst[[i]]
       } else {
-         instl[[i]] <- inst
+         instEq[[i]] <- inst
       }
     }
     xMatHatAll <- matrix( 0, 0, ncol( xMatAll ) ) # fitted X values
@@ -256,7 +256,7 @@ systemfit <- function(  eqns,
       rowsEq <- c( (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) )
             # rows that belong to the ith equation
       modelFrameInst[[ i ]] <- modelFrame
-      modelFrameInst[[ i ]]$formula <- instl[[ i ]]
+      modelFrameInst[[ i ]]$formula <- instEq[[ i ]]
       evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]], parent.frame() )
       termsInst[[ i ]] <- attr( evalModelFrameInst[[ i ]], "terms" )
       hMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
@@ -513,7 +513,7 @@ systemfit <- function(  eqns,
     resulti$r2           <- r2              # R-sqared value
     resulti$adjr2        <- adjr2           # adjusted R-squared value
     if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
-      resulti$inst         <- instl[[i]]
+      resulti$inst         <- instEq[[i]]
       resulti$hMat         <- hMatEq[[i]]          # matrix of instrumental variables
     }
     class(resulti)        <- "systemfit.equation"
