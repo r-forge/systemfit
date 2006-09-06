@@ -97,28 +97,28 @@ systemfit <- function(  eqns,
    # package
    # how were we called?
    results$call <- match.call() # get the original call
-   m0 <- match.call( expand.dots = FALSE ) #-"- without ...-expansion
-   pos <- which( names( m0 ) == "data" )
-   if( length( pos ) == 1 ) {
-      results$data.name <- as.character( m0[ pos ] )
+   callNoDots <- match.call( expand.dots = FALSE ) #-"- without ...-expansion
+   if( "data" %in% names( callNoDots ) ) {
+      results$data.name <- callNoDots$data
    } else {
       results$data.name <- "unknown"
    }
-   rm( pos )
-   temp <- c("", "data", "weights", "subset", "na.action")
-                  # arguments for model matrices
-   m0 <- m0[match(temp, names(m0), nomatch = 0)]
-            # positions of temp-arguments
-   m0[[1]] <- as.name("model.frame")
-            # find matrices for individual models
+   # model frame (without formula)
+   modelFrame <- callNoDots[ c( 1, match( "data", names( callNoDots ), 0 ) ) ]
+   modelFrame[[1]] <- as.name( "model.frame" )
+   # terms and model frames for the individual equations
+   termsEq <- list()
+   modelFrameEq <- list()
+   evalModelFrameEq <- list()
+   # prepare data for individual equations
    for(i in 1:nEq ) {
-      m <- m0
-      Terms <- terms(eqns[[i]], data = data)
-      m$formula <- Terms
-      m <- eval(m, parent.frame())
-      weights <- model.extract(m, "weights")
-      yVecEq[[i]] <- model.extract(m, "response")
-      xMatEq[[i]] <- model.matrix(Terms, m)
+      termsEq[[ i ]] <- terms( eqns[[ i ]], data = data )
+      modelFrameEq[[ i ]] <- modelFrame
+      modelFrameEq[[ i ]]$formula <- termsEq[[ i ]]
+      evalModelFrameEq[[ i ]] <- eval( modelFrameEq[[ i ]], parent.frame() )
+      weights <- model.extract( evalModelFrameEq[[ i ]], "weights" )
+      yVecEq[[i]] <- model.extract( evalModelFrameEq[[ i ]], "response" )
+      xMatEq[[i]] <- model.matrix( termsEq[[ i ]], evalModelFrameEq[[ i ]] )
       yVecAll <- c(yVecAll,yVecEq[[i]])
       xMatAll <- rbind( cbind( xMatAll, matrix( 0, nrow( xMatAll ), ncol( xMatEq[[i]] ))),
                   cbind( matrix( 0, nrow( xMatEq[[i]] ), ncol( xMatAll )), xMatEq[[i]]))
@@ -273,7 +273,7 @@ systemfit <- function(  eqns,
       # the following lines have been substituted for the previous
       # line due to changes in the data handling.
       # code provided by Ott Toomet
-      m <- m0
+      m <- modelFrame
       Terms <- terms(instl[[i]], data = data)
       m$formula <- Terms
       m <- eval(m, parent.frame())
@@ -494,7 +494,7 @@ systemfit <- function(  eqns,
     # the following lines have to be substituted for the previous
     # line due to changes in the data handling.
     # code provided by Ott Toomet
-    m <- m0
+    m <- modelFrame
     Terms <- terms( eqns[[i]], data = data)
     m$formula <- Terms
     m <- eval(m, parent.frame())
@@ -514,7 +514,7 @@ systemfit <- function(  eqns,
       # the following lines have to be substituted for the previous
       # line due to changes in the data handling.
       # code provided by Ott Toomet
-      m <- m0
+      m <- modelFrame
       Terms <- terms(instl[[i]], data = data)
       m$formula <- Terms
       m <- eval(m, parent.frame())
