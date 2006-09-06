@@ -253,20 +253,20 @@ systemfit <- function(  eqns,
     evalModelFrameInst <- list()
     # prepare data for individual equations
     for(i in 1:nEq) {
-      Xi <- xMatAll[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])),]
-            # regressors of the ith equation (including zeros)
+      rowsEq <- c( (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) )
+            # rows that belong to the ith equation
       termsInst[[ i ]] <- terms( instl[[i]], data = data )
       modelFrameInst[[ i ]] <- modelFrame
       modelFrameInst[[ i ]]$formula <- termsInst[[ i ]]
       evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]], parent.frame() )
       hMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
-      if( nrow( hMatEq[[ i ]] ) != nrow( Xi ) ) {
+      if( nrow( hMatEq[[ i ]] ) != nrow( xMatAll[ rowsEq, ] ) ) {
          stop( paste( "The instruments and the regressors of equation",
             as.character( i ), "have different numbers of observations." ) )
       }
       # extract instrument matrix
       xMatHatAll <- rbind(xMatHatAll, hMatEq[[i]] %*% solve( crossprod( hMatEq[[i]]) , tol=solvetol )
-              %*% crossprod( hMatEq[[i]], Xi ))       # 'fitted' X-values
+              %*% crossprod( hMatEq[[i]], xMatAll[ rowsEq, ] ))       # 'fitted' X-values
       hMatAll  <-  rbind( cbind( hMatAll, matrix( 0, nrow( hMatAll ), ncol( hMatEq[[i]] ))),
                          cbind( matrix( 0, nrow( hMatEq[[i]] ), ncol( hMatAll )), hMatEq[[i]]))
 
