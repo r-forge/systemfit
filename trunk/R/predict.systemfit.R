@@ -18,7 +18,7 @@ predict.systemfit <- function( object, data=object$data,
    xMatEq  <- list()               # regressors equation-wise
    xMatAll <- matrix( 0, 0, 0 )    # stacked matrices of all regressors (unrestricted)
    for(i in 1:object$nEq )  {
-      eqns[[i]] <- object$eq[[i]]$formula
+      eqns[[i]] <- formula( object$eq[[i]]$terms )
       xMatEq[[i]] <-  model.matrix( eqns[[i]] )
       xMatAll      <-  rbind( cbind( xMatAll, matrix( 0, nrow( xMatAll ), ncol( xMatEq[[i]] ))),
                        cbind( matrix( 0, nrow( xMatEq[[i]] ), ncol( xMatAll )), xMatEq[[i]]))
@@ -123,7 +123,7 @@ predict.systemfit <- function( object, data=object$data,
 ## calculate predicted values, its standard errors and the prediction intervals
 predict.systemfit.equation <- function( object, data=object$data, ... ) {
    attach( data ); on.exit( detach( data ) )
-   xMat <-  model.matrix( object$formula )
+   xMat <-  model.matrix( formula( object$terms ) )
    predicted <- drop( xMat %*% object$coef )
    predicted
 }

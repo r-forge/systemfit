@@ -151,7 +151,7 @@ summary.systemfit.equation <- function( object, probDfSys = NULL, ... ) {
    result <- list()
    result$eqnLabel <- object$eqnlabel
    result$eqnNo <- object$i
-   result$formula <- object$formula
+   result$terms <- object$terms
    result$instruments <- object$inst
    result$method <- object$method
    result$residuals <- object$residuals
@@ -195,7 +195,7 @@ print.summary.systemfit.equation <- function( x, digits=6, ... ) {
   }
 
   cat("Model Formula: ")
-  print(x$formula)
+  print( formula( x$terms ) )
   if(!is.null(x$inst)) {
     cat("Instruments: ")
     print(x$inst)

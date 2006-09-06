@@ -492,7 +492,7 @@ systemfit <- function(  eqns,
     resulti$method       <- method
     resulti$i            <- i               # equation number
     resulti$eqnlabel     <- eqnlabels[[i]]
-    resulti$formula      <- eqns[[i]]
+    resulti$terms        <- termsEq[[ i ]]
     resulti$nObs         <- nObsEq[i]       # number of observations
     resulti$nExog        <- nExogEq[i]      # number of exogenous variables/coefficients
     resulti$nExogLi      <- nExogLiEq[i]    # number of linear independent coefficients
@@ -668,7 +668,7 @@ print.systemfit.equation <- function( x, digits=6, ... ) {
    }
 
    cat("Model Formula: ")
-   print(x$formula)
+   print( formula( x$terms ) )
    if(!is.null(x$inst)) {
       cat("Instruments: ")
       print(x$inst)

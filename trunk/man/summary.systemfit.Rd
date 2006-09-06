@@ -76,7 +76,7 @@
    \item{detResidCov*}{determinant of \code{residCov}.}
    \item{eqnLabel+}{equation label.}
    \item{eqnNo+}{equation number.}
-   \item{formula+}{formula of the equation.}
+   \item{terms+}{the 'terms' object used for the respective equation.}
    \item{r.squared+}{\eqn{R^2} value of the respective equation.}
    \item{adj.r.squared+}{adjusted \eqn{R^2} value of the respective equation.}
    \item{sigma+}{estimated standard error of the residuals
