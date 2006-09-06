@@ -77,25 +77,6 @@ systemfit <- function(  eqns,
       eqnlabels <- names(eqns)
    }
 
-#   for(i in 1:nEq )  {
-#     yVecEq[[i]] <-  eval( attr( terms( eqns[[i]] ), "variables" )[[2]] )
-#     yVecAll      <-  c( yVecAll, yVecEq[[i]] )
-#     xMatEq[[i]] <-  model.matrix( eqns[[i]] )
-#     xMatAll      <-  rbind( cbind( xMatAll, matrix( 0, nrow( xMatAll ), ncol( xMatEq[[i]] ))),
-#                        cbind( matrix( 0, nrow( xMatEq[[i]] ), ncol( xMatAll )), xMatEq[[i]]))
-#     nObsEq[i]   <-  length( yVecEq[[i]] )
-#     nExogEq[i]   <-  ncol(xMatEq[[i]])
-#     for(j in 1:nExogEq[i]) {
-#       xnames <- c( xnames, paste("eq",as.character(i),colnames( xMatEq[[i]] )[j] ))
-#     }
-#   }
-
-   # the previous lines are subtituted by the following,
-   # because Ott Toomet reported that they might lead to
-   # problems with special data sets. He suggested the
-   # following lines, which are copied from the survreg
-   # package
-   # how were we called?
    results$call <- match.call() # get the original call
    callNoDots <- match.call( expand.dots = FALSE ) #-"- without ...-expansion
    if( "data" %in% names( callNoDots ) ) {
@@ -266,18 +247,19 @@ systemfit <- function(  eqns,
     xMatHatAll <- matrix( 0, 0, ncol( xMatAll ) ) # fitted X values
     hMatAll  <- matrix( 0, 0, 0 )           # stacked matrices of all instruments
     hMatEq  <- list()
+    # terms and model frames for the instruments of the individual equations
+    termsInst <- list()
+    modelFrameInst <- list()
+    evalModelFrameInst <- list()
+    # prepare data for individual equations
     for(i in 1:nEq) {
       Xi <- xMatAll[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])),]
             # regressors of the ith equation (including zeros)
-      #hMatEq[[i]] <- model.matrix( instl[[i]] )
-      # the following lines have been substituted for the previous
-      # line due to changes in the data handling.
-      # code provided by Ott Toomet
-      m <- modelFrame
-      Terms <- terms(instl[[i]], data = data)
-      m$formula <- Terms
-      m <- eval(m, parent.frame())
-      hMatEq[[i]] <- model.matrix(Terms, m)
+      termsInst[[ i ]] <- terms( instl[[i]], data = data )
+      modelFrameInst[[ i ]] <- modelFrame
+      modelFrameInst[[ i ]]$formula <- termsInst[[ i ]]
+      evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]], parent.frame() )
+      hMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
       if( nrow( hMatEq[[ i ]] ) != nrow( Xi ) ) {
          stop( paste( "The instruments and the regressors of equation",
             as.character( i ), "have different numbers of observations." ) )
@@ -490,40 +472,14 @@ systemfit <- function(  eqns,
     r2     <- 1 - ssr/(t(yVecEq[[i]])%*%yVecEq[[i]]-nObsEq[i]*mean(yVecEq[[i]])^2)
     adjr2  <- 1 - ((nObsEq[i]-1)/df[i])*(1-r2)
     fittedi <- fitted[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
-    #datai  <- model.frame( eqns[[i]] )
-    # the following lines have to be substituted for the previous
-    # line due to changes in the data handling.
-    # code provided by Ott Toomet
-    m <- modelFrame
-    Terms <- terms( eqns[[i]], data = data)
-    m$formula <- Terms
-    m <- eval(m, parent.frame())
-    # datai <- model.frame(Terms, m)
-    # the following lines are substituted for the previous line to
-    # allow transformed variables in the formulas (e.g. "log(x1)")
-    # code provided by Mikko Pakkanen
-    resp <- model.extract( m, "response" )
-    # using model.matrix instead of model.frame, need to get the output
-    # variable separately
-    datai <- data.frame( cbind( resp, ( model.matrix( Terms, m ) )[ , -1 ] ) )
-    # I guess there's a better way to extract the name of the output variable?
+    resp <- model.extract( evalModelFrameEq[[ i ]], "response" )
+    datai <- data.frame( cbind( resp, ( model.matrix( termsEq[[ i ]],
+      evalModelFrameEq[[ i ]] ) )[ , -1 ] ) )
     names( datai )[1] <- as.character( terms( eqns[[ i ]] ) )[2]
     rm( resp )
     if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
-      #datai <- cbind( datai, model.frame( instl[[i]] ))
-      # the following lines have to be substituted for the previous
-      # line due to changes in the data handling.
-      # code provided by Ott Toomet
-      m <- modelFrame
-      Terms <- terms(instl[[i]], data = data)
-      m$formula <- Terms
-      m <- eval(m, parent.frame())
-      # datai <- cbind( datai, model.frame(Terms, m))
-      # the following lines are substituted for the previous line to
-      # allow transformed variables in the formulas (e.g. "log(x1)")
-      # code provided by Mikko Pakkanen
-      datai <- cbind( datai,
-         as.data.frame( ( model.matrix( Terms, m ) )[ , -1 ] ) )
+      datai <- cbind( datai, as.data.frame( model.matrix( termsInst[[ i ]],
+         evalModelFrameInst[[ i ]] )[ , -1 ] ) )
     }
 
     if(i==1) {
