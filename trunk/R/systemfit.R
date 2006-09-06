@@ -93,10 +93,10 @@ systemfit <- function(  eqns,
    evalModelFrameEq <- list()
    # prepare data for individual equations
    for(i in 1:nEq ) {
-      termsEq[[ i ]] <- terms( eqns[[ i ]], data = data )
       modelFrameEq[[ i ]] <- modelFrame
-      modelFrameEq[[ i ]]$formula <- termsEq[[ i ]]
+      modelFrameEq[[ i ]]$formula <- eqns[[ i ]]
       evalModelFrameEq[[ i ]] <- eval( modelFrameEq[[ i ]], parent.frame() )
+      termsEq[[ i ]] <- attr( evalModelFrameEq[[ i ]], "terms" )
       weights <- model.extract( evalModelFrameEq[[ i ]], "weights" )
       yVecEq[[i]] <- model.extract( evalModelFrameEq[[ i ]], "response" )
       xMatEq[[i]] <- model.matrix( termsEq[[ i ]], evalModelFrameEq[[ i ]] )
@@ -255,10 +255,10 @@ systemfit <- function(  eqns,
     for(i in 1:nEq) {
       rowsEq <- c( (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) )
             # rows that belong to the ith equation
-      termsInst[[ i ]] <- terms( instl[[i]], data = data )
       modelFrameInst[[ i ]] <- modelFrame
-      modelFrameInst[[ i ]]$formula <- termsInst[[ i ]]
+      modelFrameInst[[ i ]]$formula <- instl[[ i ]]
       evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]], parent.frame() )
+      termsInst[[ i ]] <- attr( evalModelFrameInst[[ i ]], "terms" )
       hMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
       if( nrow( hMatEq[[ i ]] ) != nrow( xMatAll[ rowsEq, ] ) ) {
          stop( paste( "The instruments and the regressors of equation",
