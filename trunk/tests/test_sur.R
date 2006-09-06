@@ -46,19 +46,19 @@ print( summary( fitsur1e, probDfSys = TRUE ) )
 print( round( fitsur1e$bcov, digits = 6 ) )
 
 ## ********************* SUR (methodRCov="Theil") *****************
-fitsur1c <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
-print( summary( fitsur1c ) )
-print( round( fitsur1c$bcov, digits = 6 ) )
+fitsur1r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
+print( summary( fitsur1r2 ) )
+print( round( fitsur1r2$bcov, digits = 6 ) )
 
 ## *************** SUR (methodRCov="Theil", probDfSys = TRUE ) ***************
-fitsur1cp <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
-print( summary( fitsur1cp, probDfSys = TRUE ) )
-print( round( fitsur1cp$bcov, digits = 6 ) )
+fitsur1e2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
+print( summary( fitsur1e2, probDfSys = TRUE ) )
+print( round( fitsur1e2$bcov, digits = 6 ) )
 
 ## ********************* SUR (methodRCov="max") *****************
-fitsur1c <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max" )
-print( summary( fitsur1c ) )
-print( round( fitsur1c$bcov, digits = 6 ) )
+fitsur1r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max" )
+print( summary( fitsur1r3 ) )
+print( round( fitsur1r3$bcov, digits = 6 ) )
 
 ## *************** SUR with cross-equation restriction **************
 fitsur2 <- systemfit( system, "SUR", data = Kmenta, R.restr = restrm )
@@ -95,16 +95,16 @@ print( summary( fitsur4e ) )
 print( round( fitsur4e$bcov, digits = 6 ) )
 
 ## *************** SUR with 2 restrictions (methodRCov = "Theil") **************
-fitsur4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+fitsur4r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
    R.restr = restr2m, q.restr = restr2q )
-print( summary( fitsur4e ) )
-print( round( fitsur4e$bcov, digits = 6 ) )
+print( summary( fitsur4r2 ) )
+print( round( fitsur4r2$bcov, digits = 6 ) )
 
 ## *************** SUR with 2 restrictions (methodRCov = "max") **************
-fitsur4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
+fitsur4r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
    R.restr = restr2m, q.restr = restr2q )
-print( summary( fitsur4e ) )
-print( round( fitsur4e$bcov, digits = 6 ) )
+print( summary( fitsur4r3 ) )
+print( round( fitsur4r3$bcov, digits = 6 ) )
 
 ## *************** SUR with 2 restrictions via R and TX ****************
 fitsur5 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr3m,
@@ -130,22 +130,22 @@ print( summary( fitsuri1e, probDfSys = TRUE ) )
 print( round( fitsuri1e$bcov, digits = 6 ) )
 
 ## ************** iterated SUR (methodRCov = "Theil") ****************************
-fitsuri1c <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
+fitsuri1r2 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
    methodRCov = "Theil" )
-print( summary( fitsuri1c ) )
-print( round( fitsuri1c$bcov, digits = 6 ) )
+print( summary( fitsuri1r2 ) )
+print( round( fitsuri1r2$bcov, digits = 6 ) )
 
 ## ************** iterated SUR (methodRCov="Theil", probDfSys=TRUE) *****************
-fitsuri1cp <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
+fitsuri1e2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
    maxit = 100 )
-print( summary( fitsuri1cp, probDfSys = TRUE ) )
-print( round( fitsuri1cp$bcov, digits = 6 ) )
+print( summary( fitsuri1e2, probDfSys = TRUE ) )
+print( round( fitsuri1e2$bcov, digits = 6 ) )
 
 ## ************** iterated SUR (methodRCov = "max") ****************************
-fitsuri1c <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
+fitsuri1r3 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
    methodRCov = "max" )
-print( summary( fitsuri1c ) )
-print( round( fitsuri1c$bcov, digits = 6 ) )
+print( summary( fitsuri1r3 ) )
+print( round( fitsuri1r3$bcov, digits = 6 ) )
 
 ## *********** iterated SUR with restriction *******************
 fitsuri2 <- systemfit( system2, "SUR", data = Kmenta, R.restr = restrm,
@@ -196,10 +196,10 @@ print( summary( fitsuri5e ) )
 print( round( fitsuri5e$bcov, digits = 6 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="Theil") **********
-fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+fitsuri5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
-print( summary( fitsuri5e ) )
-print( round( fitsuri5e$bcov, digits = 6 ) )
+print( summary( fitsuri5r2 ) )
+print( round( fitsuri5r2$bcov, digits = 6 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="max") **********
 # fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
@@ -210,8 +210,8 @@ print( round( fitsuri5e$bcov, digits = 6 ) )
 
 
 ## ****************** residuals **************************
-print( residuals( fitsur1cp ) )
-print( residuals( fitsur1cp$eq[[ 2 ]] ) )
+print( residuals( fitsur1e2 ) )
+print( residuals( fitsur1e2$eq[[ 2 ]] ) )
 
 print( residuals( fitsur2e ) )
 print( residuals( fitsur2e$eq[[ 1 ]] ) )
@@ -219,14 +219,14 @@ print( residuals( fitsur2e$eq[[ 1 ]] ) )
 print( residuals( fitsur3 ) )
 print( residuals( fitsur3$eq[[ 2 ]] ) )
 
-print( residuals( fitsur4e ) )
-print( residuals( fitsur4e$eq[[ 1 ]] ) )
+print( residuals( fitsur4r3 ) )
+print( residuals( fitsur4r3$eq[[ 1 ]] ) )
 
 print( residuals( fitsur5 ) )
 print( residuals( fitsur5$eq[[ 2 ]] ) )
 
-print( residuals( fitsuri1c ) )
-print( residuals( fitsuri1c$eq[[ 1 ]] ) )
+print( residuals( fitsuri1r3 ) )
+print( residuals( fitsuri1r3$eq[[ 1 ]] ) )
 
 print( residuals( fitsuri2 ) )
 print( residuals( fitsuri2$eq[[ 2 ]] ) )
@@ -237,13 +237,13 @@ print( residuals( fitsuri3e$eq[[ 1 ]] ) )
 print( residuals( fitsuri4 ) )
 print( residuals( fitsuri4$eq[[ 2 ]] ) )
 
-print( residuals( fitsuri5e ) )
-print( residuals( fitsuri5e$eq[[ 1 ]] ) )
+print( residuals( fitsuri5r2 ) )
+print( residuals( fitsuri5r2$eq[[ 1 ]] ) )
 
 
 ## *********** confidence intervals of coefficients *************
-print( confint( fitsur1cp, probDfSys = TRUE ) )
-print( confint( fitsur1cp$eq[[ 2 ]], level = 0.9, probDfSys = TRUE ) )
+print( confint( fitsur1e2, probDfSys = TRUE ) )
+print( confint( fitsur1e2$eq[[ 2 ]], level = 0.9, probDfSys = TRUE ) )
 
 print( confint( fitsur2e, level = 0.9 ) )
 print( confint( fitsur2e$eq[[ 1 ]], level = 0.99 ) )
@@ -251,14 +251,14 @@ print( confint( fitsur2e$eq[[ 1 ]], level = 0.99 ) )
 print( confint( fitsur3, level = 0.99 ) )
 print( confint( fitsur3$eq[[ 2 ]], level = 0.5 ) )
 
-print( confint( fitsur4e, level = 0.5 ) )
-print( confint( fitsur4e$eq[[ 1 ]], level = 0.25 ) )
+print( confint( fitsur4r3, level = 0.5 ) )
+print( confint( fitsur4r3$eq[[ 1 ]], level = 0.25 ) )
 
 print( confint( fitsur5, level = 0.25 ) )
 print( confint( fitsur5$eq[[ 2 ]], level = 0.975 ) )
 
-print( confint( fitsuri1c, level = 0.975 ) )
-print( confint( fitsuri1c$eq[[ 1 ]], level = 0.999 ) )
+print( confint( fitsuri1r3, level = 0.975 ) )
+print( confint( fitsuri1r3$eq[[ 1 ]], level = 0.999 ) )
 
 print( confint( fitsuri2, level = 0.999 ) )
 print( confint( fitsuri2$eq[[ 2 ]], level = 0.1 ) )
@@ -269,8 +269,8 @@ print( confint( fitsuri3e$eq[[ 1 ]], level = 0.01 ) )
 print( confint( fitsuri4, level = 0.01 ) )
 print( confint( fitsuri4$eq[[ 2 ]], level = 0.33 ) )
 
-print( confint( fitsuri5e, level = 0.33 ) )
-print( confint( fitsuri5e$eq[[ 1 ]] ) )
+print( confint( fitsuri5r2, level = 0.33 ) )
+print( confint( fitsuri5r2$eq[[ 1 ]] ) )
 
 
 ## *********** predicted values *************
@@ -278,9 +278,9 @@ predictData <- Kmenta
 predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
-print( predict( fitsur1cp, se.fit = TRUE, interval = "prediction",
+print( predict( fitsur1e2, se.fit = TRUE, interval = "prediction",
    probDfSys = TRUE ) )
-print( predict( fitsur1cp$eq[[ 2 ]] ) )
+print( predict( fitsur1e2$eq[[ 2 ]] ) )
 
 print( predict( fitsur2e, se.pred = TRUE, interval = "confidence",
    level = 0.999, data = predictData ) )
@@ -290,17 +290,17 @@ print( predict( fitsur3, se.pred = TRUE, interval = "prediction",
    level = 0.975 ) )
 print( predict( fitsur3$eq[[ 2 ]] ) )
 
-print( predict( fitsur4e, se.fit = TRUE, interval = "confidence",
+print( predict( fitsur4r3, se.fit = TRUE, interval = "confidence",
    level = 0.25 ) )
-print( predict( fitsur4e$eq[[ 1 ]] ) )
+print( predict( fitsur4r3$eq[[ 1 ]] ) )
 
 print( predict( fitsur5, se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.5, data = predictData ) )
 print( predict( fitsur5$eq[[ 2 ]] ) )
 
-print( predict( fitsuri1c, se.fit = TRUE, se.pred = TRUE,
+print( predict( fitsuri1r3, se.fit = TRUE, se.pred = TRUE,
    interval = "confidence", level = 0.99 ) )
-print( predict( fitsuri1c$eq[[ 1 ]] ) )
+print( predict( fitsuri1r3$eq[[ 1 ]] ) )
 
 print( predict( fitsuri2, se.fit = TRUE, interval = "prediction",
    level = 0.9, data = predictData ) )
@@ -312,6 +312,6 @@ print( predict( fitsuri3e$eq[[ 1 ]] ) )
 print( predict( fitsuri4, interval = "confidence", data = predictData ) )
 print( predict( fitsuri4$eq[[ 2 ]] ) )
 
-print( predict( fitsuri5e ) )
-print( predict( fitsuri5e$eq[[ 1 ]] ) )
+print( predict( fitsuri5r2 ) )
+print( predict( fitsuri5r2$eq[[ 1 ]] ) )
 
