@@ -215,8 +215,8 @@ eq 2 farmPrice     0.000503       0.001272   0.001615
 eq 2 trend         0.000639       0.001615   0.003690
 > 
 > ## ********************* SUR (rcovformula=2) *****************
-> fitsur1c <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2 )
-> print( summary( fitsur1c ) )
+> fitsur1r2 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2 )
+> print( summary( fitsur1r2 ) )
 
 systemfit results 
 method: SUR 
@@ -278,7 +278,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.322063 MSE: 6.582629 Root MSE: 2.565663 
 Multiple R-Squared: 0.607175 Adjusted R-Squared: 0.53352 
 
-> print( round( fitsur1c$bcov, digits = 6 ) )
+> print( round( fitsur1r2$bcov, digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        56.440312  -0.587510    0.025716        61.054961
 eq 1 price              -0.587510   0.007693   -0.001866        -0.403701
@@ -297,9 +297,9 @@ eq 2 farmPrice     0.000584       0.001476   0.001950
 eq 2 trend         0.000772       0.001950   0.004100
 > 
 > ## *************** SUR (rcovformula=2, probdfsys = TRUE ) ***************
-> fitsur1cp <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
+> fitsur1e2 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
 +    probdfsys = TRUE )
-> print( summary( fitsur1cp ) )
+> print( summary( fitsur1e2 ) )
 
 systemfit results 
 method: SUR 
@@ -361,7 +361,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.322063 MSE: 6.582629 Root MSE: 2.565663 
 Multiple R-Squared: 0.607175 Adjusted R-Squared: 0.53352 
 
-> print( round( fitsur1cp$bcov, digits = 6 ) )
+> print( round( fitsur1e2$bcov, digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        56.440312  -0.587510    0.025716        61.054961
 eq 1 price              -0.587510   0.007693   -0.001866        -0.403701
@@ -380,8 +380,8 @@ eq 2 farmPrice     0.000584       0.001476   0.001950
 eq 2 trend         0.000772       0.001950   0.004100
 > 
 > ## ********************* SUR (rcovformula=3) *****************
-> fitsur1c <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 3 )
-> print( summary( fitsur1c ) )
+> fitsur1r3 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 3 )
+> print( summary( fitsur1r3 ) )
 
 systemfit results 
 method: SUR 
@@ -443,7 +443,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.186783 MSE: 6.574174 Root MSE: 2.564015 
 Multiple R-Squared: 0.607679 Adjusted R-Squared: 0.534119 
 
-> print( round( fitsur1c$bcov, digits = 6 ) )
+> print( round( fitsur1r3$bcov, digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        56.443206  -0.587720    0.025901        60.860716
 eq 1 price              -0.587720   0.007709   -0.001879        -0.400864
@@ -946,9 +946,9 @@ eq 2 farmPrice    -0.000562       0.000348   0.000234
 eq 2 trend        -0.000738       0.000234   0.000340
 > 
 > ## *************** SUR with 2 restrictions (rcovformula = 2) **************
-> fitsur4e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
+> fitsur4r2 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
 +    R.restr = restr2m, q.restr = restr2q )
-> print( summary( fitsur4e ) )
+> print( summary( fitsur4r2 ) )
 
 systemfit results 
 method: SUR 
@@ -1008,7 +1008,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 108.217072 MSE: 6.763567 Root MSE: 2.600686 
 Multiple R-Squared: 0.596377 Adjusted R-Squared: 0.520698 
 
-> print( round( fitsur4e$bcov, digits = 6 ) )
+> print( round( fitsur4r2$bcov, digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        53.138353  -0.593514    0.065746        53.390331
 eq 1 price              -0.593514   0.006838   -0.000927        -0.599312
@@ -1027,9 +1027,9 @@ eq 2 farmPrice    -0.000775       0.000276   0.000210
 eq 2 trend        -0.000927       0.000210   0.000276
 > 
 > ## *************** SUR with 2 restrictions (rcovformula = 3) **************
-> fitsur4e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 3,
+> fitsur4r3 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 3,
 +    R.restr = restr2m, q.restr = restr2q )
-> print( summary( fitsur4e ) )
+> print( summary( fitsur4r3 ) )
 
 systemfit results 
 method: SUR 
@@ -1089,7 +1089,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 106.923958 MSE: 6.682747 Root MSE: 2.585101 
 Multiple R-Squared: 0.6012 Adjusted R-Squared: 0.526425 
 
-> print( round( fitsur4e$bcov, digits = 6 ) )
+> print( round( fitsur4r3$bcov, digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        53.535723  -0.596854    0.065097        53.794733
 eq 1 price              -0.596854   0.006878   -0.000934        -0.603055
@@ -1435,9 +1435,9 @@ eq 2 farmPrice     -0.000818       0.001103   0.001428
 eq 2 trend         -0.001317       0.001428   0.003418
 > 
 > ## ************** iterated SUR (rcovformula = 2) ****************************
-> fitsuri1c <- systemfit( "SUR", system2, labels, data = Kmenta, maxit = 100,
+> fitsuri1r2 <- systemfit( "SUR", system2, labels, data = Kmenta, maxit = 100,
 +    rcovformula = 2 )
-> print( summary( fitsuri1c ) )
+> print( summary( fitsuri1r2 ) )
 
 systemfit results 
 method: iterated SUR 
@@ -1499,7 +1499,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 41.764463 MSE: 2.610279 Root MSE: 1.615636 
 Multiple R-Squared: 0.937408 Adjusted R-Squared: 0.925672 
 
-> print( round( fitsuri1c$bcov, digits = 6 ) )
+> print( round( fitsuri1r2$bcov, digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        54.495465  -0.555887    0.013336        -2.747666
 eq 1 price              -0.555887   0.007684   -0.002181        -0.087693
@@ -1518,9 +1518,9 @@ eq 2 farmPrice     -0.001016       0.001365   0.001793
 eq 2 trend         -0.001626       0.001793   0.004128
 > 
 > ## ************** iterated SUR (rcovformula=2, probdfsys=TRUE) *****************
-> fitsuri1cp <- systemfit( "SUR", system2, labels, data = Kmenta, rcovformula = 2,
+> fitsuri1e2 <- systemfit( "SUR", system2, labels, data = Kmenta, rcovformula = 2,
 +    probdfsys = TRUE, maxit = 100 )
-> print( summary( fitsuri1cp ) )
+> print( summary( fitsuri1e2 ) )
 
 systemfit results 
 method: iterated SUR 
@@ -1582,7 +1582,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 41.764463 MSE: 2.610279 Root MSE: 1.615636 
 Multiple R-Squared: 0.937408 Adjusted R-Squared: 0.925672 
 
-> print( round( fitsuri1cp$bcov, digits = 6 ) )
+> print( round( fitsuri1e2$bcov, digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        54.495465  -0.555887    0.013336        -2.747666
 eq 1 price              -0.555887   0.007684   -0.002181        -0.087693
@@ -1601,9 +1601,9 @@ eq 2 farmPrice     -0.001016       0.001365   0.001793
 eq 2 trend         -0.001626       0.001793   0.004128
 > 
 > ## ************** iterated SUR (rcovformula = 3) ****************************
-> fitsuri1c <- systemfit( "SUR", system2, labels, data = Kmenta, maxit = 100,
+> fitsuri1r3 <- systemfit( "SUR", system2, labels, data = Kmenta, maxit = 100,
 +    rcovformula = 3 )
-> print( summary( fitsuri1c ) )
+> print( summary( fitsuri1r3 ) )
 
 systemfit results 
 method: iterated SUR 
@@ -1665,7 +1665,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 41.708116 MSE: 2.606757 Root MSE: 1.614546 
 Multiple R-Squared: 0.937493 Adjusted R-Squared: 0.925773 
 
-> print( round( fitsuri1c$bcov, digits = 6 ) )
+> print( round( fitsuri1r3$bcov, digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        54.550512  -0.556983    0.013891        -2.703167
 eq 1 price              -0.556983   0.007700   -0.002185        -0.087329
@@ -2348,9 +2348,9 @@ eq 2 farmPrice    -0.000704       0.000270   0.000201
 eq 2 trend        -0.000842       0.000201   0.000266
 > 
 > ## ********* iterated SUR with 2 restrictions via R and TX (rcovformula=2) **********
-> fitsuri5e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
+> fitsuri5r2 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
 +    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
-> print( summary( fitsuri5e ) )
+> print( summary( fitsuri5r2 ) )
 
 systemfit results 
 method: iterated SUR 
@@ -2414,7 +2414,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 157.737286 MSE: 9.85858 Root MSE: 3.139838 
 Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369 
 
-> print( round( fitsuri5e$bcov, digits = 6 ) )
+> print( round( fitsuri5r2$bcov, digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        51.319595  -0.579747    0.070528        51.551829
 eq 1 price              -0.579747   0.006646   -0.000872        -0.583025
@@ -2441,7 +2441,7 @@ eq 2 trend        -0.000872       0.000138   0.000171
 > 
 > 
 > ## ****************** residuals **************************
-> print( residuals( fitsur1cp ) )
+> print( residuals( fitsur1e2 ) )
        demand       supply
 1   0.6150735  0.418250365
 2  -0.5979146 -0.006249244
@@ -2463,7 +2463,7 @@ eq 2 trend        -0.000872       0.000138   0.000171
 18 -1.8994646 -3.186833033
 19  2.0300772  2.182844209
 20  0.3293395  0.984968567
-> print( residuals( fitsur1cp$eq[[ 2 ]] ) )
+> print( residuals( fitsur1e2$eq[[ 2 ]] ) )
  [1]  0.418250365 -0.006249244  2.756494415  1.817267947  2.535656907
  [6]  1.533382323  2.255808743 -3.568342388 -2.027331772  2.532449625
 [11] -1.407327588 -3.014159193 -2.301187196  0.018707909  2.936239781
@@ -2525,7 +2525,7 @@ eq 2 trend        -0.000872       0.000138   0.000171
 [13] -2.7983641 -0.1747780  3.3316004 -3.4358575  0.1993576 -2.7636605
 [19]  2.6041680  1.6535405
 > 
-> print( residuals( fitsur4e ) )
+> print( residuals( fitsur4r3 ) )
        demand     supply
 1   0.9340521  0.2646246
 2  -0.7214350 -0.6384208
@@ -2547,7 +2547,7 @@ eq 2 trend        -0.000872       0.000138   0.000171
 18 -2.2357408 -3.5025973
 19  1.4399758  1.7359173
 20 -1.0118317 -0.4405394
-> print( residuals( fitsur4e$eq[[ 1 ]] ) )
+> print( residuals( fitsur4r3$eq[[ 1 ]] ) )
  [1]  0.9340521 -0.7214350  2.3479843  1.4593124  2.1294011  1.2526642
  [7]  1.5135833 -3.1854992 -1.0968591  2.6187465  0.1350519 -2.0965332
 [13] -1.4956799 -0.2010695  1.9338513 -3.4910150 -0.2289596 -2.2357408
@@ -2581,7 +2581,7 @@ eq 2 trend        -0.000872       0.000138   0.000171
 [13] -1.83556042  0.52915960  3.17868782 -4.08395830  0.23712357 -3.35441570
 [19]  1.96943654  0.08853328
 > 
-> print( residuals( fitsuri1c ) )
+> print( residuals( fitsuri1r3 ) )
        demand     supply
 1   0.7951914  0.1233191
 2  -0.7614426 -1.3929723
@@ -2603,7 +2603,7 @@ eq 2 trend        -0.000872       0.000138   0.000171
 18 -2.1821565  3.4607122
 19  1.5611760  0.3179312
 20 -0.7450240 -0.3083775
-> print( residuals( fitsuri1c$eq[[ 1 ]] ) )
+> print( residuals( fitsuri1r3$eq[[ 1 ]] ) )
  [1]  0.7951914 -0.7614426  2.3038890  1.4250217  2.1792140  1.2978539
  [7]  1.5794817 -3.0935068 -1.0749907  2.5875902 -0.0990772 -2.3615660
 [13] -1.6969889 -0.2819204  2.0556788 -3.3744504 -0.1139731 -2.1821565
@@ -2693,7 +2693,7 @@ eq 2 trend        -0.000872       0.000138   0.000171
 [13] -2.2102473  0.4793592  3.5259218 -3.8764518  1.1288068 -3.5394523
 [19]  1.6708623 -0.5691733
 > 
-> print( residuals( fitsuri5e ) )
+> print( residuals( fitsuri5r2 ) )
        demand      supply
 1   0.6545291  0.02691215
 2  -1.4561821 -1.51516211
@@ -2715,7 +2715,7 @@ eq 2 trend        -0.000872       0.000138   0.000171
 18 -2.7753015 -4.11074773
 19  0.7373786  0.78189006
 20 -2.6864700 -2.63697176
-> print( residuals( fitsuri5e$eq[[ 1 ]] ) )
+> print( residuals( fitsuri5r2$eq[[ 1 ]] ) )
  [1]  0.6545291 -1.4561821  1.7368698  0.6960225  2.5300794  1.4166671
  [7]  1.4587865 -3.7785243 -0.4981092  3.9501376  0.8355563 -2.3470730
 [13] -2.2861800 -0.1372155  2.9082050 -3.0497726  2.0905963 -2.7753015
@@ -2723,7 +2723,7 @@ eq 2 trend        -0.000872       0.000138   0.000171
 > 
 > 
 > ## *********** confidence intervals of coefficients *************
-> print( confint( fitsur1cp ) )
+> print( confint( fitsur1e2 ) )
                   2.5 %  97.5 %
 eq 1 (Intercept) 83.927 114.497
 eq 1 price       -0.445  -0.088
@@ -2732,7 +2732,7 @@ eq 2 (Intercept) 40.751  85.403
 eq 2 price       -0.048   0.336
 eq 2 farmPrice    0.128   0.285
 eq 2 trend        0.202   0.463
-> print( confint( fitsur1cp$eq[[ 2 ]], level = 0.9 ) )
+> print( confint( fitsur1e2$eq[[ 2 ]], level = 0.9 ) )
                5 %   95 %
 (Intercept) 44.506 81.648
 price       -0.016  0.304
@@ -2770,7 +2770,7 @@ price        0.068  0.198
 farmPrice    0.157  0.202
 trend        0.242  0.292
 > 
-> print( confint( fitsur4e, level = 0.5 ) )
+> print( confint( fitsur4r3, level = 0.5 ) )
                    25 %    75 %
 eq 1 (Intercept) 78.344 108.052
 eq 1 price       -0.406  -0.070
@@ -2779,7 +2779,7 @@ eq 2 (Intercept) 34.267  64.468
 eq 2 price        0.094   0.430
 eq 2 farmPrice    0.192   0.262
 eq 2 trend        0.289   0.358
-> print( confint( fitsur4e$eq[[ 1 ]], level = 0.25 ) )
+> print( confint( fitsur4r3$eq[[ 1 ]], level = 0.25 ) )
             37.5 % 62.5 %
 (Intercept) 90.848 95.548
 price       -0.265 -0.211
@@ -2801,7 +2801,7 @@ price        0.024  0.417
 farmPrice    0.183  0.282
 trend        0.280  0.377
 > 
-> print( confint( fitsuri1c, level = 0.975 ) )
+> print( confint( fitsuri1r3, level = 0.975 ) )
                   1.3 %  98.8 %
 eq 1 (Intercept) 77.960 109.125
 eq 1 price       -0.414  -0.043
@@ -2810,7 +2810,7 @@ eq 2 (Intercept) 82.005  96.361
 eq 2 income       0.574   0.753
 eq 2 farmPrice   -0.550  -0.393
 eq 2 trend       -0.932  -0.659
-> print( confint( fitsuri1c$eq[[ 1 ]], level = 0.999 ) )
+> print( confint( fitsuri1r3$eq[[ 1 ]], level = 0.999 ) )
              0.1 %   100 %
 (Intercept) 64.257 122.828
 price       -0.576   0.119
@@ -2863,7 +2863,7 @@ price        0.236  0.309
 farmPrice    0.215  0.231
 trend        0.312  0.328
 > 
-> print( confint( fitsuri5e, level = 0.33 ) )
+> print( confint( fitsuri5r2, level = 0.33 ) )
                  33.5 % 66.5 %
 eq 1 (Intercept) 63.491 92.577
 eq 1 price       -0.230  0.101
@@ -2872,7 +2872,7 @@ eq 2 (Intercept) 19.527 48.865
 eq 2 price        0.270  0.601
 eq 2 farmPrice    0.182  0.232
 eq 2 trend        0.274  0.327
-> print( confint( fitsuri5e$eq[[ 1 ]] ) )
+> print( confint( fitsuri5r2$eq[[ 1 ]] ) )
              2.5 % 97.5 %
 (Intercept) 63.491 92.577
 price       -0.230  0.101
@@ -2884,7 +2884,7 @@ income       0.274  0.327
 > predictData$price <- Kmenta$price * 0.9
 > predictData$income <- Kmenta$income * 1.1
 > 
-> print( predict( fitsur1cp, se.fit = TRUE, interval = "prediction" ) )
+> print( predict( fitsur1e2, se.fit = TRUE, interval = "prediction" ) )
     eq1.pred eq1.se.fit   eq1.lwr   eq1.upr  eq2.pred eq2.se.fit  eq2.lwr
 1   97.86993  0.6065642  93.65231 102.08754  98.06675  0.7796843 92.61116
 2   99.78491  0.5691035  95.58897 103.98086  99.19325  0.7933149 93.72953
@@ -2927,7 +2927,7 @@ income       0.274  0.327
 18 108.5659
 19 108.5465
 20 111.3106
-> print( predict( fitsur1cp$eq[[ 2 ]] ) )
+> print( predict( fitsur1e2$eq[[ 2 ]] ) )
         1         2         3         4         5         6         7         8 
  98.06675  99.19325  99.40651  99.68673 101.70434 101.70962 101.73719 103.46834 
         9        10        11        12        13        14        15        16 
@@ -3039,7 +3039,7 @@ income       0.274  0.327
        17        18        19        20 
 103.32264 102.69266 102.61883 104.57846 
 > 
-> print( predict( fitsur4e, se.fit = TRUE, interval = "confidence",
+> print( predict( fitsur4r3, se.fit = TRUE, interval = "confidence",
 +    level = 0.25 ) )
     eq1.pred eq1.se.fit   eq1.lwr   eq1.upr  eq2.pred eq2.se.fit   eq2.lwr
 1   97.55095  0.4737708  97.39879  97.70310  98.22038  0.5708194  98.03705
@@ -3083,7 +3083,7 @@ income       0.274  0.327
 18 103.63131
 19 103.71652
 20 107.05246
-> print( predict( fitsur4e$eq[[ 1 ]] ) )
+> print( predict( fitsur4r3$eq[[ 1 ]] ) )
         1         2         3         4         5         6         7         8 
  97.55095  99.90843  99.81502 100.04469 102.11060 101.99034 102.47942 103.08550 
         9        10        11        12        13        14        15        16 
@@ -3143,7 +3143,7 @@ income       0.274  0.327
        17        18        19        20 
 103.28488 103.28342 103.25356 106.14347 
 > 
-> print( predict( fitsuri1c, se.fit = TRUE, se.pred = TRUE,
+> print( predict( fitsuri1r3, se.fit = TRUE, se.pred = TRUE,
 +    interval = "confidence", level = 0.99 ) )
     eq1.pred eq1.se.fit eq1.se.pred   eq1.lwr   eq1.upr  eq2.pred eq2.se.fit
 1   97.68981  0.6528823    2.087387  95.79761  99.58201 100.19968  0.5990868
@@ -3187,7 +3187,7 @@ income       0.274  0.327
 18    1.690283  99.09402 102.01655
 19    1.740237 103.55443 107.34771
 20    1.967335 110.51506 117.08169
-> print( predict( fitsuri1c$eq[[ 1 ]] ) )
+> print( predict( fitsuri1r3$eq[[ 1 ]] ) )
         1         2         3         4         5         6         7         8 
  97.68981  99.94844  99.85911 100.07898 102.06079 101.94515 102.41352 102.99351 
         9        10        11        12        13        14        15        16 
@@ -3307,7 +3307,7 @@ income       0.274  0.327
        17        18        19        20 
 102.39319 103.46845 103.55214 106.80117 
 > 
-> print( predict( fitsuri5e ) )
+> print( predict( fitsuri5r2 ) )
     eq1.pred  eq2.pred
 1   97.83047  98.45809
 2  100.64318 100.70216
@@ -3329,7 +3329,7 @@ income       0.274  0.327
 18 102.70430 104.03975
 19 104.48562 104.44111
 20 108.91847 108.86897
-> print( predict( fitsuri5e$eq[[ 1 ]] ) )
+> print( predict( fitsuri5r2$eq[[ 1 ]] ) )
         1         2         3         4         5         6         7         8 
  97.83047 100.64318 100.42613 100.80798 101.70992 101.82633 102.53421 103.67852 
         9        10        11        12        13        14        15        16 
