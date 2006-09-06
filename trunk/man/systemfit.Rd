@@ -160,6 +160,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \code{systemfit.equation} have the following components (the elements of
   the latter are marked with an asterisk (\eqn{*})):
 
+  \item{call}{the matched call.}
   \item{method}{estimation method.}
   \item{eqnLabels}{equation labels.}
   \item{nEq}{number of equations.}

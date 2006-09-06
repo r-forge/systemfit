@@ -8,6 +8,7 @@ summary.systemfit <- function( object, probDfSys = NULL, ... ) {
 
    # preparing objects that will be returned
    result <- list()
+   result$call <- object$call
    result$nEq <- object$nEq
    result$method <- object$method
    result$iter <- object$iter

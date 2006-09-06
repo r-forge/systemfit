@@ -96,7 +96,7 @@ systemfit <- function(  eqns,
    # following lines, which are copied from the survreg
    # package
    # how were we called?
-   call <- match.call() # get the original call
+   results$call <- match.call() # get the original call
    m0 <- match.call( expand.dots = FALSE ) #-"- without ...-expansion
    pos <- which( names( m0 ) == "data" )
    if( length( pos ) == 1 ) {
@@ -451,7 +451,7 @@ systemfit <- function(  eqns,
 
   ## FIML estimation
   if( method == "FIML" ) {
-    fimlResult <- .systemfitFiml( systemfitCall = call, nObsEq = nObsEq,
+    fimlResult <- .systemfitFiml( systemfitCall = results$call, nObsEq = nObsEq,
       nCoefEq = nExogLiEq, yVec = yVecAll, xMat = xMatAll, xEq = xMatEq, methodRCov = methodRCov,
       centerResiduals = centerResiduals, solvetol = solvetol )
     #print( fimlResult )

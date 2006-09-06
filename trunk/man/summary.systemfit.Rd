@@ -64,6 +64,7 @@
       of coefficients and the second element is the number of observations minus
       the number of coefficients.}
    \item{coefCov}{estimated covariance matrix of the coefficients.}
+   \item{call*}{the matched call of \code{systemfit}.}
    \item{ols.r.squared*}{OLS \eqn{R^2} value of the entire system.}
    \item{mcelroy.r.squared*}{McElroys \eqn{R^2} value for the system (only SUR and 3SLS).}
    \item{nEq*}{number of equations.}
