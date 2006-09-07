@@ -3579,3 +3579,113 @@ degrees of freedom: 2
 p-value:     1 
 
 > 
+> 
+> ## ************** F tests ****************
+> # testing first restriction
+> print( ftest.systemfit( fitsur1, restrm ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic:  1.24 
+degrees of freedom of the numerator: 1 
+degrees of freedom of the denominator: 33 
+p-value: 0.2734 
+
+> print( ftest.systemfit( fitsur1r2, restrm ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic:  1.65 
+degrees of freedom of the numerator: 1 
+degrees of freedom of the denominator: 33 
+p-value: 0.208 
+
+> print( ftest.systemfit( fitsuri1e2, restrm ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic: 139.7 
+degrees of freedom of the numerator: 1 
+degrees of freedom of the denominator: 33 
+p-value: 2.107e-13 
+
+> print( ftest.systemfit( fitsuri1r3, restrm ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic: 140.8 
+degrees of freedom of the numerator: 1 
+degrees of freedom of the denominator: 33 
+p-value: 1.888e-13 
+
+> 
+> # testing second restriction
+> restrOnly2m <- matrix(0,1,7)
+> restrOnly2q <- 0.5
+> restrOnly2m[1,2] <- -1
+> restrOnly2m[1,5] <-  1
+> # first restriction not imposed 
+> print( ftest.systemfit( fitsur1e2, restrOnly2m, restrOnly2q ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic: 2.359 
+degrees of freedom of the numerator: 1 
+degrees of freedom of the denominator: 33 
+p-value: 0.1341 
+
+> print( ftest.systemfit( fitsuri1, restrOnly2m, restrOnly2q ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic: 12.21 
+degrees of freedom of the numerator: 1 
+degrees of freedom of the denominator: 33 
+p-value: 0.001379 
+
+> # first restriction imposed
+> print( ftest.systemfit( fitsur2, restrOnly2m, restrOnly2q ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic: 5.501 
+degrees of freedom of the numerator: 1 
+degrees of freedom of the denominator: 34 
+p-value: 0.02498 
+
+> print( ftest.systemfit( fitsur3, restrOnly2m, restrOnly2q ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic: 5.501 
+degrees of freedom of the numerator: 1 
+degrees of freedom of the denominator: 34 
+p-value: 0.02498 
+
+> print( ftest.systemfit( fitsuri2e, restrOnly2m, restrOnly2q ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic:  2.35 
+degrees of freedom of the numerator: 1 
+degrees of freedom of the denominator: 34 
+p-value: 0.1346 
+
+> print( ftest.systemfit( fitsuri3e, restrOnly2m, restrOnly2q ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic:  2.35 
+degrees of freedom of the numerator: 1 
+degrees of freedom of the denominator: 34 
+p-value: 0.1346 
+
+> 
+> # testing both of the restrictions
+> print( ftest.systemfit( fitsur1r3, restr2m, restr2q ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic: 2.602 
+degrees of freedom of the numerator: 2 
+degrees of freedom of the denominator: 33 
+p-value: 0.08929 
+
+> print( ftest.systemfit( fitsuri1e2, restr2m, restr2q ) )
+
+F-test for linear parameter restrictions in equation systems
+F-statistic: 89.08 
+degrees of freedom of the numerator: 2 
+degrees of freedom of the denominator: 33 
+p-value: 4.996e-14 
+
+> 
