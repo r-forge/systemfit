@@ -239,3 +239,23 @@ print( ftest.systemfit( fitw2slsd3e, restrOnly2m, restrOnly2q ) )
 # testing both of the restrictions
 print( ftest.systemfit( fitw2sls1e, restr2m, restr2q ) )
 print( ftest.systemfit( fitw2slsd1, restr2m, restr2q ) )
+
+
+## ************** Wald tests ****************
+# testing first restriction
+print( waldtest.systemfit( fitw2sls1, restrm ) )
+print( waldtest.systemfit( fitw2slsd1e, restrm ) )
+
+# testing second restriction
+# first restriction not imposed
+print( waldtest.systemfit( fitw2sls1e, restrOnly2m, restrOnly2q ) )
+print( waldtest.systemfit( fitw2slsd1, restrOnly2m, restrOnly2q ) )
+# first restriction imposed
+print( waldtest.systemfit( fitw2sls2, restrOnly2m, restrOnly2q ) )
+print( waldtest.systemfit( fitw2sls3, restrOnly2m, restrOnly2q ) )
+print( waldtest.systemfit( fitw2slsd2e, restrOnly2m, restrOnly2q ) )
+print( waldtest.systemfit( fitw2slsd3e, restrOnly2m, restrOnly2q ) )
+
+# testing both of the restrictions
+print( waldtest.systemfit( fitw2sls1e, restr2m, restr2q ) )
+print( waldtest.systemfit( fitw2slsd1, restr2m, restr2q ) )

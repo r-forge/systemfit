@@ -3443,3 +3443,76 @@ degrees of freedom of the denominator: 33
 p-value: 0.9656 
 
 > 
+> 
+> ## ************** Wald tests ****************
+> # testing first restriction
+> print( waldtest.systemfit( fit2sls1, restrm ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.3073 
+degrees of freedom: 1 
+p-value: 0.5793 
+
+> print( waldtest.systemfit( fit2sls1s, restrm ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.3423 
+degrees of freedom: 1 
+p-value: 0.5585 
+
+> print( waldtest.systemfit( fit2sls1p, restrm ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.3073 
+degrees of freedom: 1 
+p-value: 0.5793 
+
+> print( waldtest.systemfit( fit2sls1r, restrm ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.3798 
+degrees of freedom: 1 
+p-value: 0.5377 
+
+> 
+> # testing second restriction
+> # first restriction not imposed
+> print( waldtest.systemfit( fit2sls1, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.01388 
+degrees of freedom: 1 
+p-value: 0.9062 
+
+> # first restriction imposed
+> print( waldtest.systemfit( fit2sls2, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.05577 
+degrees of freedom: 1 
+p-value: 0.8133 
+
+> print( waldtest.systemfit( fit2sls2r, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.06561 
+degrees of freedom: 1 
+p-value: 0.7978 
+
+> print( waldtest.systemfit( fit2sls3, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.06561 
+degrees of freedom: 1 
+p-value: 0.7978 
+
+> 
+> # testing both of the restrictions
+> print( waldtest.systemfit( fit2sls1, restr2m, restr2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.3451 
+degrees of freedom: 2 
+p-value: 0.8415 
+
+> 

@@ -14154,3 +14154,132 @@ degrees of freedom of the denominator: 33
 p-value: 0.5348 
 
 > 
+> 
+> ## ************** Wald tests ****************
+> # testing first restriction
+> print( waldtest.systemfit( fit3sls[[ 1 ]]$e1, restrm ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 1.113 
+degrees of freedom: 1 
+p-value: 0.2914 
+
+> print( waldtest.systemfit( fit3sls[[ 2 ]]$e1e, restrm ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 1.227 
+degrees of freedom: 1 
+p-value: 0.2679 
+
+> print( waldtest.systemfit( fit3sls[[ 3 ]]$e1c, restrm ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 1.726 
+degrees of freedom: 1 
+p-value: 0.1889 
+
+> print( waldtest.systemfit( fit3slsi[[ 4 ]]$e1, restrm ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 4.807 
+degrees of freedom: 1 
+p-value: 0.02835 
+
+> print( waldtest.systemfit( fit3slsd[[ 5 ]]$e1e, restrm ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.1471 
+degrees of freedom: 1 
+p-value: 0.7013 
+
+> 
+> # testing second restriction
+> # first restriction not imposed
+> print( waldtest.systemfit( fit3sls[[ 5 ]]$e1c, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.1167 
+degrees of freedom: 1 
+p-value: 0.7326 
+
+> print( waldtest.systemfit( fit3slsi[[ 1 ]]$e1e, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.1572 
+degrees of freedom: 1 
+p-value: 0.6917 
+
+> print( waldtest.systemfit( fit3slsd[[ 2 ]]$e1, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.1666 
+degrees of freedom: 1 
+p-value: 0.6831 
+
+> # first restriction imposed
+> print( waldtest.systemfit( fit3sls[[ 4 ]]$e2, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.5459 
+degrees of freedom: 1 
+p-value:  0.46 
+
+> print( waldtest.systemfit( fit3sls[[ 4 ]]$e3, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.5459 
+degrees of freedom: 1 
+p-value:  0.46 
+
+> print( waldtest.systemfit( fit3slsi[[ 5 ]]$e2e, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 17.81 
+degrees of freedom: 1 
+p-value: 2.441e-05 
+
+> print( waldtest.systemfit( fit3slsi[[ 5 ]]$e3e, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 17.81 
+degrees of freedom: 1 
+p-value: 2.441e-05 
+
+> print( waldtest.systemfit( fit3slsd[[ 1 ]]$e2, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.1324 
+degrees of freedom: 1 
+p-value: 0.716 
+
+> print( waldtest.systemfit( fit3slsd[[ 1 ]]$e3, restrOnly2m, restrOnly2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 0.1324 
+degrees of freedom: 1 
+p-value: 0.716 
+
+> 
+> # testing both of the restrictions
+> print( waldtest.systemfit( fit3sls[[ 2 ]]$e1e, restr2m, restr2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 1.622 
+degrees of freedom: 2 
+p-value: 0.4443 
+
+> print( waldtest.systemfit( fit3slsi[[ 3 ]]$e1, restr2m, restr2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 11.32 
+degrees of freedom: 2 
+p-value: 0.003485 
+
+> print( waldtest.systemfit( fit3slsd[[ 4 ]]$e1e, restr2m, restr2q ) )
+
+Wald-test for linear parameter restrictions in equation systems
+Wald-statistic: 1.547 
+degrees of freedom: 2 
+p-value: 0.4615 
+
+> 
