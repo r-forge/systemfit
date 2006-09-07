@@ -255,3 +255,26 @@ print( predict( fitwlsi5e, se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.01 ) )
 print( predict( fitwlsi5e$eq[[ 1 ]] ) )
 
+
+## ************** F tests ****************
+# testing first restriction
+print( ftest.systemfit( fitwls1, restrm ) )
+print( ftest.systemfit( fitwlsi1e, restrm ) )
+
+# testing second restriction
+restrOnly2m <- matrix(0,1,7)
+restrOnly2q <- 0.5
+restrOnly2m[1,2] <- -1
+restrOnly2m[1,5] <-  1
+# first restriction not imposed 
+print( ftest.systemfit( fitwls1e, restrOnly2m, restrOnly2q ) )
+print( ftest.systemfit( fitwlsi1, restrOnly2m, restrOnly2q ) )
+# first restriction imposed
+print( ftest.systemfit( fitwls2, restrOnly2m, restrOnly2q ) )
+print( ftest.systemfit( fitwls3, restrOnly2m, restrOnly2q ) )
+print( ftest.systemfit( fitwlsi2e, restrOnly2m, restrOnly2q ) )
+print( ftest.systemfit( fitwlsi3e, restrOnly2m, restrOnly2q ) )
+
+# testing both of the restrictions
+print( ftest.systemfit( fitwls1e, restr2m, restr2q ) )
+print( ftest.systemfit( fitwlsi1, restr2m, restr2q ) )

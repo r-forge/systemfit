@@ -368,3 +368,29 @@ print( lrtest.systemfit( fitsuri5, fitsuri1 ) )
 # iterating, methodRCov = 0
 print( lrtest.systemfit( fitsuri4e, fitsuri1e ) )
 print( lrtest.systemfit( fitsuri5e, fitsuri1e ) )
+
+
+## ************** F tests ****************
+# testing first restriction
+print( ftest.systemfit( fitsur1, restrm ) )
+print( ftest.systemfit( fitsur1r2, restrm ) )
+print( ftest.systemfit( fitsuri1e2, restrm ) )
+print( ftest.systemfit( fitsuri1r3, restrm ) )
+
+# testing second restriction
+restrOnly2m <- matrix(0,1,7)
+restrOnly2q <- 0.5
+restrOnly2m[1,2] <- -1
+restrOnly2m[1,5] <-  1
+# first restriction not imposed 
+print( ftest.systemfit( fitsur1e2, restrOnly2m, restrOnly2q ) )
+print( ftest.systemfit( fitsuri1, restrOnly2m, restrOnly2q ) )
+# first restriction imposed
+print( ftest.systemfit( fitsur2, restrOnly2m, restrOnly2q ) )
+print( ftest.systemfit( fitsur3, restrOnly2m, restrOnly2q ) )
+print( ftest.systemfit( fitsuri2e, restrOnly2m, restrOnly2q ) )
+print( ftest.systemfit( fitsuri3e, restrOnly2m, restrOnly2q ) )
+
+# testing both of the restrictions
+print( ftest.systemfit( fitsur1r3, restr2m, restr2q ) )
+print( ftest.systemfit( fitsuri1e2, restr2m, restr2q ) )
