@@ -69,7 +69,7 @@
    \item{mcelroy.r.squared*}{McElroys \eqn{R^2} value for the system (only SUR and 3SLS).}
    \item{nEq*}{number of equations.}
    \item{iter*}{number of iteration steps (only if the estimation is iterated).}
-   \item{maxiter*}{maximum number of iterations.}
+   \item{control*}{list of control parameters used for the estimation.}
    \item{residCov*}{estimated residual covariance matrix.}
    \item{residCovEst*}{residual covariance matrix used for estimation (only SUR and 3SLS).}
    \item{residCor*}{correlation matrix of the residuals.}

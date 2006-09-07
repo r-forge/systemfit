@@ -12,7 +12,7 @@ summary.systemfit <- function( object, probDfSys = NULL, ... ) {
    result$nEq <- object$nEq
    result$method <- object$method
    result$iter <- object$iter
-   result$maxiter <- object$maxiter
+   result$control <- object$control
    result$residuals <- residuals( object )
    result$residCovEst <- object$rcovest
    result$residCov <- object$rcov
@@ -67,7 +67,7 @@ print.summary.systemfit <- function( x, digits=6,... ) {
   cat( paste( x$method, "\n\n"))
   if(!is.null(x$iter)) {
     if(x$iter>1) {
-      if(x$iter<x$maxiter) {
+      if(x$iter<x$control$maxiter) {
         cat( paste( "convergence achieved after",x$iter,"iterations\n\n" ) )
       } else {
         cat( paste( "warning: convergence not achieved after", x$iter,

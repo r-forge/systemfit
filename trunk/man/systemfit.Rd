@@ -19,12 +19,7 @@
 systemfit( eqns, method = "OLS",
            inst=NULL, data=list(), R.restr=NULL,
            q.restr=matrix(0,max(nrow(R.restr),0),1),
-           TX=NULL, maxiter=1, tol=1e-5,
-           methodRCov="geomean", centerResiduals = FALSE, method3sls="GLS",
-           single.eq.sigma=(is.null(R.restr) & is.null(TX)),
-           solvetol=.Machine$double.eps,
-           saveMemory=( nrow(data) * length(eqns) > 1000 &&
-              length(data) > 0 ) )
+           TX=NULL, control = systemfit.control( ... ), ... )
 
 systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
                   pooled = FALSE, ... )
@@ -35,7 +30,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
       constant is implied if not explicitly omitted.}
    \item{method}{the estimation method, one of "OLS", "WLS", "SUR", "WSUR",
       "2SLS", "W2SLS", "3SLS", or "W3SLS" (see details);
-      iterated estimation methods can be specified by setting argument
+      iterated estimation methods can be specified by setting control parameter
       \code{maxiter} larger than 1 (e.g. 500).}
    \item{inst}{one-sided model formula specifying instrumental variables
       or a list of one-sided model formulas if different instruments should
@@ -53,31 +48,18 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
       that contains only zeros.}
    \item{TX}{an optional matrix to transform the regressor matrix and,
       hence, also the coefficient vector (see details).}
-   \item{maxiter}{maximum number of iterations for WLS, SUR, W2SLS and
-      3SLS estimations.}
-   \item{tol}{tolerance level indicating when to stop the iteration (only
-      WLS, SUR, W2SLS and 3SLS estimations).}
-   \item{methodRCov}{method for calculating the estimated residual covariance
-      matrix, one of "noDfCor", "geomean", "max", or "Theil" (see details).}
-   \item{centerResiduals}{logical. Subtract the means from the residuals
-      of each equation before calculating the estimated residual covariance matrix.}
-   \item{method3sls}{method for calculating the 3SLS estimator,
-      one of "GLS", "IV", "GMM", "Schmidt", or "EViews" (see details).}
-   \item{single.eq.sigma}{use different \eqn{\sigma^2}s for each
-      single equation to calculate the covariance matrix and the
-      standard errors of the coefficients (only OLS and 2SLS).}
-   \item{solvetol}{tolerance level for detecting linear dependencies
-      when inverting a matrix or calculating a determinant (see
-      \code{\link{solve}} and \code{\link{det}}).}
-   \item{saveMemory}{logical. Save memory by omitting some calculation that
-      are not crucial for the basic estimation (e.g McElroy's
-      \eqn{R^2})?}
+   \item{control}{list of control parameters.
+      The default is constructed by the function \code{\link{systemfit.control}}.
+      See the documentation of \code{\link{systemfit.control}} for details.}
    \item{formula}{formula to be estimated (for each equation).}
    \item{eqnVar}{variable name indicating the equation to which the
       observation belongs.}
    \item{timeVar}{variable name indicating the time.}
    \item{pooled}{logical, restrict coefficients to be equal in all equations.}
-   \item{...}{arguments passed to \code{\link{systemfit}}.}
+   \item{...}{arguments passed to \code{\link{systemfit.control}}
+      (from  \code{\link{systemfit}})
+      or passed to \code{\link{systemfit}}
+      (from  \code{\link{systemfitClassic}}).}
 }
 
 \details{
@@ -112,40 +94,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
    by the \code{TX} matrix is that the matrix that is inverted for
    estimation gets smaller by this procedure, while it gets larger
    if the restrictions are imposed by \code{R.restr} and \code{q.restr}.
-
-   If iterated (WLS, SUR, W2SLS or 3SLS estimation with \code{maxit}>1),
-      the convergence criterion is
-   \deqn{\sqrt{ \frac{ \sum_i (b_{i,g} - b_{i,g-1})^2 }{ \sum_i b_{i,g-1}^2 }}
-      < \code{tol}}
-   (\eqn{b_{i,g}} is the ith coefficient of the gth iteration step).
-
-   The method for calculating the estimated covariance matrix of the residuals
-   (\eqn{\hat{\Sigma}}) can be one of the following
-   (see Judge et al., 1985, p. 469): \cr
-   if methodRCov='noDfCor':
-      \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}{T}}
-   if methodRCov='geomean':
-      \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}
-         {\sqrt{(T - k_i)*(T - k_j)}}}
-   if methodRCov='Theil':
-      \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}{T - k_i - k_j
-      + tr[X_i(X_i'X_i)^{-1}X_i'X_j(X_j'X_j)^{-1}X_j']}}
-   if methodRCov='max':
-      \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}
-         {T - \max( k_i, k_j)}}
-   If \eqn{i = j}, formula 1, 2 and 3 are equal.
-   All these three formulas yield unbiased estimators
-   for the diagonal elements of the residual covariance matrix.
-   If \eqn{i \neq j}, only formula 2 yields an unbiased estimator for the residual
-   covariance matrix, but it is not neccessarily positive semidefinit. Thus, it is
-   doubtful whether formula 2 is really superior to formula 1
-   (Theil, 1971, p. 322).
-
-   The methods for calculating the 3SLS estimator lead to identical results
-   if the same instruments are used in all equations. If different instruments
-   are used in the different equations, only the GMM-3SLS estimator ("GMM")
-   and the 3SLS estimator proposed by Schmidt (1990) ("Schmidt") are consistent,
-   whereas "GMM" is efficient relative to "Schmidt" (see Schmidt, 1990).
 }
 
 \value{
@@ -191,13 +139,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{R.restr}{the restriction matrix.}
   \item{q.restr}{the restriction vector.}
   \item{TX}{matrix used to transform the regressor matrix.}
-  \item{maxiter}{maximum number of iterations.}
-  \item{tol}{tolerance level indicating when to stop the iteration}
-  \item{methodRCov}{method for calculating the estimated residual covariance
-    matrix}
-  \item{method3sls}{method for calculating the 3SLS estimator.}
-  \item{single.eq.sigma}{different \eqn{\sigma^2}s for each single equation?.}
-  \item{solvetol}{tolerance level when inverting a matrix or calculating a determinant.}
+  \item{control}{list of control parameters used for the estimation.}
   \item{data.name}{name of the data.frame used for estimation.}
 
   ## elements of the class systemfit.eq
@@ -255,7 +197,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
 }
 
 \author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com},\cr
-  Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de} }
+  Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}
 }
 
 \seealso{\code{\link{lm}} and \code{\link{nlsystemfit}}}
