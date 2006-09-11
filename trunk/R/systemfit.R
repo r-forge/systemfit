@@ -442,7 +442,7 @@ systemfit <- function(  eqns,
   }
 
   ## for all estimation methods
-  fitted <- xMatAll %*% coef                              # fitted endogenous values
+  fitted.values <- xMatAll %*% coef   # fitted endogenous values
   bt     <- NULL
   btcov  <- NULL
   if(!is.null(TX)) {
@@ -470,7 +470,7 @@ systemfit <- function(  eqns,
     sigma  <- sqrt( ssr / df[i] ) # estimated standand deviation of residuals
     r2     <- 1 - ssr/(t(yVecEq[[i]])%*%yVecEq[[i]]-nObsEq[i]*mean(yVecEq[[i]])^2)
     adjr2  <- 1 - ((nObsEq[i]-1)/df[i])*(1-r2)
-    fittedi <- fitted[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
+    fitted.values.i <- fitted.values[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
     resp <- model.extract( evalModelFrameEq[[ i ]], "response" )
     datai <- data.frame( cbind( resp, ( model.matrix( termsEq[[ i ]],
       evalModelFrameEq[[ i ]] ) )[ , -1 ] ) )
@@ -505,7 +505,7 @@ systemfit <- function(  eqns,
     resulti$yVec         <- yVecEq[[i]]     # vector of endogenous variables
     resulti$xMat         <- xMatEq[[i]]     # matrix of regressors
     resulti$data         <- datai           # data frame of this equation (incl. instruments)
-    resulti$fitted       <- fittedi         # fitted values
+    resulti$fitted.values <- fitted.values.i # fitted values
     resulti$residuals    <- residi[[i]]     # residuals
     resulti$ssr          <- ssr             # sum of squared errors/residuals
     resulti$sigma        <- sigma           # estimated standard error of the residuals
@@ -767,18 +767,18 @@ vcov.systemfit.equation <- function( object, ... ) {
 
 ## return the fitted values
 fitted.systemfit <- function( object, ... ) {
-   fitted <- matrix( NA, length( object$eq[[1]]$fitted ), object$nEq )
-   colnames( fitted ) <- as.character( 1:ncol( fitted ) )
+   fitted.values <- matrix( NA, length( object$eq[[1]]$fitted.values ), object$nEq )
+   colnames( fitted.values ) <- as.character( 1:ncol( fitted.values ) )
    for(i in 1:object$nEq )  {
-      fitted[ , i ]           <- object$eq[[ i ]]$fitted
-      colnames( fitted )[ i ] <- paste( "eq", as.character(i), sep="" )
+      fitted.values[ , i ]           <- object$eq[[ i ]]$fitted.values
+      colnames( fitted.values )[ i ] <- paste( "eq", as.character(i), sep="" )
    }
-   fitted
+   fitted.values
 }
 
 ## return the fitted values of e single euation
 fitted.systemfit.equation <- function( object, ... ) {
-   object$fitted
+   object$fitted.values
 }
 
 
