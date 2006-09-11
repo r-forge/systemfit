@@ -246,6 +246,23 @@ print( confint( fitols3p, level = 0.999 ) )
 print( confint( fitols3p$eq[[ 1 ]] ) )
 
 
+## *********** fitted values *************
+print( fitted( fitols1p ) )
+print( fitted( fitols1p$eq[[ 2 ]] ) )
+
+print( fitted( fitols2r ) )
+print( fitted( fitols2r$eq[[ 1 ]] ) )
+
+print( fitted( fitols3s ) )
+print( fitted( fitols3s$eq[[ 2 ]] ) )
+
+print( fitted( fitols4rs ) )
+print( fitted( fitols4rs$eq[[ 1 ]] ) )
+
+print( fitted( fitols5 ) )
+print( fitted( fitols5$eq[[ 2 ]] ) )
+
+
 ## *********** predicted values *************
 predictData <- Kmenta
 predictData$price <- Kmenta$price * 0.9
