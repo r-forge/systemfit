@@ -179,6 +179,32 @@ print( confint( fitw2slsd3e, level = 0.01, probDfSys = TRUE ) )
 print( confint( fitw2slsd3e$eq[[ 2 ]], probDfSys = TRUE ) )
 
 
+## *********** fitted values *************
+print( fitted( fitw2sls1e ) )
+print( fitted( fitw2sls1e$eq[[ 1 ]] ) )
+
+print( fitted( fitw2sls2 ) )
+print( fitted( fitw2sls2$eq[[ 2 ]] ) )
+
+print( fitted( fitw2sls3 ) )
+print( fitted( fitw2sls3$eq[[ 1 ]] ) )
+
+print( fitted( fitw2sls4e ) )
+print( fitted( fitw2sls4e$eq[[ 2 ]] ) )
+
+print( fitted( fitw2sls5 ) )
+print( fitted( fitw2sls5$eq[[ 1 ]] ) )
+
+print( fitted( fitw2slsd1 ) )
+print( fitted( fitw2slsd1$eq[[ 2 ]] ) )
+
+print( fitted( fitw2slsd2e ) )
+print( fitted( fitw2slsd2e$eq[[ 1 ]] ) )
+
+print( fitted( fitw2slsd3e ) )
+print( fitted( fitw2slsd3e$eq[[ 2 ]] ) )
+
+
 ## *********** predicted values *************
 predictData <- Kmenta
 predictData$price <- Kmenta$price * 0.9

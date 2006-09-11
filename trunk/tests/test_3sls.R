@@ -326,6 +326,29 @@ print( confint( fit3slsd[[ 3 ]]$e4, level = 0.999 ) )
 print( confint( fit3slsd[[ 3 ]]$e4$eq[[ 2 ]] ) )
 
 
+## *********** fitted values *************
+print( fitted( fit3sls[[ 2 ]]$e1c ) )
+print( fitted( fit3sls[[ 2 ]]$e1c$eq[[ 1 ]] ) )
+
+print( fitted( fit3sls[[ 3 ]]$e2e ) )
+print( fitted( fit3sls[[ 3 ]]$e2e$eq[[ 2 ]] ) )
+
+print( fitted( fit3sls[[ 4 ]]$e3 ) )
+print( fitted( fit3sls[[ 4 ]]$e3$eq[[ 1 ]] ) )
+
+print( fitted( fit3sls[[ 5 ]]$e4e ) )
+print( fitted( fit3sls[[ 5 ]]$e4e$eq[[ 2 ]] ) )
+
+print( fitted( fit3sls[[ 1 ]]$e5 ) )
+print( fitted( fit3sls[[ 1 ]]$e5$eq[[ 1 ]] ) )
+
+print( fitted( fit3slsi[[ 3 ]]$e3e ) )
+print( fitted( fit3slsi[[ 3 ]]$e3e$eq[[ 1 ]] ) )
+
+print( fitted( fit3slsd[[ 4 ]]$e4 ) )
+print( fitted( fit3slsd[[ 4 ]]$e4$eq[[ 2 ]] ) )
+
+
 ## *********** predicted values *************
 predictData <- Kmenta
 predictData$price <- Kmenta$price * 0.9

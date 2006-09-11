@@ -211,6 +211,38 @@ print( confint( fitwlsi5e, level = 0.33 ) )
 print( confint( fitwlsi5e$eq[[ 1 ]] ) )
 
 
+## *********** fitted values *************
+print( fitted( fitwls1 ) )
+print( fitted( fitwls1$eq[[ 2 ]] ) )
+
+print( fitted( fitwls2e ) )
+print( fitted( fitwls2e$eq[[ 1 ]] ) )
+
+print( fitted( fitwls3 ) )
+print( fitted( fitwls3$eq[[ 2 ]] ) )
+
+print( fitted( fitwls4e ) )
+print( fitted( fitwls4e$eq[[ 1 ]] ) )
+
+print( fitted( fitwls5 ) )
+print( fitted( fitwls5$eq[[ 2 ]] ) )
+
+print( fitted( fitwlsi1e ) )
+print( fitted( fitwlsi1e$eq[[ 1 ]] ) )
+
+print( fitted( fitwlsi2 ) )
+print( fitted( fitwlsi2$eq[[ 2 ]] ) )
+
+print( fitted( fitwlsi3e ) )
+print( fitted( fitwlsi3e$eq[[ 1 ]] ) )
+
+print( fitted( fitwlsi4 ) )
+print( fitted( fitwlsi4$eq[[ 2 ]] ) )
+
+print( fitted( fitwlsi5e ) )
+print( fitted( fitwlsi5e$eq[[ 1 ]] ) )
+
+
 ## *********** predicted values *************
 predictData <- Kmenta
 predictData$price <- Kmenta$price * 0.9
