@@ -2588,7 +2588,7 @@ income       0.220   0.406
 103.78669 102.37790 102.11329 104.51788 
 > 
 > print( predict( fitols2r, se.pred = TRUE, interval = "confidence",
-+    level = 0.999, data = predictData ) )
++    level = 0.999, newdata = predictData ) )
    eq1.pred eq1.se.pred   eq1.lwr  eq1.upr  eq2.pred eq2.se.pred   eq2.lwr
 1  103.2994    2.166055  99.85301 106.7459  96.68470    2.622004  93.20872
 2  105.7754    2.160842 102.37162 109.1791  97.86174    2.547390  95.20060
@@ -2640,7 +2640,7 @@ income       0.220   0.406
 104.48709 101.88024 103.34006 106.21914 
 > 
 > print( predict( fitols3s, se.fit = TRUE, se.pred = TRUE,
-+    interval = "prediction", level = 0.5, data = predictData ) )
++    interval = "prediction", level = 0.5, newdata = predictData ) )
    eq1.pred eq1.se.fit eq1.se.pred   eq1.lwr  eq1.upr  eq2.pred eq2.se.fit
 1  103.2994  0.9398448    2.158464 101.82785 104.7710  96.68470  1.1485818
 2  105.7754  0.9444929    2.160492 104.30239 107.2483  97.86174  0.8728283
@@ -2744,7 +2744,7 @@ income       0.220   0.406
 104.81972 101.82112 103.27474 106.05845 
 > 
 > print( predict( fitols5, se.fit = TRUE, interval = "prediction",
-+    level = 0.9, data = predictData ) )
++    level = 0.9, newdata = predictData ) )
    eq1.pred eq1.se.fit   eq1.lwr  eq1.upr  eq2.pred eq2.se.fit  eq2.lwr
 1  103.5353  0.7138530 100.04212 107.0285  96.44340  0.7115310 92.13761
 2  105.9895  0.7475412 102.47630 109.5027  97.69756  0.5912422 93.44404

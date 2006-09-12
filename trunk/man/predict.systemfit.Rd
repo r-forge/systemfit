@@ -10,18 +10,18 @@
 }
 
 \usage{
-\method{predict}{systemfit}( object, data = object$data,
+\method{predict}{systemfit}( object, newdata = object$data,
                              se.fit = FALSE, se.pred = FALSE,
                              interval = "none", level=0.95,
                              probDfSys = NULL, ... )
 
-\method{predict}{systemfit.equation}( object, data, ... )
+\method{predict}{systemfit.equation}( object, newdata, ... )
 }
 
 \arguments{
    \item{object}{an object of class \code{systemfit} or
       \code{systemfit.equation}.}
-   \item{data}{data frame in which to predict.}
+   \item{newdata}{data frame in which to predict.}
    \item{se.fit}{return the standard error of the fitted values?}
    \item{se.pred}{return the standard error of prediction?}
    \item{interval}{Type of interval calculation ("none", "confidence"

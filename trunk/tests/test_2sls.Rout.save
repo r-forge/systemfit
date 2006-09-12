@@ -3234,7 +3234,7 @@ income       0.230   0.422
 103.83496 102.08027 103.63146 106.90043 
 > 
 > print( predict( fit2sls2s, se.pred = TRUE, interval = "confidence",
-+    level = 0.999, data = predictData ) )
++    level = 0.999, newdata = predictData ) )
     eq1.pred eq1.se.pred   eq1.lwr  eq1.upr  eq2.pred eq2.se.pred   eq2.lwr
 1  102.66819    2.225974  99.08699 106.2494  96.06344    2.749365  91.76618
 2  105.21778    2.225608 101.63953 108.7960  97.51070    2.635864  94.26388
@@ -3390,7 +3390,7 @@ income       0.230   0.422
 103.05337 103.10691 103.01584 106.27635 
 > 
 > print( predict( fit2sls5rs, se.fit = TRUE, se.pred = TRUE,
-+    interval = "prediction", level = 0.5, data = predictData ) )
++    interval = "prediction", level = 0.5, newdata = predictData ) )
     eq1.pred eq1.se.fit eq1.se.pred   eq1.lwr  eq1.upr  eq2.pred eq2.se.fit
 1  102.84262  0.7127555    2.096461 101.41375 104.2715  95.88755  0.7464495
 2  105.37614  0.7416395    2.106456 103.94046 106.8118  97.39089  0.6278670
@@ -3494,7 +3494,7 @@ income       0.230   0.422
 102.84266 102.70033 102.55617 105.60846 
 > 
 > print( predict( fit2slsd2r, se.fit = TRUE, interval = "prediction",
-+    level = 0.9, data = predictData ) )
++    level = 0.9, newdata = predictData ) )
    eq1.pred eq1.se.fit   eq1.lwr  eq1.upr  eq2.pred eq2.se.fit  eq2.lwr
 1  103.7985  1.3416693  99.80028 107.7967  95.78931  1.0256747 91.21379
 2  106.2333  1.2698050 102.30274 110.1638  97.27430  0.7855460 92.83675

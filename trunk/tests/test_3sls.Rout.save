@@ -13884,7 +13884,7 @@ trend        0.251  0.356
 103.83496 102.08027 103.63146 106.90043 
 > 
 > print( predict( fit3sls[[ 3 ]]$e2e, se.pred = TRUE, interval = "confidence",
-+    level = 0.999, data = predictData, probDfSys = TRUE ) )
++    level = 0.999, newdata = predictData, probDfSys = TRUE ) )
     eq1.pred eq1.se.pred   eq1.lwr  eq1.upr  eq2.pred eq2.se.pred   eq2.lwr
 1  102.66453    2.057755  99.32339 106.0057  96.20856    2.534544  92.22614
 2  105.21164    2.066325 101.80261 108.6207  97.51983    2.423633  94.56520
@@ -14040,7 +14040,7 @@ trend        0.251  0.356
 103.57709 105.44987 105.53957 111.74860 
 > 
 > print( predict( fit3sls[[ 1 ]]$e5, se.fit = TRUE, se.pred = TRUE,
-+    interval = "prediction", level = 0.5, data = predictData ) )
++    interval = "prediction", level = 0.5, newdata = predictData ) )
     eq1.pred eq1.se.fit eq1.se.pred   eq1.lwr  eq1.upr  eq2.pred eq2.se.fit
 1  102.83690  0.9573590    2.188048 101.34561 104.3282  95.66507  0.9585247
 2  105.59655  0.8289782    2.134999 104.14141 107.0517  97.14297  0.7420157
@@ -14144,7 +14144,7 @@ trend        0.251  0.356
 102.08442 101.83951 102.90316 105.34256 
 > 
 > print( predict( fit3slsd[[ 4 ]]$e4, se.fit = TRUE, interval = "prediction",
-+    level = 0.9, data = predictData ) )
++    level = 0.9, newdata = predictData ) )
    eq1.pred eq1.se.fit   eq1.lwr  eq1.upr  eq2.pred eq2.se.fit  eq2.lwr
 1  103.2509  0.9721980  99.58250 106.9193  96.14263  0.9801720 91.58248
 2  105.7654  0.8203325 102.20450 109.3263  97.45910  0.7508416 93.02495

@@ -1,5 +1,5 @@
 ## calculate predicted values, its standard errors and the prediction intervals
-predict.systemfit <- function( object, data=object$data,
+predict.systemfit <- function( object, newdata=object$data,
                                se.fit=FALSE, se.pred=FALSE,
                                interval="none", level=0.95,
                                probDfSys = NULL, ... ) {
@@ -9,9 +9,9 @@ predict.systemfit <- function( object, data=object$data,
          # TRUE if there are restrictions imposed
    }
 
-   attach(data); on.exit( detach( data ) )
+   attach(newdata); on.exit( detach( newdata ) )
 
-   predicted <- data.frame( obs=seq( nrow( data ) ) )
+   predicted <- data.frame( obs=seq( nrow( newdata ) ) )
    colnames( predicted ) <- as.character( 1:ncol( predicted ) )
    nObsEq  <- numeric( object$nEq )
    eqns    <- list()
@@ -59,7 +59,7 @@ predict.systemfit <- function( object, data=object$data,
       }
       # standard errors of fitted values
       if( se.fit ) {
-         if(nrow(data)==1) {
+         if(nrow(newdata)==1) {
             predicted <- cbind( predicted, sqrt( ycovci ) )
          } else {
             predicted <- cbind( predicted, sqrt( diag( ycovci ) ) )
@@ -69,7 +69,7 @@ predict.systemfit <- function( object, data=object$data,
       }
       # standard errors of prediction
       if( se.pred ) {
-         if(nrow(data)==1) {
+         if(nrow(newdata)==1) {
             predicted <- cbind( predicted, sqrt( ycovpi ) )
          } else {
             predicted <- cbind( predicted, sqrt( diag( ycovpi ) ) )
@@ -85,7 +85,7 @@ predict.systemfit <- function( object, data=object$data,
          } else {
             tval   <- qt( 1 - ( 1- level )/2, object$eq[[i]]$df )
          }
-         if( nrow(data)==1 ) {
+         if( nrow(newdata)==1 ) {
             seci    <- sqrt( ycovci )
          } else {
             seci    <- sqrt( diag( ycovci ) )
@@ -104,7 +104,7 @@ predict.systemfit <- function( object, data=object$data,
          } else {
             tval   <- qt( 1 - ( 1- level )/2, object$eq[[i]]$df )
          }
-         if(nrow(data)==1) {
+         if(nrow(newdata)==1) {
             sepi <- sqrt( ycovpi )
          } else {
             sepi <- sqrt( diag( ycovpi ) )
@@ -121,8 +121,8 @@ predict.systemfit <- function( object, data=object$data,
 }
 
 ## calculate predicted values, its standard errors and the prediction intervals
-predict.systemfit.equation <- function( object, data=object$data, ... ) {
-   attach( data ); on.exit( detach( data ) )
+predict.systemfit.equation <- function( object, newdata=object$data, ... ) {
+   attach( newdata ); on.exit( detach( newdata ) )
    xMat <-  model.matrix( formula( object$terms ) )
    predicted <- drop( xMat %*% object$coef )
    predicted

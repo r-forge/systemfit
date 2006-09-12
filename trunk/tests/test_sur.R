@@ -315,7 +315,7 @@ print( predict( fitsur1e2, se.fit = TRUE, interval = "prediction",
 print( predict( fitsur1e2$eq[[ 2 ]] ) )
 
 print( predict( fitsur2e, se.pred = TRUE, interval = "confidence",
-   level = 0.999, data = predictData ) )
+   level = 0.999, newdata = predictData ) )
 print( predict( fitsur2e$eq[[ 1 ]] ) )
 
 print( predict( fitsur3, se.pred = TRUE, interval = "prediction",
@@ -327,7 +327,7 @@ print( predict( fitsur4r3, se.fit = TRUE, interval = "confidence",
 print( predict( fitsur4r3$eq[[ 1 ]] ) )
 
 print( predict( fitsur5, se.fit = TRUE, se.pred = TRUE,
-   interval = "prediction", level = 0.5, data = predictData ) )
+   interval = "prediction", level = 0.5, newdata = predictData ) )
 print( predict( fitsur5$eq[[ 2 ]] ) )
 
 print( predict( fitsuri1r3, se.fit = TRUE, se.pred = TRUE,
@@ -335,13 +335,13 @@ print( predict( fitsuri1r3, se.fit = TRUE, se.pred = TRUE,
 print( predict( fitsuri1r3$eq[[ 1 ]] ) )
 
 print( predict( fitsuri2, se.fit = TRUE, interval = "prediction",
-   level = 0.9, data = predictData ) )
+   level = 0.9, newdata = predictData ) )
 print( predict( fitsuri2$eq[[ 2 ]] ) )
 
 print( predict( fitsuri3e, interval = "prediction", level = 0.925 ) )
 print( predict( fitsuri3e$eq[[ 1 ]] ) )
 
-print( predict( fitsuri4, interval = "confidence", data = predictData ) )
+print( predict( fitsuri4, interval = "confidence", newdata = predictData ) )
 print( predict( fitsuri4$eq[[ 2 ]] ) )
 
 print( predict( fitsuri5r2 ) )

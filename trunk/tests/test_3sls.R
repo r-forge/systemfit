@@ -359,7 +359,7 @@ print( predict( fit3sls[[ 2 ]]$e1c, se.fit = TRUE, interval = "prediction",
 print( predict( fit3sls[[ 2 ]]$e1c$eq[[ 1 ]] ) )
 
 print( predict( fit3sls[[ 3 ]]$e2e, se.pred = TRUE, interval = "confidence",
-   level = 0.999, data = predictData, probDfSys = TRUE ) )
+   level = 0.999, newdata = predictData, probDfSys = TRUE ) )
 print( predict( fit3sls[[ 3 ]]$e2e$eq[[ 2 ]] ) )
 
 print( predict( fit3sls[[ 4 ]]$e3, se.pred = TRUE, interval = "prediction",
@@ -371,7 +371,7 @@ print( predict( fit3sls[[ 5 ]]$e4e, se.fit = TRUE, interval = "confidence",
 print( predict( fit3sls[[ 5 ]]$e4e$eq[[ 2 ]] ) )
 
 print( predict( fit3sls[[ 1 ]]$e5, se.fit = TRUE, se.pred = TRUE,
-   interval = "prediction", level = 0.5, data = predictData ) )
+   interval = "prediction", level = 0.5, newdata = predictData ) )
 print( predict( fit3sls[[ 1 ]]$e5$eq[[ 1 ]] ) )
 
 print( predict( fit3slsi[[ 3 ]]$e3e, se.fit = TRUE, se.pred = TRUE,
@@ -379,7 +379,7 @@ print( predict( fit3slsi[[ 3 ]]$e3e, se.fit = TRUE, se.pred = TRUE,
 print( predict( fit3slsi[[ 3 ]]$e3e$eq[[ 1 ]] ) )
 
 print( predict( fit3slsd[[ 4 ]]$e4, se.fit = TRUE, interval = "prediction",
-   level = 0.9, data = predictData ) )
+   level = 0.9, newdata = predictData ) )
 print( predict( fit3slsd[[ 4 ]]$e4$eq[[ 2 ]] ) )
 
 

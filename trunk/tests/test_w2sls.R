@@ -215,7 +215,7 @@ print( predict( fitw2sls1e, se.fit = TRUE, interval = "prediction",
 print( predict( fitw2sls1e$eq[[ 1 ]] ) )
 
 print( predict( fitw2sls2, se.pred = TRUE, interval = "confidence",
-   level = 0.999, data = predictData ) )
+   level = 0.999, newdata = predictData ) )
 print( predict( fitw2sls2$eq[[ 2 ]] ) )
 
 print( predict( fitw2sls3, se.pred = TRUE, interval = "prediction",
@@ -227,7 +227,7 @@ print( predict( fitw2sls4e, se.fit = TRUE, interval = "confidence",
 print( predict( fitw2sls4e$eq[[ 2 ]] ) )
 
 print( predict( fitw2sls5, se.fit = TRUE, se.pred = TRUE,
-   interval = "prediction", level = 0.5, data = predictData ) )
+   interval = "prediction", level = 0.5, newdata = predictData ) )
 print( predict( fitw2sls5$eq[[ 1 ]] ) )
 
 print( predict( fitw2slsd1, se.fit = TRUE, se.pred = TRUE,
@@ -235,7 +235,7 @@ print( predict( fitw2slsd1, se.fit = TRUE, se.pred = TRUE,
 print( predict( fitw2slsd1$eq[[ 2 ]] ) )
 
 print( predict( fitw2slsd2e, se.fit = TRUE, interval = "prediction",
-   level = 0.9, data = predictData, probDfSys = TRUE ) )
+   level = 0.9, newdata = predictData, probDfSys = TRUE ) )
 print( predict( fitw2slsd2e$eq[[ 1 ]] ) )
 
 print( predict( fitw2slsd3e, se.fit = TRUE, se.pred = TRUE,

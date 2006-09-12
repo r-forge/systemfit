@@ -271,11 +271,11 @@ print( predict( fitols1p, se.fit = TRUE, interval = "prediction",
 print( predict( fitols1p$eq[[ 2 ]] ) )
 
 print( predict( fitols2r, se.pred = TRUE, interval = "confidence",
-   level = 0.999, data = predictData ) )
+   level = 0.999, newdata = predictData ) )
 print( predict( fitols2r$eq[[ 1 ]] ) )
 
 print( predict( fitols3s, se.fit = TRUE, se.pred = TRUE,
-   interval = "prediction", level = 0.5, data = predictData ) )
+   interval = "prediction", level = 0.5, newdata = predictData ) )
 print( predict( fitols3s$eq[[ 2 ]] ) )
 
 print( predict( fitols4rs, se.fit = TRUE, se.pred = TRUE,
@@ -283,7 +283,7 @@ print( predict( fitols4rs, se.fit = TRUE, se.pred = TRUE,
 print( predict( fitols4rs$eq[[ 1 ]] ) )
 
 print( predict( fitols5, se.fit = TRUE, interval = "prediction",
-   level = 0.9, data = predictData ) )
+   level = 0.9, newdata = predictData ) )
 print( predict( fitols5$eq[[ 2 ]] ) )
 
 
