@@ -322,31 +322,37 @@ predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
 print( predict( fit2sls1, se.fit = TRUE, interval = "prediction" ) )
-print( predict( fit2sls1$eq[[ 1 ]] ) )
+print( predict( fit2sls1$eq[[ 1 ]], se.fit = TRUE, interval = "prediction" ) )
 
 print( predict( fit2sls2s, se.pred = TRUE, interval = "confidence",
    level = 0.999, newdata = predictData ) )
-print( predict( fit2sls2s$eq[[ 2 ]] ) )
+print( predict( fit2sls2s$eq[[ 2 ]], se.pred = TRUE, interval = "confidence",
+   level = 0.999, newdata = predictData ) )
 
 print( predict( fit2sls3e, se.pred = TRUE, interval = "prediction",
    level = 0.975, probDfSys = TRUE ) )
-print( predict( fit2sls3e$eq[[ 1 ]] ) )
+print( predict( fit2sls3e$eq[[ 1 ]], se.pred = TRUE, interval = "prediction",
+   level = 0.975, probDfSys = TRUE ) )
 
 print( predict( fit2sls4r, se.fit = TRUE, interval = "confidence",
    level = 0.25 ) )
-print( predict( fit2sls4r$eq[[ 2 ]] ) )
+print( predict( fit2sls4r$eq[[ 2 ]], se.fit = TRUE, interval = "confidence",
+   level = 0.25 ) )
 
 print( predict( fit2sls5rs, se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.5, newdata = predictData ) )
-print( predict( fit2sls5rs$eq[[ 1 ]] ) )
+print( predict( fit2sls5rs$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.5, newdata = predictData ) )
 
 print( predict( fit2slsd1p, se.fit = TRUE, se.pred = TRUE,
    interval = "confidence", level = 0.99, probDfSys = TRUE ) )
-print( predict( fit2slsd1p$eq[[ 2 ]] ) )
+print( predict( fit2slsd1p$eq[[ 2 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "confidence", level = 0.99, probDfSys = TRUE ) )
 
 print( predict( fit2slsd2r, se.fit = TRUE, interval = "prediction",
    level = 0.9, newdata = predictData ) )
-print( predict( fit2slsd2r$eq[[ 1 ]] ) )
+print( predict( fit2slsd2r$eq[[ 1 ]], se.fit = TRUE, interval = "prediction",
+   level = 0.9, newdata = predictData ) )
 
 
 ## ************** F tests ****************

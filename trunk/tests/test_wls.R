@@ -249,41 +249,49 @@ predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
 print( predict( fitwls1, se.fit = TRUE, interval = "prediction" ) )
-print( predict( fitwls1$eq[[ 2 ]] ) )
+print( predict( fitwls1$eq[[ 2 ]], se.fit = TRUE, interval = "prediction" ) )
 
 print( predict( fitwls2e, se.pred = TRUE, interval = "confidence",
    level = 0.999, newdata = predictData ) )
-print( predict( fitwls2e$eq[[ 1 ]] ) )
+print( predict( fitwls2e$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
+   level = 0.999, newdata = predictData ) )
 
 print( predict( fitwls3, se.pred = TRUE, interval = "prediction",
    level = 0.975 ) )
-print( predict( fitwls3$eq[[ 2 ]] ) )
+print( predict( fitwls3$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
+   level = 0.975 ) )
 
 print( predict( fitwls4e, se.fit = TRUE, interval = "confidence",
    level = 0.25 ) )
-print( predict( fitwls4e$eq[[ 1 ]] ) )
+print( predict( fitwls4e$eq[[ 1 ]], se.fit = TRUE, interval = "confidence",
+   level = 0.25 ) )
 
 print( predict( fitwls5, se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.5, newdata = predictData ) )
-print( predict( fitwls5$eq[[ 2 ]] ) )
+print( predict( fitwls5$eq[[ 2 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.5, newdata = predictData ) )
 
 print( predict( fitwlsi1e, se.fit = TRUE, se.pred = TRUE,
    interval = "confidence", level = 0.99, probDfSys = TRUE ) )
-print( predict( fitwlsi1e$eq[[ 1 ]] ) )
+print( predict( fitwlsi1e$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "confidence", level = 0.99, probDfSys = TRUE ) )
 
 print( predict( fitwlsi2, se.fit = TRUE, interval = "prediction",
    level = 0.9, newdata = predictData ) )
-print( predict( fitwlsi2$eq[[ 2 ]] ) )
+print( predict( fitwlsi2$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
+   level = 0.9, newdata = predictData ) )
 
 print( predict( fitwlsi3e, interval = "prediction", level = 0.925 ) )
-print( predict( fitwlsi3e$eq[[ 1 ]] ) )
+print( predict( fitwlsi3e$eq[[ 1 ]], interval = "prediction", level = 0.925 ) )
 
 print( predict( fitwlsi4, interval = "confidence", newdata = predictData ) )
-print( predict( fitwlsi4$eq[[ 2 ]] ) )
+print( predict( fitwlsi4$eq[[ 2 ]], interval = "confidence",
+   newdata = predictData ) )
 
 print( predict( fitwlsi5e, se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.01 ) )
-print( predict( fitwlsi5e$eq[[ 1 ]] ) )
+print( predict( fitwlsi5e$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.01 ) )
 
 
 ## ************** F tests ****************

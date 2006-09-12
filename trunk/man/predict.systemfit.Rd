@@ -15,7 +15,10 @@
                              interval = "none", level=0.95,
                              probDfSys = NULL, ... )
 
-\method{predict}{systemfit.equation}( object, newdata, ... )
+\method{predict}{systemfit.equation}( object, newdata,
+                             se.fit = FALSE, se.pred = FALSE,
+                             interval = "none", level=0.95,
+                             probDfSys = NULL, ... )
 }
 
 \arguments{
@@ -55,8 +58,12 @@
    and the lower (e.g. "eq1.lwr") and upper (e.g. "eq1.upr")
    limits of the confidence or prediction interval(s).
 
-   \code{predict.systemfit.equation} returns a vector of the predicted
-      values of a single equation.
+   \code{predict.systemfit.equation} returns a dataframe that
+   contains the predicted values ("fit") and if requested
+   the standard errors of the fitted values ("se.fit"),
+   the standard errors of the prediction ("se.pred"),
+   and the lower ("lwr") and upper ("upr")
+   limits of the confidence or prediction interval(s).
 }
 
 \references{

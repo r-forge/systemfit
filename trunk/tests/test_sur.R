@@ -312,37 +312,45 @@ predictData$income <- Kmenta$income * 1.1
 
 print( predict( fitsur1e2, se.fit = TRUE, interval = "prediction",
    probDfSys = TRUE ) )
-print( predict( fitsur1e2$eq[[ 2 ]] ) )
+print( predict( fitsur1e2$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
+   probDfSys = TRUE ) )
 
 print( predict( fitsur2e, se.pred = TRUE, interval = "confidence",
    level = 0.999, newdata = predictData ) )
-print( predict( fitsur2e$eq[[ 1 ]] ) )
+print( predict( fitsur2e$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
+   level = 0.999, newdata = predictData ) )
 
 print( predict( fitsur3, se.pred = TRUE, interval = "prediction",
    level = 0.975 ) )
-print( predict( fitsur3$eq[[ 2 ]] ) )
+print( predict( fitsur3$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
+   level = 0.975 ) )
 
 print( predict( fitsur4r3, se.fit = TRUE, interval = "confidence",
    level = 0.25 ) )
-print( predict( fitsur4r3$eq[[ 1 ]] ) )
+print( predict( fitsur4r3$eq[[ 1 ]], se.fit = TRUE, interval = "confidence",
+   level = 0.25 ) )
 
 print( predict( fitsur5, se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.5, newdata = predictData ) )
-print( predict( fitsur5$eq[[ 2 ]] ) )
+print( predict( fitsur5$eq[[ 2 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.5, newdata = predictData ) )
 
 print( predict( fitsuri1r3, se.fit = TRUE, se.pred = TRUE,
    interval = "confidence", level = 0.99 ) )
-print( predict( fitsuri1r3$eq[[ 1 ]] ) )
+print( predict( fitsuri1r3$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "confidence", level = 0.99 ) )
 
 print( predict( fitsuri2, se.fit = TRUE, interval = "prediction",
    level = 0.9, newdata = predictData ) )
-print( predict( fitsuri2$eq[[ 2 ]] ) )
+print( predict( fitsuri2$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
+   level = 0.9, newdata = predictData ) )
 
 print( predict( fitsuri3e, interval = "prediction", level = 0.925 ) )
-print( predict( fitsuri3e$eq[[ 1 ]] ) )
+print( predict( fitsuri3e$eq[[ 1 ]], interval = "prediction", level = 0.925 ) )
 
 print( predict( fitsuri4, interval = "confidence", newdata = predictData ) )
-print( predict( fitsuri4$eq[[ 2 ]] ) )
+print( predict( fitsuri4$eq[[ 2 ]], interval = "confidence",
+   newdata = predictData ) )
 
 print( predict( fitsuri5r2 ) )
 print( predict( fitsuri5r2$eq[[ 1 ]] ) )
