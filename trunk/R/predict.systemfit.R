@@ -125,8 +125,7 @@ predict.systemfit <- function( object, newdata=object$data,
 
 ## calculate predicted values, its standard errors and the prediction intervals
 predict.systemfit.equation <- function( object, newdata=object$data, ... ) {
-   attach( newdata ); on.exit( detach( newdata ) )
-   xMat <-  model.matrix( formula( object$terms ) )
+   xMat <-  model.matrix( formula( object$terms ), data = newdata )
    predicted <- drop( xMat %*% object$coef )
    predicted
 }
