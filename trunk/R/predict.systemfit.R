@@ -9,21 +9,24 @@ predict.systemfit <- function( object, newdata=object$data,
          # TRUE if there are restrictions imposed
    }
 
-   attach(newdata); on.exit( detach( newdata ) )
-
    predicted <- data.frame( obs=seq( nrow( newdata ) ) )
    colnames( predicted ) <- as.character( 1:ncol( predicted ) )
-   nObsEq  <- numeric( object$nEq )
-   eqns    <- list()
-   xMatEq  <- list()               # regressors equation-wise
-   xMatAll <- matrix( 0, 0, 0 )    # stacked matrices of all regressors (unrestricted)
+
+   # get equations
+   eqns <- list()
    for(i in 1:object$nEq )  {
       eqns[[i]] <- formula( object$eq[[i]]$terms )
-      xMatEq[[i]] <-  model.matrix( eqns[[i]] )
-      xMatAll      <-  rbind( cbind( xMatAll, matrix( 0, nrow( xMatAll ), ncol( xMatEq[[i]] ))),
-                       cbind( matrix( 0, nrow( xMatEq[[i]] ), ncol( xMatAll )), xMatEq[[i]]))
-      nObsEq[i]   <-  nrow( xMatEq[[i]] )
    }
+
+   # prepare data
+   preparedData <- .prepareData.systemfit( data = newdata, eqns = eqns )
+   # number of observations in each equation
+   nObsEq  <- preparedData$nObsEq
+   # list for matrices of regressors in each equation
+   xMatEq <- preparedData$xMatEq
+   # stacked matrices of all regressors
+   xMatAll <- preparedData$xMatAll
+
    yVecAll <- xMatAll %*% object$coef
    if( object$method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
       if( se.fit | interval == "confidence" ) {
