@@ -18,6 +18,10 @@ systemfit.control(
       method3sls = "GLS",
       single.eq.sigma = NULL,
       solvetol = .Machine$double.eps,
+      returnModelFrame = TRUE,
+      returnModelMatrix = TRUE,
+      returnInstMatrix = TRUE,
+      returnResponse = TRUE,
       saveMemory = NULL )
 }
 
@@ -41,6 +45,10 @@ systemfit.control(
    \item{solvetol}{tolerance level for detecting linear dependencies
       when inverting a matrix or calculating a determinant (see
       \code{\link{solve}} and \code{\link{det}}).}
+   \item{returnModelFrame, returnModelMatrix, returnInstMatrix, returnResponse}{
+      logical. If 'TRUE' the corresponding components of the fit
+      (the model frame, the model matrix, the matrix of instruments,
+      the response) are returned.}
    \item{saveMemory}{logical. Save memory by omitting some calculation that
       are not crucial for the basic estimation (e.g McElroy's
       \eqn{R^2})?

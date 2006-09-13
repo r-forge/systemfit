@@ -6,6 +6,10 @@ systemfit.control <- function(
       method3sls = "GLS",
       single.eq.sigma = NULL,
       solvetol = .Machine$double.eps,
+      returnModelFrame = TRUE,
+      returnModelMatrix = TRUE,
+      returnInstMatrix = TRUE,
+      returnResponse = TRUE,
       saveMemory = NULL )
 {
    result <- list()
@@ -54,6 +58,30 @@ systemfit.control <- function(
       stop( "control parameter 'solvetol' must be a positive scalar" )
    }
    result$solvetol <- solvetol
+
+   ## returnModelFrame
+   if( !is.logical( returnModelFrame ) || length( returnModelFrame ) != 1 ) {
+      stop( "control parameter 'returnModelFrame' must be logical" )
+   }
+   result$returnModelFrame <- returnModelFrame
+
+   ## returnModelMatrix
+   if( !is.logical( returnModelMatrix ) || length( returnModelMatrix ) != 1 ) {
+      stop( "control parameter 'returnModelMatrix' must be logical" )
+   }
+   result$returnModelMatrix <- returnModelMatrix
+
+   ## returnInstMatrix
+   if( !is.logical( returnInstMatrix ) || length( returnInstMatrix ) != 1 ) {
+      stop( "control parameter 'returnInstMatrix' must be logical" )
+   }
+   result$returnInstMatrix <- returnInstMatrix
+
+   ## returnResponse
+   if( !is.logical( returnResponse ) || length( returnResponse ) != 1 ) {
+      stop( "control parameter 'returnResponse' must be logical" )
+   }
+   result$returnResponse <- returnResponse
 
    ## saveMemory
    if( ( !is.logical( saveMemory ) || length( saveMemory ) != 1 )

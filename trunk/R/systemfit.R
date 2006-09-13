@@ -464,10 +464,16 @@ systemfit <- function(  eqns,
        # degrees of freedom of residuals of the whole system
     resulti$coef         <- coefEqI         # estimated coefficients
     resulti$bcov         <- bcovi           # covariance matrix of estimated coefficients
-    resulti$yVec         <- yVecEq[[i]]     # vector of endogenous variables
-    resulti$xMat         <- xMatEq[[i]]     # matrix of regressors
+    if( control$returnResponse ){
+      resulti$yVec         <- yVecEq[[i]]     # vector of endogenous variables
+    }
+    if( control$returnModelMatrix ){
+      resulti$xMat         <- xMatEq[[i]]     # matrix of regressors
+    }
     resulti$data         <- datai           # data frame of this equation (incl. instruments)
-    resulti$model        <- evalModelFrameEq[[ i ]] # model frame of this equation
+    if( control$returnModelFrame ){
+      resulti$model        <- evalModelFrameEq[[ i ]] # model frame of this equation
+    }
     resulti$fitted.values <- fitted.values.i # fitted values
     resulti$residuals    <- residi[[i]]     # residuals
     resulti$ssr          <- ssr             # sum of squared errors/residuals
@@ -476,7 +482,9 @@ systemfit <- function(  eqns,
     resulti$adjr2        <- adjr2           # adjusted R-squared value
     if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
       resulti$inst         <- instEq[[i]]
-      resulti$hMat         <- hMatEq[[i]]          # matrix of instrumental variables
+      if(  control$returnInstMatrix ) {
+         resulti$hMat         <- hMatEq[[i]]  # matrix of instrumental variables
+      }
     }
     class(resulti)        <- "systemfit.equation"
     results$eq[[i]]      <- resulti

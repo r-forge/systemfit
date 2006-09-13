@@ -132,9 +132,10 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
   \item{olsr2}{System OLS R-squared value.}
   \item{mcelr2}{McElroys R-squared value for the system (only SUR and 3SLS).}
-  \item{yVec}{vector of all (stacked) endogenous variables}
-  \item{xMat}{matrix of all (diagonally stacked) regressors}
-  \item{hMat}{matrix of all (diagonally stacked) instrumental variables (only 2SLS and 3SLS)}
+  \item{yVec}{if requested, the (stacked) vector of all responses.}
+  \item{xMat}{if requested, the (diagonally stacked) model matrix.}
+  \item{hMat}{if requested, the (diagonally stacked) matrix
+      of instrumental variables (only 2SLS and 3SLS).}
   \item{data}{data frame of the whole system (including instruments)}
   \item{R.restr}{the restriction matrix.}
   \item{q.restr}{the restriction vector.}
@@ -162,11 +163,12 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{coef*}{estimated coefficients of the ith equation.}
   \item{covb*}{estimated covariance matrix of \code{coef}.}
 
-  \item{yVec*}{vector of endogenous variable (response values) of the ith equation.}
-  \item{xMat*}{matrix of regressors (model matrix) of the ith equation.}
-  \item{hMat*}{matrix of instrumental variables of the ith equation (only 2SLS and 3SLS).}
+  \item{yVec*}{if requested, the response of the ith equation.}
+  \item{xMat*}{if requested, the model matrix of the ith equation.}
+  \item{hMat*}{if requested, the matrix of instrumental variables
+      of the ith equation (only 2SLS and 3SLS).}
   \item{data*}{data frame (including instruments) of the ith equation.}
-  \item{model*}{model frame of the ith equation.}
+  \item{model*}{if requested (the default), the model frame of the ith equation.}
   \item{fitted.values*}{vector of fitted values of the ith equation.}
   \item{residuals*}{vector of residuals of the ith equation.}
 
