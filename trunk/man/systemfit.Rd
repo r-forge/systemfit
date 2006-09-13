@@ -166,6 +166,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{xMat*}{matrix of regressors (model matrix) of the ith equation.}
   \item{hMat*}{matrix of instrumental variables of the ith equation (only 2SLS and 3SLS).}
   \item{data*}{data frame (including instruments) of the ith equation.}
+  \item{model*}{model frame of the ith equation.}
   \item{fitted.values*}{vector of fitted values of the ith equation.}
   \item{residuals*}{vector of residuals of the ith equation.}
 

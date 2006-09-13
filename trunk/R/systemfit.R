@@ -467,6 +467,7 @@ systemfit <- function(  eqns,
     resulti$yVec         <- yVecEq[[i]]     # vector of endogenous variables
     resulti$xMat         <- xMatEq[[i]]     # matrix of regressors
     resulti$data         <- datai           # data frame of this equation (incl. instruments)
+    resulti$model        <- evalModelFrameEq[[ i ]] # model frame of this equation
     resulti$fitted.values <- fitted.values.i # fitted values
     resulti$residuals    <- residi[[i]]     # residuals
     resulti$ssr          <- ssr             # sum of squared errors/residuals
