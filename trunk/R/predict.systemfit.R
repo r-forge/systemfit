@@ -9,6 +9,12 @@ predict.systemfit <- function( object, newdata=object$data,
          # TRUE if there are restrictions imposed
    }
 
+   # calculate residual covariance matrix with centered residuals and
+   # correction for degrees of freedom
+   rcov <- .calcRCov( object$resids, methodRCov = "geomean",
+      nObsEq = object$nObsEq, nCoefEq = object$nExogLiEq,
+      centered = TRUE, solvetol = object$control$solvetol )
+
    predicted <- data.frame( obs=seq( nrow( newdata ) ) )
    colnames( predicted ) <- as.character( 1:ncol( predicted ) )
 
@@ -33,7 +39,7 @@ predict.systemfit <- function( object, newdata=object$data,
          ycovc <- xMatAll %*% object$bcov %*% t(xMatAll)
       }
       if( se.pred | interval == "prediction" ) {
-         ycovp <- xMatAll %*% object$bcov %*% t(xMatAll) + object$rcov %x% diag(1,nObsEq[1],nObsEq[1])
+         ycovp <- xMatAll %*% object$bcov %*% t(xMatAll) + rcov %x% diag(1,nObsEq[1],nObsEq[1])
       }
    }
    for(i in 1:object$nEq) {
