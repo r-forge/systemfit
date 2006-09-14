@@ -104,7 +104,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
-> print( round( fitwls1$bcov, digits = 6 ) )
+> print( round( vcov( fitwls1 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        56.540807  -0.594801    0.032162         0.000000
 eq 1 price              -0.594801   0.008222   -0.002333         0.000000
@@ -179,7 +179,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
-> print( round( fitwls1e$bcov, digits = 6 ) )
+> print( round( vcov( fitwls1e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        48.059686  -0.505581    0.027338         0.000000
 eq 1 price              -0.505581   0.006989   -0.001983         0.000000
@@ -253,7 +253,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.627182 MSE: 5.976699 Root MSE: 2.444729 
 Multiple R-Squared: 0.643334 Adjusted R-Squared: 0.576459 
 
-> print( round( fitwls2$bcov, digits = 6 ) )
+> print( round( vcov( fitwls2 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        57.214133  -0.596328    0.026850        -0.788252
 eq 1 price              -0.596328   0.007862   -0.001948         0.057190
@@ -328,7 +328,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.560501 MSE: 5.972531 Root MSE: 2.443876 
 Multiple R-Squared: 0.643583 Adjusted R-Squared: 0.576755 
 
-> print( round( fitwls2e$bcov, digits = 6 ) )
+> print( round( vcov( fitwls2e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        48.628136  -0.506597    0.022574        -0.662713
 eq 1 price              -0.506597   0.006662   -0.001638         0.048082
@@ -402,7 +402,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.627182 MSE: 5.976699 Root MSE: 2.444729 
 Multiple R-Squared: 0.643334 Adjusted R-Squared: 0.576459 
 
-> print( round( fitwls3$bcov, digits = 6 ) )
+> print( round( vcov( fitwls3 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        57.214133  -0.596328    0.026850        -0.788252
 eq 1 price              -0.596328   0.007862   -0.001948         0.057190
@@ -477,7 +477,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.560501 MSE: 5.972531 Root MSE: 2.443876 
 Multiple R-Squared: 0.643583 Adjusted R-Squared: 0.576755 
 
-> print( round( fitwls3e$bcov, digits = 6 ) )
+> print( round( vcov( fitwls3e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        48.628136  -0.506597    0.022574        -0.662713
 eq 1 price              -0.506597   0.006662   -0.001638         0.048082
@@ -552,7 +552,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.267574 MSE: 6.016723 Root MSE: 2.452901 
 Multiple R-Squared: 0.640946 Adjusted R-Squared: 0.573623 
 
-> print( round( fitwls4$bcov, digits = 6 ) )
+> print( round( vcov( fitwls4 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        36.571016  -0.321554   -0.043279        35.846737
 eq 1 price              -0.321554   0.004201   -0.001011        -0.431417
@@ -627,7 +627,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.215011 MSE: 6.013438 Root MSE: 2.452231 
 Multiple R-Squared: 0.641142 Adjusted R-Squared: 0.573856 
 
-> print( round( fitwls4e$bcov, digits = 6 ) )
+> print( round( vcov( fitwls4e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        30.508171  -0.266011   -0.038366        29.714754
 eq 1 price              -0.266011   0.003465   -0.000826        -0.356026
@@ -702,7 +702,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.267574 MSE: 6.016723 Root MSE: 2.452901 
 Multiple R-Squared: 0.640946 Adjusted R-Squared: 0.573623 
 
-> print( round( fitwls5$bcov, digits = 6 ) )
+> print( round( vcov( fitwls5 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        36.571016  -0.321554   -0.043279        35.846737
 eq 1 price              -0.321554   0.004201   -0.001011        -0.431417
@@ -777,7 +777,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.215011 MSE: 6.013438 Root MSE: 2.452231 
 Multiple R-Squared: 0.641142 Adjusted R-Squared: 0.573856 
 
-> print( round( fitwls5e$bcov, digits = 6 ) )
+> print( round( vcov( fitwls5e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        30.508171  -0.266011   -0.038366        29.714754
 eq 1 price              -0.266011   0.003465   -0.000826        -0.356026
@@ -852,7 +852,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
-> print( round( fitwlsi1$bcov, digits = 6 ) )
+> print( round( vcov( fitwlsi1 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        56.540807  -0.594801    0.032162         0.000000
 eq 1 price              -0.594801   0.008222   -0.002333         0.000000
@@ -927,7 +927,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
-> print( round( fitwlsi1e$bcov, digits = 6 ) )
+> print( round( vcov( fitwlsi1e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        48.059686  -0.505581    0.027338         0.000000
 eq 1 price              -0.505581   0.006989   -0.001983         0.000000
@@ -1004,7 +1004,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.64097 MSE: 5.977561 Root MSE: 2.444905 
 Multiple R-Squared: 0.643283 Adjusted R-Squared: 0.576398 
 
-> print( round( fitwlsi2$bcov, digits = 6 ) )
+> print( round( vcov( fitwlsi2 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        56.818574  -0.592263    0.026724        -0.784542
 eq 1 price              -0.592263   0.007812   -0.001939         0.056921
@@ -1081,7 +1081,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.573129 MSE: 5.973321 Root MSE: 2.444038 
 Multiple R-Squared: 0.643536 Adjusted R-Squared: 0.576699 
 
-> print( round( fitwlsi2e$bcov, digits = 6 ) )
+> print( round( vcov( fitwlsi2e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        48.325149  -0.503487    0.022480        -0.659954
 eq 1 price              -0.503487   0.006624   -0.001631         0.047882
@@ -1158,7 +1158,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.64097 MSE: 5.977561 Root MSE: 2.444905 
 Multiple R-Squared: 0.643283 Adjusted R-Squared: 0.576398 
 
-> print( round( fitwlsi3$bcov, digits = 6 ) )
+> print( round( vcov( fitwlsi3 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        56.818574  -0.592263    0.026724        -0.784542
 eq 1 price              -0.592263   0.007812   -0.001939         0.056921
@@ -1235,7 +1235,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.573129 MSE: 5.973321 Root MSE: 2.444038 
 Multiple R-Squared: 0.643536 Adjusted R-Squared: 0.576699 
 
-> print( round( fitwlsi3e$bcov, digits = 6 ) )
+> print( round( vcov( fitwlsi3e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        48.325149  -0.503487    0.022480        -0.659954
 eq 1 price              -0.503487   0.006624   -0.001631         0.047882
@@ -1312,7 +1312,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.276614 MSE: 6.017288 Root MSE: 2.453016 
 Multiple R-Squared: 0.640912 Adjusted R-Squared: 0.573583 
 
-> print( round( fitwlsi4$bcov, digits = 6 ) )
+> print( round( vcov( fitwlsi4 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        36.476183  -0.321184   -0.042697        35.793053
 eq 1 price              -0.321184   0.004198   -0.001012        -0.431101
@@ -1389,7 +1389,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.223451 MSE: 6.013966 Root MSE: 2.452339 
 Multiple R-Squared: 0.64111 Adjusted R-Squared: 0.573819 
 
-> print( round( fitwlsi4e$bcov, digits = 6 ) )
+> print( round( vcov( fitwlsi4e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        30.437717  -0.265752   -0.037918        29.676241
 eq 1 price              -0.265752   0.003463   -0.000827        -0.355820
@@ -1466,7 +1466,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.276614 MSE: 6.017288 Root MSE: 2.453016 
 Multiple R-Squared: 0.640912 Adjusted R-Squared: 0.573583 
 
-> print( round( fitwlsi5$bcov, digits = 6 ) )
+> print( round( vcov( fitwlsi5 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        36.476183  -0.321184   -0.042697        35.793053
 eq 1 price              -0.321184   0.004198   -0.001012        -0.431101
@@ -1543,7 +1543,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.223451 MSE: 6.013966 Root MSE: 2.452339 
 Multiple R-Squared: 0.64111 Adjusted R-Squared: 0.573819 
 
-> print( round( fitwlsi5e$bcov, digits = 6 ) )
+> print( round( vcov( fitwlsi5e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
 eq 1 (Intercept)        30.437717  -0.265752   -0.037918        29.676241
 eq 1 price              -0.265752   0.003463   -0.000827        -0.355820
