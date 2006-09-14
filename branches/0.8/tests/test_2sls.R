@@ -43,211 +43,177 @@ restr3q[1,1] <-  0.5
 ## ************ 2SLS estimation (default)*********************
 fit2sls1 <- systemfit( "2SLS", system, labels, data = Kmenta, inst = inst )
 print( summary( fit2sls1 ) )
-print( round( vcov( fit2sls1 ), digits = 6 ) )
 
 ## *************** 2SLS estimation (single.eq.sigma=F)*******************
 fit2sls1s <- systemfit( "2SLS", system, labels, data = Kmenta, inst = inst,
    single.eq.sigma = FALSE )
 print( summary( fit2sls1s ) )
-print( round( vcov( fit2sls1s ), digits = 6 ) )
 
 ## ********************* 2SLS (probdfsys = TRUE) *****************
 fit2sls1p <- systemfit( "2SLS", system, labels, data = Kmenta, inst = inst,
    probdfsys = TRUE )
 print( summary( fit2sls1p ) )
-print( round( vcov( fit2sls1p ), digits = 6 ) )
 
 ## ********************* 2SLS (rcovformula = 0) *****************
 fit2sls1r <- systemfit( "2SLS", system, labels, data = Kmenta, inst = inst,
    rcovformula = 0 )
 print( summary( fit2sls1r ) )
-print( round( vcov( fit2sls1r ), digits = 6 ) )
 
 ## *************** 2SLS (rcovformula=0, single.eq.sigma=F) *************
 fit2sls1rs <- systemfit( "2SLS", system, labels, data = Kmenta, inst = inst,
    rcovformula = 0, single.eq.sigma = FALSE )
 print( summary( fit2sls1rs ) )
-print( round( vcov( fit2sls1rs ), digits = 6 ) )
 
 ## ********************* 2SLS with restriction ********************
 ## **************** 2SLS with restriction (default)********************
 fit2sls2 <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
    inst = inst )
 print( summary( fit2sls2 ) )
-print( round( vcov( fit2sls2 ), digits = 6 ) )
 
 ## ************* 2SLS with restriction (single.eq.sigma=T) *****************
 fit2sls2s <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
    inst = inst, single.eq.sigma = TRUE )
 print( summary( fit2sls2s ) )
-print( round( vcov( fit2sls2s ), digits = 6 ) )
 
 ## ********************* 2SLS with restriction (probdfsys=T) **************
 fit2sls2p <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
    inst = inst, probdfsys = TRUE )
 print( summary( fit2sls2p ) )
-print( round( vcov( fit2sls2p ), digits = 6 ) )
 
 ## ********************* 2SLS with restriction (rcovformula = 0) **************
 fit2sls2r <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
    inst = inst, rcovformula = 0 )
 print( summary( fit2sls2r ) )
-print( round( vcov( fit2sls2r ), digits = 6 ) )
 
 ## ******** 2SLS with restriction (rcovformula=0, single.eq.sigma=TRUE) *********
 fit2sls2rs <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
    inst = inst, rcovformula = 0, single.eq.sigma = TRUE )
 print( summary( fit2sls2rs ) )
-print( round( vcov( fit2sls2rs ), digits = 6 ) )
 
 ## ********************* 2SLS with restriction via TX ******************
 ## *************** 2SLS with restriction via TX (default )***************
 fit2sls3 <- systemfit( "2SLS", system, labels, data = Kmenta, TX = tc,
    inst = inst, rcovformula = 0, probdfsys = TRUE )
 print( summary( fit2sls3 ) )
-print( round( vcov( fit2sls3 ), digits = 6 ) )
 
 ## ********************* 2SLS with restriction via TX (EViews-like) *******
 fit2sls3e <- systemfit( "2SLS", system, labels, data = Kmenta, TX = tc,
    inst = inst, rcovformula = 0, probdfsys = TRUE )
 print( summary( fit2sls3e ) )
-print( round( vcov( fit2sls3e ), digits = 6 ) )
 
 ## ***************** 2SLS with 2 restrictions *******************
 ## ************** 2SLS with 2 restrictions (default) **************
 fit2sls4 <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, inst = inst )
 print( summary( fit2sls4 ) )
-print( round( vcov( fit2sls4 ), digits = 6 ) )
 
 ## ************ 2SLS with 2 restrictions (single.eq.sigma=T) **************
 fit2sls4s <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, inst = inst, single.eq.sigma = TRUE )
 print( summary( fit2sls4s ) )
-print( round( vcov( fit2sls4s ), digits = 6 ) )
 
 ## ***************** 2SLS with 2 restrictions (probdfsys=T) **************
 fit2sls4p <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, inst = inst, probdfsys = TRUE )
 print( summary( fit2sls4p ) )
-print( round( vcov( fit2sls4p ), digits = 6 ) )
 
 ## ***************** 2SLS with 2 restrictions (rcovformula=0) **************
 fit2sls4r <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, inst = inst, rcovformula = 0 )
 print( summary( fit2sls4r ) )
-print( round( vcov( fit2sls4r ), digits = 6 ) )
 
 ## ***** 2SLS with 2 restrictions (rcovformula=0, single.eq.sigma=T) *******
 fit2sls4rs <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, inst = inst, rcovformula = 0, single.eq.sigma = TRUE )
 print( summary( fit2sls4rs ) )
-print( round( vcov( fit2sls4rs ), digits = 6 ) )
 
 ## ************* 2SLS with 2 restrictions via R and TX ******************
 ## ******** 2SLS with 2 restrictions via R and TX (default) *************
 fit2sls5 <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc, inst = inst )
 print( summary( fit2sls5 ) )
-print( round( vcov( fit2sls5 ), digits = 6 ) )
 
 ## ******* 2SLS with 2 restrictions via R and TX (single.eq.sigma=T) ******
 fit2sls5s <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc, inst = inst, single.eq.sigma = TRUE )
 print( summary( fit2sls5s ) )
-print( round( vcov( fit2sls5s ), digits = 6 ) )
 
 ## ********** 2SLS with 2 restrictions via R and TX (probdfsys=T) *******
 fit2sls5p <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc, inst = inst, probdfsys = TRUE )
 print( summary( fit2sls5p ) )
-print( round( vcov( fit2sls5p ), digits = 6 ) )
 
 ## ************* 2SLS with 2 restrictions via R and TX (rcovformula=0) *********
 fit2sls5r <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc, inst = inst, rcovformula = 0 )
 print( summary( fit2sls5r ) )
-print( round( vcov( fit2sls5r ), digits = 6 ) )
 
 ## ** 2SLS with 2 restrictions via R and TX (rcovformula=0, single.eq.sigma=T) **
 fit2sls5rs <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc, inst = inst, rcovformula = 0, single.eq.sigma = TRUE )
 print( summary( fit2sls5rs ) )
-print( round( vcov( fit2sls5rs ), digits = 6 ) )
 
 ## *********** 2SLS estimation with different instruments **************
 ## ******* 2SLS estimation with different instruments (default) *********
 fit2slsd1 <- systemfit( "2SLS", system, labels, data = Kmenta, inst = instlist )
 print( summary( fit2slsd1 ) )
-print( round( vcov( fit2slsd1 ), digits = 6 ) )
 
 ## *********** 2SLS estimation with different instruments (single.eq.sigma=F)*****
 fit2slsd1s <- systemfit( "2SLS", system, labels, data = Kmenta, inst = instlist,
    single.eq.sigma = FALSE )
 print( summary( fit2slsd1s ) )
-print( round( vcov( fit2slsd1s ), digits = 6 ) )
 
 ## ********* 2SLS estimation with different instruments (probdfsys=T) *******
 fit2slsd1p <- systemfit( "2SLS", system, labels, data = Kmenta, inst = instlist,
    probdfsys = TRUE )
 print( summary( fit2slsd1p ) )
-print( round( vcov( fit2slsd1p ), digits = 6 ) )
 
 ## ********* 2SLS estimation with different instruments (rcovformula=0) ******
 fit2slsd1r <- systemfit( "2SLS", system, labels, data = Kmenta, inst = instlist,
    rcovformula = 0 )
 print( summary( fit2slsd1r ) )
-print( round( vcov( fit2slsd1r ), digits = 6 ) )
 
 ## 2SLS estimation with different instruments (rcovformula=0,single.eq.sigma=F)
 fit2slsd1r <- systemfit( "2SLS", system, labels, data = Kmenta, inst = instlist,
    rcovformula = 0, single.eq.sigma = FALSE )
 print( summary( fit2slsd1r ) )
-print( round( vcov( fit2slsd1r ), digits = 6 ) )
 
 ## **** 2SLS estimation with different instruments and restriction *******
 ## ** 2SLS estimation with different instruments and restriction (default) ****
 fit2slsd2 <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
    inst = instlist )
 print( summary( fit2slsd2 ) )
-print( round( vcov( fit2slsd2 ), digits = 6 ) )
 
 ## 2SLS estimation with different instruments and restriction (single.eq.sigma=T)
 fit2slsd2s <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
    inst = instlist, single.eq.sigma = TRUE )
 print( summary( fit2slsd2s ) )
-print( round( vcov( fit2slsd2s ), digits = 6 ) )
 
 ## **** 2SLS estimation with different instruments and restriction (probdfsys=F)
 fit2slsd2p <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
    inst = instlist, probdfsys = FALSE )
 print( summary( fit2slsd2p ) )
-print( round( vcov( fit2slsd2p ), digits = 6 ) )
 
 ## **** 2SLS estimation with different instruments and restriction (rcovformula=0)
 fit2slsd2r <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
    inst = instlist, rcovformula = 0 )
 print( summary( fit2slsd2r ) )
-print( round( vcov( fit2slsd2r ), digits = 6 ) )
 
 ## 2SLS estimation with different instr. and restr. (rcovformula=0, single.eq.sigma=T)
 fit2slsd2rs <- systemfit( "2SLS", system, labels, data = Kmenta, R.restr = restrm,
    inst = instlist, rcovformula = 0, single.eq.sigma = TRUE )
 print( summary( fit2slsd2rs ) )
-print( round( vcov( fit2slsd2rs ), digits = 6 ) )
 
 ## **** 2SLS estimation with different instruments and restriction via TX *
 ## 2SLS estimation with different instruments and restriction via TX (default)
 fit2slsd3 <- systemfit( "2SLS", system, labels, data = Kmenta, TX = tc,
    inst = instlist )
 print( summary( fit2slsd3 ) )
-print( round( vcov( fit2slsd3 ), digits = 6 ) )
 
 ## **** 2SLS estimation with different instr. and restr. via TX (rcovformula=0)
 fit2slsd3r <- systemfit( "2SLS", system, labels, data = Kmenta, TX = tc,
    inst = instlist, rcovformula = 0 )
 print( summary( fit2slsd3r ) )
-print( round( vcov( fit2slsd3r ), digits = 6 ) )
 
 
 ## ****************** residuals **************************
@@ -271,6 +237,35 @@ print( residuals( fit2slsd1p$eq[[ 2 ]] ) )
 
 print( residuals( fit2slsd2r ) )
 print( residuals( fit2slsd2r$eq[[ 1 ]] ) )
+
+
+## *********** variance covariance matrix of the coefficients *******
+print( round( vcov( fit2sls1s ), digits = 6 ) )
+print( round( vcov( fit2sls1s$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( vcov( fit2sls1r ), digits = 6 ) )
+print( round( vcov( fit2sls1r$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( vcov( fit2sls2p ), digits = 6 ) )
+print( round( vcov( fit2sls2p$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( vcov( fit2sls3 ), digits = 6 ) )
+print( round( vcov( fit2sls3$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( vcov( fit2sls4s ), digits = 6 ) )
+print( round( vcov( fit2sls4s$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( vcov( fit2sls5r ), digits = 6 ) )
+print( round( vcov( fit2sls5r$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( vcov( fit2slsd1 ), digits = 6 ) )
+print( round( vcov( fit2slsd1$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( vcov( fit2slsd2rs ), digits = 6 ) )
+print( round( vcov( fit2slsd2rs$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( vcov( fit2slsd3 ), digits = 6 ) )
+print( round( vcov( fit2slsd3$eq[[ 1 ]] ), digits = 6 ) )
 
 
 ## *********** confidence intervals of coefficients *************
@@ -392,3 +387,4 @@ print( waldtest.systemfit( fit2sls3, restrOnly2m, restrOnly2q ) )
 
 # testing both of the restrictions
 print( waldtest.systemfit( fit2sls1, restr2m, restr2q ) )
+

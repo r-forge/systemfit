@@ -39,170 +39,141 @@ system2 <- list( demand, supply2 )
 ## *************** SUR estimation ************************
 fitsur1 <- systemfit( "SUR", system, labels, data = Kmenta )
 print( summary( fitsur1 ) )
-print( round( vcov( fitsur1 ), digits = 6 ) )
 
 ## ********************* SUR (EViews-like) *****************
 fitsur1e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 0,
    probdfsys = TRUE )
 print( summary( fitsur1e ) )
-print( round( vcov( fitsur1e ), digits = 6 ) )
 
 ## ********************* SUR (rcovformula=2) *****************
 fitsur1r2 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2 )
 print( summary( fitsur1r2 ) )
-print( round( vcov( fitsur1r2 ), digits = 6 ) )
 
 ## *************** SUR (rcovformula=2, probdfsys = TRUE ) ***************
 fitsur1e2 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
    probdfsys = TRUE )
 print( summary( fitsur1e2 ) )
-print( round( vcov( fitsur1e2 ), digits = 6 ) )
 
 ## ********************* SUR (rcovformula=3) *****************
 fitsur1r3 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 3 )
 print( summary( fitsur1r3 ) )
-print( round( vcov( fitsur1r3 ), digits = 6 ) )
 
 ## *************** SUR with cross-equation restriction **************
 fitsur2 <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restrm )
 print( summary( fitsur2 ) )
-print( round( vcov( fitsur2 ), digits = 6 ) )
 
 ## *************** SUR with cross-equation restriction (EViews-like) **
 fitsur2e <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restrm,
    rcovformula = 0 )
 print( summary( fitsur2e ) )
-print( round( vcov( fitsur2e ), digits = 6 ) )
 
 ## *************** SUR with restriction via TX *******************
 fitsur3 <- systemfit( "SUR", system, labels, data = Kmenta, TX = tc )
 print( summary( fitsur3 ) )
-print( round( vcov( fitsur3 ), digits = 6 ) )
 
 ## *************** SUR with restriction via TX (EViews-like) **************
 fitsur3e <- systemfit( "SUR", system, labels, data = Kmenta, TX = tc,
    rcovformula = 0 )
 print( summary( fitsur3e ) )
-print( round( vcov( fitsur3e ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions ***************************
 fitsur4 <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q )
 print( summary( fitsur4 ) )
-print( round( vcov( fitsur4 ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions (EViews-like) **************
 fitsur4e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 0,
    R.restr = restr2m, q.restr = restr2q )
 print( summary( fitsur4e ) )
-print( round( vcov( fitsur4e ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions (rcovformula = 2) **************
 fitsur4r2 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
    R.restr = restr2m, q.restr = restr2q )
 print( summary( fitsur4r2 ) )
-print( round( vcov( fitsur4r2 ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions (rcovformula = 3) **************
 fitsur4r3 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 3,
    R.restr = restr2m, q.restr = restr2q )
 print( summary( fitsur4r3 ) )
-print( round( vcov( fitsur4r3 ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions via R and TX ****************
 fitsur5 <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc )
 print( summary( fitsur5 ) )
-print( round( vcov( fitsur5 ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions via R and TX (EViews-like) **************
 fitsur5e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 0,
    R.restr = restr3m, q.restr = restr3q, TX = tc )
 print( summary( fitsur5e ) )
-print( round( vcov( fitsur5e ), digits = 6 ) )
 
 ## ************** iterated SUR ****************************
 fitsuri1 <- systemfit( "SUR", system2, labels, data = Kmenta, maxit = 100 )
 print( summary( fitsuri1 ) )
-print( round( vcov( fitsuri1 ), digits = 6 ) )
 
 ## ************** iterated SUR (EViews-like) *****************
 fitsuri1e <- systemfit( "SUR", system2, labels, data = Kmenta, rcovformula = 0,
    probdfsys = TRUE, maxit = 100 )
 print( summary( fitsuri1e ) )
-print( round( vcov( fitsuri1e ), digits = 6 ) )
 
 ## ************** iterated SUR (rcovformula = 2) ****************************
 fitsuri1r2 <- systemfit( "SUR", system2, labels, data = Kmenta, maxit = 100,
    rcovformula = 2 )
 print( summary( fitsuri1r2 ) )
-print( round( vcov( fitsuri1r2 ), digits = 6 ) )
 
 ## ************** iterated SUR (rcovformula=2, probdfsys=TRUE) *****************
 fitsuri1e2 <- systemfit( "SUR", system2, labels, data = Kmenta, rcovformula = 2,
    probdfsys = TRUE, maxit = 100 )
 print( summary( fitsuri1e2 ) )
-print( round( vcov( fitsuri1e2 ), digits = 6 ) )
 
 ## ************** iterated SUR (rcovformula = 3) ****************************
 fitsuri1r3 <- systemfit( "SUR", system2, labels, data = Kmenta, maxit = 100,
    rcovformula = 3 )
 print( summary( fitsuri1r3 ) )
-print( round( vcov( fitsuri1r3 ), digits = 6 ) )
 
 ## *********** iterated SUR with restriction *******************
 fitsuri2 <- systemfit( "SUR", system2, labels, data = Kmenta, R.restr = restrm,
    maxit = 100 )
 print( summary( fitsuri2 ) )
-print( round( vcov( fitsuri2 ), digits = 6 ) )
 
 ## *********** iterated SUR with restriction (EViews-like) ***************
 fitsuri2e <- systemfit( "SUR", system2, labels, data = Kmenta, R.restr = restrm,
    rcovformula = 0, maxit = 100 )
 print( summary( fitsuri2e ) )
-print( round( vcov( fitsuri2e ), digits = 6 ) )
 
 ## *********** iterated SUR with restriction via TX ********************
 fitsuri3 <- systemfit( "SUR", system2, labels, data = Kmenta, TX = tc,
    maxit = 100 )
 print( summary( fitsuri3 ) )
-print( round( vcov( fitsuri3 ), digits = 6 ) )
 
 ## *********** iterated SUR with restriction via TX (EViews-like) ***************
 fitsuri3e <- systemfit( "SUR", system2, labels, data = Kmenta, TX = tc,
    rcovformula = 0, maxit = 100 )
 print( summary( fitsuri3e ) )
-print( round( vcov( fitsuri3e ), digits = 6 ) )
 
 ## *************** iterated SUR with 2 restrictions ***************************
 fitsuri4 <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, maxit = 100 )
 print( summary( fitsuri4 ) )
-print( round( vcov( fitsuri4 ), digits = 6 ) )
 
 ## *************** iterated SUR with 2 restrictions (EViews-like) **************
 fitsuri4e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 0,
    R.restr = restr2m, q.restr = restr2q, maxit = 100 )
 print( summary( fitsuri4e ) )
-print( round( vcov( fitsuri4e ), digits = 6 ) )
 
 ## *************** iterated SUR with 2 restrictions via R and TX ****************
 fitsuri5 <- systemfit( "SUR", system, labels, data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5 ) )
-print( round( vcov( fitsuri5 ), digits = 6 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (EViews-like) **********
 fitsuri5e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 0,
    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5e ) )
-print( round( vcov( fitsuri5e ), digits = 6 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (rcovformula=2) **********
 fitsuri5r2 <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 2,
    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5r2 ) )
-print( round( vcov( fitsuri5r2 ), digits = 6 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (rcovformula=3) **********
 # fitsuri5e <- systemfit( "SUR", system, labels, data = Kmenta, rcovformula = 3,
@@ -242,6 +213,41 @@ print( residuals( fitsuri4$eq[[ 2 ]] ) )
 
 print( residuals( fitsuri5r2 ) )
 print( residuals( fitsuri5r2$eq[[ 1 ]] ) )
+
+
+## *********** variance covariance matrix of the coefficients *******
+print( round( vcov( fitsur1e2 ), digits = 6 ) )
+print( round( vcov( fitsur1e2$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( vcov( fitsur1r3 ), digits = 6 ) )
+print( round( vcov( fitsur1r3$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( vcov( fitsur2e ), digits = 6 ) )
+print( round( vcov( fitsur2e$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( vcov( fitsur3 ), digits = 6 ) )
+print( round( vcov( fitsur3$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( vcov( fitsur4r2 ), digits = 6 ) )
+print( round( vcov( fitsur4r2$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( vcov( fitsur5e ), digits = 6 ) )
+print( round( vcov( fitsur5e$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( vcov( fitsuri1r3 ), digits = 6 ) )
+print( round( vcov( fitsuri1r3$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( vcov( fitsuri2 ), digits = 6 ) )
+print( round( vcov( fitsuri2$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( vcov( fitsuri3e ), digits = 6 ) )
+print( round( vcov( fitsuri3e$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( vcov( fitsuri4e ), digits = 6 ) )
+print( round( vcov( fitsuri4e$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( vcov( fitsuri5r2 ), digits = 6 ) )
+print( round( vcov( fitsuri5r2$eq[[ 1 ]] ), digits = 6 ) )
 
 
 ## *********** confidence intervals of coefficients *************
