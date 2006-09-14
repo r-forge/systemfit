@@ -103,23 +103,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
-> print( round( vcov( fitwls1 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        56.540807  -0.594801    0.032162         0.000000
-eq 1 price              -0.594801   0.008222   -0.002333         0.000000
-eq 1 income              0.032162  -0.002333    0.002063         0.000000
-eq 2 (Intercept)         0.000000   0.000000    0.000000       131.398303
-eq 2 price               0.000000   0.000000    0.000000        -0.987500
-eq 2 farmPrice           0.000000   0.000000    0.000000        -0.304361
-eq 2 trend               0.000000   0.000000    0.000000        -0.279183
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.000000       0.000000   0.000000
-eq 1 price         0.000000       0.000000   0.000000
-eq 1 income        0.000000       0.000000   0.000000
-eq 2 (Intercept)  -0.987500      -0.304361  -0.279183
-eq 2 price         0.009003       0.000844   0.000522
-eq 2 farmPrice     0.000844       0.002133   0.001316
-eq 2 trend         0.000522       0.001316   0.009510
 > 
 > ## *************** WLS estimation (EViews-like) ************************
 > fitwls1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor" )
@@ -177,23 +160,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
-> print( round( vcov( fitwls1e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        48.059686  -0.505581    0.027338         0.000000
-eq 1 price              -0.505581   0.006989   -0.001983         0.000000
-eq 1 income              0.027338  -0.001983    0.001754         0.000000
-eq 2 (Intercept)         0.000000   0.000000    0.000000       105.118642
-eq 2 price               0.000000   0.000000    0.000000        -0.790000
-eq 2 farmPrice           0.000000   0.000000    0.000000        -0.243489
-eq 2 trend               0.000000   0.000000    0.000000        -0.223347
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.000000       0.000000   0.000000
-eq 1 price         0.000000       0.000000   0.000000
-eq 1 income        0.000000       0.000000   0.000000
-eq 2 (Intercept)  -0.790000      -0.243489  -0.223347
-eq 2 price         0.007202       0.000675   0.000418
-eq 2 farmPrice     0.000675       0.001707   0.001052
-eq 2 trend         0.000418       0.001052   0.007608
 > 
 > ## ************** WLS with cross-equation restriction ***************
 > fitwls2 <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm )
@@ -251,23 +217,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.627182 MSE: 5.976699 Root MSE: 2.444729 
 Multiple R-Squared: 0.643334 Adjusted R-Squared: 0.576459 
 
-> print( round( vcov( fitwls2 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        57.214133  -0.596328    0.026850        -0.788252
-eq 1 price              -0.596328   0.007862   -0.001948         0.057190
-eq 1 income              0.026850  -0.001948    0.001722        -0.050565
-eq 2 (Intercept)        -0.788252   0.057190   -0.050565       128.063465
-eq 2 price               0.001474  -0.000107    0.000095        -1.001596
-eq 2 farmPrice           0.003714  -0.000269    0.000238        -0.280017
-eq 2 trend               0.026850  -0.001948    0.001722        -0.050565
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.001474       0.003714   0.026850
-eq 1 price        -0.000107      -0.000269  -0.001948
-eq 1 income        0.000095       0.000238   0.001722
-eq 2 (Intercept)  -1.001596      -0.280017  -0.050565
-eq 2 price         0.009225       0.000806   0.000095
-eq 2 farmPrice     0.000806       0.002038   0.000238
-eq 2 trend         0.000095       0.000238   0.001722
 > 
 > ## ************** WLS with cross-equation restriction (EViews-like) *******
 > fitwls2e <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
@@ -326,23 +275,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.560501 MSE: 5.972531 Root MSE: 2.443876 
 Multiple R-Squared: 0.643583 Adjusted R-Squared: 0.576755 
 
-> print( round( vcov( fitwls2e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        48.628136  -0.506597    0.022574        -0.662713
-eq 1 price              -0.506597   0.006662   -0.001638         0.048082
-eq 1 income              0.022574  -0.001638    0.001448        -0.042512
-eq 2 (Intercept)        -0.662713   0.048082   -0.042512       102.511245
-eq 2 price               0.001239  -0.000090    0.000079        -0.801390
-eq 2 farmPrice           0.003123  -0.000227    0.000200        -0.224299
-eq 2 trend               0.022574  -0.001638    0.001448        -0.042512
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.001239       0.003123   0.022574
-eq 1 price        -0.000090      -0.000227  -0.001638
-eq 1 income        0.000079       0.000200   0.001448
-eq 2 (Intercept)  -0.801390      -0.224299  -0.042512
-eq 2 price         0.007381       0.000645   0.000079
-eq 2 farmPrice     0.000645       0.001632   0.000200
-eq 2 trend         0.000079       0.000200   0.001448
 > 
 > ## ******* WLS with cross-equation restriction via TX **********
 > fitwls3 <- systemfit( system,"WLS", data = Kmenta, TX = tc,)
@@ -400,23 +332,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.627182 MSE: 5.976699 Root MSE: 2.444729 
 Multiple R-Squared: 0.643334 Adjusted R-Squared: 0.576459 
 
-> print( round( vcov( fitwls3 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        57.214133  -0.596328    0.026850        -0.788252
-eq 1 price              -0.596328   0.007862   -0.001948         0.057190
-eq 1 income              0.026850  -0.001948    0.001722        -0.050565
-eq 2 (Intercept)        -0.788252   0.057190   -0.050565       128.063465
-eq 2 price               0.001474  -0.000107    0.000095        -1.001596
-eq 2 farmPrice           0.003714  -0.000269    0.000238        -0.280017
-eq 2 trend               0.026850  -0.001948    0.001722        -0.050565
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.001474       0.003714   0.026850
-eq 1 price        -0.000107      -0.000269  -0.001948
-eq 1 income        0.000095       0.000238   0.001722
-eq 2 (Intercept)  -1.001596      -0.280017  -0.050565
-eq 2 price         0.009225       0.000806   0.000095
-eq 2 farmPrice     0.000806       0.002038   0.000238
-eq 2 trend         0.000095       0.000238   0.001722
 > 
 > ## ******* WLS with cross-equation restriction via TX (EViews-like) *****
 > fitwls3e <- systemfit( system,"WLS", data = Kmenta, TX = tc,
@@ -475,23 +390,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.560501 MSE: 5.972531 Root MSE: 2.443876 
 Multiple R-Squared: 0.643583 Adjusted R-Squared: 0.576755 
 
-> print( round( vcov( fitwls3e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        48.628136  -0.506597    0.022574        -0.662713
-eq 1 price              -0.506597   0.006662   -0.001638         0.048082
-eq 1 income              0.022574  -0.001638    0.001448        -0.042512
-eq 2 (Intercept)        -0.662713   0.048082   -0.042512       102.511245
-eq 2 price               0.001239  -0.000090    0.000079        -0.801390
-eq 2 farmPrice           0.003123  -0.000227    0.000200        -0.224299
-eq 2 trend               0.022574  -0.001638    0.001448        -0.042512
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.001239       0.003123   0.022574
-eq 1 price        -0.000090      -0.000227  -0.001638
-eq 1 income        0.000079       0.000200   0.001448
-eq 2 (Intercept)  -0.801390      -0.224299  -0.042512
-eq 2 price         0.007381       0.000645   0.000079
-eq 2 farmPrice     0.000645       0.001632   0.000200
-eq 2 trend         0.000079       0.000200   0.001448
 > 
 > ## ***** WLS with 2 cross-equation restrictions ***************
 > fitwls4 <- systemfit( system,"WLS", data = Kmenta, R.restr = restr2m,
@@ -550,23 +448,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.267574 MSE: 6.016723 Root MSE: 2.452901 
 Multiple R-Squared: 0.640946 Adjusted R-Squared: 0.573623 
 
-> print( round( vcov( fitwls4 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        36.571016  -0.321554   -0.043279        35.846737
-eq 1 price              -0.321554   0.004201   -0.001011        -0.431417
-eq 1 income             -0.043279  -0.001011    0.001481         0.074877
-eq 2 (Intercept)        35.846737  -0.431417    0.074877        63.500095
-eq 2 price              -0.321554   0.004201   -0.001011        -0.431417
-eq 2 farmPrice          -0.033436   0.000226    0.000111        -0.215648
-eq 2 trend              -0.043279  -0.001011    0.001481         0.074877
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.321554      -0.033436  -0.043279
-eq 1 price         0.004201       0.000226  -0.001011
-eq 1 income       -0.001011       0.000111   0.001481
-eq 2 (Intercept)  -0.431417      -0.215648   0.074877
-eq 2 price         0.004201       0.000226  -0.001011
-eq 2 farmPrice     0.000226       0.001986   0.000111
-eq 2 trend        -0.001011       0.000111   0.001481
 > 
 > ## ***** WLS with 2 cross-equation restrictions (EViews-like) **********
 > fitwls4e <- systemfit( system,"WLS", data = Kmenta, methodRCov = "noDfCor",
@@ -625,23 +506,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.215011 MSE: 6.013438 Root MSE: 2.452231 
 Multiple R-Squared: 0.641142 Adjusted R-Squared: 0.573856 
 
-> print( round( vcov( fitwls4e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        30.508171  -0.266011   -0.038366        29.714754
-eq 1 price              -0.266011   0.003465   -0.000826        -0.356026
-eq 1 income             -0.038366  -0.000826    0.001240         0.060437
-eq 2 (Intercept)        29.714754  -0.356026    0.060437        51.967601
-eq 2 price              -0.266011   0.003465   -0.000826        -0.356026
-eq 2 farmPrice          -0.028003   0.000188    0.000095        -0.173384
-eq 2 trend              -0.038366  -0.000826    0.001240         0.060437
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.266011      -0.028003  -0.038366
-eq 1 price         0.003465       0.000188  -0.000826
-eq 1 income       -0.000826       0.000095   0.001240
-eq 2 (Intercept)  -0.356026      -0.173384   0.060437
-eq 2 price         0.003465       0.000188  -0.000826
-eq 2 farmPrice     0.000188       0.001590   0.000095
-eq 2 trend        -0.000826       0.000095   0.001240
 > 
 > ## *********** WLS with 2 cross-equation restrictions via R and TX ******
 > fitwls5 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr3m,
@@ -700,23 +564,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.267574 MSE: 6.016723 Root MSE: 2.452901 
 Multiple R-Squared: 0.640946 Adjusted R-Squared: 0.573623 
 
-> print( round( vcov( fitwls5 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        36.571016  -0.321554   -0.043279        35.846737
-eq 1 price              -0.321554   0.004201   -0.001011        -0.431417
-eq 1 income             -0.043279  -0.001011    0.001481         0.074877
-eq 2 (Intercept)        35.846737  -0.431417    0.074877        63.500095
-eq 2 price              -0.321554   0.004201   -0.001011        -0.431417
-eq 2 farmPrice          -0.033436   0.000226    0.000111        -0.215648
-eq 2 trend              -0.043279  -0.001011    0.001481         0.074877
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.321554      -0.033436  -0.043279
-eq 1 price         0.004201       0.000226  -0.001011
-eq 1 income       -0.001011       0.000111   0.001481
-eq 2 (Intercept)  -0.431417      -0.215648   0.074877
-eq 2 price         0.004201       0.000226  -0.001011
-eq 2 farmPrice     0.000226       0.001986   0.000111
-eq 2 trend        -0.001011       0.000111   0.001481
 > 
 > ## *********** WLS with 2 cross-equation restrictions via R and TX (EViews-like)
 > fitwls5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
@@ -775,23 +622,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.215011 MSE: 6.013438 Root MSE: 2.452231 
 Multiple R-Squared: 0.641142 Adjusted R-Squared: 0.573856 
 
-> print( round( vcov( fitwls5e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        30.508171  -0.266011   -0.038366        29.714754
-eq 1 price              -0.266011   0.003465   -0.000826        -0.356026
-eq 1 income             -0.038366  -0.000826    0.001240         0.060437
-eq 2 (Intercept)        29.714754  -0.356026    0.060437        51.967601
-eq 2 price              -0.266011   0.003465   -0.000826        -0.356026
-eq 2 farmPrice          -0.028003   0.000188    0.000095        -0.173384
-eq 2 trend              -0.038366  -0.000826    0.001240         0.060437
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.266011      -0.028003  -0.038366
-eq 1 price         0.003465       0.000188  -0.000826
-eq 1 income       -0.000826       0.000095   0.001240
-eq 2 (Intercept)  -0.356026      -0.173384   0.060437
-eq 2 price         0.003465       0.000188  -0.000826
-eq 2 farmPrice     0.000188       0.001590   0.000095
-eq 2 trend        -0.000826       0.000095   0.001240
 > 
 > ## *************** iterated WLS estimation *********************
 > fitwlsi1 <- systemfit( system, "WLS", data = Kmenta,
@@ -850,23 +680,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
-> print( round( vcov( fitwlsi1 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        56.540807  -0.594801    0.032162         0.000000
-eq 1 price              -0.594801   0.008222   -0.002333         0.000000
-eq 1 income              0.032162  -0.002333    0.002063         0.000000
-eq 2 (Intercept)         0.000000   0.000000    0.000000       131.398303
-eq 2 price               0.000000   0.000000    0.000000        -0.987500
-eq 2 farmPrice           0.000000   0.000000    0.000000        -0.304361
-eq 2 trend               0.000000   0.000000    0.000000        -0.279183
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.000000       0.000000   0.000000
-eq 1 price         0.000000       0.000000   0.000000
-eq 1 income        0.000000       0.000000   0.000000
-eq 2 (Intercept)  -0.987500      -0.304361  -0.279183
-eq 2 price         0.009003       0.000844   0.000522
-eq 2 farmPrice     0.000844       0.002133   0.001316
-eq 2 trend         0.000522       0.001316   0.009510
 > 
 > ## *************** iterated WLS estimation (EViews-like) ************
 > fitwlsi1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
@@ -925,23 +738,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
-> print( round( vcov( fitwlsi1e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        48.059686  -0.505581    0.027338         0.000000
-eq 1 price              -0.505581   0.006989   -0.001983         0.000000
-eq 1 income              0.027338  -0.001983    0.001754         0.000000
-eq 2 (Intercept)         0.000000   0.000000    0.000000       105.118642
-eq 2 price               0.000000   0.000000    0.000000        -0.790000
-eq 2 farmPrice           0.000000   0.000000    0.000000        -0.243489
-eq 2 trend               0.000000   0.000000    0.000000        -0.223347
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.000000       0.000000   0.000000
-eq 1 price         0.000000       0.000000   0.000000
-eq 1 income        0.000000       0.000000   0.000000
-eq 2 (Intercept)  -0.790000      -0.243489  -0.223347
-eq 2 price         0.007202       0.000675   0.000418
-eq 2 farmPrice     0.000675       0.001707   0.001052
-eq 2 trend         0.000418       0.001052   0.007608
 > 
 > ## ****** iterated WLS with cross-equation restriction ***************
 > fitwlsi2 <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
@@ -1002,23 +798,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.64097 MSE: 5.977561 Root MSE: 2.444905 
 Multiple R-Squared: 0.643283 Adjusted R-Squared: 0.576398 
 
-> print( round( vcov( fitwlsi2 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        56.818574  -0.592263    0.026724        -0.784542
-eq 1 price              -0.592263   0.007812   -0.001939         0.056921
-eq 1 income              0.026724  -0.001939    0.001714        -0.050327
-eq 2 (Intercept)        -0.784542   0.056921   -0.050327       128.792445
-eq 2 price               0.001467  -0.000106    0.000094        -1.007391
-eq 2 farmPrice           0.003697  -0.000268    0.000237        -0.281572
-eq 2 trend               0.026724  -0.001939    0.001714        -0.050327
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.001467       0.003697   0.026724
-eq 1 price        -0.000106      -0.000268  -0.001939
-eq 1 income        0.000094       0.000237   0.001714
-eq 2 (Intercept)  -1.007391      -0.281572  -0.050327
-eq 2 price         0.009279       0.000811   0.000094
-eq 2 farmPrice     0.000811       0.002049   0.000237
-eq 2 trend         0.000094       0.000237   0.001714
 > 
 > ## ****** iterated WLS with cross-equation restriction (EViews-like) ********
 > fitwlsi2e <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
@@ -1079,23 +858,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.573129 MSE: 5.973321 Root MSE: 2.444038 
 Multiple R-Squared: 0.643536 Adjusted R-Squared: 0.576699 
 
-> print( round( vcov( fitwlsi2e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        48.325149  -0.503487    0.022480        -0.659954
-eq 1 price              -0.503487   0.006624   -0.001631         0.047882
-eq 1 income              0.022480  -0.001631    0.001442        -0.042335
-eq 2 (Intercept)        -0.659954   0.047882   -0.042335       103.022585
-eq 2 price               0.001234  -0.000090    0.000079        -0.805456
-eq 2 farmPrice           0.003110  -0.000226    0.000199        -0.225388
-eq 2 trend               0.022480  -0.001631    0.001442        -0.042335
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.001234       0.003110   0.022480
-eq 1 price        -0.000090      -0.000226  -0.001631
-eq 1 income        0.000079       0.000199   0.001442
-eq 2 (Intercept)  -0.805456      -0.225388  -0.042335
-eq 2 price         0.007418       0.000649   0.000079
-eq 2 farmPrice     0.000649       0.001640   0.000199
-eq 2 trend         0.000079       0.000199   0.001442
 > 
 > ## ******* iterated WLS with cross-equation restriction via TX **********
 > fitwlsi3 <- systemfit( system, "WLS", data = Kmenta, TX = tc,
@@ -1156,23 +918,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.64097 MSE: 5.977561 Root MSE: 2.444905 
 Multiple R-Squared: 0.643283 Adjusted R-Squared: 0.576398 
 
-> print( round( vcov( fitwlsi3 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        56.818574  -0.592263    0.026724        -0.784542
-eq 1 price              -0.592263   0.007812   -0.001939         0.056921
-eq 1 income              0.026724  -0.001939    0.001714        -0.050327
-eq 2 (Intercept)        -0.784542   0.056921   -0.050327       128.792445
-eq 2 price               0.001467  -0.000106    0.000094        -1.007391
-eq 2 farmPrice           0.003697  -0.000268    0.000237        -0.281572
-eq 2 trend               0.026724  -0.001939    0.001714        -0.050327
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.001467       0.003697   0.026724
-eq 1 price        -0.000106      -0.000268  -0.001939
-eq 1 income        0.000094       0.000237   0.001714
-eq 2 (Intercept)  -1.007391      -0.281572  -0.050327
-eq 2 price         0.009279       0.000811   0.000094
-eq 2 farmPrice     0.000811       0.002049   0.000237
-eq 2 trend         0.000094       0.000237   0.001714
 > 
 > ## ******* iterated WLS with cross-equation restriction via TX (EViews-like) ***
 > fitwlsi3e <- systemfit( system, "WLS", data = Kmenta, TX = tc,
@@ -1233,23 +978,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.573129 MSE: 5.973321 Root MSE: 2.444038 
 Multiple R-Squared: 0.643536 Adjusted R-Squared: 0.576699 
 
-> print( round( vcov( fitwlsi3e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        48.325149  -0.503487    0.022480        -0.659954
-eq 1 price              -0.503487   0.006624   -0.001631         0.047882
-eq 1 income              0.022480  -0.001631    0.001442        -0.042335
-eq 2 (Intercept)        -0.659954   0.047882   -0.042335       103.022585
-eq 2 price               0.001234  -0.000090    0.000079        -0.805456
-eq 2 farmPrice           0.003110  -0.000226    0.000199        -0.225388
-eq 2 trend               0.022480  -0.001631    0.001442        -0.042335
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   0.001234       0.003110   0.022480
-eq 1 price        -0.000090      -0.000226  -0.001631
-eq 1 income        0.000079       0.000199   0.001442
-eq 2 (Intercept)  -0.805456      -0.225388  -0.042335
-eq 2 price         0.007418       0.000649   0.000079
-eq 2 farmPrice     0.000649       0.001640   0.000199
-eq 2 trend         0.000079       0.000199   0.001442
 > 
 > ## ******* iterated WLS with 2 cross-equation restrictions ***********
 > fitwlsi4 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr2m,
@@ -1310,23 +1038,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.276614 MSE: 6.017288 Root MSE: 2.453016 
 Multiple R-Squared: 0.640912 Adjusted R-Squared: 0.573583 
 
-> print( round( vcov( fitwlsi4 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        36.476183  -0.321184   -0.042697        35.793053
-eq 1 price              -0.321184   0.004198   -0.001012        -0.431101
-eq 1 income             -0.042697  -0.001012    0.001476         0.075104
-eq 2 (Intercept)        35.793053  -0.431101    0.075104        63.550148
-eq 2 price              -0.321184   0.004198   -0.001012        -0.431101
-eq 2 farmPrice          -0.033327   0.000226    0.000110        -0.216503
-eq 2 trend              -0.042697  -0.001012    0.001476         0.075104
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.321184      -0.033327  -0.042697
-eq 1 price         0.004198       0.000226  -0.001012
-eq 1 income       -0.001012       0.000110   0.001476
-eq 2 (Intercept)  -0.431101      -0.216503   0.075104
-eq 2 price         0.004198       0.000226  -0.001012
-eq 2 farmPrice     0.000226       0.001995   0.000110
-eq 2 trend        -0.001012       0.000110   0.001476
 > 
 > ## ******* iterated WLS with 2 cross-equation restrictions (EViews-like) *****
 > fitwlsi4e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
@@ -1387,23 +1098,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.223451 MSE: 6.013966 Root MSE: 2.452339 
 Multiple R-Squared: 0.64111 Adjusted R-Squared: 0.573819 
 
-> print( round( vcov( fitwlsi4e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        30.437717  -0.265752   -0.037918        29.676241
-eq 1 price              -0.265752   0.003463   -0.000827        -0.355820
-eq 1 income             -0.037918  -0.000827    0.001237         0.060620
-eq 2 (Intercept)        29.676241  -0.355820    0.060620        52.004362
-eq 2 price              -0.265752   0.003463   -0.000827        -0.355820
-eq 2 farmPrice          -0.027921   0.000187    0.000094        -0.173988
-eq 2 trend              -0.037918  -0.000827    0.001237         0.060620
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.265752      -0.027921  -0.037918
-eq 1 price         0.003463       0.000187  -0.000827
-eq 1 income       -0.000827       0.000094   0.001237
-eq 2 (Intercept)  -0.355820      -0.173988   0.060620
-eq 2 price         0.003463       0.000187  -0.000827
-eq 2 farmPrice     0.000187       0.001596   0.000094
-eq 2 trend        -0.000827       0.000094   0.001237
 > 
 > ## ***** iterated WLS with 2 cross-equation restrictions via R and TX ******
 > fitwlsi5 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr3m,
@@ -1464,23 +1158,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.276614 MSE: 6.017288 Root MSE: 2.453016 
 Multiple R-Squared: 0.640912 Adjusted R-Squared: 0.573583 
 
-> print( round( vcov( fitwlsi5 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        36.476183  -0.321184   -0.042697        35.793053
-eq 1 price              -0.321184   0.004198   -0.001012        -0.431101
-eq 1 income             -0.042697  -0.001012    0.001476         0.075104
-eq 2 (Intercept)        35.793053  -0.431101    0.075104        63.550148
-eq 2 price              -0.321184   0.004198   -0.001012        -0.431101
-eq 2 farmPrice          -0.033327   0.000226    0.000110        -0.216503
-eq 2 trend              -0.042697  -0.001012    0.001476         0.075104
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.321184      -0.033327  -0.042697
-eq 1 price         0.004198       0.000226  -0.001012
-eq 1 income       -0.001012       0.000110   0.001476
-eq 2 (Intercept)  -0.431101      -0.216503   0.075104
-eq 2 price         0.004198       0.000226  -0.001012
-eq 2 farmPrice     0.000226       0.001995   0.000110
-eq 2 trend        -0.001012       0.000110   0.001476
 > 
 > ## *** iterated WLS with 2 cross-equation restrictions via R and TX (EViews-like)
 > fitwlsi5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
@@ -1541,23 +1218,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.223451 MSE: 6.013966 Root MSE: 2.452339 
 Multiple R-Squared: 0.64111 Adjusted R-Squared: 0.573819 
 
-> print( round( vcov( fitwlsi5e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        30.437717  -0.265752   -0.037918        29.676241
-eq 1 price              -0.265752   0.003463   -0.000827        -0.355820
-eq 1 income             -0.037918  -0.000827    0.001237         0.060620
-eq 2 (Intercept)        29.676241  -0.355820    0.060620        52.004362
-eq 2 price              -0.265752   0.003463   -0.000827        -0.355820
-eq 2 farmPrice          -0.027921   0.000187    0.000094        -0.173988
-eq 2 trend              -0.037918  -0.000827    0.001237         0.060620
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.265752      -0.027921  -0.037918
-eq 1 price         0.003463       0.000187  -0.000827
-eq 1 income       -0.000827       0.000094   0.001237
-eq 2 (Intercept)  -0.355820      -0.173988   0.060620
-eq 2 price         0.003463       0.000187  -0.000827
-eq 2 farmPrice     0.000187       0.001596   0.000094
-eq 2 trend        -0.000827       0.000094   0.001237
 > 
 > 
 > ## ****************** residuals **************************
@@ -1840,6 +1500,243 @@ eq 2 trend        -0.000827       0.000094   0.001237
  [7]  1.5937808 -2.8183979 -1.3749893  1.9359668 -0.3997364 -2.1864550
 [13] -1.2675036 -0.2977962  1.5507769 -3.6149944 -1.2820321 -1.9260151
 [19]  1.8847503  0.0304912
+> 
+> 
+> ## *********** variance covariance matrix of the coefficients *******
+> print( round( vcov( fitwls1e ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        48.059686  -0.505581    0.027338         0.000000
+eq 1 price              -0.505581   0.006989   -0.001983         0.000000
+eq 1 income              0.027338  -0.001983    0.001754         0.000000
+eq 2 (Intercept)         0.000000   0.000000    0.000000       105.118642
+eq 2 price               0.000000   0.000000    0.000000        -0.790000
+eq 2 farmPrice           0.000000   0.000000    0.000000        -0.243489
+eq 2 trend               0.000000   0.000000    0.000000        -0.223347
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)   0.000000       0.000000   0.000000
+eq 1 price         0.000000       0.000000   0.000000
+eq 1 income        0.000000       0.000000   0.000000
+eq 2 (Intercept)  -0.790000      -0.243489  -0.223347
+eq 2 price         0.007202       0.000675   0.000418
+eq 2 farmPrice     0.000675       0.001707   0.001052
+eq 2 trend         0.000418       0.001052   0.007608
+> print( round( vcov( fitwls1e$eq[[ 1 ]] ), digits = 6 ) )
+                 [,1]      [,2]      [,3]
+(Intercept) 48.059686 -0.505581  0.027338
+price       -0.505581  0.006989 -0.001983
+income       0.027338 -0.001983  0.001754
+> 
+> print( round( vcov( fitwls2 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        57.214133  -0.596328    0.026850        -0.788252
+eq 1 price              -0.596328   0.007862   -0.001948         0.057190
+eq 1 income              0.026850  -0.001948    0.001722        -0.050565
+eq 2 (Intercept)        -0.788252   0.057190   -0.050565       128.063465
+eq 2 price               0.001474  -0.000107    0.000095        -1.001596
+eq 2 farmPrice           0.003714  -0.000269    0.000238        -0.280017
+eq 2 trend               0.026850  -0.001948    0.001722        -0.050565
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)   0.001474       0.003714   0.026850
+eq 1 price        -0.000107      -0.000269  -0.001948
+eq 1 income        0.000095       0.000238   0.001722
+eq 2 (Intercept)  -1.001596      -0.280017  -0.050565
+eq 2 price         0.009225       0.000806   0.000095
+eq 2 farmPrice     0.000806       0.002038   0.000238
+eq 2 trend         0.000095       0.000238   0.001722
+> print( round( vcov( fitwls2$eq[[ 2 ]] ), digits = 6 ) )
+       [,1]      [,2]      [,3]      [,4]
+ 128.063465 -1.001596 -0.280017 -0.050565
+  -1.001596  0.009225  0.000806  0.000095
+  -0.280017  0.000806  0.002038  0.000238
+  -0.050565  0.000095  0.000238  0.001722
+> 
+> print( round( vcov( fitwls3e ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        48.628136  -0.506597    0.022574        -0.662713
+eq 1 price              -0.506597   0.006662   -0.001638         0.048082
+eq 1 income              0.022574  -0.001638    0.001448        -0.042512
+eq 2 (Intercept)        -0.662713   0.048082   -0.042512       102.511245
+eq 2 price               0.001239  -0.000090    0.000079        -0.801390
+eq 2 farmPrice           0.003123  -0.000227    0.000200        -0.224299
+eq 2 trend               0.022574  -0.001638    0.001448        -0.042512
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)   0.001239       0.003123   0.022574
+eq 1 price        -0.000090      -0.000227  -0.001638
+eq 1 income        0.000079       0.000200   0.001448
+eq 2 (Intercept)  -0.801390      -0.224299  -0.042512
+eq 2 price         0.007381       0.000645   0.000079
+eq 2 farmPrice     0.000645       0.001632   0.000200
+eq 2 trend         0.000079       0.000200   0.001448
+> print( round( vcov( fitwls3e$eq[[ 1 ]] ), digits = 6 ) )
+          [,1]      [,2]      [,3]
+[1,] 48.628136 -0.506597  0.022574
+[2,] -0.506597  0.006662 -0.001638
+[3,]  0.022574 -0.001638  0.001448
+> 
+> print( round( vcov( fitwls4 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        36.571016  -0.321554   -0.043279        35.846737
+eq 1 price              -0.321554   0.004201   -0.001011        -0.431417
+eq 1 income             -0.043279  -0.001011    0.001481         0.074877
+eq 2 (Intercept)        35.846737  -0.431417    0.074877        63.500095
+eq 2 price              -0.321554   0.004201   -0.001011        -0.431417
+eq 2 farmPrice          -0.033436   0.000226    0.000111        -0.215648
+eq 2 trend              -0.043279  -0.001011    0.001481         0.074877
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.321554      -0.033436  -0.043279
+eq 1 price         0.004201       0.000226  -0.001011
+eq 1 income       -0.001011       0.000111   0.001481
+eq 2 (Intercept)  -0.431417      -0.215648   0.074877
+eq 2 price         0.004201       0.000226  -0.001011
+eq 2 farmPrice     0.000226       0.001986   0.000111
+eq 2 trend        -0.001011       0.000111   0.001481
+> print( round( vcov( fitwls4$eq[[ 2 ]] ), digits = 6 ) )
+      [,1]      [,2]      [,3]      [,4]
+ 63.500095 -0.431417 -0.215648  0.074877
+ -0.431417  0.004201  0.000226 -0.001011
+ -0.215648  0.000226  0.001986  0.000111
+  0.074877 -0.001011  0.000111  0.001481
+> 
+> print( round( vcov( fitwls5 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        36.571016  -0.321554   -0.043279        35.846737
+eq 1 price              -0.321554   0.004201   -0.001011        -0.431417
+eq 1 income             -0.043279  -0.001011    0.001481         0.074877
+eq 2 (Intercept)        35.846737  -0.431417    0.074877        63.500095
+eq 2 price              -0.321554   0.004201   -0.001011        -0.431417
+eq 2 farmPrice          -0.033436   0.000226    0.000111        -0.215648
+eq 2 trend              -0.043279  -0.001011    0.001481         0.074877
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.321554      -0.033436  -0.043279
+eq 1 price         0.004201       0.000226  -0.001011
+eq 1 income       -0.001011       0.000111   0.001481
+eq 2 (Intercept)  -0.431417      -0.215648   0.074877
+eq 2 price         0.004201       0.000226  -0.001011
+eq 2 farmPrice     0.000226       0.001986   0.000111
+eq 2 trend        -0.001011       0.000111   0.001481
+> print( round( vcov( fitwls5$eq[[ 1 ]] ), digits = 6 ) )
+          [,1]      [,2]      [,3]
+[1,] 36.571016 -0.321554 -0.043279
+[2,] -0.321554  0.004201 -0.001011
+[3,] -0.043279 -0.001011  0.001481
+> 
+> print( round( vcov( fitwlsi1 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        56.540807  -0.594801    0.032162         0.000000
+eq 1 price              -0.594801   0.008222   -0.002333         0.000000
+eq 1 income              0.032162  -0.002333    0.002063         0.000000
+eq 2 (Intercept)         0.000000   0.000000    0.000000       131.398303
+eq 2 price               0.000000   0.000000    0.000000        -0.987500
+eq 2 farmPrice           0.000000   0.000000    0.000000        -0.304361
+eq 2 trend               0.000000   0.000000    0.000000        -0.279183
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)   0.000000       0.000000   0.000000
+eq 1 price         0.000000       0.000000   0.000000
+eq 1 income        0.000000       0.000000   0.000000
+eq 2 (Intercept)  -0.987500      -0.304361  -0.279183
+eq 2 price         0.009003       0.000844   0.000522
+eq 2 farmPrice     0.000844       0.002133   0.001316
+eq 2 trend         0.000522       0.001316   0.009510
+> print( round( vcov( fitwlsi1$eq[[ 2 ]] ), digits = 6 ) )
+       [,1]      [,2]      [,3]      [,4]
+ 131.398303 -0.987500 -0.304361 -0.279183
+  -0.987500  0.009003  0.000844  0.000522
+  -0.304361  0.000844  0.002133  0.001316
+  -0.279183  0.000522  0.001316  0.009510
+> 
+> print( round( vcov( fitwlsi2e ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        48.325149  -0.503487    0.022480        -0.659954
+eq 1 price              -0.503487   0.006624   -0.001631         0.047882
+eq 1 income              0.022480  -0.001631    0.001442        -0.042335
+eq 2 (Intercept)        -0.659954   0.047882   -0.042335       103.022585
+eq 2 price               0.001234  -0.000090    0.000079        -0.805456
+eq 2 farmPrice           0.003110  -0.000226    0.000199        -0.225388
+eq 2 trend               0.022480  -0.001631    0.001442        -0.042335
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)   0.001234       0.003110   0.022480
+eq 1 price        -0.000090      -0.000226  -0.001631
+eq 1 income        0.000079       0.000199   0.001442
+eq 2 (Intercept)  -0.805456      -0.225388  -0.042335
+eq 2 price         0.007418       0.000649   0.000079
+eq 2 farmPrice     0.000649       0.001640   0.000199
+eq 2 trend         0.000079       0.000199   0.001442
+> print( round( vcov( fitwlsi2e$eq[[ 1 ]] ), digits = 6 ) )
+                 [,1]      [,2]      [,3]
+(Intercept) 48.325149 -0.503487  0.022480
+price       -0.503487  0.006624 -0.001631
+income       0.022480 -0.001631  0.001442
+> 
+> print( round( vcov( fitwlsi3 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        56.818574  -0.592263    0.026724        -0.784542
+eq 1 price              -0.592263   0.007812   -0.001939         0.056921
+eq 1 income              0.026724  -0.001939    0.001714        -0.050327
+eq 2 (Intercept)        -0.784542   0.056921   -0.050327       128.792445
+eq 2 price               0.001467  -0.000106    0.000094        -1.007391
+eq 2 farmPrice           0.003697  -0.000268    0.000237        -0.281572
+eq 2 trend               0.026724  -0.001939    0.001714        -0.050327
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)   0.001467       0.003697   0.026724
+eq 1 price        -0.000106      -0.000268  -0.001939
+eq 1 income        0.000094       0.000237   0.001714
+eq 2 (Intercept)  -1.007391      -0.281572  -0.050327
+eq 2 price         0.009279       0.000811   0.000094
+eq 2 farmPrice     0.000811       0.002049   0.000237
+eq 2 trend         0.000094       0.000237   0.001714
+> print( round( vcov( fitwlsi3$eq[[ 2 ]] ), digits = 6 ) )
+           [,1]      [,2]      [,3]      [,4]
+[1,] 128.792445 -1.007391 -0.281572 -0.050327
+[2,]  -1.007391  0.009279  0.000811  0.000094
+[3,]  -0.281572  0.000811  0.002049  0.000237
+[4,]  -0.050327  0.000094  0.000237  0.001714
+> 
+> print( round( vcov( fitwlsi4e ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        30.437717  -0.265752   -0.037918        29.676241
+eq 1 price              -0.265752   0.003463   -0.000827        -0.355820
+eq 1 income             -0.037918  -0.000827    0.001237         0.060620
+eq 2 (Intercept)        29.676241  -0.355820    0.060620        52.004362
+eq 2 price              -0.265752   0.003463   -0.000827        -0.355820
+eq 2 farmPrice          -0.027921   0.000187    0.000094        -0.173988
+eq 2 trend              -0.037918  -0.000827    0.001237         0.060620
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.265752      -0.027921  -0.037918
+eq 1 price         0.003463       0.000187  -0.000827
+eq 1 income       -0.000827       0.000094   0.001237
+eq 2 (Intercept)  -0.355820      -0.173988   0.060620
+eq 2 price         0.003463       0.000187  -0.000827
+eq 2 farmPrice     0.000187       0.001596   0.000094
+eq 2 trend        -0.000827       0.000094   0.001237
+> print( round( vcov( fitwlsi4e$eq[[ 1 ]] ), digits = 6 ) )
+                 [,1]      [,2]      [,3]
+(Intercept) 30.437717 -0.265752 -0.037918
+price       -0.265752  0.003463 -0.000827
+income      -0.037918 -0.000827  0.001237
+> 
+> print( round( vcov( fitwlsi5e ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        30.437717  -0.265752   -0.037918        29.676241
+eq 1 price              -0.265752   0.003463   -0.000827        -0.355820
+eq 1 income             -0.037918  -0.000827    0.001237         0.060620
+eq 2 (Intercept)        29.676241  -0.355820    0.060620        52.004362
+eq 2 price              -0.265752   0.003463   -0.000827        -0.355820
+eq 2 farmPrice          -0.027921   0.000187    0.000094        -0.173988
+eq 2 trend              -0.037918  -0.000827    0.001237         0.060620
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.265752      -0.027921  -0.037918
+eq 1 price         0.003463       0.000187  -0.000827
+eq 1 income       -0.000827       0.000094   0.001237
+eq 2 (Intercept)  -0.355820      -0.173988   0.060620
+eq 2 price         0.003463       0.000187  -0.000827
+eq 2 farmPrice     0.000187       0.001596   0.000094
+eq 2 trend        -0.000827       0.000094   0.001237
+> print( round( vcov( fitwlsi5e$eq[[ 2 ]] ), digits = 6 ) )
+          [,1]      [,2]      [,3]      [,4]
+[1,] 52.004362 -0.355820 -0.173988  0.060620
+[2,] -0.355820  0.003463  0.000187 -0.000827
+[3,] -0.173988  0.000187  0.001596  0.000094
+[4,]  0.060620 -0.000827  0.000094  0.001237
 > 
 > 
 > ## *********** confidence intervals of coefficients *************

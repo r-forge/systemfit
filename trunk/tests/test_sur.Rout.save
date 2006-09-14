@@ -114,23 +114,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.05843 MSE: 6.503652 Root MSE: 2.550226 
 Multiple R-Squared: 0.611888 Adjusted R-Squared: 0.539117 
 
-> print( round( vcov( fitsur1 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        56.466996  -0.589446    0.027427        58.855792
-eq 1 price              -0.589446   0.007834   -0.001990        -0.375272
-eq 1 income              0.027427  -0.001990    0.001759        -0.216483
-eq 2 (Intercept)        58.855792  -0.375272   -0.216483       122.783909
-eq 2 price              -0.611341   0.005563    0.000563        -0.961139
-eq 2 farmPrice           0.022179  -0.001609    0.001423        -0.237692
-eq 2 trend               0.033691  -0.002444    0.002161        -0.323380
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.611341       0.022179   0.033691
-eq 1 price         0.005563      -0.001609  -0.002444
-eq 1 income        0.000563       0.001423   0.002161
-eq 2 (Intercept)  -0.961139      -0.237692  -0.323380
-eq 2 price         0.008918       0.000629   0.000799
-eq 2 farmPrice     0.000629       0.001589   0.002018
-eq 2 trend         0.000799       0.002018   0.004612
 > 
 > ## ********************* SUR (EViews-like) *****************
 > fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor" )
@@ -194,23 +177,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 103.549894 MSE: 6.471868 Root MSE: 2.543987 
 Multiple R-Squared: 0.613785 Adjusted R-Squared: 0.541369 
 
-> print( round( vcov( fitsur1e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        47.996947  -0.501029    0.023313        48.533729
-eq 1 price              -0.501029   0.006659   -0.001691        -0.309457
-eq 1 income              0.023313  -0.001691    0.001496        -0.178516
-eq 2 (Intercept)        48.533729  -0.309457   -0.178516        98.227127
-eq 2 price              -0.504124   0.004587    0.000464        -0.768911
-eq 2 farmPrice           0.018289  -0.001327    0.001173        -0.190154
-eq 2 trend               0.027783  -0.002016    0.001782        -0.258704
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.504124       0.018289   0.027783
-eq 1 price         0.004587      -0.001327  -0.002016
-eq 1 income        0.000464       0.001173   0.001782
-eq 2 (Intercept)  -0.768911      -0.190154  -0.258704
-eq 2 price         0.007134       0.000503   0.000639
-eq 2 farmPrice     0.000503       0.001272   0.001615
-eq 2 trend         0.000639       0.001615   0.003690
 > 
 > ## ********************* SUR (methodRCov="Theil") *****************
 > fitsur1r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
@@ -276,23 +242,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.322063 MSE: 6.582629 Root MSE: 2.565663 
 Multiple R-Squared: 0.607175 Adjusted R-Squared: 0.53352 
 
-> print( round( vcov( fitsur1r2 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        56.440312  -0.587510    0.025716        61.054961
-eq 1 price              -0.587510   0.007693   -0.001866        -0.403701
-eq 1 income              0.025716  -0.001866    0.001650        -0.209805
-eq 2 (Intercept)        61.054961  -0.403701   -0.209805       120.417915
-eq 2 price              -0.632489   0.005792    0.000546        -0.954714
-eq 2 farmPrice           0.021495  -0.001559    0.001379        -0.221454
-eq 2 trend               0.032652  -0.002369    0.002095        -0.308674
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.632489       0.021495   0.032652
-eq 1 price         0.005792      -0.001559  -0.002369
-eq 1 income        0.000546       0.001379   0.002095
-eq 2 (Intercept)  -0.954714      -0.221454  -0.308674
-eq 2 price         0.008900       0.000584   0.000772
-eq 2 farmPrice     0.000584       0.001476   0.001950
-eq 2 trend         0.000772       0.001950   0.004100
 > 
 > ## *************** SUR (methodRCov="Theil", probDfSys = TRUE ) ***************
 > fitsur1e2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
@@ -358,23 +307,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.322063 MSE: 6.582629 Root MSE: 2.565663 
 Multiple R-Squared: 0.607175 Adjusted R-Squared: 0.53352 
 
-> print( round( vcov( fitsur1e2 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        56.440312  -0.587510    0.025716        61.054961
-eq 1 price              -0.587510   0.007693   -0.001866        -0.403701
-eq 1 income              0.025716  -0.001866    0.001650        -0.209805
-eq 2 (Intercept)        61.054961  -0.403701   -0.209805       120.417915
-eq 2 price              -0.632489   0.005792    0.000546        -0.954714
-eq 2 farmPrice           0.021495  -0.001559    0.001379        -0.221454
-eq 2 trend               0.032652  -0.002369    0.002095        -0.308674
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.632489       0.021495   0.032652
-eq 1 price         0.005792      -0.001559  -0.002369
-eq 1 income        0.000546       0.001379   0.002095
-eq 2 (Intercept)  -0.954714      -0.221454  -0.308674
-eq 2 price         0.008900       0.000584   0.000772
-eq 2 farmPrice     0.000584       0.001476   0.001950
-eq 2 trend         0.000772       0.001950   0.004100
 > 
 > ## ********************* SUR (methodRCov="max") *****************
 > fitsur1r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max" )
@@ -440,23 +372,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.186783 MSE: 6.574174 Root MSE: 2.564015 
 Multiple R-Squared: 0.607679 Adjusted R-Squared: 0.534119 
 
-> print( round( vcov( fitsur1r3 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        56.443206  -0.587720    0.025901        60.860716
-eq 1 price              -0.587720   0.007709   -0.001879        -0.400864
-eq 1 income              0.025901  -0.001879    0.001662        -0.210729
-eq 2 (Intercept)        60.860716  -0.400864   -0.210729       120.670780
-eq 2 price              -0.630659   0.005771    0.000548        -0.955395
-eq 2 farmPrice           0.021589  -0.001566    0.001385        -0.223176
-eq 2 trend               0.032796  -0.002379    0.002104        -0.310422
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.630659       0.021589   0.032796
-eq 1 price         0.005771      -0.001566  -0.002379
-eq 1 income        0.000548       0.001385   0.002104
-eq 2 (Intercept)  -0.955395      -0.223176  -0.310422
-eq 2 price         0.008902       0.000589   0.000776
-eq 2 farmPrice     0.000589       0.001487   0.001959
-eq 2 trend         0.000776       0.001959   0.004149
 > 
 > ## *************** SUR with cross-equation restriction **************
 > fitsur2 <- systemfit( system, "SUR", data = Kmenta, R.restr = restrm )
@@ -520,23 +435,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.806415 MSE: 6.737901 Root MSE: 2.595747 
 Multiple R-Squared: 0.597909 Adjusted R-Squared: 0.522517 
 
-> print( round( vcov( fitsur2 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        57.125431  -0.589892    0.021160        64.595187
-eq 1 price              -0.589892   0.007395   -0.001535        -0.482110
-eq 1 income              0.021160  -0.001535    0.001357        -0.165599
-eq 2 (Intercept)        64.595187  -0.482110   -0.165599       113.736182
-eq 2 price              -0.662552   0.006195    0.000440        -0.956493
-eq 2 farmPrice           0.017322  -0.001257    0.001111        -0.165927
-eq 2 trend               0.021160  -0.001535    0.001357        -0.165599
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.662552       0.017322   0.021160
-eq 1 price         0.006195      -0.001257  -0.001535
-eq 1 income        0.000440       0.001111   0.001357
-eq 2 (Intercept)  -0.956493      -0.165927  -0.165599
-eq 2 price         0.009084       0.000448   0.000440
-eq 2 farmPrice     0.000448       0.001133   0.001111
-eq 2 trend         0.000440       0.001111   0.001357
 > 
 > ## *************** SUR with cross-equation restriction (EViews-like) **
 > fitsur2e <- systemfit( system, "SUR", data = Kmenta, R.restr = restrm,
@@ -601,23 +499,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.916871 MSE: 6.744804 Root MSE: 2.597076 
 Multiple R-Squared: 0.597497 Adjusted R-Squared: 0.522027 
 
-> print( round( vcov( fitsur2e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        48.563078  -0.501877    0.018400        53.201367
-eq 1 price              -0.501877   0.006320   -0.001335        -0.392828
-eq 1 income              0.018400  -0.001335    0.001180        -0.140738
-eq 2 (Intercept)        53.201367  -0.392828   -0.140738        91.607253
-eq 2 price              -0.546194   0.005097    0.000373        -0.766739
-eq 2 farmPrice           0.014689  -0.001066    0.000942        -0.136644
-eq 2 trend               0.018400  -0.001335    0.001180        -0.140738
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.546194       0.014689   0.018400
-eq 1 price         0.005097      -0.001066  -0.001335
-eq 1 income        0.000373       0.000942   0.001180
-eq 2 (Intercept)  -0.766739      -0.136644  -0.140738
-eq 2 price         0.007271       0.000368   0.000373
-eq 2 farmPrice     0.000368       0.000931   0.000942
-eq 2 trend         0.000373       0.000942   0.001180
 > 
 > ## *************** SUR with restriction via TX *******************
 > fitsur3 <- systemfit( system, "SUR", data = Kmenta, TX = tc )
@@ -681,23 +562,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.806415 MSE: 6.737901 Root MSE: 2.595747 
 Multiple R-Squared: 0.597909 Adjusted R-Squared: 0.522517 
 
-> print( round( vcov( fitsur3 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        57.125431  -0.589892    0.021160        64.595187
-eq 1 price              -0.589892   0.007395   -0.001535        -0.482110
-eq 1 income              0.021160  -0.001535    0.001357        -0.165599
-eq 2 (Intercept)        64.595187  -0.482110   -0.165599       113.736182
-eq 2 price              -0.662552   0.006195    0.000440        -0.956493
-eq 2 farmPrice           0.017322  -0.001257    0.001111        -0.165927
-eq 2 trend               0.021160  -0.001535    0.001357        -0.165599
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.662552       0.017322   0.021160
-eq 1 price         0.006195      -0.001257  -0.001535
-eq 1 income        0.000440       0.001111   0.001357
-eq 2 (Intercept)  -0.956493      -0.165927  -0.165599
-eq 2 price         0.009084       0.000448   0.000440
-eq 2 farmPrice     0.000448       0.001133   0.001111
-eq 2 trend         0.000440       0.001111   0.001357
 > 
 > ## *************** SUR with restriction via TX (EViews-like) **************
 > fitsur3e <- systemfit( system, "SUR", data = Kmenta, TX = tc,
@@ -762,23 +626,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.916871 MSE: 6.744804 Root MSE: 2.597076 
 Multiple R-Squared: 0.597497 Adjusted R-Squared: 0.522027 
 
-> print( round( vcov( fitsur3e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        48.563078  -0.501877    0.018400        53.201367
-eq 1 price              -0.501877   0.006320   -0.001335        -0.392828
-eq 1 income              0.018400  -0.001335    0.001180        -0.140738
-eq 2 (Intercept)        53.201367  -0.392828   -0.140738        91.607253
-eq 2 price              -0.546194   0.005097    0.000373        -0.766739
-eq 2 farmPrice           0.014689  -0.001066    0.000942        -0.136644
-eq 2 trend               0.018400  -0.001335    0.001180        -0.140738
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.546194       0.014689   0.018400
-eq 1 price         0.005097      -0.001066  -0.001335
-eq 1 income        0.000373       0.000942   0.001180
-eq 2 (Intercept)  -0.766739      -0.136644  -0.140738
-eq 2 price         0.007271       0.000368   0.000373
-eq 2 farmPrice     0.000368       0.000931   0.000942
-eq 2 trend         0.000373       0.000942   0.001180
 > 
 > ## *************** SUR with 2 restrictions ***************************
 > fitsur4 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr2m,
@@ -843,23 +690,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 101.473089 MSE: 6.342068 Root MSE: 2.518346 
 Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567 
 
-> print( round( vcov( fitsur4 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        55.749333  -0.610130    0.056016        56.069726
-eq 1 price              -0.610130   0.007051   -0.000975        -0.620551
-eq 1 income              0.056016  -0.000975    0.000426         0.063771
-eq 2 (Intercept)        56.069726  -0.620551    0.063771        58.759619
-eq 2 price              -0.610130   0.007051   -0.000975        -0.620551
-eq 2 farmPrice           0.047498  -0.000771    0.000303         0.030397
-eq 2 trend               0.056016  -0.000975    0.000426         0.063771
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.610130       0.047498   0.056016
-eq 1 price         0.007051      -0.000771  -0.000975
-eq 1 income       -0.000975       0.000303   0.000426
-eq 2 (Intercept)  -0.620551       0.030397   0.063771
-eq 2 price         0.007051      -0.000771  -0.000975
-eq 2 farmPrice    -0.000771       0.000450   0.000303
-eq 2 trend        -0.000975       0.000303   0.000426
 > 
 > ## *************** SUR with 2 restrictions (EViews-like) **************
 > fitsur4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
@@ -924,23 +754,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.835103 MSE: 6.302194 Root MSE: 2.510417 
 Multiple R-Squared: 0.62391 Adjusted R-Squared: 0.553393 
 
-> print( round( vcov( fitsur4e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        47.886704  -0.516747    0.040579        48.218725
-eq 1 price              -0.516747   0.005886   -0.000738        -0.526670
-eq 1 income              0.040579  -0.000738    0.000340         0.047594
-eq 2 (Intercept)        48.218725  -0.526670    0.047594        50.473858
-eq 2 price              -0.516747   0.005886   -0.000738        -0.526670
-eq 2 farmPrice           0.033361  -0.000562    0.000234         0.020109
-eq 2 trend               0.040579  -0.000738    0.000340         0.047594
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.516747       0.033361   0.040579
-eq 1 price         0.005886      -0.000562  -0.000738
-eq 1 income       -0.000738       0.000234   0.000340
-eq 2 (Intercept)  -0.526670       0.020109   0.047594
-eq 2 price         0.005886      -0.000562  -0.000738
-eq 2 farmPrice    -0.000562       0.000348   0.000234
-eq 2 trend        -0.000738       0.000234   0.000340
 > 
 > ## *************** SUR with 2 restrictions (methodRCov = "Theil") **************
 > fitsur4r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
@@ -1005,23 +818,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 108.217072 MSE: 6.763567 Root MSE: 2.600686 
 Multiple R-Squared: 0.596377 Adjusted R-Squared: 0.520698 
 
-> print( round( vcov( fitsur4r2 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        53.138353  -0.593514    0.065746        53.390331
-eq 1 price              -0.593514   0.006838   -0.000927        -0.599312
-eq 1 income              0.065746  -0.000927    0.000276         0.069540
-eq 2 (Intercept)        53.390331  -0.599312    0.069540        54.810757
-eq 2 price              -0.593514   0.006838   -0.000927        -0.599312
-eq 2 farmPrice           0.057048  -0.000775    0.000210         0.048653
-eq 2 trend               0.065746  -0.000927    0.000276         0.069540
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.593514       0.057048   0.065746
-eq 1 price         0.006838      -0.000775  -0.000927
-eq 1 income       -0.000927       0.000210   0.000276
-eq 2 (Intercept)  -0.599312       0.048653   0.069540
-eq 2 price         0.006838      -0.000775  -0.000927
-eq 2 farmPrice    -0.000775       0.000276   0.000210
-eq 2 trend        -0.000927       0.000210   0.000276
 > 
 > ## *************** SUR with 2 restrictions (methodRCov = "max") **************
 > fitsur4r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
@@ -1086,23 +882,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 106.923958 MSE: 6.682747 Root MSE: 2.585101 
 Multiple R-Squared: 0.6012 Adjusted R-Squared: 0.526425 
 
-> print( round( vcov( fitsur4r3 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        53.535723  -0.596854    0.065097        53.794733
-eq 1 price              -0.596854   0.006878   -0.000934        -0.603055
-eq 1 income              0.065097  -0.000934    0.000290         0.069226
-eq 2 (Intercept)        53.794733  -0.603055    0.069226        55.325936
-eq 2 price              -0.596854   0.006878   -0.000934        -0.603055
-eq 2 farmPrice           0.056384  -0.000777    0.000219         0.047230
-eq 2 trend               0.065097  -0.000934    0.000290         0.069226
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.596854       0.056384   0.065097
-eq 1 price         0.006878      -0.000777  -0.000934
-eq 1 income       -0.000934       0.000219   0.000290
-eq 2 (Intercept)  -0.603055       0.047230   0.069226
-eq 2 price         0.006878      -0.000777  -0.000934
-eq 2 farmPrice    -0.000777       0.000292   0.000219
-eq 2 trend        -0.000934       0.000219   0.000290
 > 
 > ## *************** SUR with 2 restrictions via R and TX ****************
 > fitsur5 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr3m,
@@ -1167,23 +946,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 101.473089 MSE: 6.342068 Root MSE: 2.518346 
 Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567 
 
-> print( round( vcov( fitsur5 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        55.749333  -0.610130    0.056016        56.069726
-eq 1 price              -0.610130   0.007051   -0.000975        -0.620551
-eq 1 income              0.056016  -0.000975    0.000426         0.063771
-eq 2 (Intercept)        56.069726  -0.620551    0.063771        58.759619
-eq 2 price              -0.610130   0.007051   -0.000975        -0.620551
-eq 2 farmPrice           0.047498  -0.000771    0.000303         0.030397
-eq 2 trend               0.056016  -0.000975    0.000426         0.063771
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.610130       0.047498   0.056016
-eq 1 price         0.007051      -0.000771  -0.000975
-eq 1 income       -0.000975       0.000303   0.000426
-eq 2 (Intercept)  -0.620551       0.030397   0.063771
-eq 2 price         0.007051      -0.000771  -0.000975
-eq 2 farmPrice    -0.000771       0.000450   0.000303
-eq 2 trend        -0.000975       0.000303   0.000426
 > 
 > ## *************** SUR with 2 restrictions via R and TX (EViews-like) **************
 > fitsur5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
@@ -1248,23 +1010,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.835103 MSE: 6.302194 Root MSE: 2.510417 
 Multiple R-Squared: 0.62391 Adjusted R-Squared: 0.553393 
 
-> print( round( vcov( fitsur5e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        47.886704  -0.516747    0.040579        48.218725
-eq 1 price              -0.516747   0.005886   -0.000738        -0.526670
-eq 1 income              0.040579  -0.000738    0.000340         0.047594
-eq 2 (Intercept)        48.218725  -0.526670    0.047594        50.473858
-eq 2 price              -0.516747   0.005886   -0.000738        -0.526670
-eq 2 farmPrice           0.033361  -0.000562    0.000234         0.020109
-eq 2 trend               0.040579  -0.000738    0.000340         0.047594
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.516747       0.033361   0.040579
-eq 1 price         0.005886      -0.000562  -0.000738
-eq 1 income       -0.000738       0.000234   0.000340
-eq 2 (Intercept)  -0.526670       0.020109   0.047594
-eq 2 price         0.005886      -0.000562  -0.000738
-eq 2 farmPrice    -0.000562       0.000348   0.000234
-eq 2 trend        -0.000738       0.000234   0.000340
 > 
 > ## ************** iterated SUR ****************************
 > fitsuri1 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100 )
@@ -1330,23 +1075,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 41.411056 MSE: 2.588191 Root MSE: 1.608786 
 Multiple R-Squared: 0.937938 Adjusted R-Squared: 0.926301 
 
-> print( round( vcov( fitsuri1 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        54.835829  -0.562519    0.016627        -2.477865
-eq 1 price              -0.562519   0.007776   -0.002207        -0.085118
-eq 1 income              0.016627  -0.002207    0.002093         0.111470
-eq 2 (Intercept)        -2.477865  -0.085118    0.111470        11.439526
-eq 2 income              0.217621  -0.001801   -0.000384        -0.057755
-eq 2 farmPrice          -0.167752   0.002319   -0.000658        -0.052548
-eq 2 trend              -0.253127   0.003499   -0.000993        -0.057095
-                 eq 2 income eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)    0.217621      -0.167752  -0.253127
-eq 1 price         -0.001801       0.002319   0.003499
-eq 1 income        -0.000384      -0.000658  -0.000993
-eq 2 (Intercept)   -0.057755      -0.052548  -0.057095
-eq 2 income         0.001789      -0.001028  -0.001656
-eq 2 farmPrice     -0.001028       0.001387   0.001795
-eq 2 trend         -0.001656       0.001795   0.004299
 > 
 > ## ************** iterated SUR (EViews-like) *****************
 > fitsuri1e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
@@ -1413,23 +1141,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 41.175862 MSE: 2.573491 Root MSE: 1.604211 
 Multiple R-Squared: 0.93829 Adjusted R-Squared: 0.92672 
 
-> print( round( vcov( fitsuri1e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        46.921550  -0.481298    0.014193        -2.047187
-eq 1 price              -0.481298   0.006653   -0.001888        -0.070256
-eq 1 income              0.014193  -0.001888    0.001791         0.092027
-eq 2 (Intercept)        -2.047187  -0.070256    0.092027         9.099060
-eq 2 income              0.179643  -0.001487   -0.000317        -0.045949
-eq 2 farmPrice          -0.138461   0.001914   -0.000543        -0.041785
-eq 2 trend              -0.208930   0.002888   -0.000820        -0.045423
-                 eq 2 income eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)    0.179643      -0.138461  -0.208930
-eq 1 price         -0.001487       0.001914   0.002888
-eq 1 income        -0.000317      -0.000543  -0.000820
-eq 2 (Intercept)   -0.045949      -0.041785  -0.045423
-eq 2 income         0.001423      -0.000818  -0.001317
-eq 2 farmPrice     -0.000818       0.001103   0.001428
-eq 2 trend         -0.001317       0.001428   0.003418
 > 
 > ## ************** iterated SUR (methodRCov = "Theil") ****************************
 > fitsuri1r2 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
@@ -1496,23 +1207,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 41.764463 MSE: 2.610279 Root MSE: 1.615636 
 Multiple R-Squared: 0.937408 Adjusted R-Squared: 0.925672 
 
-> print( round( vcov( fitsuri1r2 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        54.495465  -0.555887    0.013336        -2.747666
-eq 1 price              -0.555887   0.007684   -0.002181        -0.087693
-eq 1 income              0.013336  -0.002181    0.002100         0.116813
-eq 2 (Intercept)        -2.747666  -0.087693    0.116813        11.470625
-eq 2 income              0.226176  -0.001856   -0.000416        -0.058948
-eq 2 farmPrice          -0.172827   0.002389   -0.000678        -0.051562
-eq 2 trend              -0.260786   0.003605   -0.001023        -0.057950
-                 eq 2 income eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)    0.226176      -0.172827  -0.260786
-eq 1 price         -0.001856       0.002389   0.003605
-eq 1 income        -0.000416      -0.000678  -0.001023
-eq 2 (Intercept)   -0.058948      -0.051562  -0.057950
-eq 2 income         0.001786      -0.001016  -0.001626
-eq 2 farmPrice     -0.001016       0.001365   0.001793
-eq 2 trend         -0.001626       0.001793   0.004128
 > 
 > ## ************** iterated SUR (methodRCov="Theil", probDfSys=TRUE) *****************
 > fitsuri1e2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
@@ -1579,23 +1273,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 41.764463 MSE: 2.610279 Root MSE: 1.615636 
 Multiple R-Squared: 0.937408 Adjusted R-Squared: 0.925672 
 
-> print( round( vcov( fitsuri1e2 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        54.495465  -0.555887    0.013336        -2.747666
-eq 1 price              -0.555887   0.007684   -0.002181        -0.087693
-eq 1 income              0.013336  -0.002181    0.002100         0.116813
-eq 2 (Intercept)        -2.747666  -0.087693    0.116813        11.470625
-eq 2 income              0.226176  -0.001856   -0.000416        -0.058948
-eq 2 farmPrice          -0.172827   0.002389   -0.000678        -0.051562
-eq 2 trend              -0.260786   0.003605   -0.001023        -0.057950
-                 eq 2 income eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)    0.226176      -0.172827  -0.260786
-eq 1 price         -0.001856       0.002389   0.003605
-eq 1 income        -0.000416      -0.000678  -0.001023
-eq 2 (Intercept)   -0.058948      -0.051562  -0.057950
-eq 2 income         0.001786      -0.001016  -0.001626
-eq 2 farmPrice     -0.001016       0.001365   0.001793
-eq 2 trend         -0.001626       0.001793   0.004128
 > 
 > ## ************** iterated SUR (methodRCov = "max") ****************************
 > fitsuri1r3 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
@@ -1662,23 +1339,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 41.708116 MSE: 2.606757 Root MSE: 1.614546 
 Multiple R-Squared: 0.937493 Adjusted R-Squared: 0.925773 
 
-> print( round( vcov( fitsuri1r3 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        54.550512  -0.556983    0.013891        -2.703167
-eq 1 price              -0.556983   0.007700   -0.002185        -0.087329
-eq 1 income              0.013891  -0.002185    0.002098         0.115993
-eq 2 (Intercept)        -2.703167  -0.087329    0.115993        11.465941
-eq 2 income              0.224902  -0.001848   -0.000411        -0.058750
-eq 2 farmPrice          -0.172110   0.002379   -0.000675        -0.051728
-eq 2 trend              -0.259704   0.003590   -0.001019        -0.057836
-                 eq 2 income eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)    0.224902      -0.172110  -0.259704
-eq 1 price         -0.001848       0.002379   0.003590
-eq 1 income        -0.000411      -0.000675  -0.001019
-eq 2 (Intercept)   -0.058750      -0.051728  -0.057836
-eq 2 income         0.001787      -0.001018  -0.001631
-eq 2 farmPrice     -0.001018       0.001368   0.001794
-eq 2 trend         -0.001631       0.001794   0.004156
 > 
 > ## *********** iterated SUR with restriction *******************
 > fitsuri2 <- systemfit( system2, "SUR", data = Kmenta, R.restr = restrm,
@@ -1745,23 +1405,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 520.328675 MSE: 32.520542 Root MSE: 5.702679 
 Multiple R-Squared: 0.220191 Adjusted R-Squared: 0.073977 
 
-> print( round( vcov( fitsuri2 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        56.228722  -0.592601    0.033216         5.954773
-eq 1 price              -0.592601   0.008315   -0.002451         0.141405
-eq 1 income              0.033216  -0.002451    0.002173        -0.203885
-eq 2 (Intercept)         5.954773   0.141405   -0.203885       146.576864
-eq 2 income             -0.251647   0.002011    0.000518        -0.828954
-eq 2 farmPrice           0.190974  -0.003227    0.001351        -0.641222
-eq 2 trend               0.033216  -0.002451    0.002173        -0.203885
-                 eq 2 income eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   -0.251647       0.190974   0.033216
-eq 1 price          0.002011      -0.003227  -0.002451
-eq 1 income         0.000518       0.001351   0.002173
-eq 2 (Intercept)   -0.828954      -0.641222  -0.203885
-eq 2 income         0.015214      -0.006835   0.000518
-eq 2 farmPrice     -0.006835       0.013388   0.001351
-eq 2 trend          0.000518       0.001351   0.002173
 > 
 > ## *********** iterated SUR with restriction (EViews-like) ***************
 > fitsuri2e <- systemfit( system2, "SUR", data = Kmenta, R.restr = restrm,
@@ -1828,23 +1471,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 520.204913 MSE: 32.512807 Root MSE: 5.702 
 Multiple R-Squared: 0.220377 Adjusted R-Squared: 0.074197 
 
-> print( round( vcov( fitsuri2e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        47.983367  -0.505917    0.028570         4.986011
-eq 1 price              -0.505917   0.007104   -0.002098         0.119753
-eq 1 income              0.028570  -0.002098    0.001859        -0.172089
-eq 2 (Intercept)         4.986011   0.119753   -0.172089       117.261427
-eq 2 income             -0.211763   0.001700    0.000428        -0.661134
-eq 2 farmPrice           0.160903  -0.002728    0.001147        -0.514052
-eq 2 trend               0.028570  -0.002098    0.001859        -0.172089
-                 eq 2 income eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   -0.211763       0.160903   0.028570
-eq 1 price          0.001700      -0.002728  -0.002098
-eq 1 income         0.000428       0.001147   0.001859
-eq 2 (Intercept)   -0.661134      -0.514052  -0.172089
-eq 2 income         0.012132      -0.005450   0.000428
-eq 2 farmPrice     -0.005450       0.010697   0.001147
-eq 2 trend          0.000428       0.001147   0.001859
 > 
 > ## *********** iterated SUR with restriction via TX ********************
 > fitsuri3 <- systemfit( system2, "SUR", data = Kmenta, TX = tc,
@@ -1911,23 +1537,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 520.328675 MSE: 32.520542 Root MSE: 5.702679 
 Multiple R-Squared: 0.220191 Adjusted R-Squared: 0.073977 
 
-> print( round( vcov( fitsuri3 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        56.228722  -0.592601    0.033216         5.954773
-eq 1 price              -0.592601   0.008315   -0.002451         0.141405
-eq 1 income              0.033216  -0.002451    0.002173        -0.203885
-eq 2 (Intercept)         5.954773   0.141405   -0.203885       146.576864
-eq 2 income             -0.251647   0.002011    0.000518        -0.828954
-eq 2 farmPrice           0.190974  -0.003227    0.001351        -0.641222
-eq 2 trend               0.033216  -0.002451    0.002173        -0.203885
-                 eq 2 income eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   -0.251647       0.190974   0.033216
-eq 1 price          0.002011      -0.003227  -0.002451
-eq 1 income         0.000518       0.001351   0.002173
-eq 2 (Intercept)   -0.828954      -0.641222  -0.203885
-eq 2 income         0.015214      -0.006835   0.000518
-eq 2 farmPrice     -0.006835       0.013388   0.001351
-eq 2 trend          0.000518       0.001351   0.002173
 > 
 > ## *********** iterated SUR with restriction via TX (EViews-like) ***************
 > fitsuri3e <- systemfit( system2, "SUR", data = Kmenta, TX = tc,
@@ -1994,23 +1603,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 520.204913 MSE: 32.512807 Root MSE: 5.702 
 Multiple R-Squared: 0.220377 Adjusted R-Squared: 0.074197 
 
-> print( round( vcov( fitsuri3e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        47.983367  -0.505917    0.028570         4.986011
-eq 1 price              -0.505917   0.007104   -0.002098         0.119753
-eq 1 income              0.028570  -0.002098    0.001859        -0.172089
-eq 2 (Intercept)         4.986011   0.119753   -0.172089       117.261427
-eq 2 income             -0.211763   0.001700    0.000428        -0.661134
-eq 2 farmPrice           0.160903  -0.002728    0.001147        -0.514052
-eq 2 trend               0.028570  -0.002098    0.001859        -0.172089
-                 eq 2 income eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)   -0.211763       0.160903   0.028570
-eq 1 price          0.001700      -0.002728  -0.002098
-eq 1 income         0.000428       0.001147   0.001859
-eq 2 (Intercept)   -0.661134      -0.514052  -0.172089
-eq 2 income         0.012132      -0.005450   0.000428
-eq 2 farmPrice     -0.005450       0.010697   0.001147
-eq 2 trend          0.000428       0.001147   0.001859
 > 
 > ## *************** iterated SUR with 2 restrictions ***************************
 > fitsuri4 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr2m,
@@ -2077,23 +1669,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 109.233669 MSE: 6.827104 Root MSE: 2.612873 
 Multiple R-Squared: 0.592585 Adjusted R-Squared: 0.516195 
 
-> print( round( vcov( fitsuri4 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        54.085671  -0.614557    0.077710        54.141593
-eq 1 price              -0.614557   0.007227   -0.001110        -0.618092
-eq 1 income              0.077710  -0.001110    0.000342         0.081310
-eq 2 (Intercept)        54.141593  -0.618092    0.081310        55.632050
-eq 2 price              -0.614557   0.007227   -0.001110        -0.618092
-eq 2 farmPrice           0.069973  -0.000964    0.000271         0.058748
-eq 2 trend               0.077710  -0.001110    0.000342         0.081310
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.614557       0.069973   0.077710
-eq 1 price         0.007227      -0.000964  -0.001110
-eq 1 income       -0.001110       0.000271   0.000342
-eq 2 (Intercept)  -0.618092       0.058748   0.081310
-eq 2 price         0.007227      -0.000964  -0.001110
-eq 2 farmPrice    -0.000964       0.000360   0.000271
-eq 2 trend        -0.001110       0.000271   0.000342
 > 
 > ## *************** iterated SUR with 2 restrictions (EViews-like) **************
 > fitsuri4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
@@ -2160,23 +1735,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 106.722321 MSE: 6.670145 Root MSE: 2.582662 
 Multiple R-Squared: 0.601952 Adjusted R-Squared: 0.527318 
 
-> print( round( vcov( fitsuri4e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        47.026816  -0.525375    0.058300        47.234560
-eq 1 price              -0.525375   0.006074   -0.000842        -0.530682
-eq 1 income              0.058300  -0.000842    0.000266         0.061997
-eq 2 (Intercept)        47.234560  -0.530682    0.061997        48.618283
-eq 2 price              -0.525375   0.006074   -0.000842        -0.530682
-eq 2 farmPrice           0.050751  -0.000704    0.000201         0.042182
-eq 2 trend               0.058300  -0.000842    0.000266         0.061997
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.525375       0.050751   0.058300
-eq 1 price         0.006074      -0.000704  -0.000842
-eq 1 income       -0.000842       0.000201   0.000266
-eq 2 (Intercept)  -0.530682       0.042182   0.061997
-eq 2 price         0.006074      -0.000704  -0.000842
-eq 2 farmPrice    -0.000704       0.000270   0.000201
-eq 2 trend        -0.000842       0.000201   0.000266
 > 
 > ## *************** iterated SUR with 2 restrictions via R and TX ****************
 > fitsuri5 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr3m,
@@ -2243,23 +1801,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 109.233669 MSE: 6.827104 Root MSE: 2.612873 
 Multiple R-Squared: 0.592585 Adjusted R-Squared: 0.516195 
 
-> print( round( vcov( fitsuri5 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        54.085671  -0.614557    0.077710        54.141593
-eq 1 price              -0.614557   0.007227   -0.001110        -0.618092
-eq 1 income              0.077710  -0.001110    0.000342         0.081310
-eq 2 (Intercept)        54.141593  -0.618092    0.081310        55.632050
-eq 2 price              -0.614557   0.007227   -0.001110        -0.618092
-eq 2 farmPrice           0.069973  -0.000964    0.000271         0.058748
-eq 2 trend               0.077710  -0.001110    0.000342         0.081310
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.614557       0.069973   0.077710
-eq 1 price         0.007227      -0.000964  -0.001110
-eq 1 income       -0.001110       0.000271   0.000342
-eq 2 (Intercept)  -0.618092       0.058748   0.081310
-eq 2 price         0.007227      -0.000964  -0.001110
-eq 2 farmPrice    -0.000964       0.000360   0.000271
-eq 2 trend        -0.001110       0.000271   0.000342
 > 
 > ## ********* iterated SUR with 2 restrictions via R and TX (EViews-like) **********
 > fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
@@ -2326,23 +1867,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 106.722321 MSE: 6.670145 Root MSE: 2.582662 
 Multiple R-Squared: 0.601952 Adjusted R-Squared: 0.527318 
 
-> print( round( vcov( fitsuri5e ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        47.026816  -0.525375    0.058300        47.234560
-eq 1 price              -0.525375   0.006074   -0.000842        -0.530682
-eq 1 income              0.058300  -0.000842    0.000266         0.061997
-eq 2 (Intercept)        47.234560  -0.530682    0.061997        48.618283
-eq 2 price              -0.525375   0.006074   -0.000842        -0.530682
-eq 2 farmPrice           0.050751  -0.000704    0.000201         0.042182
-eq 2 trend               0.058300  -0.000842    0.000266         0.061997
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.525375       0.050751   0.058300
-eq 1 price         0.006074      -0.000704  -0.000842
-eq 1 income       -0.000842       0.000201   0.000266
-eq 2 (Intercept)  -0.530682       0.042182   0.061997
-eq 2 price         0.006074      -0.000704  -0.000842
-eq 2 farmPrice    -0.000704       0.000270   0.000201
-eq 2 trend        -0.000842       0.000201   0.000266
 > 
 > ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="Theil") **********
 > fitsuri5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
@@ -2411,23 +1935,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 157.737286 MSE: 9.85858 Root MSE: 3.139838 
 Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369 
 
-> print( round( vcov( fitsuri5r2 ), digits = 6 ) )
-                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
-eq 1 (Intercept)        51.319595  -0.579747    0.070528        51.551829
-eq 1 price              -0.579747   0.006646   -0.000872        -0.583025
-eq 1 income              0.070528  -0.000872    0.000171         0.072036
-eq 2 (Intercept)        51.551829  -0.583025    0.072036        52.210946
-eq 2 price              -0.579747   0.006646   -0.000872        -0.583025
-eq 2 farmPrice           0.061658  -0.000751    0.000138         0.058794
-eq 2 trend               0.070528  -0.000872    0.000171         0.072036
-                 eq 2 price eq 2 farmPrice eq 2 trend
-eq 1 (Intercept)  -0.579747       0.061658   0.070528
-eq 1 price         0.006646      -0.000751  -0.000872
-eq 1 income       -0.000872       0.000138   0.000171
-eq 2 (Intercept)  -0.583025       0.058794   0.072036
-eq 2 price         0.006646      -0.000751  -0.000872
-eq 2 farmPrice    -0.000751       0.000154   0.000138
-eq 2 trend        -0.000872       0.000138   0.000171
 > 
 > ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="max") **********
 > # fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
@@ -2717,6 +2224,266 @@ eq 2 trend        -0.000872       0.000138   0.000171
  [7]  1.4587865 -3.7785243 -0.4981092  3.9501376  0.8355563 -2.3470730
 [13] -2.2861800 -0.1372155  2.9082050 -3.0497726  2.0905963 -2.7753015
 [19]  0.7373786 -2.6864700
+> 
+> 
+> ## *********** variance covariance matrix of the coefficients *******
+> print( round( vcov( fitsur1e2 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        56.440312  -0.587510    0.025716        61.054961
+eq 1 price              -0.587510   0.007693   -0.001866        -0.403701
+eq 1 income              0.025716  -0.001866    0.001650        -0.209805
+eq 2 (Intercept)        61.054961  -0.403701   -0.209805       120.417915
+eq 2 price              -0.632489   0.005792    0.000546        -0.954714
+eq 2 farmPrice           0.021495  -0.001559    0.001379        -0.221454
+eq 2 trend               0.032652  -0.002369    0.002095        -0.308674
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.632489       0.021495   0.032652
+eq 1 price         0.005792      -0.001559  -0.002369
+eq 1 income        0.000546       0.001379   0.002095
+eq 2 (Intercept)  -0.954714      -0.221454  -0.308674
+eq 2 price         0.008900       0.000584   0.000772
+eq 2 farmPrice     0.000584       0.001476   0.001950
+eq 2 trend         0.000772       0.001950   0.004100
+> print( round( vcov( fitsur1e2$eq[[ 1 ]] ), digits = 6 ) )
+                 [,1]      [,2]      [,3]
+(Intercept) 56.440312 -0.587510  0.025716
+price       -0.587510  0.007693 -0.001866
+income       0.025716 -0.001866  0.001650
+> 
+> print( round( vcov( fitsur1r3 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        56.443206  -0.587720    0.025901        60.860716
+eq 1 price              -0.587720   0.007709   -0.001879        -0.400864
+eq 1 income              0.025901  -0.001879    0.001662        -0.210729
+eq 2 (Intercept)        60.860716  -0.400864   -0.210729       120.670780
+eq 2 price              -0.630659   0.005771    0.000548        -0.955395
+eq 2 farmPrice           0.021589  -0.001566    0.001385        -0.223176
+eq 2 trend               0.032796  -0.002379    0.002104        -0.310422
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.630659       0.021589   0.032796
+eq 1 price         0.005771      -0.001566  -0.002379
+eq 1 income        0.000548       0.001385   0.002104
+eq 2 (Intercept)  -0.955395      -0.223176  -0.310422
+eq 2 price         0.008902       0.000589   0.000776
+eq 2 farmPrice     0.000589       0.001487   0.001959
+eq 2 trend         0.000776       0.001959   0.004149
+> print( round( vcov( fitsur1r3$eq[[ 2 ]] ), digits = 6 ) )
+       [,1]      [,2]      [,3]      [,4]
+ 120.670780 -0.955395 -0.223176 -0.310422
+  -0.955395  0.008902  0.000589  0.000776
+  -0.223176  0.000589  0.001487  0.001959
+  -0.310422  0.000776  0.001959  0.004149
+> 
+> print( round( vcov( fitsur2e ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        48.563078  -0.501877    0.018400        53.201367
+eq 1 price              -0.501877   0.006320   -0.001335        -0.392828
+eq 1 income              0.018400  -0.001335    0.001180        -0.140738
+eq 2 (Intercept)        53.201367  -0.392828   -0.140738        91.607253
+eq 2 price              -0.546194   0.005097    0.000373        -0.766739
+eq 2 farmPrice           0.014689  -0.001066    0.000942        -0.136644
+eq 2 trend               0.018400  -0.001335    0.001180        -0.140738
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.546194       0.014689   0.018400
+eq 1 price         0.005097      -0.001066  -0.001335
+eq 1 income        0.000373       0.000942   0.001180
+eq 2 (Intercept)  -0.766739      -0.136644  -0.140738
+eq 2 price         0.007271       0.000368   0.000373
+eq 2 farmPrice     0.000368       0.000931   0.000942
+eq 2 trend         0.000373       0.000942   0.001180
+> print( round( vcov( fitsur2e$eq[[ 1 ]] ), digits = 6 ) )
+                 [,1]      [,2]      [,3]
+(Intercept) 48.563078 -0.501877  0.018400
+price       -0.501877  0.006320 -0.001335
+income       0.018400 -0.001335  0.001180
+> 
+> print( round( vcov( fitsur3 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        57.125431  -0.589892    0.021160        64.595187
+eq 1 price              -0.589892   0.007395   -0.001535        -0.482110
+eq 1 income              0.021160  -0.001535    0.001357        -0.165599
+eq 2 (Intercept)        64.595187  -0.482110   -0.165599       113.736182
+eq 2 price              -0.662552   0.006195    0.000440        -0.956493
+eq 2 farmPrice           0.017322  -0.001257    0.001111        -0.165927
+eq 2 trend               0.021160  -0.001535    0.001357        -0.165599
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.662552       0.017322   0.021160
+eq 1 price         0.006195      -0.001257  -0.001535
+eq 1 income        0.000440       0.001111   0.001357
+eq 2 (Intercept)  -0.956493      -0.165927  -0.165599
+eq 2 price         0.009084       0.000448   0.000440
+eq 2 farmPrice     0.000448       0.001133   0.001111
+eq 2 trend         0.000440       0.001111   0.001357
+> print( round( vcov( fitsur3$eq[[ 2 ]] ), digits = 6 ) )
+           [,1]      [,2]      [,3]      [,4]
+[1,] 113.736182 -0.956493 -0.165927 -0.165599
+[2,]  -0.956493  0.009084  0.000448  0.000440
+[3,]  -0.165927  0.000448  0.001133  0.001111
+[4,]  -0.165599  0.000440  0.001111  0.001357
+> 
+> print( round( vcov( fitsur4r2 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        53.138353  -0.593514    0.065746        53.390331
+eq 1 price              -0.593514   0.006838   -0.000927        -0.599312
+eq 1 income              0.065746  -0.000927    0.000276         0.069540
+eq 2 (Intercept)        53.390331  -0.599312    0.069540        54.810757
+eq 2 price              -0.593514   0.006838   -0.000927        -0.599312
+eq 2 farmPrice           0.057048  -0.000775    0.000210         0.048653
+eq 2 trend               0.065746  -0.000927    0.000276         0.069540
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.593514       0.057048   0.065746
+eq 1 price         0.006838      -0.000775  -0.000927
+eq 1 income       -0.000927       0.000210   0.000276
+eq 2 (Intercept)  -0.599312       0.048653   0.069540
+eq 2 price         0.006838      -0.000775  -0.000927
+eq 2 farmPrice    -0.000775       0.000276   0.000210
+eq 2 trend        -0.000927       0.000210   0.000276
+> print( round( vcov( fitsur4r2$eq[[ 1 ]] ), digits = 6 ) )
+                 [,1]      [,2]      [,3]
+(Intercept) 53.138353 -0.593514  0.065746
+price       -0.593514  0.006838 -0.000927
+income       0.065746 -0.000927  0.000276
+> 
+> print( round( vcov( fitsur5e ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        47.886704  -0.516747    0.040579        48.218725
+eq 1 price              -0.516747   0.005886   -0.000738        -0.526670
+eq 1 income              0.040579  -0.000738    0.000340         0.047594
+eq 2 (Intercept)        48.218725  -0.526670    0.047594        50.473858
+eq 2 price              -0.516747   0.005886   -0.000738        -0.526670
+eq 2 farmPrice           0.033361  -0.000562    0.000234         0.020109
+eq 2 trend               0.040579  -0.000738    0.000340         0.047594
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.516747       0.033361   0.040579
+eq 1 price         0.005886      -0.000562  -0.000738
+eq 1 income       -0.000738       0.000234   0.000340
+eq 2 (Intercept)  -0.526670       0.020109   0.047594
+eq 2 price         0.005886      -0.000562  -0.000738
+eq 2 farmPrice    -0.000562       0.000348   0.000234
+eq 2 trend        -0.000738       0.000234   0.000340
+> print( round( vcov( fitsur5e$eq[[ 2 ]] ), digits = 6 ) )
+          [,1]      [,2]      [,3]      [,4]
+[1,] 50.473858 -0.526670  0.020109  0.047594
+[2,] -0.526670  0.005886 -0.000562 -0.000738
+[3,]  0.020109 -0.000562  0.000348  0.000234
+[4,]  0.047594 -0.000738  0.000234  0.000340
+> 
+> print( round( vcov( fitsuri1r3 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        54.550512  -0.556983    0.013891        -2.703167
+eq 1 price              -0.556983   0.007700   -0.002185        -0.087329
+eq 1 income              0.013891  -0.002185    0.002098         0.115993
+eq 2 (Intercept)        -2.703167  -0.087329    0.115993        11.465941
+eq 2 income              0.224902  -0.001848   -0.000411        -0.058750
+eq 2 farmPrice          -0.172110   0.002379   -0.000675        -0.051728
+eq 2 trend              -0.259704   0.003590   -0.001019        -0.057836
+                 eq 2 income eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)    0.224902      -0.172110  -0.259704
+eq 1 price         -0.001848       0.002379   0.003590
+eq 1 income        -0.000411      -0.000675  -0.001019
+eq 2 (Intercept)   -0.058750      -0.051728  -0.057836
+eq 2 income         0.001787      -0.001018  -0.001631
+eq 2 farmPrice     -0.001018       0.001368   0.001794
+eq 2 trend         -0.001631       0.001794   0.004156
+> print( round( vcov( fitsuri1r3$eq[[ 1 ]] ), digits = 6 ) )
+                 [,1]      [,2]      [,3]
+(Intercept) 54.550512 -0.556983  0.013891
+price       -0.556983  0.007700 -0.002185
+income       0.013891 -0.002185  0.002098
+> 
+> print( round( vcov( fitsuri2 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        56.228722  -0.592601    0.033216         5.954773
+eq 1 price              -0.592601   0.008315   -0.002451         0.141405
+eq 1 income              0.033216  -0.002451    0.002173        -0.203885
+eq 2 (Intercept)         5.954773   0.141405   -0.203885       146.576864
+eq 2 income             -0.251647   0.002011    0.000518        -0.828954
+eq 2 farmPrice           0.190974  -0.003227    0.001351        -0.641222
+eq 2 trend               0.033216  -0.002451    0.002173        -0.203885
+                 eq 2 income eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)   -0.251647       0.190974   0.033216
+eq 1 price          0.002011      -0.003227  -0.002451
+eq 1 income         0.000518       0.001351   0.002173
+eq 2 (Intercept)   -0.828954      -0.641222  -0.203885
+eq 2 income         0.015214      -0.006835   0.000518
+eq 2 farmPrice     -0.006835       0.013388   0.001351
+eq 2 trend          0.000518       0.001351   0.002173
+> print( round( vcov( fitsuri2$eq[[ 2 ]] ), digits = 6 ) )
+       [,1]      [,2]      [,3]      [,4]
+ 146.576864 -0.828954 -0.641222 -0.203885
+  -0.828954  0.015214 -0.006835  0.000518
+  -0.641222 -0.006835  0.013388  0.001351
+  -0.203885  0.000518  0.001351  0.002173
+> 
+> print( round( vcov( fitsuri3e ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        47.983367  -0.505917    0.028570         4.986011
+eq 1 price              -0.505917   0.007104   -0.002098         0.119753
+eq 1 income              0.028570  -0.002098    0.001859        -0.172089
+eq 2 (Intercept)         4.986011   0.119753   -0.172089       117.261427
+eq 2 income             -0.211763   0.001700    0.000428        -0.661134
+eq 2 farmPrice           0.160903  -0.002728    0.001147        -0.514052
+eq 2 trend               0.028570  -0.002098    0.001859        -0.172089
+                 eq 2 income eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)   -0.211763       0.160903   0.028570
+eq 1 price          0.001700      -0.002728  -0.002098
+eq 1 income         0.000428       0.001147   0.001859
+eq 2 (Intercept)   -0.661134      -0.514052  -0.172089
+eq 2 income         0.012132      -0.005450   0.000428
+eq 2 farmPrice     -0.005450       0.010697   0.001147
+eq 2 trend          0.000428       0.001147   0.001859
+> print( round( vcov( fitsuri3e$eq[[ 1 ]] ), digits = 6 ) )
+          [,1]      [,2]      [,3]
+[1,] 47.983367 -0.505917  0.028570
+[2,] -0.505917  0.007104 -0.002098
+[3,]  0.028570 -0.002098  0.001859
+> 
+> print( round( vcov( fitsuri4e ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        47.026816  -0.525375    0.058300        47.234560
+eq 1 price              -0.525375   0.006074   -0.000842        -0.530682
+eq 1 income              0.058300  -0.000842    0.000266         0.061997
+eq 2 (Intercept)        47.234560  -0.530682    0.061997        48.618283
+eq 2 price              -0.525375   0.006074   -0.000842        -0.530682
+eq 2 farmPrice           0.050751  -0.000704    0.000201         0.042182
+eq 2 trend               0.058300  -0.000842    0.000266         0.061997
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.525375       0.050751   0.058300
+eq 1 price         0.006074      -0.000704  -0.000842
+eq 1 income       -0.000842       0.000201   0.000266
+eq 2 (Intercept)  -0.530682       0.042182   0.061997
+eq 2 price         0.006074      -0.000704  -0.000842
+eq 2 farmPrice    -0.000704       0.000270   0.000201
+eq 2 trend        -0.000842       0.000201   0.000266
+> print( round( vcov( fitsuri4e$eq[[ 2 ]] ), digits = 6 ) )
+      [,1]      [,2]      [,3]      [,4]
+ 48.618283 -0.530682  0.042182  0.061997
+ -0.530682  0.006074 -0.000704 -0.000842
+  0.042182 -0.000704  0.000270  0.000201
+  0.061997 -0.000842  0.000201  0.000266
+> 
+> print( round( vcov( fitsuri5r2 ), digits = 6 ) )
+                 eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
+eq 1 (Intercept)        51.319595  -0.579747    0.070528        51.551829
+eq 1 price              -0.579747   0.006646   -0.000872        -0.583025
+eq 1 income              0.070528  -0.000872    0.000171         0.072036
+eq 2 (Intercept)        51.551829  -0.583025    0.072036        52.210946
+eq 2 price              -0.579747   0.006646   -0.000872        -0.583025
+eq 2 farmPrice           0.061658  -0.000751    0.000138         0.058794
+eq 2 trend               0.070528  -0.000872    0.000171         0.072036
+                 eq 2 price eq 2 farmPrice eq 2 trend
+eq 1 (Intercept)  -0.579747       0.061658   0.070528
+eq 1 price         0.006646      -0.000751  -0.000872
+eq 1 income       -0.000872       0.000138   0.000171
+eq 2 (Intercept)  -0.583025       0.058794   0.072036
+eq 2 price         0.006646      -0.000751  -0.000872
+eq 2 farmPrice    -0.000751       0.000154   0.000138
+eq 2 trend        -0.000872       0.000138   0.000171
+> print( round( vcov( fitsuri5r2$eq[[ 1 ]] ), digits = 6 ) )
+          [,1]      [,2]      [,3]
+[1,] 51.319595 -0.579747  0.070528
+[2,] -0.579747  0.006646 -0.000872
+[3,]  0.070528 -0.000872  0.000171
 > 
 > 
 > ## *********** confidence intervals of coefficients *************
