@@ -10871,11 +10871,11 @@ eq 2 price         0.009931       0.000803   0.001103
 eq 2 farmPrice     0.000803       0.001915   0.002628
 eq 2 trend         0.001103       0.002628   0.004997
 > print( round( vcov( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]] ), digits = 6 ) )
-                                         
- 141.260561 -1.082512 -0.292998 -0.416739
-  -1.082512  0.009931  0.000803  0.001103
-  -0.292998  0.000803  0.001915  0.002628
-  -0.416739  0.001103  0.002628  0.004997
+            (Intercept)     price farmPrice     trend
+(Intercept)  141.260561 -1.082512 -0.292998 -0.416739
+price         -1.082512  0.009931  0.000803  0.001103
+farmPrice     -0.292998  0.000803  0.001915  0.002628
+trend         -0.416739  0.001103  0.002628  0.004997
 > 
 > print( round( vcov( fit3sls[[ 4 ]]$e2 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -10895,10 +10895,10 @@ eq 2 price         0.010032       0.000683   0.000686
 eq 2 farmPrice     0.000683       0.001628   0.001636
 eq 2 trend         0.000686       0.001636   0.002027
 > print( round( vcov( fit3sls[[ 5 ]]$e2$eq[[ 1 ]] ), digits = 6 ) )
-                 [,1]      [,2]      [,3]
-(Intercept) 64.235113 -0.684468  0.045348
-price       -0.684468  0.009213 -0.002430
-income       0.045348 -0.002430  0.002027
+            (Intercept)     price    income
+(Intercept)   64.235113 -0.684468  0.045348
+price         -0.684468  0.009213 -0.002430
+income         0.045348 -0.002430  0.002027
 > 
 > print( round( vcov( fit3sls[[ 5 ]]$e3e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -10918,11 +10918,11 @@ eq 2 price         0.008031       0.000561   0.000582
 eq 2 farmPrice     0.000561       0.001337   0.001387
 eq 2 trend         0.000582       0.001387   0.001761
 > print( round( vcov( fit3sls[[ 1 ]]$e3e$eq[[ 2 ]] ), digits = 6 ) )
-           [,1]      [,2]      [,3]      [,4]
-[1,] 108.146644 -0.863602 -0.199873 -0.210650
-[2,]  -0.863602  0.008031  0.000561  0.000582
-[3,]  -0.199873  0.000561  0.001337  0.001387
-[4,]  -0.210650  0.000582  0.001387  0.001761
+            (Intercept)     price farmPrice     trend
+(Intercept)  108.146644 -0.863602 -0.199873 -0.210650
+price         -0.863602  0.008031  0.000561  0.000582
+farmPrice     -0.199873  0.000561  0.001337  0.001387
+trend         -0.210650  0.000582  0.001387  0.001761
 > 
 > print( round( vcov( fit3sls[[ 1 ]]$e4 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -10942,10 +10942,10 @@ eq 2 price         0.007943      -0.000866  -0.001129
 eq 2 farmPrice    -0.000866       0.000581   0.000377
 eq 2 trend        -0.001129       0.000377   0.000541
 > print( round( vcov( fit3sls[[ 2 ]]$e4$eq[[ 1 ]] ), digits = 6 ) )
-                 [,1]      [,2]      [,3]
-(Intercept) 62.780484 -0.684388  0.060140
-price       -0.684388  0.007943 -0.001129
-income       0.060140 -0.001129  0.000541
+            (Intercept)     price    income
+(Intercept)   62.780484 -0.684388  0.060140
+price         -0.684388  0.007943 -0.001129
+income         0.060140 -0.001129  0.000541
 > 
 > print( round( vcov( fit3sls[[ 2 ]]$e5e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -10965,11 +10965,11 @@ eq 2 price         0.006586      -0.000631  -0.000855
 eq 2 farmPrice    -0.000631       0.000451   0.000293
 eq 2 trend        -0.000855       0.000293   0.000435
 > print( round( vcov( fit3sls[[ 3 ]]$e5e$eq[[ 2 ]] ), digits = 6 ) )
-          [,1]      [,2]      [,3]      [,4]
-[1,] 57.006297 -0.588808  0.016388  0.052591
-[2,] -0.588808  0.006586 -0.000631 -0.000855
-[3,]  0.016388 -0.000631  0.000451  0.000293
-[4,]  0.052591 -0.000855  0.000293  0.000435
+            (Intercept)     price farmPrice     trend
+(Intercept)   57.006297 -0.588808  0.016388  0.052591
+price         -0.588808  0.006586 -0.000631 -0.000855
+farmPrice      0.016388 -0.000631  0.000451  0.000293
+trend          0.052591 -0.000855  0.000293  0.000435
 > 
 > print( round( vcov( fit3slsi[[ 4 ]]$e1e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -10989,10 +10989,10 @@ eq 2 price         0.009145       0.000727   0.001069
 eq 2 farmPrice     0.000727       0.001733   0.002548
 eq 2 trend         0.001069       0.002548   0.004108
 > print( round( vcov( fit3slsi[[ 3 ]]$e1e$eq[[ 1 ]] ), digits = 6 ) )
-                 [,1]      [,2]      [,3]
-(Intercept) 53.328728 -0.572408  0.041906
-price       -0.572408  0.007913 -0.002246
-income       0.041906 -0.002246  0.001873
+            (Intercept)     price    income
+(Intercept)   53.328728 -0.572408  0.041906
+price         -0.572408  0.007913 -0.002246
+income         0.041906 -0.002246  0.001873
 > 
 > print( round( vcov( fit3slsi[[ 5 ]]$e2e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -11012,11 +11012,11 @@ eq 2 price         0.011078       0.000264   0.000309
 eq 2 farmPrice     0.000264       0.000629   0.000736
 eq 2 trend         0.000309       0.000736   0.000895
 > print( round( vcov( fit3slsi[[ 4 ]]$e2e$eq[[ 2 ]] ), digits = 6 ) )
-                                         
- 124.389444 -1.136799 -0.094940 -0.111343
-  -1.136799  0.011078  0.000264  0.000309
-  -0.094940  0.000264  0.000629  0.000736
-  -0.111343  0.000309  0.000736  0.000895
+            (Intercept)     price farmPrice     trend
+(Intercept)  124.389444 -1.136799 -0.094940 -0.111343
+price         -1.136799  0.011078  0.000264  0.000309
+farmPrice     -0.094940  0.000264  0.000629  0.000736
+trend         -0.111343  0.000309  0.000736  0.000895
 > 
 > print( round( vcov( fit3slsi[[ 1 ]]$e3 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -11036,10 +11036,10 @@ eq 2 price         0.014132       0.000283   0.000315
 eq 2 farmPrice     0.000283       0.000674   0.000751
 eq 2 trend         0.000315       0.000751   0.000880
 > print( round( vcov( fit3slsi[[ 5 ]]$e3$eq[[ 1 ]] ), digits = 6 ) )
-          [,1]      [,2]      [,3]
-[1,] 92.743109 -0.943554  0.019683
-[2,] -0.943554  0.010462 -0.001055
-[3,]  0.019683 -0.001055  0.000880
+            (Intercept)     price    income
+(Intercept)   92.743109 -0.943554  0.019683
+price         -0.943554  0.010462 -0.001055
+income         0.019683 -0.001055  0.000880
 > 
 > print( round( vcov( fit3slsi[[ 2 ]]$e4e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -11059,11 +11059,11 @@ eq 2 price         0.006971      -0.000822  -0.000977
 eq 2 farmPrice    -0.000822       0.000281   0.000216
 eq 2 trend        -0.000977       0.000216   0.000281
 > print( round( vcov( fit3slsi[[ 1 ]]$e4e$eq[[ 2 ]] ), digits = 6 ) )
-      [,1]      [,2]      [,3]      [,4]
- 55.157529 -0.607489  0.052829  0.073835
- -0.607489  0.006971 -0.000822 -0.000977
-  0.052829 -0.000822  0.000281  0.000216
-  0.073835 -0.000977  0.000216  0.000281
+            (Intercept)     price farmPrice     trend
+(Intercept)   55.157529 -0.607489  0.052829  0.073835
+price         -0.607489  0.006971 -0.000822 -0.000977
+farmPrice      0.052829 -0.000822  0.000281  0.000216
+trend          0.073835 -0.000977  0.000216  0.000281
 > 
 > print( round( vcov( fit3slsi[[ 3 ]]$e5 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -11083,10 +11083,10 @@ eq 2 price         0.008464      -0.001155  -0.001318
 eq 2 farmPrice    -0.001155       0.000382   0.000299
 eq 2 trend        -0.001318       0.000299   0.000370
 > print( round( vcov( fit3slsi[[ 2 ]]$e5$eq[[ 1 ]] ), digits = 6 ) )
-          [,1]      [,2]      [,3]
-[1,] 62.685752 -0.718034  0.095729
-[2,] -0.718034  0.008464 -0.001318
-[3,]  0.095729 -0.001318  0.000370
+            (Intercept)     price    income
+(Intercept)   62.685752 -0.718034  0.095729
+price         -0.718034  0.008464 -0.001318
+income         0.095729 -0.001318  0.000370
 > 
 > print( round( vcov( fit3slsd[[ 5 ]]$e1c ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -11106,11 +11106,11 @@ eq 2 price         0.007906       0.001147   0.003495
 eq 2 farmPrice     0.001147       0.002211   0.001082
 eq 2 trend         0.003495       0.001082   0.005845
 > print( round( vcov( fit3slsd[[ 2 ]]$e1c$eq[[ 2 ]] ), digits = 6 ) )
-       [,1]      [,2]      [,3]      [,4]
- 136.579871 -1.062336 -0.244786 -0.606819
-  -0.993807  0.009549 -0.000110  0.004705
-  -0.334108  0.000981  0.002339  0.000959
-  -0.437625  0.001193  0.002844  0.004149
+            (Intercept)     price farmPrice     trend
+(Intercept)  136.579871 -1.062336 -0.244786 -0.606819
+price         -0.993807  0.009549 -0.000110  0.004705
+farmPrice     -0.334108  0.000981  0.002339  0.000959
+trend         -0.437625  0.001193  0.002844  0.004149
 > 
 > print( round( vcov( fit3slsd[[ 1 ]]$e2 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -11130,10 +11130,10 @@ eq 2 price         0.006158       0.001858   0.002106
 eq 2 farmPrice     0.001858       0.002049   0.001900
 eq 2 trend         0.002106       0.001900   0.002247
 > print( round( vcov( fit3slsd[[ 3 ]]$e2$eq[[ 1 ]] ), digits = 6 ) )
-     (Intercept)     price    income
-[1,]   99.763180 -1.202664  0.212393
-[2,]   -1.202664  0.016804 -0.004902
-[3,]    0.212393 -0.004902  0.002849
+            (Intercept)     price    income
+(Intercept)   99.763180 -1.202664  0.212393
+price         -1.202664  0.016804 -0.004902
+income         0.212393 -0.004902  0.002849
 > 
 > print( round( vcov( fit3slsd[[ 2 ]]$e3 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -11153,11 +11153,11 @@ eq 2 price         0.007955      -0.004780  -0.005220
 eq 2 farmPrice     0.001466       0.003496   0.003498
 eq 2 trend         0.001592       0.003796   0.004338
 > print( round( vcov( fit3slsd[[ 4 ]]$e3$eq[[ 2 ]] ), digits = 6 ) )
-           [,1]      [,2]      [,3]      [,4]
-[1,] 149.704030 -1.136408 -0.334253 -0.326756
-[2,]  -1.136408  0.010356  0.000943  0.000907
-[3,]  -0.334253  0.000943  0.002248  0.002162
-[4,]  -0.326756  0.000907  0.002162  0.002589
+            (Intercept)     price farmPrice     trend
+(Intercept)  149.704030 -1.136408 -0.334253 -0.326756
+price         -1.136408  0.010356  0.000943  0.000907
+farmPrice     -0.334253  0.000943  0.002248  0.002162
+trend         -0.326756  0.000907  0.002162  0.002589
 > 
 > print( round( vcov( fit3slsd[[ 3 ]]$e4 ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -11177,10 +11177,10 @@ eq 2 price         0.013564      -0.001485  -0.001905
 eq 2 farmPrice    -0.001485       0.000611   0.000474
 eq 2 trend        -0.001905       0.000474   0.000663
 > print( round( vcov( fit3slsd[[ 5 ]]$e4$eq[[ 1 ]] ), digits = 6 ) )
-                 [,1]      [,2]      [,3]
-(Intercept) 28.911827 -0.254807 -0.033187
-price       -0.254807  0.002538  0.000010
-income      -0.033187  0.000010  0.000330
+            (Intercept)     price    income
+(Intercept)   28.911827 -0.254807 -0.033187
+price         -0.254807  0.002538  0.000010
+income        -0.033187  0.000010  0.000330
 > 
 > print( round( vcov( fit3slsd[[ 4 ]]$e5e ), digits = 6 ) )
                  eq 1 (Intercept) eq 1 price eq 1 income eq 2 (Intercept)
@@ -11200,11 +11200,11 @@ eq 2 price         0.006751      -0.000559  -0.000729
 eq 2 farmPrice    -0.000559       0.000405   0.000278
 eq 2 trend        -0.000729       0.000278   0.000411
 > print( round( vcov( fit3slsd[[ 1 ]]$e5e$eq[[ 2 ]] ), digits = 6 ) )
-          [,1]      [,2]      [,3]      [,4]
-[1,] 24.950229 -0.210662 -0.034898 -0.025297
-[2,] -0.210662  0.002098  0.000004  0.000045
-[3,] -0.034898  0.000004  0.000337  0.000185
-[4,] -0.025297  0.000045  0.000185  0.000283
+            (Intercept)     price farmPrice     trend
+(Intercept)   24.950229 -0.210662 -0.034898 -0.025297
+price         -0.210662  0.002098  0.000004  0.000045
+farmPrice     -0.034898  0.000004  0.000337  0.000185
+trend         -0.025297  0.000045  0.000185  0.000283
 > 
 > 
 > ## *********** confidence intervals of coefficients *************
