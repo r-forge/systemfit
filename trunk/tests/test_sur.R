@@ -38,174 +38,174 @@ system2 <- list( demand = demand, supply = supply2 )
 ## *************** SUR estimation ************************
 fitsur1 <- systemfit( system, "SUR", data = Kmenta )
 print( summary( fitsur1 ) )
-print( round( fitsur1$bcov, digits = 6 ) )
+print( round( vcov( fitsur1 ), digits = 6 ) )
 
 ## ********************* SUR (EViews-like) *****************
 fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor" )
 print( summary( fitsur1e, probDfSys = TRUE ) )
-print( round( fitsur1e$bcov, digits = 6 ) )
+print( round( vcov( fitsur1e ), digits = 6 ) )
 
 ## ********************* SUR (methodRCov="Theil") *****************
 fitsur1r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
 print( summary( fitsur1r2 ) )
-print( round( fitsur1r2$bcov, digits = 6 ) )
+print( round( vcov( fitsur1r2 ), digits = 6 ) )
 
 ## *************** SUR (methodRCov="Theil", probDfSys = TRUE ) ***************
 fitsur1e2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
 print( summary( fitsur1e2, probDfSys = TRUE ) )
-print( round( fitsur1e2$bcov, digits = 6 ) )
+print( round( vcov( fitsur1e2 ), digits = 6 ) )
 
 ## ********************* SUR (methodRCov="max") *****************
 fitsur1r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max" )
 print( summary( fitsur1r3 ) )
-print( round( fitsur1r3$bcov, digits = 6 ) )
+print( round( vcov( fitsur1r3 ), digits = 6 ) )
 
 ## *************** SUR with cross-equation restriction **************
 fitsur2 <- systemfit( system, "SUR", data = Kmenta, R.restr = restrm )
 print( summary( fitsur2 ) )
-print( round( fitsur2$bcov, digits = 6 ) )
+print( round( vcov( fitsur2 ), digits = 6 ) )
 
 ## *************** SUR with cross-equation restriction (EViews-like) **
 fitsur2e <- systemfit( system, "SUR", data = Kmenta, R.restr = restrm,
    methodRCov = "noDfCor" )
 print( summary( fitsur2e ) )
-print( round( fitsur2e$bcov, digits = 6 ) )
+print( round( vcov( fitsur2e ), digits = 6 ) )
 
 ## *************** SUR with restriction via TX *******************
 fitsur3 <- systemfit( system, "SUR", data = Kmenta, TX = tc )
 print( summary( fitsur3 ) )
-print( round( fitsur3$bcov, digits = 6 ) )
+print( round( vcov( fitsur3 ), digits = 6 ) )
 
 ## *************** SUR with restriction via TX (EViews-like) **************
 fitsur3e <- systemfit( system, "SUR", data = Kmenta, TX = tc,
    methodRCov = "noDfCor" )
 print( summary( fitsur3e ) )
-print( round( fitsur3e$bcov, digits = 6 ) )
+print( round( vcov( fitsur3e ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions ***************************
 fitsur4 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr2m,
    q.restr = restr2q )
 print( summary( fitsur4 ) )
-print( round( fitsur4$bcov, digits = 6 ) )
+print( round( vcov( fitsur4 ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions (EViews-like) **************
 fitsur4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr2m, q.restr = restr2q )
 print( summary( fitsur4e ) )
-print( round( fitsur4e$bcov, digits = 6 ) )
+print( round( vcov( fitsur4e ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions (methodRCov = "Theil") **************
 fitsur4r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
    R.restr = restr2m, q.restr = restr2q )
 print( summary( fitsur4r2 ) )
-print( round( fitsur4r2$bcov, digits = 6 ) )
+print( round( vcov( fitsur4r2 ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions (methodRCov = "max") **************
 fitsur4r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
    R.restr = restr2m, q.restr = restr2q )
 print( summary( fitsur4r3 ) )
-print( round( fitsur4r3$bcov, digits = 6 ) )
+print( round( vcov( fitsur4r3 ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions via R and TX ****************
 fitsur5 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc )
 print( summary( fitsur5 ) )
-print( round( fitsur5$bcov, digits = 6 ) )
+print( round( vcov( fitsur5 ), digits = 6 ) )
 
 ## *************** SUR with 2 restrictions via R and TX (EViews-like) **************
 fitsur5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr3m, q.restr = restr3q, TX = tc )
 print( summary( fitsur5e ) )
-print( round( fitsur5e$bcov, digits = 6 ) )
+print( round( vcov( fitsur5e ), digits = 6 ) )
 
 ## ************** iterated SUR ****************************
 fitsuri1 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100 )
 print( summary( fitsuri1 ) )
-print( round( fitsuri1$bcov, digits = 6 ) )
+print( round( vcov( fitsuri1 ), digits = 6 ) )
 
 ## ************** iterated SUR (EViews-like) *****************
 fitsuri1e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
    maxit = 100 )
 print( summary( fitsuri1e, probDfSys = TRUE ) )
-print( round( fitsuri1e$bcov, digits = 6 ) )
+print( round( vcov( fitsuri1e ), digits = 6 ) )
 
 ## ************** iterated SUR (methodRCov = "Theil") ****************************
 fitsuri1r2 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
    methodRCov = "Theil" )
 print( summary( fitsuri1r2 ) )
-print( round( fitsuri1r2$bcov, digits = 6 ) )
+print( round( vcov( fitsuri1r2 ), digits = 6 ) )
 
 ## ************** iterated SUR (methodRCov="Theil", probDfSys=TRUE) *****************
 fitsuri1e2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
    maxit = 100 )
 print( summary( fitsuri1e2, probDfSys = TRUE ) )
-print( round( fitsuri1e2$bcov, digits = 6 ) )
+print( round( vcov( fitsuri1e2 ), digits = 6 ) )
 
 ## ************** iterated SUR (methodRCov = "max") ****************************
 fitsuri1r3 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
    methodRCov = "max" )
 print( summary( fitsuri1r3 ) )
-print( round( fitsuri1r3$bcov, digits = 6 ) )
+print( round( vcov( fitsuri1r3 ), digits = 6 ) )
 
 ## *********** iterated SUR with restriction *******************
 fitsuri2 <- systemfit( system2, "SUR", data = Kmenta, R.restr = restrm,
    maxit = 100 )
 print( summary( fitsuri2 ) )
-print( round( fitsuri2$bcov, digits = 6 ) )
+print( round( vcov( fitsuri2 ), digits = 6 ) )
 
 ## *********** iterated SUR with restriction (EViews-like) ***************
 fitsuri2e <- systemfit( system2, "SUR", data = Kmenta, R.restr = restrm,
    methodRCov = "noDfCor", maxit = 100 )
 print( summary( fitsuri2e ) )
-print( round( fitsuri2e$bcov, digits = 6 ) )
+print( round( vcov( fitsuri2e ), digits = 6 ) )
 
 ## *********** iterated SUR with restriction via TX ********************
 fitsuri3 <- systemfit( system2, "SUR", data = Kmenta, TX = tc,
    maxit = 100 )
 print( summary( fitsuri3 ) )
-print( round( fitsuri3$bcov, digits = 6 ) )
+print( round( vcov( fitsuri3 ), digits = 6 ) )
 
 ## *********** iterated SUR with restriction via TX (EViews-like) ***************
 fitsuri3e <- systemfit( system2, "SUR", data = Kmenta, TX = tc,
    methodRCov = "noDfCor", maxit = 100 )
 print( summary( fitsuri3e ) )
-print( round( fitsuri3e$bcov, digits = 6 ) )
+print( round( vcov( fitsuri3e ), digits = 6 ) )
 
 ## *************** iterated SUR with 2 restrictions ***************************
 fitsuri4 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, maxit = 100 )
 print( summary( fitsuri4 ) )
-print( round( fitsuri4$bcov, digits = 6 ) )
+print( round( vcov( fitsuri4 ), digits = 6 ) )
 
 ## *************** iterated SUR with 2 restrictions (EViews-like) **************
 fitsuri4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr2m, q.restr = restr2q, maxit = 100 )
 print( summary( fitsuri4e ) )
-print( round( fitsuri4e$bcov, digits = 6 ) )
+print( round( vcov( fitsuri4e ), digits = 6 ) )
 
 ## *************** iterated SUR with 2 restrictions via R and TX ****************
 fitsuri5 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5 ) )
-print( round( fitsuri5$bcov, digits = 6 ) )
+print( round( vcov( fitsuri5 ), digits = 6 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (EViews-like) **********
 fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5e ) )
-print( round( fitsuri5e$bcov, digits = 6 ) )
+print( round( vcov( fitsuri5e ), digits = 6 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="Theil") **********
 fitsuri5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5r2 ) )
-print( round( fitsuri5r2$bcov, digits = 6 ) )
+print( round( vcov( fitsuri5r2 ), digits = 6 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="max") **********
 # fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
 #    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
 # print( summary( fitsuri5e ) )
-# print( round( fitsuri5e$bcov, digits = 6 ) )
+# print( round( vcov( fitsuri5e ), digits = 6 ) )
 # disabled, because the estimation does not converge
 
 
