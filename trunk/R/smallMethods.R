@@ -12,8 +12,8 @@ correlation.systemfit <- function( results, eqni, eqnj ) {
   rij <- NULL
 
   for(i in 1:results$eq[[1]]$nObs ) {
-    xik    <- results$eq[[eqni]]$xMat[i,]
-    xjk    <- results$eq[[eqnj]]$xMat[i,]
+    xik    <- results$eq[[eqni]]$modelMatrix[i,]
+    xjk    <- results$eq[[eqnj]]$modelMatrix[i,]
     top    <- xik %*% cij %*% xjk
     bottom <- sqrt( ( xik %*% cii %*% xik ) * ( xjk %*% cjj %*% xjk ) )
     rijk   <- top / bottom
@@ -28,7 +28,7 @@ correlation.systemfit <- function( results, eqni, eqnj ) {
 se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
   ratio <- NULL
   for(i in 1:resultsi$eq[[eqni]]$nObs ) {
-    xik    <- resultsi$eq[[eqni]]$xMat[i,]
+    xik    <- resultsi$eq[[eqni]]$modelMatrix[i,]
     top    <- sqrt( xik %*% resultsi$eq[[eqni]]$bcov %*% xik )
     bottom <- sqrt( xik %*% resultsj$eq[[eqni]]$bcov %*% xik )
     rk     <- top / bottom

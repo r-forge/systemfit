@@ -163,12 +163,12 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{coef*}{estimated coefficients of the ith equation.}
   \item{covb*}{estimated covariance matrix of \code{coef}.}
 
-  \item{yVec*}{if requested, the response of the ith equation.}
-  \item{xMat*}{if requested, the model matrix of the ith equation.}
-  \item{hMat*}{if requested, the matrix of instrumental variables
+  \item{response*}{if requested, the response of the ith equation.}
+  \item{modelMatrix*}{if requested, the model matrix of the ith equation.}
+  \item{instMatrix*}{if requested, the matrix of instrumental variables
       of the ith equation (only 2SLS and 3SLS).}
   \item{data*}{data frame (including instruments) of the ith equation.}
-  \item{model*}{if requested (the default), the model frame of the ith equation.}
+  \item{modelFrame*}{if requested (the default), the model frame of the ith equation.}
   \item{fitted.values*}{vector of fitted values of the ith equation.}
   \item{residuals*}{vector of residuals of the ith equation.}
 
