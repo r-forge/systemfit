@@ -3299,7 +3299,8 @@ income       0.230   0.422
   eq1.pred eq2.pred
 1 110.0697 117.7381
 > print( predict( fit2sls1rs$eq[[ 1 ]], newdata = smallData ) )
-[1] 110.0697
+       fit
+1 110.0697
 > 
 > print( predict( fit2sls2p, se.fit = TRUE, level = 0.9,
 +    newdata = smallData ) )
@@ -3307,7 +3308,8 @@ income       0.230   0.422
 1   109.81   2.785617 118.6219   3.179108
 > print( predict( fit2sls2p$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
 +    newdata = smallData ) )
-[1] 109.81
+     fit  se.pred
+1 109.81 3.424242
 > 
 > print( predict( fit2sls3e, interval = "prediction", level = 0.975,
 +    newdata = smallData ) )
@@ -3315,7 +3317,8 @@ income       0.230   0.422
 1   109.81 102.1889 117.4311 118.6219 109.6230 127.6207
 > print( predict( fit2sls3e$eq[[ 1 ]], interval = "confidence", level = 0.8,
 +    newdata = smallData ) )
-[1] 109.81
+     fit      lwr      upr
+1 109.81 106.4535 113.1665
 > 
 > print( predict( fit2sls4r, se.fit = TRUE, interval = "confidence",
 +    level = 0.999, newdata = smallData ) )
@@ -3323,7 +3326,8 @@ income       0.230   0.422
 1 109.4862   2.238684 101.4467 117.5256  119.148   2.093947 111.6283 126.6677
 > print( predict( fit2sls4r$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
 +    level = 0.75, newdata = smallData ) )
-[1] 119.148
+      fit  se.pred      lwr      upr
+1 119.148 3.260794 115.3336 122.9624
 > 
 > print( predict( fit2sls5s, se.fit = TRUE, interval = "prediction",
 +    newdata = smallData ) )
@@ -3331,7 +3335,8 @@ income       0.230   0.422
 1 109.4862   2.263064 103.3929 115.5794  119.148   2.329153 112.2119 126.0840
 > print( predict( fit2sls5s$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
 +    newdata = smallData ) )
-[1] 109.4862
+       fit  se.pred      lwr      upr
+1 109.4862 3.001430 104.8919 114.0804
 > 
 > print( predict( fit2slsd3, se.fit = TRUE, se.pred = TRUE,
 +    interval = "prediction", level = 0.5, newdata = smallData ) )
@@ -3341,7 +3346,8 @@ income       0.230   0.422
 1    4.067014  116.39 121.9356
 > print( predict( fit2slsd3$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
 +    interval = "confidence", level = 0.25, newdata = smallData ) )
-[1] 107.6634
+       fit   se.fit  se.pred      lwr      upr
+1 107.6634 3.328382 3.856036 106.5943 108.7326
 > 
 > 
 > ## ************** F tests ****************

@@ -11997,7 +11997,8 @@ trend        0.251  0.356
   eq1.pred eq2.pred
 1 110.0697 118.3409
 > print( predict( fit3sls[[ 3 ]]$e1c$eq[[ 1 ]], newdata = smallData ) )
-[1] 110.0697
+       fit
+1 110.0697
 > 
 > print( predict( fit3sls[[ 4 ]]$e2e, se.fit = TRUE, level = 0.9,
 +    newdata = smallData ) )
@@ -12005,7 +12006,8 @@ trend        0.251  0.356
 1 109.8041   2.337222 116.7323   3.285926
 > print( predict( fit3sls[[ 5 ]]$e2e$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
 +    newdata = smallData ) )
-[1] 109.8041
+       fit  se.pred
+1 109.8041 3.071032
 > 
 > print( predict( fit3sls[[ 1]]$e3, interval = "prediction", level = 0.975,
 +    newdata = smallData ) )
@@ -12013,7 +12015,8 @@ trend        0.251  0.356
 1 109.7656 102.2022 117.3291  116.573 106.1251 127.0208
 > print( predict( fit3sls[[ 1 ]]$e3$eq[[ 1 ]], interval = "confidence", level = 0.8,
 +    newdata = smallData ) )
-[1] 109.7656
+       fit      lwr      upr
+1 109.7656 106.4556 113.0757
 > 
 > print( predict( fit3sls[[ 2 ]]$e4e, se.fit = TRUE, interval = "confidence",
 +    level = 0.999, newdata = smallData ) )
@@ -12021,7 +12024,8 @@ trend        0.251  0.356
 1 110.4591    2.14341 102.7618 118.1564 118.5243   2.253782 110.4307 126.618
 > print( predict( fit3sls[[ 2 ]]$e4e$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
 +    level = 0.75, newdata = smallData ) )
-[1] 118.5243
+       fit  se.pred      lwr      upr
+1 118.5243 3.408444 114.5373 122.5114
 > 
 > print( predict( fit3sls[[ 3 ]]$e5, se.fit = TRUE, interval = "prediction",
 +    newdata = smallData ) )
@@ -12029,17 +12033,19 @@ trend        0.251  0.356
 1 110.5112   2.296129 104.3726 116.6498 118.5759   2.437903 111.3897 125.7621
 > print( predict( fit3sls[[ 3 ]]$e5$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
 +    newdata = smallData ) )
-[1] 110.5112
+       fit  se.pred      lwr      upr
+1 110.5112 3.023777 105.8499 115.1726
 > 
 > print( predict( fit3slsi[[ 4 ]]$e3e, se.fit = TRUE, se.pred = TRUE,
 +    interval = "prediction", level = 0.5, newdata = smallData ) )
   eq1.pred eq1.se.fit eq1.se.pred  eq1.lwr  eq1.upr eq2.pred eq2.se.fit
-1 108.1510   2.753448    3.542077 105.7362 110.5659 112.2255   3.460081
+1 108.1510   2.753448    3.663667 105.6533 110.6488 112.2255   3.460081
   eq2.se.pred  eq2.lwr  eq2.upr
-1    4.344714 109.2633 115.1876
+1    4.539012 109.1309 115.3200
 > print( predict( fit3slsd[[ 5 ]]$e4$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
 +    interval = "confidence", level = 0.25, newdata = smallData ) )
-[1] 111.1361
+       fit   se.fit  se.pred      lwr      upr
+1 111.1361 1.846772 3.424954 110.5430 111.7292
 > 
 > 
 > ## ************** F tests ****************

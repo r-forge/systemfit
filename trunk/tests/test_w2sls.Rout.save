@@ -2325,7 +2325,8 @@ trend        0.246  0.426
   eq1.pred eq2.pred
 1 110.0697 117.7381
 > print( predict( fitw2sls1e$eq[[ 1 ]], newdata = smallData ) )
-[1] 110.0697
+       fit
+1 110.0697
 > 
 > print( predict( fitw2sls2, se.fit = TRUE, level = 0.9,
 +    newdata = smallData ) )
@@ -2333,7 +2334,8 @@ trend        0.246  0.426
 1 109.8850   2.522903 118.7104   3.528034
 > print( predict( fitw2sls2$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
 +    newdata = smallData ) )
-[1] 109.8850
+       fit se.pred
+1 109.8850 3.20885
 > 
 > print( predict( fitw2sls3, interval = "prediction", level = 0.975,
 +    newdata = smallData ) )
@@ -2341,7 +2343,8 @@ trend        0.246  0.426
 1 109.8850 102.3601 117.4100 118.7104 108.5967 128.824
 > print( predict( fitw2sls3$eq[[ 1 ]], interval = "confidence", level = 0.8,
 +    newdata = smallData ) )
-[1] 109.8850
+       fit      lwr      upr
+1 109.8850 106.5877 113.1823
 > 
 > print( predict( fitw2sls4e, se.fit = TRUE, interval = "confidence",
 +    level = 0.999, newdata = smallData ) )
@@ -2349,7 +2352,8 @@ trend        0.246  0.426
 1 109.6676   2.076198 102.2117 117.1236 119.2196   2.110555 111.6403 126.7989
 > print( predict( fitw2sls4e$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
 +    level = 0.75, newdata = smallData ) )
-[1] 119.2196
+       fit  se.pred      lwr      upr
+1 119.2196 3.273911 115.3899 123.0493
 > 
 > print( predict( fitw2sls5, se.fit = TRUE, interval = "prediction",
 +    newdata = smallData ) )
@@ -2357,7 +2361,8 @@ trend        0.246  0.426
 1 109.6896   2.263064 103.5994 115.7799 119.2279   2.329153 112.2865 126.1692
 > print( predict( fitw2sls5$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
 +    newdata = smallData ) )
-[1] 109.6896
+       fit  se.pred      lwr      upr
+1 109.6896 2.999959 105.0954 114.2839
 > 
 > print( predict( fitw2slsd2e, se.fit = TRUE, se.pred = TRUE,
 +    interval = "prediction", level = 0.5, newdata = smallData ) )
@@ -2367,7 +2372,8 @@ trend        0.246  0.426
 1    4.084408 116.5674 122.1366
 > print( predict( fitw2slsd2e$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
 +    interval = "confidence", level = 0.25, newdata = smallData ) )
-[1] 107.6281
+       fit  se.fit  se.pred      lwr      upr
+1 107.6281 2.71462 3.343045 106.7561 108.5001
 > 
 > 
 > ## ************** F tests ****************
