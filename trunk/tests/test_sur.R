@@ -361,6 +361,38 @@ print( predict( fitsuri4$eq[[ 2 ]], interval = "confidence",
 print( predict( fitsuri5r2 ) )
 print( predict( fitsuri5r2$eq[[ 1 ]] ) )
 
+# predict just one observation
+smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
+   trend = 25, consump = 1 ) ### consump should be removed later!!!!
+
+print( predict( fitsur1e2, newdata = smallData ) )
+print( predict( fitsur1e2$eq[[ 1 ]], newdata = smallData ) )
+
+print( predict( fitsur2e, se.fit = TRUE, level = 0.9,
+   newdata = smallData ) )
+print( predict( fitsur2e$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
+   newdata = smallData ) )
+
+print( predict( fitsur3, interval = "prediction", level = 0.975,
+   newdata = smallData ) )
+print( predict( fitsur3$eq[[ 1 ]], interval = "confidence", level = 0.8,
+   newdata = smallData ) )
+
+print( predict( fitsur4r3, se.fit = TRUE, interval = "confidence",
+   level = 0.999, newdata = smallData ) )
+print( predict( fitsur4r3$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
+   level = 0.75, newdata = smallData ) )
+
+print( predict( fitsur5, se.fit = TRUE, interval = "prediction",
+   newdata = smallData ) )
+print( predict( fitsur5$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
+   newdata = smallData ) )
+
+print( predict( fitsuri5r2, se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.5, newdata = smallData ) )
+print( predict( fitsuri5r2$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "confidence", level = 0.25, newdata = smallData ) )
+
 
 ## *********** likelihood ratio tests *************
 # testing first restriction

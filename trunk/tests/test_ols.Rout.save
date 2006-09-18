@@ -2519,6 +2519,58 @@ income       0.220   0.406
 19 100.82338 0.7168865 96.51505 105.13170
 20 103.37556 0.5624168 99.13321 107.61791
 > 
+> # predict just one observation
+> smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
++    trend = 25, consump = 1 ) ### consump should be removed later!!!!
+> 
+> print( predict( fitols1p, newdata = smallData ) )
+  eq1.pred eq2.pred
+1 108.9719 115.1066
+> print( predict( fitols1p$eq[[ 1 ]], newdata = smallData ) )
+[1] 108.9719
+> 
+> print( predict( fitols2r, se.fit = TRUE, level = 0.9,
++    newdata = smallData ) )
+  eq1.pred eq1.se.fit eq2.pred eq2.se.fit
+1 108.5683   2.476089 116.3582   2.801784
+> print( predict( fitols2r$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
++    newdata = smallData ) )
+[1] 108.5683
+> 
+> print( predict( fitols3s, interval = "prediction", level = 0.975,
++    newdata = smallData ) )
+  eq1.pred  eq1.lwr  eq1.upr eq2.pred  eq2.lwr  eq2.upr
+1 108.5683 101.2858 115.8507 116.3582 106.5813 126.1350
+> print( predict( fitols3s$eq[[ 1 ]], interval = "confidence", level = 0.8,
++    newdata = smallData ) )
+[1] 108.5683
+> 
+> print( predict( fitols4rs, se.fit = TRUE, interval = "confidence",
++    level = 0.999, newdata = smallData ) )
+  eq1.pred eq1.se.fit  eq1.lwr  eq1.upr eq2.pred eq2.se.fit  eq2.lwr  eq2.upr
+1 108.1306   2.022465 100.8676 115.3935 117.0810   2.023029 109.8160 124.3460
+> print( predict( fitols4rs$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
++    level = 0.75, newdata = smallData ) )
+[1] 117.0810
+> 
+> print( predict( fitols5, se.fit = TRUE, interval = "prediction",
++    newdata = smallData ) )
+  eq1.pred eq1.se.fit  eq1.lwr  eq1.upr eq2.pred eq2.se.fit  eq2.lwr  eq2.upr
+1 108.1306   2.177397 102.2098 114.0514 117.0810   2.007054 110.6560 123.5061
+> print( predict( fitols5$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
++    newdata = smallData ) )
+[1] 108.1306
+> 
+> print( predict( fitols5rs, se.fit = TRUE, se.pred = TRUE,
++    interval = "prediction", level = 0.5, newdata = smallData ) )
+  eq1.pred eq1.se.fit eq1.se.pred  eq1.lwr  eq1.upr eq2.pred eq2.se.fit
+1 108.1306   2.022465    2.802726 106.2203 110.0408 117.0810   2.023029
+  eq2.se.pred  eq2.lwr  eq2.upr
+1    3.175053 114.9170 119.2450
+> print( predict( fitols5rs$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
++    interval = "confidence", level = 0.25, newdata = smallData ) )
+[1] 108.1306
+> 
 > 
 > ## ************** F tests ****************
 > # testing first restriction

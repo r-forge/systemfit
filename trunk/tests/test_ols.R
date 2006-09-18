@@ -280,6 +280,38 @@ print( predict( fitols5, se.fit = TRUE, interval = "prediction",
 print( predict( fitols5$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
    level = 0.9, newdata = predictData ) )
 
+# predict just one observation
+smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
+   trend = 25, consump = 1 ) ### consump should be removed later!!!!
+
+print( predict( fitols1p, newdata = smallData ) )
+print( predict( fitols1p$eq[[ 1 ]], newdata = smallData ) )
+
+print( predict( fitols2r, se.fit = TRUE, level = 0.9,
+   newdata = smallData ) )
+print( predict( fitols2r$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
+   newdata = smallData ) )
+
+print( predict( fitols3s, interval = "prediction", level = 0.975,
+   newdata = smallData ) )
+print( predict( fitols3s$eq[[ 1 ]], interval = "confidence", level = 0.8,
+   newdata = smallData ) )
+
+print( predict( fitols4rs, se.fit = TRUE, interval = "confidence",
+   level = 0.999, newdata = smallData ) )
+print( predict( fitols4rs$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
+   level = 0.75, newdata = smallData ) )
+
+print( predict( fitols5, se.fit = TRUE, interval = "prediction",
+   newdata = smallData ) )
+print( predict( fitols5$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
+   newdata = smallData ) )
+
+print( predict( fitols5rs, se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.5, newdata = smallData ) )
+print( predict( fitols5rs$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "confidence", level = 0.25, newdata = smallData ) )
+
 
 ## ************** F tests ****************
 # testing first restriction
