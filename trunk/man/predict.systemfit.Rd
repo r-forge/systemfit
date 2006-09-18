@@ -10,12 +10,12 @@
 }
 
 \usage{
-\method{predict}{systemfit}( object, newdata = object$data,
+\method{predict}{systemfit}( object, newdata = NULL,
                              se.fit = FALSE, se.pred = FALSE,
                              interval = "none", level=0.95,
                              probDfSys = NULL, ... )
 
-\method{predict}{systemfit.equation}( object, newdata,
+\method{predict}{systemfit.equation}( object, newdata = NULL,
                              se.fit = FALSE, se.pred = FALSE,
                              interval = "none", level=0.95,
                              probDfSys = NULL, ... )
@@ -24,7 +24,8 @@
 \arguments{
    \item{object}{an object of class \code{systemfit} or
       \code{systemfit.equation}.}
-   \item{newdata}{data frame in which to predict.}
+   \item{newdata}{An optional data frame in which to look for variables with
+      which to predict.  If it is \code{NULL}, the fitted values are returned.}
    \item{se.fit}{return the standard error of the fitted values?}
    \item{se.pred}{return the standard error of prediction?}
    \item{interval}{Type of interval calculation ("none", "confidence"

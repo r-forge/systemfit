@@ -1,5 +1,5 @@
 ## calculate predicted values, its standard errors and the prediction intervals
-predict.systemfit <- function( object, newdata=object$data,
+predict.systemfit <- function( object, newdata = NULL,
                                se.fit=FALSE, se.pred=FALSE,
                                interval="none", level=0.95,
                                probDfSys = NULL, ... ) {
@@ -28,7 +28,7 @@ predict.systemfit <- function( object, newdata=object$data,
 }
 
 ## calculate predicted values, its standard errors and the prediction intervals
-predict.systemfit.equation <- function( object, newdata=object$data,
+predict.systemfit.equation <- function( object, newdata = NULL,
                                se.fit=FALSE, se.pred=FALSE,
                                interval="none", level=0.95,
                                probDfSys = NULL, ... ) {
@@ -38,7 +38,12 @@ predict.systemfit.equation <- function( object, newdata=object$data,
          # TRUE if there are restrictions imposed
    }
 
-   xMat <-  model.matrix( formula( object$terms ), data = newdata )
+   if( is.null( newdata ) ) {
+      xMat <-  model.matrix( object )
+   } else {
+      xMat <-  model.matrix( formula( object$terms ), data = newdata )
+   }
+
    # fitted values
    predicted <- data.frame( fit = drop( xMat %*% object$coef ) )
 
@@ -51,7 +56,7 @@ predict.systemfit.equation <- function( object, newdata=object$data,
    }
    # standard errors of fitted values
    if( se.fit ) {
-      if(nrow(newdata)==1) {
+      if( length( yCovConf ) == 1 ) {
          predicted[[ "se.fit" ]] <- sqrt( yCovConf )
       } else {
          predicted[[ "se.fit" ]] <- sqrt( diag( yCovConf ) )
@@ -59,7 +64,7 @@ predict.systemfit.equation <- function( object, newdata=object$data,
    }
    # standard errors of prediction
    if( se.pred ) {
-      if(nrow(newdata)==1) {
+      if( length( yCovPred ) == 1 ) {
          predicted[[ "se.pred" ]] <- sqrt( yCovPred )
       } else {
          predicted[[ "se.pred" ]] <- sqrt( diag( yCovPred ) )
@@ -73,7 +78,7 @@ predict.systemfit.equation <- function( object, newdata=object$data,
       } else {
          tval   <- qt( 1 - ( 1- level )/2, object$df )
       }
-      if( nrow(newdata)==1 ) {
+      if(  length( yCovConf ) == 1 ) {
          stdErConf <- sqrt( yCovConf )
       } else {
          stdErConf <- sqrt( diag( yCovConf ) )
@@ -88,7 +93,7 @@ predict.systemfit.equation <- function( object, newdata=object$data,
       } else {
          tval   <- qt( 1 - ( 1- level )/2, object$df )
       }
-      if(nrow(newdata)==1) {
+      if( length( yCovPred ) == 1 ) {
          stdErPred <- sqrt( yCovPred )
       } else {
          stdErPred <- sqrt( diag( yCovPred ) )
