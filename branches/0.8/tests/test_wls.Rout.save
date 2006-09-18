@@ -2650,6 +2650,58 @@ income       0.252   0.395
        17        18        19        20 
 104.80403 101.85502 103.33825 106.20151 
 > 
+> # predict just one observation
+> smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
++    trend = 25, consump = 1 ) ### consump should be removed later!!!!
+> 
+> print( predict( fitwls1, data = smallData ) )
+  eq1.pred eq2.pred
+1 108.9719 115.1066
+> print( predict( fitwls1$eq[[ 1 ]], data = smallData ) )
+[1] 108.9719
+> 
+> print( predict( fitwls2e, se.fit = TRUE, level = 0.9,
++    data = smallData ) )
+  eq1.pred eq1.se.fit eq2.pred eq2.se.fit
+1 108.6751   2.232114 116.4698   3.029383
+> print( predict( fitwls2e$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
++    data = smallData ) )
+[1] 108.6751
+> 
+> print( predict( fitwls3, interval = "prediction", level = 0.975,
++    data = smallData ) )
+  eq1.pred  eq1.lwr  eq1.upr eq2.pred  eq2.lwr  eq2.upr
+1 108.6895 101.4168 115.9622 116.4848 106.6985 126.2711
+> print( predict( fitwls3$eq[[ 1 ]], interval = "confidence", level = 0.8,
++    data = smallData ) )
+[1] 108.6895
+> 
+> print( predict( fitwls4e, se.fit = TRUE, interval = "confidence",
++    level = 0.999, data = smallData ) )
+  eq1.pred eq1.se.fit  eq1.lwr  eq1.upr eq2.pred eq2.se.fit  eq2.lwr  eq2.upr
+1 108.3841   2.022465 101.1211 115.6470 117.1831   2.023029 109.9181 124.4481
+> print( predict( fitwls4e$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
++    level = 0.75, data = smallData ) )
+[1] 117.1831
+> 
+> print( predict( fitwls5, se.fit = TRUE, interval = "prediction",
++    data = smallData ) )
+  eq1.pred eq1.se.fit  eq1.lwr  eq1.upr eq2.pred eq2.se.fit  eq2.lwr  eq2.upr
+1 108.4158   2.204294 102.4616 114.3700 117.1955   2.232657 110.4619 123.9290
+> print( predict( fitwls5$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
++    data = smallData ) )
+[1] 108.4158
+> 
+> print( predict( fitwlsi3e, se.fit = TRUE, se.pred = TRUE,
++    interval = "prediction", level = 0.5, data = smallData ) )
+  eq1.pred eq1.se.fit eq1.se.pred  eq1.lwr  eq1.upr eq2.pred eq2.se.fit
+1 108.6779   2.225366    2.950308 106.6664 110.6893 116.4726    3.03627
+  eq2.se.pred  eq2.lwr eq2.upr
+1    3.897725 113.8153  119.13
+> print( predict( fitwlsi3e$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
++    interval = "confidence", level = 0.25, data = smallData ) )
+[1] 108.6779
+> 
 > 
 > ## ************** F tests ****************
 > # testing first restriction

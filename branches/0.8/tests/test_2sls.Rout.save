@@ -3183,6 +3183,58 @@ income       0.230   0.422
        17        18        19        20 
 105.19130 101.75792 103.20732 105.89137 
 > 
+> # predict just one observation
+> smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
++    trend = 25, consump = 1 ) ### consump should be removed later!!!!
+> 
+> print( predict( fit2sls1rs, data = smallData ) )
+  eq1.pred eq2.pred
+1 110.0697 117.7381
+> print( predict( fit2sls1rs$eq[[ 1 ]], data = smallData ) )
+[1] 110.0697
+> 
+> print( predict( fit2sls2p, se.fit = TRUE, level = 0.9,
++    data = smallData ) )
+  eq1.pred eq1.se.fit eq2.pred eq2.se.fit
+1   109.81   2.785617 118.6219   3.179108
+> print( predict( fit2sls2p$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
++    data = smallData ) )
+[1] 109.81
+> 
+> print( predict( fit2sls3e, interval = "prediction", level = 0.975,
++    data = smallData ) )
+  eq1.pred  eq1.lwr  eq1.upr eq2.pred  eq2.lwr  eq2.upr
+1   109.81 102.1889 117.4311 118.6219 109.6230 127.6207
+> print( predict( fit2sls3e$eq[[ 1 ]], interval = "confidence", level = 0.8,
++    data = smallData ) )
+[1] 109.81
+> 
+> print( predict( fit2sls4r, se.fit = TRUE, interval = "confidence",
++    level = 0.999, data = smallData ) )
+  eq1.pred eq1.se.fit  eq1.lwr  eq1.upr eq2.pred eq2.se.fit  eq2.lwr  eq2.upr
+1 109.4862   2.238684 101.4467 117.5256  119.148   2.093947 111.6283 126.6677
+> print( predict( fit2sls4r$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
++    level = 0.75, data = smallData ) )
+[1] 119.148
+> 
+> print( predict( fit2sls5s, se.fit = TRUE, interval = "prediction",
++    data = smallData ) )
+  eq1.pred eq1.se.fit  eq1.lwr  eq1.upr eq2.pred eq2.se.fit  eq2.lwr  eq2.upr
+1 109.4862   2.263064 103.3929 115.5794  119.148   2.329153 112.2119 126.0840
+> print( predict( fit2sls5s$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
++    data = smallData ) )
+[1] 109.4862
+> 
+> print( predict( fit2slsd3, se.fit = TRUE, se.pred = TRUE,
++    interval = "prediction", level = 0.5, data = smallData ) )
+  eq1.pred eq1.se.fit eq1.se.pred  eq1.lwr  eq1.upr eq2.pred eq2.se.fit
+1 107.6634   3.328382    3.856036 105.0345 110.2924 119.1628   3.204772
+  eq2.se.pred eq2.lwr  eq2.upr
+1    4.067014  116.39 121.9356
+> print( predict( fit2slsd3$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
++    interval = "confidence", level = 0.25, data = smallData ) )
+[1] 107.6634
+> 
 > 
 > ## ************** F tests ****************
 > # testing first restriction

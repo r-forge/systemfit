@@ -396,6 +396,38 @@ print( predict( fit3slsd[[ 4 ]]$e4, se.fit = TRUE, interval = "prediction",
    level = 0.9, data = predictData ) )
 print( predict( fit3slsd[[ 4 ]]$e4$eq[[ 2 ]] ) )
 
+# predict just one observation
+smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
+   trend = 25, consump = 1 ) ### consump should be removed later!!!!
+
+print( predict( fit3sls[[ 3 ]]$e1c, data = smallData ) )
+print( predict( fit3sls[[ 3 ]]$e1c$eq[[ 1 ]], data = smallData ) )
+
+print( predict( fit3sls[[ 4 ]]$e2e, se.fit = TRUE, level = 0.9,
+   data = smallData ) )
+print( predict( fit3sls[[ 5 ]]$e2e$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
+   data = smallData ) )
+
+print( predict( fit3sls[[ 1]]$e3, interval = "prediction", level = 0.975,
+   data = smallData ) )
+print( predict( fit3sls[[ 1 ]]$e3$eq[[ 1 ]], interval = "confidence", level = 0.8,
+   data = smallData ) )
+
+print( predict( fit3sls[[ 2 ]]$e4e, se.fit = TRUE, interval = "confidence",
+   level = 0.999, data = smallData ) )
+print( predict( fit3sls[[ 2 ]]$e4e$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
+   level = 0.75, data = smallData ) )
+
+print( predict( fit3sls[[ 3 ]]$e5, se.fit = TRUE, interval = "prediction",
+   data = smallData ) )
+print( predict( fit3sls[[ 3 ]]$e5$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
+   data = smallData ) )
+
+print( predict( fit3slsi[[ 4 ]]$e3e, se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.5, data = smallData ) )
+print( predict( fit3slsd[[ 5 ]]$e4$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "confidence", level = 0.25, data = smallData ) )
+
 
 ## ************** F tests ****************
 # testing first restriction
