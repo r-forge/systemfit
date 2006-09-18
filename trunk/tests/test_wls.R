@@ -348,3 +348,38 @@ print( waldtest.systemfit( fitwlsi3e, restrOnly2m, restrOnly2q ) )
 # testing both of the restrictions
 print( waldtest.systemfit( fitwls1e, restr2m, restr2q ) )
 print( waldtest.systemfit( fitwlsi1, restr2m, restr2q ) )
+
+
+## ****************** model frame **************************
+print( mf <- model.frame( fitwls1 ) )
+print( mf1 <- model.frame( fitwls1$eq[[ 1 ]] ) )
+print( attributes( mf1 )$terms )
+print( mf2 <- model.frame( fitwls1$eq[[ 2 ]] ) )
+print( attributes( mf2 )$terms )
+
+print( all.equal( mf, model.frame( fitwls2e ) ) )
+print( all.equal( mf1, model.frame( fitwls2e$eq[[ 1 ]] ) ) )
+
+print( all.equal( mf, model.frame( fitwls3 ) ) )
+print( all.equal( mf2, model.frame( fitwls3$eq[[ 2 ]] ) ) )
+
+print( all.equal( mf, model.frame( fitwls4e ) ) )
+print( all.equal( mf1, model.frame( fitwls4e$eq[[ 1 ]] ) ) )
+
+print( all.equal( mf, model.frame( fitwls5 ) ) )
+print( all.equal( mf2, model.frame( fitwls5$eq[[ 2 ]] ) ) )
+
+print( all.equal( mf, model.frame( fitwlsi1e ) ) )
+print( all.equal( mf1, model.frame( fitwlsi1e$eq[[ 1 ]] ) ) )
+
+print( all.equal( mf, model.frame( fitwlsi2 ) ) )
+print( all.equal( mf2, model.frame( fitwlsi2$eq[[ 2 ]] ) ) )
+
+print( all.equal( mf, model.frame( fitwlsi3e ) ) )
+print( all.equal( mf1, model.frame( fitwlsi3e$eq[[ 1 ]] ) ) )
+
+print( all.equal( mf, model.frame( fitwlsi4 ) ) )
+print( all.equal( mf2, model.frame( fitwlsi4$eq[[ 2 ]] ) ) )
+
+print( all.equal( mf, model.frame( fitwlsi5e ) ) )
+print( all.equal( mf1, model.frame( fitwlsi5e$eq[[ 1 ]] ) ) )

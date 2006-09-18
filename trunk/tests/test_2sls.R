@@ -391,3 +391,22 @@ print( waldtest.systemfit( fit2sls3, restrOnly2m, restrOnly2q ) )
 # testing both of the restrictions
 print( waldtest.systemfit( fit2sls1, restr2m, restr2q ) )
 
+
+## **************** model frame ************************
+print( mf <- model.frame( fit2sls1 ) )
+print( mf1 <- model.frame( fit2sls1$eq[[ 1 ]] ) )
+print( attributes( mf1 )$terms )
+print( mf2 <- model.frame( fit2sls1$eq[[ 2 ]] ) )
+print( attributes( mf2 )$terms )
+
+print( all.equal( mf, model.frame( fit2sls2s ) ) )
+print( all.equal( mf2, model.frame( fit2sls2s$eq[[ 2 ]] ) ) )
+
+print( all.equal( mf, model.frame( fit2sls3e ) ) )
+print( all.equal( mf1, model.frame( fit2sls3e$eq[[ 1 ]] ) ) )
+
+print( all.equal( mf, model.frame( fit2sls4r ) ) )
+print( all.equal( mf2, model.frame( fit2sls4r$eq[[ 2 ]] ) ) )
+
+print( all.equal( mf, model.frame( fit2sls5rs ) ) )
+print( all.equal( mf1, model.frame( fit2sls5rs$eq[[ 1 ]] ) ) )
