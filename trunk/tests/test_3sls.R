@@ -365,6 +365,7 @@ print( fitted( fit3slsd[[ 4 ]]$e4$eq[[ 2 ]] ) )
 
 ## *********** predicted values *************
 predictData <- Kmenta
+predictData$consump <- NULL
 predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
@@ -405,7 +406,7 @@ print( predict( fit3slsd[[ 4 ]]$e4$eq[[ 2 ]], se.fit = TRUE, interval = "predict
 
 # predict just one observation
 smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
-   trend = 25, consump = 1 ) ### consump should be removed later!!!!
+   trend = 25 )
 
 print( predict( fit3sls[[ 3 ]]$e1c, newdata = smallData ) )
 print( predict( fit3sls[[ 3 ]]$e1c$eq[[ 1 ]], newdata = smallData ) )

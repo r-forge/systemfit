@@ -313,6 +313,7 @@ print( fitted( fit2slsd2r$eq[[ 1 ]] ) )
 
 ## *********** predicted values *************
 predictData <- Kmenta
+predictData$consump <- NULL
 predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
@@ -351,7 +352,7 @@ print( predict( fit2slsd2r$eq[[ 1 ]], se.fit = TRUE, interval = "prediction",
 
 # predict just one observation
 smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
-   trend = 25, consump = 1 ) ### consump should be removed later!!!!
+   trend = 25 )
 
 print( predict( fit2sls1rs, newdata = smallData ) )
 print( predict( fit2sls1rs$eq[[ 1 ]], newdata = smallData ) )

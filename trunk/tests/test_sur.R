@@ -313,6 +313,7 @@ print( fitted( fitsuri5r2$eq[[ 1 ]] ) )
 
 ## *********** predicted values *************
 predictData <- Kmenta
+predictData$consump <- NULL
 predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
@@ -363,7 +364,7 @@ print( predict( fitsuri5r2$eq[[ 1 ]] ) )
 
 # predict just one observation
 smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
-   trend = 25, consump = 1 ) ### consump should be removed later!!!!
+   trend = 25 )
 
 print( predict( fitsur1e2, newdata = smallData ) )
 print( predict( fitsur1e2$eq[[ 1 ]], newdata = smallData ) )

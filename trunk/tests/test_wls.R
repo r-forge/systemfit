@@ -257,6 +257,7 @@ print( fitted( fitwlsi5e$eq[[ 1 ]] ) )
 
 ## *********** predicted values *************
 predictData <- Kmenta
+predictData$consump <- NULL
 predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
@@ -307,7 +308,7 @@ print( predict( fitwlsi5e$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
 
 # predict just one observation
 smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
-   trend = 25, consump = 1 ) ### consump should be removed later!!!!
+   trend = 25 )
 
 print( predict( fitwls1, newdata = smallData ) )
 print( predict( fitwls1$eq[[ 1 ]], newdata = smallData ) )

@@ -252,6 +252,7 @@ print( fitted( fitols5$eq[[ 2 ]] ) )
 
 ## *********** predicted values *************
 predictData <- Kmenta
+predictData$consump <- NULL
 predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
@@ -282,7 +283,7 @@ print( predict( fitols5$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
 
 # predict just one observation
 smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
-   trend = 25, consump = 1 ) ### consump should be removed later!!!!
+   trend = 25 )
 
 print( predict( fitols1p, newdata = smallData ) )
 print( predict( fitols1p$eq[[ 1 ]], newdata = smallData ) )

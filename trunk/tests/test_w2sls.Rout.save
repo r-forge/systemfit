@@ -1770,6 +1770,7 @@ trend        0.246  0.426
 > 
 > ## *********** predicted values *************
 > predictData <- Kmenta
+> predictData$consump <- NULL
 > predictData$price <- Kmenta$price * 0.9
 > predictData$income <- Kmenta$income * 1.1
 > 
@@ -2319,7 +2320,7 @@ trend        0.246  0.426
 > 
 > # predict just one observation
 > smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
-+    trend = 25, consump = 1 ) ### consump should be removed later!!!!
++    trend = 25 )
 > 
 > print( predict( fitw2sls1e, newdata = smallData ) )
   eq1.pred eq2.pred
