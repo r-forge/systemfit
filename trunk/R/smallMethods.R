@@ -105,6 +105,62 @@ fitted.systemfit.equation <- function( object, ... ) {
    object$fitted.values
 }
 
+## return model matrix of the entire system
+model.matrix.systemfit <- function( object, ... ){
+   result <- matrix( NA, 0, 0 )
+   mmRowNames <- NULL
+   mmColNames <- NULL
+   for( i in 1:object$nEq ) {
+      mmi <- model.matrix( object$eq[[ i ]] ) 
+      result <- rbind(
+         cbind( result, matrix( 0, nrow( result ), ncol( mmi ) ) ),
+         cbind( matrix( 0, nrow( mmi ), ncol( result ) ), mmi ) )
+      mmRowNames <- c( mmRowNames,
+         paste( object$eq[[ i ]]$eqnlabel, "_", rownames( mmi ), sep = "" ) )
+      mmColNames <- c( mmColNames,
+         paste( object$eq[[ i ]]$eqnlabel, "_", colnames( mmi ), sep = "" ) )
+   }
+   rownames( result ) <- mmRowNames
+   colnames( result ) <- mmColNames
+   return( result )
+}
 
+## return model matrix of a single equation
+model.matrix.systemfit.equation <- function( object, ... ){
+   if( !is.null( object$modelMatrix ) ) {
+      result <- object$modelMatrix
+   } else if( !is.null( model.frame( object ) ) ) {
+      result <- model.matrix( object$terms, data = model.frame( object ) )
+   } else {
+      stop( "returning model matrix not possible. Please re-estimate",
+         " the system with either control variable",
+         "  'returnModelMatrix' or 'returnModelFrame' set to TRUE" )
+   }
+   return( result )
+}
 
+## return model frame of the entire system
+model.frame.systemfit <- function( formula, ... ){
+   mfColNames <- NULL
+   for( i in 1:formula$nEq ) {
+      mfi <- model.frame( formula$eq[[ i ]] )
+      if( i == 1 ) {
+         result <- mfi
+      } else {
+         result <- cbind( result, mfi[ , ! names( mfi ) %in% names( result ) ] )
+      }
+   }
+   return( result )
+}
 
+## return model frame of a single equation
+model.frame.systemfit.equation <- function( formula, ... ){
+   if( !is.null( formula$modelFrame ) ) {
+      result <- formula$modelFrame
+   } else {
+      stop( "returning model frame not possible. Please re-estimate",
+         " the system with control variable 'returnModelFrame'",
+         " set to TRUE" )
+   }
+   return( result )
+}
