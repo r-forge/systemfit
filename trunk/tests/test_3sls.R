@@ -519,3 +519,50 @@ print( all.equal( mf1, model.frame( fit3slsi[[ 4 ]]$e3e$eq[[ 1 ]] ) ) )
 
 print( all.equal( mf, model.frame( fit3slsd[[ 5 ]]$e4 ) ) )
 print( all.equal( mf2, model.frame( fit3slsd[[ 5 ]]$e4$eq[[ 2 ]] ) ) )
+
+
+## **************** model matrix ************************
+print( mm <- model.matrix( fit3sls[[ 4 ]]$e1c ) )
+print( mm1 <- model.matrix( fit3sls[[ 4 ]]$e1c$eq[[ 1 ]] ) )
+print( mm2 <- model.matrix( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]] ) )
+fit3sls[[ 4 ]]$e1c$eq[[ 1 ]]$modelMatrix <- NULL
+fit3sls[[ 4 ]]$e1c$eq[[ 2 ]]$modelMatrix <- NULL
+print( all.equal( mm, model.matrix( fit3sls[[ 4 ]]$e1c ) ) )
+print( all.equal( mm1, model.matrix( fit3sls[[ 4 ]]$e1c$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]] ) ) )
+
+print( all.equal( mm, model.matrix( fit3sls[[ 5 ]]$e2 ) ) )
+print( all.equal( mm1, model.matrix( fit3sls[[ 5 ]]$e2$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fit3sls[[ 5 ]]$e2$eq[[ 2 ]] ) ) )
+fit3sls[[ 5 ]]$e2$eq[[ 1 ]]$modelMatrix <- NULL
+fit3sls[[ 5 ]]$e2$eq[[ 2 ]]$modelMatrix <- NULL
+print( all.equal( mm, model.matrix( fit3sls[[ 5 ]]$e2 ) ) )
+print( all.equal( mm1, model.matrix( fit3sls[[ 5 ]]$e2$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fit3sls[[ 5 ]]$e2$eq[[ 2 ]] ) ) )
+
+print( all.equal( mm, model.matrix( fit3sls[[ 1 ]]$e3e ) ) )
+print( all.equal( mm1, model.matrix( fit3sls[[ 1 ]]$e3e$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fit3sls[[ 1 ]]$e3e$eq[[ 2 ]] ) ) )
+fit3sls[[ 1 ]]$e3e$eq[[ 1 ]]$modelMatrix <- NULL
+fit3sls[[ 1 ]]$e3e$eq[[ 2 ]]$modelMatrix <- NULL
+print( all.equal( mm, model.matrix( fit3sls[[ 1 ]]$e3e ) ) )
+print( all.equal( mm1, model.matrix( fit3sls[[ 1 ]]$e3e$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fit3sls[[ 1 ]]$e3e$eq[[ 2 ]] ) ) )
+
+print( all.equal( mm, model.matrix( fit3slsi[[ 2 ]]$e4 ) ) )
+print( all.equal( mm1, model.matrix( fit3slsi[[ 2 ]]$e4$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fit3slsi[[ 2 ]]$e4$eq[[ 2 ]] ) ) )
+fit3slsi[[ 2 ]]$e4$eq[[ 1 ]]$modelMatrix <- NULL
+fit3slsi[[ 2 ]]$e4$eq[[ 2 ]]$modelMatrix <- NULL
+print( all.equal( mm, model.matrix( fit3slsi[[ 2 ]]$e4 ) ) )
+print( all.equal( mm1, model.matrix( fit3slsi[[ 2 ]]$e4$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fit3slsi[[ 2 ]]$e4$eq[[ 2 ]] ) ) )
+
+print( all.equal( mm, model.matrix( fit3slsd[[ 3 ]]$e5e ) ) )
+print( all.equal( mm1, model.matrix( fit3slsd[[ 3 ]]$e5e$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fit3slsd[[ 3 ]]$e5e$eq[[ 2 ]] ) ) )
+fit3slsd[[ 3 ]]$e5e$eq[[ 1 ]]$modelMatrix <- NULL
+fit3slsd[[ 3 ]]$e5e$eq[[ 2 ]]$modelMatrix <- NULL
+print( all.equal( mm, model.matrix( fit3slsd[[ 3 ]]$e5e ) ) )
+print( all.equal( mm1, model.matrix( fit3slsd[[ 3 ]]$e5e$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fit3slsd[[ 3 ]]$e5e$eq[[ 2 ]] ) ) )

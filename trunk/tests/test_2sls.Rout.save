@@ -3647,3 +3647,205 @@ attr(,"dataClasses")
 > print( all.equal( mf1, model.frame( fit2sls5rs$eq[[ 1 ]] ) ) )
 [1] TRUE
 > 
+> 
+> ## **************** model matrix ************************
+> print( mm <- model.matrix( fit2sls1 ) )
+          demand_(Intercept) demand_price demand_income supply_(Intercept)
+demand_1                   1      100.323          87.4                  0
+demand_2                   1      104.264          97.6                  0
+demand_3                   1      103.435          96.7                  0
+demand_4                   1      104.506          98.2                  0
+demand_5                   1       98.001          99.8                  0
+demand_6                   1       99.456         100.5                  0
+demand_7                   1      101.066         103.2                  0
+demand_8                   1      104.763         107.8                  0
+demand_9                   1       96.446          96.6                  0
+demand_10                  1       91.228          88.9                  0
+demand_11                  1       93.085          75.1                  0
+demand_12                  1       98.801          76.9                  0
+demand_13                  1      102.908          84.6                  0
+demand_14                  1       98.756          90.6                  0
+demand_15                  1       95.119         103.1                  0
+demand_16                  1       98.451         105.1                  0
+demand_17                  1       86.498          96.4                  0
+demand_18                  1      104.016         104.4                  0
+demand_19                  1      105.769         110.7                  0
+demand_20                  1      113.490         127.1                  0
+supply_1                   0        0.000           0.0                  1
+supply_2                   0        0.000           0.0                  1
+supply_3                   0        0.000           0.0                  1
+supply_4                   0        0.000           0.0                  1
+supply_5                   0        0.000           0.0                  1
+supply_6                   0        0.000           0.0                  1
+supply_7                   0        0.000           0.0                  1
+supply_8                   0        0.000           0.0                  1
+supply_9                   0        0.000           0.0                  1
+supply_10                  0        0.000           0.0                  1
+supply_11                  0        0.000           0.0                  1
+supply_12                  0        0.000           0.0                  1
+supply_13                  0        0.000           0.0                  1
+supply_14                  0        0.000           0.0                  1
+supply_15                  0        0.000           0.0                  1
+supply_16                  0        0.000           0.0                  1
+supply_17                  0        0.000           0.0                  1
+supply_18                  0        0.000           0.0                  1
+supply_19                  0        0.000           0.0                  1
+supply_20                  0        0.000           0.0                  1
+          supply_price supply_farmPrice supply_trend
+demand_1         0.000              0.0            0
+demand_2         0.000              0.0            0
+demand_3         0.000              0.0            0
+demand_4         0.000              0.0            0
+demand_5         0.000              0.0            0
+demand_6         0.000              0.0            0
+demand_7         0.000              0.0            0
+demand_8         0.000              0.0            0
+demand_9         0.000              0.0            0
+demand_10        0.000              0.0            0
+demand_11        0.000              0.0            0
+demand_12        0.000              0.0            0
+demand_13        0.000              0.0            0
+demand_14        0.000              0.0            0
+demand_15        0.000              0.0            0
+demand_16        0.000              0.0            0
+demand_17        0.000              0.0            0
+demand_18        0.000              0.0            0
+demand_19        0.000              0.0            0
+demand_20        0.000              0.0            0
+supply_1       100.323             98.0            1
+supply_2       104.264             99.1            2
+supply_3       103.435             99.1            3
+supply_4       104.506             98.1            4
+supply_5        98.001            110.8            5
+supply_6        99.456            108.2            6
+supply_7       101.066            105.6            7
+supply_8       104.763            109.8            8
+supply_9        96.446            108.7            9
+supply_10       91.228            100.6           10
+supply_11       93.085             81.0           11
+supply_12       98.801             68.6           12
+supply_13      102.908             70.9           13
+supply_14       98.756             81.4           14
+supply_15       95.119            102.3           15
+supply_16       98.451            105.0           16
+supply_17       86.498            110.5           17
+supply_18      104.016             92.5           18
+supply_19      105.769             89.3           19
+supply_20      113.490             93.0           20
+> print( mm1 <- model.matrix( fit2sls1$eq[[ 1 ]] ) )
+   (Intercept)   price income
+1            1 100.323   87.4
+2            1 104.264   97.6
+3            1 103.435   96.7
+4            1 104.506   98.2
+5            1  98.001   99.8
+6            1  99.456  100.5
+7            1 101.066  103.2
+8            1 104.763  107.8
+9            1  96.446   96.6
+10           1  91.228   88.9
+11           1  93.085   75.1
+12           1  98.801   76.9
+13           1 102.908   84.6
+14           1  98.756   90.6
+15           1  95.119  103.1
+16           1  98.451  105.1
+17           1  86.498   96.4
+18           1 104.016  104.4
+19           1 105.769  110.7
+20           1 113.490  127.1
+attr(,"assign")
+[1] 0 1 2
+> print( mm2 <- model.matrix( fit2sls1$eq[[ 2 ]] ) )
+   (Intercept)   price farmPrice trend
+1            1 100.323      98.0     1
+2            1 104.264      99.1     2
+3            1 103.435      99.1     3
+4            1 104.506      98.1     4
+5            1  98.001     110.8     5
+6            1  99.456     108.2     6
+7            1 101.066     105.6     7
+8            1 104.763     109.8     8
+9            1  96.446     108.7     9
+10           1  91.228     100.6    10
+11           1  93.085      81.0    11
+12           1  98.801      68.6    12
+13           1 102.908      70.9    13
+14           1  98.756      81.4    14
+15           1  95.119     102.3    15
+16           1  98.451     105.0    16
+17           1  86.498     110.5    17
+18           1 104.016      92.5    18
+19           1 105.769      89.3    19
+20           1 113.490      93.0    20
+attr(,"assign")
+[1] 0 1 2 3
+> fit2sls1$eq[[ 1 ]]$modelMatrix <- NULL
+> fit2sls1$eq[[ 2 ]]$modelMatrix <- NULL
+> print( all.equal( mm, model.matrix( fit2sls1 ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fit2sls1$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fit2sls1$eq[[ 2 ]] ) ) )
+[1] TRUE
+> 
+> print( all.equal( mm, model.matrix( fit2sls2s ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fit2sls2s$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fit2sls2s$eq[[ 2 ]] ) ) )
+[1] TRUE
+> fit2sls2s$eq[[ 1 ]]$modelMatrix <- NULL
+> fit2sls2s$eq[[ 2 ]]$modelMatrix <- NULL
+> print( all.equal( mm, model.matrix( fit2sls2s ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fit2sls2s$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fit2sls2s$eq[[ 2 ]] ) ) )
+[1] TRUE
+> 
+> print( all.equal( mm, model.matrix( fit2sls3e ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fit2sls3e$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fit2sls3e$eq[[ 2 ]] ) ) )
+[1] TRUE
+> fit2sls3e$eq[[ 1 ]]$modelMatrix <- NULL
+> fit2sls3e$eq[[ 2 ]]$modelMatrix <- NULL
+> print( all.equal( mm, model.matrix( fit2sls3e ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fit2sls3e$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fit2sls3e$eq[[ 2 ]] ) ) )
+[1] TRUE
+> 
+> print( all.equal( mm, model.matrix( fit2sls4r ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fit2sls4r$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fit2sls4r$eq[[ 2 ]] ) ) )
+[1] TRUE
+> fit2sls4r$eq[[ 1 ]]$modelMatrix <- NULL
+> fit2sls4r$eq[[ 2 ]]$modelMatrix <- NULL
+> print( all.equal( mm, model.matrix( fit2sls4r ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fit2sls4r$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fit2sls4r$eq[[ 2 ]] ) ) )
+[1] TRUE
+> 
+> print( all.equal( mm, model.matrix( fit2sls5rs ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fit2sls5rs$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fit2sls5rs$eq[[ 2 ]] ) ) )
+[1] TRUE
+> fit2sls5rs$eq[[ 1 ]]$modelMatrix <- NULL
+> fit2sls5rs$eq[[ 2 ]]$modelMatrix <- NULL
+> print( all.equal( mm, model.matrix( fit2sls5rs ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fit2sls5rs$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fit2sls5rs$eq[[ 2 ]] ) ) )
+[1] TRUE
+> 
