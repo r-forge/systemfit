@@ -41,7 +41,8 @@ predict.systemfit.equation <- function( object, newdata = NULL,
    if( is.null( newdata ) ) {
       xMat <-  model.matrix( object )
    } else {
-      xMat <-  model.matrix( formula( object$terms ), data = newdata )
+      xMat <-  model.matrix( formula( delete.response( object$terms ) ),
+         data = newdata )
    }
 
    # fitted values
