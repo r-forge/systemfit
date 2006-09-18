@@ -4125,11 +4125,8 @@ attr(,"dataClasses")
 > 
 > print( all.equal( mf, model.frame( fitsuri2 ) ) )
 [1] TRUE
-> print( all.equal( mf2, model.frame( fitsuri2$eq[[ 2 ]] ) ) )
-[1] "Names: 2 string mismatches"                              
-[2] "Attributes: < Component 3: formulas differ in contents >"
-[3] "Component 1: Mean relative  difference: 0.05102618"      
-[4] "Component 2: Mean relative  difference: 0.07645094"      
+> print( all.equal( mf1, model.frame( fitsuri2$eq[[ 1 ]] ) ) )
+[1] TRUE
 > 
 > print( all.equal( mf, model.frame( fitsuri3e ) ) )
 [1] TRUE

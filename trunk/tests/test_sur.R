@@ -485,7 +485,7 @@ print( all.equal( mf, model.frame( fitsuri1r3 ) ) )
 print( all.equal( mf1, model.frame( fitsuri1r3$eq[[ 1 ]] ) ) )
 
 print( all.equal( mf, model.frame( fitsuri2 ) ) )
-print( all.equal( mf2, model.frame( fitsuri2$eq[[ 2 ]] ) ) )
+print( all.equal( mf1, model.frame( fitsuri2$eq[[ 1 ]] ) ) )
 
 print( all.equal( mf, model.frame( fitsuri3e ) ) )
 print( all.equal( mf1, model.frame( fitsuri3e$eq[[ 1 ]] ) ) )
