@@ -136,7 +136,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{xMat}{if requested, the (diagonally stacked) model matrix.}
   \item{hMat}{if requested, the (diagonally stacked) matrix
       of instrumental variables (only 2SLS and 3SLS).}
-  \item{data}{data frame of the whole system (including instruments)}
   \item{R.restr}{the restriction matrix.}
   \item{q.restr}{the restriction vector.}
   \item{TX}{matrix used to transform the regressor matrix.}
@@ -167,7 +166,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{modelMatrix*}{if requested, the model matrix of the ith equation.}
   \item{instMatrix*}{if requested, the matrix of instrumental variables
       of the ith equation (only 2SLS and 3SLS).}
-  \item{data*}{data frame (including instruments) of the ith equation.}
   \item{modelFrame*}{if requested (the default), the model frame of the ith equation.}
   \item{fitted.values*}{vector of fitted values of the ith equation.}
   \item{residuals*}{vector of residuals of the ith equation.}

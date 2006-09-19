@@ -433,21 +433,6 @@ systemfit <- function(  eqns,
     r2     <- 1 - ssr/(t(yVecEq[[i]])%*%yVecEq[[i]]-nObsEq[i]*mean(yVecEq[[i]])^2)
     adjr2  <- 1 - ((nObsEq[i]-1)/df[i])*(1-r2)
     fitted.values.i <- fitted.values[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
-    resp <- model.extract( evalModelFrameEq[[ i ]], "response" )
-    datai <- data.frame( cbind( resp, ( model.matrix( termsEq[[ i ]],
-      evalModelFrameEq[[ i ]] ) )[ , -1 ] ) )
-    names( datai )[1] <- as.character( terms( eqns[[ i ]] ) )[2]
-    rm( resp )
-    if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
-      datai <- cbind( datai, as.data.frame( model.matrix( termsInst[[ i ]],
-         evalModelFrameInst[[ i ]] )[ , -1 ] ) )
-    }
-
-    if(i==1) {
-      alldata <- datai                    # dataframe for all data used for estimation
-    } else {
-      alldata <- cbind( alldata, datai )  # dataframe for all data used for estimation
-    }
 
     ## build the "return" structure for the equations
     resulti$method       <- method
@@ -470,7 +455,6 @@ systemfit <- function(  eqns,
     if( control$returnModelMatrix ){
       resulti$modelMatrix  <- xMatEq[[i]]     # matrix of regressors
     }
-    resulti$data         <- datai           # data frame of this equation (incl. instruments)
     if( control$returnModelFrame ){
       resulti$modelFrame   <- evalModelFrameEq[[ i ]] # model frame of this equation
     }
@@ -572,7 +556,6 @@ systemfit <- function(  eqns,
   results$yVec    <- yVecAll        # vector of all (stacked) endogenous variables
   results$xMat    <- xMatAll        # matrix of all (diagonally stacked) regressors
   results$resids  <- resids         # vector of all (stacked) residuals
-  results$data    <- alldata        # data frame for all data used in the system
   if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ){
     results$hMat    <- hMatAll            # matrix of all (diagonally stacked) instr. variables
     results$xHat    <- xMatHatAll           # matrix of "fitted" regressors
