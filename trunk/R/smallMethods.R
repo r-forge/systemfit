@@ -65,12 +65,12 @@ residuals.systemfit <- function( object, ... ) {
    } else {
       eqNames <- colnames( object$rcov )
    }
-   residuals <- data.frame( obsNo = c( 1:length( object$eq[[1]]$residuals ) ) )
+   result <- data.frame( obsNo = c( 1:length( residuals( object$eq[[1]] ) ) ) )
    for( i in 1:object$nEq ) {
-      residuals[[ eqNames[ i ] ]] <- object$eq[[i]]$residuals
+      result[[ eqNames[ i ] ]] <- residuals( object$eq[[i]] )
    }
-   residuals$obsNo <- NULL
-   return( residuals )
+   result$obsNo <- NULL
+   return( result )
 }
 
 ## return residuals of a single equation
