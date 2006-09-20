@@ -1,4 +1,5 @@
-.prepareData.systemfit <- function( data, eqns, inst = NULL, TX = NULL, control = NULL )
+.prepareData.systemfit <- function( data, eqns, inst = NULL, TX = NULL, control = NULL,
+      eqnLabels )
 {
    # list for results
    result <- list()
@@ -38,7 +39,8 @@
       nObsEq[i] <- length( yVecEq[[i]] )
       nExogEq[i] <- ncol(xMatEq[[i]])
       for(j in 1:nExogEq[i]) {
-         xnames <- c( xnames, paste("eq",as.character(i),colnames( xMatEq[[i]] )[j] ))
+         xnames <- c( xnames, paste( eqnLabels[ i ],colnames( xMatEq[[i]] )[j],
+            sep = "_" ))
       }
    }
    if( nEq > 1 ) {

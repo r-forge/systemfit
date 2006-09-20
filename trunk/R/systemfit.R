@@ -72,7 +72,7 @@ systemfit <- function(  eqns,
 
    # prepare data
    preparedData <- .prepareData.systemfit( data = data, eqns = eqns,
-      inst = inst, TX = TX, control = control )
+      inst = inst, TX = TX, control = control, eqnLabels = eqnLabels )
    # list of terms objects of each equation
    termsEq <- preparedData$termsEq
    # list of evaluated model frames of each equation 
