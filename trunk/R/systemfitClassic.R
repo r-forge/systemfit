@@ -1,6 +1,7 @@
 systemfitClassic <- function( formula, method = "OLS", eqnVar, timeVar, data,
    pooled = FALSE, ... ) {
 
+   data[[ eqnVar ]] <- gsub( " |_", ".", data[[ eqnVar ]] )
    eqnLabels <- levels( as.factor( data[[ eqnVar ]] ) )
    nEqn <- length( eqnLabels )
    timeLabels <- levels( as.factor( data[[ timeVar ]] ) )
