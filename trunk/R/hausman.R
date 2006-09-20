@@ -9,8 +9,8 @@ hausman.systemfit <- function( results2sls, results3sls ) {
    result <- list()
 
    if( is.null( results2sls$bt ) ) {
-      result$q <- results2sls$b - results3sls$b
-      result$qVar <- results2sls$bcov - results3sls$bcov
+      result$q <- coef( results2sls ) - coef( results3sls )
+      result$qVar <- vcov( results2sls ) - vcov( results3sls )
    } else {
       result$q <- results2sls$bt - results3sls$bt
       result$qVar <- results2sls$btcov - results3sls$btcov
