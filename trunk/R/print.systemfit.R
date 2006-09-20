@@ -32,10 +32,10 @@ print.systemfit.equation <- function( x, digits=6, ... ) {
    on.exit(options(digits=save.digits))
 
    cat("\n")
-   if( is.null( x$eqnlabel ) ) {
+   if( is.null( x$eqnLabel ) ) {
       cat( x$method, " estimates for equation ", x$i, "\n", sep = "" )
    } else {
-      cat( x$method, " estimates for '", x$eqnlabel,
+      cat( x$method, " estimates for '", x$eqnLabel,
             "' (equation ", x$i, ")\n", sep = "" )
    }
 

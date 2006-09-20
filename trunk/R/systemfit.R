@@ -60,9 +60,9 @@ systemfit <- function(  eqns,
   adjr2   <- numeric( nEq ) # adjusted R-squared value
 
    if( is.null( names( eqns ) ) ) {
-      eqnlabels <- paste( "eq", c( 1:nEq ), sep = "" )
+      eqnLabels <- paste( "eq", c( 1:nEq ), sep = "" )
    } else {
-      eqnlabels <- names(eqns)
+      eqnLabels <- names(eqns)
    }
 
    results$call <- match.call() # get the original call
@@ -431,7 +431,7 @@ systemfit <- function(  eqns,
     ## build the "return" structure for the equations
     resulti$method       <- method
     resulti$i            <- i               # equation number
-    resulti$eqnlabel     <- eqnlabels[[i]]
+    resulti$eqnLabel     <- eqnLabels[[i]]
     resulti$terms        <- termsEq[[ i ]]
     resulti$nObs         <- nObsEq[i]       # number of observations
     resulti$nExog        <- nExogEq[i]      # number of exogenous variables/coefficients
@@ -521,12 +521,12 @@ systemfit <- function(  eqns,
   names(coef)    <- xnames
   colnames( bcov ) <- xnames
   rownames( bcov ) <- xnames
-  colnames( rcov ) <- eqnlabels
-  rownames( rcov ) <- eqnlabels
+  colnames( rcov ) <- eqnLabels
+  rownames( rcov ) <- eqnLabels
 
   ## build the "return" structure for the whole system
   results$method  <- method
-  results$eqnLabels <- eqnlabels
+  results$eqnLabels <- eqnLabels
   results$nEq     <- nEq            # number of equations
   results$nObsAll <- nObsAll        # total number of observations of all equations
   results$nObsEq  <- nObsEq         # number of observations in each equation

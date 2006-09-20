@@ -139,7 +139,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
 
   ## elements of the class systemfit.eq
   \item{eq}{a list that contains the results that belong to the individual equations.}
-  \item{eqnlabel*}{the equation label of the ith equation (from the labels list).}
+  \item{eqnLabel*}{the equation label of the ith equation (from the labels list).}
   \item{terms*}{the 'terms' object used for the ith equation.}
   \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
   \item{nObs*}{number of observations of the ith equation.}

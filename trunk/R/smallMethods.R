@@ -116,9 +116,9 @@ model.matrix.systemfit <- function( object, ... ){
          cbind( result, matrix( 0, nrow( result ), ncol( mmi ) ) ),
          cbind( matrix( 0, nrow( mmi ), ncol( result ) ), mmi ) )
       mmRowNames <- c( mmRowNames,
-         paste( object$eq[[ i ]]$eqnlabel, "_", rownames( mmi ), sep = "" ) )
+         paste( object$eq[[ i ]]$eqnLabel, "_", rownames( mmi ), sep = "" ) )
       mmColNames <- c( mmColNames,
-         paste( object$eq[[ i ]]$eqnlabel, "_", colnames( mmi ), sep = "" ) )
+         paste( object$eq[[ i ]]$eqnLabel, "_", colnames( mmi ), sep = "" ) )
    }
    rownames( result ) <- mmRowNames
    colnames( result ) <- mmColNames
