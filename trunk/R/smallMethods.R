@@ -60,14 +60,9 @@ coef.summary.systemfit.equation <- function( object, ... ) {
 
 ## return all residuals
 residuals.systemfit <- function( object, ... ) {
-   if( is.null( colnames( object$rcov ) ) ) {
-      eqNames <- paste( "eq", c( 1:object$nEq ) )
-   } else {
-      eqNames <- colnames( object$rcov )
-   }
    result <- data.frame( obsNo = c( 1:length( residuals( object$eq[[1]] ) ) ) )
    for( i in 1:object$nEq ) {
-      result[[ eqNames[ i ] ]] <- residuals( object$eq[[i]] )
+      result[[ object$eq[[i]]$eqnLabel ]] <- residuals( object$eq[[i]] )
    }
    result$obsNo <- NULL
    return( result )
