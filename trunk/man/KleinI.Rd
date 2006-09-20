@@ -50,7 +50,7 @@ eqInvest   <- invest ~ corpProf + corpProfLag + capitalLag
 eqPrivWage <- privWage ~ gnp + gnpLag + trend
 inst <- ~ govExp + taxes + govWage + trend + capitalLag + corpProfLag + gnpLag
 system <- list( Consumption = eqConsump, Investment = eqInvest,
-   "Private Wages" = eqPrivWage )
+   PrivateWages = eqPrivWage )
 # OLS
 kleinOls <- systemfit( system, data = KleinI )
 summary( kleinOls )
