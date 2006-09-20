@@ -63,6 +63,9 @@ systemfit <- function(  eqns,
       eqnLabels <- paste( "eq", c( 1:nEq ), sep = "" )
    } else {
       eqnLabels <- names(eqns)
+      if( sum( regexpr( " |_", eqnLabels ) != -1 ) > 0 ) {
+         stop( "equation labels may not contain blanks (' ') or underscores ('_')" )
+      }
    }
 
    results$call <- match.call() # get the original call
