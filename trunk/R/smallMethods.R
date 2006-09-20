@@ -90,7 +90,7 @@ fitted.systemfit <- function( object, ... ) {
    colnames( fitted.values ) <- as.character( 1:ncol( fitted.values ) )
    for(i in 1:object$nEq )  {
       fitted.values[ , i ]           <- object$eq[[ i ]]$fitted.values
-      colnames( fitted.values )[ i ] <- paste( "eq", as.character(i), sep="" )
+      colnames( fitted.values )[ i ] <- object$eq[[ i ]]$eqnLabel
    }
    fitted.values
 }
