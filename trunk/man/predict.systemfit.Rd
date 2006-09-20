@@ -53,10 +53,10 @@
 \value{
    \code{predict.systemfit} returns a dataframe that
    contains for each equation the predicted values
-   (e.g. "eq1.pred") and if requested
-   the standard errors of the fitted values (e.g. "eq1.se.fit"),
-   the standard errors of the prediction (e.g. "eq1.se.pred"),
-   and the lower (e.g. "eq1.lwr") and upper (e.g. "eq1.upr")
+   ("<eqnLable>.pred") and if requested
+   the standard errors of the fitted values ("<eqnLable>.se.fit"),
+   the standard errors of the prediction ("<eqnLable>.se.pred"),
+   and the lower ("<eqnLable>.lwr") and upper ("<eqnLable>.upr")
    limits of the confidence or prediction interval(s).
 
    \code{predict.systemfit.equation} returns a dataframe that

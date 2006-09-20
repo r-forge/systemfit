@@ -13,7 +13,7 @@ predict.systemfit <- function( object, newdata = NULL,
       predicted.i <- predict( object$eq[[ i ]], newdata = newdata,
          se.fit = se.fit, se.pred = se.pred, interval = interval,
          level = level, probDfSys = probDfSys )
-      names( predicted.i ) <- paste( "eq", i, ".",
+      names( predicted.i ) <- paste( object$eq[[ i ]]$eqnLabel, ".",
          names( predicted.i ), sep = "" )
       if( i == 1 ) {
          predicted <- predicted.i
@@ -21,8 +21,8 @@ predict.systemfit <- function( object, newdata = NULL,
          predicted <- cbind( predicted, predicted.i )
       }
    }
-   names( predicted ) <- sub( "([0-9])\.fit", "\\1.pred",
-         names( predicted ) )
+   names( predicted ) <- sub( "(?<!\.se)\.fit$", ".pred",
+         names( predicted ), perl = TRUE )
 
    return( predicted )
 }
