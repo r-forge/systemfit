@@ -132,10 +132,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
   \item{olsr2}{System OLS R-squared value.}
   \item{mcelr2}{McElroys R-squared value for the system (only SUR and 3SLS).}
-  \item{yVec}{if requested, the (stacked) vector of all responses.}
-  \item{xMat}{if requested, the (diagonally stacked) model matrix.}
-  \item{hMat}{if requested, the (diagonally stacked) matrix
-      of instrumental variables (only 2SLS and 3SLS).}
   \item{R.restr}{the restriction matrix.}
   \item{q.restr}{the restriction vector.}
   \item{TX}{matrix used to transform the regressor matrix.}
