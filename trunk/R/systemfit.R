@@ -547,7 +547,6 @@ systemfit <- function(  eqns,
   results$drcov   <- drcov          # determinant of residual covarance matrix
   results$olsr2   <- olsr2          # R-squared value of the equation system
   results$iter    <- iter           # residual correlation matrix
-  results$resids  <- resids         # vector of all (stacked) residuals
   if( method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
     results$rcovest <- rcovest      # residual covarance matrix used for estimation
     results$mcelr2  <- mcelr2       # McElroy's R-squared value for the equation system
