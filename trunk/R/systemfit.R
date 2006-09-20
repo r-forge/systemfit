@@ -66,12 +66,6 @@ systemfit <- function(  eqns,
    }
 
    results$call <- match.call() # get the original call
-   callNoDots <- match.call( expand.dots = FALSE ) #-"- without ...-expansion
-   if( "data" %in% names( callNoDots ) ) {
-      results$data.name <- callNoDots$data
-   } else {
-      results$data.name <- "unknown"
-   }
 
    # prepare data
    preparedData <- .prepareData.systemfit( data = data, eqns = eqns,

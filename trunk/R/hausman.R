@@ -27,7 +27,11 @@ hausman.systemfit <- function( results2sls, results3sls ) {
    result$p.value <- 1 - pchisq( result$statistic, result$parameter )
    result$method = paste( "Hausman specification test for consistency of",
       "the 3SLS estimation" )
-   result$data.name = results2sls$data.name
+   if( "data" %in% names( results2sls$call ) ) {
+      result$data.name <- results2sls$call$data
+   } else {
+      result$data.name <- "unknown"
+   }
    class( result ) <- "htest"
    return( result )
 }

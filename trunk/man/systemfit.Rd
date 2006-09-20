@@ -140,7 +140,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{q.restr}{the restriction vector.}
   \item{TX}{matrix used to transform the regressor matrix.}
   \item{control}{list of control parameters used for the estimation.}
-  \item{data.name}{name of the data.frame used for estimation.}
 
   ## elements of the class systemfit.eq
   \item{eq}{a list that contains the results that belong to the individual equations.}
