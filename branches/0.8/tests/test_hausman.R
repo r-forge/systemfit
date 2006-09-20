@@ -74,9 +74,9 @@ fit3sls2r <- systemfit( "3SLS", eqSystem, data = Kmenta, R.restr = restrm,
 ## ****************** estimation with restriction via TX ******************
 ## ********************** default estimation ********************
 fit2sls3 <- systemfit( "2SLS", eqSystem, data = Kmenta, TX = tc,
-   inst = inst, rcovformula = 0, probdfsys = TRUE )
+   inst = inst )
 fit3sls3 <- systemfit( "3SLS", eqSystem, data = Kmenta, TX = tc,
-   inst = inst, rcovformula = 0, probdfsys = TRUE )
+   inst = inst )
 print( hausman.systemfit( fit2sls3, fit3sls3 ) )
 
 ## ******************* estimations with rcovformula = 0 *******

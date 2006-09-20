@@ -109,15 +109,15 @@ Hausman = 2.9831, df = 7, p-value = 0.8866
 > ## ****************** estimation with restriction via TX ******************
 > ## ********************** default estimation ********************
 > fit2sls3 <- systemfit( "2SLS", eqSystem, data = Kmenta, TX = tc,
-+    inst = inst, rcovformula = 0, probdfsys = TRUE )
++    inst = inst )
 > fit3sls3 <- systemfit( "3SLS", eqSystem, data = Kmenta, TX = tc,
-+    inst = inst, rcovformula = 0, probdfsys = TRUE )
++    inst = inst )
 > print( hausman.systemfit( fit2sls3, fit3sls3 ) )
 
 	Hausman specification test for consistency of the 3SLS estimation
 
 data:  Kmenta 
-Hausman = -0.0132, df = 6, p-value = 1
+Hausman = -0.2815, df = 6, p-value = 1
 
 > 
 > ## ******************* estimations with rcovformula = 0 *******
