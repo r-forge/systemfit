@@ -22,7 +22,7 @@
    \item{level}{confidence level.}
    \item{useDfSys}{logical. Use the degrees of freedom of the whole system
       (in place of the degrees of freedom of the single equation)
-      to calculate prob values for the t-test of individual parameters.
+      to calculate the confidence intervals of the coefficients.
       If it not specified (\code{NULL}), it is set to \code{TRUE}
       if there are parameter restrictions and \code{FALSE} otherwise.}
    \item{\dots}{other arguments.}
