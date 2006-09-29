@@ -530,7 +530,7 @@ systemfit <- function(  eqns,
   ## build the "return" structure for the whole system
   results$method  <- method
   results$eqnLabels <- eqnLabels
-  results$nObsAll <- nObsAll        # total number of observations of all equations
+  results$nObs    <- nObsAll        # total number of observations of all equations
   results$nExogAll <- nExogAll      # total number of exogenous variables/coefficients in all equations
   results$nExogEq <- nExogEq        # number of exogenous variables/coefficients
                                        # in each equation

@@ -36,7 +36,7 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
-   result$df <- c( object$nExogAll, object$nObsAll - object$nExogAll )
+   result$df <- c( object$nExogAll, object$nObs - object$nExogAll )
    result$ols.r.squared <- object$olsr2
    result$mcelroy.r.squared <- object$mcelr2
 
