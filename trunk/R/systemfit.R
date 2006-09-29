@@ -441,8 +441,8 @@ systemfit <- function(  eqns,
     resulti$nExogLi      <- nExogLiEq[i]    # number of linear independent coefficients
     resulti$nExogAll     <- nExogAll        # number of exogenous variables/coefficients
     resulti$nExogLiAll   <- nExogLiAll      # number of linear independent coefficients
-    resulti$df           <- df[i]           # degrees of freedom of residuals
-    resulti$dfSys        <- nObsAll- nExogLiAll
+    resulti$df.residual  <- df[i]           # degrees of freedom of residuals
+    resulti$df.residual.sys  <- nObsAll- nExogLiAll
        # degrees of freedom of residuals of the whole system
     resulti$coef         <- coefEqI         # estimated coefficients
     resulti$bcov         <- bcovi           # covariance matrix of estimated coefficients
@@ -540,7 +540,7 @@ systemfit <- function(  eqns,
      # total number of linear independent coefficients of all equations
   results$nExogLiEq  <- nExogLiEq
      # number of linear independent coefficients in each equation
-  results$df      <- nObsAll - nExogLiAll
+  results$df.residual <- nObsAll - nExogLiAll
      # degrees of freedom of the whole system
   results$coef    <- coef           # all estimated coefficients
   results$bt      <- bt             # transformed vector of estimated coefficients

@@ -75,9 +75,9 @@ predict.systemfit.equation <- function( object, newdata = NULL,
    # confidence intervals
    if( interval == "confidence" ) {
       if( useDfSys ) {
-         tval   <- qt( 1 - ( 1- level )/2, object$dfSys )
+         tval   <- qt( 1 - ( 1- level )/2, object$df.residual.sys )
       } else {
-         tval   <- qt( 1 - ( 1- level )/2, object$df )
+         tval   <- qt( 1 - ( 1- level )/2, object$df.residual )
       }
       if(  length( yCovConf ) == 1 ) {
          stdErConf <- sqrt( yCovConf )
@@ -90,9 +90,9 @@ predict.systemfit.equation <- function( object, newdata = NULL,
    # prediction intervals
    if( interval == "prediction" ) {
       if( useDfSys ) {
-         tval   <- qt( 1 - ( 1- level )/2, object$dfSys )
+         tval   <- qt( 1 - ( 1- level )/2, object$df.residual.sys )
       } else {
-         tval   <- qt( 1 - ( 1- level )/2, object$df )
+         tval   <- qt( 1 - ( 1- level )/2, object$df.residual )
       }
       if( length( yCovPred ) == 1 ) {
          stdErPred <- sqrt( yCovPred )

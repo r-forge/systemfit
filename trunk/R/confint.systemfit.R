@@ -14,7 +14,7 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95,
             dimnames = list( names( object$coef ), pct ) )
    j <- 1
    for( i in 1:object$nEq ) {
-      object$eq[[i]]$dfSys <- object$df
+      object$eq[[i]]$df.residual.sys <- object$df.residual
       ci[ j:(j+object$eq[[ i ]]$nExog-1), ] <- confint( object$eq[[ i ]],
          useDfSys = useDfSys )
       j <- j + object$eq[[ i ]]$nExog
@@ -38,9 +38,9 @@ confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
    ci <- matrix( NA, length( object$coef ), 2,
             dimnames = list( names( object$coef ), pct ) )
    if( useDfSys ) {
-      fac <- qt( probBoth, object$dfSys )
+      fac <- qt( probBoth, object$df.residual.sys )
    } else {
-      fac <- qt( probBoth, object$df )
+      fac <- qt( probBoth, object$df.residual )
    }
    coef <- summary( object )$coefficients
    ci[] <- coef[ , 1 ] + coef[ , 2 ] %o% fac

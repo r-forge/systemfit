@@ -30,7 +30,7 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    stdEr <- diag( result$coefCov )^0.5  # standard errors
    tStat <- coef / stdEr                # t-statistic
    if( useDfSys ) {             # p-values
-      pVal <- 2 * ( 1 - pt( abs( tStat ), object$df ) )
+      pVal <- 2 * ( 1 - pt( abs( tStat ), object$df.residual ) )
    } else {
       pVal <- rep( NA, length( coef ) )
    }
@@ -158,9 +158,9 @@ summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
    stdEr <- diag( result$coefCov )^0.5  # standard errors
    tStat <- coef / stdEr                # t-statistic
    if( useDfSys ) {             # p-values
-      pVal <- 2 * ( 1 - pt( abs( tStat ), object$dfSys ) )
+      pVal <- 2 * ( 1 - pt( abs( tStat ), object$df.residual.sys ) )
    } else {
-      pVal <- 2 * ( 1 - pt( abs( tStat ), object$df ) )
+      pVal <- 2 * ( 1 - pt( abs( tStat ), object$df.residual ) )
    }
    result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",

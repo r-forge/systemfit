@@ -121,7 +121,7 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{nExogLiAll}{total number of linear independent coefficients
       in all equations.}
   \item{nExogLiEq}{number of linear independent coefficients in each equation.}
-  \item{df}{degrees of freedom of the whole system.}
+  \item{df.residual}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}
   \item{coef}{vector of all estimated coefficients.}
   \item{bt}{coefficient vector transformed by \code{TX}.}
@@ -152,8 +152,8 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
       in all equation (including constants).}
   \item{nExogLiAll*}{total number of linear independent coefficients
       in all equations (including constants).}
-  \item{df*}{degrees of freedom of the ith equation.}
-
+  \item{df.residual*}{degrees of freedom of the ith equation.}
+  \item{df.residual.sys*}{degrees of freedom of the whole system.}
   \item{coef*}{estimated coefficients of the ith equation.}
   \item{covb*}{estimated covariance matrix of \code{coef}.}
 

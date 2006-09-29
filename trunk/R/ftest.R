@@ -15,7 +15,7 @@ ftest.systemfit <- function( object, R.restr,
    result <- list()
 
    result$nRestr <- nrow( R.restr )
-   result$dfSys  <- object$df
+   result$df.residual.sys  <- object$df.residual
 
    numerator <- t( R.restr %*% coef - q.restr ) %*%
       solve( R.restr %*% vcov %*% t( R.restr ) ) %*%
@@ -27,9 +27,9 @@ ftest.systemfit <- function( object, R.restr,
    #print( denominator )
 
    result$statistic <- ( numerator / result$nRestr ) /
-      ( denominator / result$dfSys )
+      ( denominator / result$df.residual.sys )
 
-   result$p.value <- 1 - pf( result$statistic, result$nRestr, result$dfSys )
+   result$p.value <- 1 - pf( result$statistic, result$nRestr, result$df.residual.sys )
 
    class( result ) <- "ftest.systemfit"
    return( result )
@@ -40,7 +40,7 @@ print.ftest.systemfit <- function( x, digits = 4, ... ){
       " in equation systems\n", sep = "" )
    cat( "F-statistic:", formatC( x$statistic, digits = digits ), "\n" )
    cat( "degrees of freedom of the numerator:", x$nRestr, "\n" )
-   cat( "degrees of freedom of the denominator:", x$dfSys, "\n" )
+   cat( "degrees of freedom of the denominator:", x$df.residual.sys, "\n" )
    cat( "p-value:", formatC( x$p.value, digits = digits ), "\n\n" )
    invisible( x )
 }
