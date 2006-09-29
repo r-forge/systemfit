@@ -10,7 +10,7 @@
    xMatEq  <- list()               # list for matrices of regressors in each equation
    xMatAll <- matrix( 0, 0, 0 )    # stacked matrices of all regressors (unrestricted)
    nObsEq  <- numeric( nEq ) # number of observations in each equation
-   nExogEq <- numeric( nEq ) # number of exogenous variables /(unrestricted) coefficients
+   nCoefEq <- numeric( nEq ) # number of exogenous variables /(unrestricted) coefficients
                                      # in each equation
    instEq  <- list()         # list of the instruments for each equation
    xnames  <- NULL           # names of regressors
@@ -37,8 +37,8 @@
       xMatAll <- rbind( cbind( xMatAll, matrix( 0, nrow( xMatAll ), ncol( xMatEq[[i]] ))),
                   cbind( matrix( 0, nrow( xMatEq[[i]] ), ncol( xMatAll )), xMatEq[[i]]))
       nObsEq[i] <- length( yVecEq[[i]] )
-      nExogEq[i] <- ncol(xMatEq[[i]])
-      for(j in 1:nExogEq[i]) {
+      nCoefEq[i] <- ncol(xMatEq[[i]])
+      for(j in 1:nCoefEq[i]) {
          xnames <- c( xnames, paste( eqnLabels[ i ],colnames( xMatEq[[i]] )[j],
             sep = "_" ))
       }
@@ -59,7 +59,7 @@
    result$yVecAll    <- yVecAll
    result$xMatAll    <- xMatAll
    result$nObsEq     <- nObsEq
-   result$nExogEq    <- nExogEq
+   result$nCoefEq    <- nCoefEq
    result$xnames     <- xnames
 
    ## preparing instruments

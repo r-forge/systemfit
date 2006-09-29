@@ -2,7 +2,7 @@
 summary.systemfit <- function( object, useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- object$nExogAll != object$nExogLiAll
+      useDfSys <- object$nCoefAll != object$nCoefLiAll
          # TRUE if there are restrictions imposed
    }
 
@@ -36,7 +36,7 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
-   result$df <- c( object$nExogAll, object$nObs - object$nExogAll )
+   result$df <- c( object$nCoefAll, object$nObs - object$nCoefAll )
    result$ols.r.squared <- object$olsr2
    result$mcelroy.r.squared <- object$mcelr2
 
@@ -138,7 +138,7 @@ print.summary.systemfit <- function( x, digits=6,... ) {
 summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- object$nExogAll != object$nExogLiAll
+      useDfSys <- object$nCoefAll != object$nCoefLiAll
          # TRUE if there are restrictions imposed
    }
 
@@ -164,7 +164,7 @@ summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
    result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
-   result$df <- c( object$nExog, object$nObs - object$nExog )
+   result$df <- c( object$nCoef, object$nObs - object$nCoef )
    result$nObs <- object$nObs
    result$sigma <- object$sigma
    result$ssr <- object$ssr

@@ -112,13 +112,13 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{method}{estimation method.}
   \item{eqnLabels}{equation labels.}
   \item{nObs}{total number of observations of all equations.}
-  \item{nExogAll}{total number of exogenous variables/coefficients
+  \item{nCoefAll}{total number of exogenous variables/coefficients
       in all equations (including the constants).}
-  \item{nExogEq}{number of exogenous variables/coefficients in each equation
+  \item{nCoefEq}{number of exogenous variables/coefficients in each equation
       (including the constants).}
-  \item{nExogLiAll}{total number of linear independent coefficients
+  \item{nCoefLiAll}{total number of linear independent coefficients
       in all equations.}
-  \item{nExogLiEq}{number of linear independent coefficients in each equation.}
+  \item{nCoefLiEq}{number of linear independent coefficients in each equation.}
   \item{df.residual}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}
   \item{coef}{vector of all estimated coefficients.}
@@ -141,14 +141,14 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{terms*}{the 'terms' object used for the ith equation.}
   \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
   \item{nObs*}{number of observations of the ith equation.}
-  \item{nExog*}{number of exogenous variables/coefficients in the ith equation
+  \item{nCoef*}{number of exogenous variables/coefficients in the ith equation
      (including the constant).}
-  \item{nExogLi*}{number of linear independent coefficients in the ith equation
-     (including the constant differs from \code{nExog*} only if there are
+  \item{nCoefLi*}{number of linear independent coefficients in the ith equation
+     (including the constant differs from \code{nCoef*} only if there are
      restrictions that are not cross-equation).}
-  \item{nExogAll*}{total number of exogenous variables/coefficients
+  \item{nCoefAll*}{total number of exogenous variables/coefficients
       in all equation (including constants).}
-  \item{nExogLiAll*}{total number of linear independent coefficients
+  \item{nCoefLiAll*}{total number of linear independent coefficients
       in all equations (including constants).}
   \item{df.residual*}{degrees of freedom of the ith equation.}
   \item{df.residual.sys*}{degrees of freedom of the whole system.}

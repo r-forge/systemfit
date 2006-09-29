@@ -4,7 +4,7 @@ lrtest.systemfit <- function( resultc, resultu ) {
   if( resultc$method %in% c( "SUR", "WSUR" ) &
       resultu$method %in% c( "SUR", "WSUR" ) ) {
     nObs <- resultu$nObs / length( resultu$eq )
-    lrtest$nRestr  <- resultu$nExogLiAll - resultc$nExogLiAll
+    lrtest$nRestr  <- resultu$nCoefLiAll - resultc$nCoefLiAll
     if( resultc$control$methodRCov != resultu$control$methodRCov ) {
       stop( paste( "both estimations must use the same formula to calculate",
                    "the residual covariance matrix!" ) )

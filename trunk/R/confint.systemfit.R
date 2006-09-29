@@ -3,7 +3,7 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95,
       useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- object$nExogAll != object$nExogLiAll
+      useDfSys <- object$nCoefAll != object$nCoefLiAll
          # TRUE if there are restrictions imposed
    }
 
@@ -15,9 +15,9 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95,
    j <- 1
    for( i in 1:length( object$eq ) ) {
       object$eq[[i]]$df.residual.sys <- object$df.residual
-      ci[ j:(j+object$eq[[ i ]]$nExog-1), ] <- confint( object$eq[[ i ]],
+      ci[ j:(j+object$eq[[ i ]]$nCoef-1), ] <- confint( object$eq[[ i ]],
          useDfSys = useDfSys )
-      j <- j + object$eq[[ i ]]$nExog
+      j <- j + object$eq[[ i ]]$nCoef
    }
    class( ci ) <- "confint.systemfit"
    ci
@@ -28,7 +28,7 @@ confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
    useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- object$nExogAll != object$nExogLiAll
+      useDfSys <- object$nCoefAll != object$nCoefLiAll
          # TRUE if there are restrictions imposed
    }
 

@@ -2,13 +2,13 @@
 ## cross-equation corrlations between eq i and eq j
 ## from the results set for equation ij
 correlation.systemfit <- function( results, eqni, eqnj ) {
-  nExogEq <- results$nExogEq
-  cij <- results$bcov[(1+sum(nExogEq[1:eqni])-nExogEq[eqni]):(sum(nExogEq[1:eqni])),
-                      (1+sum(nExogEq[1:eqnj])-nExogEq[eqnj]):(sum(nExogEq[1:eqnj]))]
-  cii <- results$bcov[(1+sum(nExogEq[1:eqni])-nExogEq[eqni]):(sum(nExogEq[1:eqni])),
-                      (1+sum(nExogEq[1:eqni])-nExogEq[eqni]):(sum(nExogEq[1:eqni]))]
-  cjj <- results$bcov[(1+sum(nExogEq[1:eqnj])-nExogEq[eqnj]):(sum(nExogEq[1:eqnj])),
-                      (1+sum(nExogEq[1:eqnj])-nExogEq[eqnj]):(sum(nExogEq[1:eqnj]))]
+  nCoefEq <- results$nCoefEq
+  cij <- results$bcov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
+                      (1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj]))]
+  cii <- results$bcov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
+                      (1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni]))]
+  cjj <- results$bcov[(1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj])),
+                      (1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj]))]
   rij <- NULL
 
   for(i in 1:results$eq[[1]]$nObs ) {
