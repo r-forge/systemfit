@@ -20,7 +20,7 @@ print.systemfit <- function( x, digits=6,... ) {
       }
    }
    cat( "Coefficients:\n" )
-   print( x$coef )
+   print( x$coefficients )
    invisible( x )
 }
 
@@ -43,6 +43,6 @@ print.systemfit.equation <- function( x, digits=6, ... ) {
    }
 
    cat("\nCoefficients:")
-   print( x$coef )
+   print( x$coefficients )
    invisible( x )
 }

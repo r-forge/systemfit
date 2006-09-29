@@ -46,7 +46,7 @@ predict.systemfit.equation <- function( object, newdata = NULL,
    }
 
    # fitted values
-   predicted <- data.frame( fit = drop( xMat %*% object$coef ) )
+   predicted <- data.frame( fit = drop( xMat %*% object$coefficients ) )
 
    # calculate variance covariance matrices
    if( se.fit | interval == "confidence" ) {

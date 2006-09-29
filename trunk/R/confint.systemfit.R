@@ -10,8 +10,8 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95,
    probLower <- ( 1 - level ) / 2
    probBoth <- c( probLower, 1 - probLower )
    pct <- paste( round( 100 * probBoth, 1 ), "%" )
-   ci <- matrix( NA, length( object$coef ), 2,
-            dimnames = list( names( object$coef ), pct ) )
+   ci <- matrix( NA, length( object$coefficients ), 2,
+            dimnames = list( names( object$coefficients ), pct ) )
    j <- 1
    for( i in 1:length( object$eq ) ) {
       object$eq[[i]]$df.residual.sys <- object$df.residual
@@ -35,8 +35,8 @@ confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
    probLower <- ( 1 - level ) / 2
    probBoth <- c( probLower, 1 - probLower )
    pct <- paste( round( 100 * probBoth, 1 ), "%" )
-   ci <- matrix( NA, length( object$coef ), 2,
-            dimnames = list( names( object$coef ), pct ) )
+   ci <- matrix( NA, length( object$coefficients ), 2,
+            dimnames = list( names( object$coefficients ), pct ) )
    if( useDfSys ) {
       fac <- qt( probBoth, object$df.residual.sys )
    } else {

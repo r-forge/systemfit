@@ -121,9 +121,9 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{nCoefLiEq}{number of linear independent coefficients in each equation.}
   \item{df.residual}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}
-  \item{coef}{vector of all estimated coefficients.}
+  \item{coefficients}{vector of all estimated coefficients.}
   \item{bt}{coefficient vector transformed by \code{TX}.}
-  \item{bcov}{estimated covariance matrix of \code{b}.}
+  \item{bcov}{estimated covariance matrix of \code{coefficients}.}
   \item{btcov}{covariance matrix of \code{bt}.}
   \item{rcov}{estimated residual covariance matrix.}
   \item{drcov}{determinant of \code{rcov}.}
@@ -152,8 +152,8 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
       in all equations (including constants).}
   \item{df.residual*}{degrees of freedom of the ith equation.}
   \item{df.residual.sys*}{degrees of freedom of the whole system.}
-  \item{coef*}{estimated coefficients of the ith equation.}
-  \item{covb*}{estimated covariance matrix of \code{coef}.}
+  \item{coefficients*}{estimated coefficients of the ith equation.}
+  \item{covb*}{estimated covariance matrix of \code{coefficients}.}
 
   \item{response*}{if requested, the response of the ith equation.}
   \item{modelMatrix*}{if requested, the model matrix of the ith equation.}

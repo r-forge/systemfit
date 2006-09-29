@@ -40,7 +40,7 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
 
 ## return all coefficients
 coef.systemfit <- function( object, ... ) {
-   object$coef
+   object$coefficients
 }
 
 ## return all coefficients, std.errors, t-values and p-values
@@ -50,12 +50,12 @@ coef.summary.systemfit <- function( object, ... ) {
 
 ## return the coefficients of a single equation
 coef.systemfit.equation <- function( object, ... ) {
-   object$coef
+   object$coefficients
 }
 
 ## return coefficients, std.errors, t-values and p-values of a single equation
 coef.summary.systemfit.equation <- function( object, ... ) {
-   object$coef
+   object$coefficients
 }
 
 ## return all residuals

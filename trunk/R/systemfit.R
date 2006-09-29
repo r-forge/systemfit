@@ -395,7 +395,7 @@ systemfit <- function(  eqns,
       nCoefEq = nCoefLiEq, yVec = yVecAll, xMat = xMatAll, xEq = xMatEq, methodRCov = control$methodRCov,
       centerResiduals = control$centerResiduals, solvetol = control$solvetol )
     #print( fimlResult )
-    coef <- fimlResult$coef
+    coef <- fimlResult$coefficients
     bcov <- fimlResult$coefCov
     resids <- fimlResult$resids
   }
@@ -444,7 +444,7 @@ systemfit <- function(  eqns,
     resulti$df.residual  <- df[i]           # degrees of freedom of residuals
     resulti$df.residual.sys  <- nObsAll- nCoefLiAll
        # degrees of freedom of residuals of the whole system
-    resulti$coef         <- coefEqI         # estimated coefficients
+    resulti$coefficients <- coefEqI         # estimated coefficients
     resulti$bcov         <- bcovi           # covariance matrix of estimated coefficients
     if( control$returnResponse ){
       resulti$response     <- yVecEq[[i]]     # vector of endogenous variables
@@ -540,7 +540,7 @@ systemfit <- function(  eqns,
      # number of linear independent coefficients in each equation
   results$df.residual <- nObsAll - nCoefLiAll
      # degrees of freedom of the whole system
-  results$coef    <- coef           # all estimated coefficients
+  results$coefficients <- coef           # all estimated coefficients
   results$bt      <- bt             # transformed vector of estimated coefficients
   results$bcov    <- bcov           # coefficients covariance matrix
   results$btcov   <- btcov          # covariance matrix for transformed coeff. vector

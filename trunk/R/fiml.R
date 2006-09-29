@@ -59,9 +59,9 @@
    mlResult$optim <- optim( startCoef, .systemfitFimlLik, method = "BFGS",
       control = list( fnscale = -1 ), mlVars = mlVars )
    # methods: "BFGS" "Nelder-Mead"
-   mlResult$coef <- mlResult$optim$par
-   mlResult$coefCov <- diag( 1, length( mlResult$coef ) )
-   mlResult$resids  <- yVec - xMat %*% mlResult$coef
+   mlResult$coefficients <- mlResult$optim$par
+   mlResult$coefCov <- diag( 1, length( mlResult$coefficients ) )
+   mlResult$resids  <- yVec - xMat %*% mlResult$coefficients
 
    return( mlResult )
 }
