@@ -40,7 +40,7 @@ print( summary( fitw2sls1 ) )
 ## ********************* W2SLS (EViews-like) *****************
 fitw2sls1e <- systemfit( system, "W2SLS", data = Kmenta, inst = inst,
    methodRCov = "noDfCor" )
-print( summary( fitw2sls1e, probDfSys = TRUE ) )
+print( summary( fitw2sls1e, useDfSys = TRUE ) )
 
 ## ********************* W2SLS with restriction *******************
 fitw2sls2 <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restrm,
@@ -50,7 +50,7 @@ print( summary( fitw2sls2 ) )
 ## ********************* W2SLS with restriction (EViews-like) **************
 fitw2sls2e <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restrm,
    inst = inst, methodRCov = "noDfCor" )
-print( summary( fitw2sls2e, probDfSys = TRUE ) )
+print( summary( fitw2sls2e, useDfSys = TRUE ) )
 
 ## ********************* W2SLS with restriction via TX *******************
 fitw2sls3 <- systemfit( system, "W2SLS", data = Kmenta, TX = tc, inst = inst )
@@ -59,7 +59,7 @@ print( summary( fitw2sls3 ) )
 ## ********************* W2SLS with restriction via TX (EViews-like) **************
 fitw2sls3e <- systemfit( system, "W2SLS", data = Kmenta, TX = tc, inst = inst,
    methodRCov = "noDfCor" )
-print( summary( fitw2sls3e, probDfSys = TRUE ) )
+print( summary( fitw2sls3e, useDfSys = TRUE ) )
 
 ## ***************** W2SLS with 2 restrictions ********************
 fitw2sls4 <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restr2m,
@@ -69,7 +69,7 @@ print( summary( fitw2sls4 ) )
 ## ***************** W2SLS with 2 restrictions (EViews-like) **************
 fitw2sls4e <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, inst = inst, methodRCov = "noDfCor" )
-print( summary( fitw2sls4e, probDfSys = TRUE ) )
+print( summary( fitw2sls4e, useDfSys = TRUE ) )
 
 ## ***************** W2SLS with 2 restrictions via R and TX ******************
 fitw2sls5 <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restr3m,
@@ -79,7 +79,7 @@ print( summary( fitw2sls5 ) )
 ## ***************** W2SLS with 2 restrictions via R and TX (EViews-like) **************
 fitw2sls5e <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restr3m,
    q.restr = restr3q, TX = tc, inst = inst, methodRCov = "noDfCor" )
-print( summary( fitw2sls5e, probDfSys = TRUE ) )
+print( summary( fitw2sls5e, useDfSys = TRUE ) )
 
 ## ****** 2SLS estimation with different instruments **********************
 fitw2slsd1 <- systemfit( system, "W2SLS", data = Kmenta, inst = instlist )
@@ -88,7 +88,7 @@ print( summary( fitw2slsd1 ) )
 ## ****** 2SLS estimation with different instruments (EViews-like)******************
 fitw2slsd1e <- systemfit( system, "W2SLS", data = Kmenta, inst = instlist,
    methodRCov = "noDfCor" )
-print( summary( fitw2slsd1e, probDfSys = TRUE ) )
+print( summary( fitw2slsd1e, useDfSys = TRUE ) )
 
 ## **** W2SLS estimation with different instruments and restriction ********
 fitw2slsd2 <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restrm,
@@ -98,7 +98,7 @@ print( summary( fitw2slsd2 ) )
 ## **** W2SLS estimation with different instruments and restriction (EViews-like)*
 fitw2slsd2e <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restrm,
    inst = instlist, methodRCov = "noDfCor" )
-print( summary( fitw2slsd2e, probDfSys = TRUE ) )
+print( summary( fitw2slsd2e, useDfSys = TRUE ) )
 
 ## ** W2SLS estimation with different instruments and restriction via TX ****
 fitw2slsd3 <- systemfit( system, "W2SLS", data = Kmenta, TX = tc,
@@ -108,7 +108,7 @@ print( summary( fitw2slsd3 ) )
 ## W2SLS estimation with different instruments and restriction via TX (EViews-like)
 fitw2slsd3e <- systemfit( system, "W2SLS", data = Kmenta, TX = tc,
    inst = instlist, methodRCov = "noDfCor" )
-print( summary( fitw2slsd3e, probDfSys = TRUE ) )
+print( summary( fitw2slsd3e, useDfSys = TRUE ) )
 
 
 ## ****************** residuals **************************
@@ -164,8 +164,8 @@ print( round( vcov( fitw2slsd3$eq[[ 1 ]] ), digits = 6 ) )
 
 
 ## *********** confidence intervals of coefficients *************
-print( confint( fitw2sls1e, probDfSys = TRUE ) )
-print( confint( fitw2sls1e$eq[[ 1 ]], level = 0.9, probDfSys = TRUE ) )
+print( confint( fitw2sls1e, useDfSys = TRUE ) )
+print( confint( fitw2sls1e$eq[[ 1 ]], level = 0.9, useDfSys = TRUE ) )
 
 print( confint( fitw2sls2, level = 0.9 ) )
 print( confint( fitw2sls2$eq[[ 2 ]], level = 0.99 ) )
@@ -173,8 +173,8 @@ print( confint( fitw2sls2$eq[[ 2 ]], level = 0.99 ) )
 print( confint( fitw2sls3, level = 0.99 ) )
 print( confint( fitw2sls3$eq[[ 1 ]], level = 0.5 ) )
 
-print( confint( fitw2sls4e, level = 0.5, probDfSys = TRUE ) )
-print( confint( fitw2sls4e$eq[[ 2 ]], level = 0.25, probDfSys = TRUE ) )
+print( confint( fitw2sls4e, level = 0.5, useDfSys = TRUE ) )
+print( confint( fitw2sls4e$eq[[ 2 ]], level = 0.25, useDfSys = TRUE ) )
 
 print( confint( fitw2sls5, level = 0.25 ) )
 print( confint( fitw2sls5$eq[[ 1 ]], level = 0.975 ) )
@@ -182,11 +182,11 @@ print( confint( fitw2sls5$eq[[ 1 ]], level = 0.975 ) )
 print( confint( fitw2slsd1, level = 0.975 ) )
 print( confint( fitw2slsd1$eq[[ 2 ]], level = 0.999 ) )
 
-print( confint( fitw2slsd2e, level = 0.999, probDfSys = TRUE ) )
-print( confint( fitw2slsd2e$eq[[ 1 ]], level = 0.01, probDfSys = TRUE ) )
+print( confint( fitw2slsd2e, level = 0.999, useDfSys = TRUE ) )
+print( confint( fitw2slsd2e$eq[[ 1 ]], level = 0.01, useDfSys = TRUE ) )
 
-print( confint( fitw2slsd3e, level = 0.01, probDfSys = TRUE ) )
-print( confint( fitw2slsd3e$eq[[ 2 ]], probDfSys = TRUE ) )
+print( confint( fitw2slsd3e, level = 0.01, useDfSys = TRUE ) )
+print( confint( fitw2slsd3e$eq[[ 2 ]], useDfSys = TRUE ) )
 
 
 ## *********** fitted values *************
@@ -222,9 +222,9 @@ predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
 print( predict( fitw2sls1e, se.fit = TRUE, interval = "prediction",
-   probDfSys = TRUE ) )
+   useDfSys = TRUE ) )
 print( predict( fitw2sls1e$eq[[ 1 ]], se.fit = TRUE, interval = "prediction",
-   probDfSys = TRUE ) )
+   useDfSys = TRUE ) )
 
 print( predict( fitw2sls2, se.pred = TRUE, interval = "confidence",
    level = 0.999, newdata = predictData ) )
@@ -237,9 +237,9 @@ print( predict( fitw2sls3$eq[[ 1 ]], se.pred = TRUE, interval = "prediction",
    level = 0.975 ) )
 
 print( predict( fitw2sls4e, se.fit = TRUE, interval = "confidence",
-   level = 0.25, probDfSys = TRUE ) )
+   level = 0.25, useDfSys = TRUE ) )
 print( predict( fitw2sls4e$eq[[ 2 ]], se.fit = TRUE, interval = "confidence",
-   level = 0.25, probDfSys = TRUE ) )
+   level = 0.25, useDfSys = TRUE ) )
 
 print( predict( fitw2sls5, se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.5, newdata = predictData ) )
@@ -252,14 +252,14 @@ print( predict( fitw2slsd1$eq[[ 2 ]], se.fit = TRUE, se.pred = TRUE,
    interval = "confidence", level = 0.99 ) )
 
 print( predict( fitw2slsd2e, se.fit = TRUE, interval = "prediction",
-   level = 0.9, newdata = predictData, probDfSys = TRUE ) )
+   level = 0.9, newdata = predictData, useDfSys = TRUE ) )
 print( predict( fitw2slsd2e$eq[[ 1 ]], se.fit = TRUE, interval = "prediction",
-   level = 0.9, newdata = predictData, probDfSys = TRUE ) )
+   level = 0.9, newdata = predictData, useDfSys = TRUE ) )
 
 print( predict( fitw2slsd3e, se.fit = TRUE, se.pred = TRUE,
-   interval = "prediction", level = 0.01, probDfSys = TRUE ) )
+   interval = "prediction", level = 0.01, useDfSys = TRUE ) )
 print( predict( fitw2slsd3e$eq[[ 2 ]], se.fit = TRUE, se.pred = TRUE,
-   interval = "prediction", level = 0.01, probDfSys = TRUE ) )
+   interval = "prediction", level = 0.01, useDfSys = TRUE ) )
 
 # predict just one observation
 smallData <- data.frame( price = 130, income = 150, farmPrice = 120,

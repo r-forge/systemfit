@@ -117,7 +117,7 @@ Multiple R-Squared: 0.611888 Adjusted R-Squared: 0.539117
 > 
 > ## ********************* SUR (EViews-like) *****************
 > fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor" )
-> print( summary( fitsur1e, probDfSys = TRUE ) )
+> print( summary( fitsur1e, useDfSys = TRUE ) )
 
 systemfit results 
 method: SUR 
@@ -243,9 +243,9 @@ SSR: 105.322063 MSE: 6.582629 Root MSE: 2.565663
 Multiple R-Squared: 0.607175 Adjusted R-Squared: 0.53352 
 
 > 
-> ## *************** SUR (methodRCov="Theil", probDfSys = TRUE ) ***************
+> ## *************** SUR (methodRCov="Theil", useDfSys = TRUE ) ***************
 > fitsur1e2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
-> print( summary( fitsur1e2, probDfSys = TRUE ) )
+> print( summary( fitsur1e2, useDfSys = TRUE ) )
 
 systemfit results 
 method: SUR 
@@ -1079,7 +1079,7 @@ Multiple R-Squared: 0.937938 Adjusted R-Squared: 0.926301
 > ## ************** iterated SUR (EViews-like) *****************
 > fitsuri1e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
 +    maxit = 100 )
-> print( summary( fitsuri1e, probDfSys = TRUE ) )
+> print( summary( fitsuri1e, useDfSys = TRUE ) )
 
 systemfit results 
 method: iterated SUR 
@@ -1208,10 +1208,10 @@ SSR: 41.764463 MSE: 2.610279 Root MSE: 1.615636
 Multiple R-Squared: 0.937408 Adjusted R-Squared: 0.925672 
 
 > 
-> ## ************** iterated SUR (methodRCov="Theil", probDfSys=TRUE) *****************
+> ## ************** iterated SUR (methodRCov="Theil", useDfSys=TRUE) *****************
 > fitsuri1e2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
 +    maxit = 100 )
-> print( summary( fitsuri1e2, probDfSys = TRUE ) )
+> print( summary( fitsuri1e2, useDfSys = TRUE ) )
 
 systemfit results 
 method: iterated SUR 
@@ -2575,7 +2575,7 @@ income         0.070528 -0.000872  0.000171
 > 
 > 
 > ## *********** confidence intervals of coefficients *************
-> print( confint( fitsur1e2, probDfSys = TRUE ) )
+> print( confint( fitsur1e2, useDfSys = TRUE ) )
                     2.5 %  97.5 %
 demand_(Intercept) 83.927 114.497
 demand_price       -0.445  -0.088
@@ -2584,7 +2584,7 @@ supply_(Intercept) 40.751  85.403
 supply_price       -0.048   0.336
 supply_farmPrice    0.128   0.285
 supply_trend        0.202   0.463
-> print( confint( fitsur1e2$eq[[ 2 ]], level = 0.9, probDfSys = TRUE ) )
+> print( confint( fitsur1e2$eq[[ 2 ]], level = 0.9, useDfSys = TRUE ) )
                5 %   95 %
 (Intercept) 44.506 81.648
 price       -0.016  0.304
@@ -3010,7 +3010,7 @@ income       0.274  0.327
 > predictData$income <- Kmenta$income * 1.1
 > 
 > print( predict( fitsur1e2, se.fit = TRUE, interval = "prediction",
-+    probDfSys = TRUE ) )
++    useDfSys = TRUE ) )
    demand.pred demand.se.fit demand.lwr demand.upr supply.pred supply.se.fit
 1     97.86993     0.6065642   93.65231  102.08754    98.06675     0.7796843
 2     99.78491     0.5691035   95.58897  103.98086    99.19325     0.7933149
@@ -3054,7 +3054,7 @@ income       0.274  0.327
 19   97.53382   108.5465
 20   99.18344   111.3106
 > print( predict( fitsur1e2$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
-+    probDfSys = TRUE ) )
++    useDfSys = TRUE ) )
          fit    se.fit      lwr      upr
 1   98.06675 0.7796843 92.61116 103.5223
 2   99.19325 0.7933149 93.72953 104.6570

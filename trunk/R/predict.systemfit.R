@@ -2,17 +2,17 @@
 predict.systemfit <- function( object, newdata = NULL,
                                se.fit=FALSE, se.pred=FALSE,
                                interval="none", level=0.95,
-                               probDfSys = NULL, ... ) {
+                               useDfSys = NULL, ... ) {
 
-   if( is.null( probDfSys ) ) {
-      probDfSys <- object$nExogAll != object$nExogLiAll
+   if( is.null( useDfSys ) ) {
+      useDfSys <- object$nExogAll != object$nExogLiAll
          # TRUE if there are restrictions imposed
    }
 
    for(i in 1:object$nEq )  {
       predicted.i <- predict( object$eq[[ i ]], newdata = newdata,
          se.fit = se.fit, se.pred = se.pred, interval = interval,
-         level = level, probDfSys = probDfSys )
+         level = level, useDfSys = useDfSys )
       names( predicted.i ) <- paste( object$eq[[ i ]]$eqnLabel, ".",
          names( predicted.i ), sep = "" )
       if( i == 1 ) {
@@ -31,10 +31,10 @@ predict.systemfit <- function( object, newdata = NULL,
 predict.systemfit.equation <- function( object, newdata = NULL,
                                se.fit=FALSE, se.pred=FALSE,
                                interval="none", level=0.95,
-                               probDfSys = NULL, ... ) {
+                               useDfSys = NULL, ... ) {
 
-   if( is.null( probDfSys ) ) {
-      probDfSys <- object$nExogAll != object$nExogLiAll
+   if( is.null( useDfSys ) ) {
+      useDfSys <- object$nExogAll != object$nExogLiAll
          # TRUE if there are restrictions imposed
    }
 
@@ -74,7 +74,7 @@ predict.systemfit.equation <- function( object, newdata = NULL,
 
    # confidence intervals
    if( interval == "confidence" ) {
-      if( probDfSys ) {
+      if( useDfSys ) {
          tval   <- qt( 1 - ( 1- level )/2, object$dfSys )
       } else {
          tval   <- qt( 1 - ( 1- level )/2, object$df )
@@ -89,7 +89,7 @@ predict.systemfit.equation <- function( object, newdata = NULL,
    }
    # prediction intervals
    if( interval == "prediction" ) {
-      if( probDfSys ) {
+      if( useDfSys ) {
          tval   <- qt( 1 - ( 1- level )/2, object$dfSys )
       } else {
          tval   <- qt( 1 - ( 1- level )/2, object$df )

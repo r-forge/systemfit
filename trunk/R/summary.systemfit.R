@@ -1,8 +1,8 @@
 ## prepare summary results that belong to the whole system
-summary.systemfit <- function( object, probDfSys = NULL, ... ) {
+summary.systemfit <- function( object, useDfSys = NULL, ... ) {
 
-   if( is.null( probDfSys ) ) {
-      probDfSys <- object$nExogAll != object$nExogLiAll
+   if( is.null( useDfSys ) ) {
+      useDfSys <- object$nExogAll != object$nExogLiAll
          # TRUE if there are restrictions imposed
    }
 
@@ -29,7 +29,7 @@ summary.systemfit <- function( object, probDfSys = NULL, ... ) {
    coef <- object$coef
    stdEr <- diag( result$coefCov )^0.5  # standard errors
    tStat <- coef / stdEr                # t-statistic
-   if( probDfSys ) {             # p-values
+   if( useDfSys ) {             # p-values
       pVal <- 2 * ( 1 - pt( abs( tStat ), object$df ) )
    } else {
       pVal <- rep( NA, length( coef ) )
@@ -44,7 +44,7 @@ summary.systemfit <- function( object, probDfSys = NULL, ... ) {
    # now prepare summury results for the individual equations
    result$eq <- list()
    for( i in 1:object$nEq ) {
-       result$eq[[ i ]] <- summary( object$eq[[i]], probDfSys = probDfSys )
+       result$eq[[ i ]] <- summary( object$eq[[i]], useDfSys = useDfSys )
    }
 
    class( result ) <- "summary.systemfit"
@@ -136,10 +136,10 @@ print.summary.systemfit <- function( x, digits=6,... ) {
 
 
 ## prepare summary results for a single equation
-summary.systemfit.equation <- function( object, probDfSys = NULL, ... ) {
+summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
 
-   if( is.null( probDfSys ) ) {
-      probDfSys <- object$nExogAll != object$nExogLiAll
+   if( is.null( useDfSys ) ) {
+      useDfSys <- object$nExogAll != object$nExogLiAll
          # TRUE if there are restrictions imposed
    }
 
@@ -157,7 +157,7 @@ summary.systemfit.equation <- function( object, probDfSys = NULL, ... ) {
    coef <- object$coef
    stdEr <- diag( result$coefCov )^0.5  # standard errors
    tStat <- coef / stdEr                # t-statistic
-   if( probDfSys ) {             # p-values
+   if( useDfSys ) {             # p-values
       pVal <- 2 * ( 1 - pt( abs( tStat ), object$dfSys ) )
    } else {
       pVal <- 2 * ( 1 - pt( abs( tStat ), object$df ) )

@@ -1,9 +1,9 @@
 ## calculate confidence intervals of the coefficients
 confint.systemfit <- function( object, parm = NULL, level = 0.95,
-      probDfSys = NULL, ... ) {
+      useDfSys = NULL, ... ) {
 
-   if( is.null( probDfSys ) ) {
-      probDfSys <- object$nExogAll != object$nExogLiAll
+   if( is.null( useDfSys ) ) {
+      useDfSys <- object$nExogAll != object$nExogLiAll
          # TRUE if there are restrictions imposed
    }
 
@@ -16,7 +16,7 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95,
    for( i in 1:object$nEq ) {
       object$eq[[i]]$dfSys <- object$df
       ci[ j:(j+object$eq[[ i ]]$nExog-1), ] <- confint( object$eq[[ i ]],
-         probDfSys = probDfSys )
+         useDfSys = useDfSys )
       j <- j + object$eq[[ i ]]$nExog
    }
    class( ci ) <- "confint.systemfit"
@@ -25,10 +25,10 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95,
 
 ## calculate confidence intervals of the coefficients of a single equation
 confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
-   probDfSys = NULL, ... ) {
+   useDfSys = NULL, ... ) {
 
-   if( is.null( probDfSys ) ) {
-      probDfSys <- object$nExogAll != object$nExogLiAll
+   if( is.null( useDfSys ) ) {
+      useDfSys <- object$nExogAll != object$nExogLiAll
          # TRUE if there are restrictions imposed
    }
 
@@ -37,7 +37,7 @@ confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
    pct <- paste( round( 100 * probBoth, 1 ), "%" )
    ci <- matrix( NA, length( object$coef ), 2,
             dimnames = list( names( object$coef ), pct ) )
-   if( probDfSys ) {
+   if( useDfSys ) {
       fac <- qt( probBoth, object$dfSys )
    } else {
       fac <- qt( probBoth, object$df )

@@ -41,15 +41,15 @@ print( summary( fitsur1 ) )
 
 ## ********************* SUR (EViews-like) *****************
 fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor" )
-print( summary( fitsur1e, probDfSys = TRUE ) )
+print( summary( fitsur1e, useDfSys = TRUE ) )
 
 ## ********************* SUR (methodRCov="Theil") *****************
 fitsur1r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
 print( summary( fitsur1r2 ) )
 
-## *************** SUR (methodRCov="Theil", probDfSys = TRUE ) ***************
+## *************** SUR (methodRCov="Theil", useDfSys = TRUE ) ***************
 fitsur1e2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
-print( summary( fitsur1e2, probDfSys = TRUE ) )
+print( summary( fitsur1e2, useDfSys = TRUE ) )
 
 ## ********************* SUR (methodRCov="max") *****************
 fitsur1r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max" )
@@ -110,17 +110,17 @@ print( summary( fitsuri1 ) )
 ## ************** iterated SUR (EViews-like) *****************
 fitsuri1e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
    maxit = 100 )
-print( summary( fitsuri1e, probDfSys = TRUE ) )
+print( summary( fitsuri1e, useDfSys = TRUE ) )
 
 ## ************** iterated SUR (methodRCov = "Theil") ****************************
 fitsuri1r2 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
    methodRCov = "Theil" )
 print( summary( fitsuri1r2 ) )
 
-## ************** iterated SUR (methodRCov="Theil", probDfSys=TRUE) *****************
+## ************** iterated SUR (methodRCov="Theil", useDfSys=TRUE) *****************
 fitsuri1e2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
    maxit = 100 )
-print( summary( fitsuri1e2, probDfSys = TRUE ) )
+print( summary( fitsuri1e2, useDfSys = TRUE ) )
 
 ## ************** iterated SUR (methodRCov = "max") ****************************
 fitsuri1r3 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
@@ -248,8 +248,8 @@ print( round( vcov( fitsuri5r2$eq[[ 1 ]] ), digits = 6 ) )
 
 
 ## *********** confidence intervals of coefficients *************
-print( confint( fitsur1e2, probDfSys = TRUE ) )
-print( confint( fitsur1e2$eq[[ 2 ]], level = 0.9, probDfSys = TRUE ) )
+print( confint( fitsur1e2, useDfSys = TRUE ) )
+print( confint( fitsur1e2$eq[[ 2 ]], level = 0.9, useDfSys = TRUE ) )
 
 print( confint( fitsur2e, level = 0.9 ) )
 print( confint( fitsur2e$eq[[ 1 ]], level = 0.99 ) )
@@ -318,9 +318,9 @@ predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
 print( predict( fitsur1e2, se.fit = TRUE, interval = "prediction",
-   probDfSys = TRUE ) )
+   useDfSys = TRUE ) )
 print( predict( fitsur1e2$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
-   probDfSys = TRUE ) )
+   useDfSys = TRUE ) )
 
 print( predict( fitsur2e, se.pred = TRUE, interval = "confidence",
    level = 0.999, newdata = predictData ) )

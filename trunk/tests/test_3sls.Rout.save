@@ -66,12 +66,12 @@ Type 'q()' to quit R.
 +    print( "********************* 3SLS EViews-like *****************" )
 +    fit3sls[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", method3sls = formulas[ i ] )
-+    print( summary( fit3sls[[ i ]]$e1e, probDfSys = TRUE ) )
++    print( summary( fit3sls[[ i ]]$e1e, useDfSys = TRUE ) )
 + 
 +    print( "********************* 3SLS with methodRCov = Theil *****************" )
 +    fit3sls[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "Theil", method3sls = formulas[ i ] )
-+    print( summary( fit3sls[[ i ]]$e1c, probDfSys = TRUE ) )
++    print( summary( fit3sls[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
 +    print( "*************** 3SLS with restriction *****************" )
 +    fit3sls[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
@@ -82,7 +82,7 @@ Type 'q()' to quit R.
 +    fit3sls[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", R.restr = restrm,
 +       method3sls = formulas[ i ] )
-+    print( summary( fit3sls[[ i ]]$e2e, probDfSys = TRUE ) )
++    print( summary( fit3sls[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "*************** 3SLS with restriction via TX ********************" )
 +    fit3sls[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
@@ -93,7 +93,7 @@ Type 'q()' to quit R.
 +    fit3sls[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", TX = tc,
 +       method3sls = formulas[ i ] )
-+    print( summary( fit3sls[[ i ]]$e3e, probDfSys = TRUE ) )
++    print( summary( fit3sls[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
 +    print( "*************** 3SLS with 2 restrictions **********************" )
 +    fit3sls[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
@@ -105,7 +105,7 @@ Type 'q()' to quit R.
 +    fit3sls[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", R.restr = restr2m,
 +       q.restr = restr2q, method3sls = formulas[ i ] )
-+    print( summary( fit3sls[[ i ]]$e4e, probDfSys = TRUE ) )
++    print( summary( fit3sls[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "*************** 3SLS with 2 restrictions via R and TX **********" )
 +    fit3sls[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
@@ -117,7 +117,7 @@ Type 'q()' to quit R.
 +    fit3sls[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, TX = tc, methodRCov = "noDfCor",
 +       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ] )
-+    print( summary( fit3sls[[ i ]]$e5e, probDfSys = TRUE ) )
++    print( summary( fit3sls[[ i ]]$e5e, useDfSys = TRUE ) )
 + }
 [1] "***************************************************"
 [1] "3SLS formula: GLS"
@@ -3567,13 +3567,13 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 +    fit3slsi[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", method3sls = formulas[ i ],
 +       maxiter = 100  )
-+    print( summary( fit3slsi[[ i ]]$e1e, probDfSys = TRUE ) )
++    print( summary( fit3slsi[[ i ]]$e1e, useDfSys = TRUE ) )
 + 
 +    print( "************** iterated 3SLS with methodRCov = Theil **************" )
 +    fit3slsi[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "Theil", method3sls = formulas[ i ],
 +       maxiter = 100  )
-+    print( summary( fit3slsi[[ i ]]$e1c, probDfSys = TRUE ) )
++    print( summary( fit3slsi[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
 +    print( "******* iterated 3SLS with restriction *****************" )
 +    fit3slsi[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
@@ -3584,7 +3584,7 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 +    fit3slsi[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", R.restr = restrm,
 +       method3sls = formulas[ i ], maxiter = 100 )
-+    print( summary( fit3slsi[[ i ]]$e2e, probDfSys = TRUE ) )
++    print( summary( fit3slsi[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "********* iterated 3SLS with restriction via TX *****************" )
 +    fit3slsi[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
@@ -3595,7 +3595,7 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 +    fit3slsi[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", TX = tc,
 +       method3sls = formulas[ i ], maxiter = 100 )
-+    print( summary( fit3slsi[[ i ]]$e3e, probDfSys = TRUE ) )
++    print( summary( fit3slsi[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
 +    print( "******** iterated 3SLS with 2 restrictions *********************" )
 +    fit3slsi[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
@@ -3607,7 +3607,7 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 +    fit3slsi[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", R.restr = restr2m,
 +       q.restr = restr2q, method3sls = formulas[ i ], maxiter = 100 )
-+    print( summary( fit3slsi[[ i ]]$e4e, probDfSys = TRUE ) )
++    print( summary( fit3slsi[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "******** iterated 3SLS with 2 restrictions via R and TX *********" )
 +    fit3slsi[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
@@ -3620,7 +3620,7 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 +       inst = inst, TX = tc, methodRCov = "noDfCor",
 +       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ],
 +       maxiter = 100  )
-+    print( summary( fit3slsi[[ i ]]$e5e, probDfSys = TRUE ) )
++    print( summary( fit3slsi[[ i ]]$e5e, useDfSys = TRUE ) )
 + }
 [1] "***************************************************"
 [1] "3SLS formula: GLS"
@@ -7179,12 +7179,12 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 +    print( "******* 3SLS with different instruments (EViews-like) **********" )
 +    fit3slsd[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodRCov = "noDfCor", method3sls = formulas[ i ] )
-+    print( summary( fit3slsd[[ i ]]$e1e, probDfSys = TRUE ) )
++    print( summary( fit3slsd[[ i ]]$e1e, useDfSys = TRUE ) )
 + 
 +    print( "**** 3SLS with different instruments and methodRCov = Theil ***" )
 +    fit3slsd[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodRCov = "Theil", method3sls = formulas[ i ] )
-+    print( summary( fit3slsd[[ i ]]$e1c, probDfSys = TRUE ) )
++    print( summary( fit3slsd[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
 +    print( "******* 3SLS with different instruments and restriction ********" )
 +    fit3slsd[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
@@ -7195,7 +7195,7 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 +    fit3slsd[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodRCov = "noDfCor", R.restr = restrm,
 +       method3sls = formulas[ i ] )
-+    print( summary( fit3slsd[[ i ]]$e2e, probDfSys = TRUE ) )
++    print( summary( fit3slsd[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "** 3SLS with different instruments and restriction via TX *******" )
 +    fit3slsd[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
@@ -7206,7 +7206,7 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 +    fit3slsd[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodRCov = "noDfCor", TX = tc,
 +       method3sls = formulas[ i ] )
-+    print( summary( fit3slsd[[ i ]]$e3e, probDfSys = TRUE ) )
++    print( summary( fit3slsd[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
 +    print( "****** 3SLS with different instruments and 2 restrictions *********" )
 +    fit3slsd[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
@@ -7218,7 +7218,7 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 +    fit3slsd[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodRCov = "noDfCor", R.restr = restr2m,
 +       q.restr = restr2q, method3sls = formulas[ i ] )
-+    print( summary( fit3slsd[[ i ]]$e4e, probDfSys = TRUE ) )
++    print( summary( fit3slsd[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( " 3SLS with different instruments with 2 restrictions via R and TX" )
 +    fit3slsd[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
@@ -7230,7 +7230,7 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 +    fit3slsd[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, TX = tc, methodRCov = "noDfCor",
 +       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ] )
-+    print( summary( fit3slsd[[ i ]]$e5e, probDfSys = TRUE ) )
++    print( summary( fit3slsd[[ i ]]$e5e, useDfSys = TRUE ) )
 + }
 [1] "***************************************************"
 [1] "3SLS formula: GLS"
@@ -11328,7 +11328,7 @@ trend         -0.025297  0.000045  0.000185  0.000283
 > 
 > 
 > ## *********** confidence intervals of coefficients *************
-> print( confint( fit3sls[[ 1 ]]$e1c, probDfSys = TRUE ) )
+> print( confint( fit3sls[[ 1 ]]$e1c, useDfSys = TRUE ) )
                     2.5 %  97.5 %
 demand_(Intercept) 78.518 110.748
 demand_price       -0.440  -0.047
@@ -11337,13 +11337,13 @@ supply_(Intercept) 28.106  76.468
 supply_price        0.025   0.431
 supply_farmPrice    0.138   0.316
 supply_trend        0.221   0.509
-> print( confint( fit3sls[[ 1 ]]$e1c$eq[[ 1 ]], level = 0.9, probDfSys = TRUE ) )
+> print( confint( fit3sls[[ 1 ]]$e1c$eq[[ 1 ]], level = 0.9, useDfSys = TRUE ) )
                5 %    95 %
 (Intercept) 81.228 108.038
 price       -0.407  -0.080
 income       0.235   0.393
 > 
-> print( confint( fit3sls[[ 2 ]]$e2e, level = 0.9, probDfSys = TRUE ) )
+> print( confint( fit3sls[[ 2 ]]$e2e, level = 0.9, useDfSys = TRUE ) )
                       5 %    95 %
 demand_(Intercept) 79.254 109.293
 demand_price       -0.405  -0.044
@@ -11352,7 +11352,7 @@ supply_(Intercept) 34.318  76.586
 supply_price        0.039   0.403
 supply_farmPrice    0.135   0.284
 supply_trend        0.213   0.383
-> print( confint( fit3sls[[ 2 ]]$e2e$eq[[ 2 ]], level = 0.99, probDfSys = TRUE ) )
+> print( confint( fit3sls[[ 2 ]]$e2e$eq[[ 2 ]], level = 0.99, useDfSys = TRUE ) )
              0.5 % 99.5 %
 (Intercept) 27.079 83.826
 price       -0.024  0.465
@@ -11374,7 +11374,7 @@ supply_trend        0.204   0.387
 price       -0.287 -0.156
 income       0.265  0.326
 > 
-> print( confint( fit3sls[[ 4 ]]$e4e, level = 0.5, probDfSys = TRUE ) )
+> print( confint( fit3sls[[ 4 ]]$e4e, level = 0.5, useDfSys = TRUE ) )
                      25 %    75 %
 demand_(Intercept) 79.319 109.021
 demand_price       -0.414  -0.085
@@ -11383,7 +11383,7 @@ supply_(Intercept) 34.758  65.413
 supply_price        0.086   0.415
 supply_farmPrice    0.188   0.274
 supply_trend        0.282   0.367
-> print( confint( fit3sls[[ 4 ]]$e4e$eq[[ 2 ]], level = 0.25, probDfSys = TRUE ) )
+> print( confint( fit3sls[[ 4 ]]$e4e$eq[[ 2 ]], level = 0.25, useDfSys = TRUE ) )
             37.5 % 62.5 %
 (Intercept) 47.661 52.510
 price        0.224  0.277
@@ -11405,7 +11405,7 @@ supply_trend         0.512   0.606
 price       -0.658  -0.241
 income       0.505   0.614
 > 
-> print( confint( fit3slsi[[ 2 ]]$e3e, level = 0.975, probDfSys = TRUE ) )
+> print( confint( fit3slsi[[ 2 ]]$e3e, level = 0.975, useDfSys = TRUE ) )
                     1.3 %  98.8 %
 demand_(Intercept) 73.905 110.166
 demand_price       -0.299   0.090
@@ -11414,7 +11414,7 @@ supply_(Intercept) 45.617  90.949
 supply_price       -0.029   0.399
 supply_farmPrice    0.073   0.175
 supply_trend        0.137   0.259
-> print( confint( fit3slsi[[ 2 ]]$e3e$eq[[ 1 ]], level = 0.999, probDfSys = TRUE ) )
+> print( confint( fit3slsi[[ 2 ]]$e3e$eq[[ 1 ]], level = 0.999, useDfSys = TRUE ) )
              0.1 %   100 %
 (Intercept) 59.912 124.159
 price       -0.449   0.241
@@ -11635,7 +11635,7 @@ trend        0.251  0.356
 > predictData$income <- Kmenta$income * 1.1
 > 
 > print( predict( fit3sls[[ 2 ]]$e1c, se.fit = TRUE, interval = "prediction",
-+    probDfSys = TRUE ) )
++    useDfSys = TRUE ) )
    demand.pred demand.se.fit demand.lwr demand.upr supply.pred supply.se.fit
 1     97.64186     0.6609226   93.42142  101.86231    97.81458     0.8265000
 2     99.88472     0.5996838   95.70230  104.06714    99.32867     0.8248518
@@ -11679,7 +11679,7 @@ trend        0.251  0.356
 19   98.03687   109.2562
 20  100.37680   112.8512
 > print( predict( fit3sls[[ 2 ]]$e1c$eq[[ 1 ]], se.fit = TRUE, interval = "prediction",
-+    probDfSys = TRUE ) )
++    useDfSys = TRUE ) )
          fit    se.fit       lwr       upr
 1   97.64186 0.6609226  93.42142 101.86231
 2   99.88472 0.5996838  95.70230 104.06714
@@ -11703,7 +11703,7 @@ trend        0.251  0.356
 20 106.90043 1.3055643 102.09841 111.70245
 > 
 > print( predict( fit3sls[[ 3 ]]$e2e, se.pred = TRUE, interval = "confidence",
-+    level = 0.999, newdata = predictData, probDfSys = TRUE ) )
++    level = 0.999, newdata = predictData, useDfSys = TRUE ) )
    demand.pred demand.se.pred demand.lwr demand.upr supply.pred supply.se.pred
 1    102.66453       2.197646   99.32339   106.0057    96.20856       2.779223
 2    105.21164       2.205673  101.80261   108.6207    97.51983       2.678462
@@ -11747,7 +11747,7 @@ trend        0.251  0.356
 19   98.41311  103.24819
 20  101.22549  105.64950
 > print( predict( fit3sls[[ 3 ]]$e2e$eq[[ 2 ]], se.pred = TRUE, interval = "confidence",
-+    level = 0.999, newdata = predictData, probDfSys = TRUE ) )
++    level = 0.999, newdata = predictData, useDfSys = TRUE ) )
          fit  se.pred       lwr       upr
 1   96.20856 2.779223  92.22614 100.19098
 2   97.51983 2.678462  94.56520 100.47447
@@ -11839,7 +11839,7 @@ trend        0.251  0.356
 20 106.65353 2.386274 101.05759 112.2495
 > 
 > print( predict( fit3sls[[ 5 ]]$e4e, se.fit = TRUE, interval = "confidence",
-+    level = 0.25, probDfSys = TRUE ) )
++    level = 0.25, useDfSys = TRUE ) )
    demand.pred demand.se.fit demand.lwr demand.upr supply.pred supply.se.fit
 1     94.99363     0.4645269   94.84445   95.14282    96.25717     0.5361143
 2     98.90563     0.5323643   98.73466   99.07661    99.36124     0.6625022
@@ -11883,7 +11883,7 @@ trend        0.251  0.356
 19  105.32260  105.75655
 20  111.38061  112.11659
 > print( predict( fit3sls[[ 5 ]]$e4e$eq[[ 2 ]], se.fit = TRUE, interval = "confidence",
-+    level = 0.25, probDfSys = TRUE ) )
++    level = 0.25, useDfSys = TRUE ) )
          fit    se.fit       lwr       upr
 1   96.25717 0.5361143  96.08499  96.42935
 2   99.36124 0.6625022  99.14847  99.57400
@@ -11975,7 +11975,7 @@ trend        0.251  0.356
 20 114.05817 0.9971914 2.205767 112.55480 115.5615
 > 
 > print( predict( fit3slsi[[ 3 ]]$e3e, se.fit = TRUE, se.pred = TRUE,
-+    interval = "confidence", level = 0.99, probDfSys = TRUE ) )
++    interval = "confidence", level = 0.99, useDfSys = TRUE ) )
    demand.pred demand.se.fit demand.se.pred demand.lwr demand.upr supply.pred
 1     98.86110     0.5896086       2.487693   97.25242  100.46979    99.24585
 2    100.46814     0.6426021       2.500783   98.71487  102.22141   100.31003
@@ -12019,7 +12019,7 @@ trend        0.251  0.356
 19     0.8522010       3.058875  100.40750  105.05778
 20     1.5643389       3.328307  100.55190  109.08817
 > print( predict( fit3slsi[[ 3 ]]$e3e$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
-+    interval = "confidence", level = 0.99, probDfSys = TRUE ) )
++    interval = "confidence", level = 0.99, useDfSys = TRUE ) )
          fit    se.fit  se.pred       lwr       upr
 1   98.86110 0.5896086 2.487693  97.25242 100.46979
 2  100.46814 0.6426021 2.500783  98.71487 102.22141

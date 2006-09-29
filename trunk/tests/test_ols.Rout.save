@@ -168,9 +168,9 @@ SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
 > 
-> ## ****************  OLS (probDfSys=T) ***********************
+> ## ****************  OLS (useDfSys=T) ***********************
 > fitols1p <- systemfit( system, "OLS", data = Kmenta )
-> print( summary( fitols1p, probDfSys = TRUE ) )
+> print( summary( fitols1p, useDfSys = TRUE ) )
 
 systemfit results 
 method: OLS 
@@ -633,10 +633,10 @@ SSR: 95.087806 MSE: 5.942988 Root MSE: 2.437824
 Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848 
 
 > 
-> ## ****** OLS with cross-equation restriction (probDfSys=F) *******
+> ## ****** OLS with cross-equation restriction (useDfSys=F) *******
 > fitols2p <- systemfit( system, "OLS", data = Kmenta,
 +    R.restr = restrm )
-> print( summary( fitols2p, probDfSys = FALSE ) )
+> print( summary( fitols2p, useDfSys = FALSE ) )
 
 systemfit results 
 method: OLS 
@@ -923,10 +923,10 @@ SSR: 95.087806 MSE: 5.942988 Root MSE: 2.437824
 Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848 
 
 > 
-> ## *** OLS with cross-equation restriction via TX (probDfSys=F) ***
+> ## *** OLS with cross-equation restriction via TX (useDfSys=F) ***
 > fitols3p <- systemfit( system, "OLS", data = Kmenta,
 +    TX = tc )
-> print( summary( fitols3p, probDfSys = FALSE ) )
+> print( summary( fitols3p, useDfSys = FALSE ) )
 
 systemfit results 
 method: OLS 
@@ -1214,10 +1214,10 @@ SSR: 95.813088 MSE: 5.988318 Root MSE: 2.447104
 Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636 
 
 > 
-> ## ****** OLS with 2 cross-equation restrictions (probDfSys=F) *******
+> ## ****** OLS with 2 cross-equation restrictions (useDfSys=F) *******
 > fitols4p <- systemfit( system, "OLS", data = Kmenta, R.restr = restr2m,
 +    q.restr = restr2q )
-> print( summary( fitols4p, probDfSys = FALSE ) )
+> print( summary( fitols4p, useDfSys = FALSE ) )
 
 systemfit results 
 method: OLS 
@@ -1505,10 +1505,10 @@ SSR: 95.813088 MSE: 5.988318 Root MSE: 2.447104
 Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636 
 
 > 
-> ## ***** OLS with 2 cross-equation restrictions via R and TX (probDfSys=F) ****
+> ## ***** OLS with 2 cross-equation restrictions via R and TX (useDfSys=F) ****
 > fitols5p <- systemfit( system, "OLS", data = Kmenta,R.restr = restr3m,
 +    q.restr = restr3q, TX = tc )
-> print( summary( fitols5p, probDfSys = FALSE ) )
+> print( summary( fitols5p, useDfSys = FALSE ) )
 
 systemfit results 
 method: OLS 
@@ -1983,7 +1983,7 @@ trend          0.050012 -0.000762  0.000120  0.001390
 > 
 > 
 > ## *********** confidence intervals of coefficients *************
-> print( confint( fitols1p, probDfSys = TRUE ) )
+> print( confint( fitols1p, useDfSys = TRUE ) )
                     2.5 %  97.5 %
 demand_(Intercept) 84.597 115.194
 demand_price       -0.501  -0.132
@@ -1992,7 +1992,7 @@ supply_(Intercept) 34.954  81.597
 supply_price       -0.033   0.353
 supply_farmPrice    0.154   0.342
 supply_trend        0.050   0.447
-> print( confint( fitols1p$eq[[ 2 ]], level = 0.9, probDfSys = TRUE ) )
+> print( confint( fitols1p$eq[[ 2 ]], level = 0.9, useDfSys = TRUE ) )
                5 %   95 %
 (Intercept) 38.876 77.675
 price        0.000  0.321
@@ -2061,7 +2061,7 @@ price       -0.028  0.395
 farmPrice    0.128  0.391
 trend        0.185  0.453
 > 
-> print( confint( fitols3p, level = 0.999, probDfSys = FALSE ) )
+> print( confint( fitols3p, level = 0.999, useDfSys = FALSE ) )
                     0.1 %   100 %
 demand_(Intercept) 81.786 117.326
 demand_price       -0.497  -0.086
@@ -2070,7 +2070,7 @@ supply_(Intercept) 35.028  77.731
 supply_price       -0.017   0.345
 supply_farmPrice    0.172   0.342
 supply_trend        0.219   0.406
-> print( confint( fitols3p$eq[[ 1 ]], probDfSys = FALSE ) )
+> print( confint( fitols3p$eq[[ 1 ]], useDfSys = FALSE ) )
              2.5 %  97.5 %
 (Intercept) 81.786 117.326
 price       -0.497  -0.086
@@ -2221,7 +2221,7 @@ income       0.220   0.406
 > predictData$income <- Kmenta$income * 1.1
 > 
 > print( predict( fitols1p, se.fit = TRUE, interval = "prediction",
-+    probDfSys = TRUE ) )
++    useDfSys = TRUE ) )
    demand.pred demand.se.fit demand.lwr demand.upr supply.pred supply.se.fit
 1     97.41053     0.6429061   93.27154  101.54952    98.92925     1.0562480
 2     99.57728     0.5771956   95.47858  103.67598   100.08251     1.0374518
@@ -2265,7 +2265,7 @@ income       0.220   0.406
 19   96.73472  107.49187
 20   98.56740  110.46836
 > print( predict( fitols1p$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
-+    probDfSys = TRUE ) )
++    useDfSys = TRUE ) )
          fit    se.fit      lwr       upr
 1   98.92925 1.0562480 93.58498 104.27353
 2  100.08251 1.0374518 94.75350 105.41152

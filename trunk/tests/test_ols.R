@@ -45,9 +45,9 @@ fitols1s <- systemfit( system, "OLS", data = Kmenta,
    single.eq.sigma = FALSE )
 print( summary( fitols1s ) )
 
-## ****************  OLS (probDfSys=T) ***********************
+## ****************  OLS (useDfSys=T) ***********************
 fitols1p <- systemfit( system, "OLS", data = Kmenta )
-print( summary( fitols1p, probDfSys = TRUE ) )
+print( summary( fitols1p, useDfSys = TRUE ) )
 
 ## ****************  OLS (methodRCov="noDfCor") ***********************
 fitols1r <- systemfit( system, "OLS", data = Kmenta,
@@ -86,10 +86,10 @@ fitols2s <- systemfit( system, "OLS", data = Kmenta,
    R.restr = restrm, single.eq.sigma = TRUE )
 print( summary( fitols2s ) )
 
-## ****** OLS with cross-equation restriction (probDfSys=F) *******
+## ****** OLS with cross-equation restriction (useDfSys=F) *******
 fitols2p <- systemfit( system, "OLS", data = Kmenta,
    R.restr = restrm )
-print( summary( fitols2p, probDfSys = FALSE ) )
+print( summary( fitols2p, useDfSys = FALSE ) )
 
 ## ****** OLS with cross-equation restriction (methodRCov="noDfCor") *******
 fitols2r <- systemfit( system, "OLS", data = Kmenta,
@@ -111,10 +111,10 @@ fitols3s <- systemfit( system, "OLS", data = Kmenta,
    TX = tc, single.eq.sigma = TRUE )
 print( summary( fitols3s ) )
 
-## *** OLS with cross-equation restriction via TX (probDfSys=F) ***
+## *** OLS with cross-equation restriction via TX (useDfSys=F) ***
 fitols3p <- systemfit( system, "OLS", data = Kmenta,
    TX = tc )
-print( summary( fitols3p, probDfSys = FALSE ) )
+print( summary( fitols3p, useDfSys = FALSE ) )
 
 ## *** OLS with cross-equation restriction via TX (methodRCov="noDfCor") ***
 fitols3r <- systemfit( system, "OLS", data = Kmenta,
@@ -137,10 +137,10 @@ fitols4s <- systemfit( system, "OLS", data = Kmenta, R.restr = restr2m,
    q.restr = restr2q, single.eq.sigma = T )
 print( summary( fitols4s ) )
 
-## ****** OLS with 2 cross-equation restrictions (probDfSys=F) *******
+## ****** OLS with 2 cross-equation restrictions (useDfSys=F) *******
 fitols4p <- systemfit( system, "OLS", data = Kmenta, R.restr = restr2m,
    q.restr = restr2q )
-print( summary( fitols4p, probDfSys = FALSE ) )
+print( summary( fitols4p, useDfSys = FALSE ) )
 
 ## ****** OLS with 2 cross-equation restrictions (methodRCov="noDfCor") *******
 fitols4r <- systemfit( system, "OLS", data = Kmenta, R.restr = restr2m,
@@ -163,10 +163,10 @@ fitols5s <- systemfit( system, "OLS", data = Kmenta,R.restr = restr3m,
    q.restr = restr3q, TX = tc, single.eq.sigma = T )
 print( summary( fitols5s ) )
 
-## ***** OLS with 2 cross-equation restrictions via R and TX (probDfSys=F) ****
+## ***** OLS with 2 cross-equation restrictions via R and TX (useDfSys=F) ****
 fitols5p <- systemfit( system, "OLS", data = Kmenta,R.restr = restr3m,
    q.restr = restr3q, TX = tc )
-print( summary( fitols5p, probDfSys = FALSE ) )
+print( summary( fitols5p, useDfSys = FALSE ) )
 
 ## ***** OLS with 2 cross-equation restrictions via R and TX (methodRCov="noDfCor") ****
 fitols5r <- systemfit( system, "OLS", data = Kmenta,R.restr = restr3m,
@@ -214,8 +214,8 @@ print( round( vcov( fitols5$eq[[ 2 ]] ), digits = 6 ) )
 
 
 ## *********** confidence intervals of coefficients *************
-print( confint( fitols1p, probDfSys = TRUE ) )
-print( confint( fitols1p$eq[[ 2 ]], level = 0.9, probDfSys = TRUE ) )
+print( confint( fitols1p, useDfSys = TRUE ) )
+print( confint( fitols1p$eq[[ 2 ]], level = 0.9, useDfSys = TRUE ) )
 
 print( confint( fitols2r, level = 0.9 ) )
 print( confint( fitols2r$eq[[ 1 ]], level = 0.99 ) )
@@ -229,8 +229,8 @@ print( confint( fitols4rs$eq[[ 1 ]], level = 0.25 ) )
 print( confint( fitols5, level = 0.25 ) )
 print( confint( fitols5$eq[[ 2 ]], level = 0.999 ) )
 
-print( confint( fitols3p, level = 0.999, probDfSys = FALSE ) )
-print( confint( fitols3p$eq[[ 1 ]], probDfSys = FALSE ) )
+print( confint( fitols3p, level = 0.999, useDfSys = FALSE ) )
+print( confint( fitols3p$eq[[ 1 ]], useDfSys = FALSE ) )
 
 
 ## *********** fitted values *************
@@ -257,9 +257,9 @@ predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
 print( predict( fitols1p, se.fit = TRUE, interval = "prediction",
-   probDfSys = TRUE ) )
+   useDfSys = TRUE ) )
 print( predict( fitols1p$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
-   probDfSys = TRUE ) )
+   useDfSys = TRUE ) )
 
 print( predict( fitols2r, se.pred = TRUE, interval = "confidence",
    level = 0.999, newdata = predictData ) )

@@ -49,12 +49,12 @@ for( i in seq( along = formulas ) ) {
    print( "********************* 3SLS EViews-like *****************" )
    fit3sls[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodRCov = "noDfCor", method3sls = formulas[ i ] )
-   print( summary( fit3sls[[ i ]]$e1e, probDfSys = TRUE ) )
+   print( summary( fit3sls[[ i ]]$e1e, useDfSys = TRUE ) )
 
    print( "********************* 3SLS with methodRCov = Theil *****************" )
    fit3sls[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodRCov = "Theil", method3sls = formulas[ i ] )
-   print( summary( fit3sls[[ i ]]$e1c, probDfSys = TRUE ) )
+   print( summary( fit3sls[[ i ]]$e1c, useDfSys = TRUE ) )
 
    print( "*************** 3SLS with restriction *****************" )
    fit3sls[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
@@ -65,7 +65,7 @@ for( i in seq( along = formulas ) ) {
    fit3sls[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodRCov = "noDfCor", R.restr = restrm,
       method3sls = formulas[ i ] )
-   print( summary( fit3sls[[ i ]]$e2e, probDfSys = TRUE ) )
+   print( summary( fit3sls[[ i ]]$e2e, useDfSys = TRUE ) )
 
    print( "*************** 3SLS with restriction via TX ********************" )
    fit3sls[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
@@ -76,7 +76,7 @@ for( i in seq( along = formulas ) ) {
    fit3sls[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodRCov = "noDfCor", TX = tc,
       method3sls = formulas[ i ] )
-   print( summary( fit3sls[[ i ]]$e3e, probDfSys = TRUE ) )
+   print( summary( fit3sls[[ i ]]$e3e, useDfSys = TRUE ) )
 
    print( "*************** 3SLS with 2 restrictions **********************" )
    fit3sls[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
@@ -88,7 +88,7 @@ for( i in seq( along = formulas ) ) {
    fit3sls[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodRCov = "noDfCor", R.restr = restr2m,
       q.restr = restr2q, method3sls = formulas[ i ] )
-   print( summary( fit3sls[[ i ]]$e4e, probDfSys = TRUE ) )
+   print( summary( fit3sls[[ i ]]$e4e, useDfSys = TRUE ) )
 
    print( "*************** 3SLS with 2 restrictions via R and TX **********" )
    fit3sls[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
@@ -100,7 +100,7 @@ for( i in seq( along = formulas ) ) {
    fit3sls[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, TX = tc, methodRCov = "noDfCor",
       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ] )
-   print( summary( fit3sls[[ i ]]$e5e, probDfSys = TRUE ) )
+   print( summary( fit3sls[[ i ]]$e5e, useDfSys = TRUE ) )
 }
 
 ## ******************** iterated 3SLS **********************
@@ -120,13 +120,13 @@ for( i in seq( along = formulas ) ) {
    fit3slsi[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodRCov = "noDfCor", method3sls = formulas[ i ],
       maxiter = 100  )
-   print( summary( fit3slsi[[ i ]]$e1e, probDfSys = TRUE ) )
+   print( summary( fit3slsi[[ i ]]$e1e, useDfSys = TRUE ) )
 
    print( "************** iterated 3SLS with methodRCov = Theil **************" )
    fit3slsi[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodRCov = "Theil", method3sls = formulas[ i ],
       maxiter = 100  )
-   print( summary( fit3slsi[[ i ]]$e1c, probDfSys = TRUE ) )
+   print( summary( fit3slsi[[ i ]]$e1c, useDfSys = TRUE ) )
 
    print( "******* iterated 3SLS with restriction *****************" )
    fit3slsi[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
@@ -137,7 +137,7 @@ for( i in seq( along = formulas ) ) {
    fit3slsi[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodRCov = "noDfCor", R.restr = restrm,
       method3sls = formulas[ i ], maxiter = 100 )
-   print( summary( fit3slsi[[ i ]]$e2e, probDfSys = TRUE ) )
+   print( summary( fit3slsi[[ i ]]$e2e, useDfSys = TRUE ) )
 
    print( "********* iterated 3SLS with restriction via TX *****************" )
    fit3slsi[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
@@ -148,7 +148,7 @@ for( i in seq( along = formulas ) ) {
    fit3slsi[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodRCov = "noDfCor", TX = tc,
       method3sls = formulas[ i ], maxiter = 100 )
-   print( summary( fit3slsi[[ i ]]$e3e, probDfSys = TRUE ) )
+   print( summary( fit3slsi[[ i ]]$e3e, useDfSys = TRUE ) )
 
    print( "******** iterated 3SLS with 2 restrictions *********************" )
    fit3slsi[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
@@ -160,7 +160,7 @@ for( i in seq( along = formulas ) ) {
    fit3slsi[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodRCov = "noDfCor", R.restr = restr2m,
       q.restr = restr2q, method3sls = formulas[ i ], maxiter = 100 )
-   print( summary( fit3slsi[[ i ]]$e4e, probDfSys = TRUE ) )
+   print( summary( fit3slsi[[ i ]]$e4e, useDfSys = TRUE ) )
 
    print( "******** iterated 3SLS with 2 restrictions via R and TX *********" )
    fit3slsi[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
@@ -173,7 +173,7 @@ for( i in seq( along = formulas ) ) {
       inst = inst, TX = tc, methodRCov = "noDfCor",
       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ],
       maxiter = 100  )
-   print( summary( fit3slsi[[ i ]]$e5e, probDfSys = TRUE ) )
+   print( summary( fit3slsi[[ i ]]$e5e, useDfSys = TRUE ) )
 }
 
 ## **************** 3SLS with different instruments *************
@@ -192,12 +192,12 @@ for( i in seq( along = formulas ) ) {
    print( "******* 3SLS with different instruments (EViews-like) **********" )
    fit3slsd[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, methodRCov = "noDfCor", method3sls = formulas[ i ] )
-   print( summary( fit3slsd[[ i ]]$e1e, probDfSys = TRUE ) )
+   print( summary( fit3slsd[[ i ]]$e1e, useDfSys = TRUE ) )
 
    print( "**** 3SLS with different instruments and methodRCov = Theil ***" )
    fit3slsd[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, methodRCov = "Theil", method3sls = formulas[ i ] )
-   print( summary( fit3slsd[[ i ]]$e1c, probDfSys = TRUE ) )
+   print( summary( fit3slsd[[ i ]]$e1c, useDfSys = TRUE ) )
 
    print( "******* 3SLS with different instruments and restriction ********" )
    fit3slsd[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
@@ -208,7 +208,7 @@ for( i in seq( along = formulas ) ) {
    fit3slsd[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, methodRCov = "noDfCor", R.restr = restrm,
       method3sls = formulas[ i ] )
-   print( summary( fit3slsd[[ i ]]$e2e, probDfSys = TRUE ) )
+   print( summary( fit3slsd[[ i ]]$e2e, useDfSys = TRUE ) )
 
    print( "** 3SLS with different instruments and restriction via TX *******" )
    fit3slsd[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
@@ -219,7 +219,7 @@ for( i in seq( along = formulas ) ) {
    fit3slsd[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, methodRCov = "noDfCor", TX = tc,
       method3sls = formulas[ i ] )
-   print( summary( fit3slsd[[ i ]]$e3e, probDfSys = TRUE ) )
+   print( summary( fit3slsd[[ i ]]$e3e, useDfSys = TRUE ) )
 
    print( "****** 3SLS with different instruments and 2 restrictions *********" )
    fit3slsd[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
@@ -231,7 +231,7 @@ for( i in seq( along = formulas ) ) {
    fit3slsd[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, methodRCov = "noDfCor", R.restr = restr2m,
       q.restr = restr2q, method3sls = formulas[ i ] )
-   print( summary( fit3slsd[[ i ]]$e4e, probDfSys = TRUE ) )
+   print( summary( fit3slsd[[ i ]]$e4e, useDfSys = TRUE ) )
 
    print( " 3SLS with different instruments with 2 restrictions via R and TX" )
    fit3slsd[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
@@ -243,7 +243,7 @@ for( i in seq( along = formulas ) ) {
    fit3slsd[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, TX = tc, methodRCov = "noDfCor",
       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ] )
-   print( summary( fit3slsd[[ i ]]$e5e, probDfSys = TRUE ) )
+   print( summary( fit3slsd[[ i ]]$e5e, useDfSys = TRUE ) )
 }
 
 
@@ -318,23 +318,23 @@ print( round( vcov( fit3slsd[[ 1 ]]$e5e$eq[[ 2 ]] ), digits = 6 ) )
 
 
 ## *********** confidence intervals of coefficients *************
-print( confint( fit3sls[[ 1 ]]$e1c, probDfSys = TRUE ) )
-print( confint( fit3sls[[ 1 ]]$e1c$eq[[ 1 ]], level = 0.9, probDfSys = TRUE ) )
+print( confint( fit3sls[[ 1 ]]$e1c, useDfSys = TRUE ) )
+print( confint( fit3sls[[ 1 ]]$e1c$eq[[ 1 ]], level = 0.9, useDfSys = TRUE ) )
 
-print( confint( fit3sls[[ 2 ]]$e2e, level = 0.9, probDfSys = TRUE ) )
-print( confint( fit3sls[[ 2 ]]$e2e$eq[[ 2 ]], level = 0.99, probDfSys = TRUE ) )
+print( confint( fit3sls[[ 2 ]]$e2e, level = 0.9, useDfSys = TRUE ) )
+print( confint( fit3sls[[ 2 ]]$e2e$eq[[ 2 ]], level = 0.99, useDfSys = TRUE ) )
 
 print( confint( fit3sls[[ 3 ]]$e3, level = 0.99 ) )
 print( confint( fit3sls[[ 3 ]]$e3$eq[[ 1 ]], level = 0.5 ) )
 
-print( confint( fit3sls[[ 4 ]]$e4e, level = 0.5, probDfSys = TRUE ) )
-print( confint( fit3sls[[ 4 ]]$e4e$eq[[ 2 ]], level = 0.25, probDfSys = TRUE ) )
+print( confint( fit3sls[[ 4 ]]$e4e, level = 0.5, useDfSys = TRUE ) )
+print( confint( fit3sls[[ 4 ]]$e4e$eq[[ 2 ]], level = 0.25, useDfSys = TRUE ) )
 
 print( confint( fit3sls[[ 5 ]]$e5, level = 0.25 ) )
 print( confint( fit3sls[[ 5 ]]$e5$eq[[ 1 ]], level = 0.975 ) )
 
-print( confint( fit3slsi[[ 2 ]]$e3e, level = 0.975, probDfSys = TRUE ) )
-print( confint( fit3slsi[[ 2 ]]$e3e$eq[[ 1 ]], level = 0.999, probDfSys = TRUE ) )
+print( confint( fit3slsi[[ 2 ]]$e3e, level = 0.975, useDfSys = TRUE ) )
+print( confint( fit3slsi[[ 2 ]]$e3e$eq[[ 1 ]], level = 0.999, useDfSys = TRUE ) )
 
 print( confint( fit3slsd[[ 3 ]]$e4, level = 0.999 ) )
 print( confint( fit3slsd[[ 3 ]]$e4$eq[[ 2 ]] ) )
@@ -370,14 +370,14 @@ predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
 print( predict( fit3sls[[ 2 ]]$e1c, se.fit = TRUE, interval = "prediction",
-   probDfSys = TRUE ) )
+   useDfSys = TRUE ) )
 print( predict( fit3sls[[ 2 ]]$e1c$eq[[ 1 ]], se.fit = TRUE, interval = "prediction",
-   probDfSys = TRUE ) )
+   useDfSys = TRUE ) )
 
 print( predict( fit3sls[[ 3 ]]$e2e, se.pred = TRUE, interval = "confidence",
-   level = 0.999, newdata = predictData, probDfSys = TRUE ) )
+   level = 0.999, newdata = predictData, useDfSys = TRUE ) )
 print( predict( fit3sls[[ 3 ]]$e2e$eq[[ 2 ]], se.pred = TRUE, interval = "confidence",
-   level = 0.999, newdata = predictData, probDfSys = TRUE ) )
+   level = 0.999, newdata = predictData, useDfSys = TRUE ) )
 
 print( predict( fit3sls[[ 4 ]]$e3, se.pred = TRUE, interval = "prediction",
    level = 0.975 ) )
@@ -385,9 +385,9 @@ print( predict( fit3sls[[ 4 ]]$e3$eq[[ 1 ]], se.pred = TRUE, interval = "predict
    level = 0.975 ) )
 
 print( predict( fit3sls[[ 5 ]]$e4e, se.fit = TRUE, interval = "confidence",
-   level = 0.25, probDfSys = TRUE ) )
+   level = 0.25, useDfSys = TRUE ) )
 print( predict( fit3sls[[ 5 ]]$e4e$eq[[ 2 ]], se.fit = TRUE, interval = "confidence",
-   level = 0.25, probDfSys = TRUE ) )
+   level = 0.25, useDfSys = TRUE ) )
 
 print( predict( fit3sls[[ 1 ]]$e5, se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.5, newdata = predictData ) )
@@ -395,9 +395,9 @@ print( predict( fit3sls[[ 1 ]]$e5$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.5, newdata = predictData ) )
 
 print( predict( fit3slsi[[ 3 ]]$e3e, se.fit = TRUE, se.pred = TRUE,
-   interval = "confidence", level = 0.99, probDfSys = TRUE ) )
+   interval = "confidence", level = 0.99, useDfSys = TRUE ) )
 print( predict( fit3slsi[[ 3 ]]$e3e$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
-   interval = "confidence", level = 0.99, probDfSys = TRUE ) )
+   interval = "confidence", level = 0.99, useDfSys = TRUE ) )
 
 print( predict( fit3slsd[[ 4 ]]$e4, se.fit = TRUE, interval = "prediction",
    level = 0.9, newdata = predictData ) )

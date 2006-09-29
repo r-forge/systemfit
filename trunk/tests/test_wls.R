@@ -36,7 +36,7 @@ print( summary( fitwls1 ) )
 
 ## *************** WLS estimation (EViews-like) ************************
 fitwls1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor" )
-print( summary( fitwls1e, probDfSys = TRUE ) )
+print( summary( fitwls1e, useDfSys = TRUE ) )
 
 ## ************** WLS with cross-equation restriction ***************
 fitwls2 <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm )
@@ -79,12 +79,12 @@ print( summary( fitwls5e ) )
 ## *************** iterated WLS estimation *********************
 fitwlsi1 <- systemfit( system, "WLS", data = Kmenta,
    maxit = 100 )
-print( summary( fitwlsi1, probDfSys = TRUE ) )
+print( summary( fitwlsi1, useDfSys = TRUE ) )
 
 ## *************** iterated WLS estimation (EViews-like) ************
 fitwlsi1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
    maxit = 100 )
-print( summary( fitwlsi1e, probDfSys = TRUE ) )
+print( summary( fitwlsi1e, useDfSys = TRUE ) )
 
 ## ****** iterated WLS with cross-equation restriction ***************
 fitwlsi2 <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
@@ -207,8 +207,8 @@ print( confint( fitwls4e$eq[[ 1 ]], level = 0.25 ) )
 print( confint( fitwls5, level = 0.25 ) )
 print( confint( fitwls5$eq[[ 2 ]], level = 0.975 ) )
 
-print( confint( fitwlsi1e, level = 0.975, probDfSys = TRUE ) )
-print( confint( fitwlsi1e$eq[[ 1 ]], level = 0.999, probDfSys = TRUE ) )
+print( confint( fitwlsi1e, level = 0.975, useDfSys = TRUE ) )
+print( confint( fitwlsi1e$eq[[ 1 ]], level = 0.999, useDfSys = TRUE ) )
 
 print( confint( fitwlsi2, level = 0.999 ) )
 print( confint( fitwlsi2$eq[[ 2 ]], level = 0.1 ) )
@@ -285,9 +285,9 @@ print( predict( fitwls5$eq[[ 2 ]], se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.5, newdata = predictData ) )
 
 print( predict( fitwlsi1e, se.fit = TRUE, se.pred = TRUE,
-   interval = "confidence", level = 0.99, probDfSys = TRUE ) )
+   interval = "confidence", level = 0.99, useDfSys = TRUE ) )
 print( predict( fitwlsi1e$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
-   interval = "confidence", level = 0.99, probDfSys = TRUE ) )
+   interval = "confidence", level = 0.99, useDfSys = TRUE ) )
 
 print( predict( fitwlsi2, se.fit = TRUE, interval = "prediction",
    level = 0.9, newdata = predictData ) )
