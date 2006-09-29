@@ -9,7 +9,6 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    # preparing objects that will be returned
    result <- list()
    result$call <- object$call
-   result$nEq <- object$nEq
    result$method <- object$method
    result$iter <- object$iter
    result$control <- object$control
@@ -43,7 +42,7 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
 
    # now prepare summury results for the individual equations
    result$eq <- list()
-   for( i in 1:object$nEq ) {
+   for( i in 1:length( object$eq ) ) {
        result$eq[[ i ]] <- summary( object$eq[[i]], useDfSys = useDfSys )
    }
 
@@ -75,7 +74,7 @@ print.summary.systemfit <- function( x, digits=6,... ) {
       }
     }
   }
-  for(i in 1:x$nEq) {
+  for(i in 1:length( x$eq ) ) {
     row <- NULL
     row <- cbind( round( x$eq[[i]]$nObs,  digits ),
                   round( x$eq[[i]]$df[2], digits ),
@@ -128,7 +127,7 @@ print.summary.systemfit <- function( x, digits=6,... ) {
     cat("\n")
   }
   ## now print the individual equations
-  for(i in 1:x$nEq) {
+  for(i in 1:length( x$eq ) ) {
       print( x$eq[[i]], digits )
   }
   invisible( x )

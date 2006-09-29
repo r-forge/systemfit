@@ -67,7 +67,6 @@
    \item{call*}{the matched call of \code{systemfit}.}
    \item{ols.r.squared*}{OLS \eqn{R^2} value of the entire system.}
    \item{mcelroy.r.squared*}{McElroys \eqn{R^2} value for the system (only SUR and 3SLS).}
-   \item{nEq*}{number of equations.}
    \item{iter*}{number of iteration steps (only if the estimation is iterated).}
    \item{control*}{list of control parameters used for the estimation.}
    \item{residCov*}{estimated residual covariance matrix.}

@@ -61,7 +61,7 @@ coef.summary.systemfit.equation <- function( object, ... ) {
 ## return all residuals
 residuals.systemfit <- function( object, ... ) {
    result <- data.frame( obsNo = c( 1:length( residuals( object$eq[[1]] ) ) ) )
-   for( i in 1:object$nEq ) {
+   for( i in 1:length( object$eq ) ) {
       result[[ object$eq[[i]]$eqnLabel ]] <- residuals( object$eq[[i]] )
    }
    result$obsNo <- NULL
@@ -86,9 +86,10 @@ vcov.systemfit.equation <- function( object, ... ) {
 
 ## return the fitted values
 fitted.systemfit <- function( object, ... ) {
-   fitted.values <- matrix( NA, length( object$eq[[1]]$fitted.values ), object$nEq )
+   nEq <- length( object$eq )
+   fitted.values <- matrix( NA, length( object$eq[[1]]$fitted.values ), nEq )
    colnames( fitted.values ) <- as.character( 1:ncol( fitted.values ) )
-   for(i in 1:object$nEq )  {
+   for(i in 1:nEq )  {
       fitted.values[ , i ]           <- object$eq[[ i ]]$fitted.values
       colnames( fitted.values )[ i ] <- object$eq[[ i ]]$eqnLabel
    }
@@ -105,7 +106,7 @@ model.matrix.systemfit <- function( object, ... ){
    result <- matrix( NA, 0, 0 )
    mmRowNames <- NULL
    mmColNames <- NULL
-   for( i in 1:object$nEq ) {
+   for( i in 1:length( object$eq ) ) {
       mmi <- model.matrix( object$eq[[ i ]] ) 
       result <- rbind(
          cbind( result, matrix( 0, nrow( result ), ncol( mmi ) ) ),
@@ -137,7 +138,7 @@ model.matrix.systemfit.equation <- function( object, ... ){
 ## return model frame of the entire system
 model.frame.systemfit <- function( formula, ... ){
    mfColNames <- NULL
-   for( i in 1:formula$nEq ) {
+   for( i in 1:length( formula$eq ) ) {
       mfi <- model.frame( formula$eq[[ i ]] )
       if( i == 1 ) {
          result <- mfi

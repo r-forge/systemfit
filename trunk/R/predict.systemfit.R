@@ -9,7 +9,7 @@ predict.systemfit <- function( object, newdata = NULL,
          # TRUE if there are restrictions imposed
    }
 
-   for(i in 1:object$nEq )  {
+   for(i in 1:length( object$eq ) )  {
       predicted.i <- predict( object$eq[[ i ]], newdata = newdata,
          se.fit = se.fit, se.pred = se.pred, interval = interval,
          level = level, useDfSys = useDfSys )
