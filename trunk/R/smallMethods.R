@@ -45,7 +45,7 @@ coef.systemfit <- function( object, ... ) {
 
 ## return all coefficients, std.errors, t-values and p-values
 coef.summary.systemfit <- function( object, ... ) {
-   object$coefTab
+   object$coefficients
 }
 
 ## return the coefficients of a single equation
