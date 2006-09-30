@@ -23,6 +23,12 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    dimnames( result$residCor ) <- dimnames( result$residCov )
    result$detResidCov <- object$drcov
 
+   # now prepare summury results for the individual equations
+   result$eq <- list()
+   for( i in 1:length( object$eq ) ) {
+       result$eq[[ i ]] <- summary( object$eq[[i]], useDfSys = useDfSys )
+   }
+
    # coefficients, standard errors, ... 
    result$coefCov <- object$bcov
    coef <- object$coefficients
@@ -31,7 +37,10 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    if( useDfSys ) {             # p-values
       pVal <- 2 * ( 1 - pt( abs( tStat ), object$df.residual ) )
    } else {
-      pVal <- rep( NA, length( coef ) )
+      pVal <- NULL
+      for( i in 1:length( object$eq ) ){
+         pVal <- c( pVal, coef( result$eq[[ i ]] )[ , 4 ] )
+      }
    }
    result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
@@ -39,12 +48,6 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    result$df <- c( object$nCoefAll, object$nObs - object$nCoefAll )
    result$ols.r.squared <- object$olsr2
    result$mcelroy.r.squared <- object$mcelr2
-
-   # now prepare summury results for the individual equations
-   result$eq <- list()
-   for( i in 1:length( object$eq ) ) {
-       result$eq[[ i ]] <- summary( object$eq[[i]], useDfSys = useDfSys )
-   }
 
    class( result ) <- "summary.systemfit"
    return( result )
