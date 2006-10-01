@@ -57,7 +57,6 @@ systemfit <- function(  eqns,
   ssr     <- numeric( nEq ) # sum of squared residuals of each equation
   sigma   <- numeric( nEq ) # estimated sigma (std. dev. of residuals) of each equation
   r2      <- numeric( nEq ) # R-squared value
-  adjr2   <- numeric( nEq ) # adjusted R-squared value
 
    if( is.null( names( eqns ) ) ) {
       eqnLabels <- paste( "eq", c( 1:nEq ), sep = "" )
@@ -428,7 +427,6 @@ systemfit <- function(  eqns,
     ssr    <- sum(residi[[i]]^2)                         # sum of squared residuals
     sigma  <- sqrt( ssr / df[i] ) # estimated standand deviation of residuals
     r2     <- 1 - ssr/(t(yVecEq[[i]])%*%yVecEq[[i]]-nObsEq[i]*mean(yVecEq[[i]])^2)
-    adjr2  <- 1 - ((nObsEq[i]-1)/df[i])*(1-r2)
     fitted.values.i <- fitted.values[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
 
     ## build the "return" structure for the equations
@@ -460,7 +458,6 @@ systemfit <- function(  eqns,
     resulti$ssr          <- ssr             # sum of squared errors/residuals
     resulti$sigma        <- sigma           # estimated standard error of the residuals
     resulti$r2           <- r2              # R-sqared value
-    resulti$adjr2        <- adjr2           # adjusted R-squared value
     if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
       resulti$inst         <- instEq[[i]]
       if(  control$returnInstMatrix ) {

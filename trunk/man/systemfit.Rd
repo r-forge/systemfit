@@ -167,7 +167,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{sigma*}{estimated standard error of the residuals (\eqn{\hat{\sigma}}) of the ith equation.}
 
   \item{r2*}{R-squared (coefficient of determination).}
-  \item{adjr2*}{adjusted R-squared value.}
 }
 
 \references{
