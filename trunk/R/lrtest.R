@@ -3,7 +3,7 @@ lrtest.systemfit <- function( resultc, resultu ) {
   lrtest <- list()
   if( resultc$method %in% c( "SUR", "WSUR" ) &
       resultu$method %in% c( "SUR", "WSUR" ) ) {
-    nObs <- resultu$nObs / length( resultu$eq )
+    nObsPerEq <- nrow( residuals( resultu ) )
     lrtest$nRestr  <- resultu$rank - resultc$rank
     if( resultc$control$methodRCov != resultu$control$methodRCov ) {
       stop( paste( "both estimations must use the same formula to calculate",
@@ -11,7 +11,7 @@ lrtest.systemfit <- function( resultc, resultu ) {
     }
    residc <- as.matrix( residuals( resultc ) )
    residu <- as.matrix( residuals( resultu ) )
-   lrtest$statistic <- nObs * ( log( det( (t(residc) %*% residc)) ) -
+   lrtest$statistic <- nObsPerEq * ( log( det( (t(residc) %*% residc)) ) -
                          log( det( (t(residu) %*% residu))))
     lrtest$p.value <- 1 - pchisq( lrtest$statistic, lrtest$nRestr )
   }

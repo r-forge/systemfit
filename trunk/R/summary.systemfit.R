@@ -6,6 +6,13 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
          # TRUE if there are restrictions imposed
    }
 
+   # number of equations
+   nEq <- length( object$eq )
+   # number of observations per equation
+   nObsPerEq <- nrow( residuals( object ) )
+   # total number of observations
+   nObs <- nObsPerEq * nEq
+
    # preparing objects that will be returned
    result <- list()
    result$call <- object$call
@@ -44,15 +51,14 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
-   result$df <- c( length( coef( object ) ), object$nObs - length( coef( object ) ) )
+   result$df <- c( length( coef( object ) ), nObs - length( coef( object ) ) )
 
    # R^2 values
-   nObsEq <- NULL
+   nObsEq <- rep( nObsPerEq, nEq )
    resid <- NULL
    response <- NULL
    responseMinusMean <- NULL
    for( i in 1:length( object$eq ) ) {
-      nObsEq <- c( nObsEq, object$eq[[ i ]]$nObs )
       resid <- c( resid, residuals( object$eq[[ i ]] ) )
       responseEqI <- fitted( object$eq[[ i ]] ) + residuals( object$eq[[ i ]] )
       response <- c( response, responseEqI )
@@ -80,7 +86,7 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
       for( i in 1:length( object$eq ) ) {
          for( j in 1:length( object$eq ) ) {
             denominator <- denominator + residCovInv[ i, j ] * yCov[ i, j ] *
-               object$eq[[ 1 ]]$nObs
+               nObsPerEq
          }
       }
       result$mcelroy.r.squared <- drop( 1 - ( rtOmega %*% resid ) / denominator )
@@ -116,7 +122,7 @@ print.summary.systemfit <- function( x, digits=6,... ) {
   }
   for(i in 1:length( x$eq ) ) {
     row <- NULL
-    row <- cbind( round( x$eq[[i]]$nObs,  digits ),
+    row <- cbind( round( sum( x$eq[[i]]$df ),  digits ),
                   round( x$eq[[i]]$df[2], digits ),
                   round( x$eq[[i]]$ssr,   digits ),
                   round( x$eq[[i]]$sigma^2, digits ),
@@ -182,6 +188,9 @@ summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
          # TRUE if there are restrictions imposed
    }
 
+   # number of observations in this equation
+   nObs <- length( residuals( object ) )
+
    # preparing objects that will be returned
    result <- list()
    result$eqnLabel <- object$eqnLabel
@@ -204,8 +213,7 @@ summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
    result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
-   result$df <- c( length( coef( object ) ), object$nObs - length( coef( object ) ) )
-   result$nObs <- object$nObs
+   result$df <- c( length( coef( object ) ), nObs - length( coef( object ) ) )
    result$sigma <- object$sigma
    result$ssr <- object$ssr
 
@@ -214,7 +222,7 @@ summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
    rss <- sum( residuals( object )^2 )
    tss <- sum( ( response - mean( response ) )^2 )
    result$r.squared <- 1 - rss / tss
-   result$adj.r.squared <- 1 - ( ( object$nObs - 1 ) / object$df.residual ) *
+   result$adj.r.squared <- 1 - ( ( nObs - 1 ) / object$df.residual ) *
       ( 1 - result$r.squared )
    class( result ) <- "summary.systemfit.equation"
    return( result )
@@ -257,7 +265,7 @@ print.summary.systemfit.equation <- function( x, digits=6, ... ) {
   cat(paste("\nResidual standard error:", round( x$sigma, digits ),
             "on", x$df[ 2 ], "degrees of freedom\n" ))
 
-  cat( paste( "Number of observations:", round( x$nObs, digits ),
+  cat( paste( "Number of observations:", round( sum( x$df ), digits ),
               "Degrees of Freedom:", round( x$df[ 2 ], digits ),"\n" ) )
 
   cat( paste( "SSR:", round( x$ssr, digits ),

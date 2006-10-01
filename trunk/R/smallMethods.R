@@ -14,7 +14,7 @@ correlation.systemfit <- function( results, eqni, eqnj ) {
                       (1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj]))]
   rij <- NULL
 
-  for(i in 1:results$eq[[1]]$nObs ) {
+  for( i in 1:nrow( residuals( results ) ) ) {
     xik    <- results$eq[[eqni]]$modelMatrix[i,]
     xjk    <- results$eq[[eqnj]]$modelMatrix[i,]
     top    <- xik %*% cij %*% xjk
@@ -30,7 +30,7 @@ correlation.systemfit <- function( results, eqni, eqnj ) {
 ## of the values, so you can examine the range, mean, etc
 se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
   ratio <- NULL
-  for(i in 1:resultsi$eq[[eqni]]$nObs ) {
+  for( i in 1:nrow( residuals( resultsi ) ) ) {
     xik    <- resultsi$eq[[eqni]]$modelMatrix[i,]
     top    <- sqrt( xik %*% resultsi$eq[[eqni]]$bcov %*% xik )
     bottom <- sqrt( xik %*% resultsj$eq[[eqni]]$bcov %*% xik )

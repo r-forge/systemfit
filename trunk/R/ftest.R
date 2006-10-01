@@ -5,7 +5,7 @@ ftest.systemfit <- function( object, R.restr,
    vcov <- vcov( object )
    resid <- unlist( residuals( object ) )
    nEq   <- length( object$eq )
-   nObsEq <- object$nObs / nEq
+   nObsPerEq <- nrow( residuals( object ) )
    if( is.null( object$rcovest ) ) {
       rcov <- diag( nEq )
    } else {
@@ -22,7 +22,7 @@ ftest.systemfit <- function( object, R.restr,
       ( R.restr %*% coef - q.restr )
 
    denominator <- t( resid ) %*%
-      ( solve( rcov ) %x% diag( nObsEq ) ) %*%
+      ( solve( rcov ) %x% diag( nObsPerEq ) ) %*%
       resid
    #print( denominator )
 

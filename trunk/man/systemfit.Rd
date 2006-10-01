@@ -110,7 +110,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
 
   \item{call}{the matched call.}
   \item{method}{estimation method.}
-  \item{nObs}{total number of observations of all equations.}
   \item{rank}{total number of linear independent coefficients
       = number of coefficients minus number of linear restrictions.}
   \item{df.residual}{degrees of freedom of the whole system.}
@@ -131,7 +130,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{eqnLabel*}{the equation label of the ith equation (from the labels list).}
   \item{terms*}{the 'terms' object used for the ith equation.}
   \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
-  \item{nObs*}{number of observations of the ith equation.}
   \item{rank*}{number of linear independent coefficients in the ith equation
      (differs from the number of coefficients only if there are
      restrictions that are not cross-equation).}
