@@ -15,7 +15,6 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    result$residuals <- residuals( object )
    result$residCovEst <- object$rcovest
    result$residCov <- object$rcov
-   rownames( result$residCov ) <- colnames( result$residCov ) <- object$eqnLabels
    if( !is.null( result$residCovEst ) ) {
       dimnames( result$residCovEst ) <- dimnames( result$residCov )
    }

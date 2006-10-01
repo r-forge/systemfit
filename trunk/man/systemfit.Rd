@@ -110,7 +110,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
 
   \item{call}{the matched call.}
   \item{method}{estimation method.}
-  \item{eqnLabels}{equation labels.}
   \item{nObs}{total number of observations of all equations.}
   \item{nCoefAll}{total number of exogenous variables/coefficients
       in all equations (including the constants).}
