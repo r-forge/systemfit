@@ -171,7 +171,12 @@ summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
    result$nObs <- object$nObs
    result$sigma <- object$sigma
    result$ssr <- object$ssr
-   result$r.squared <- object$r2
+
+   # R^2 values
+   response <- fitted( object ) + residuals( object )
+   rss <- sum( residuals( object )^2 )
+   tss <- sum( ( response - mean( response ) )^2 )
+   result$r.squared <- 1 - rss / tss
    result$adj.r.squared <- 1 - ( ( object$nObs - 1 ) / object$df.residual ) *
       ( 1 - result$r.squared )
    class( result ) <- "summary.systemfit.equation"
