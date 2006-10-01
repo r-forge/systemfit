@@ -2,7 +2,7 @@
 summary.systemfit <- function( object, useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- object$nCoefAll != object$nCoefLiAll
+      useDfSys <- object$nCoef != object$nCoefLi
          # TRUE if there are restrictions imposed
    }
 
@@ -44,7 +44,7 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
-   result$df <- c( object$nCoefAll, object$nObs - object$nCoefAll )
+   result$df <- c( object$nCoef, object$nObs - object$nCoef )
 
    # R^2 values
    nObsEq <- NULL
@@ -178,7 +178,7 @@ print.summary.systemfit <- function( x, digits=6,... ) {
 summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- object$nCoefAll != object$nCoefLiAll
+      useDfSys <- object$nCoef.sys != object$nCoefLi.sys
          # TRUE if there are restrictions imposed
    }
 

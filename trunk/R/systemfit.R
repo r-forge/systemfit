@@ -426,8 +426,8 @@ systemfit <- function(  eqns,
     resulti$nObs         <- nObsEq[i]       # number of observations
     resulti$nCoef        <- nCoefEq[i]      # number of exogenous variables/coefficients
     resulti$nCoefLi      <- nCoefLiEq[i]    # number of linear independent coefficients
-    resulti$nCoefAll     <- nCoefAll        # number of exogenous variables/coefficients
-    resulti$nCoefLiAll   <- nCoefLiAll      # number of linear independent coefficients
+    resulti$nCoef.sys    <- nCoefAll        # number of exogenous variables/coefficients
+    resulti$nCoefLi.sys  <- nCoefLiAll      # number of linear independent coefficients
     resulti$df.residual  <- df[i]           # degrees of freedom of residuals
     resulti$df.residual.sys  <- nObsAll- nCoefLiAll
        # degrees of freedom of residuals of the whole system
@@ -473,8 +473,8 @@ systemfit <- function(  eqns,
   ## build the "return" structure for the whole system
   results$method  <- method
   results$nObs    <- nObsAll        # total number of observations of all equations
-  results$nCoefAll <- nCoefAll      # total number of exogenous variables/coefficients in all equations
-  results$nCoefLiAll <- nCoefLiAll
+  results$nCoef   <- nCoefAll      # total number of exogenous variables/coefficients in all equations
+  results$nCoefLi <- nCoefLiAll
      # total number of linear independent coefficients of all equations
   results$df.residual <- nObsAll - nCoefLiAll
      # degrees of freedom of the whole system
