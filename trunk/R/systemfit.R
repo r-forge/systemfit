@@ -474,8 +474,6 @@ systemfit <- function(  eqns,
   results$method  <- method
   results$nObs    <- nObsAll        # total number of observations of all equations
   results$nCoefAll <- nCoefAll      # total number of exogenous variables/coefficients in all equations
-  results$nCoefEq <- nCoefEq        # number of exogenous variables/coefficients
-                                       # in each equation
   results$nCoefLiAll <- nCoefLiAll
      # total number of linear independent coefficients of all equations
   results$nCoefLiEq  <- nCoefLiEq

@@ -2,7 +2,10 @@
 ## cross-equation corrlations between eq i and eq j
 ## from the results set for equation ij
 correlation.systemfit <- function( results, eqni, eqnj ) {
-  nCoefEq <- results$nCoefEq
+  nCoefEq <- NULL
+  for( i in 1:length( results$eq ) ) {
+     nCoefEq <- c( nCoefEq, results$eq[[ i ]]$nCoef )
+  }
   cij <- results$bcov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
                       (1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj]))]
   cii <- results$bcov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),

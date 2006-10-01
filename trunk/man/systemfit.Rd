@@ -113,8 +113,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{nObs}{total number of observations of all equations.}
   \item{nCoefAll}{total number of exogenous variables/coefficients
       in all equations (including the constants).}
-  \item{nCoefEq}{number of exogenous variables/coefficients in each equation
-      (including the constants).}
   \item{nCoefLiAll}{total number of linear independent coefficients
       in all equations.}
   \item{nCoefLiEq}{number of linear independent coefficients in each equation.}
