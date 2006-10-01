@@ -9,14 +9,10 @@ lrtest.systemfit <- function( resultc, resultu ) {
       stop( paste( "both estimations must use the same formula to calculate",
                    "the residual covariance matrix!" ) )
     }
-    if( resultc$control$methodRCov == 0 ) {
-      lrtest$statistic  <- nObs * ( log( resultc$drcov ) - log( resultu$drcov ) )
-    } else {
-      residc <- as.matrix( residuals( resultc ) )
-      residu <- as.matrix( residuals( resultu ) )
-      lrtest$statistic <- nObs * ( log( det( (t(residc) %*% residc)) ) -
+   residc <- as.matrix( residuals( resultc ) )
+   residu <- as.matrix( residuals( resultu ) )
+   lrtest$statistic <- nObs * ( log( det( (t(residc) %*% residc)) ) -
                          log( det( (t(residu) %*% residu))))
-    }
     lrtest$p.value <- 1 - pchisq( lrtest$statistic, lrtest$nRestr )
   }
   class( lrtest ) <- "lrtest.systemfit"

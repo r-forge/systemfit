@@ -462,7 +462,6 @@ systemfit <- function(  eqns,
   }
   rcov <- .calcRCov( resids, methodRCov = control$methodRCov, nObsEq = nObsEq,
       nCoefEq = nCoefLiEq, xEq = xMatEq, centered = control$centerResiduals, solvetol = control$solvetol )
-  drcov <- det(rcov, tol=control$solvetol)
 
   coef           <- drop(coef)
   names(coef)    <- xnames
@@ -489,7 +488,6 @@ systemfit <- function(  eqns,
   results$bcov    <- bcov           # coefficients covariance matrix
   results$btcov   <- btcov          # covariance matrix for transformed coeff. vector
   results$rcov    <- rcov           # residual covarance matrix
-  results$drcov   <- drcov          # determinant of residual covarance matrix
   results$iter    <- iter           # residual correlation matrix
   if( method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
     results$rcovest <- rcovest      # residual covarance matrix used for estimation

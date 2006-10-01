@@ -126,7 +126,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{bcov}{estimated covariance matrix of \code{coefficients}.}
   \item{btcov}{covariance matrix of \code{bt}.}
   \item{rcov}{estimated residual covariance matrix.}
-  \item{drcov}{determinant of \code{rcov}.}
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
   \item{R.restr}{the restriction matrix.}
   \item{q.restr}{the restriction vector.}

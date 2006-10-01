@@ -21,7 +21,7 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    }
    result$residCor <- cor( residuals( object ) )
    dimnames( result$residCor ) <- dimnames( result$residCov )
-   result$detResidCov <- object$drcov
+   result$detResidCov <- det( object$rcov, tol = object$control$solvetol )
 
    # now prepare summury results for the individual equations
    result$eq <- list()
