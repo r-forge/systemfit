@@ -466,17 +466,6 @@ systemfit <- function(  eqns,
   }
 
   ## results of the total system
-  #olsr2 <- 1 - t(resids) %*% resids / ( t(yVecAll) %*% ( diag(1,nEq,nEq)     # OLS system R2
-  # %x% ( diag( 1, nObsEq[1], nObsEq[1]) - rep(1, nObsEq[1]) %*% t(rep(1,nObsEq[1])) / nObsEq[1])) %*% yVecAll)
-  # the following lines are substituted for the previous 2 lines to increase
-  # speed ( idea suggested by Ott Toomet )
-   meanY <- numeric(length(yVecAll)) # compute mean of Y by equations
-   for(i in 1:nEq) {
-      meanY[ (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) ] <-
-         mean( yVecAll[ (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) ])
-   }
-   olsr2 <- 1 - t(resids) %*% resids / sum( ( yVecAll - meanY )^2 )
-                        # OLS system R2
   if( method %in% c(  "SUR", "WSUR", "3SLS", "W3SLS" ) ) {
     rcovest <- rcov                   # residual covariance matrix used for estimation
   }
@@ -540,7 +529,6 @@ systemfit <- function(  eqns,
   results$btcov   <- btcov          # covariance matrix for transformed coeff. vector
   results$rcov    <- rcov           # residual covarance matrix
   results$drcov   <- drcov          # determinant of residual covarance matrix
-  results$olsr2   <- olsr2          # R-squared value of the equation system
   results$iter    <- iter           # residual correlation matrix
   if( method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
     results$rcovest <- rcovest      # residual covarance matrix used for estimation

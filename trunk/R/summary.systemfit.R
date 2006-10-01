@@ -46,7 +46,18 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
    result$df <- c( object$nCoefAll, object$nObs - object$nCoefAll )
-   result$ols.r.squared <- object$olsr2
+
+   # R^2 values
+   responseMinusMean <- NULL
+   for( i in 1:length( object$eq ) ) {
+      responseEqI <- fitted( object$eq[[ i ]] ) + residuals( object$eq[[ i ]] )
+      responseMinusMean <- c( responseMinusMean,
+         responseEqI - mean( responseEqI ) )
+   }
+   rss <- sum( residuals( object )^2 )
+   tss <- sum( responseMinusMean^2 )
+   result$ols.r.squared <- 1 - rss / tss
+
    result$mcelroy.r.squared <- object$mcelr2
 
    class( result ) <- "summary.systemfit"
