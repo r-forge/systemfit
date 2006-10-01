@@ -429,6 +429,22 @@ print( predict( fit3slsd[[ 5 ]]$e4$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
    interval = "confidence", level = 0.25, data = smallData ) )
 
 
+## ************ correlation of predicted values ***************
+print( correlation.systemfit( fit3sls[[ 1 ]]$e1c, 2, 1 ) )
+
+print( correlation.systemfit( fit3sls[[ 2 ]]$e2e, 1, 2 ) )
+
+print( correlation.systemfit( fit3sls[[ 3 ]]$e3, 2, 1 ) )
+
+print( correlation.systemfit( fit3sls[[ 4 ]]$e4e, 1, 2 ) )
+
+print( correlation.systemfit( fit3sls[[ 5 ]]$e5, 2, 1 ) )
+
+print( correlation.systemfit( fit3slsi[[ 2 ]]$e3e, 1, 2 ) )
+
+print( correlation.systemfit( fit3slsd[[ 3 ]]$e4, 2, 1 ) )
+
+
 ## ************** F tests ****************
 # testing first restriction
 print( ftest.systemfit( fit3sls[[ 1 ]]$e1, restrm ) )
