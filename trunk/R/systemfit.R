@@ -104,15 +104,6 @@ systemfit <- function(  eqns,
       xMatHatAll <- preparedData$xMatHatAll
    }
 
-   if( is.null( control$saveMemory ) ) {
-      control$saveMemory <- sum( nObsEq ) > 1000
-   } else if( sum( nObsEq ) > 1000 && !control$saveMemory ) {
-      warning( paste( "You have more than 1000 observations.",
-         "Setting control variable 'saveMemory' to TRUE speeds up",
-         "the estimation. Estimation of larger data sets might even",
-         "require this setting." ) )
-   }
-
    nObsAll  <- sum( nObsEq )  # total number of observations of all equations
    nCoefAll <- sum( nCoefEq ) # total number of exogenous variables/(unrestricted) coefficients in all equations
    nCoefLiAll <- nCoefAll     # total number of linear independent coefficients in all equations

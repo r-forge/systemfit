@@ -9,8 +9,7 @@ systemfit.control <- function(
       returnModelFrame = TRUE,
       returnModelMatrix = TRUE,
       returnInstMatrix = TRUE,
-      returnResponse = TRUE,
-      saveMemory = NULL )
+      returnResponse = TRUE )
 {
    result <- list()
 
@@ -82,13 +81,6 @@ systemfit.control <- function(
       stop( "control parameter 'returnResponse' must be logical" )
    }
    result$returnResponse <- returnResponse
-
-   ## saveMemory
-   if( ( !is.logical( saveMemory ) || length( saveMemory ) != 1 )
-         && !is.null( saveMemory ) ) {
-      stop( "control parameter 'saveMemory' must be logical or NULL" )
-   }
-   result$saveMemory <- saveMemory
 
    return( result )
 }

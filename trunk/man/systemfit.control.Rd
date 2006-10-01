@@ -21,8 +21,7 @@ systemfit.control(
       returnModelFrame = TRUE,
       returnModelMatrix = TRUE,
       returnInstMatrix = TRUE,
-      returnResponse = TRUE,
-      saveMemory = NULL )
+      returnResponse = TRUE )
 }
 
 \arguments{
@@ -49,13 +48,6 @@ systemfit.control(
       logical. If 'TRUE' the corresponding components of the fit
       (the model frame, the model matrix, the matrix of instruments,
       the response) are returned.}
-   \item{saveMemory}{logical. Save memory by omitting some calculation that
-      are not crucial for the basic estimation (e.g McElroy's
-      \eqn{R^2})?
-      If \code{saveMemory} is \code{NULL}, it is automatically determined:
-      It is set to \code{TRUE}, if there are more than 1000 observation
-      for all equations together,
-      and it is set to \code{FALSE} otherwise.}
 }
 
 \details{
