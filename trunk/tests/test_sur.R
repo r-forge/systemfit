@@ -395,6 +395,28 @@ print( predict( fitsuri5r2$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
    interval = "confidence", level = 0.25, newdata = smallData ) )
 
 
+## ************ correlation of predicted values ***************
+print( correlation.systemfit( fitsur1e2, 2, 1 ) )
+
+print( correlation.systemfit( fitsur2e, 1, 2 ) )
+
+print( correlation.systemfit( fitsur3, 2, 1 ) )
+
+print( correlation.systemfit( fitsur4r3, 1, 2 ) )
+
+print( correlation.systemfit( fitsur5, 2, 1 ) )
+
+print( correlation.systemfit( fitsuri1r3, 1, 2 ) )
+
+print( correlation.systemfit( fitsuri2, 2, 1 ) )
+
+print( correlation.systemfit( fitsuri3e, 1, 2 ) )
+
+print( correlation.systemfit( fitsuri4, 2, 1 ) )
+
+print( correlation.systemfit( fitsuri5r2, 1, 2 ) )
+
+
 ## *********** likelihood ratio tests *************
 # testing first restriction
 # non-iterating, methodRCov = 1

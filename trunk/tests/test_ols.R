@@ -314,6 +314,18 @@ print( predict( fitols5rs$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
    interval = "confidence", level = 0.25, newdata = smallData ) )
 
 
+## ************ correlation of predicted values ***************
+print( correlation.systemfit( fitols1p, 1, 2 ) )
+
+print( correlation.systemfit( fitols2r, 2, 1 ) )
+
+print( correlation.systemfit( fitols3s, 1, 2 ) )
+
+print( correlation.systemfit( fitols4rs, 2, 1 ) )
+
+print( correlation.systemfit( fitols5, 1, 2 ) )
+
+
 ## ************** F tests ****************
 # testing first restriction
 print( ftest.systemfit( fitols1, restrm ) )
