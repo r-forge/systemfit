@@ -3,7 +3,7 @@ confint.systemfit <- function( object, parm = NULL, level = 0.95,
       useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- length( coef( object ) ) != object$nCoefLi
+      useDfSys <- length( coef( object ) ) != object$rank
          # TRUE if there are restrictions imposed
    }
 
@@ -28,7 +28,7 @@ confint.systemfit.equation <- function( object, parm = NULL, level = 0.95,
    useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- object$nCoef.sys != object$nCoefLi.sys
+      useDfSys <- object$nCoef.sys != object$rank.sys
          # TRUE if there are restrictions imposed
    }
 

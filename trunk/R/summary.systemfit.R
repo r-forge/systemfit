@@ -2,7 +2,7 @@
 summary.systemfit <- function( object, useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- length( coef( object ) ) != object$nCoefLi
+      useDfSys <- length( coef( object ) ) != object$rank
          # TRUE if there are restrictions imposed
    }
 
@@ -178,7 +178,7 @@ print.summary.systemfit <- function( x, digits=6,... ) {
 summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- object$nCoef.sys != object$nCoefLi.sys
+      useDfSys <- object$nCoef.sys != object$rank.sys
          # TRUE if there are restrictions imposed
    }
 

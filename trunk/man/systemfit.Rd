@@ -111,8 +111,8 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{call}{the matched call.}
   \item{method}{estimation method.}
   \item{nObs}{total number of observations of all equations.}
-  \item{nCoefLi}{total number of linear independent coefficients
-      in all equations.}
+  \item{rank}{total number of linear independent coefficients
+      = number of coefficients minus number of linear restrictions.}
   \item{df.residual}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}
   \item{coefficients}{vector of all estimated coefficients.}
@@ -132,13 +132,12 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{terms*}{the 'terms' object used for the ith equation.}
   \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
   \item{nObs*}{number of observations of the ith equation.}
-  \item{nCoefLi*}{number of linear independent coefficients in the ith equation
-     (including the constant differs from \code{nCoef*} only if there are
+  \item{rank*}{number of linear independent coefficients in the ith equation
+     (differs from the number of coefficients only if there are
      restrictions that are not cross-equation).}
-  \item{nCoef.sys*}{total number of exogenous variables/coefficients
-      in all equation (including constants).}
-  \item{nCoefLi.sys*}{total number of linear independent coefficients
-      in all equations (including constants).}
+  \item{nCoef.sys*}{total number of coefficients in all equations.}
+  \item{rank.sys*}{total number of linear independent coefficients
+      in all equations.}
   \item{df.residual*}{degrees of freedom of the ith equation.}
   \item{df.residual.sys*}{degrees of freedom of the whole system.}
   \item{coefficients*}{estimated coefficients of the ith equation.}

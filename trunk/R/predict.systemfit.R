@@ -5,7 +5,7 @@ predict.systemfit <- function( object, newdata = NULL,
                                useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- length( coef( object ) ) != object$nCoefLi
+      useDfSys <- length( coef( object ) ) != object$rank
          # TRUE if there are restrictions imposed
    }
 
@@ -34,7 +34,7 @@ predict.systemfit.equation <- function( object, newdata = NULL,
                                useDfSys = NULL, ... ) {
 
    if( is.null( useDfSys ) ) {
-      useDfSys <- object$nCoef.sys != object$nCoefLi.sys
+      useDfSys <- object$nCoef.sys != object$rank.sys
          # TRUE if there are restrictions imposed
    }
 
