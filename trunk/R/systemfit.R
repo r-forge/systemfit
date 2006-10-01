@@ -424,7 +424,6 @@ systemfit <- function(  eqns,
     resulti$eqnLabel     <- eqnLabels[[i]]
     resulti$terms        <- termsEq[[ i ]]
     resulti$nObs         <- nObsEq[i]       # number of observations
-    resulti$nCoef        <- nCoefEq[i]      # number of exogenous variables/coefficients
     resulti$nCoefLi      <- nCoefLiEq[i]    # number of linear independent coefficients
     resulti$nCoef.sys    <- nCoefAll        # number of exogenous variables/coefficients
     resulti$nCoefLi.sys  <- nCoefLiAll      # number of linear independent coefficients
@@ -473,7 +472,6 @@ systemfit <- function(  eqns,
   ## build the "return" structure for the whole system
   results$method  <- method
   results$nObs    <- nObsAll        # total number of observations of all equations
-  results$nCoef   <- nCoefAll      # total number of exogenous variables/coefficients in all equations
   results$nCoefLi <- nCoefLiAll
      # total number of linear independent coefficients of all equations
   results$df.residual <- nObsAll - nCoefLiAll

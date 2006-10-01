@@ -111,8 +111,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{call}{the matched call.}
   \item{method}{estimation method.}
   \item{nObs}{total number of observations of all equations.}
-  \item{nCoef}{total number of exogenous variables/coefficients
-      in all equations (including the constants).}
   \item{nCoefLi}{total number of linear independent coefficients
       in all equations.}
   \item{df.residual}{degrees of freedom of the whole system.}
@@ -134,8 +132,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{terms*}{the 'terms' object used for the ith equation.}
   \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
   \item{nObs*}{number of observations of the ith equation.}
-  \item{nCoef*}{number of exogenous variables/coefficients in the ith equation
-     (including the constant).}
   \item{nCoefLi*}{number of linear independent coefficients in the ith equation
      (including the constant differs from \code{nCoef*} only if there are
      restrictions that are not cross-equation).}

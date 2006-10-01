@@ -4,7 +4,7 @@
 correlation.systemfit <- function( results, eqni, eqnj ) {
   nCoefEq <- NULL
   for( i in 1:length( results$eq ) ) {
-     nCoefEq <- c( nCoefEq, results$eq[[ i ]]$nCoef )
+     nCoefEq <- c( nCoefEq, length( coef( results$eq[[ i ]] ) ) )
   }
   cij <- results$bcov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
                       (1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj]))]
