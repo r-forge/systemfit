@@ -48,17 +48,44 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    result$df <- c( object$nCoefAll, object$nObs - object$nCoefAll )
 
    # R^2 values
+   nObsEq <- NULL
+   resid <- NULL
+   response <- NULL
    responseMinusMean <- NULL
    for( i in 1:length( object$eq ) ) {
+      nObsEq <- c( nObsEq, object$eq[[ i ]]$nObs )
+      resid <- c( resid, residuals( object$eq[[ i ]] ) )
       responseEqI <- fitted( object$eq[[ i ]] ) + residuals( object$eq[[ i ]] )
+      response <- c( response, responseEqI )
       responseMinusMean <- c( responseMinusMean,
          responseEqI - mean( responseEqI ) )
    }
+
+   # OLS R^2 value of the entire system
    rss <- sum( residuals( object )^2 )
    tss <- sum( responseMinusMean^2 )
    result$ols.r.squared <- 1 - rss / tss
 
-   result$mcelroy.r.squared <- object$mcelr2
+   # System R^2 value of McElroy (1977)
+   # formula from Greene (2003, p. 345 )
+   # (first formula, numerator modified to save memory)
+   if( object$method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
+      rtOmega <- .calcXtOmegaInv( xMat = matrix( resid, ncol = 1 ),
+         sigma = object$rcov, nObsEq = nObsEq,
+         solvetol = object$control$solvetol )
+      yCov <- .calcRCov( response, methodRCov = "noDfCor",
+         nObsEq = nObsEq, centered = TRUE,
+         solvetol = object$control$solvetol )
+      residCovInv <- solve( object$rcov, tol = object$control$solvetol )
+      denominator <- 0
+      for( i in 1:length( object$eq ) ) {
+         for( j in 1:length( object$eq ) ) {
+            denominator <- denominator + residCovInv[ i, j ] * yCov[ i, j ] *
+               object$eq[[ 1 ]]$nObs
+         }
+      }
+      result$mcelroy.r.squared <- drop( 1 - ( rtOmega %*% resid ) / denominator )
+   }
 
    class( result ) <- "summary.systemfit"
    return( result )

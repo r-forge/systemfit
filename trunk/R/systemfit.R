@@ -472,36 +472,6 @@ systemfit <- function(  eqns,
   rcov <- .calcRCov( resids, methodRCov = control$methodRCov, nObsEq = nObsEq,
       nCoefEq = nCoefLiEq, xEq = xMatEq, centered = control$centerResiduals, solvetol = control$solvetol )
   drcov <- det(rcov, tol=control$solvetol)
-  if( !control$saveMemory ) {
-#       # original formula from McElroy (1977)
-#       mcelr2 <- 1 - ( t(resids) %*% ( solve(rcov, tol=control$solvetol) %x%
-#                 diag(1, nObsEq[1],nObsEq[1])) %*% resids ) /
-#                 ( t(yVecAll) %*% ( solve(rcov, tol=control$solvetol ) %x%
-#                 ( diag(1,nObsEq[1],nObsEq[1] ) - rep(1,nObsEq[1]) %*%
-#                 t(rep(1,nObsEq[1])) / nObsEq[1] )) %*% yVecAll )   # McElroy's (1977a) R2
-      # first formula from Greene (2003, p. 345) (numerator modified to save memory)
-      rtOmega <- .calcXtOmegaInv( xMat = resids, sigma = rcov, nObsEq = nObsEq,
-         solvetol = control$solvetol )
-      yCov <- .calcRCov( yVecAll, methodRCov = "noDfCor", nObsEq = nObsEq, centered = TRUE,
-         solvetol = control$solvetol )
-      residCovInv <- solve( rcov, tol = control$solvetol )
-      denominator <- 0
-      for( i in 1:nEq ) {
-         for( j in 1:nEq ) {
-            denominator <- denominator + residCovInv[ i, j ] * yCov[ i, j ] * nObsEq[1]
-         }
-      }
-      mcelr2 <- 1 - ( rtOmega %*% resids ) / denominator
-#       # second formula from Greene (2003, p. 345)
-#        yCov <- sum(diag(.calcRCov( yVecAll, methodRCov = "noDfCor", nObsEq = nObsEq, centered = TRUE,
-#           solvetol = control$solvetol )))
-#        yCov <- drop( t(yVecAll-mean(yVecAll)) %*% (yVecAll-mean(yVecAll)) / sum(nObsEq) )
-#       yCov <- .calcRCov( yVecAll, methodRCov = "geomean", nObsEq = nObsEq, nCoefEq=rep(1,nEq),
-#          centered = TRUE, solvetol = control$solvetol )
-#        mcelr2 <- 1 - nEq / sum( diag( solve( rcov, tol = control$solvetol ) * yCov ) )
-  } else {
-     mcelr2 <- NA
-  }
 
   coef           <- drop(coef)
   names(coef)    <- xnames
@@ -532,7 +502,6 @@ systemfit <- function(  eqns,
   results$iter    <- iter           # residual correlation matrix
   if( method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
     results$rcovest <- rcovest      # residual covarance matrix used for estimation
-    results$mcelr2  <- mcelr2       # McElroy's R-squared value for the equation system
   }
   results$R.restr <- R.restr
   results$q.restr <- q.restr

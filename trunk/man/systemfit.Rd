@@ -128,7 +128,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
   \item{rcov}{estimated residual covariance matrix.}
   \item{drcov}{determinant of \code{rcov}.}
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
-  \item{mcelr2}{McElroys R-squared value for the system (only SUR and 3SLS).}
   \item{R.restr}{the restriction matrix.}
   \item{q.restr}{the restriction vector.}
   \item{TX}{matrix used to transform the regressor matrix.}
