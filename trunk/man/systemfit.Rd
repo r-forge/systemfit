@@ -115,7 +115,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
       in all equations (including the constants).}
   \item{nCoefLiAll}{total number of linear independent coefficients
       in all equations.}
-  \item{nCoefLiEq}{number of linear independent coefficients in each equation.}
   \item{df.residual}{degrees of freedom of the whole system.}
   \item{iter}{number of iteration steps.}
   \item{coefficients}{vector of all estimated coefficients.}
