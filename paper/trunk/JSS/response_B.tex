@@ -38,24 +38,35 @@ We have structured our reply accordingly.
 
 It was our intention to create a package for fitting models that could
 be verified against published results before moving on to include more
-sophisticated fitting methods.
+sophisticated fitting methods. 
 
-The reasons for doing this were two-fold.
-Our first reasons was to simply introduce a econometrics package where
-the main focus of the package was econometrics (a branch of the R
-packages that was under-represented).  
-
-that at the time of the package introduction (2002) was
+The reasons for doing this were two-fold.  Our first reason was to
+simply introduce an econometrics package where the main focus of the
+package was "pure" econometrics and not to have a few specialized
+routines, as is the case with the tsls() function is the SEM
+package. While there are definitely links among structural equation
+models, IV methods and experimental design, the focus of this package
+was econometrics; more specifically simultaneous equation methods.   
 
 The second reason for creating the package was to create a "forum" for
 more advanced fitting methods as described in Section 6 (Summary and
 Outlook). It is our intention to impliment these more advanced methods
-over time, but we felt that having a "basic" package that was accepted
-as part of a peer-review process would create an environment that
-would allow for acceptance in the future since the more sophisticated
-methods can be subject to difficulties beyond numerical routines.
+(unbalanced data sets, FIML, GMM, etc.) over time, but we felt that
+having a "basic" package that was accepted as part of a peer-review
+process would create an environment that would reduce resistance to
+acceptance in the future since the more sophisticated methods can be
+subject to the difficulties beyond simple numerical routines as were
+used in the systemfit package so far.  Perhaps once the package gains
+enough acceptance, the functions can be made part of the core
+functions of R, but attempting to directly include the functions
+presented in the package might prove to be exceedingly difficult with
+the core development team.
 
-
+At the time the package was originally introduced (2002), there were
+very few econometrics functions for R and only recently have more
+functions and packages been submitted. Adding these functions to an
+existing econometrics package would have made sense, had one been
+available. 
 
 \section{Specific comments}
 % Specific comments
@@ -76,12 +87,19 @@ three examples of topics that use IV methods and have added
 % may be a bit hard to follow for people outside econometrics. It
 % would help to include more references, especially in section 2.1.
 
+
+
 \subsection{Number of observations}
 % Page 2: 'observations' should be explained earlier together with the presentation of the data
 % structure. The number of observations should be stated.
 
+We have included a brief statement that the number of observations for
+each equation in the system is the same. 
+
 \subsection{x and y variables}
 % Page 2: It should be clarified whether y-variables in one equation can be x-variables in another.
+
+This is stated in the introduction on Page one, lines 13-14. 
 
 \subsection{'may' should be 'must'}
 % Page 4, line 82: 'may' should be 'must'. Here the difference is extremely important. Maybe the text
@@ -89,9 +107,25 @@ three examples of topics that use IV methods and have added
 % variable. What is a good instrumental variable and what happens if the requirements are not
 % fulfilled?
 
+The selection of instrument variables is discussed in more detail in
+other references and may quite unique to each field. 
+We chose not to focus on details such as selection of instrument
+variables, variance-covariance structures and other specifics of
+simultaneous equations as this article was written to present the
+basic equations, fitting methods and usage of the software package.
+While we desired to include a wide variety of topics, such as
+structure of the residual variance-covariance matrix, many of these
+were included in the package to compare, and finally match, the
+results from other software packages.
+For guidance on selection of instrument variables, the reader is
+referred to the citations in the article.
+
 \subsection{Equation 20 and 23}
 % The difference between equation 20 and 23 is so smaller that maybe it should be noted in the text
 % what it is.
+
+We have added a note to make the reader aware of the difference
+between the two equations. 
 
 \subsection{Sigma}
 % Line 193-194: Language is confusing. It should be explained that calculation of some of the
@@ -99,28 +133,59 @@ three examples of topics that use IV methods and have added
 % is used instead. However, then statistical properties may changed compared to the theory described
 % earlier.
 
+We have made minor edits to the section to avoid any possible
+confusion. We discovered in the currently existing body of literature
+that there is no well defined presentation of computing the residual
+covariance matrix and have made a brief attempt here, but our attempt
+was by no means exhaustive. 
+
 \subsection{First step OLS}
 % Line 196: It should be explained what is meant by a first step OLS.
+
+We have removed the term "first-step" as previously used in the
+manuscript. This term refers to the first-stage of a multi-stage
+estimation process (OLS->SUR) or (2SLS->3SLS).
 
 \subsection{Efficiency and maximum likelihood}
 % Section 2.3: Somewhere in this section or (2.1) it should be noted that the efficiency results of
 % section 2.1 depend on Sigma being known. And that a full maximum likelihood analysis may be
 % superior.
-% 
+
+\textbf{[Arne, I'm not sure how to answer this one. I'm not sure this is an
+important issue for the manuscript. We mention that FIML is a more
+sophisticated approach in the summary and outlook section, but we
+don't really mention FIML in the paper. Should we?]}
+
 
 \subsection{Alternative approach}
 % Line 215-219: Alternative approach should be explained more clearly.
+
+\textbf{[Arne, can we simply not mention the "alternative method" in the
+paper? I think it should stay as is, but I need a little more
+understanding of the reasoning behind the method and can't defend
+it. I just don't have any exposure to it yet.]}
+
 
 \subsection{Syntax for instrumental variables}
 % Line 375-379: Syntax on programming of instrumental variables should be made more clear. What
 % is a one-sided formula? Does the code given imply that the sum of income, farmPrice and trend was
 % used as and instrumental variable? If so, it should be stated in the text.
 
+We have included the proper citation for the R manuals which describes
+the syntax for formulas. 
+
 \subsection{Section 2.7}
 % Section 2.7: Given the theory of the previous sections, I was confused about the Hausman test.
 % Under the alternative hypothesis, independent variables are correlated with error terms. In this
 % section it is stated that this leads to inconsistency of 3SLS. However, on page 5 (top) the opposite is
 % stated? Would it not make more sense to compare SUR to 3SLS?
+
+The Hausman test is somewhat unique from other detection tests in that
+the test is designed "backwards" in the sense that the model that is
+being tested is correctly specified and not whether a predetermined 
+value is sufficiently close to the parameter estimate. 
+
+\textbf{[I'm tired and will have to get back to this]}
 
 \section{Smaller comments}
 % Smaller corrections:
