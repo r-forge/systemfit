@@ -97,10 +97,8 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
 }
 
 ## print summary results of the whole system
-print.summary.systemfit <- function( x, digits=6,... ) {
-
-  save.digits <- unlist(options(digits=digits))
-  on.exit(options(digits=save.digits))
+print.summary.systemfit <- function( x,
+      digits = max( 3, getOption("digits") - 1 ), ... ) {
 
   table <- NULL
   labels <- NULL
@@ -137,13 +135,13 @@ print.summary.systemfit <- function( x, digits=6,... ) {
 
   ##print.matrix(table, quote = FALSE, right = TRUE )
   ##prmatrix(table, quote = FALSE, right = TRUE )
-  print(table, quote = FALSE, right = TRUE )
+  print(table, quote = FALSE, right = TRUE, digits = digits )
 
   cat("\n")
 
   if(!is.null(x$residCovEst)) {
     cat("The covariance matrix of the residuals used for estimation\n")
-    print( x$residCovEst )
+    print( x$residCovEst, digits = digits )
     cat("\n")
     if( min(eigen( x$residCov, only.values=TRUE)$values) < 0 ) {
       cat("warning: this covariance matrix is NOT positive semidefinit!\n")
@@ -152,29 +150,29 @@ print.summary.systemfit <- function( x, digits=6,... ) {
   }
 
   cat("The covariance matrix of the residuals\n")
-  print( x$residCov )
+  print( x$residCov, digits = digits )
   cat("\n")
 
   cat("The correlations of the residuals\n")
-  print( x$residCor )
+  print( x$residCor, digits = digits )
   cat("\n")
 
   cat("The determinant of the residual covariance matrix: ")
-  cat( x$detResidCov )
+  cat( formatC( x$detResidCov, digits = digits, width = -1 ) )
   cat("\n")
 
   cat("OLS R-squared value of the system: ")
-  cat( x$ols.r.squared )
+  cat( formatC( x$ols.r.squared, digits = digits, width = -1 ) )
   cat("\n")
 
   if(!is.null(x$mcelroy.r.squared)) {
     cat("McElroy's R-squared value for the system: ")
-    cat(x$mcelroy.r.squared)
+    cat( formatC( x$mcelroy.r.squared, digits = digits, width = -1 ) )
     cat("\n")
   }
   ## now print the individual equations
   for(i in 1:length( x$eq ) ) {
-      print( x$eq[[i]], digits )
+      print( x$eq[[i]], digits = digits )
   }
   invisible( x )
 }
@@ -230,10 +228,8 @@ summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
 
 
 ## print summary results for a single equation
-print.summary.systemfit.equation <- function( x, digits=6, ... ) {
-
-  save.digits <- unlist(options(digits=digits))
-  on.exit(options(digits=save.digits))
+print.summary.systemfit.equation <- function( x,
+   digits = max( 3, getOption("digits") - 1 ), ... ) {
 
   cat("\n")
   cat( x$method, " estimates for '", x$eqnLabel,
@@ -259,7 +255,7 @@ print.summary.systemfit.equation <- function( x, digits=6, ... ) {
 
   ##print.matrix(table, quote = FALSE, right = TRUE )
   ##prmatrix(table, quote = FALSE, right = TRUE )
-  print(table, quote = FALSE, right = TRUE )
+  print(table, quote = FALSE, right = TRUE, digits = digits )
   cat("---\nSignif. codes: ",attr(Signif,"legend"),"\n")
 
   cat(paste("\nResidual standard error:", round( x$sigma, digits ),

@@ -1,6 +1,6 @@
 
-R : Copyright 2006, The R Foundation for Statistical Computing
-Version 2.3.1 (2006-06-01)
+R version 2.4.1 (2006-12-18)
+Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -252,7 +252,7 @@ demand 1.000000 0.926405
 supply 0.926405 1.000000
 
 The determinant of the residual covariance matrix: 2.33364
-OLS R-squared value of the system: 0.69171
+OLS R-squared value of the system: 0.691709
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -371,7 +371,7 @@ demand 1.000000 0.926405
 supply 0.926405 1.000000
 
 The determinant of the residual covariance matrix: 2.33364
-OLS R-squared value of the system: 0.69171
+OLS R-squared value of the system: 0.691709
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income

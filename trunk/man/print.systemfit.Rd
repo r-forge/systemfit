@@ -11,9 +11,11 @@
 }
 
 \usage{
-   \method{print}{systemfit}( x, digits=6, \dots )
+   \method{print}{systemfit}( x,
+      digits = max( 3, getOption("digits") - 1 ), \dots )
 
-   \method{print}{systemfit.equation}( x, digits=6, ... )
+   \method{print}{systemfit.equation}( x,
+      digits = max( 3, getOption("digits") - 1 ), ... )
 }
 
 \arguments{

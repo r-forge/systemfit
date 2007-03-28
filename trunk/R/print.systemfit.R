@@ -1,8 +1,6 @@
 ## print a few results of the whole system
-print.systemfit <- function( x, digits=6,... ) {
-
-   save.digits <- unlist(options(digits=digits))
-   on.exit(options(digits=save.digits))
+print.systemfit <- function( x,
+      digits = max( 3, getOption("digits") - 1 ),... ) {
 
    cat("\n")
    cat("systemfit results \n")
@@ -20,16 +18,14 @@ print.systemfit <- function( x, digits=6,... ) {
       }
    }
    cat( "Coefficients:\n" )
-   print( x$coefficients )
+   print( x$coefficients, digits = digits )
    invisible( x )
 }
 
 
 ## print a few results for a single equation
-print.systemfit.equation <- function( x, digits=6, ... ) {
-
-   save.digits <- unlist(options(digits=digits))
-   on.exit(options(digits=save.digits))
+print.systemfit.equation <- function( x,
+      digits = max( 3, getOption("digits") - 1 ), ... ) {
 
    cat("\n")
    cat( x$method, " estimates for '", x$eqnLabel,
@@ -43,6 +39,6 @@ print.systemfit.equation <- function( x, digits=6, ... ) {
    }
 
    cat("\nCoefficients:")
-   print( x$coefficients )
+   print( x$coefficients, digits = digits )
    invisible( x )
 }
