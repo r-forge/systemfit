@@ -1,6 +1,6 @@
 
-R : Copyright 2006, The R Foundation for Statistical Computing
-Version 2.3.1 (2006-06-01)
+R version 2.4.1 (2006-12-18)
+Copyright (C) 2006 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -341,7 +341,7 @@ supply 0.983879 1.000000
 
 The determinant of the residual covariance matrix: -0.735302
 OLS R-squared value of the system: 0.679506
-McElroy's R-squared value for the system: 0.95731
+McElroy's R-squared value for the system: 0.957309
 
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -467,7 +467,7 @@ demand 1.00000 0.98405
 supply 0.98405 1.00000
 
 The determinant of the residual covariance matrix: 0.619673
-OLS R-squared value of the system: 0.6634
+OLS R-squared value of the system: 0.663401
 McElroy's R-squared value for the system: 0.707287
 
 SUR estimates for 'demand' (equation 1)
@@ -594,7 +594,7 @@ demand 1.00000 0.98405
 supply 0.98405 1.00000
 
 The determinant of the residual covariance matrix: 0.619673
-OLS R-squared value of the system: 0.6634
+OLS R-squared value of the system: 0.663401
 McElroy's R-squared value for the system: 0.707287
 
 SUR estimates for 'demand' (equation 1)
@@ -1043,7 +1043,7 @@ demand  1.000000 -0.749386
 supply -0.749386  1.000000
 
 The determinant of the residual covariance matrix: 4.42447
-OLS R-squared value of the system: 0.88486
+OLS R-squared value of the system: 0.884861
 McElroy's R-squared value for the system: 0.958178
 
 SUR estimates for 'demand' (equation 1)
@@ -1176,7 +1176,7 @@ supply -0.754481  1.000000
 
 The determinant of the residual covariance matrix: 3.99651
 OLS R-squared value of the system: 0.883785
-McElroy's R-squared value for the system: 0.96062
+McElroy's R-squared value for the system: 0.960621
 
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -1242,7 +1242,7 @@ supply -0.754481  1.000000
 
 The determinant of the residual covariance matrix: 3.99651
 OLS R-squared value of the system: 0.883785
-McElroy's R-squared value for the system: 0.96062
+McElroy's R-squared value for the system: 0.960621
 
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -1636,7 +1636,7 @@ The correlations of the residuals
 demand 1.000000 0.967163
 supply 0.967163 1.000000
 
-The determinant of the residual covariance matrix: 1.74340
+The determinant of the residual covariance matrix: 1.7434
 OLS R-squared value of the system: 0.670962
 McElroy's R-squared value for the system: 0.704623
 
@@ -1768,7 +1768,7 @@ The correlations of the residuals
 demand 1.000000 0.967163
 supply 0.967163 1.000000
 
-The determinant of the residual covariance matrix: 1.74340
+The determinant of the residual covariance matrix: 1.7434
 OLS R-squared value of the system: 0.670962
 McElroy's R-squared value for the system: 0.704623
 
