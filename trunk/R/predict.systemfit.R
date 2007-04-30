@@ -21,7 +21,7 @@ predict.systemfit <- function( object, newdata = NULL,
          predicted <- cbind( predicted, predicted.i )
       }
    }
-   names( predicted ) <- sub( "(?<!\.se)\.fit$", ".pred",
+   names( predicted ) <- sub( "(?<!\\.se)\\.fit$", ".pred",
          names( predicted ), perl = TRUE )
 
    return( predicted )
