@@ -131,7 +131,7 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
       moments <- rbind( moments, gmm.resids[t,] %x% z[t,] )
     }
     g <- length( eqns )                 # number of equations
-    k <- dim( as.matrix( model.frame( inst ) ) )[[2]]
+    k <- dim( instr )[[2]]
     gk <- g*k
     for( i in 1:gk ) {
       mn <- rbind( mn, mean( moments[,i] ) )
