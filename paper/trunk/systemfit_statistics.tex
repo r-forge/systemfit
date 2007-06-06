@@ -47,7 +47,7 @@ or more simply as
 We assume that there is no correlation of the disturbance terms 
 across observations, so that
 \begin{equation}
-   E \left( u_{it} \, u_{js} \right) = 0
+   \E \left[ u_{it} \, u_{js} \right] = 0
    \; \forall \; t \neq s ,
 \end{equation}
 where $i$ and $j$ indicate the equation number 
@@ -55,12 +55,12 @@ and $t$ and $s$ denote the observation number.
 
 However, we explicitly allow for contemporaneous correlation, i.e.\
 \begin{equation}
-   E \left( u_{it} \, u_{jt} \right) = \sigma_{ij} .
+   \E \left[ u_{it} \, u_{jt} \right] = \sigma_{ij} .
 \end{equation}
 
 Thus, the covariance matrix of the total system is
 \begin{equation}
-   E \left( u \, u' \right) = \Omega = \Sigma \otimes I ,
+   \E \left[ u \, u' \right] = \Omega = \Sigma \otimes I ,
 \end{equation}
 where $\Sigma = \left[ \sigma_{ij} \right]$ is the residual covariance matrix
 and $I$ is an identity matrix.

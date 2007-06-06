@@ -104,7 +104,7 @@ the covariance matrix of the estimated parameters is
       R & 0
    \end{array} \right]^{-1} ,
 \end{equation}
-where $\sigma^2 = E \left( u_{it}^2 \right)$.
+where $\sigma^2 = \E \left[ u_{it}^2 \right]$.
 If the disturbance terms of the individual equations
 are allowed to have different variances, 
 the covariance matrix of the estimated parameters is
@@ -121,7 +121,7 @@ the covariance matrix of the estimated parameters is
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
+$\sigma_{ii} = \sigma_i^2 = \E \left[ u_{it}^2 \right]$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Restricted WLS estimation}
@@ -143,7 +143,7 @@ The WLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
+$\sigma_{ii} = \sigma_i^2 = \E \left[ u_{it}^2 \right]$.
 The covariance matrix of the estimated parameters is
 \begin{equation}
    \COV
@@ -176,7 +176,7 @@ The SUR estimator restricted by $R \beta^0 = q$ can be obtained by
    \end{array} \right] ,
 \end{equation}
 where $\Omega = \Sigma \otimes I$ and
-$\sigma_{ij} = E \left( u_{it} u_{jt} \right)$.
+$\sigma_{ij} = \E \left[ u_{it} u_{jt} \right]$.
 The covariance matrix of the estimated parameters is
 \begin{equation}
    \COV
@@ -222,7 +222,7 @@ the covariance matrix of the estimated parameters is
       R & 0
    \end{array} \right]^{-1} ,
 \end{equation}
-where $\sigma^2 = E \left( u_{it}^2 \right)$.
+where $\sigma^2 = \E \left[ u_{it}^2 \right]$.
 If the disturbance terms of the individual equations
 are allowed to have different variances, 
 the covariance matrix of the estimated parameters is
@@ -239,7 +239,7 @@ the covariance matrix of the estimated parameters is
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
+$\sigma_{ii} = \sigma_i^2 = \E \left[ u_{it}^2 \right]$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -262,7 +262,7 @@ The W2SLS estimator restricted by $R \beta^0 = q$ can be obtained by
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
 $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
-$\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
+$\sigma_{ii} = \sigma_i^2 = \E \left[ u_{it}^2 \right]$.
 The covariance matrix of the estimated parameters is
 \begin{equation}
    \COV
@@ -297,7 +297,7 @@ The standard 3SLS estimator restricted by $R \beta^0 = q$ can be obtained by
    \label{eq:3slsGlsR}
 \end{equation}
 where $\Omega = \Sigma \otimes I$ and
-$\sigma_{ij} = E \left( u_{it} u_{jt} \right)$.
+$\sigma_{ij} = \E \left[ u_{it} u_{jt} \right]$.
 The covariance matrix of this estimator is
 \begin{equation}
    \COV
