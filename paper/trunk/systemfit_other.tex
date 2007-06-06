@@ -251,14 +251,14 @@ but the 3SLS estimator is inconsistent.
 The Hausman test statistic is
 \begin{equation}
   m = \left( \widehat{\beta}_{2SLS} - \widehat{\beta}_{3SLS} \right)^{'}
-      \left( \Cov \left[ \widehat{\beta}_{2SLS} \right] -
-             \Cov \left[ \widehat{\beta}_{3SLS} \right] \right)
+      \left( \COV \left[ \widehat{\beta}_{2SLS} \right] -
+             \COV \left[ \widehat{\beta}_{3SLS} \right] \right)
       \left( \widehat{\beta}_{2SLS} - \widehat{\beta}_{3SLS} \right) ,
 \label{eq:hausman}
 \end{equation}
-where $\widehat{\beta}_{2SLS}$ and $\Cov \left[ \widehat{\beta}_{2SLS} \right]$ are the estimated
+where $\widehat{\beta}_{2SLS}$ and $\COV \left[ \widehat{\beta}_{2SLS} \right]$ are the estimated
 coefficient and covariance matrix from 2SLS estimation, and
-$\widehat{\beta}_{3SLS}$ and $\Cov \left[ \widehat{\beta}_{3SLS} \right]$ are the estimated
+$\widehat{\beta}_{3SLS}$ and $\COV \left[ \widehat{\beta}_{3SLS} \right]$ are the estimated
 coefficients and covariance matrix from 3SLS estimation.
 Under the null hypothesis this test statistic has a
 $\chi^2$ distribution with degrees of freedom equal to the number of

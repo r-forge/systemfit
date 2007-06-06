@@ -18,7 +18,7 @@ $\sigma_{ij} = 0 \; \forall \; i \neq j$.
 If the whole system is treated as one single equation,
 the covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{OLS} \right] = \sigma^2 \left( X'X \right)^{-1} ,
+   \COV \left[ \widehat{\beta}_{OLS} \right] = \sigma^2 \left( X'X \right)^{-1} ,
    \label{eq:olsCovSameSigma}
 \end{equation}
 where $\sigma^2 = E \left( u_{it}^2 \right)$.
@@ -29,7 +29,7 @@ If the disturbance terms of the individual equations
 are allowed to have different variances,
 the covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{OLS} \right] = \left( X' \Omega^{-1} X \right)^{-1} ,
+   \COV \left[ \widehat{\beta}_{OLS} \right] = \left( X' \Omega^{-1} X \right)^{-1} ,
    \label{eq:olsCovSingleSigma}
 \end{equation}
 where $\Omega = \Sigma \otimes I$,
@@ -59,7 +59,7 @@ Like the OLS estimates these estimates are only efficient
 if the disturbance terms are not contemporaneously correlated.
 The covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{WLS} \right] = \left( X' \Omega^{-1} X \right)^{-1} .
+   \COV \left[ \widehat{\beta}_{WLS} \right] = \left( X' \Omega^{-1} X \right)^{-1} .
 \end{equation}
 If no cross-equation parameter restrictions are imposed,
 the parameter estimates are equal to the OLS estimates.
@@ -88,7 +88,7 @@ where $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_{it} u_{jt} \right)$.
 And the covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{SUR} \right] = \left( X' \Omega^{-1} X \right)^{-1} .
+   \COV \left[ \widehat{\beta}_{SUR} \right] = \left( X' \Omega^{-1} X \right)^{-1} .
    \label{eq:surCov}
 \end{equation}
 
@@ -121,7 +121,7 @@ of $\beta$ are obtained by
 If the whole system is treated as one single equation,
 the covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{2SLS} \right] = \sigma^2 \left( \widehat{X}'
+   \COV \left[ \widehat{\beta}_{2SLS} \right] = \sigma^2 \left( \widehat{X}'
    \widehat{X} \right)^{-1} ,
    \label{eq:2slsCovSameSigma}
 \end{equation}
@@ -130,7 +130,7 @@ If the disturbance terms of the individual equations
 are allowed to have different variances, 
 the covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{2SLS} \right] = \left( \widehat{X}' \Omega^{-1}
+   \COV \left[ \widehat{\beta}_{2SLS} \right] = \left( \widehat{X}' \Omega^{-1}
    \widehat{X} \right)^{-1} ,
    \label{eq:2slsCovSingleSigma}
 \end{equation}
@@ -153,7 +153,7 @@ $\sigma_{ij} = 0 \; \forall \; i \neq j$ and
 $\sigma_{ii} = \sigma_i^2 = E \left( u_{it}^2 \right)$.
 The covariance matrix of the estimated parameters is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{W2SLS} \right] = \left( \widehat{X}' \Omega^{-1}
+   \COV \left[ \widehat{\beta}_{W2SLS} \right] = \left( \widehat{X}' \Omega^{-1}
    \widehat{X} \right)^{-1} .
 \end{equation}
 
@@ -179,7 +179,7 @@ where $\Omega = \Sigma \otimes I$ and
 $\sigma_{ij} = E \left( u_{it} u_{jt} \right)$.
 Its covariance matrix is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{3SLS} \right] = \left( \widehat{X}' \Omega^{-1}
+   \COV \left[ \widehat{\beta}_{3SLS} \right] = \left( \widehat{X}' \Omega^{-1}
    \widehat{X} \right)^{-1} .
    \label{eq:cov3sls}
 \end{equation}
@@ -211,7 +211,7 @@ One of these approaches based on instrumental variable estimation
 \end{equation}
 The covariance matrix of this 3SLS-IV estimator is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{3SLS-IV} \right] = \left( \widehat{X}' \Omega^{-1}
+   \COV \left[ \widehat{\beta}_{3SLS-IV} \right] = \left( \widehat{X}' \Omega^{-1}
    X \right)^{-1} .
 \end{equation}
 Another approach based on the Generalized Method of Moments (GMM)
@@ -223,7 +223,7 @@ estimator (3SLS-GMM) is
 \end{equation}
 The covariance matrix of the 3SLS-GMM estimator is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{3SLS-GMM} \right] =
+   \COV \left[ \widehat{\beta}_{3SLS-GMM} \right] =
    \left( X' H \left( H' \Omega H \right)^{-1} H' X \right)^{-1} .
 \end{equation}
 A fourth approach developed by \cite{schmidt90} himself is
@@ -235,7 +235,7 @@ A fourth approach developed by \cite{schmidt90} himself is
 \end{equation}
 The covariance matrix of this estimator is
 \begin{equation}
-   \Cov \left[ \widehat{\beta}_{3SLS-Schmidt} \right] =
+   \COV \left[ \widehat{\beta}_{3SLS-Schmidt} \right] =
    \left( \widehat{X}' \Omega^{-1}  \widehat{X} \right)^{-1} 
    \widehat{X}' \Omega^{-1} H \left( H' H \right)^{-1} H' \Omega 
    H \left( H' H \right)^{-1} H' \Omega^{-1} \widehat{X}
