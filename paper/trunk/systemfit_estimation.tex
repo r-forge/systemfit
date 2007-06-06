@@ -21,7 +21,7 @@ the covariance matrix of the estimated parameters is
    \COV \left[ \widehat{\beta}_{OLS} \right] = \sigma^2 \left( X'X \right)^{-1} ,
    \label{eq:olsCovSameSigma}
 \end{equation}
-where $\sigma^2 = \E \left[ u_{it}^2 \right]$.
+where $\sigma^2 = \E \left[ u_{it}^2 \right] \, \forall \, i$.
 This assumes that the disturbances of all equations have the
 same variance.
 
@@ -241,7 +241,7 @@ The covariance matrix of this estimator is
    H \left( H' H \right)^{-1} H' \Omega^{-1} \widehat{X}
    \left( \widehat{X}' \Omega^{-1}  \widehat{X} \right)^{-1} .
 \end{equation}
-The econometrics software EViews uses
+The econometrics software \proglang{EViews} uses
 \begin{equation}
    \widehat{\beta}_{3SLS-EViews} = \widehat{\beta}_{2SLS} + 
    \left( \widehat{X}' \Omega^{-1} \widehat{X} \right)^{-1} 
@@ -250,7 +250,7 @@ The econometrics software EViews uses
 \end{equation}
 where $\widehat{\beta}_{2SLS}$ is the two-stage least squares estimator
 as defined by (\ref{eq:beta2sls}).
-EViews uses the standard 3SLS formula (\ref{eq:cov3sls}) to
+\proglang{EViews} uses the standard 3SLS formula (\ref{eq:cov3sls}) to
 calculate the covariance matrix of the 3SLS estimator.
 
 
