@@ -188,9 +188,9 @@ likelihood ratio (LR) test.
 The $F$ statistic for systems of equations is
 \begin{equation}
 F = \frac{
-   ( R \widehat{\beta} - q )'
+   ( R \bHat - q )'
    ( R ( X' ( \widehat{\Sigma} \otimes I )^{-1} X )^{-1} R' )^{-1}
-   ( R \widehat{\beta} - q ) /
+   ( R \bHat - q ) /
    j
 }{
    \widehat{u}' ( \widehat{\Sigma} \otimes I )^{-1} \widehat{u} /
@@ -210,9 +210,9 @@ with $j$ and $G \cdot T - K$ degrees of freedom
 The Wald statistic for systems of equations is
 \begin{equation}
 W =
-   ( R \widehat{\beta} - q )'
-   ( R \widehat{Cov} [ \widehat{\beta} ] R' )^{-1}
-   ( R \widehat{\beta} - q ) .
+   ( R \bHat - q )'
+   ( R \widehat{Cov} [ \bHat ] R' )^{-1}
+   ( R \bHat - q ) .
 \end{equation}
 Asymptotically, $W$ has a $\chi^2$
 distribution with $j$ degrees of freedom
@@ -250,15 +250,15 @@ Under the alternative hypothesis the 2SLS estimator is consistent
 but the 3SLS estimator is inconsistent.
 The Hausman test statistic is
 \begin{equation}
-  m = \left( \widehat{\beta}_{2SLS} - \widehat{\beta}_{3SLS} \right)^{'}
-      \left( \COV \left[ \widehat{\beta}_{2SLS} \right] -
-             \COV \left[ \widehat{\beta}_{3SLS} \right] \right)
-      \left( \widehat{\beta}_{2SLS} - \widehat{\beta}_{3SLS} \right) ,
+  m = \left( \bHat_{2SLS} - \bHat_{3SLS} \right)^{'}
+      \left( \COV \left[ \bHat_{2SLS} \right] -
+             \COV \left[ \bHat_{3SLS} \right] \right)
+      \left( \bHat_{2SLS} - \bHat_{3SLS} \right) ,
 \label{eq:hausman}
 \end{equation}
-where $\widehat{\beta}_{2SLS}$ and $\COV \left[ \widehat{\beta}_{2SLS} \right]$ are the estimated
+where $\bHat_{2SLS}$ and $\COV \left[ \bHat_{2SLS} \right]$ are the estimated
 coefficient and covariance matrix from 2SLS estimation, and
-$\widehat{\beta}_{3SLS}$ and $\COV \left[ \widehat{\beta}_{3SLS} \right]$ are the estimated
+$\bHat_{3SLS}$ and $\COV \left[ \bHat_{3SLS} \right]$ are the estimated
 coefficients and covariance matrix from 3SLS estimation.
 Under the null hypothesis this test statistic has a
 $\chi^2$ distribution with degrees of freedom equal to the number of
