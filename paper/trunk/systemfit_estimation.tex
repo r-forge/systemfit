@@ -125,20 +125,20 @@ the disturbance terms of the corresponding equation
 
 At the first stage new ('fitted') regressors are obtained by
 \begin{equation}
-   \widehat{X_i} = H_i \left( H_i' H_i \right)^{-1} H_i' X .
+   \XHat_i = H_i \left( H_i' H_i \right)^{-1} H_i' X .
 \end{equation}
 At the second stage, the unbiased two-stage least squares estimates
 of $\beta$ are obtained by
 \begin{equation}
-   \bHat_{2SLS} = \left( \widehat{X}' \widehat{X} \right)^{-1}
-   \widehat{X}' y .
+   \bHat_{2SLS} = \left( \XHat' \XHat \right)^{-1}
+   \XHat' y .
    \label{eq:beta2sls}
 \end{equation}
 If the whole system is treated as one single equation,
 an estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
-   \COVHat \left[ \bHat_{2SLS} \right] = \sHat^2 \left( \widehat{X}'
-   \widehat{X} \right)^{-1} ,
+   \COVHat \left[ \bHat_{2SLS} \right] = \sHat^2 \left( \XHat'
+   \XHat \right)^{-1} ,
    \label{eq:2slsCovSameSigma}
 \end{equation}
 where $\sHat^2$ is the estimated variance of the disturbance terms.
@@ -146,8 +146,8 @@ If the disturbance terms of the individual equations
 are allowed to have different variances, 
 an estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
-   \COVHat \left[ \bHat_{2SLS} \right] = \left( \widehat{X}' \OHat^{-1}
-   \widehat{X} \right)^{-1} ,
+   \COVHat \left[ \bHat_{2SLS} \right] = \left( \XHat' \OHat^{-1}
+   \XHat \right)^{-1} ,
    \label{eq:2slsCovSingleSigma}
 \end{equation}
 where $\OHat = \SHat \otimes I$,
@@ -162,8 +162,8 @@ of the disturbance term in the $i$th equation.
 The Weighted Two-Stage Least Squares (W2SLS) estimator of the system 
 is obtained by
 \begin{equation}
-   \bHat_{W2SLS} = \left( \widehat{X}' \OHat^{-1} \widehat{X}
-   \right)^{-1} \widehat{X}' \OHat^{-1} y ,
+   \bHat_{W2SLS} = \left( \XHat' \OHat^{-1} \XHat
+   \right)^{-1} \XHat' \OHat^{-1} y ,
 \end{equation}
 where $\OHat = \SHat \otimes I$,
 $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
@@ -171,8 +171,8 @@ $\sHat_{ii} = \sHat_i^2$ is the estimated variance
 of the disturbance term in the $i$th equation.
 An estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
-   \COVHat \left[ \bHat_{W2SLS} \right] = \left( \widehat{X}' \OHat^{-1}
-   \widehat{X} \right)^{-1} .
+   \COVHat \left[ \bHat_{W2SLS} \right] = \left( \XHat' \OHat^{-1}
+   \XHat \right)^{-1} .
 \end{equation}
 
 
@@ -189,16 +189,16 @@ Squares° (3SLS) \citep{zellner62b}.
 
 The standard 3SLS estimator can be obtained by
 \begin{equation}
-   \bHat_{3SLS} = \left( \widehat{X}' \OHat^{-1} \widehat{X}
-   \right)^{-1} \widehat{X}' \OHat^{-1} y ,
+   \bHat_{3SLS} = \left( \XHat' \OHat^{-1} \XHat
+   \right)^{-1} \XHat' \OHat^{-1} y ,
    \label{eq:3slsGls}
 \end{equation}
 where $\OHat = \SHat \otimes I$ and
 $\SHat$ is the estimated covariance matrix of the disturbance terms.
 An estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
-   \COVHat \left[ \bHat_{3SLS} \right] = \left( \widehat{X}' \OHat^{-1}
-   \widehat{X} \right)^{-1} .
+   \COVHat \left[ \bHat_{3SLS} \right] = \left( \XHat' \OHat^{-1}
+   \XHat \right)^{-1} .
    \label{eq:cov3sls}
 \end{equation}
 While an unbiased 2SLS or W2SLS estimation requires only that
@@ -223,13 +223,13 @@ Since there might be occasions where this cannot be avoided,
 One of these approaches based on instrumental variable estimation
 (3SLS-IV) is
 \begin{equation}
-   \bHat_{3SLS-IV} = \left( \widehat{X}' \OHat^{-1} X
-   \right)^{-1} \widehat{X}' \OHat^{-1} y .
+   \bHat_{3SLS-IV} = \left( \XHat' \OHat^{-1} X
+   \right)^{-1} \XHat' \OHat^{-1} y .
    \label{eq:3slsIv}
 \end{equation}
 An estimator of the covariance matrix of the estimated 3SLS-IV parameters is
 \begin{equation}
-   \COVHat \left[ \bHat_{3SLS-IV} \right] = \left( \widehat{X}' \OHat^{-1}
+   \COVHat \left[ \bHat_{3SLS-IV} \right] = \left( \XHat' \OHat^{-1}
    X \right)^{-1} .
 \end{equation}
 Another approach based on the Generalized Method of Moments (GMM)
@@ -246,24 +246,24 @@ An estimator of the covariance matrix of the estimated 3SLS-GMM parameters is
 \end{equation}
 A fourth approach developed by \cite{schmidt90} himself is
 \begin{equation}
-   \bHat_{3SLS-Schmidt} = \left( \widehat{X}' \OHat^{-1} \widehat{X}
-   \right)^{-1} \widehat{X}' \OHat^{-1} 
+   \bHat_{3SLS-Schmidt} = \left( \XHat' \OHat^{-1} \XHat
+   \right)^{-1} \XHat' \OHat^{-1}
    H \left( H' H \right)^{-1} H' y .
    \label{eq:3slsSchmidt}
 \end{equation}
 An estimator of the covariance matrix of these estimated parameters is
 \begin{equation}
    \COVHat \left[ \bHat_{3SLS-Schmidt} \right] =
-   \left( \widehat{X}' \OHat^{-1}  \widehat{X} \right)^{-1}
-   \widehat{X}' \OHat^{-1} H \left( H' H \right)^{-1} H' \OHat
-   H \left( H' H \right)^{-1} H' \OHat^{-1} \widehat{X}
-   \left( \widehat{X}' \OHat^{-1}  \widehat{X} \right)^{-1} .
+   \left( \XHat' \OHat^{-1}  \XHat \right)^{-1}
+   \XHat' \OHat^{-1} H \left( H' H \right)^{-1} H' \OHat
+   H \left( H' H \right)^{-1} H' \OHat^{-1} \XHat
+   \left( \XHat' \OHat^{-1}  \XHat \right)^{-1} .
 \end{equation}
 The econometrics software \proglang{EViews} uses
 \begin{equation}
    \bHat_{3SLS-EViews} = \bHat_{2SLS} +
-   \left( \widehat{X}' \OHat^{-1} \widehat{X} \right)^{-1}
-   \widehat{X}' \OHat^{-1} \left( y - X \bHat_{2SLS} \right) ,
+   \left( \XHat' \OHat^{-1} \XHat \right)^{-1}
+   \XHat' \OHat^{-1} \left( y - X \bHat_{2SLS} \right) ,
    \label{eq:3slsEViews}
 \end{equation}
 where $\bHat_{2SLS}$ is the two-stage least squares estimator

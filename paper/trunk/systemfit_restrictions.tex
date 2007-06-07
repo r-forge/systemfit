@@ -219,12 +219,12 @@ The 2SLS estimator restricted by $R \beta^R = q$ can be obtained by
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
-      \widehat{X}' \widehat{X} & R' \\ 
+      \XHat' \XHat & R' \\
       R & 0
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      \widehat{X}' y \\ q 
+      \XHat' y \\ q
    \end{array} \right] .
    \label{eq:beta2SLSr}
 \end{equation}
@@ -237,7 +237,7 @@ an estimator of the covariance matrix of the estimated parameters is
    \end{array} \right] 
    = \sHat^2 
    \left[ \begin{array}{cc}
-      \widehat{X}' \widehat{X} & R' \\ 
+      \XHat' \XHat & R' \\
       R & 0
    \end{array} \right]^{-1} ,
 \end{equation}
@@ -252,7 +252,7 @@ an estimator of the covariance matrix of the estimated parameters is
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} \widehat{X} & R' \\
+      \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1} ,
 \end{equation}
@@ -272,12 +272,12 @@ The W2SLS estimator restricted by $R \beta^R = q$ can be obtained by
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} \widehat{X} & R' \\
+      \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      \widehat{X}' \OHat^{-1} y \\ q
+      \XHat' \OHat^{-1} y \\ q
    \end{array} \right] ,
 \end{equation}
 where $\OHat = \SHat \otimes I$,
@@ -292,7 +292,7 @@ An estimator of the covariance matrix of the estimated parameters is
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} \widehat{X} & R' \\
+      \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1} .
 \end{equation}
@@ -308,12 +308,12 @@ The standard 3SLS estimator restricted by $R \beta^R = q$ can be obtained by
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} \widehat{X} & R' \\
+      \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      \widehat{X}' \OHat^{-1} y \\ q
+      \XHat' \OHat^{-1} y \\ q
    \end{array} \right] ,
    \label{eq:3slsGlsR}
 \end{equation}
@@ -327,7 +327,7 @@ An estimator of the covariance matrix of the estimated parameters is
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} \widehat{X} & R' \\
+      \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1} .
    \label{eq:cov3slsr}
@@ -339,12 +339,12 @@ The 3SLS-IV estimator restricted by $R \beta^R = q$ can be obtained by
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} X & R' \\
+      \XHat' \OHat^{-1} X & R' \\
       R & 0
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      \widehat{X}' \OHat^{-1} y \\ q
+      \XHat' \OHat^{-1} y \\ q
    \end{array} \right] ,
    \label{eq:3slsIvR}
 \end{equation}
@@ -356,7 +356,7 @@ where
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} \widehat{X} & R' \\
+      \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1} .
 \end{equation}
@@ -396,12 +396,12 @@ The restricted 3SLS estimator based on the suggestion of
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} \widehat{X} & R' \\
+      \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      \widehat{X}' \OHat^{-1} H \left( H' H \right)^{-1} H' y \\ q
+      \XHat' \OHat^{-1} H \left( H' H \right)^{-1} H' y \\ q
    \end{array} \right] ,
    \label{eq:3slsSchmidtR}
 \end{equation}
@@ -413,20 +413,20 @@ where
    \end{array} \right] 
    & = & 
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} \widehat{X} & R' \\
+      \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1}
    \\
    & & \cdot
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} H \left( H' H \right)^{-1} H' \OHat
-      H \left( H' H \right)^{-1} H' \OHat^{-1} \widehat{X} & 0' \\
+      \XHat' \OHat^{-1} H \left( H' H \right)^{-1} H' \OHat
+      H \left( H' H \right)^{-1} H' \OHat^{-1} \XHat & 0' \\
       0 & 0
    \end{array} \right]^{-1}
    \nonumber \\
    & & \cdot
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} \widehat{X} & R' \\
+      \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1} .
    \nonumber
@@ -438,12 +438,12 @@ The econometrics software \proglang{EViews} calculates the restricted 3SLS estim
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
-      \widehat{X}' \OHat^{-1} \widehat{X} & R' \\
+      \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      \widehat{X}' \OHat^{-1} \left( y - X \bHat^R_{2SLS} \right)
+      \XHat' \OHat^{-1} \left( y - X \bHat^R_{2SLS} \right)
       \\ q 
    \end{array} \right] ,
    \label{eq:3slsEViewsR}
