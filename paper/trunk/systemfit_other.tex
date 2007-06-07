@@ -13,11 +13,11 @@ the true covariance matrix of the residuals cannot be determined.
 Thus, this covariance matrix must be calculated from the
 \emph{estimated} residuals. 
 Generally, the estimated covariance matrix of the residuals
-($\widehat{\Sigma} = \left[ \widehat{\sigma}_{ij} \right]$)
+($\SHat = \left[ \sHat_{ij} \right]$)
 can be calculated from the residuals of a first-step OLS or 2SLS estimation.
 In many cases, the formula
 \begin{equation}
-   \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }{ T }
+   \sHat_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }{ T }
    \label{eq:rcovNoDfCor}
 \end{equation}
 is applied, where $T$ is the number of observations in each equation.
@@ -29,13 +29,13 @@ might differ.
 Two alternative approaches to calculate the residual covariance
 matrix are
 \begin{equation}
-   \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
+   \sHat_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
    { \sqrt{ \left( T - K_i \right) \cdot \left( T - K_j \right) } }
    \label{eq:rcovGeomean}
 \end{equation}
 and
 \begin{equation}
-   \widehat{\sigma}_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
+   \sHat_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
    { T - \max \left( K_i , K_j \right) } \; ,
    \label{eq:rcovMax}
 \end{equation}
@@ -52,7 +52,7 @@ However, these formulas yield unbiased estimators only if $K_i = K_j$
 A further approach to obtain the estimated residual covariance
 matrix is
 \begin{eqnarray}
-   \widehat{\sigma}_{ij} & = & 
+   \sHat_{ij} & = &
    \frac{ \widehat{u}_i' \widehat{u}_j } 
    { T - K_i - K_j + tr \left[ X_i \left( X_i' X_i \right)^{-1}
    X_i' X_j \left( X_j' X_j \right)^{-1} X_j' \right] }
@@ -64,8 +64,8 @@ matrix is
 \end{eqnarray} 
 \citep[p.\ 309]{zellner62c}.
 This yields an unbiased estimator for all elements of $\Sigma$,
-but even if $\widehat{\Sigma}$ is an unbiased estimator of $\Sigma$, 
-its inverse $\widehat{\Sigma}^{-1}$ is not an unbiased estimator 
+but even if $\SHat$ is an unbiased estimator of $\Sigma$,
+its inverse $\SHat^{-1}$ is not an unbiased estimator
 of $\Sigma^{-1}$ \citep[p.\ 322]{theil71}.
 Furthermore, the covariance matrix calculated by (\ref{eq:rcovTheil})
 is not necessarily positive semidefinite \citep[p.\ 322]{theil71}. 
@@ -168,8 +168,8 @@ The goodness of fit of the whole system can be measured by the
 McElroy's $R^2$ value 
 % also: \citep[p.\ 345]{greene03}
 \begin{equation}
-   R_*^2 = 1 - \frac{ \widehat{u}' \widehat{ \Omega }^{-1} \widehat{u} }
-   { y' \left( \widehat{ \Sigma }^{-1} \otimes
+   R_*^2 = 1 - \frac{ \widehat{u}' \OHat^{-1} \widehat{u} }
+   { y' \left( \SHat^{-1} \otimes
    \left( I - \frac{i i'}{T} \right) \right) y }
 \end{equation}
 \citep{mcelroy77},
@@ -189,11 +189,11 @@ The $F$ statistic for systems of equations is
 \begin{equation}
 F = \frac{
    ( R \bHat - q )'
-   ( R ( X' ( \widehat{\Sigma} \otimes I )^{-1} X )^{-1} R' )^{-1}
+   ( R ( X' ( \SHat \otimes I )^{-1} X )^{-1} R' )^{-1}
    ( R \bHat - q ) /
    j
 }{
-   \widehat{u}' ( \widehat{\Sigma} \otimes I )^{-1} \widehat{u} /
+   \widehat{u}' ( \SHat \otimes I )^{-1} \widehat{u} /
    ( G \cdot T - K )
 } \; ,
 \end{equation}
@@ -201,7 +201,7 @@ where $j$ is the number of restrictions,
 $G$ is the number of equations,
 $T$ is the number of observations per equation,
 $K$ is the total number of estimated coefficients, and
-$\widehat{\Sigma}$ is the estimated residual covariance matrix
+$\SHat$ is the estimated residual covariance matrix
 used in the estimation.
 Under the null hypothesis, $F$ has an $F$ distribution
 with $j$ and $G \cdot T - K$ degrees of freedom
@@ -211,7 +211,7 @@ The Wald statistic for systems of equations is
 \begin{equation}
 W =
    ( R \bHat - q )'
-   ( R \widehat{Cov} [ \bHat ] R' )^{-1}
+   ( R \COVHat [ \bHat ] R' )^{-1}
    ( R \bHat - q ) .
 \end{equation}
 Asymptotically, $W$ has a $\chi^2$
@@ -222,12 +222,12 @@ under the null hypothesis
 The LR statistic for systems of equations is
 \begin{equation}
 LR = T \cdot \left(
-   log \left| \widehat{ \Sigma }_r \right|
-   - log \left| \widehat{ \Sigma }_u \right|
+   log \left| \SHat_r \right|
+   - log \left| \SHat_u \right|
    \right) ,
 \end{equation}
 where $T$ is the number of observations per equation, and 
-$\widehat{\Sigma}_r$ and $\widehat{\Sigma}_u$ are
+$\SHat_r$ and $\SHat_u$ are
 the residual covariance matrices calculated by formula (\ref{eq:rcovNoDfCor})
 of the restricted and unrestricted estimation, respectively.
 Asymptotically, $LR$ has a $\chi^2$
