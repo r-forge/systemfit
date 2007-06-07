@@ -251,14 +251,14 @@ but the 3SLS estimator is inconsistent.
 The Hausman test statistic is
 \begin{equation}
   m = \left( \bHat_{2SLS} - \bHat_{3SLS} \right)^{'}
-      \left( \COV \left[ \bHat_{2SLS} \right] -
-             \COV \left[ \bHat_{3SLS} \right] \right)
+      \left( \COVHat \left[ \bHat_{2SLS} \right] -
+             \COVHat \left[ \bHat_{3SLS} \right] \right)
       \left( \bHat_{2SLS} - \bHat_{3SLS} \right) ,
 \label{eq:hausman}
 \end{equation}
-where $\bHat_{2SLS}$ and $\COV \left[ \bHat_{2SLS} \right]$ are the estimated
+where $\bHat_{2SLS}$ and $\COVHat \left[ \bHat_{2SLS} \right]$ are the estimated
 coefficient and covariance matrix from 2SLS estimation, and
-$\bHat_{3SLS}$ and $\COV \left[ \bHat_{3SLS} \right]$ are the estimated
+$\bHat_{3SLS}$ and $\COVHat \left[ \bHat_{3SLS} \right]$ are the estimated
 coefficients and covariance matrix from 3SLS estimation.
 Under the null hypothesis this test statistic has a
 $\chi^2$ distribution with degrees of freedom equal to the number of
