@@ -187,16 +187,16 @@ where 7 is the number of unrestricted coefficients and
 6 is the number of restricted coefficients.
 The following seven lines specify this matrix in a way
 that the unrestricted coefficients $( \beta )$ are assigned
-to the restricted coefficients $( \beta^* )$ with
-$\beta_1 = \beta^*_1$,
-$\beta_2 = \beta^*_2$,
-$\beta_3 = \beta^*_3$,
-$\beta_4 = \beta^*_4$,
-$\beta_5 = \beta^*_5$,
-$\beta_6 = -\beta^*_2$, and
-$\beta_7 = \beta^*_6$.
+to the restricted coefficients $( \beta^M )$ with
+$\beta_1 = \beta^M_1$,
+$\beta_2 = \beta^M_2$,
+$\beta_3 = \beta^M_3$,
+$\beta_4 = \beta^M_4$,
+$\beta_5 = \beta^M_5$,
+$\beta_6 = -\beta^M_2$, and
+$\beta_7 = \beta^M_6$.
 Finally the model is estimated with restriction
-$\beta^*_2 = \beta_2 = - \beta_6$ imposed.
+$\beta^M_2 = \beta_2 = - \beta_6$ imposed.
 
 The second way to impose parameter restrictions is to use
 the matrix $R$ and the vector $q$
