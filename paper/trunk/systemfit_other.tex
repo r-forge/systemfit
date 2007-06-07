@@ -17,7 +17,7 @@ Generally, the estimated covariance matrix of the residuals
 can be calculated from the residuals of a first-step OLS or 2SLS estimation.
 In many cases, the formula
 \begin{equation}
-   \sHat_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }{ T }
+   \sHat_{ij} = \frac{ \uHat_i' \uHat_j }{ T }
    \label{eq:rcovNoDfCor}
 \end{equation}
 is applied, where $T$ is the number of observations in each equation.
@@ -29,13 +29,13 @@ might differ.
 Two alternative approaches to calculate the residual covariance
 matrix are
 \begin{equation}
-   \sHat_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
+   \sHat_{ij} = \frac{ \uHat_i' \uHat_j }
    { \sqrt{ \left( T - K_i \right) \cdot \left( T - K_j \right) } }
    \label{eq:rcovGeomean}
 \end{equation}
 and
 \begin{equation}
-   \sHat_{ij} = \frac{ \widehat{u}_i' \widehat{u}_j }
+   \sHat_{ij} = \frac{ \uHat_i' \uHat_j }
    { T - \max \left( K_i , K_j \right) } \; ,
    \label{eq:rcovMax}
 \end{equation}
@@ -53,12 +53,12 @@ A further approach to obtain the estimated residual covariance
 matrix is
 \begin{eqnarray}
    \sHat_{ij} & = &
-   \frac{ \widehat{u}_i' \widehat{u}_j } 
+   \frac{ \uHat_i' \uHat_j }
    { T - K_i - K_j + tr \left[ X_i \left( X_i' X_i \right)^{-1}
    X_i' X_j \left( X_j' X_j \right)^{-1} X_j' \right] }
    \label{eq:rcovTheil} \\
    & = &
-   \frac{ \widehat{u}_i' \widehat{u}_j } 
+   \frac{ \uHat_i' \uHat_j }
    { T - K_i - K_j + tr \left[ \left( X_i' X_i \right)^{-1}
    X_i' X_j \left( X_j' X_j \right)^{-1} X_j' X_i \right] }
 \end{eqnarray} 
@@ -104,12 +104,12 @@ In some uncommon cases,
 for instance in pooled estimations,
 where the coefficients are restricted to be equal in all equations,
 the means of the residuals of each equation are not equal to zero
-$( \overline{ \widehat{u} }_i \neq 0 )$.
+$( \overline{ \uHat }_i \neq 0 )$.
 Therefore, it might be argued
 that the residual covariance matrix should be calculated
 by subtracting the means from the residuals
-and substituting $\widehat{u}_i - \overline{ \widehat{u} }_i$
-for $\widehat{u}_i$ in (\ref{eq:rcovNoDfCor}--\ref{eq:rcovTheil}).
+and substituting $\uHat_i - \overline{ \uHat }_i$
+for $\uHat_i$ in (\ref{eq:rcovNoDfCor}--\ref{eq:rcovTheil}).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -158,7 +158,7 @@ of freedom of the entire system.
 The goodness of fit of each single equation can be measured by the
 traditional $R^2$ values
 \begin{equation}
-   R_i^2 = 1 - \frac{ \widehat{u}_i' \widehat{u}_i }
+   R_i^2 = 1 - \frac{ \uHat_i' \uHat_i }
    { ( y_i - \overline{y_i} )' ( y_i - \overline{y_i} ) } \; ,
 \end{equation}
 where $R_i^2$ is the $R^2$ value of the $i$th equation
@@ -168,7 +168,7 @@ The goodness of fit of the whole system can be measured by the
 McElroy's $R^2$ value 
 % also: \citep[p.\ 345]{greene03}
 \begin{equation}
-   R_*^2 = 1 - \frac{ \widehat{u}' \OHat^{-1} \widehat{u} }
+   R_*^2 = 1 - \frac{ \uHat' \OHat^{-1} \uHat }
    { y' \left( \SHat^{-1} \otimes
    \left( I - \frac{i i'}{T} \right) \right) y }
 \end{equation}
@@ -193,7 +193,7 @@ F = \frac{
    ( R \bHat - q ) /
    j
 }{
-   \widehat{u}' ( \SHat \otimes I )^{-1} \widehat{u} /
+   \uHat' ( \SHat \otimes I )^{-1} \uHat /
    ( G \cdot T - K )
 } \; ,
 \end{equation}
