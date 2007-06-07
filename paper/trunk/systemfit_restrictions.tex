@@ -74,14 +74,14 @@ so that
 Then, $X^M$ is substituted for $X$ and a standard estimation as described
 in the previous section is done
 (equations~\ref{eq:ols}--\ref{eq:3slsEViews}).
-This results in the linear independent parameter estimates $\widehat{\beta}^M$ and
+This results in the linear independent parameter estimates $\bHat^M$ and
 their covariance matrix.
 The original parameters can be obtained by equation (\ref{eq:T-restr})
 and the estimated covariance matrix of the original parameters
 can be obtained by
 \begin{equation}
-   \COVHat \left[ \widehat{\beta} \right]
-   = M \cdot \COVHat \left[ \widehat{\beta}^M \right] \cdot M' .
+   \COVHat \left[ \bHat \right]
+   = M \cdot \COVHat \left[ \bHat^M \right] \cdot M' .
 \end{equation}
 
 The implementation of the second method to impose linear restrictions
@@ -95,7 +95,7 @@ is described for each estimation method in the following sections.
 The OLS estimator restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{OLS} \\ \widehat{\lambda}
+      \bHat^R_{OLS} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -113,7 +113,7 @@ an estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{OLS} \\ \widehat{\lambda}
+      \bHat^R_{OLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = \sHat^2 
    \left[ \begin{array}{cc}
@@ -128,7 +128,7 @@ an estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{OLS} \\ \widehat{\lambda}
+      \bHat^R_{OLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -147,7 +147,7 @@ of the disturbance term in the $i$th equation.
 The WLS estimator restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{WLS} \\ \widehat{\lambda}
+      \bHat^R_{WLS} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -167,7 +167,7 @@ An estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{WLS} \\ \widehat{\lambda}
+      \bHat^R_{WLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -182,7 +182,7 @@ An estimator of the covariance matrix of the estimated parameters is
 The SUR estimator restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{SUR} \\ \widehat{\lambda}
+      \bHat^R_{SUR} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -200,7 +200,7 @@ An estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{SUR} \\ \widehat{\lambda}
+      \bHat^R_{SUR} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -215,7 +215,7 @@ An estimator of the covariance matrix of the estimated parameters is
 The 2SLS estimator restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{2SLS} \\ \widehat{\lambda}
+      \bHat^R_{2SLS} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -233,7 +233,7 @@ an estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{2SLS} \\ \widehat{\lambda}
+      \bHat^R_{2SLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = \sHat^2 
    \left[ \begin{array}{cc}
@@ -248,7 +248,7 @@ an estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{2SLS} \\ \widehat{\lambda}
+      \bHat^R_{2SLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -268,7 +268,7 @@ of the disturbance term in the $i$th equation.
 The W2SLS estimator restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{W2SLS} \\ \widehat{\lambda}
+      \bHat^R_{W2SLS} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -288,7 +288,7 @@ An estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{W2SLS} \\ \widehat{\lambda}
+      \bHat^R_{W2SLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -304,7 +304,7 @@ An estimator of the covariance matrix of the estimated parameters is
 The standard 3SLS estimator restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{3SLS} \\ \widehat{\lambda}
+      \bHat^R_{3SLS} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -323,7 +323,7 @@ An estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{3SLS} \\ \widehat{\lambda}
+      \bHat^R_{3SLS} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -335,7 +335,7 @@ An estimator of the covariance matrix of the estimated parameters is
 The 3SLS-IV estimator restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{3SLS-IV} \\ \widehat{\lambda}
+      \bHat^R_{3SLS-IV} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -352,7 +352,7 @@ where
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{3SLS-IV} \\ \widehat{\lambda}
+      \bHat^R_{3SLS-IV} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -363,7 +363,7 @@ where
 The restricted 3SLS-GMM estimator can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{3SLS-GMM} \\ \widehat{\lambda}
+      \bHat^R_{3SLS-GMM} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -380,7 +380,7 @@ where
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{3SLS-GMM} \\ \widehat{\lambda}
+      \bHat^R_{3SLS-GMM} \\ \widehat{\lambda}
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -392,7 +392,7 @@ The restricted 3SLS estimator based on the suggestion of
 \cite{schmidt90} is
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{3SLS-Schmidt} \\ \widehat{\lambda}
+      \bHat^R_{3SLS-Schmidt} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -409,7 +409,7 @@ where
 \begin{eqnarray}
    \COVHat
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{3SLS-Schmidt} \\ \widehat{\lambda}
+      \bHat^R_{3SLS-Schmidt} \\ \widehat{\lambda}
    \end{array} \right] 
    & = & 
    \left[ \begin{array}{cc}
@@ -434,7 +434,7 @@ where
 The econometrics software \proglang{EViews} calculates the restricted 3SLS estimator by
 \begin{equation}
    \left[ \begin{array}{c}
-      \widehat{\beta}^R_{3SLS-EViews} \\ \widehat{\lambda}
+      \bHat^R_{3SLS-EViews} \\ \widehat{\lambda}
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -443,12 +443,12 @@ The econometrics software \proglang{EViews} calculates the restricted 3SLS estim
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      \widehat{X}' \OHat^{-1} \left( y - X \widehat{\beta}^R_{2SLS} \right)
+      \widehat{X}' \OHat^{-1} \left( y - X \bHat^R_{2SLS} \right)
       \\ q 
    \end{array} \right] ,
    \label{eq:3slsEViewsR}
 \end{equation}
-where $\widehat{\beta}^R_{2SLS}$ is the restricted 2SLS estimator calculated
+where $\bHat^R_{2SLS}$ is the restricted 2SLS estimator calculated
 by equation (\ref{eq:beta2SLSr}). 
 \proglang{EViews} uses the standard formula of the restricted 3SLS
 estimator~(\ref{eq:cov3slsr}) to calculate an estimator
