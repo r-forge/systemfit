@@ -1,5 +1,11 @@
-systemfitClassic <- function( formula, method = "OLS", eqnVar, timeVar, data,
+systemfitClassic <- function( formula, method = "OLS", data,
    pooled = FALSE, ... ) {
+
+   if( class( data )[1] != "pdata.frame" ) {
+      stop( "argument 'data' must be of class 'pdata.frame'" )
+   }
+   eqnVar <- attributes( data )$indexes$id
+   timeVar <- attributes( data )$indexes$time
 
    data[[ eqnVar ]] <- gsub( " |_", ".", data[[ eqnVar ]] )
    eqnLabels <- levels( as.factor( data[[ eqnVar ]] ) )

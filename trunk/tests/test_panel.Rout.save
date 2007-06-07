@@ -16,13 +16,15 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 Type 'q()' to quit R.
 
 > library( systemfit )
+> library( plm )
 > 
 > ## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
 > data( "GrunfeldTheil" )
+> pdata.frame( GrunfeldTheil, "firm", "year" )
 > formulaGrunfeld <- invest ~ value + capital
 > 
 > # OLS
-> theilOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
+> theilOls <- systemfitClassic( formulaGrunfeld, "OLS",
 +    data = GrunfeldTheil )
 > print( theilOls )
 
@@ -97,7 +99,7 @@ Multiple R-Squared: 0.744446 Adjusted R-Squared: 0.714381
 
 > 
 > # SUR
-> theilSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
+> theilSur <- systemfitClassic( formulaGrunfeld, "SUR",
 +    data = GrunfeldTheil, methodRCov = "noDfCor" )
 > print( theilSur )
 
@@ -180,10 +182,11 @@ Multiple R-Squared: 0.740401 Adjusted R-Squared: 0.70986
 > 
 > ## Repeating the OLS and SUR estimations in Greene (2003, pp. 351)
 > data( "GrunfeldGreene" )
+> pdata.frame( GrunfeldGreene, "firm", "year" )
 > formulaGrunfeld <- invest ~ value + capital
 > 
 > # OLS
-> greeneOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
+> greeneOls <- systemfitClassic( formulaGrunfeld, "OLS",
 +    data = GrunfeldGreene )
 > print( greeneOls )
 
@@ -347,7 +350,7 @@ Multiple R-Squared: 0.744446 Adjusted R-Squared: 0.714381
 [1]  149.8722  660.8294 7160.2939 8896.4157   88.6617
 > 
 > # OLS Pooled
-> greeneOlsPooled <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
+> greeneOlsPooled <- systemfitClassic( formulaGrunfeld, "OLS",
 +    data = GrunfeldGreene, pooled = TRUE )
 > print( greeneOlsPooled )
 
@@ -511,7 +514,7 @@ Multiple R-Squared: -0.825748 Adjusted R-Squared: -1.040541
 [1] 16194.68
 > 
 > # SUR
-> greeneSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
+> greeneSur <- systemfitClassic( formulaGrunfeld, "SUR",
 +    data = GrunfeldGreene, methodRCov = "noDfCor" )
 > print( greeneSur )
 
@@ -688,7 +691,7 @@ Multiple R-Squared: 0.726429 Adjusted R-Squared: 0.694244
 
 > 
 > # SUR Pooled
-> greeneSurPooled <- systemfitClassic( formulaGrunfeld, "WSUR", "firm", "year",
+> greeneSurPooled <- systemfitClassic( formulaGrunfeld, "WSUR",
 +    data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor" )
 > print( greeneSurPooled )
 

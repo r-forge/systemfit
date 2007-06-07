@@ -33,13 +33,15 @@ Theil, Henri (1971). \emph{Principles of Econometrics}, John Wiley & Sons, New Y
 \examples{
 ## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
 data( "GrunfeldTheil" )
+library( plm )
+pdata.frame( GrunfeldTheil, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 # OLS
-theilOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
+theilOls <- systemfitClassic( formulaGrunfeld, "OLS",
    data = GrunfeldTheil )
 summary( theilOls )
 # SUR
-theilSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
+theilSur <- systemfitClassic( formulaGrunfeld, "SUR",
    data = GrunfeldTheil, methodRCov = "noDfCor" )
 summary( theilSur )
 }

@@ -45,23 +45,25 @@ Unpublished Ph.D. Dissertation, University of Chicago.
 \examples{
 ## Repeating the OLS and SUR estimations in Greene (2003, pp. 351)
 data( "GrunfeldGreene" )
+library( plm )
+pdata.frame( GrunfeldGreene, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 # OLS
-greeneOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
+greeneOls <- systemfitClassic( formulaGrunfeld, "OLS",
    data = GrunfeldGreene )
 summary( greeneOls )
 sapply( greeneOls$eq, function(x){return(x$ssr/20)} ) # sigma^2
 # OLS Pooled
-greeneOlsPooled <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
+greeneOlsPooled <- systemfitClassic( formulaGrunfeld, "OLS",
    data = GrunfeldGreene, pooled = TRUE )
 summary( greeneOlsPooled )
 sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/97 # sigma^2
 # SUR
-greeneSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
+greeneSur <- systemfitClassic( formulaGrunfeld, "SUR",
    data = GrunfeldGreene, methodRCov = "noDfCor" )
 summary( greeneSur )
 # SUR Pooled
-greeneSurPooled <- systemfitClassic( formulaGrunfeld, "WSUR", "firm", "year",
+greeneSurPooled <- systemfitClassic( formulaGrunfeld, "WSUR",
    data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor" )
 summary( greeneSurPooled )
 }

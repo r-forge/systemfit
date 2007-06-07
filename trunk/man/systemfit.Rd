@@ -21,7 +21,7 @@ systemfit( eqns, method = "OLS",
            q.restr=matrix(0,max(nrow(R.restr),0),1),
            TX=NULL, control = systemfit.control( ... ), ... )
 
-systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
+systemfitClassic( formula, method = "OLS", data,
                   pooled = FALSE, ... )
 }
 
@@ -52,9 +52,6 @@ systemfitClassic( formula, method = "OLS", eqnVar, timeVar, data,
       The default is constructed by the function \code{\link{systemfit.control}}.
       See the documentation of \code{\link{systemfit.control}} for details.}
    \item{formula}{formula to be estimated (for each equation).}
-   \item{eqnVar}{variable name indicating the equation to which the
-      observation belongs.}
-   \item{timeVar}{variable name indicating the time.}
    \item{pooled}{logical, restrict coefficients to be equal in all equations.}
    \item{...}{arguments passed to \code{\link{systemfit.control}}
       (from  \code{\link{systemfit}})
@@ -227,13 +224,15 @@ print( fit3sls )
 ## Examples how to use systemfitClassic()
 ## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
 data( "GrunfeldTheil" )
+library( plm )
+pdata.frame( GrunfeldTheil, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 # OLS
-theilOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
+theilOls <- systemfitClassic( formulaGrunfeld, "OLS",
    data = GrunfeldTheil )
 summary( theilOls )
 # SUR
-theilSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
+theilSur <- systemfitClassic( formulaGrunfeld, "SUR",
    data = GrunfeldTheil, methodRCov = "noDfCor" )
 summary( theilSur )
 
