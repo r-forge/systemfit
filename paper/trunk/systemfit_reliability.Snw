@@ -3,8 +3,8 @@
 \section{Testing reliability}\label{sec:reliability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this section we test the reliability of the results from
-\code{systemfit} and \code{systemfitClassic}.
+In this section we test the reliability of \code{systemfit}
+by comparing its results with results published in the literature.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -128,29 +128,33 @@ that is based on \citet{grunfeld58}.
 The data are available from Table~7.1 (p.~296),
 and the results are presented on pages~295 and 300 of this book.
 
-After loading the data and specifying the formula,
-the model is estimated by OLS and SUR.
+After loading the data and the \pkg{plm} package,
+the individual (cross-section) and time identifiers are indicated.
+Then, the formula is specified,
+and the model is estimated by OLS and SUR.
 The coefficients of each estimation are reported.
 <<>>=
 data( "GrunfeldTheil" )
+library( plm )
+pdata.frame( GrunfeldTheil, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (page 295)
 <<>>=
-theilOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
+theilOls <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldTheil )
 round( coef( summary( theilOls ) ), digits = 3 )
 @
 SUR estimation (page 300)
 <<>>=
-theilSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
+theilSur <- systemfit( formulaGrunfeld, "SUR",
    data = GrunfeldTheil, methodRCov = "noDfCor" )
 round( coef( summary( theilSur ) ), digits = 3 )
 @
 
-The function \code{systemfitClassic}, which is a wrapper function to
-\code{systemfit} returns exactly the same results as published in
-\citet[pp.~295,~300]{theil71}.
+The \code{systemfit} function
+returns exactly the same results as published in
+\citet[pp.~295, 300]{theil71}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -164,7 +168,9 @@ Table~F13.1
 and the estimation results are presented in Tables~14.1
 and~14.2 (p.~351).
 
-First, we load the data and specify the formula to estimate.
+First, we load the data,
+indicate the individual (cross-section) and time identifiers,
+and specify the formula to be estimated.
 Then, the system is estimated by OLS, pooled OLS, SUR, and pooled SUR.
 Immediately after each estimation, the estimated coefficients are reported.
 Furthermore, the $\sigma^2$ values of the OLS estimations, and
@@ -172,25 +178,26 @@ the residual covariance matrix as well as the residual correlation matrix
 of the SUR estimations are printed.
 <<>>=
 data( "GrunfeldGreene" )
+pdata.frame( GrunfeldGreene, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (Table 14.2):
 <<>>=
-greeneOls <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
+greeneOls <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldGreene )
 round( coef( summary( greeneOls ) ), digits = 4 )
 round( sapply( greeneOls$eq, function(x){return(x$ssr/20)} ), digits = 3 )
 @
 pooled OLS (Table 14.2):
 <<>>=
-greeneOlsPooled <- systemfitClassic( formulaGrunfeld, "OLS", "firm", "year",
+greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldGreene, pooled = TRUE )
 round( coef( summary( greeneOlsPooled$eq[[1]] ) ), digits = 4 ) #$
 sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/100
 @
 SUR estimation (Table~14.1):
 <<>>=
-greeneSur <- systemfitClassic( formulaGrunfeld, "SUR", "firm", "year",
+greeneSur <- systemfit( formulaGrunfeld, "SUR",
    data = GrunfeldGreene, methodRCov = "noDfCor" )
 round( coef( summary( greeneSur ) ), digits = 4 )
 round( greeneSur$rcov, digits = 3 ) #$
@@ -198,7 +205,7 @@ round( summary( greeneSur )$residCor, digits = 3 ) #$
 @
 pooled SUR estimation (Table~14.1):
 <<>>=
-greeneSurPooled <- systemfitClassic( formulaGrunfeld, "WSUR", "firm", "year",
+greeneSurPooled <- systemfit( formulaGrunfeld, "WSUR",
    data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor" )
 round( coef( summary( greeneSurPooled$eq[[1]] ) ), digits = 4 ) #$
 
@@ -207,7 +214,7 @@ round( cov( residuals( greeneSurPooled ) ), digits = 3 )
 round( summary( greeneSurPooled )$residCor, digits = 3 ) #$
 @
 
-For this example, the function \code{systemfitClassic} returns
+For this example, the function \code{systemfit} returns
 nearly the same results as published in \citet{greene03}.%
 \footnote{
 There are several typos and errors in Table~14.1 (p.~412).

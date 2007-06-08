@@ -2,9 +2,10 @@
 \section{Source code}\label{sec:code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The \pkg{systemfit} package includes functions
-to estimate systems of equations
-(\code{systemfit}, \code{systemfitClassic}).
+The most important function in the \pkg{systemfit} package
+is called \code{systemfit}.
+It can be used to estimate systems of linear equations
+by several different estimation methods.
 Furthermore, this package provides some methods
 to test hypotheses
 (\code{ftest}, \code{wald\-test},
@@ -36,24 +37,17 @@ the degrees of freedom for the $t$ tests
 the formula for the 3SLS estimation
 (see sections~\ref{sec:Estimation} and~\ref{sec:Restrictions})
 can be specified by the user.
+If \code{systemfit} is applied to
+a (classical) °Seemingly Unrelated Regression° analysis with panel-like data,
+it calls the hidden internal function \code{.systemfitPanel},
+which reshapes the data, creates the formulas to be estimated,
+and --- if requested --- specifies restrictions
+to ensure that the parameters of all individuals are equal.
+
 The \code{systemfit} function returns many objects
 that users might be interested in.
 A complete list is available in the documentation of this function
 that is included in the package.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Wrapper function systemfitClassic]{The wrapper function
-   \code{systemfitClassic}}
-Furthermore, the \pkg{systemfit} package includes the function
-\code{systemfitClassic}.
-This is a wrapper function for \code{systemfit}
-that can be applied to (classical) panel-like data in long format
-if the regressors are the same for all equations.
-The data are reshaped and the formulas are modified to enable
-an estimation using the standard \code{systemfit} function.
-The user can specify whether the coefficients should be restricted
-to be equal in all equations.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

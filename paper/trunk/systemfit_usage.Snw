@@ -5,7 +5,9 @@
 In this section we demonstrate how to use the \pkg{systemfit} package.
 First, we show the standard usage of \code{systemfit} by a simple example.
 Second, several options that can be specified by the user are presented.
-Then, the wrapper function \code{systemfitClassic} is described.
+Then, the usage of \code{systemfit}
+for a (classical) °Seemingly Unrelated Regression° analysis
+with panel-like data is described.
 Finally, we demonstrate how to apply some statistical tests.
 
 
@@ -373,36 +375,30 @@ and it is \code{FALSE} otherwise.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Wrapper function systemfitClassic]{The wrapper function
-   \code{systemfitClassic}}
+\subsection{Panel-like data}
 
-The wrapper function \code{systemfitClassic}
-can be applied to (classical) panel-like data in long format%
+The \code{systemfit} function can also be used
+for a (classical) °Seemingly Unrelated Regression° analysis
+with panel-like data.
+For this type of analysis,
+the data must be provided in an object of class \code{pdata.frame}
+(°panel data frame°),%
 \footnote{
-Panel data can be either in °long format°
+Generally, panel data can be either in °long format°
 (different individuals are arranged below each other)
 or in °wide format°
 (different individuals are arranged next to each other).
+For this analysis, the data must be in °long format°.
 }
-if the regressors are the same for all equations.
-This function is called by
-<<eval=FALSE>>=
-systemfitClassic( formula, method, eqnVar, timeVar, data )
-@
+which can be created with the function \code{pdata.frame}
+from the \proglang{R} package \pkg{plm}
+\citep{r-plm-0.1-2}.
+In opposite to the previously described usage of \code{systemfit},
+argument \code{eqns} must be a single equation (object of class \code{formula}).
+This formula is estimated for all individuals.
 
-The mandatory arguments are \code{method}, \code{formula}, \code{eqnVar},
-and \code{timeVar}.
-Argument \code{method} is the same as in \code{systemfit}
-(see section~\ref{sec:standard-usage}).
-The second argument \code{formula} is a standard formula in \proglang{R}
-that will be applied to all equations.
-Argument \code{eqnVar} specifies the variable name indicating
-the equation to which the observation belongs,
-and argument \code{timeVar} specifies the variable name indicating
-the time.
-Finally, \code{data} is a \code{data.frame} that contains all required data.
-
-We demonstrate the usage of \code{systemfitClassic}
+We demonstrate the application of \code{systemfit}
+to panel-like data
 using an example taken from \citet[pp.\ 295, 300]{theil71}
 that is based on \citet{grunfeld58}.
 We want to estimate a model for gross investment of 2 US firms
@@ -420,22 +416,30 @@ previous year.
 This model can be estimated by
 <<>>=
 data( "GrunfeldTheil" )
-theilSur <- systemfitClassic( invest ~ value + capital, "SUR",
-   "firm", "year", data = GrunfeldTheil )
+library( plm )
+pdata.frame( GrunfeldTheil, "firm", "year" )
+theilSur <- systemfit( invest ~ value + capital, "SUR",
+   data = GrunfeldTheil )
 @
-The first line loads example data that are included with the package.
-And then, a seemingly unrelated regression is performed,
-where the variable °firm° indicates the firm
-and the variable °year° indicates the time.
+The first line loads the example data set \code{GrunfeldTheil}
+that is included in the \pkg{systemfit} package.
+The second line loads the \pkg{plm} package
+and the following line specifies a \code{pdata.frame},
+where the variables \code{firm} and \code{year} indicate
+the indivuidual (cross-section) and time identifier, respectively.
+Finally, a seemingly unrelated regression is performed.
 
-The function \code{systemfitClassic} has also an optional argument
-\code{pooled} that is a logical variable indicating
-whether the coefficients should be restricted to be equal in all equations.
+The optional argument \code{pooled} is a logical variable indicating
+whether the coefficients are restricted to be equal for all
+individuals.
 By default, this argument is set to °\code{FALSE}°.
-In addition all optional arguments of \code{systemfit}
-(see section~\ref{sec:user-options})
-except for \code{eqnLabels} and \code{TX}
-can be used with \code{systemfitClassic}, too.
+The following command does a seemingly unrelated regression
+of the same model as before,
+but with coefficients restricted to be equal for all individuals.
+<<>>=
+theilSur <- systemfit( invest ~ value + capital, "SUR",
+   data = GrunfeldTheil, pooled = TRUE )
+@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
