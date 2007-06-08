@@ -24,7 +24,7 @@ Type 'q()' to quit R.
 > formulaGrunfeld <- invest ~ value + capital
 > 
 > # OLS
-> theilOls <- systemfitClassic( formulaGrunfeld, "OLS",
+> theilOls <- systemfit( formulaGrunfeld, "OLS",
 +    data = GrunfeldTheil )
 > print( theilOls )
 
@@ -99,7 +99,7 @@ Multiple R-Squared: 0.744446 Adjusted R-Squared: 0.714381
 
 > 
 > # SUR
-> theilSur <- systemfitClassic( formulaGrunfeld, "SUR",
+> theilSur <- systemfit( formulaGrunfeld, "SUR",
 +    data = GrunfeldTheil, methodRCov = "noDfCor" )
 > print( theilSur )
 
@@ -186,7 +186,7 @@ Multiple R-Squared: 0.740401 Adjusted R-Squared: 0.70986
 > formulaGrunfeld <- invest ~ value + capital
 > 
 > # OLS
-> greeneOls <- systemfitClassic( formulaGrunfeld, "OLS",
+> greeneOls <- systemfit( formulaGrunfeld, "OLS",
 +    data = GrunfeldGreene )
 > print( greeneOls )
 
@@ -350,7 +350,7 @@ Multiple R-Squared: 0.744446 Adjusted R-Squared: 0.714381
 [1]  149.8722  660.8294 7160.2939 8896.4157   88.6617
 > 
 > # OLS Pooled
-> greeneOlsPooled <- systemfitClassic( formulaGrunfeld, "OLS",
+> greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
 +    data = GrunfeldGreene, pooled = TRUE )
 > print( greeneOlsPooled )
 
@@ -514,7 +514,7 @@ Multiple R-Squared: -0.825748 Adjusted R-Squared: -1.040541
 [1] 16194.68
 > 
 > # SUR
-> greeneSur <- systemfitClassic( formulaGrunfeld, "SUR",
+> greeneSur <- systemfit( formulaGrunfeld, "SUR",
 +    data = GrunfeldGreene, methodRCov = "noDfCor" )
 > print( greeneSur )
 
@@ -691,7 +691,7 @@ Multiple R-Squared: 0.726429 Adjusted R-Squared: 0.694244
 
 > 
 > # SUR Pooled
-> greeneSurPooled <- systemfitClassic( formulaGrunfeld, "WSUR",
+> greeneSurPooled <- systemfit( formulaGrunfeld, "WSUR",
 +    data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor" )
 > print( greeneSurPooled )
 

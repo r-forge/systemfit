@@ -29,6 +29,7 @@ systemfit <- function(  eqns,
                         R.restr=NULL,
                         q.restr=matrix(0,max(nrow(R.restr),0),1),
                         TX=NULL,
+                        pooled = FALSE,
                         control = systemfit.control( ... ),
                         ... )
 {
@@ -42,6 +43,16 @@ systemfit <- function(  eqns,
    if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) &
          is.null(inst) ) {
       stop( "The methods '2SLS', 'W2SLS', '3SLS', and 'W3SLS' need instruments!" )
+   }
+
+   if( class( data )[1] == "pdata.frame" ) {
+      if( !is.null( TX ) ){
+         stop( "argument 'TX' cannot be used for panel-like data" )
+      }
+      result <- systemfitClassic( eqns, method = method, inst = inst,
+         data = data, R.restr = R.restr, q.restr = q.restr,
+         control = control, pooled = pooled, ... )
+      return( result )
    }
 
    if( is.null( control$single.eq.sigma ) ) {

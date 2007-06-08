@@ -4,7 +4,6 @@
 
 \name{systemfit}
 \alias{systemfit}
-\alias{systemfitClassic}
 
 \title{Linear Equation System Estimation}
 
@@ -19,15 +18,15 @@
 systemfit( eqns, method = "OLS",
            inst=NULL, data=list(), R.restr=NULL,
            q.restr=matrix(0,max(nrow(R.restr),0),1),
-           TX=NULL, control = systemfit.control( ... ), ... )
-
-systemfitClassic( formula, method = "OLS", data,
-                  pooled = FALSE, ... )
+           TX=NULL, pooled = FALSE, control = systemfit.control( ... ), ... )
 }
 
 \arguments{
-   \item{eqns}{a list of structural equations to be estimated; a regression
-      constant is implied if not explicitly omitted.}
+   \item{eqns}{a list of structural equations
+      (objects of class \code{formula}) to be estimated or
+      (if argument \code{data} is of class \code{pdata.frame})
+      a single equation (object of class \code{formula})
+      that is estimated for all cross-section \code{id}s.}
    \item{method}{the estimation method, one of "OLS", "WLS", "SUR", "WSUR",
       "2SLS", "W2SLS", "3SLS", or "W3SLS" (see details);
       iterated estimation methods can be specified by setting control parameter
@@ -36,7 +35,8 @@ systemfitClassic( formula, method = "OLS", data,
       or a list of one-sided model formulas if different instruments should
       be used for the different equations (only needed for 2SLS, W2SLS and
       3SLS estimations).}
-   \item{data}{an optional data frame containing the variables in the model.
+   \item{data}{an optional data frame (or pdata.frame for panel-like data)
+      containing the variables in the model.
       By default the variables are taken from the environment from which
       systemfit is called.}
    \item{R.restr}{an optional j x k matrix to impose linear
@@ -51,18 +51,18 @@ systemfitClassic( formula, method = "OLS", data,
    \item{control}{list of control parameters.
       The default is constructed by the function \code{\link{systemfit.control}}.
       See the documentation of \code{\link{systemfit.control}} for details.}
-   \item{formula}{formula to be estimated (for each equation).}
-   \item{pooled}{logical, restrict coefficients to be equal in all equations.}
-   \item{...}{arguments passed to \code{\link{systemfit.control}}
-      (from  \code{\link{systemfit}})
-      or passed to \code{\link{systemfit}}
-      (from  \code{\link{systemfitClassic}}).}
+   \item{pooled}{logical, restrict coefficients to be equal in all equations
+      (only for panel-like data).}
+   \item{...}{arguments passed to \code{\link{systemfit.control}}.}
 }
 
 \details{
-   \code{systemfitClassic} is a wrapper function for \code{systemfit}
-   that can be applied to panel-like data in long format
-   if the regressors are the same for all equations.
+   If argument \code{data} is of class \code{pdata.frame}
+   (i.e. contains panel-like data in long format),
+   argument \code{eqns} must be a single equation
+   that is applied to all cross-section \code{id}s.
+   In this case, argument \code{pooled} specifies
+   whether the coefficients are restricted to be equal for all \code{id}s.
 
    If argument \code{method} is "WSUR" or "W3SLS",
    the "SUR" or "3SLS" estimation uses a residual variance covariance matrix
@@ -221,18 +221,18 @@ fit3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta,
 print( fit3sls )
 
 
-## Examples how to use systemfitClassic()
+## Examples how to use systemfit() with panel-like data
 ## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
 data( "GrunfeldTheil" )
 library( plm )
 pdata.frame( GrunfeldTheil, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 # OLS
-theilOls <- systemfitClassic( formulaGrunfeld, "OLS",
+theilOls <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldTheil )
 summary( theilOls )
 # SUR
-theilSur <- systemfitClassic( formulaGrunfeld, "SUR",
+theilSur <- systemfit( formulaGrunfeld, "SUR",
    data = GrunfeldTheil, methodRCov = "noDfCor" )
 summary( theilSur )
 

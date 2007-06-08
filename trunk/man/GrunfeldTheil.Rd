@@ -37,11 +37,11 @@ library( plm )
 pdata.frame( GrunfeldTheil, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 # OLS
-theilOls <- systemfitClassic( formulaGrunfeld, "OLS",
+theilOls <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldTheil )
 summary( theilOls )
 # SUR
-theilSur <- systemfitClassic( formulaGrunfeld, "SUR",
+theilSur <- systemfit( formulaGrunfeld, "SUR",
    data = GrunfeldTheil, methodRCov = "noDfCor" )
 summary( theilSur )
 }

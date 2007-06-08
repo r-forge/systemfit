@@ -49,21 +49,21 @@ library( plm )
 pdata.frame( GrunfeldGreene, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 # OLS
-greeneOls <- systemfitClassic( formulaGrunfeld, "OLS",
+greeneOls <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldGreene )
 summary( greeneOls )
 sapply( greeneOls$eq, function(x){return(x$ssr/20)} ) # sigma^2
 # OLS Pooled
-greeneOlsPooled <- systemfitClassic( formulaGrunfeld, "OLS",
+greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldGreene, pooled = TRUE )
 summary( greeneOlsPooled )
 sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/97 # sigma^2
 # SUR
-greeneSur <- systemfitClassic( formulaGrunfeld, "SUR",
+greeneSur <- systemfit( formulaGrunfeld, "SUR",
    data = GrunfeldGreene, methodRCov = "noDfCor" )
 summary( greeneSur )
 # SUR Pooled
-greeneSurPooled <- systemfitClassic( formulaGrunfeld, "WSUR",
+greeneSurPooled <- systemfit( formulaGrunfeld, "WSUR",
    data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor" )
 summary( greeneSurPooled )
 }
