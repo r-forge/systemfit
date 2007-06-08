@@ -49,7 +49,7 @@ systemfit <- function(  eqns,
       if( !is.null( TX ) ){
          stop( "argument 'TX' cannot be used for panel-like data" )
       }
-      result <- systemfitClassic( eqns, method = method, inst = inst,
+      result <- .systemfitPanel( eqns, method = method, inst = inst,
          data = data, R.restr = R.restr, q.restr = q.restr,
          control = control, pooled = pooled, ... )
       return( result )

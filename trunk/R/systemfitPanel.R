@@ -1,4 +1,4 @@
-systemfitClassic <- function( formula, method = "OLS", data,
+.systemfitPanel <- function( formula, method = "OLS", data,
    pooled = FALSE, ... ) {
 
    if( class( data )[1] != "pdata.frame" ) {

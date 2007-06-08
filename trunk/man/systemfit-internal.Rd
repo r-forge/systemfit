@@ -3,7 +3,6 @@
 
 \name{systemfit-internal}
 \alias{knls}
-\alias{systemfitClassic}
 
 \title{Internal systemfit functions}
 \description{
