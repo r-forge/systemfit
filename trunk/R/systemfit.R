@@ -46,13 +46,17 @@ systemfit <- function(  eqns,
    }
 
    if( class( data )[1] == "pdata.frame" ) {
-      if( !is.null( TX ) ){
-         stop( "argument 'TX' cannot be used for panel-like data" )
+      if( !is.null( TX ) && pooled ){
+         stop( "argument 'TX' cannot be used for pooled estimation",
+            " of panel-like data" )
       }
-      result <- .systemfitPanel( eqns, method = method, inst = inst,
-         data = data, R.restr = R.restr, q.restr = q.restr,
-         control = control, pooled = pooled, ... )
-      return( result )
+      result <- .systemfitPanel( formula = eqns,
+         data = data, pooled = pooled )
+      data <- result$wideData
+      eqns <- result$eqnSystem
+      if( pooled ){
+         TX <- result$TX
+      }
    }
 
    if( is.null( control$single.eq.sigma ) ) {

@@ -1,11 +1,12 @@
-.systemfitPanel <- function( formula, method = "OLS", data,
-   pooled = FALSE, ... ) {
+.systemfitPanel <- function( formula, data, pooled ) {
 
    if( class( data )[1] != "pdata.frame" ) {
       stop( "argument 'data' must be of class 'pdata.frame'" )
    }
    eqnVar <- attributes( data )$indexes$id
    timeVar <- attributes( data )$indexes$time
+
+   result <- list()
 
    data[[ eqnVar ]] <- gsub( " |_", ".", data[[ eqnVar ]] )
    eqnLabels <- levels( as.factor( data[[ eqnVar ]] ) )
@@ -42,8 +43,9 @@
       }
    }
 
-   result <- systemfit( eqns = eqnSystem, method = method,
-      data = wideData, TX = TX, ... )
+   result$eqnSystem <- eqnSystem
+   result$wideData  <- wideData
+   result$TX        <- TX
 
    return( result )
 }
