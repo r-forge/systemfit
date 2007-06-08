@@ -26,7 +26,7 @@ systemfit( eqns, method = "OLS",
       (objects of class \code{formula}) to be estimated or
       (if argument \code{data} is of class \code{pdata.frame})
       a single equation (object of class \code{formula})
-      that is estimated for all cross-section \code{id}s.}
+      that is estimated for all individuals.}
    \item{method}{the estimation method, one of "OLS", "WLS", "SUR", "WSUR",
       "2SLS", "W2SLS", "3SLS", or "W3SLS" (see details);
       iterated estimation methods can be specified by setting control parameter
@@ -60,9 +60,10 @@ systemfit( eqns, method = "OLS",
    If argument \code{data} is of class \code{pdata.frame}
    (i.e. contains panel-like data in long format),
    argument \code{eqns} must be a single equation
-   that is applied to all cross-section \code{id}s.
+   that is applied to all individuals.
    In this case, argument \code{pooled} specifies
-   whether the coefficients are restricted to be equal for all \code{id}s.
+   whether the coefficients are restricted to be equal for all
+   individuals.
 
    If argument \code{method} is "WSUR" or "W3SLS",
    the "SUR" or "3SLS" estimation uses a residual variance covariance matrix
