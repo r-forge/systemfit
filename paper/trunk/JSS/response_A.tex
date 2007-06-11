@@ -172,6 +172,18 @@ from the \proglang{R} package \pkg{plm} \citep{r-plm-0.1-2}),
 \code{systemfit} estimates the provided formula for each
 (cross-section) individual.
 
+In our opinion,
+it is not desirable to relax the requirement
+of using the same formula for all equations
+in (classical) °Seemingly Unrelated Regression° analyses
+with panel-like data.
+First, it would be rather cumbersome for the user to specify,
+which formula should be applied to which (cross-section) individual.
+Second, this type of analysis can be easily done
+by reshaping the data (e.g.\ with \code{reshape})
+and then using (standard) \code{systemfit}.
+Third, we think that this feature would rarely be used.
+
 %     Second, the interface should also be re-designed: the standard in R is
 %     that the formula/s is/are the first argument (which would also be more
 %     convenient for systemfit()), e.g.,
