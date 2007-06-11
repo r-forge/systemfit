@@ -268,6 +268,13 @@ in systemfit() and systemfitClassic().
 %     improved, see e.g. the output on p.27, l.546: "eq 2 capital.Chrysler" redundantly
 %     codes the firm (both by eq and name) and "Chrysler_capital" or "Chryler.capital"
 %     would be preferable.
+The naming of the coefficients has been improved
+according to the suggestions of this referee:
+They are now \code{<eqname>}\verb!_!\code{<varname>},
+where \code{<eqname>} is the equation name,
+which is set to \code{"eq1"}, \code{"eq2"} etc.\
+if no equation names are supplied by the user.
+
 % 
 %     It would also be nice to have some more control about the amount of output of
 %     the summary() method. Currently, the output can become very long easily when the
