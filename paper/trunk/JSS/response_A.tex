@@ -161,6 +161,17 @@ Finally, we have streamlined the notations of the $\beta$s.
 %     the function (its name, arguments and output) should reflect what
 %     is conceptually intuitive for this kinds of models (for the communities
 %     using it).
+The function \code{systemfitClassic} has been removed.
+%Its functionality has been taken over by \code{systemfit}.
+A (classical) °Seemingly Unrelated Regression° analysis
+with panel-like data
+can now be done by \code{systemfit} itself.
+If the argument \code{data} is an object of class \code{pdata.frame}
+(°panel data frame°, created with the function \code{pdata.frame}
+from the \proglang{R} package \pkg{plm} \citep{r-plm-0.1-2}),
+\code{systemfit} estimates the provided formula for each
+(cross-section) individual.
+
 %     Second, the interface should also be re-designed: the standard in R is
 %     that the formula/s is/are the first argument (which would also be more
 %     convenient for systemfit()), e.g.,
@@ -382,7 +393,7 @@ except for °p.3, l.45° and the second part of °p.3, l.52°.
 %     argument holds for "formula3sls".
 % 
 
-% \bibliographystyle{}
-% \bibliography{}
+\bibliographystyle{jss}
+\bibliography{../systemfit}
 
 \end{document}
