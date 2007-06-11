@@ -45,7 +45,9 @@ systemfit <- function(  eqns,
       stop( "The methods '2SLS', 'W2SLS', '3SLS', and 'W3SLS' need instruments!" )
    }
 
+   panelLike <- FALSE
    if( class( data )[1] == "pdata.frame" ) {
+      panelLike <- TRUE
       if( !is.null( TX ) && pooled ){
          stop( "argument 'TX' cannot be used for pooled estimation",
             " of panel-like data" )
@@ -425,9 +427,10 @@ systemfit <- function(  eqns,
               # covariance matrix of estimated coefficients of equation i
 
     # set names
-    names( coefEqI ) <- colnames( xMatEq[[i]] )
-    colnames( bcovi ) <- colnames( xMatEq[[i]] )
-    rownames( bcovi ) <- colnames( xMatEq[[i]] )
+    xNamesEqI <- colnames( xMatEq[[i]] )
+    names( coefEqI ) <- xNamesEqI
+    colnames( bcovi ) <- xNamesEqI
+    rownames( bcovi ) <- xNamesEqI
 
     ssr    <- sum(residi[[i]]^2)                         # sum of squared residuals
     sigma  <- sqrt( ssr / df[i] ) # estimated standand deviation of residuals
