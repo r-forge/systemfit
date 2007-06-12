@@ -270,10 +270,17 @@ in systemfit() and systemfitClassic().
 %     would be preferable.
 The naming of the coefficients has been improved
 according to the suggestions of this referee:
-They are now \code{<eqname>}\verb!_!\code{<varname>},
+they are now \code{<eqname>}\verb!_!\code{<varname>},
 where \code{<eqname>} is the equation name,
 which is set to \code{"eq1"}, \code{"eq2"} etc.\
 if no equation names are supplied by the user.
+In the case of a (classical) °Seemingly Unrelated Regression° analysis
+with panel-like data,
+all redundant parts of the coefficient names have been removed:
+the coefficient names in the vector of all coefficients are
+\code{<individual>}\verb!_!\code{<varname>}
+and the coefficient names in the vector of the coefficients of a single
+individual are just \code{<varname>}.
 
 % 
 %     It would also be nice to have some more control about the amount of output of
