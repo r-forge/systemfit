@@ -26,8 +26,8 @@ systemfit <- function(  eqns,
                         method = "OLS",
                         inst=NULL,
                         data=list(),
-                        R.restr=NULL,
-                        q.restr=matrix(0,max(nrow(R.restr),0),1),
+                        restrictions = NULL,
+                        restrict.rhs = NULL,
                         TX=NULL,
                         pooled = FALSE,
                         control = systemfit.control( ... ),
@@ -43,6 +43,26 @@ systemfit <- function(  eqns,
    if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) &
          is.null(inst) ) {
       stop( "The methods '2SLS', 'W2SLS', '3SLS', and 'W3SLS' need instruments!" )
+   }
+
+   if( !is.null( restrictions ) ) {
+      if( is.null( dim( restrictions ) ) ) {
+         R.restr <- t( restrictions )
+      } else {
+         R.restr <- restrictions
+      }
+      if( is.null( restrict.rhs ) ) {
+         q.restr <- matrix( 0, nrow( restrictions ) ,1 )
+      } else {
+         q.restr <- restrict.rhs
+      }
+   } else {
+      R.restr <- NULL
+      if( !is.null( restrict.rhs ) ) {
+         warning( "ignoring argument 'restrict.rhs',",
+            " because argument 'restrictions' is not specified" )
+      }
+      q.restr <- restrict.rhs
    }
 
    panelLike <- FALSE
@@ -506,8 +526,8 @@ systemfit <- function(  eqns,
   if( method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
     results$rcovest <- rcovest      # residual covarance matrix used for estimation
   }
-  results$R.restr <- R.restr
-  results$q.restr <- q.restr
+  results$restrictions <- R.restr
+  results$restrict.rhs <- q.restr
   results$TX      <- TX
   results$control <- control
   class(results)  <- "systemfit"

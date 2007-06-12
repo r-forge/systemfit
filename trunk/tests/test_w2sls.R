@@ -43,12 +43,12 @@ fitw2sls1e <- systemfit( system, "W2SLS", data = Kmenta, inst = inst,
 print( summary( fitw2sls1e, useDfSys = TRUE ) )
 
 ## ********************* W2SLS with restriction *******************
-fitw2sls2 <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restrm,
+fitw2sls2 <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restrm,
    inst = inst )
 print( summary( fitw2sls2 ) )
 
 ## ********************* W2SLS with restriction (EViews-like) **************
-fitw2sls2e <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restrm,
+fitw2sls2e <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restrm,
    inst = inst, methodRCov = "noDfCor" )
 print( summary( fitw2sls2e, useDfSys = TRUE ) )
 
@@ -62,23 +62,23 @@ fitw2sls3e <- systemfit( system, "W2SLS", data = Kmenta, TX = tc, inst = inst,
 print( summary( fitw2sls3e, useDfSys = TRUE ) )
 
 ## ***************** W2SLS with 2 restrictions ********************
-fitw2sls4 <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restr2m,
-   q.restr = restr2q, inst = inst )
+fitw2sls4 <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr2m,
+   restrict.rhs = restr2q, inst = inst )
 print( summary( fitw2sls4 ) )
 
 ## ***************** W2SLS with 2 restrictions (EViews-like) **************
-fitw2sls4e <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restr2m,
-   q.restr = restr2q, inst = inst, methodRCov = "noDfCor" )
+fitw2sls4e <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr2m,
+   restrict.rhs = restr2q, inst = inst, methodRCov = "noDfCor" )
 print( summary( fitw2sls4e, useDfSys = TRUE ) )
 
 ## ***************** W2SLS with 2 restrictions via R and TX ******************
-fitw2sls5 <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restr3m,
-   q.restr = restr3q, TX = tc, inst = inst )
+fitw2sls5 <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr3m,
+   restrict.rhs = restr3q, TX = tc, inst = inst )
 print( summary( fitw2sls5 ) )
 
 ## ***************** W2SLS with 2 restrictions via R and TX (EViews-like) **************
-fitw2sls5e <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restr3m,
-   q.restr = restr3q, TX = tc, inst = inst, methodRCov = "noDfCor" )
+fitw2sls5e <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr3m,
+   restrict.rhs = restr3q, TX = tc, inst = inst, methodRCov = "noDfCor" )
 print( summary( fitw2sls5e, useDfSys = TRUE ) )
 
 ## ****** 2SLS estimation with different instruments **********************
@@ -91,12 +91,12 @@ fitw2slsd1e <- systemfit( system, "W2SLS", data = Kmenta, inst = instlist,
 print( summary( fitw2slsd1e, useDfSys = TRUE ) )
 
 ## **** W2SLS estimation with different instruments and restriction ********
-fitw2slsd2 <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restrm,
+fitw2slsd2 <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restrm,
    inst = instlist )
 print( summary( fitw2slsd2 ) )
 
 ## **** W2SLS estimation with different instruments and restriction (EViews-like)*
-fitw2slsd2e <- systemfit( system, "W2SLS", data = Kmenta, R.restr = restrm,
+fitw2slsd2e <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restrm,
    inst = instlist, methodRCov = "noDfCor" )
 print( summary( fitw2slsd2e, useDfSys = TRUE ) )
 

@@ -56,11 +56,11 @@ fitsur1r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max" )
 print( summary( fitsur1r3 ) )
 
 ## *************** SUR with cross-equation restriction **************
-fitsur2 <- systemfit( system, "SUR", data = Kmenta, R.restr = restrm )
+fitsur2 <- systemfit( system, "SUR", data = Kmenta, restrictions = restrm )
 print( summary( fitsur2 ) )
 
 ## *************** SUR with cross-equation restriction (EViews-like) **
-fitsur2e <- systemfit( system, "SUR", data = Kmenta, R.restr = restrm,
+fitsur2e <- systemfit( system, "SUR", data = Kmenta, restrictions = restrm,
    methodRCov = "noDfCor" )
 print( summary( fitsur2e ) )
 
@@ -74,33 +74,33 @@ fitsur3e <- systemfit( system, "SUR", data = Kmenta, TX = tc,
 print( summary( fitsur3e ) )
 
 ## *************** SUR with 2 restrictions ***************************
-fitsur4 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr2m,
-   q.restr = restr2q )
+fitsur4 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr2m,
+   restrict.rhs = restr2q )
 print( summary( fitsur4 ) )
 
 ## *************** SUR with 2 restrictions (EViews-like) **************
 fitsur4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
-   R.restr = restr2m, q.restr = restr2q )
+   restrictions = restr2m, restrict.rhs = restr2q )
 print( summary( fitsur4e ) )
 
 ## *************** SUR with 2 restrictions (methodRCov = "Theil") **************
 fitsur4r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
-   R.restr = restr2m, q.restr = restr2q )
+   restrictions = restr2m, restrict.rhs = restr2q )
 print( summary( fitsur4r2 ) )
 
 ## *************** SUR with 2 restrictions (methodRCov = "max") **************
 fitsur4r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
-   R.restr = restr2m, q.restr = restr2q )
+   restrictions = restr2m, restrict.rhs = restr2q )
 print( summary( fitsur4r3 ) )
 
 ## *************** SUR with 2 restrictions via R and TX ****************
-fitsur5 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr3m,
-   q.restr = restr3q, TX = tc )
+fitsur5 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr3m,
+   restrict.rhs = restr3q, TX = tc )
 print( summary( fitsur5 ) )
 
 ## *************** SUR with 2 restrictions via R and TX (EViews-like) **************
 fitsur5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
-   R.restr = restr3m, q.restr = restr3q, TX = tc )
+   restrictions = restr3m, restrict.rhs = restr3q, TX = tc )
 print( summary( fitsur5e ) )
 
 ## ************** iterated SUR ****************************
@@ -128,12 +128,12 @@ fitsuri1r3 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
 print( summary( fitsuri1r3 ) )
 
 ## *********** iterated SUR with restriction *******************
-fitsuri2 <- systemfit( system2, "SUR", data = Kmenta, R.restr = restrm,
+fitsuri2 <- systemfit( system2, "SUR", data = Kmenta, restrictions = restrm,
    maxit = 100 )
 print( summary( fitsuri2 ) )
 
 ## *********** iterated SUR with restriction (EViews-like) ***************
-fitsuri2e <- systemfit( system2, "SUR", data = Kmenta, R.restr = restrm,
+fitsuri2e <- systemfit( system2, "SUR", data = Kmenta, restrictions = restrm,
    methodRCov = "noDfCor", maxit = 100 )
 print( summary( fitsuri2e ) )
 
@@ -148,33 +148,33 @@ fitsuri3e <- systemfit( system2, "SUR", data = Kmenta, TX = tc,
 print( summary( fitsuri3e ) )
 
 ## *************** iterated SUR with 2 restrictions ***************************
-fitsuri4 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr2m,
-   q.restr = restr2q, maxit = 100 )
+fitsuri4 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr2m,
+   restrict.rhs = restr2q, maxit = 100 )
 print( summary( fitsuri4 ) )
 
 ## *************** iterated SUR with 2 restrictions (EViews-like) **************
 fitsuri4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
-   R.restr = restr2m, q.restr = restr2q, maxit = 100 )
+   restrictions = restr2m, restrict.rhs = restr2q, maxit = 100 )
 print( summary( fitsuri4e ) )
 
 ## *************** iterated SUR with 2 restrictions via R and TX ****************
-fitsuri5 <- systemfit( system, "SUR", data = Kmenta, R.restr = restr3m,
-   q.restr = restr3q, TX = tc, maxit = 100 )
+fitsuri5 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr3m,
+   restrict.rhs = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (EViews-like) **********
 fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
-   R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
+   restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5e ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="Theil") **********
 fitsuri5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
-   R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
+   restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5r2 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="max") **********
 # fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
-#    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
+#    restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
 # print( summary( fitsuri5e ) )
 # print( round( vcov( fitsuri5e ), digits = 6 ) )
 # disabled, because the estimation does not converge

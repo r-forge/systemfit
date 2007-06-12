@@ -1,16 +1,16 @@
-waldtest.systemfit <- function( object, R.restr,
-   q.restr = rep( 0, nrow( R.restr ) ) ){
+waldtest.systemfit <- function( object, restrictions,
+   restrict.rhs = rep( 0, nrow( restrictions ) ) ){
 
    coef <- coef( object )
    vcov <- vcov( object )
 
    result <- list()
 
-   result$nRestr <- nrow( R.restr )
+   result$nRestr <- nrow( restrictions )
 
-   result$statistic <- t( R.restr %*% coef - q.restr ) %*%
-      solve( R.restr %*% vcov %*% t( R.restr ) ) %*%
-      ( R.restr %*% coef - q.restr )
+   result$statistic <- t( restrictions %*% coef - restrict.rhs ) %*%
+      solve( restrictions %*% vcov %*% t( restrictions ) ) %*%
+      ( restrictions %*% coef - restrict.rhs )
 
    result$p.value <- 1 - pchisq( result$statistic, result$nRestr )
 

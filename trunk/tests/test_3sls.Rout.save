@@ -75,12 +75,12 @@ Type 'q()' to quit R.
 + 
 +    print( "*************** 3SLS with restriction *****************" )
 +    fit3sls[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, R.restr = restrm, method3sls = formulas[ i ] )
++       inst = inst, restrictions = restrm, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e2 ) )
 + 
 +    print( "************** 3SLS with restriction (EViews-like) *****************" )
 +    fit3sls[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", R.restr = restrm,
++       inst = inst, methodRCov = "noDfCor", restrictions = restrm,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
@@ -97,26 +97,26 @@ Type 'q()' to quit R.
 + 
 +    print( "*************** 3SLS with 2 restrictions **********************" )
 +    fit3sls[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, R.restr = restr2m, q.restr = restr2q,
++       inst = inst, restrictions = restr2m, restrict.rhs = restr2q,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e4 ) )
 + 
 +    print( "*************** 3SLS with 2 restrictions (EViews-like) ************" )
 +    fit3sls[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", R.restr = restr2m,
-+       q.restr = restr2q, method3sls = formulas[ i ] )
++       inst = inst, methodRCov = "noDfCor", restrictions = restr2m,
++       restrict.rhs = restr2q, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "*************** 3SLS with 2 restrictions via R and TX **********" )
 +    fit3sls[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, TX = tc, R.restr = restr3m, q.restr = restr3q,
++       inst = inst, TX = tc, restrictions = restr3m, restrict.rhs = restr3q,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e5 ) )
 + 
 +    print( "******** 3SLS with 2 restrictions via R and TX (EViews-like)*****" )
 +    fit3sls[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, TX = tc, methodRCov = "noDfCor",
-+       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ] )
++       restrictions = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e5e, useDfSys = TRUE ) )
 + }
 [1] "***************************************************"
@@ -3577,12 +3577,12 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 + 
 +    print( "******* iterated 3SLS with restriction *****************" )
 +    fit3slsi[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, R.restr = restrm, method3sls = formulas[ i ], maxiter = 100 )
++       inst = inst, restrictions = restrm, method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e2 ) )
 + 
 +    print( "********* iterated 3SLS with restriction (EViews-like) *********" )
 +    fit3slsi[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", R.restr = restrm,
++       inst = inst, methodRCov = "noDfCor", restrictions = restrm,
 +       method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
@@ -3599,26 +3599,26 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 + 
 +    print( "******** iterated 3SLS with 2 restrictions *********************" )
 +    fit3slsi[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, R.restr = restr2m, q.restr = restr2q,
++       inst = inst, restrictions = restr2m, restrict.rhs = restr2q,
 +       method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e4 ) )
 + 
 +    print( "********* iterated 3SLS with 2 restrictions (EViews-like) *******" )
 +    fit3slsi[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", R.restr = restr2m,
-+       q.restr = restr2q, method3sls = formulas[ i ], maxiter = 100 )
++       inst = inst, methodRCov = "noDfCor", restrictions = restr2m,
++       restrict.rhs = restr2q, method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "******** iterated 3SLS with 2 restrictions via R and TX *********" )
 +    fit3slsi[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, TX = tc, R.restr = restr3m, q.restr = restr3q,
++       inst = inst, TX = tc, restrictions = restr3m, restrict.rhs = restr3q,
 +       method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e5 ) )
 + 
 +    print( "*** iterated 3SLS with 2 restrictions via R and TX (EViews-like)**" )
 +    fit3slsi[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, TX = tc, methodRCov = "noDfCor",
-+       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ],
++       restrictions = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
 +       maxiter = 100  )
 +    print( summary( fit3slsi[[ i ]]$e5e, useDfSys = TRUE ) )
 + }
@@ -7188,12 +7188,12 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 + 
 +    print( "******* 3SLS with different instruments and restriction ********" )
 +    fit3slsd[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, R.restr = restrm, method3sls = formulas[ i ] )
++       inst = instlist, restrictions = restrm, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e2 ) )
 + 
 +    print( "** 3SLS with different instruments and restriction (EViews-like) *" )
 +    fit3slsd[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, methodRCov = "noDfCor", R.restr = restrm,
++       inst = instlist, methodRCov = "noDfCor", restrictions = restrm,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
@@ -7210,26 +7210,26 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 + 
 +    print( "****** 3SLS with different instruments and 2 restrictions *********" )
 +    fit3slsd[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, R.restr = restr2m, q.restr = restr2q,
++       inst = instlist, restrictions = restr2m, restrict.rhs = restr2q,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e4 ) )
 + 
 +    print( "** 3SLS with different instruments and 2 restrictions (EViews-like) *" )
 +    fit3slsd[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, methodRCov = "noDfCor", R.restr = restr2m,
-+       q.restr = restr2q, method3sls = formulas[ i ] )
++       inst = instlist, methodRCov = "noDfCor", restrictions = restr2m,
++       restrict.rhs = restr2q, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( " 3SLS with different instruments with 2 restrictions via R and TX" )
 +    fit3slsd[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, TX = tc, R.restr = restr3m, q.restr = restr3q,
++       inst = instlist, TX = tc, restrictions = restr3m, restrict.rhs = restr3q,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e5 ) )
 + 
 +    print( "3SLS with diff. instruments and 2 restr. via R and TX (EViews-like)" )
 +    fit3slsd[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, TX = tc, methodRCov = "noDfCor",
-+       R.restr = restr3m, q.restr = restr3q, method3sls = formulas[ i ] )
++       restrictions = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e5e, useDfSys = TRUE ) )
 + }
 [1] "***************************************************"

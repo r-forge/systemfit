@@ -16,8 +16,8 @@
 
 \usage{
 systemfit( eqns, method = "OLS",
-           inst=NULL, data=list(), R.restr=NULL,
-           q.restr=matrix(0,max(nrow(R.restr),0),1),
+           inst=NULL, data=list(),
+           restrictions = NULL, restrict.rhs = NULL,
            TX=NULL, pooled = FALSE, control = systemfit.control( ... ), ... )
 }
 
@@ -39,12 +39,12 @@ systemfit( eqns, method = "OLS",
       containing the variables in the model.
       By default the variables are taken from the environment from which
       systemfit is called.}
-   \item{R.restr}{an optional j x k matrix to impose linear
-      restrictions on the parameters by \code{R.restr} * \eqn{b} = \code{q.restr}
+   \item{restrictions}{an optional j x k matrix to impose linear
+      restrictions on the parameters by \code{restrictions} * \eqn{b} = \code{restrict.rhs}
       (j = number of restrictions, k = number of all parameters,
       \eqn{b} = vector of all parameters).}
-   \item{q.restr}{an optional j x 1 matrix to impose linear
-      restrictions (see \code{R.restr}); default is a j x 1 matrix
+   \item{restrict.rhs}{an optional j x 1 matrix to impose linear
+      restrictions (see \code{restrictions}); default is a j x 1 matrix
       that contains only zeros.}
    \item{TX}{an optional matrix to transform the regressor matrix and,
       hence, also the coefficient vector (see details).}
@@ -87,11 +87,11 @@ systemfit( eqns, method = "OLS",
    coefficients and also to restrict coefficients (if \code{TX} has less
    columns than it has rows). However restricting coefficients
    by the \code{TX} matrix is less powerfull and flexible than the
-   restriction by providing the \code{R.restr} matrix and the
-   \code{q.restr} vector. The advantage of restricting the coefficients
+   restriction by providing the \code{restrictions} matrix and the
+   \code{restrict.rhs} vector. The advantage of restricting the coefficients
    by the \code{TX} matrix is that the matrix that is inverted for
    estimation gets smaller by this procedure, while it gets larger
-   if the restrictions are imposed by \code{R.restr} and \code{q.restr}.
+   if the restrictions are imposed by \code{restrictions} and \code{restrict.rhs}.
 }
 
 \value{
@@ -118,8 +118,8 @@ systemfit( eqns, method = "OLS",
   \item{btcov}{covariance matrix of \code{bt}.}
   \item{rcov}{estimated residual covariance matrix.}
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
-  \item{R.restr}{the restriction matrix.}
-  \item{q.restr}{the restriction vector.}
+  \item{restrictions}{the restriction matrix.}
+  \item{restrict.rhs}{the restriction vector.}
   \item{TX}{matrix used to transform the regressor matrix.}
   \item{control}{list of control parameters used for the estimation.}
 
@@ -196,7 +196,7 @@ Rrestr[2,2] <- -1
 Rrestr[2,5] <-  1
 qrestr[2,1] <-  0.5
 fitols2 <- systemfit( system, data = Kmenta,
-                      R.restr = Rrestr, q.restr = qrestr )
+                      restrictions = Rrestr, restrict.rhs = qrestr )
 print( fitols2 )
 
 ## iterated SUR estimation

@@ -10,20 +10,20 @@
 }
 
 \usage{
-   waldtest.systemfit( object, R.restr,
-      q.restr = rep( 0, nrow( R.restr ) ) )
+   waldtest.systemfit( object, restrictions,
+      restrict.rhs = rep( 0, nrow( restrictions ) ) )
 
    \method{print}{waldtest.systemfit}( x, digits = 4, ... )
 }
 
 \arguments{
    \item{object}{an object of type \code{systemfit}.}
-   \item{R.restr}{j x k matrix to impose linear
-      restrictions on the parameters by \code{R.restr} * \eqn{b} = \code{q.restr}
+   \item{restrictions}{j x k matrix to impose linear
+      restrictions on the parameters by \code{restrictions} * \eqn{b} = \code{restrict.rhs}
       (j = number of restrictions, k = number of all parameters,
       \eqn{b} = vector of all parameters).}
-   \item{q.restr}{an optional vector with j elements to impose linear
-      restrictions (see \code{R.restr}); default is a vector
+   \item{restrict.rhs}{an optional vector with j elements to impose linear
+      restrictions (see \code{restrictions}); default is a vector
       that contains only zeros.}
    \item{x}{an object of class \code{waldtest.systemfit}.}
    \item{digits}{number of digits to print.}

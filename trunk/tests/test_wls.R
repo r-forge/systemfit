@@ -39,11 +39,11 @@ fitwls1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor" )
 print( summary( fitwls1e, useDfSys = TRUE ) )
 
 ## ************** WLS with cross-equation restriction ***************
-fitwls2 <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm )
+fitwls2 <- systemfit( system, "WLS", data = Kmenta, restrictions = restrm )
 print( summary( fitwls2 ) )
 
 ## ************** WLS with cross-equation restriction (EViews-like) *******
-fitwls2e <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
+fitwls2e <- systemfit( system, "WLS", data = Kmenta, restrictions = restrm,
    methodRCov = "noDfCor" )
 print( summary( fitwls2e ) )
 
@@ -57,23 +57,23 @@ fitwls3e <- systemfit( system,"WLS", data = Kmenta, TX = tc,
 print( summary( fitwls3e ) )
 
 ## ***** WLS with 2 cross-equation restrictions ***************
-fitwls4 <- systemfit( system,"WLS", data = Kmenta, R.restr = restr2m,
-   q.restr = restr2q )
+fitwls4 <- systemfit( system,"WLS", data = Kmenta, restrictions = restr2m,
+   restrict.rhs = restr2q )
 print( summary( fitwls4 ) )
 
 ## ***** WLS with 2 cross-equation restrictions (EViews-like) **********
 fitwls4e <- systemfit( system,"WLS", data = Kmenta, methodRCov = "noDfCor",
-   R.restr = restr2m, q.restr = restr2q )
+   restrictions = restr2m, restrict.rhs = restr2q )
 print( summary( fitwls4e ) )
 
 ## *********** WLS with 2 cross-equation restrictions via R and TX ******
-fitwls5 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr3m,
-   q.restr = restr3q, TX = tc )
+fitwls5 <- systemfit( system, "WLS", data = Kmenta, restrictions = restr3m,
+   restrict.rhs = restr3q, TX = tc )
 print( summary( fitwls5 ) )
 
 ## *********** WLS with 2 cross-equation restrictions via R and TX (EViews-like)
 fitwls5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-   R.restr = restr3m, q.restr = restr3q, TX = tc )
+   restrictions = restr3m, restrict.rhs = restr3q, TX = tc )
 print( summary( fitwls5e ) )
 
 ## *************** iterated WLS estimation *********************
@@ -87,12 +87,12 @@ fitwlsi1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
 print( summary( fitwlsi1e, useDfSys = TRUE ) )
 
 ## ****** iterated WLS with cross-equation restriction ***************
-fitwlsi2 <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
+fitwlsi2 <- systemfit( system, "WLS", data = Kmenta, restrictions = restrm,
    maxit = 100 )
 print( summary( fitwlsi2 ) )
 
 ## ****** iterated WLS with cross-equation restriction (EViews-like) ********
-fitwlsi2e <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
+fitwlsi2e <- systemfit( system, "WLS", data = Kmenta, restrictions = restrm,
    methodRCov = "noDfCor", maxit = 100 )
 print( summary( fitwlsi2e ) )
 
@@ -107,23 +107,23 @@ fitwlsi3e <- systemfit( system, "WLS", data = Kmenta, TX = tc,
 print( summary( fitwlsi3e ) )
 
 ## ******* iterated WLS with 2 cross-equation restrictions ***********
-fitwlsi4 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr2m,
-   q.restr = restr2q, maxit = 100 )
+fitwlsi4 <- systemfit( system, "WLS", data = Kmenta, restrictions = restr2m,
+   restrict.rhs = restr2q, maxit = 100 )
 print( summary( fitwlsi4 ) )
 
 ## ******* iterated WLS with 2 cross-equation restrictions (EViews-like) *****
 fitwlsi4e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-   R.restr = restr2m, q.restr = restr2q, maxit = 100 )
+   restrictions = restr2m, restrict.rhs = restr2q, maxit = 100 )
 print( summary( fitwlsi4e ) )
 
 ## ***** iterated WLS with 2 cross-equation restrictions via R and TX ******
-fitwlsi5 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr3m,
-   q.restr = restr3q, TX = tc, maxit = 100 )
+fitwlsi5 <- systemfit( system, "WLS", data = Kmenta, restrictions = restr3m,
+   restrict.rhs = restr3q, TX = tc, maxit = 100 )
 print( summary( fitwlsi5 ) )
 
 ## *** iterated WLS with 2 cross-equation restrictions via R and TX (EViews-like)
 fitwlsi5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-   R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
+   restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
 print( summary( fitwlsi5e ) )
 
 

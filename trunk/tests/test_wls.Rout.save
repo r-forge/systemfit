@@ -162,7 +162,7 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 
 > 
 > ## ************** WLS with cross-equation restriction ***************
-> fitwls2 <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm )
+> fitwls2 <- systemfit( system, "WLS", data = Kmenta, restrictions = restrm )
 > print( summary( fitwls2 ) )
 
 systemfit results 
@@ -219,7 +219,7 @@ Multiple R-Squared: 0.643334 Adjusted R-Squared: 0.576459
 
 > 
 > ## ************** WLS with cross-equation restriction (EViews-like) *******
-> fitwls2e <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
+> fitwls2e <- systemfit( system, "WLS", data = Kmenta, restrictions = restrm,
 +    methodRCov = "noDfCor" )
 > print( summary( fitwls2e ) )
 
@@ -392,8 +392,8 @@ Multiple R-Squared: 0.643583 Adjusted R-Squared: 0.576755
 
 > 
 > ## ***** WLS with 2 cross-equation restrictions ***************
-> fitwls4 <- systemfit( system,"WLS", data = Kmenta, R.restr = restr2m,
-+    q.restr = restr2q )
+> fitwls4 <- systemfit( system,"WLS", data = Kmenta, restrictions = restr2m,
++    restrict.rhs = restr2q )
 > print( summary( fitwls4 ) )
 
 systemfit results 
@@ -451,7 +451,7 @@ Multiple R-Squared: 0.640946 Adjusted R-Squared: 0.573623
 > 
 > ## ***** WLS with 2 cross-equation restrictions (EViews-like) **********
 > fitwls4e <- systemfit( system,"WLS", data = Kmenta, methodRCov = "noDfCor",
-+    R.restr = restr2m, q.restr = restr2q )
++    restrictions = restr2m, restrict.rhs = restr2q )
 > print( summary( fitwls4e ) )
 
 systemfit results 
@@ -508,8 +508,8 @@ Multiple R-Squared: 0.641142 Adjusted R-Squared: 0.573856
 
 > 
 > ## *********** WLS with 2 cross-equation restrictions via R and TX ******
-> fitwls5 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr3m,
-+    q.restr = restr3q, TX = tc )
+> fitwls5 <- systemfit( system, "WLS", data = Kmenta, restrictions = restr3m,
++    restrict.rhs = restr3q, TX = tc )
 > print( summary( fitwls5 ) )
 
 systemfit results 
@@ -567,7 +567,7 @@ Multiple R-Squared: 0.640946 Adjusted R-Squared: 0.573623
 > 
 > ## *********** WLS with 2 cross-equation restrictions via R and TX (EViews-like)
 > fitwls5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-+    R.restr = restr3m, q.restr = restr3q, TX = tc )
++    restrictions = restr3m, restrict.rhs = restr3q, TX = tc )
 > print( summary( fitwls5e ) )
 
 systemfit results 
@@ -740,7 +740,7 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 
 > 
 > ## ****** iterated WLS with cross-equation restriction ***************
-> fitwlsi2 <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
+> fitwlsi2 <- systemfit( system, "WLS", data = Kmenta, restrictions = restrm,
 +    maxit = 100 )
 > print( summary( fitwlsi2 ) )
 
@@ -800,7 +800,7 @@ Multiple R-Squared: 0.643283 Adjusted R-Squared: 0.576398
 
 > 
 > ## ****** iterated WLS with cross-equation restriction (EViews-like) ********
-> fitwlsi2e <- systemfit( system, "WLS", data = Kmenta, R.restr = restrm,
+> fitwlsi2e <- systemfit( system, "WLS", data = Kmenta, restrictions = restrm,
 +    methodRCov = "noDfCor", maxit = 100 )
 > print( summary( fitwlsi2e ) )
 
@@ -980,8 +980,8 @@ Multiple R-Squared: 0.643536 Adjusted R-Squared: 0.576699
 
 > 
 > ## ******* iterated WLS with 2 cross-equation restrictions ***********
-> fitwlsi4 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr2m,
-+    q.restr = restr2q, maxit = 100 )
+> fitwlsi4 <- systemfit( system, "WLS", data = Kmenta, restrictions = restr2m,
++    restrict.rhs = restr2q, maxit = 100 )
 > print( summary( fitwlsi4 ) )
 
 systemfit results 
@@ -1041,7 +1041,7 @@ Multiple R-Squared: 0.640912 Adjusted R-Squared: 0.573583
 > 
 > ## ******* iterated WLS with 2 cross-equation restrictions (EViews-like) *****
 > fitwlsi4e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-+    R.restr = restr2m, q.restr = restr2q, maxit = 100 )
++    restrictions = restr2m, restrict.rhs = restr2q, maxit = 100 )
 > print( summary( fitwlsi4e ) )
 
 systemfit results 
@@ -1100,8 +1100,8 @@ Multiple R-Squared: 0.64111 Adjusted R-Squared: 0.573819
 
 > 
 > ## ***** iterated WLS with 2 cross-equation restrictions via R and TX ******
-> fitwlsi5 <- systemfit( system, "WLS", data = Kmenta, R.restr = restr3m,
-+    q.restr = restr3q, TX = tc, maxit = 100 )
+> fitwlsi5 <- systemfit( system, "WLS", data = Kmenta, restrictions = restr3m,
++    restrict.rhs = restr3q, TX = tc, maxit = 100 )
 > print( summary( fitwlsi5 ) )
 
 systemfit results 
@@ -1161,7 +1161,7 @@ Multiple R-Squared: 0.640912 Adjusted R-Squared: 0.573583
 > 
 > ## *** iterated WLS with 2 cross-equation restrictions via R and TX (EViews-like)
 > fitwlsi5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-+    R.restr = restr3m, q.restr = restr3q, TX = tc, maxit = 100 )
++    restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
 > print( summary( fitwlsi5e ) )
 
 systemfit results 
