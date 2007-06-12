@@ -203,8 +203,8 @@ $\beta^M_2 = \beta_2 = - \beta_6$ imposed.
 The second way to impose parameter restrictions is to use
 the matrix $R$ and the vector $q$
 (see section~\ref{sec:Restrictions}).
-Matrix $R$ can be specified with the argument \code{R.restr}
-and vector $q$ with argument \code{q.restr}.
+Matrix $R$ can be specified with the argument \code{restrictions}
+and vector $q$ with argument \code{restrict.rhs}.
 We convert the restriction specified above to $\beta_2 + \beta_6 = 0$
 and impose it in the second way:
 <<>>=
@@ -213,7 +213,7 @@ Rmat[ 1, 2 ] <-  1   # beta_2
 Rmat[ 1, 6 ] <-  1   # beta_6
 qvec <- c( 0 )
 fitsurRmat <- systemfit( list( eqDemand, eqSupply ), "SUR",
-   R.restr = Rmat, q.restr = qvec )
+   restrictions = Rmat, restrict.rhs = qvec )
 @
 \label{code:Rmat}
 The first line creates a $1 \times 7$ matrix of zeros,
@@ -334,7 +334,7 @@ the degrees of freedom of the whole system are taken.
 In contrast, if \code{probdfsys} is \code{FALSE},
 the degrees of freedom of the single equation are taken.
 By default, \code{probdfsys} is \code{TRUE}, if any restrictions
-are specified using either the argument \code{R.restr} or the
+are specified using either the argument \code{restrictions} or the
 argument \code{TX}, and it is \code{FALSE} otherwise.
 
 
@@ -351,7 +351,7 @@ In contrast, if argument \code{single.eq.sigma} is \code{FALSE},
 equations (\ref{eq:olsCovSameSigma})
 and (\ref{eq:2slsCovSameSigma}) are applied.
 By default, \code{single.eq.sigma} is \code{FALSE}, if any restrictions
-are specified using either the argument \code{R.restr} or the
+are specified using either the argument \code{restrictions} or the
 argument \code{TX}, and it is \code{TRUE} otherwise.
 
 
