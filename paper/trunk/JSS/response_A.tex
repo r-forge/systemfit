@@ -247,8 +247,12 @@ We have renamed single letter elements (not finished yet).
 %     arbitrary. Similar comments hold for other arguments, see also below for some
 %     more comments. As noted above, the standard in R seems to supply the formula(s)
 %     as the first argument and to have then some `method' argument.
-We have reversed order of the arguments method and eqns/formula
-in systemfit() and systemfitClassic().
+We have reversed the order of arguments \code{method} and \code{eqns}
+of \code{systemfit()}.
+It is no longer necessary to reverse the order of the arguments
+of \code{systemfitClassic()},
+because this function has been removed.
+
 % 
 %     Some more standard elements of a model fit should also be kept, in particular
 %     the call so that update() can work with "systemfit" objects, e.g.,
