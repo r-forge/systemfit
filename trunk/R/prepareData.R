@@ -1,5 +1,5 @@
 .prepareData.systemfit <- function( data, eqns, inst = NULL, TX = NULL, control = NULL,
-      eqnLabels )
+      panelLike = FALSE, eqnLabels )
 {
    # list for results
    result <- list()
@@ -50,6 +50,20 @@
          stop( "Systems with unequal numbers of observations are not supported yet." )
       }
    }
+   # names for coefficients
+   coefNames <- xnames
+   coefNamesEq <- xNamesEq
+   if( panelLike ){
+      for( i in 1:nEq ){
+         coefNames <- sub(
+            paste( "\\.", eqnLabels[ i ], "$", sep = "" ),
+            "", coefNames )
+         coefNamesEq[[ i ]] <- sub(
+            paste( "\\.", eqnLabels[ i ], "$", sep = "" ),
+            "", coefNamesEq[[ i ]] )
+      }
+   }
+
    if( !is.null( TX ) ) {
       XU <- xMatAll
       xMatAll  <- XU %*% TX
@@ -64,6 +78,8 @@
    result$nCoefEq    <- nCoefEq
    result$xnames     <- xnames
    result$xNamesEq   <- xNamesEq
+   result$coefNames  <- coefNames
+   result$coefNamesEq <- coefNamesEq
 
    ## preparing instruments
    if( !is.null( inst ) ) {

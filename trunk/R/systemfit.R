@@ -87,7 +87,8 @@ systemfit <- function(  eqns,
 
    # prepare data
    preparedData <- .prepareData.systemfit( data = data, eqns = eqns,
-      inst = inst, TX = TX, control = control, eqnLabels = eqnLabels )
+      inst = inst, TX = TX, control = control, eqnLabels = eqnLabels,
+      panelLike = panelLike )
    # list of terms objects of each equation
    termsEq <- preparedData$termsEq
    # list of evaluated model frames of each equation 
@@ -108,6 +109,10 @@ systemfit <- function(  eqns,
    xnames <- preparedData$xnames
    # names of regressors of each equation
    xNamesEq <- preparedData$xNamesEq
+   # names of coefficients
+   coefNames <- preparedData$coefNames
+   # names of coefficients of each equation
+   coefNamesEq <- preparedData$coefNamesEq
    if( !is.null( inst ) ) {
       # list of formulas for instruments of each equation
       instEq <- preparedData$instEq
@@ -429,9 +434,9 @@ systemfit <- function(  eqns,
               # covariance matrix of estimated coefficients of equation i
 
     # set names
-    names( coefEqI )  <- xNamesEq[[ i ]]
-    colnames( bcovi ) <- xNamesEq[[ i ]]
-    rownames( bcovi ) <- xNamesEq[[ i ]]
+    names( coefEqI )  <- coefNamesEq[[ i ]]
+    colnames( bcovi ) <- coefNamesEq[[ i ]]
+    rownames( bcovi ) <- coefNamesEq[[ i ]]
 
     ssr    <- sum(residi[[i]]^2)                         # sum of squared residuals
     sigma  <- sqrt( ssr / df[i] ) # estimated standand deviation of residuals
@@ -484,9 +489,9 @@ systemfit <- function(  eqns,
       nCoefEq = nCoefLiEq, xEq = xMatEq, centered = control$centerResiduals, solvetol = control$solvetol )
 
   coef           <- drop(coef)
-  names(coef)    <- xnames
-  colnames( bcov ) <- xnames
-  rownames( bcov ) <- xnames
+  names(coef)    <- coefNames
+  colnames( bcov ) <- coefNames
+  rownames( bcov ) <- coefNames
   colnames( rcov ) <- eqnLabels
   rownames( rcov ) <- eqnLabels
 
