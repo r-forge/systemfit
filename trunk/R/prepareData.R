@@ -13,8 +13,8 @@
    nCoefEq <- numeric( nEq ) # number of exogenous variables /(unrestricted) coefficients
                                      # in each equation
    instEq  <- list()         # list of the instruments for each equation
-   xnames  <- NULL           # names of regressors
-   xNamesEq <- list()        # names of regressors of each equation
+   coefNames  <- NULL        # names of coefficients
+   coefNamesEq <- list()     # names of coefficients of each equation
 
    callNoDots <- match.call( expand.dots = FALSE ) #-"- without ...-expansion
 
@@ -40,10 +40,11 @@
       nObsEq[i] <- length( yVecEq[[i]] )
       nCoefEq[i] <- ncol(xMatEq[[i]])
       for(j in 1:nCoefEq[i]) {
-         xnames <- c( xnames, paste( eqnLabels[ i ],colnames( xMatEq[[i]] )[j],
+         coefNames <- c( coefNames,
+            paste( eqnLabels[ i ],colnames( xMatEq[[i]] )[j],
             sep = "_" ))
       }
-      xNamesEq[[ i ]] <- colnames( xMatEq[[i]] )
+      coefNamesEq[[ i ]] <- colnames( xMatEq[[i]] )
    }
    if( nEq > 1 ) {
       if( var ( nObsEq ) != 0 ) {
@@ -51,8 +52,6 @@
       }
    }
    # names for coefficients
-   coefNames <- xnames
-   coefNamesEq <- xNamesEq
    if( panelLike ){
       for( i in 1:nEq ){
          coefNames <- sub(
@@ -76,8 +75,6 @@
    result$xMatAll    <- xMatAll
    result$nObsEq     <- nObsEq
    result$nCoefEq    <- nCoefEq
-   result$xnames     <- xnames
-   result$xNamesEq   <- xNamesEq
    result$coefNames  <- coefNames
    result$coefNamesEq <- coefNamesEq
 

@@ -105,10 +105,6 @@ systemfit <- function(  eqns,
    nObsEq <- preparedData$nObsEq
    # number of exogenous variables /(unrestricted) coefficients in each equation
    nCoefEq <- preparedData$nCoefEq
-   # names of regressors
-   xnames <- preparedData$xnames
-   # names of regressors of each equation
-   xNamesEq <- preparedData$xNamesEq
    # names of coefficients
    coefNames <- preparedData$coefNames
    # names of coefficients of each equation
