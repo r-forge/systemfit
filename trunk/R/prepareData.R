@@ -14,6 +14,7 @@
                                      # in each equation
    instEq  <- list()         # list of the instruments for each equation
    xnames  <- NULL           # names of regressors
+   xNamesEq <- list()        # names of regressors of each equation
 
    callNoDots <- match.call( expand.dots = FALSE ) #-"- without ...-expansion
 
@@ -42,6 +43,7 @@
          xnames <- c( xnames, paste( eqnLabels[ i ],colnames( xMatEq[[i]] )[j],
             sep = "_" ))
       }
+      xNamesEq[[ i ]] <- colnames( xMatEq[[i]] )
    }
    if( nEq > 1 ) {
       if( var ( nObsEq ) != 0 ) {
@@ -61,6 +63,7 @@
    result$nObsEq     <- nObsEq
    result$nCoefEq    <- nCoefEq
    result$xnames     <- xnames
+   result$xNamesEq   <- xNamesEq
 
    ## preparing instruments
    if( !is.null( inst ) ) {
