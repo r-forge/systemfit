@@ -463,7 +463,7 @@ As described in section~\ref{sec:testingRestrictions},
 linear restrictions can be tested by an $F$ test, Wald test or
 LR test.
 The corresponding functions in package \pkg{systemfit} are
-\code{ftest.systemfit}, \code{waldtest.systemfit}, and
+\code{ftest.systemfit}, \code{linear.hypothesis.systemfit}, and
 \code{lrtest.systemfit}, respectively.
 
 We will now test the restriction $\beta_2 = -\beta_6$
@@ -472,13 +472,13 @@ in the example above (p.~\pageref{code:Rmat}).
 <<>>=
 ftest.systemfit( fitsur, Rmat, qvec )
 
-waldtest.systemfit( fitsur, Rmat, qvec )
+linear.hypothesis( fitsur, Rmat, qvec, test = "Chisq" )
 
 lrtest.systemfit( fitsurRmat, fitsur )
 @
 The linear restrictions are tested by an $F$ test first,
 then by a Wald test, and finally by an LR test.
-The functions \code{ftest.systemfit} and \code{waldtest.systemfit}
+The functions \code{ftest.systemfit} and \code{linear.hypothesis.systemfit}
 have three arguments.
 The first argument must be an unrestricted regression
 returned by \code{systemfit}.
