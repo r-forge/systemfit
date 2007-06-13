@@ -6,6 +6,7 @@ systemfit.control <- function(
       method3sls = "GLS",
       single.eq.sigma = NULL,
       solvetol = .Machine$double.eps,
+      residCovRestricted = TRUE,
       returnModelFrame = TRUE,
       returnModelMatrix = TRUE,
       returnInstMatrix = TRUE,
@@ -57,6 +58,12 @@ systemfit.control <- function(
       stop( "control parameter 'solvetol' must be a positive scalar" )
    }
    result$solvetol <- solvetol
+
+   ## residCovRestricted
+   if( !is.logical( residCovRestricted ) || length( residCovRestricted ) != 1 ) {
+      stop( "control parameter 'residCovRestricted' must be logical" )
+   }
+   result$residCovRestricted <- residCovRestricted
 
    ## returnModelFrame
    if( !is.logical( returnModelFrame ) || length( returnModelFrame ) != 1 ) {

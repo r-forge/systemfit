@@ -18,6 +18,7 @@ systemfit.control(
       method3sls = "GLS",
       single.eq.sigma = NULL,
       solvetol = .Machine$double.eps,
+      residCovRestricted = TRUE,
       returnModelFrame = TRUE,
       returnModelMatrix = TRUE,
       returnInstMatrix = TRUE,
@@ -44,6 +45,9 @@ systemfit.control(
    \item{solvetol}{tolerance level for detecting linear dependencies
       when inverting a matrix or calculating a determinant (see
       \code{\link{solve}} and \code{\link{det}}).}
+   \item{residCovRestricted}{logical. If 'FALSE'
+      the residual covariance matrix for a WLS, SUR, W2SLS, or 3SLS estimation
+      is obtained from an unrestricted first-step estimation.}
    \item{returnModelFrame, returnModelMatrix, returnInstMatrix, returnResponse}{
       logical. If 'TRUE' the corresponding components of the fit
       (the model frame, the model matrix, the matrix of instruments,

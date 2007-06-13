@@ -183,7 +183,12 @@ systemfit <- function(  eqns,
       W <- rbind( cbind( t(xMatAll) %*% xMatAll, t(R.restr) ),
                   cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
       V <- rbind( t(xMatAll) %*% yVecAll , q.restr )
-      coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll)]
+      if( method == "OLS" || control$residCovRestricted ){
+         coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll)]
+      } else {
+         coef <- solve( crossprod( xMatAll ), crossprod( xMatAll, yVecAll ),
+            tol = control$solvetol )
+      }
     }
   }
 
@@ -265,7 +270,12 @@ systemfit <- function(  eqns,
       W <- rbind( cbind( crossprod(xMatHatAll), t(R.restr) ),
                   cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
       V <- rbind( t(xMatHatAll) %*% yVecAll , q.restr )
-      coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll)] # restricted coefficients
+      if( method == "2SLS" || control$residCovRestricted ){
+         coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll)]
+      } else {
+         coef <- solve( crossprod( xMatHatAll ), crossprod( xMatHatAll, yVecAll ),
+            tol = control$solvetol )
+      }
     }
     b2 <- coef
   }
