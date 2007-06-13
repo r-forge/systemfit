@@ -387,22 +387,22 @@ print( ftest.systemfit( fitwlsi1, restr2m, restr2q ) )
 
 ## ************** Wald tests ****************
 # testing first restriction
-print( waldtest.systemfit( fitwls1, restrm ) )
-print( waldtest.systemfit( fitwlsi1e, restrm ) )
+print( linear.hypothesis( fitwls1, restrm, test = "Chisq" ) )
+print( linear.hypothesis( fitwlsi1e, restrm, test = "Chisq" ) )
 
 # testing second restriction
 # first restriction not imposed
-print( waldtest.systemfit( fitwls1e, restrOnly2m, restrOnly2q ) )
-print( waldtest.systemfit( fitwlsi1, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fitwls1e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+print( linear.hypothesis( fitwlsi1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 # first restriction imposed
-print( waldtest.systemfit( fitwls2, restrOnly2m, restrOnly2q ) )
-print( waldtest.systemfit( fitwls3, restrOnly2m, restrOnly2q ) )
-print( waldtest.systemfit( fitwlsi2e, restrOnly2m, restrOnly2q ) )
-print( waldtest.systemfit( fitwlsi3e, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fitwls2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+print( linear.hypothesis( fitwls3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+print( linear.hypothesis( fitwlsi2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+print( linear.hypothesis( fitwlsi3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 
 # testing both of the restrictions
-print( waldtest.systemfit( fitwls1e, restr2m, restr2q ) )
-print( waldtest.systemfit( fitwlsi1, restr2m, restr2q ) )
+print( linear.hypothesis( fitwls1e, restr2m, restr2q, test = "Chisq" ) )
+print( linear.hypothesis( fitwlsi1, restr2m, restr2q, test = "Chisq" ) )
 
 
 ## ****************** model frame **************************

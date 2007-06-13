@@ -5,7 +5,7 @@ Title: Simultaneous Equation Estimation Package
 Author: Jeff D. Hamann <jeff.hamann@forestinformatics.com> and
         Arne Henningsen <ahenningsen@agric-econ.uni-kiel.de>
 Maintainer: Jeff D. Hamann <jeff.hamann@forestinformatics.com>
-Depends: R (>= 1.8.0)
+Depends: R (>= 1.8.0), car
 Suggests: plm
 Description: This package contains functions for fitting simultaneous
  systems of linear and nonlinear equations using Ordinary Least

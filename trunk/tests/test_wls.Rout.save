@@ -1,6 +1,6 @@
 
-R version 2.4.1 (2006-12-18)
-Copyright (C) 2006 The R Foundation for Statistical Computing
+R version 2.5.0 (2007-04-23)
+Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -17,6 +17,7 @@ Type 'q()' to quit R.
 
 > 
 > library( systemfit )
+Loading required package: car
 > data( "Kmenta" )
 > 
 > demand <- consump ~ price + income
@@ -3278,82 +3279,134 @@ p-value: 0.9264
 > 
 > ## ************** Wald tests ****************
 > # testing first restriction
-> print( waldtest.systemfit( fitwls1, restrm ) )
+> print( linear.hypothesis( fitwls1, restrm, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
 
-Wald-test for linear parameter restrictions in equation systems
-Wald-statistic: 0.644 
-degrees of freedom: 1 
-p-value: 0.4223 
+Hypothesis:
+demand_income - supply_trend = 0
 
-> print( waldtest.systemfit( fitwlsi1e, restrm ) )
+Model 1: fitwls1
+Model 2: restricted model
 
-Wald-test for linear parameter restrictions in equation systems
-Wald-statistic: 0.7962 
-degrees of freedom: 1 
-p-value: 0.3722 
+  Res.Df Df Chisq Pr(>Chisq)
+1     33                    
+2     34 -1 0.644     0.4223
+> print( linear.hypothesis( fitwlsi1e, restrm, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
 
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitwlsi1e
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     34 -1 0.7962     0.3722
 > 
 > # testing second restriction
 > # first restriction not imposed
-> print( waldtest.systemfit( fitwls1e, restrOnly2m, restrOnly2q ) )
+> print( linear.hypothesis( fitwls1e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
 
-Wald-test for linear parameter restrictions in equation systems
-Wald-statistic: 0.03837 
-degrees of freedom: 1 
-p-value: 0.8447 
+Hypothesis:
+-demand_price + supply_price = 0.5
 
-> print( waldtest.systemfit( fitwlsi1, restrOnly2m, restrOnly2q ) )
+Model 1: fitwls1e
+Model 2: restricted model
 
-Wald-test for linear parameter restrictions in equation systems
-Wald-statistic: 0.03161 
-degrees of freedom: 1 
-p-value: 0.8589 
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     34 -1 0.0384     0.8447
+> print( linear.hypothesis( fitwlsi1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
 
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitwlsi1
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     34 -1 0.0316     0.8589
 > # first restriction imposed
-> print( waldtest.systemfit( fitwls2, restrOnly2m, restrOnly2q ) )
+> print( linear.hypothesis( fitwls2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
 
-Wald-test for linear parameter restrictions in equation systems
-Wald-statistic: 0.07761 
-degrees of freedom: 1 
-p-value: 0.7806 
+Hypothesis:
+-demand_price + supply_price = 0.5
 
-> print( waldtest.systemfit( fitwls3, restrOnly2m, restrOnly2q ) )
+Model 1: fitwls2
+Model 2: restricted model
 
-Wald-test for linear parameter restrictions in equation systems
-Wald-statistic: 0.07761 
-degrees of freedom: 1 
-p-value: 0.7806 
+  Res.Df Df  Chisq Pr(>Chisq)
+1     34                     
+2     35 -1 0.0776     0.7806
+> print( linear.hypothesis( fitwls3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
 
-> print( waldtest.systemfit( fitwlsi2e, restrOnly2m, restrOnly2q ) )
+Hypothesis:
+-demand_price + supply_price = 0.5
 
-Wald-test for linear parameter restrictions in equation systems
-Wald-statistic: 0.09829 
-degrees of freedom: 1 
-p-value: 0.7539 
+Model 1: fitwls3
+Model 2: restricted model
 
-> print( waldtest.systemfit( fitwlsi3e, restrOnly2m, restrOnly2q ) )
+  Res.Df Df  Chisq Pr(>Chisq)
+1     34                     
+2     35 -1 0.0776     0.7806
+> print( linear.hypothesis( fitwlsi2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
 
-Wald-test for linear parameter restrictions in equation systems
-Wald-statistic: 0.09829 
-degrees of freedom: 1 
-p-value: 0.7539 
+Hypothesis:
+-demand_price + supply_price = 0.5
 
+Model 1: fitwlsi2e
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     34                     
+2     35 -1 0.0983     0.7539
+> print( linear.hypothesis( fitwlsi3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitwlsi3e
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     34                     
+2     35 -1 0.0983     0.7539
 > 
 > # testing both of the restrictions
-> print( waldtest.systemfit( fitwls1e, restr2m, restr2q ) )
+> print( linear.hypothesis( fitwls1e, restr2m, restr2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
 
-Wald-test for linear parameter restrictions in equation systems
-Wald-statistic: 0.8986 
-degrees of freedom: 2 
-p-value: 0.6381 
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_price = 0.5
 
-> print( waldtest.systemfit( fitwlsi1, restr2m, restr2q ) )
+Model 1: fitwls1e
+Model 2: restricted model
 
-Wald-test for linear parameter restrictions in equation systems
-Wald-statistic: 0.7242 
-degrees of freedom: 2 
-p-value: 0.6962 
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     35 -2 0.8986     0.6381
+> print( linear.hypothesis( fitwlsi1, restr2m, restr2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
 
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_price = 0.5
+
+Model 1: fitwlsi1
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     35 -2 0.7242     0.6962
 > 
 > 
 > ## ****************** model frame **************************

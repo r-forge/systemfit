@@ -64,7 +64,7 @@
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
 
 \seealso{\code{\link{systemfit}}, \code{\link{ftest.systemfit}},
-   \code{\link{waldtest.systemfit}}}
+   \code{\link{linear.hypothesis.systemfit}}}
 
 \examples{
 data( "Kmenta" )

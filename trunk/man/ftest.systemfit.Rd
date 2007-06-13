@@ -69,7 +69,7 @@ Theil, Henri (1971). \emph{Principles of Econometrics}, John Wiley & Sons, New Y
 
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
 
-\seealso{\code{\link{systemfit}}, \code{\link{waldtest.systemfit}},
+\seealso{\code{\link{systemfit}}, \code{\link{linear.hypothesis.systemfit}},
    \code{\link{lrtest.systemfit}}}
 
 \examples{
