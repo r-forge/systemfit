@@ -442,53 +442,53 @@ print( logLik( fitsuri5r2 ) )
 ## *********** likelihood ratio tests *************
 # testing first restriction
 # non-iterating, methodRCov = 1
-print( lrtest.systemfit( fitsur2, fitsur1 ) )
-print( lrtest.systemfit( fitsur3, fitsur1 ) )
+print( lrtest( fitsur2, fitsur1 ) )
+print( lrtest( fitsur3, fitsur1 ) )
 # non-iterating, methodRCov = 0
-print( lrtest.systemfit( fitsur2e, fitsur1e ) )
-print( lrtest.systemfit( fitsur3e, fitsur1e ) )
+print( lrtest( fitsur2e, fitsur1e ) )
+print( lrtest( fitsur3e, fitsur1e ) )
 # iterating, methodRCov = 1
-print( lrtest.systemfit( fitsuri2, fitsuri1 ) )
-print( lrtest.systemfit( fitsuri3, fitsuri1 ) )
+print( lrtest( fitsuri2, fitsuri1 ) )
+print( lrtest( fitsuri3, fitsuri1 ) )
 # iterating, methodRCov = 0
-print( lrtest.systemfit( fitsuri2e, fitsuri1e ) )
-print( lrtest.systemfit( fitsuri3e, fitsuri1e ) )
+print( lrtest( fitsuri2e, fitsuri1e ) )
+print( lrtest( fitsuri3e, fitsuri1e ) )
 
 # testing second restriction
 # non-iterating, methodRCov = 1
-print( lrtest.systemfit( fitsur4, fitsur2 ) )
-print( lrtest.systemfit( fitsur4, fitsur3 ) )
-print( lrtest.systemfit( fitsur5, fitsur2 ) )
-print( lrtest.systemfit( fitsur5, fitsur3 ) )
+print( lrtest( fitsur4, fitsur2 ) )
+print( lrtest( fitsur4, fitsur3 ) )
+print( lrtest( fitsur5, fitsur2 ) )
+print( lrtest( fitsur5, fitsur3 ) )
 # non-iterating, methodRCov = 0
-print( lrtest.systemfit( fitsur4e, fitsur2e ) )
-print( lrtest.systemfit( fitsur4e, fitsur3e ) )
-print( lrtest.systemfit( fitsur5e, fitsur2e ) )
-print( lrtest.systemfit( fitsur5e, fitsur3e ) )
+print( lrtest( fitsur4e, fitsur2e ) )
+print( lrtest( fitsur4e, fitsur3e ) )
+print( lrtest( fitsur5e, fitsur2e ) )
+print( lrtest( fitsur5e, fitsur3e ) )
 # iterating, methodRCov = 1
-print( lrtest.systemfit( fitsuri4, fitsuri2 ) )
-print( lrtest.systemfit( fitsuri4, fitsuri3 ) )
-print( lrtest.systemfit( fitsuri5, fitsuri2 ) )
-print( lrtest.systemfit( fitsuri5, fitsuri3 ) )
+print( lrtest( fitsuri4, fitsuri2 ) )
+print( lrtest( fitsuri4, fitsuri3 ) )
+print( lrtest( fitsuri5, fitsuri2 ) )
+print( lrtest( fitsuri5, fitsuri3 ) )
 # iterating, methodRCov = 0
-print( lrtest.systemfit( fitsuri4e, fitsuri2e ) )
-print( lrtest.systemfit( fitsuri4e, fitsuri3e ) )
-print( lrtest.systemfit( fitsuri5e, fitsuri2e ) )
-print( lrtest.systemfit( fitsuri5e, fitsuri3e ) )
+print( lrtest( fitsuri4e, fitsuri2e ) )
+print( lrtest( fitsuri4e, fitsuri3e ) )
+print( lrtest( fitsuri5e, fitsuri2e ) )
+print( lrtest( fitsuri5e, fitsuri3e ) )
 
 # testing both of the restrictions
 # non-iterating, methodRCov = 1
-print( lrtest.systemfit( fitsur4, fitsur1 ) )
-print( lrtest.systemfit( fitsur5, fitsur1 ) )
+print( lrtest( fitsur4, fitsur1 ) )
+print( lrtest( fitsur5, fitsur1 ) )
 # non-iterating, methodRCov = 0
-print( lrtest.systemfit( fitsur4e, fitsur1e ) )
-print( lrtest.systemfit( fitsur5e, fitsur1e ) )
+print( lrtest( fitsur4e, fitsur1e ) )
+print( lrtest( fitsur5e, fitsur1e ) )
 # iterating, methodRCov = 1
-print( lrtest.systemfit( fitsuri4, fitsuri1 ) )
-print( lrtest.systemfit( fitsuri5, fitsuri1 ) )
+print( lrtest( fitsuri4, fitsuri1 ) )
+print( lrtest( fitsuri5, fitsuri1 ) )
 # iterating, methodRCov = 0
-print( lrtest.systemfit( fitsuri4e, fitsuri1e ) )
-print( lrtest.systemfit( fitsuri5e, fitsuri1e ) )
+print( lrtest( fitsuri4e, fitsuri1e ) )
+print( lrtest( fitsuri5e, fitsuri1e ) )
 
 
 ## ************** F tests ****************

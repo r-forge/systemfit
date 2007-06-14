@@ -16,7 +16,23 @@ Type 'demo()' for some demos, 'help()' for on-line help, or
 Type 'q()' to quit R.
 
 > library( systemfit )
+Loading required package: car
+Loading required package: lmtest
+Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 rapply 
+
 > library( plm )
+Loading required package: kinship
+Loading required package: survival
+Loading required package: splines
+Loading required package: nlme
+Loading required package: lattice
 > 
 > ## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
 > data( "GrunfeldTheil" )

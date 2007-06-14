@@ -1,30 +1,34 @@
 ## Likelihood Ratio Test
-lrtest.systemfit <- function( resultc, resultu ) {
-  lrtest <- list()
-  if( resultc$method %in% c( "SUR", "WSUR" ) &
-      resultu$method %in% c( "SUR", "WSUR" ) ) {
-    nObsPerEq <- nrow( residuals( resultu ) )
-    lrtest$nRestr  <- resultu$rank - resultc$rank
-    if( resultc$control$methodRCov != resultu$control$methodRCov ) {
-      stop( paste( "both estimations must use the same formula to calculate",
-                   "the residual covariance matrix!" ) )
-    }
-   residc <- as.matrix( residuals( resultc ) )
-   residu <- as.matrix( residuals( resultu ) )
-   lrtest$statistic <- nObsPerEq * ( log( det( (t(residc) %*% residc)) ) -
-                         log( det( (t(residu) %*% residu))))
-    lrtest$p.value <- 1 - pchisq( lrtest$statistic, lrtest$nRestr )
-  }
-  class( lrtest ) <- "lrtest.systemfit"
-  return( lrtest )
-}
+lrtest.systemfit <- function( object, ... ) {
 
-print.lrtest.systemfit <- function( x, digits = 4, ... ){
-   cat( "\n", "Likelihood-Ratio-test for parameter restrictions",
-      " in equation systems\n", sep = "" )
-   cat( "LR-statistic:", formatC( x$statistic, digits = digits ), "\n" )
-   cat( "degrees of freedom:", x$nRestr, "\n" )
-   cat( "p-value:", formatC( x$p.value, digits = digits ), "\n\n" )
-   invisible( x )
-}
+   thisCall <- match.call()
 
+   if( "object" %in% names( thisCall ) ) {
+      if( class( thisCall$object ) == "name" ) {
+         object$name <- as.character( thisCall$object )
+      } else if( class( thisCall$object ) == "call" ) {
+         object$name <- format( thisCall$object )
+      } else {
+         object$name <- thisCall$object
+      }
+   }
+
+   extractName <- function( object ){
+      if( !exists( ".lrtestSystemfitNameNumber" ) ) {
+         .lrtestSystemfitNameNumber <<- 1
+      } else {
+         .lrtestSystemfitNameNumber <<- .lrtestSystemfitNameNumber + 1
+      }
+      objectName <- object$name
+      if( is.null( objectName ) ) {
+         objectName <- paste( "object", .lrtestSystemfitNameNumber, sep = "_" )
+      }
+      return( objectName )
+   }
+
+   result <- lrtest.default( object = object, ..., name = extractName )
+
+   rm( .lrtestSystemfitNameNumber, inherits = TRUE )
+
+   return( result )
+}

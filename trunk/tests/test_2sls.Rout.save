@@ -18,6 +18,16 @@ Type 'q()' to quit R.
 > 
 > library( systemfit )
 Loading required package: car
+Loading required package: lmtest
+Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 rapply 
+
 > data( "Kmenta" )
 > 
 > demand <- consump ~ price + income

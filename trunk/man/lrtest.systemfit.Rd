@@ -3,32 +3,28 @@
 
 \name{lrtest.systemfit}
 \alias{lrtest.systemfit}
-\alias{print.lrtest.systemfit}
 
 \title{Likelihood Ratio test for Equation Systems}
 
 \description{
-   Likelihood Ratio test for linear parameter restrictions
-   in equation system.
+   Testing linear hypothesis on parameters of a system of equations
+   by a Likelihood Ratio test.
 }
 
 \usage{
-   lrtest.systemfit( resultc, resultu )
-
-   \method{print}{lrtest.systemfit}( x, digits = 4, ... )
+   \method{lrtest}{systemfit}( object, ... )
 }
 
 \arguments{
-   \item{resultc}{an object of type \code{systemfit} that
-      contains the results of the restricted estimation.}
-   \item{resultu}{an object of type \code{systemfit} that
-      contains the results of the unconstrained estimation.}
-   \item{x}{an object of class \code{ftest.systemfit}.}
-   \item{digits}{number of digits to print.}
-   \item{\dots}{currently not used.}
+   \item{object}{a fitted model object of class \code{systemfit}.}
+   \item{\dots}{further fitted model objects of class \code{systemfit}.}
 }
 
 \details{
+   \code{lrtest.systemfit} consecutively compares
+   the fitted model object \code{object}
+   with the models passed in \code{...}.
+
    The LR-statistic for sytems of equations is
    \deqn{
    LR = T \cdot \left(
@@ -48,12 +44,12 @@
 }
 
 \value{
-   \code{lrtest.systemfit} returns a list of class \code{lrtest.systemfit}
-   that includes following objects:
-
-   \item{statistic}{the empirical likelihood ratio statistic.}
-   \item{p.value}{the p-value of the \eqn{\chi^2}-test.}
-   \item{nRestr}{number of restrictions (\eqn{j}, degrees of freedom).}
+   An object of class \code{anova},
+   which contains the log-likelihood value,
+   degrees of freedom, the difference in degrees of freedom,
+   likelihood ratio Chi-squared statistic and corresponding p value.
+   See documentation of \code{\link[lmtest]{lrtest}}
+   in package "lmtest".
 }
 
 \references{
@@ -63,7 +59,8 @@
 
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
 
-\seealso{\code{\link{systemfit}},
+\seealso{\code{\link{systemfit}}, \code{\link[lmtest]{lrtest}}
+   (package "lmtest"),
    \code{\link{linear.hypothesis.systemfit}}}
 
 \examples{
@@ -84,7 +81,7 @@ R1[ 1, 6 ] <- -1
 fitsur1 <- systemfit( system, "SUR", data = Kmenta, restrictions = R1 )
 
 ## perform LR-test
-lrTest1 <- lrtest.systemfit( fitsur1, fitsur )
+lrTest1 <- lrtest( fitsur1, fitsur )
 print( lrTest1 )   # rejected
 
 # create restriction matrix to impose \eqn{beta_2 = - \beta_6}
@@ -96,7 +93,7 @@ R2[ 1, 6 ] <- 1
 fitsur2 <- systemfit( system, "SUR", data = Kmenta, restrictions = R2 )
 
 ## perform LR-test
-lrTest2 <- lrtest.systemfit( fitsur2, fitsur )
+lrTest2 <- lrtest( fitsur2, fitsur )
 print( lrTest2 )   # accepted
 }
 
