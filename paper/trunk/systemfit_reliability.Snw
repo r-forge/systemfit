@@ -163,7 +163,7 @@ F-test (page 315)
 <<>>=
 RMatrix <- matrix( c( 0, 1, 0, 0, -1, 0, 0, 0, 1, 0, 0, -1 ), nrow = 2,
    byrow = TRUE )
-ftest.systemfit( theilSur, RMatrix )
+linear.hypothesis( theilSur, RMatrix )
 @
 
 Restricted SUR estimation (page~316)
@@ -174,7 +174,7 @@ theilSurRestr <- systemfit( formulaGrunfeld, "SUR",
 round( coef( summary( theilSurRestr ) ), digits = 3 )
 @
 
-The function \code{ftest.systemfit} returns the same value of the F-statistic
+The method \code{linear.hypothesis} returns the same value of the F-statistic
 as published in \citet[p.~315]{theil71}.
 Hence, we arrive at the the same conclusion:
 we accept the null hypothesis (parameter restrictions are true)

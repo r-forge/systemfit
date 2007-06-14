@@ -52,12 +52,17 @@ that is included in the package.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Statistical tests}
-The statistical tests described in
-sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}
-are implemented as specified in these sections.
-The functions \code{ftest.systemfit}, \code{linear.hypothesis.systemfit} and
-\code{lrtest.systemfit} test linear restrictions on the
-estimated parameters.
+This section explains the implementation of the statistical tests described in
+sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
+The method \code{linear.hypothesis.systemfit}
+can be used to test linear restrictions on the estimated parameters
+by an $F$ test or a Wald/$\chi^2$ test.
+Internally, the $F$ statistic is computed by the hidden function
+\code{.ftest.systemfit}
+and the Wald/$\chi^2$ statistic is computed by the method
+\code{linear.hypothesis.default} of the \pkg{car} package.
+The function \code{lrtest.systemfit}
+computes the Likelihood-ratio (LR) test statistic.
 On the other hand, the function \code{hausman.systemfit}
 tests the consistency of the 3SLS estimator.
 All functions return the empirical test statistic,

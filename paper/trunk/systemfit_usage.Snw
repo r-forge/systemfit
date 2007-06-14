@@ -462,15 +462,15 @@ theilSur <- systemfit( invest ~ value + capital, "SUR",
 As described in section~\ref{sec:testingRestrictions},
 linear restrictions can be tested by an $F$ test, Wald test or
 LR test.
-The corresponding functions in package \pkg{systemfit} are
-\code{ftest.systemfit}, \code{linear.hypothesis.systemfit}, and
-\code{lrtest.systemfit}, respectively.
+The \pkg{systemfit} package provides
+the method \code{linear.hypothesis.systemfit} for $F$ tests and Wald tests
+as well as the function \code{lrtest.systemfit} for LR tests.
 
 We will now test the restriction $\beta_2 = -\beta_6$
 that was specified by the matrix \code{Rmat} and the vector \code{qvec}
 in the example above (p.~\pageref{code:Rmat}).
 <<>>=
-ftest.systemfit( fitsur, Rmat, qvec )
+linear.hypothesis( fitsur, Rmat, qvec, test = "F" )
 
 linear.hypothesis( fitsur, Rmat, qvec, test = "Chisq" )
 
@@ -478,14 +478,19 @@ lrtest.systemfit( fitsurRmat, fitsur )
 @
 The linear restrictions are tested by an $F$ test first,
 then by a Wald test, and finally by an LR test.
-The functions \code{ftest.systemfit} and \code{linear.hypothesis.systemfit}
-have three arguments.
-The first argument must be an unrestricted regression
+The first argument of method \code{linear.hypothesis.systemfit}
+must be an unrestricted regression
 returned by \code{systemfit}.
 The second and third argument are the restriction matrix $R$ and
-the vector $q$ as described in section~\ref{sec:Restrictions}.
-In contrast, the function \code{lrtest.systemfit} needs two arguments.
-The first argument must be a restricted and the second an unrestricted
+optionally the vector $q$ as described in section~\ref{sec:Restrictions}.
+The optional argument \code{test} must be
+a character string, °\code{F}° or °\code{Chisq}°,
+specifying whether to compute
+the finite-sample $F$ statistic (with approximate $F$ distribution)
+or the large-sample Wald statistic (with asymptotic $\chi^2$ distribution).
+
+The first argument of function \code{lrtest.systemfit}
+must be a restricted and the second argument an unrestricted
 regression returned by \code{systemfit}.
 
 All tests print a short explanation first.
