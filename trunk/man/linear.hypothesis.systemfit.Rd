@@ -10,7 +10,8 @@
 
 \usage{
    \method{linear.hypothesis}{systemfit}( model,
-      hypothesis.matrix, rhs = NULL, test = c( "F", "Chisq" ), ... )
+      hypothesis.matrix, rhs = NULL, test = c( "F", "Chisq" ),
+      vcov. = NULL, ... )
 }
 
 \arguments{
@@ -18,7 +19,8 @@
    \item{hypothesis.matrix}{matrix (or vector) giving linear combinations
       of coefficients by rows,
       or a character vector giving the hypothesis in symbolic form
-      (see documentation of \code{\link[car]{linear.hypothesis}} for details).}
+      (see documentation of \code{\link[car]{linear.hypothesis}}
+      in package "car" for details).}
    \item{rhs}{optional right-hand-side vector for hypothesis,
       with as many entries as rows in the hypothesis matrix;
       if omitted, it defaults to a vector of zeroes.}
@@ -27,11 +29,34 @@
       finite-sample F statistic (with approximate F distribution) or
       the large-sample Wald statistic
       (with asymptotic Chi-squared distribution).}
+   \item{vcov.}{a function for estimating the covariance matrix
+      of the regression coefficients or an estimated covariance matrix
+      (function \code{vcov} is used by default).}
    \item{\dots}{further arguments passed to
-      \code{\link[car]{linear.hypothesis.default}}.}
+      \code{\link[car]{linear.hypothesis.default}} (package "car").}
 }
 
 \details{
+   The F-statistic for sytems of equations is
+   \deqn{F = \frac{
+      ( R \hat{b} - q )'
+      ( R \widehat{Cov} [ \hat{b} ] R' )^{-1}
+      ( R \hat{b} - q ) /
+      j
+   }{
+      \hat{e}' ( \Sigma \otimes I )^{-1} \hat{e} /
+      ( M \cdot T - K )
+   } }
+   where \eqn{j} is the number of restrictions,
+   \eqn{M} is the number of equations,
+   \eqn{T} is the number of observations per equation,
+   \eqn{K} is the total number of estimated coefficients, and
+   \eqn{\Sigma} is the residual covariance matrix used in the estimation.
+   Under the null hypothesis, \eqn{F} has an approximate F-distribution
+   with \eqn{j} and \eqn{M \cdot T - K} degrees of freedom
+   (Theil, 1971, p. 314).
+
+
    The Wald-statistic for sytems of equations is
    \deqn{ W =
       ( R \hat{b} - q )'
@@ -45,18 +70,27 @@
 }
 
 \value{
-   see documentation of \code{\link[car]{linear.hypothesis}}
+   An object of class \code{anova},
+   which contains the residual degrees of freedom in the model,
+   the difference in degrees of freedom,
+   the test statistic (either F or Wald/Chisq)
+   and the corresponding p value.
+   See documentation of \code{\link[car]{linear.hypothesis}}
+   in package "car".
 }
 
 \references{
   Greene, W. H. (2003)
   \emph{Econometric Analysis, Fifth Edition}, Prentice Hall.
+
+   Theil, Henri (1971)
+   \emph{Principles of Econometrics}, John Wiley & Sons, New York.
 }
 
 \author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
 
 \seealso{\code{\link{systemfit}}, \code{\link[car]{linear.hypothesis}}
-   \code{\link{ftest.systemfit}},
+   (package "car"),
    \code{\link{lrtest.systemfit}}}
 
 \examples{
@@ -73,6 +107,10 @@ R1 <- matrix( 0, nrow = 1, ncol = 7 )
 R1[ 1, 2 ] <- 1
 R1[ 1, 6 ] <- -1
 
+## perform F-test
+fTest1 <- linear.hypothesis( fitsur, R1 )
+print( fTest1 )   # rejected
+
 ## perform Wald-test
 waldTest1 <- linear.hypothesis( fitsur, R1, test = "Chisq" )
 print( waldTest1 )   # rejected
@@ -81,6 +119,10 @@ print( waldTest1 )   # rejected
 R2 <- matrix( 0, nrow = 1, ncol = 7 )
 R2[ 1, 2 ] <- 1
 R2[ 1, 6 ] <- 1
+
+## perform F-test
+fTest2 <- linear.hypothesis( fitsur, R2 )
+print( fTest2 )   # accepted
 
 ## perform Wald-test
 waldTest2 <- linear.hypothesis( fitsur, R2, test = "Chisq" )

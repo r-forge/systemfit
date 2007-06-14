@@ -1,8 +1,21 @@
-ftest.systemfit <- function( object, restrictions,
-   restrict.rhs = rep( 0, nrow( restrictions ) ) ){
+.ftest.systemfit <- function( object, restrictions,
+   restrict.rhs = NULL, vcov. = NULL ){
+
+   if( is.null( restrict.rhs ) ){
+      restrict.rhs <- rep( 0, nrow( restrictions ) )
+   }
 
    coef <- coef( object )
-   vcov <- vcov( object )
+
+   # coefficient covariance matrix
+   if( is.null( vcov. ) ){
+      vcov <- vcov( object )
+   } else if( is.function( vcov. ) ){
+      vcov <- vcov.( object )
+   } else {
+      vcov <- vcov.
+   }
+
    resid <- unlist( residuals( object ) )
    nEq   <- length( object$eq )
    nObsPerEq <- nrow( residuals( object ) )
@@ -31,16 +44,5 @@ ftest.systemfit <- function( object, restrictions,
 
    result$p.value <- 1 - pf( result$statistic, result$nRestr, result$df.residual.sys )
 
-   class( result ) <- "ftest.systemfit"
    return( result )
-}
-
-print.ftest.systemfit <- function( x, digits = 4, ... ){
-   cat( "\n", "F-test for linear parameter restrictions",
-      " in equation systems\n", sep = "" )
-   cat( "F-statistic:", formatC( x$statistic, digits = digits ), "\n" )
-   cat( "degrees of freedom of the numerator:", x$nRestr, "\n" )
-   cat( "degrees of freedom of the denominator:", x$df.residual.sys, "\n" )
-   cat( "p-value:", formatC( x$p.value, digits = digits ), "\n\n" )
-   invisible( x )
 }

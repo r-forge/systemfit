@@ -401,10 +401,10 @@ print( correlation.systemfit( fit2slsd2r, 1, 2 ) )
 
 ## ************** F tests ****************
 # testing first restriction
-print( ftest.systemfit( fit2sls1, restrm ) )
-print( ftest.systemfit( fit2sls1s, restrm ) )
-print( ftest.systemfit( fit2sls1p, restrm ) )
-print( ftest.systemfit( fit2sls1r, restrm ) )
+print( linear.hypothesis( fit2sls1, restrm ) )
+print( linear.hypothesis( fit2sls1s, restrm ) )
+print( linear.hypothesis( fit2sls1p, restrm ) )
+print( linear.hypothesis( fit2sls1r, restrm ) )
 
 # testing second restriction
 restrOnly2m <- matrix(0,1,7)
@@ -412,14 +412,14 @@ restrOnly2q <- 0.5
 restrOnly2m[1,2] <- -1
 restrOnly2m[1,5] <-  1
 # first restriction not imposed 
-print( ftest.systemfit( fit2sls1, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit2sls1, restrOnly2m, restrOnly2q ) )
 # first restriction imposed
-print( ftest.systemfit( fit2sls2, restrOnly2m, restrOnly2q ) )
-print( ftest.systemfit( fit2sls2r, restrOnly2m, restrOnly2q ) )
-print( ftest.systemfit( fit2sls3, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit2sls2, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit2sls2r, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit2sls3, restrOnly2m, restrOnly2q ) )
 
 # testing both of the restrictions
-print( ftest.systemfit( fit2sls1, restr2m, restr2q ) )
+print( linear.hypothesis( fit2sls1, restr2m, restr2q ) )
 
 
 ## ************** Wald tests ****************

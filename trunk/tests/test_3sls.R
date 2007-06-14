@@ -455,11 +455,11 @@ print( correlation.systemfit( fit3slsd[[ 3 ]]$e4, 2, 1 ) )
 
 ## ************** F tests ****************
 # testing first restriction
-print( ftest.systemfit( fit3sls[[ 1 ]]$e1, restrm ) )
-print( ftest.systemfit( fit3sls[[ 2 ]]$e1e, restrm ) )
-print( ftest.systemfit( fit3sls[[ 3 ]]$e1c, restrm ) )
-print( ftest.systemfit( fit3slsi[[ 4 ]]$e1, restrm ) )
-print( ftest.systemfit( fit3slsd[[ 5 ]]$e1e, restrm ) )
+print( linear.hypothesis( fit3sls[[ 1 ]]$e1, restrm ) )
+print( linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrm ) )
+print( linear.hypothesis( fit3sls[[ 3 ]]$e1c, restrm ) )
+print( linear.hypothesis( fit3slsi[[ 4 ]]$e1, restrm ) )
+print( linear.hypothesis( fit3slsd[[ 5 ]]$e1e, restrm ) )
 
 # testing second restriction
 restrOnly2m <- matrix(0,1,7)
@@ -467,21 +467,21 @@ restrOnly2q <- 0.5
 restrOnly2m[1,2] <- -1
 restrOnly2m[1,5] <-  1
 # first restriction not imposed 
-print( ftest.systemfit( fit3sls[[ 5 ]]$e1c, restrOnly2m, restrOnly2q ) )
-print( ftest.systemfit( fit3slsi[[ 1 ]]$e1e, restrOnly2m, restrOnly2q ) )
-print( ftest.systemfit( fit3slsd[[ 2 ]]$e1, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit3sls[[ 5 ]]$e1c, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit3slsi[[ 1 ]]$e1e, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit3slsd[[ 2 ]]$e1, restrOnly2m, restrOnly2q ) )
 # first restriction imposed
-print( ftest.systemfit( fit3sls[[ 4 ]]$e2, restrOnly2m, restrOnly2q ) )
-print( ftest.systemfit( fit3sls[[ 4 ]]$e3, restrOnly2m, restrOnly2q ) )
-print( ftest.systemfit( fit3slsi[[ 5 ]]$e2e, restrOnly2m, restrOnly2q ) )
-print( ftest.systemfit( fit3slsi[[ 5 ]]$e3e, restrOnly2m, restrOnly2q ) )
-print( ftest.systemfit( fit3slsd[[ 1 ]]$e2, restrOnly2m, restrOnly2q ) )
-print( ftest.systemfit( fit3slsd[[ 1 ]]$e3, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit3sls[[ 4 ]]$e2, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit3sls[[ 4 ]]$e3, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit3slsi[[ 5 ]]$e2e, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit3slsi[[ 5 ]]$e3e, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit3slsd[[ 1 ]]$e2, restrOnly2m, restrOnly2q ) )
+print( linear.hypothesis( fit3slsd[[ 1 ]]$e3, restrOnly2m, restrOnly2q ) )
 
 # testing both of the restrictions
-print( ftest.systemfit( fit3sls[[ 2 ]]$e1e, restr2m, restr2q ) )
-print( ftest.systemfit( fit3slsi[[ 3 ]]$e1, restr2m, restr2q ) )
-print( ftest.systemfit( fit3slsd[[ 4 ]]$e1e, restr2m, restr2q ) )
+print( linear.hypothesis( fit3sls[[ 2 ]]$e1e, restr2m, restr2q ) )
+print( linear.hypothesis( fit3slsi[[ 3 ]]$e1, restr2m, restr2q ) )
+print( linear.hypothesis( fit3slsd[[ 4 ]]$e1e, restr2m, restr2q ) )
 
 
 ## ************** Wald tests ****************
