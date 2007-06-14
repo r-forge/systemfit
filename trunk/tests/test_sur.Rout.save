@@ -3917,6 +3917,38 @@ income       0.274  0.327
 [20,] 0.9781961
 > 
 > 
+> ## ************ Log-Likelihood values ***************
+> print( logLik( fitsur1e2 ) )
+'log Lik.' -50.90293 (df=10)
+> 
+> print( logLik( fitsur2e ) )
+'log Lik.' -51.97191 (df=9)
+> 
+> print( logLik( fitsur3 ) )
+'log Lik.' -52.20977 (df=9)
+> 
+> print( logLik( fitsur4r3 ) )
+'log Lik.' -58.43873 (df=8)
+> 
+> print( logLik( fitsur5 ) )
+'log Lik.' -58.54187 (df=8)
+> 
+> print( logLik( fitsuri1r3 ) )
+'log Lik.' -67.7771 (df=10)
+> 
+> print( logLik( fitsuri2 ) )
+'log Lik.' -99.92612 (df=9)
+> 
+> print( logLik( fitsuri3e ) )
+'log Lik.' -99.92491 (df=9)
+> 
+> print( logLik( fitsuri4 ) )
+'log Lik.' -58.45927 (df=8)
+> 
+> print( logLik( fitsuri5r2 ) )
+'log Lik.' -59.80036 (df=8)
+> 
+> 
 > ## *********** likelihood ratio tests *************
 > # testing first restriction
 > # non-iterating, methodRCov = 1

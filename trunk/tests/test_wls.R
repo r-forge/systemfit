@@ -361,6 +361,28 @@ print( correlation.systemfit( fitwlsi4, 2, 1 ) )
 print( correlation.systemfit( fitwlsi5e, 1, 2 ) )
 
 
+## ************ Log-Likelihood values ***************
+print( logLik( fitwls1 ) )
+
+print( logLik( fitwls2e ) )
+
+print( logLik( fitwls3 ) )
+
+print( logLik( fitwls4e ) )
+
+print( logLik( fitwls5 ) )
+
+print( logLik( fitwlsi1e ) )
+
+print( logLik( fitwlsi2 ) )
+
+print( logLik( fitwlsi3e ) )
+
+print( logLik( fitwlsi4 ) )
+
+print( logLik( fitwlsi5e ) )
+
+
 ## ************** F tests ****************
 # testing first restriction
 print( linear.hypothesis( fitwls1, restrm ) )

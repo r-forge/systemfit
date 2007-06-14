@@ -3591,6 +3591,29 @@ income       0.230   0.422
 [20,]  0.051416198
 > 
 > 
+> ## ************ Log-Likelihood values ***************
+> print( logLik( fit2sls1 ) )
+'log Lik.' -67.63536 (df=8)
+> 
+> print( logLik( fit2sls2s ) )
+'log Lik.' -65.71475 (df=7)
+> 
+> print( logLik( fit2sls3e ) )
+'log Lik.' -65.71475 (df=7)
+> 
+> print( logLik( fit2sls4r ) )
+'log Lik.' -66.19217 (df=6)
+> 
+> print( logLik( fit2sls5rs ) )
+'log Lik.' -66.19217 (df=6)
+> 
+> print( logLik( fit2slsd1p ) )
+'log Lik.' -75.14682 (df=8)
+> 
+> print( logLik( fit2slsd2r ) )
+'log Lik.' -68.7687 (df=7)
+> 
+> 
 > ## ************** F tests ****************
 > # testing first restriction
 > print( linear.hypothesis( fit2sls1, restrm ) )

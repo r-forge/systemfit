@@ -2632,6 +2632,32 @@ trend        0.246  0.426
 [20,]  0.0474805318
 > 
 > 
+> ## ************ LOG-Likelihood values ***************
+> print( logLik( fitw2sls1e ) )
+'log Lik.' -67.63536 (df=9)
+> 
+> print( logLik( fitw2sls2 ) )
+'log Lik.' -65.16437 (df=8)
+> 
+> print( logLik( fitw2sls3 ) )
+'log Lik.' -65.16437 (df=8)
+> 
+> print( logLik( fitw2sls4e ) )
+'log Lik.' -65.69462 (df=7)
+> 
+> print( logLik( fitw2sls5 ) )
+'log Lik.' -65.63349 (df=7)
+> 
+> print( logLik( fitw2slsd1 ) )
+'log Lik.' -75.14682 (df=9)
+> 
+> print( logLik( fitw2slsd2e ) )
+'log Lik.' -69.14806 (df=8)
+> 
+> print( logLik( fitw2slsd3e ) )
+'log Lik.' -69.14806 (df=8)
+> 
+> 
 > ## ************** F tests ****************
 > # testing first restriction
 > print( linear.hypothesis( fitw2sls1, restrm ) )

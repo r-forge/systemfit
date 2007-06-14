@@ -453,6 +453,22 @@ print( correlation.systemfit( fit3slsi[[ 2 ]]$e3e, 1, 2 ) )
 print( correlation.systemfit( fit3slsd[[ 3 ]]$e4, 2, 1 ) )
 
 
+## ************ Log-Likelihood values ***************
+print( logLik( fit3sls[[ 1 ]]$e1c ) )
+
+print( logLik( fit3sls[[ 2 ]]$e2e ) )
+
+print( logLik( fit3sls[[ 3 ]]$e3 ) )
+
+print( logLik( fit3sls[[ 4 ]]$e4e ) )
+
+print( logLik( fit3sls[[ 5 ]]$e5 ) )
+
+print( logLik( fit3slsi[[ 2 ]]$e3e ) )
+
+print( logLik( fit3slsd[[ 3 ]]$e4 ) )
+
+
 ## ************** F tests ****************
 # testing first restriction
 print( linear.hypothesis( fit3sls[[ 1 ]]$e1, restrm ) )

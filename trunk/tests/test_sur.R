@@ -417,6 +417,28 @@ print( correlation.systemfit( fitsuri4, 2, 1 ) )
 print( correlation.systemfit( fitsuri5r2, 1, 2 ) )
 
 
+## ************ Log-Likelihood values ***************
+print( logLik( fitsur1e2 ) )
+
+print( logLik( fitsur2e ) )
+
+print( logLik( fitsur3 ) )
+
+print( logLik( fitsur4r3 ) )
+
+print( logLik( fitsur5 ) )
+
+print( logLik( fitsuri1r3 ) )
+
+print( logLik( fitsuri2 ) )
+
+print( logLik( fitsuri3e ) )
+
+print( logLik( fitsuri4 ) )
+
+print( logLik( fitsuri5r2 ) )
+
+
 ## *********** likelihood ratio tests *************
 # testing first restriction
 # non-iterating, methodRCov = 1

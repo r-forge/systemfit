@@ -12337,6 +12337,29 @@ trend        0.251  0.356
 [20,] 0.9209936
 > 
 > 
+> ## ************ Log-Likelihood values ***************
+> print( logLik( fit3sls[[ 1 ]]$e1c ) )
+'log Lik.' -53.01277 (df=10)
+> 
+> print( logLik( fit3sls[[ 2 ]]$e2e ) )
+'log Lik.' -55.55628 (df=9)
+> 
+> print( logLik( fit3sls[[ 3 ]]$e3 ) )
+'log Lik.' -55.26495 (df=9)
+> 
+> print( logLik( fit3sls[[ 4 ]]$e4e ) )
+'log Lik.' -58.47706 (df=8)
+> 
+> print( logLik( fit3sls[[ 5 ]]$e5 ) )
+'log Lik.' -87.26485 (df=8)
+> 
+> print( logLik( fit3slsi[[ 2 ]]$e3e ) )
+'log Lik.' -46.65873 (df=9)
+> 
+> print( logLik( fit3slsd[[ 3 ]]$e4 ) )
+'log Lik.' -59.43294 (df=8)
+> 
+> 
 > ## ************** F tests ****************
 > # testing first restriction
 > print( linear.hypothesis( fit3sls[[ 1 ]]$e1, restrm ) )
