@@ -28,6 +28,22 @@ lrtest.systemfit <- function( object, ... ) {
 
    result <- lrtest.default( object = object, ..., name = extractName )
 
+   for( i in 2:nrow( result ) ){
+      if( ( result[ i, "#Df" ] - result[ i - 1, "#Df" ] ) *
+            ( result[ i, "LogLik" ] - result[ i - 1, "LogLik" ] ) < 0 ) {
+         if( result[ i, "LogLik" ] > result[ i - 1, "LogLik" ] ) {
+            compareLikelihood <- "larger"
+            compareDf <- "less"
+         } else {
+            compareLikelihood <- "smaller"
+            compareDf <- "more"
+         }
+         warning( "model '", i, "' has ", compareLikelihood,
+            " log-likelihood value than ", compareDf,
+            " restricted model '", i - 1, "'" )
+      }
+   }
+
    rm( .lrtestSystemfitNameNumber, inherits = TRUE )
 
    return( result )
