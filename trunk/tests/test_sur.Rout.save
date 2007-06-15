@@ -1616,141 +1616,269 @@ Multiple R-Squared: 0.220377 Adjusted R-Squared: 0.074197
 
 > 
 > ## *************** iterated SUR with 2 restrictions ***************************
-> fitsuri4 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr2m,
+> fitsurio4 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr2m,
++    restrict.rhs = restr2q, maxit = 100 )
+> print( summary( fitsurio4 ) )
+
+systemfit results 
+method: iterated SUR 
+
+convergence achieved after 10 iterations
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  67.2057 3.95327 1.98828 0.749340 0.719850
+supply 20 16 109.2337 6.82710 2.61287 0.592585 0.516195
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.95325 5.02451
+supply 5.02451 6.82706
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.95327 5.02454
+supply 5.02454 6.82710
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.967163
+supply 0.967163 1.000000
+
+The determinant of the residual covariance matrix: 1.7434
+OLS R-squared value of the system: 0.670962
+McElroy's R-squared value for the system: 0.704623
+
+SUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 92.426174   7.354296 12.567644        0 ***
+price       -0.227612   0.085013 -2.677361  0.01122   *
+income        0.32027   0.018494 17.317867        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.988284 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 67.205652 MSE: 3.953274 Root MSE: 1.988284 
+Multiple R-Squared: 0.74934 Adjusted R-Squared: 0.71985 
+
+
+SUR estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 48.729451    7.45869  6.533246        0 ***
+price        0.272388   0.085013  3.204058 0.002887  **
+farmPrice     0.22315   0.018976 11.759398        0 ***
+trend         0.32027   0.018494 17.317867        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.612873 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 109.233669 MSE: 6.827104 Root MSE: 2.612873 
+Multiple R-Squared: 0.592585 Adjusted R-Squared: 0.516195 
+
+> fitsuri4 <- systemfit( system2, "SUR", data = Kmenta, restrictions = restr2m,
 +    restrict.rhs = restr2q, maxit = 100 )
 > print( summary( fitsuri4 ) )
 
 systemfit results 
 method: iterated SUR 
 
-convergence achieved after 10 iterations
+convergence achieved after 19 iterations
 
-        N DF      SSR     MSE    RMSE       R2   Adj R2
-demand 20 17  67.2057 3.95327 1.98828 0.749340 0.719850
-supply 20 16 109.2337 6.82710 2.61287 0.592585 0.516195
+        N DF      SSR      MSE    RMSE       R2   Adj R2
+demand 20 17  65.5317  3.85480 1.96337 0.755583 0.726828
+supply 20 16 509.3450 31.83406 5.64217 0.236652 0.093524
 
 The covariance matrix of the residuals used for estimation
-        demand  supply
-demand 3.95325 5.02451
-supply 5.02451 6.82706
+        demand   supply
+demand 3.85483  1.22891
+supply 1.22891 31.83363
 
 The covariance matrix of the residuals
-        demand  supply
-demand 3.95327 5.02454
-supply 5.02454 6.82710
+        demand   supply
+demand 3.85480  1.22921
+supply 1.22921 31.83406
 
 The correlations of the residuals
          demand   supply
-demand 1.000000 0.967163
-supply 0.967163 1.000000
+demand 1.000000 0.110963
+supply 0.110963 1.000000
 
-The determinant of the residual covariance matrix: 1.7434
-OLS R-squared value of the system: 0.670962
-McElroy's R-squared value for the system: 0.704623
+The determinant of the residual covariance matrix: 121.203
+OLS R-squared value of the system: 0.385399
+McElroy's R-squared value for the system: 0.636563
 
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 92.426174   7.354296 12.567644        0 ***
-price       -0.227612   0.085013 -2.677361  0.01122   *
-income        0.32027   0.018494 17.317867        0 ***
+(Intercept) 98.035578   6.743699 14.537359        0 ***
+price       -0.264591    0.07773 -3.403959  0.00168  **
+income        0.30068   0.043628  6.891872        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
-Residual standard error: 1.988284 on 17 degrees of freedom
+Residual standard error: 1.963366 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
-SSR: 67.205652 MSE: 3.953274 Root MSE: 1.988284 
-Multiple R-Squared: 0.74934 Adjusted R-Squared: 0.71985 
+SSR: 65.531682 MSE: 3.854805 Root MSE: 1.963366 
+Multiple R-Squared: 0.755583 Adjusted R-Squared: 0.726828 
+
+
+SUR estimates for 'supply' (equation 2)
+Model Formula: price ~ income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 90.004648  10.436748  8.623821        0 ***
+income       0.235409    0.07773  3.028524 0.004594  **
+farmPrice   -0.166658   0.110832 -1.503703 0.141629    
+trend         0.30068   0.043628  6.891872        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 5.642168 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 509.345019 MSE: 31.834064 Root MSE: 5.642168 
+Multiple R-Squared: 0.236652 Adjusted R-Squared: 0.093524 
+
+> 
+> ## *************** iterated SUR with 2 restrictions (EViews-like) **************
+> fitsurio4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
++    restrictions = restr2m, restrict.rhs = restr2q, maxit = 100 )
+> print( summary( fitsurio4e ) )
+
+systemfit results 
+method: iterated SUR 
+
+convergence achieved after 9 iterations
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  66.265 3.89794 1.97432 0.752848 0.723771
+supply 20 16 106.722 6.67014 2.58266 0.601952 0.527318
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.31323 4.06161
+supply 4.06161 5.33608
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.31325 4.06163
+supply 4.06163 5.33612
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.965964
+supply 0.965964 1.000000
+
+The determinant of the residual covariance matrix: 1.18302
+OLS R-squared value of the system: 0.6774
+McElroy's R-squared value for the system: 0.664522
+
+SUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept)  93.35957    6.85761  13.61401        0 ***
+price       -0.239757   0.077937 -3.076298 0.004053  **
+income       0.323155   0.016311 19.811891        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.97432 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 66.264982 MSE: 3.89794 Root MSE: 1.97432 
+Multiple R-Squared: 0.752848 Adjusted R-Squared: 0.723771 
 
 
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 48.729451    7.45869  6.533246        0 ***
-price        0.272388   0.085013  3.204058 0.002887  **
-farmPrice     0.22315   0.018976 11.759398        0 ***
-trend         0.32027   0.018494 17.317867        0 ***
+(Intercept) 49.545591   6.972681  7.105673        0 ***
+price        0.260243   0.077937  3.339147 0.002005  **
+farmPrice    0.226962   0.016434 13.810256        0 ***
+trend        0.323155   0.016311 19.811891        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
-Residual standard error: 2.612873 on 16 degrees of freedom
+Residual standard error: 2.582662 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
-SSR: 109.233669 MSE: 6.827104 Root MSE: 2.612873 
-Multiple R-Squared: 0.592585 Adjusted R-Squared: 0.516195 
+SSR: 106.722321 MSE: 6.670145 Root MSE: 2.582662 
+Multiple R-Squared: 0.601952 Adjusted R-Squared: 0.527318 
 
-> 
-> ## *************** iterated SUR with 2 restrictions (EViews-like) **************
-> fitsuri4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+> fitsuri4e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
 +    restrictions = restr2m, restrict.rhs = restr2q, maxit = 100 )
 > print( summary( fitsuri4e ) )
 
 systemfit results 
 method: iterated SUR 
 
-convergence achieved after 9 iterations
+convergence achieved after 20 iterations
 
-        N DF     SSR     MSE    RMSE       R2   Adj R2
-demand 20 17  66.265 3.89794 1.97432 0.752848 0.723771
-supply 20 16 106.722 6.67014 2.58266 0.601952 0.527318
+        N DF      SSR      MSE    RMSE       R2   Adj R2
+demand 20 17  65.9947  3.88204 1.97029 0.753856 0.724898
+supply 20 16 504.0662 31.50414 5.61285 0.244563 0.102919
 
 The covariance matrix of the residuals used for estimation
-        demand  supply
-demand 3.31323 4.06161
-supply 4.06161 5.33608
+         demand    supply
+demand 3.299759  0.875937
+supply 0.875937 25.203031
 
 The covariance matrix of the residuals
-        demand  supply
-demand 3.31325 4.06163
-supply 4.06163 5.33612
+        demand   supply
+demand 3.29974  0.87614
+supply 0.87614 25.20331
 
 The correlations of the residuals
-         demand   supply
-demand 1.000000 0.965964
-supply 0.965964 1.000000
+          demand    supply
+demand 1.0000000 0.0960738
+supply 0.0960738 1.0000000
 
-The determinant of the residual covariance matrix: 1.18302
-OLS R-squared value of the system: 0.6774
-McElroy's R-squared value for the system: 0.664522
+The determinant of the residual covariance matrix: 82.3967
+OLS R-squared value of the system: 0.390548
+McElroy's R-squared value for the system: 0.629112
 
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  93.35957    6.85761  13.61401        0 ***
-price       -0.239757   0.077937 -3.076298 0.004053  **
-income       0.323155   0.016311 19.811891        0 ***
+(Intercept) 97.629728   6.155972 15.859351        0 ***
+price       -0.257559    0.07091 -3.632214 0.000891 ***
+income       0.297629   0.040327  7.380428        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
-Residual standard error: 1.97432 on 17 degrees of freedom
+Residual standard error: 1.97029 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
-SSR: 66.264982 MSE: 3.89794 Root MSE: 1.97432 
-Multiple R-Squared: 0.752848 Adjusted R-Squared: 0.723771 
+SSR: 65.994726 MSE: 3.882043 Root MSE: 1.97029 
+Multiple R-Squared: 0.753856 Adjusted R-Squared: 0.724898 
 
 
 SUR estimates for 'supply' (equation 2)
-Model Formula: consump ~ price + farmPrice + trend
+Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 49.545591   6.972681  7.105673        0 ***
-price        0.260243   0.077937  3.339147 0.002005  **
-farmPrice    0.226962   0.016434 13.810256        0 ***
-trend        0.323155   0.016311 19.811891        0 ***
+(Intercept) 89.543697   9.337169  9.590027        0 ***
+income       0.242441    0.07091  3.419018 0.001612  **
+farmPrice   -0.168655   0.098793 -1.707147 0.096653   .
+trend        0.297629   0.040327  7.380428        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
-Residual standard error: 2.582662 on 16 degrees of freedom
+Residual standard error: 5.612855 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
-SSR: 106.722321 MSE: 6.670145 Root MSE: 2.582662 
-Multiple R-Squared: 0.601952 Adjusted R-Squared: 0.527318 
+SSR: 504.066186 MSE: 31.504137 Root MSE: 5.612855 
+Multiple R-Squared: 0.244563 Adjusted R-Squared: 0.102919 
 
 > 
 > ## *************** iterated SUR with 2 restrictions via R and TX ****************
-> fitsuri5 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr3m,
+> fitsurio5 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr3m,
 +    restrict.rhs = restr3q, TX = tc, maxit = 100 )
-> print( summary( fitsuri5 ) )
+> print( summary( fitsurio5 ) )
 
 systemfit results 
 method: iterated SUR 
@@ -1812,11 +1940,75 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 109.233669 MSE: 6.827104 Root MSE: 2.612873 
 Multiple R-Squared: 0.592585 Adjusted R-Squared: 0.516195 
 
+> fitsuri5 <- systemfit( system2, "SUR", data = Kmenta, restrictions = restr3m,
++    restrict.rhs = restr3q, TX = tc, maxit = 100 )
+> print( summary( fitsuri5 ) )
+
+systemfit results 
+method: iterated SUR 
+
+convergence achieved after 19 iterations
+
+        N DF      SSR      MSE    RMSE       R2   Adj R2
+demand 20 17  65.5317  3.85480 1.96337 0.755583 0.726828
+supply 20 16 509.3450 31.83406 5.64217 0.236652 0.093524
+
+The covariance matrix of the residuals used for estimation
+        demand   supply
+demand 3.85483  1.22891
+supply 1.22891 31.83363
+
+The covariance matrix of the residuals
+        demand   supply
+demand 3.85480  1.22921
+supply 1.22921 31.83406
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.110963
+supply 0.110963 1.000000
+
+The determinant of the residual covariance matrix: 121.203
+OLS R-squared value of the system: 0.385399
+McElroy's R-squared value for the system: 0.636563
+
+SUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 98.035578   6.743699 14.537359        0 ***
+price       -0.264591    0.07773 -3.403959  0.00168  **
+income        0.30068   0.043628  6.891872        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.963366 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 65.531682 MSE: 3.854805 Root MSE: 1.963366 
+Multiple R-Squared: 0.755583 Adjusted R-Squared: 0.726828 
+
+
+SUR estimates for 'supply' (equation 2)
+Model Formula: price ~ income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 90.004648  10.436748  8.623821        0 ***
+income       0.235409    0.07773  3.028524 0.004594  **
+farmPrice   -0.166658   0.110832 -1.503703 0.141629    
+trend         0.30068   0.043628  6.891872        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 5.642168 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 509.345019 MSE: 31.834064 Root MSE: 5.642168 
+Multiple R-Squared: 0.236652 Adjusted R-Squared: 0.093524 
+
 > 
 > ## ********* iterated SUR with 2 restrictions via R and TX (EViews-like) **********
-> fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+> fitsurio5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
 +    restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
-> print( summary( fitsuri5e ) )
+> print( summary( fitsurio5e ) )
 
 systemfit results 
 method: iterated SUR 
@@ -1878,11 +2070,75 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 106.722321 MSE: 6.670145 Root MSE: 2.582662 
 Multiple R-Squared: 0.601952 Adjusted R-Squared: 0.527318 
 
+> fitsuri5e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
++    restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
+> print( summary( fitsuri5e ) )
+
+systemfit results 
+method: iterated SUR 
+
+convergence achieved after 20 iterations
+
+        N DF      SSR      MSE    RMSE       R2   Adj R2
+demand 20 17  65.9947  3.88204 1.97029 0.753856 0.724898
+supply 20 16 504.0662 31.50414 5.61285 0.244563 0.102919
+
+The covariance matrix of the residuals used for estimation
+         demand    supply
+demand 3.299759  0.875937
+supply 0.875937 25.203031
+
+The covariance matrix of the residuals
+        demand   supply
+demand 3.29974  0.87614
+supply 0.87614 25.20331
+
+The correlations of the residuals
+          demand    supply
+demand 1.0000000 0.0960738
+supply 0.0960738 1.0000000
+
+The determinant of the residual covariance matrix: 82.3967
+OLS R-squared value of the system: 0.390548
+McElroy's R-squared value for the system: 0.629112
+
+SUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 97.629728   6.155972 15.859351        0 ***
+price       -0.257559    0.07091 -3.632214 0.000891 ***
+income       0.297629   0.040327  7.380428        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.97029 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 65.994726 MSE: 3.882043 Root MSE: 1.97029 
+Multiple R-Squared: 0.753856 Adjusted R-Squared: 0.724898 
+
+
+SUR estimates for 'supply' (equation 2)
+Model Formula: price ~ income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 89.543697   9.337169  9.590027        0 ***
+income       0.242441    0.07091  3.419018 0.001612  **
+farmPrice   -0.168655   0.098793 -1.707147 0.096653   .
+trend        0.297629   0.040327  7.380428        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 5.612855 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 504.066186 MSE: 31.504137 Root MSE: 5.612855 
+Multiple R-Squared: 0.244563 Adjusted R-Squared: 0.102919 
+
 > 
 > ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="Theil") **********
-> fitsuri5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+> fitsurio5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
 +    restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
-> print( summary( fitsuri5r2 ) )
+> print( summary( fitsurio5r2 ) )
 
 systemfit results 
 method: iterated SUR 
@@ -1945,6 +2201,70 @@ Residual standard error: 3.139838 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
 SSR: 157.737286 MSE: 9.85858 Root MSE: 3.139838 
 Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369 
+
+> fitsuri5r2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
++    restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
+> print( summary( fitsuri5r2 ) )
+
+systemfit results 
+method: iterated SUR 
+
+convergence achieved after 21 iterations
+
+        N DF      SSR      MSE    RMSE       R2   Adj R2
+demand 20 17  65.4469  3.84982 1.96210 0.755899 0.727181
+supply 20 16 510.7500 31.92188 5.64994 0.234546 0.091024
+
+The covariance matrix of the residuals used for estimation
+        demand   supply
+demand 3.84984  1.33977
+supply 1.33977 31.92159
+
+The covariance matrix of the residuals
+        demand   supply
+demand 3.84982  1.33998
+supply 1.33998 31.92188
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.116654
+supply 0.116654 1.000000
+
+The determinant of the residual covariance matrix: 121.098
+OLS R-squared value of the system: 0.383988
+McElroy's R-squared value for the system: 0.637054
+
+SUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 98.219953   6.759299 14.531086        0 ***
+price       -0.266878   0.077815 -3.429648 0.001565  **
+income       0.301134   0.043544  6.915575        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.962096 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 65.44693 MSE: 3.849819 Root MSE: 1.962096 
+Multiple R-Squared: 0.755899 Adjusted R-Squared: 0.727181 
+
+
+SUR estimates for 'supply' (equation 2)
+Model Formula: price ~ income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 90.216748  10.434182  8.646269        0 ***
+income       0.233122   0.077815  2.995846 0.005003  **
+farmPrice   -0.166594   0.111097 -1.499543   0.1427    
+trend        0.301134   0.043544  6.915575        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 5.649945 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 510.750031 MSE: 31.921877 Root MSE: 5.649945 
+Multiple R-Squared: 0.234546 Adjusted R-Squared: 0.091024 
 
 > 
 > ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="max") **********
@@ -2180,7 +2500,7 @@ Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369
 [13] -0.84077116 -0.30117518  1.06523184 -3.85453239 -2.38188621 -1.69589251
 [19]  2.16794401  0.71254924
 > 
-> print( residuals( fitsuri4 ) )
+> print( residuals( fitsurio4 ) )
         demand     supply
 1   0.90192011  0.2397418
 2  -0.76581675 -0.6974755
@@ -2202,13 +2522,40 @@ Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369
 18 -2.25810118 -3.5394523
 19  1.41720069  1.6708623
 20 -1.06883811 -0.5691733
-> print( residuals( fitsuri4$eq[[ 2 ]] ) )
+> print( residuals( fitsurio4$eq[[ 2 ]] ) )
  [1]  0.2397418 -0.6974755  2.1840642  1.1362167  2.4898217  1.3564179
  [7]  1.9277938 -4.4297270 -1.7890792  3.5894903 -0.2478570 -2.3690330
 [13] -2.2102473  0.4793592  3.5259218 -3.8764518  1.1288068 -3.5394523
 [19]  1.6708623 -0.5691733
+> print( residuals( fitsuri4 ) )
+         demand      supply
+1   0.714611837   5.7754287
+2  -0.607567056   7.1979046
+3   2.419698477   6.2800926
+4   1.593056204   6.5306420
+5   2.126801750   1.4648634
+6   1.304306364   2.0210871
+7   1.668463136   2.2614936
+8  -2.829469437   5.2748972
+9  -1.212462619  -0.8895296
+10  2.192133715  -5.9454916
+11 -0.552139531  -4.4070264
+12 -2.591958825  -1.4819992
+13 -1.709516170   0.8949876
+14 -0.390178045  -3.2202363
+15  1.929006244  -6.6173745
+16 -3.362734822  -3.6068953
+17 -0.612481599 -12.8959017
+18 -1.975808031  -0.5616921
+19  1.887738197  -1.1257514
+20  0.008500211   3.0505014
+> print( residuals( fitsuri4$eq[[ 2 ]] ) )
+ [1]   5.7754287   7.1979046   6.2800926   6.5306420   1.4648634   2.0210871
+ [7]   2.2614936   5.2748972  -0.8895296  -5.9454916  -4.4070264  -1.4819992
+[13]   0.8949876  -3.2202363  -6.6173745  -3.6068953 -12.8959017  -0.5616921
+[19]  -1.1257514   3.0505014
 > 
-> print( residuals( fitsuri5r2 ) )
+> print( residuals( fitsurio5r2 ) )
        demand      supply
 1   0.6545291  0.02691215
 2  -1.4561821 -1.51516211
@@ -2230,11 +2577,38 @@ Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369
 18 -2.7753015 -4.11074773
 19  0.7373786  0.78189006
 20 -2.6864700 -2.63697176
-> print( residuals( fitsuri5r2$eq[[ 1 ]] ) )
+> print( residuals( fitsurio5r2$eq[[ 1 ]] ) )
  [1]  0.6545291 -1.4561821  1.7368698  0.6960225  2.5300794  1.4166671
  [7]  1.4587865 -3.7785243 -0.4981092  3.9501376  0.8355563 -2.3470730
 [13] -2.2861800 -0.1372155  2.9082050 -3.0497726  2.0905963 -2.7753015
 [19]  0.7373786 -2.6864700
+> print( residuals( fitsuri5r2 ) )
+        demand      supply
+1   0.71991503   5.7564837
+2  -0.59788931   7.2017599
+3   2.42788968   6.2814352
+4   1.60301455   6.5350239
+5   2.12115706   1.4716388
+6   1.30167068   2.0291746
+7   1.66828156   2.2754667
+8  -2.82328826   5.2986667
+9  -1.22020831  -0.8917565
+10  2.17595656  -5.9652644
+11 -0.55779562  -4.4575604
+12 -2.58536205  -1.5280802
+13 -1.69702854   0.8659135
+14 -0.38991321  -3.2367147
+15  1.91527061  -6.6070568
+16 -3.36976023  -3.5926311
+17 -0.64288532 -12.9023383
+18 -1.96978919  -0.5491400
+19  1.89490133  -1.0990430
+20  0.02586298   3.1140223
+> print( residuals( fitsuri5r2$eq[[ 1 ]] ) )
+ [1]  0.71991503 -0.59788931  2.42788968  1.60301455  2.12115706  1.30167068
+ [7]  1.66828156 -2.82328826 -1.22020831  2.17595656 -0.55779562 -2.58536205
+[13] -1.69702854 -0.38991321  1.91527061 -3.36976023 -0.64288532 -1.96978919
+[19]  1.89490133  0.02586298
 > 
 > 
 > ## *********** variance covariance matrix of the coefficients *******
@@ -2521,7 +2895,7 @@ supply_trend           0.001859
 price         -0.505917  0.007104 -0.002098
 income         0.028570 -0.002098  0.001859
 > 
-> print( round( vcov( fitsuri4e ), digits = 6 ) )
+> print( round( vcov( fitsurio4e ), digits = 6 ) )
                    demand_(Intercept) demand_price demand_income
 demand_(Intercept)          47.026816    -0.525375      0.058300
 demand_price                -0.525375     0.006074     -0.000842
@@ -2546,14 +2920,45 @@ supply_(Intercept)     0.061997
 supply_price          -0.000842
 supply_farmPrice       0.000201
 supply_trend           0.000266
-> print( round( vcov( fitsuri4e$eq[[ 2 ]] ), digits = 6 ) )
+> print( round( vcov( fitsurio4e$eq[[ 2 ]] ), digits = 6 ) )
             (Intercept)     price farmPrice     trend
 (Intercept)   48.618283 -0.530682  0.042182  0.061997
 price         -0.530682  0.006074 -0.000704 -0.000842
 farmPrice      0.042182 -0.000704  0.000270  0.000201
 trend          0.061997 -0.000842  0.000201  0.000266
+> print( round( vcov( fitsuri4e ), digits = 6 ) )
+                   demand_(Intercept) demand_price demand_income
+demand_(Intercept)          37.895997    -0.362737     -0.014871
+demand_price                -0.362737     0.005028     -0.001437
+demand_income               -0.014871    -0.001437      0.001626
+supply_(Intercept)          19.082188    -0.206115      0.016169
+supply_income               -0.362737     0.005028     -0.001437
+supply_farmPrice             0.170735    -0.002786      0.001107
+supply_trend                -0.014871    -0.001437      0.001626
+                   supply_(Intercept) supply_income supply_farmPrice
+demand_(Intercept)          19.082188     -0.362737         0.170735
+demand_price                -0.206115      0.005028        -0.002786
+demand_income                0.016169     -0.001437         0.001107
+supply_(Intercept)          87.182717     -0.206115        -0.682938
+supply_income               -0.206115      0.005028        -0.002786
+supply_farmPrice            -0.682938     -0.002786         0.009760
+supply_trend                 0.016169     -0.001437         0.001107
+                   supply_trend
+demand_(Intercept)    -0.014871
+demand_price          -0.001437
+demand_income          0.001626
+supply_(Intercept)     0.016169
+supply_income         -0.001437
+supply_farmPrice       0.001107
+supply_trend           0.001626
+> print( round( vcov( fitsuri4e$eq[[ 2 ]] ), digits = 6 ) )
+            (Intercept)    income farmPrice     trend
+(Intercept)   87.182717 -0.206115 -0.682938  0.016169
+income        -0.206115  0.005028 -0.002786 -0.001437
+farmPrice     -0.682938 -0.002786  0.009760  0.001107
+trend          0.016169 -0.001437  0.001107  0.001626
 > 
-> print( round( vcov( fitsuri5r2 ), digits = 6 ) )
+> print( round( vcov( fitsurio5r2 ), digits = 6 ) )
                    demand_(Intercept) demand_price demand_income
 demand_(Intercept)          51.319595    -0.579747      0.070528
 demand_price                -0.579747     0.006646     -0.000872
@@ -2578,11 +2983,41 @@ supply_(Intercept)     0.072036
 supply_price          -0.000872
 supply_farmPrice       0.000138
 supply_trend           0.000171
-> print( round( vcov( fitsuri5r2$eq[[ 1 ]] ), digits = 6 ) )
+> print( round( vcov( fitsurio5r2$eq[[ 1 ]] ), digits = 6 ) )
             (Intercept)     price    income
 (Intercept)   51.319595 -0.579747  0.070528
 price         -0.579747  0.006646 -0.000872
 income         0.070528 -0.000872  0.000171
+> print( round( vcov( fitsuri5r2 ), digits = 6 ) )
+                   demand_(Intercept) demand_price demand_income
+demand_(Intercept)          45.688124    -0.440079     -0.015167
+demand_price                -0.440079     0.006055     -0.001697
+demand_income               -0.015167    -0.001697      0.001896
+supply_(Intercept)          22.817210    -0.239028      0.011864
+supply_income               -0.440079     0.006055     -0.001697
+supply_farmPrice             0.210423    -0.003454      0.001385
+supply_trend                -0.015167    -0.001697      0.001896
+                   supply_(Intercept) supply_income supply_farmPrice
+demand_(Intercept)          22.817210     -0.440079         0.210423
+demand_price                -0.239028      0.006055        -0.003454
+demand_income                0.011864     -0.001697         0.001385
+supply_(Intercept)         108.872157     -0.239028        -0.870241
+supply_income               -0.239028      0.006055        -0.003454
+supply_farmPrice            -0.870241     -0.003454         0.012342
+supply_trend                 0.011864     -0.001697         0.001385
+                   supply_trend
+demand_(Intercept)    -0.015167
+demand_price          -0.001697
+demand_income          0.001896
+supply_(Intercept)     0.011864
+supply_income         -0.001697
+supply_farmPrice       0.001385
+supply_trend           0.001896
+> print( round( vcov( fitsuri5r2$eq[[ 1 ]] ), digits = 6 ) )
+            (Intercept)     price    income
+(Intercept)   45.688124 -0.440079 -0.015167
+price         -0.440079  0.006055 -0.001697
+income        -0.015167 -0.001697  0.001896
 > 
 > 
 > ## *********** confidence intervals of coefficients *************
@@ -2710,7 +3145,7 @@ supply_trend        0.250   0.426
 price        -0.400  -0.398
 income        0.337   0.338
 > 
-> print( confint( fitsuri4, level = 0.01 ) )
+> print( confint( fitsurio4, level = 0.01 ) )
                    49.5 %  50.5 %
 demand_(Intercept) 77.496 107.356
 demand_price       -0.400  -0.055
@@ -2719,14 +3154,29 @@ supply_(Intercept) 33.588  63.871
 supply_price        0.100   0.445
 supply_farmPrice    0.185   0.262
 supply_trend        0.283   0.358
-> print( confint( fitsuri4$eq[[ 2 ]], level = 0.33 ) )
+> print( confint( fitsurio4$eq[[ 2 ]], level = 0.33 ) )
             33.5 % 66.5 %
 (Intercept) 45.524 51.935
 price        0.236  0.309
 farmPrice    0.215  0.231
 trend        0.312  0.328
+> print( confint( fitsuri4, level = 0.01 ) )
+                   49.5 %  50.5 %
+demand_(Intercept) 84.345 111.726
+demand_price       -0.422  -0.107
+demand_income       0.212   0.389
+supply_(Intercept) 68.817 111.192
+supply_income       0.078   0.393
+supply_farmPrice   -0.392   0.058
+supply_trend        0.212   0.389
+> print( confint( fitsuri4$eq[[ 2 ]], level = 0.33 ) )
+            33.5 % 66.5 %
+(Intercept) 85.519 94.490
+income       0.202  0.269
+farmPrice   -0.214 -0.119
+trend        0.282  0.319
 > 
-> print( confint( fitsuri5r2, level = 0.33 ) )
+> print( confint( fitsurio5r2, level = 0.33 ) )
                    33.5 % 66.5 %
 demand_(Intercept) 63.491 92.577
 demand_price       -0.230  0.101
@@ -2735,11 +3185,25 @@ supply_(Intercept) 19.527 48.865
 supply_price        0.270  0.601
 supply_farmPrice    0.182  0.232
 supply_trend        0.274  0.327
-> print( confint( fitsuri5r2$eq[[ 1 ]] ) )
+> print( confint( fitsurio5r2$eq[[ 1 ]] ) )
              2.5 % 97.5 %
 (Intercept) 63.491 92.577
 price       -0.230  0.101
 income       0.274  0.327
+> print( confint( fitsuri5r2, level = 0.33 ) )
+                   33.5 %  66.5 %
+demand_(Intercept) 84.498 111.942
+demand_price       -0.425  -0.109
+demand_income       0.213   0.390
+supply_(Intercept) 69.034 111.399
+supply_income       0.075   0.391
+supply_farmPrice   -0.392   0.059
+supply_trend        0.213   0.390
+> print( confint( fitsuri5r2$eq[[ 1 ]] ) )
+             2.5 %  97.5 %
+(Intercept) 84.498 111.942
+price       -0.425  -0.109
+income       0.213   0.390
 > 
 > 
 > ## *********** fitted values *************
@@ -2959,7 +3423,7 @@ income       0.274  0.327
  [8] 102.47607 102.00639 101.48423  96.08082  94.41078  95.37577  99.05818
 [15] 104.73177 104.07953 105.90389 101.62489 103.05506 105.51945
 > 
-> print( fitted( fitsuri4 ) )
+> print( fitted( fitsurio4 ) )
          demand    supply
  [1,]  97.58308  98.24526
  [2,]  99.95282  99.88448
@@ -2981,12 +3445,38 @@ income       0.274  0.327
 [18,] 102.18710 103.46845
 [19,] 103.80580 103.55214
 [20,] 107.30084 106.80117
-> print( fitted( fitsuri4$eq[[ 2 ]] ) )
+> print( fitted( fitsurio4$eq[[ 2 ]] ) )
  [1]  98.24526  99.88448  99.97894 100.36778 101.75018 101.88658 102.06521
  [8] 104.32973 102.13908  99.23051  95.68286  94.79303  96.74525  98.27764
 [15] 102.27108 104.10145 102.39319 103.46845 103.55214 106.80117
+> print( fitted( fitsuri4 ) )
+         demand    supply
+ [1,]  97.77039  94.54757
+ [2,]  99.79457  97.06610
+ [3,]  99.74330  97.15491
+ [4,]  99.91094  97.97536
+ [5,] 102.11320  96.53614
+ [6,] 101.93869  97.43491
+ [7,] 102.32454  98.80451
+ [8,] 102.72947  99.48810
+ [9,] 101.56246  97.33553
+[10,] 100.62787  97.17349
+[11,]  95.98714  97.49203
+[12,]  95.01596 100.28300
+[13,]  96.24452 102.01301
+[14,]  99.14718 101.97624
+[15,] 103.86799 101.73637
+[16,] 103.58773 102.05790
+[17,] 104.13448  99.39390
+[18,] 101.90481 104.57769
+[19,] 103.33526 106.89475
+[20,] 106.22350 110.43950
+> print( fitted( fitsuri4$eq[[ 2 ]] ) )
+ [1]  94.54757  97.06610  97.15491  97.97536  96.53614  97.43491  98.80451
+ [8]  99.48810  97.33553  97.17349  97.49203 100.28300 102.01301 101.97624
+[15] 101.73637 102.05790  99.39390 104.57769 106.89475 110.43950
 > 
-> print( fitted( fitsuri5r2 ) )
+> print( fitted( fitsurio5r2 ) )
          demand    supply
  [1,]  97.83047  98.45809
  [2,] 100.64318 100.70216
@@ -3008,10 +3498,36 @@ income       0.274  0.327
 [18,] 102.70430 104.03975
 [19,] 104.48562 104.44111
 [20,] 108.91847 108.86897
-> print( fitted( fitsuri5r2$eq[[ 1 ]] ) )
+> print( fitted( fitsurio5r2$eq[[ 1 ]] ) )
  [1]  97.83047 100.64318 100.42613 100.80798 101.70992 101.82633 102.53421
  [8] 103.67852 100.84811  98.86986  94.59944  94.77107  96.82118  98.89422
 [15] 102.88880 103.27477 101.43140 102.70430 104.48562 108.91847
+> print( fitted( fitsuri5r2 ) )
+         demand    supply
+ [1,]  97.76508  94.56652
+ [2,]  99.78489  97.06224
+ [3,]  99.73511  97.15356
+ [4,]  99.90099  97.97098
+ [5,] 102.11884  96.52936
+ [6,] 101.94133  97.42683
+ [7,] 102.32472  98.79053
+ [8,] 102.72329  99.46433
+ [9,] 101.57021  97.33776
+[10,] 100.64404  97.19326
+[11,]  95.99280  97.54256
+[12,]  95.00936 100.32908
+[13,]  96.23203 102.04209
+[14,]  99.14691 101.99271
+[15,] 103.88173 101.72606
+[16,] 103.59476 102.04363
+[17,] 104.16489  99.40034
+[18,] 101.89879 104.56514
+[19,] 103.32810 106.86804
+[20,] 106.20614 110.37598
+> print( fitted( fitsuri5r2$eq[[ 1 ]] ) )
+ [1]  97.76508  99.78489  99.73511  99.90099 102.11884 101.94133 102.32472
+ [8] 102.72329 101.57021 100.64404  95.99280  95.00936  96.23203  99.14691
+[15] 103.88173 103.59476 104.16489 101.89879 103.32810 106.20614
 > 
 > 
 > ## *********** predicted values *************
@@ -3541,7 +4057,7 @@ income       0.274  0.327
 19 103.05506  99.21236 106.89775
 20 105.51945 101.25906 109.77985
 > 
-> print( predict( fitsuri4, interval = "confidence", newdata = predictData ) )
+> print( predict( fitsurio4, interval = "confidence", newdata = predictData ) )
    demand.pred demand.lwr demand.upr supply.pred supply.lwr supply.upr
 1    102.66571  100.79164   104.5398    95.51258   93.61864   97.40651
 2    105.45182  103.82556   107.0781    97.04445   95.54460   98.54429
@@ -3563,7 +4079,7 @@ income       0.274  0.327
 18   107.89825  106.03464   109.7619   100.63518   98.93402  102.33634
 19   109.75862  107.91274   111.6045   100.67112   99.17512  102.16711
 20   113.95464  112.32775   115.5815   103.70984  102.49026  104.92942
-> print( predict( fitsuri4$eq[[ 2 ]], interval = "confidence",
+> print( predict( fitsurio4$eq[[ 2 ]], interval = "confidence",
 +    newdata = predictData ) )
          fit       lwr       upr
 1   95.51258  93.61864  97.40651
@@ -3586,8 +4102,53 @@ income       0.274  0.327
 18 100.63518  98.93402 102.33634
 19 100.67112  99.17512 102.16711
 20 103.70984 102.49026 104.92942
+> print( predict( fitsuri4, interval = "confidence", newdata = predictData ) )
+   demand.pred demand.lwr demand.upr supply.pred supply.lwr supply.upr
+1    103.05279  101.32781   104.7778    96.60504   93.93424   99.27585
+2    105.48794  103.65583   107.3200    99.36368   96.18652  102.54085
+3    105.38768  103.52706   107.2483    99.43131   96.37140  102.49122
+4    105.62876  103.77913   107.4784   100.28707   97.10049  103.47365
+5    107.70700  104.97163   110.4424    98.88551   94.89881  102.87222
+6    107.59205  104.98529   110.1988    99.80077   96.09647  103.50507
+7    108.10167  105.47910   110.7242   101.23392   97.56023  104.90761
+8    108.74274  106.13844   111.3470   102.02581   97.66719  106.38443
+9    107.01891  104.30548   109.7323    99.60958   96.02175  103.19741
+10   105.71472  102.73982   108.6896    99.26627   96.56177  101.97078
+11   100.70819   98.31982   103.0966    99.25995   95.02587  103.49402
+12    99.94238   98.16561   101.7191   102.09329   95.76002  108.42657
+13   101.51112  100.15090   102.8713   104.00457   97.93757  110.07157
+14   104.48434  102.42232   106.5464   104.10904   99.78342  108.43466
+15   109.48477  106.14429   112.8252   104.16344  100.79097  107.53590
+16   109.35281  106.27059   112.4350   104.53204  100.87885  108.18523
+17   109.32170  105.29033   113.3531   101.66324   97.74475  105.58173
+18   107.79608  105.40389   110.1883   107.03536  103.14229  110.92843
+19   109.46234  106.70082   112.2239   109.50072  104.41473  114.58672
+20   113.04799  109.35130   116.7447   113.43154  106.31008  120.55300
+> print( predict( fitsuri4$eq[[ 2 ]], interval = "confidence",
++    newdata = predictData ) )
+         fit       lwr       upr
+1   96.60504  93.93424  99.27585
+2   99.36368  96.18652 102.54085
+3   99.43131  96.37140 102.49122
+4  100.28707  97.10049 103.47365
+5   98.88551  94.89881 102.87222
+6   99.80077  96.09647 103.50507
+7  101.23392  97.56023 104.90761
+8  102.02581  97.66719 106.38443
+9   99.60958  96.02175 103.19741
+10  99.26627  96.56177 101.97078
+11  99.25995  95.02587 103.49402
+12 102.09329  95.76002 108.42657
+13 104.00457  97.93757 110.07157
+14 104.10904  99.78342 108.43466
+15 104.16344 100.79097 107.53590
+16 104.53204 100.87885 108.18523
+17 101.66324  97.74475 105.58173
+18 107.03536 103.14229 110.92843
+19 109.50072 104.41473 114.58672
+20 113.43154 106.31008 120.55300
 > 
-> print( predict( fitsuri5r2 ) )
+> print( predict( fitsurio5r2 ) )
    demand.pred supply.pred
 1     97.83047    98.45809
 2    100.64318   100.70216
@@ -3609,7 +4170,7 @@ income       0.274  0.327
 18   102.70430   104.03975
 19   104.48562   104.44111
 20   108.91847   108.86897
-> print( predict( fitsuri5r2$eq[[ 1 ]] ) )
+> print( predict( fitsurio5r2$eq[[ 1 ]] ) )
          fit
 1   97.83047
 2  100.64318
@@ -3631,6 +4192,50 @@ income       0.274  0.327
 18 102.70430
 19 104.48562
 20 108.91847
+> print( predict( fitsuri5r2 ) )
+   demand.pred supply.pred
+1     97.76508    94.56652
+2     99.78489    97.06224
+3     99.73511    97.15356
+4     99.90099    97.97098
+5    102.11884    96.52936
+6    101.94133    97.42683
+7    102.32472    98.79053
+8    102.72329    99.46433
+9    101.57021    97.33776
+10   100.64404    97.19326
+11    95.99280    97.54256
+12    95.00936   100.32908
+13    96.23203   102.04209
+14    99.14691   101.99271
+15   103.88173   101.72606
+16   103.59476   102.04363
+17   104.16489    99.40034
+18   101.89879   104.56514
+19   103.32810   106.86804
+20   106.20614   110.37598
+> print( predict( fitsuri5r2$eq[[ 1 ]] ) )
+         fit
+1   97.76508
+2   99.78489
+3   99.73511
+4   99.90099
+5  102.11884
+6  101.94133
+7  102.32472
+8  102.72329
+9  101.57021
+10 100.64404
+11  95.99280
+12  95.00936
+13  96.23203
+14  99.14691
+15 103.88173
+16 103.59476
+17 104.16489
+18 101.89879
+19 103.32810
+20 106.20614
 > 
 > # predict just one observation
 > smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
@@ -3683,16 +4288,26 @@ income       0.274  0.327
        fit  se.pred      lwr      upr
 1 109.7521 2.897248 105.3837 114.1204
 > 
-> print( predict( fitsuri5r2, se.fit = TRUE, se.pred = TRUE,
+> print( predict( fitsurio5r2, se.fit = TRUE, se.pred = TRUE,
 +    interval = "prediction", level = 0.5, newdata = smallData ) )
   demand.pred demand.se.fit demand.se.pred demand.lwr demand.upr supply.pred
 1    114.7377      1.978581       3.089940   112.6317   116.8437    123.1497
   supply.se.fit supply.se.pred supply.lwr supply.upr
 1      2.170672       3.817119   120.5481   125.7513
-> print( predict( fitsuri5r2$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
+> print( predict( fitsurio5r2$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
 +    interval = "confidence", level = 0.25, newdata = smallData ) )
        fit   se.fit  se.pred      lwr      upr
 1 114.7377 1.978581 3.089940 114.1023 115.3731
+> print( predict( fitsuri5r2, se.fit = TRUE, se.pred = TRUE,
++    interval = "prediction", level = 0.5, newdata = smallData ) )
+  demand.pred demand.se.fit demand.se.pred demand.lwr demand.upr supply.pred
+1    108.6960      2.348327       3.060141   106.6103   110.7816    112.7221
+  supply.se.fit supply.se.pred supply.lwr supply.upr
+1      3.910262       6.871101    108.039   117.4052
+> print( predict( fitsuri5r2$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
++    interval = "confidence", level = 0.25, newdata = smallData ) )
+       fit   se.fit  se.pred      lwr      upr
+1 108.6960 2.348327 3.060141 107.9418 109.4501
 > 
 > 
 > ## ************ correlation of predicted values ***************
@@ -3880,7 +4495,7 @@ income       0.274  0.327
 [19,] 0.3401263
 [20,] 0.3416518
 > 
-> print( correlation.systemfit( fitsuri4, 2, 1 ) )
+> print( correlation.systemfit( fitsurio4, 2, 1 ) )
            [,1]
  [1,] 0.9606962
  [2,] 0.9712586
@@ -3902,8 +4517,30 @@ income       0.274  0.327
 [18,] 0.9671957
 [19,] 0.9416307
 [20,] 0.9344923
+> print( correlation.systemfit( fitsuri4, 2, 1 ) )
+            [,1]
+ [1,] 0.03841487
+ [2,] 0.12131017
+ [3,] 0.09748442
+ [4,] 0.13811238
+ [5,] 0.12952591
+ [6,] 0.09368318
+ [7,] 0.06302933
+ [8,] 0.10559366
+ [9,] 0.21802737
+[10,] 0.40422759
+[11,] 0.10742619
+[12,] 0.03371123
+[13,] 0.07596088
+[14,] 0.07008487
+[15,] 0.06800336
+[16,] 0.12631642
+[17,] 0.38589672
+[18,] 0.27150786
+[19,] 0.28497398
+[20,] 0.39671129
 > 
-> print( correlation.systemfit( fitsuri5r2, 1, 2 ) )
+> print( correlation.systemfit( fitsurio5r2, 1, 2 ) )
            [,1]
  [1,] 0.9861686
  [2,] 0.9907457
@@ -3925,6 +4562,28 @@ income       0.274  0.327
 [18,] 0.9897372
 [19,] 0.9816187
 [20,] 0.9781961
+> print( correlation.systemfit( fitsuri5r2, 1, 2 ) )
+            [,1]
+ [1,] 0.04403655
+ [2,] 0.12786570
+ [3,] 0.10447864
+ [4,] 0.14511428
+ [5,] 0.13747126
+ [6,] 0.10207739
+ [7,] 0.07193206
+ [8,] 0.11241170
+ [9,] 0.22522467
+[10,] 0.40967370
+[11,] 0.11452371
+[12,] 0.04095071
+[13,] 0.08336613
+[14,] 0.07778180
+[15,] 0.07504710
+[16,] 0.13440166
+[17,] 0.38999842
+[18,] 0.27888805
+[19,] 0.28966167
+[20,] 0.40046642
 > 
 > 
 > ## ************ Log-Likelihood values ***************
@@ -3952,11 +4611,15 @@ income       0.274  0.327
 > print( logLik( fitsuri3e ) )
 'log Lik.' -99.92491 (df=9)
 > 
-> print( logLik( fitsuri4 ) )
+> print( logLik( fitsurio4 ) )
 'log Lik.' -58.45927 (df=8)
+> print( logLik( fitsuri4 ) )
+'log Lik.' -100.8756 (df=8)
 > 
-> print( logLik( fitsuri5r2 ) )
+> print( logLik( fitsurio5r2 ) )
 'log Lik.' -59.80036 (df=8)
+> print( logLik( fitsuri5r2 ) )
+'log Lik.' -100.8771 (df=8)
 > 
 > 
 > ## *********** likelihood ratio tests *************
@@ -4122,10 +4785,10 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > # iterating, methodRCov = 1
-> print( lrtest( fitsuri4, fitsuri2 ) )
+> print( lrtest( fitsurio4, fitsuri2 ) )
 Likelihood ratio test
 
-Model 1: fitsuri4
+Model 1: fitsurio4
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
@@ -4133,11 +4796,11 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri4, fitsuri2) 
-> print( lrtest( fitsuri4, fitsuri3 ) )
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio4, fitsuri2) 
+> print( lrtest( fitsurio4, fitsuri3 ) )
 Likelihood ratio test
 
-Model 1: fitsuri4
+Model 1: fitsurio4
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
@@ -4145,11 +4808,11 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri4, fitsuri3) 
-> print( lrtest( fitsuri5, fitsuri2 ) )
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio4, fitsuri3) 
+> print( lrtest( fitsurio5, fitsuri2 ) )
 Likelihood ratio test
 
-Model 1: fitsuri5
+Model 1: fitsurio5
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
@@ -4157,11 +4820,11 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri5, fitsuri2) 
-> print( lrtest( fitsuri5, fitsuri3 ) )
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio5, fitsuri2) 
+> print( lrtest( fitsurio5, fitsuri3 ) )
 Likelihood ratio test
 
-Model 1: fitsuri5
+Model 1: fitsurio5
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
@@ -4169,12 +4832,46 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri5, fitsuri3) 
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio5, fitsuri3) 
+>    # corrected
+> print( lrtest( fitsuri2, fitsuri4 ) )
+Likelihood ratio test
+
+Model 1: fitsuri2
+Model 2: object_2
+  #Df   LogLik Df Chisq Pr(>Chisq)
+1   9  -99.926                    
+2   8 -100.876 -1 1.899     0.1682
+> print( lrtest( fitsuri3, fitsuri4 ) )
+Likelihood ratio test
+
+Model 1: fitsuri3
+Model 2: object_2
+  #Df   LogLik Df Chisq Pr(>Chisq)
+1   9  -99.926                    
+2   8 -100.876 -1 1.899     0.1682
+> print( lrtest( fitsuri2, fitsuri5 ) )
+Likelihood ratio test
+
+Model 1: fitsuri2
+Model 2: object_2
+  #Df   LogLik Df Chisq Pr(>Chisq)
+1   9  -99.926                    
+2   8 -100.876 -1 1.899     0.1682
+> print( lrtest( fitsuri3, fitsuri5 ) )
+Likelihood ratio test
+
+Model 1: fitsuri3
+Model 2: object_2
+  #Df   LogLik Df Chisq Pr(>Chisq)
+1   9  -99.926                    
+2   8 -100.876 -1 1.899     0.1682
+> 
 > # iterating, methodRCov = 0
-> print( lrtest( fitsuri4e, fitsuri2e ) )
+> print( lrtest( fitsurio4e, fitsuri2e ) )
 Likelihood ratio test
 
-Model 1: fitsuri4e
+Model 1: fitsurio4e
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
@@ -4182,11 +4879,11 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri4e, fitsuri2e) 
-> print( lrtest( fitsuri4e, fitsuri3e ) )
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio4e, fitsuri2e) 
+> print( lrtest( fitsurio4e, fitsuri3e ) )
 Likelihood ratio test
 
-Model 1: fitsuri4e
+Model 1: fitsurio4e
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
@@ -4194,11 +4891,11 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri4e, fitsuri3e) 
-> print( lrtest( fitsuri5e, fitsuri2e ) )
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio4e, fitsuri3e) 
+> print( lrtest( fitsurio5e, fitsuri2e ) )
 Likelihood ratio test
 
-Model 1: fitsuri5e
+Model 1: fitsurio5e
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
@@ -4206,11 +4903,11 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri5e, fitsuri2e) 
-> print( lrtest( fitsuri5e, fitsuri3e ) )
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio5e, fitsuri2e) 
+> print( lrtest( fitsurio5e, fitsuri3e ) )
 Likelihood ratio test
 
-Model 1: fitsuri5e
+Model 1: fitsurio5e
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
@@ -4218,7 +4915,40 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri5e, fitsuri3e) 
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio5e, fitsuri3e) 
+>    # corrected
+> print( lrtest( fitsuri2e, fitsuri4e ) )
+Likelihood ratio test
+
+Model 1: fitsuri2e
+Model 2: object_2
+  #Df   LogLik Df  Chisq Pr(>Chisq)
+1   9  -99.925                     
+2   8 -100.873 -1 1.8962     0.1685
+> print( lrtest( fitsuri3e, fitsuri4e ) )
+Likelihood ratio test
+
+Model 1: fitsuri3e
+Model 2: object_2
+  #Df   LogLik Df  Chisq Pr(>Chisq)
+1   9  -99.925                     
+2   8 -100.873 -1 1.8962     0.1685
+> print( lrtest( fitsuri2e, fitsuri5e ) )
+Likelihood ratio test
+
+Model 1: fitsuri2e
+Model 2: object_2
+  #Df   LogLik Df  Chisq Pr(>Chisq)
+1   9  -99.925                     
+2   8 -100.873 -1 1.8962     0.1685
+> print( lrtest( fitsuri3e, fitsuri5e ) )
+Likelihood ratio test
+
+Model 1: fitsuri3e
+Model 2: object_2
+  #Df   LogLik Df  Chisq Pr(>Chisq)
+1   9  -99.925                     
+2   8 -100.873 -1 1.8962     0.1685
 > 
 > # testing both of the restrictions
 > # non-iterating, methodRCov = 1
@@ -4264,10 +4994,10 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > # iterating, methodRCov = 1
-> print( lrtest( fitsuri4, fitsuri1 ) )
+> print( lrtest( fitsurio4, fitsuri1 ) )
 Likelihood ratio test
 
-Model 1: fitsuri4
+Model 1: fitsurio4
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
@@ -4275,11 +5005,11 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri4, fitsuri1) 
-> print( lrtest( fitsuri5, fitsuri1 ) )
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio4, fitsuri1) 
+> print( lrtest( fitsurio5, fitsuri1 ) )
 Likelihood ratio test
 
-Model 1: fitsuri5
+Model 1: fitsurio5
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
@@ -4287,12 +5017,33 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri5, fitsuri1) 
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio5, fitsuri1) 
+>    # corrected
+> print( lrtest( fitsuri1, fitsuri4 ) )
+Likelihood ratio test
+
+Model 1: fitsuri1
+Model 2: object_2
+  #Df   LogLik Df  Chisq Pr(>Chisq)    
+1  10  -67.772                         
+2   8 -100.876 -2 66.206  4.202e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> print( lrtest( fitsuri1, fitsuri5 ) )
+Likelihood ratio test
+
+Model 1: fitsuri1
+Model 2: object_2
+  #Df   LogLik Df  Chisq Pr(>Chisq)    
+1  10  -67.772                         
+2   8 -100.876 -2 66.206  4.202e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > # iterating, methodRCov = 0
-> print( lrtest( fitsuri4e, fitsuri1e ) )
+> print( lrtest( fitsurio4e, fitsuri1e ) )
 Likelihood ratio test
 
-Model 1: fitsuri4e
+Model 1: fitsurio4e
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
@@ -4300,11 +5051,11 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri4e, fitsuri1e) 
-> print( lrtest( fitsuri5e, fitsuri1e ) )
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio4e, fitsuri1e) 
+> print( lrtest( fitsurio5e, fitsuri1e ) )
 Likelihood ratio test
 
-Model 1: fitsuri5e
+Model 1: fitsurio5e
 Model 2: object_2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
@@ -4312,7 +5063,28 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsuri5e, fitsuri1e) 
+model '2' has smaller log-likelihood value than more restricted model '1' in: lrtest.systemfit(fitsurio5e, fitsuri1e) 
+>    # corrected
+> print( lrtest( fitsuri1e, fitsuri4e ) )
+Likelihood ratio test
+
+Model 1: fitsuri1e
+Model 2: object_2
+  #Df   LogLik Df Chisq Pr(>Chisq)    
+1  10  -67.768                        
+2   8 -100.873 -2 66.21  4.195e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> print( lrtest( fitsuri1e, fitsuri5e ) )
+Likelihood ratio test
+
+Model 1: fitsuri1e
+Model 2: object_2
+  #Df   LogLik Df Chisq Pr(>Chisq)    
+1  10  -67.768                        
+2   8 -100.873 -2 66.21  4.195e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > 
 > ## ************** F tests ****************
@@ -4813,11 +5585,19 @@ attr(,"dataClasses")
 > print( all.equal( mf1, model.frame( fitsuri3e$eq[[ 1 ]] ) ) )
 [1] TRUE
 > 
+> print( all.equal( mf, model.frame( fitsurio4 ) ) )
+[1] TRUE
+> print( all.equal( mf2, model.frame( fitsurio4$eq[[ 2 ]] ) ) )
+[1] TRUE
 > print( all.equal( mf, model.frame( fitsuri4 ) ) )
 [1] TRUE
-> print( all.equal( mf2, model.frame( fitsuri4$eq[[ 2 ]] ) ) )
+> print( all.equal( mf1, model.frame( fitsuri4$eq[[ 1 ]] ) ) )
 [1] TRUE
 > 
+> print( all.equal( mf, model.frame( fitsurio5r2 ) ) )
+[1] TRUE
+> print( all.equal( mf1, model.frame( fitsurio5r2$eq[[ 1 ]] ) ) )
+[1] TRUE
 > print( all.equal( mf, model.frame( fitsuri5r2 ) ) )
 [1] TRUE
 > print( all.equal( mf1, model.frame( fitsuri5r2$eq[[ 1 ]] ) ) )
@@ -5010,16 +5790,26 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fitsur4r3$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
-> print( all.equal( mm, model.matrix( fitsuri5r2 ) ) )
+> print( all.equal( mm, model.matrix( fitsurio5r2 ) ) )
 [1] TRUE
-> print( all.equal( mm1, model.matrix( fitsuri5r2$eq[[ 1 ]] ) ) )
+> print( all.equal( mm1, model.matrix( fitsurio5r2$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm, model.matrix( fitsur5 ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fitsur5$eq[[ 1 ]] ) ) )
 [1] TRUE
 > #print( all.equal( mm2, model.matrix( fitsuri5r2$eq[[ 2 ]] ) ) )
-> fitsuri5r2$eq[[ 1 ]]$modelMatrix <- NULL
-> fitsuri5r2$eq[[ 2 ]]$modelMatrix <- NULL
-> print( all.equal( mm, model.matrix( fitsuri5r2 ) ) )
+> fitsurio5r2$eq[[ 1 ]]$modelMatrix <- NULL
+> fitsurio5r2$eq[[ 2 ]]$modelMatrix <- NULL
+> print( all.equal( mm, model.matrix( fitsurio5r2 ) ) )
 [1] TRUE
-> print( all.equal( mm1, model.matrix( fitsuri5r2$eq[[ 1 ]] ) ) )
+> print( all.equal( mm1, model.matrix( fitsurio5r2$eq[[ 1 ]] ) ) )
+[1] TRUE
+> fitsur5$eq[[ 1 ]]$modelMatrix <- NULL
+> fitsur5$eq[[ 2 ]]$modelMatrix <- NULL
+> print( all.equal( mm, model.matrix( fitsur5 ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fitsur5$eq[[ 1 ]] ) ) )
 [1] TRUE
 > #print( all.equal( mm2, model.matrix( fitsuri5r2$eq[[ 1 ]] ) ) )
 > 

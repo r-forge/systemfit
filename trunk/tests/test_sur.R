@@ -148,27 +148,42 @@ fitsuri3e <- systemfit( system2, "SUR", data = Kmenta, TX = tc,
 print( summary( fitsuri3e ) )
 
 ## *************** iterated SUR with 2 restrictions ***************************
-fitsuri4 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr2m,
+fitsurio4 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr2m,
+   restrict.rhs = restr2q, maxit = 100 )
+print( summary( fitsurio4 ) )
+fitsuri4 <- systemfit( system2, "SUR", data = Kmenta, restrictions = restr2m,
    restrict.rhs = restr2q, maxit = 100 )
 print( summary( fitsuri4 ) )
 
 ## *************** iterated SUR with 2 restrictions (EViews-like) **************
-fitsuri4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+fitsurio4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+   restrictions = restr2m, restrict.rhs = restr2q, maxit = 100 )
+print( summary( fitsurio4e ) )
+fitsuri4e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
    restrictions = restr2m, restrict.rhs = restr2q, maxit = 100 )
 print( summary( fitsuri4e ) )
 
 ## *************** iterated SUR with 2 restrictions via R and TX ****************
-fitsuri5 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr3m,
+fitsurio5 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr3m,
+   restrict.rhs = restr3q, TX = tc, maxit = 100 )
+print( summary( fitsurio5 ) )
+fitsuri5 <- systemfit( system2, "SUR", data = Kmenta, restrictions = restr3m,
    restrict.rhs = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (EViews-like) **********
-fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+fitsurio5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+   restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
+print( summary( fitsurio5e ) )
+fitsuri5e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
    restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5e ) )
 
 ## ********* iterated SUR with 2 restrictions via R and TX (methodRCov="Theil") **********
-fitsuri5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+fitsurio5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+   restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
+print( summary( fitsurio5r2 ) )
+fitsuri5r2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
    restrictions = restr3m, restrict.rhs = restr3q, TX = tc, maxit = 100 )
 print( summary( fitsuri5r2 ) )
 
@@ -205,9 +220,13 @@ print( residuals( fitsuri2$eq[[ 2 ]] ) )
 print( residuals( fitsuri3e ) )
 print( residuals( fitsuri3e$eq[[ 1 ]] ) )
 
+print( residuals( fitsurio4 ) )
+print( residuals( fitsurio4$eq[[ 2 ]] ) )
 print( residuals( fitsuri4 ) )
 print( residuals( fitsuri4$eq[[ 2 ]] ) )
 
+print( residuals( fitsurio5r2 ) )
+print( residuals( fitsurio5r2$eq[[ 1 ]] ) )
 print( residuals( fitsuri5r2 ) )
 print( residuals( fitsuri5r2$eq[[ 1 ]] ) )
 
@@ -240,9 +259,13 @@ print( round( vcov( fitsuri2$eq[[ 2 ]] ), digits = 6 ) )
 print( round( vcov( fitsuri3e ), digits = 6 ) )
 print( round( vcov( fitsuri3e$eq[[ 1 ]] ), digits = 6 ) )
 
+print( round( vcov( fitsurio4e ), digits = 6 ) )
+print( round( vcov( fitsurio4e$eq[[ 2 ]] ), digits = 6 ) )
 print( round( vcov( fitsuri4e ), digits = 6 ) )
 print( round( vcov( fitsuri4e$eq[[ 2 ]] ), digits = 6 ) )
 
+print( round( vcov( fitsurio5r2 ), digits = 6 ) )
+print( round( vcov( fitsurio5r2$eq[[ 1 ]] ), digits = 6 ) )
 print( round( vcov( fitsuri5r2 ), digits = 6 ) )
 print( round( vcov( fitsuri5r2$eq[[ 1 ]] ), digits = 6 ) )
 
@@ -272,9 +295,13 @@ print( confint( fitsuri2$eq[[ 2 ]], level = 0.1 ) )
 print( confint( fitsuri3e, level = 0.1 ) )
 print( confint( fitsuri3e$eq[[ 1 ]], level = 0.01 ) )
 
+print( confint( fitsurio4, level = 0.01 ) )
+print( confint( fitsurio4$eq[[ 2 ]], level = 0.33 ) )
 print( confint( fitsuri4, level = 0.01 ) )
 print( confint( fitsuri4$eq[[ 2 ]], level = 0.33 ) )
 
+print( confint( fitsurio5r2, level = 0.33 ) )
+print( confint( fitsurio5r2$eq[[ 1 ]] ) )
 print( confint( fitsuri5r2, level = 0.33 ) )
 print( confint( fitsuri5r2$eq[[ 1 ]] ) )
 
@@ -304,9 +331,13 @@ print( fitted( fitsuri2$eq[[ 2 ]] ) )
 print( fitted( fitsuri3e ) )
 print( fitted( fitsuri3e$eq[[ 1 ]] ) )
 
+print( fitted( fitsurio4 ) )
+print( fitted( fitsurio4$eq[[ 2 ]] ) )
 print( fitted( fitsuri4 ) )
 print( fitted( fitsuri4$eq[[ 2 ]] ) )
 
+print( fitted( fitsurio5r2 ) )
+print( fitted( fitsurio5r2$eq[[ 1 ]] ) )
 print( fitted( fitsuri5r2 ) )
 print( fitted( fitsuri5r2$eq[[ 1 ]] ) )
 
@@ -355,10 +386,15 @@ print( predict( fitsuri2$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
 print( predict( fitsuri3e, interval = "prediction", level = 0.925 ) )
 print( predict( fitsuri3e$eq[[ 1 ]], interval = "prediction", level = 0.925 ) )
 
+print( predict( fitsurio4, interval = "confidence", newdata = predictData ) )
+print( predict( fitsurio4$eq[[ 2 ]], interval = "confidence",
+   newdata = predictData ) )
 print( predict( fitsuri4, interval = "confidence", newdata = predictData ) )
 print( predict( fitsuri4$eq[[ 2 ]], interval = "confidence",
    newdata = predictData ) )
 
+print( predict( fitsurio5r2 ) )
+print( predict( fitsurio5r2$eq[[ 1 ]] ) )
 print( predict( fitsuri5r2 ) )
 print( predict( fitsuri5r2$eq[[ 1 ]] ) )
 
@@ -389,6 +425,10 @@ print( predict( fitsur5, se.fit = TRUE, interval = "prediction",
 print( predict( fitsur5$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
    newdata = smallData ) )
 
+print( predict( fitsurio5r2, se.fit = TRUE, se.pred = TRUE,
+   interval = "prediction", level = 0.5, newdata = smallData ) )
+print( predict( fitsurio5r2$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
+   interval = "confidence", level = 0.25, newdata = smallData ) )
 print( predict( fitsuri5r2, se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.5, newdata = smallData ) )
 print( predict( fitsuri5r2$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
@@ -412,8 +452,10 @@ print( correlation.systemfit( fitsuri2, 2, 1 ) )
 
 print( correlation.systemfit( fitsuri3e, 1, 2 ) )
 
+print( correlation.systemfit( fitsurio4, 2, 1 ) )
 print( correlation.systemfit( fitsuri4, 2, 1 ) )
 
+print( correlation.systemfit( fitsurio5r2, 1, 2 ) )
 print( correlation.systemfit( fitsuri5r2, 1, 2 ) )
 
 
@@ -434,8 +476,10 @@ print( logLik( fitsuri2 ) )
 
 print( logLik( fitsuri3e ) )
 
+print( logLik( fitsurio4 ) )
 print( logLik( fitsuri4 ) )
 
+print( logLik( fitsurio5r2 ) )
 print( logLik( fitsuri5r2 ) )
 
 
@@ -466,15 +510,26 @@ print( lrtest( fitsur4e, fitsur3e ) )
 print( lrtest( fitsur5e, fitsur2e ) )
 print( lrtest( fitsur5e, fitsur3e ) )
 # iterating, methodRCov = 1
-print( lrtest( fitsuri4, fitsuri2 ) )
-print( lrtest( fitsuri4, fitsuri3 ) )
-print( lrtest( fitsuri5, fitsuri2 ) )
-print( lrtest( fitsuri5, fitsuri3 ) )
+print( lrtest( fitsurio4, fitsuri2 ) )
+print( lrtest( fitsurio4, fitsuri3 ) )
+print( lrtest( fitsurio5, fitsuri2 ) )
+print( lrtest( fitsurio5, fitsuri3 ) )
+   # corrected
+print( lrtest( fitsuri2, fitsuri4 ) )
+print( lrtest( fitsuri3, fitsuri4 ) )
+print( lrtest( fitsuri2, fitsuri5 ) )
+print( lrtest( fitsuri3, fitsuri5 ) )
+
 # iterating, methodRCov = 0
-print( lrtest( fitsuri4e, fitsuri2e ) )
-print( lrtest( fitsuri4e, fitsuri3e ) )
-print( lrtest( fitsuri5e, fitsuri2e ) )
-print( lrtest( fitsuri5e, fitsuri3e ) )
+print( lrtest( fitsurio4e, fitsuri2e ) )
+print( lrtest( fitsurio4e, fitsuri3e ) )
+print( lrtest( fitsurio5e, fitsuri2e ) )
+print( lrtest( fitsurio5e, fitsuri3e ) )
+   # corrected
+print( lrtest( fitsuri2e, fitsuri4e ) )
+print( lrtest( fitsuri3e, fitsuri4e ) )
+print( lrtest( fitsuri2e, fitsuri5e ) )
+print( lrtest( fitsuri3e, fitsuri5e ) )
 
 # testing both of the restrictions
 # non-iterating, methodRCov = 1
@@ -484,11 +539,17 @@ print( lrtest( fitsur5, fitsur1 ) )
 print( lrtest( fitsur4e, fitsur1e ) )
 print( lrtest( fitsur5e, fitsur1e ) )
 # iterating, methodRCov = 1
-print( lrtest( fitsuri4, fitsuri1 ) )
-print( lrtest( fitsuri5, fitsuri1 ) )
+print( lrtest( fitsurio4, fitsuri1 ) )
+print( lrtest( fitsurio5, fitsuri1 ) )
+   # corrected
+print( lrtest( fitsuri1, fitsuri4 ) )
+print( lrtest( fitsuri1, fitsuri5 ) )
 # iterating, methodRCov = 0
-print( lrtest( fitsuri4e, fitsuri1e ) )
-print( lrtest( fitsuri5e, fitsuri1e ) )
+print( lrtest( fitsurio4e, fitsuri1e ) )
+print( lrtest( fitsurio5e, fitsuri1e ) )
+   # corrected
+print( lrtest( fitsuri1e, fitsuri4e ) )
+print( lrtest( fitsuri1e, fitsuri5e ) )
 
 
 ## ************** F tests ****************
@@ -567,9 +628,13 @@ print( all.equal( mf1, model.frame( fitsuri2$eq[[ 1 ]] ) ) )
 print( all.equal( mf, model.frame( fitsuri3e ) ) )
 print( all.equal( mf1, model.frame( fitsuri3e$eq[[ 1 ]] ) ) )
 
+print( all.equal( mf, model.frame( fitsurio4 ) ) )
+print( all.equal( mf2, model.frame( fitsurio4$eq[[ 2 ]] ) ) )
 print( all.equal( mf, model.frame( fitsuri4 ) ) )
-print( all.equal( mf2, model.frame( fitsuri4$eq[[ 2 ]] ) ) )
+print( all.equal( mf1, model.frame( fitsuri4$eq[[ 1 ]] ) ) )
 
+print( all.equal( mf, model.frame( fitsurio5r2 ) ) )
+print( all.equal( mf1, model.frame( fitsurio5r2$eq[[ 1 ]] ) ) )
 print( all.equal( mf, model.frame( fitsuri5r2 ) ) )
 print( all.equal( mf1, model.frame( fitsuri5r2$eq[[ 1 ]] ) ) )
 
@@ -611,11 +676,17 @@ print( all.equal( mm, model.matrix( fitsur4r3 ) ) )
 print( all.equal( mm1, model.matrix( fitsur4r3$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitsur4r3$eq[[ 2 ]] ) ) )
 
-print( all.equal( mm, model.matrix( fitsuri5r2 ) ) )
-print( all.equal( mm1, model.matrix( fitsuri5r2$eq[[ 1 ]] ) ) )
+print( all.equal( mm, model.matrix( fitsurio5r2 ) ) )
+print( all.equal( mm1, model.matrix( fitsurio5r2$eq[[ 1 ]] ) ) )
+print( all.equal( mm, model.matrix( fitsur5 ) ) )
+print( all.equal( mm1, model.matrix( fitsur5$eq[[ 1 ]] ) ) )
 #print( all.equal( mm2, model.matrix( fitsuri5r2$eq[[ 2 ]] ) ) )
-fitsuri5r2$eq[[ 1 ]]$modelMatrix <- NULL
-fitsuri5r2$eq[[ 2 ]]$modelMatrix <- NULL
-print( all.equal( mm, model.matrix( fitsuri5r2 ) ) )
-print( all.equal( mm1, model.matrix( fitsuri5r2$eq[[ 1 ]] ) ) )
+fitsurio5r2$eq[[ 1 ]]$modelMatrix <- NULL
+fitsurio5r2$eq[[ 2 ]]$modelMatrix <- NULL
+print( all.equal( mm, model.matrix( fitsurio5r2 ) ) )
+print( all.equal( mm1, model.matrix( fitsurio5r2$eq[[ 1 ]] ) ) )
+fitsur5$eq[[ 1 ]]$modelMatrix <- NULL
+fitsur5$eq[[ 2 ]]$modelMatrix <- NULL
+print( all.equal( mm, model.matrix( fitsur5 ) ) )
+print( all.equal( mm1, model.matrix( fitsur5$eq[[ 1 ]] ) ) )
 #print( all.equal( mm2, model.matrix( fitsuri5r2$eq[[ 1 ]] ) ) )
