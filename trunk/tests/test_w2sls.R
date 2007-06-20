@@ -12,12 +12,11 @@ restrm <- matrix(0,1,7)  # restriction matrix "R"
 restrm[1,3] <-  1
 restrm[1,7] <- -1
 restr2m <- matrix(0,2,7)  # restriction matrix "R" 2
-restr2q <- matrix(0,2,1)  # restriction vector "q" 2
 restr2m[1,3] <-  1
 restr2m[1,7] <- -1
 restr2m[2,2] <- -1
 restr2m[2,5] <-  1
-restr2q[2,1] <-  0.5
+restr2q <- c( 0, 0.5 )  # restriction vector "q" 2
 tc <- matrix(0,7,6)
 tc[1,1] <- 1
 tc[2,2] <- 1
@@ -27,10 +26,9 @@ tc[5,5] <- 1
 tc[6,6] <- 1
 tc[7,3] <- 1
 restr3m <- matrix(0,1,6)  # restriction matrix "R" 2
-restr3q <- matrix(0,1,1)  # restriction vector "q" 2
 restr3m[1,2] <- -1
 restr3m[1,5] <-  1
-restr3q[1,1] <-  0.5
+restr3q <- c( 0.5 )  # restriction vector "q" 2
 
 
 ## ********************* W2SLS *****************

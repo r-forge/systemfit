@@ -43,9 +43,9 @@ systemfit( eqns, method = "OLS",
       restrictions on the parameters by \code{restrictions} * \eqn{b} = \code{restrict.rhs}
       (j = number of restrictions, k = number of all parameters,
       \eqn{b} = vector of all parameters).}
-   \item{restrict.rhs}{an optional j x 1 matrix to impose linear
-      restrictions (see \code{restrictions}); default is a j x 1 matrix
-      that contains only zeros.}
+   \item{restrict.rhs}{an optional vector with j elements to impose linear
+      restrictions (see \code{restrictions}); default is a vector
+      that contains j zeros.}
    \item{TX}{an optional matrix to transform the regressor matrix and,
       hence, also the coefficient vector (see details).}
    \item{control}{list of control parameters.
@@ -189,12 +189,11 @@ print( fitols )
 
 ## OLS estimation with 2 restrictions
 Rrestr <- matrix(0,2,7)
-qrestr <- matrix(0,2,1)
 Rrestr[1,3] <-  1
 Rrestr[1,7] <- -1
 Rrestr[2,2] <- -1
 Rrestr[2,5] <-  1
-qrestr[2,1] <-  0.5
+qrestr <- c( 0, 0.5 )
 fitols2 <- systemfit( system, data = Kmenta,
                       restrictions = Rrestr, restrict.rhs = qrestr )
 print( fitols2 )

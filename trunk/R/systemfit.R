@@ -54,7 +54,11 @@ systemfit <- function(  eqns,
       if( is.null( restrict.rhs ) ) {
          q.restr <- matrix( 0, nrow( restrictions ) ,1 )
       } else {
-         q.restr <- restrict.rhs
+         if( is.null( dim( restrict.rhs ) ) ) {
+            q.restr <- matrix( restrict.rhs, ncol = 1  )
+         } else {
+            q.restr <- restrict.rhs
+         }
       }
    } else {
       R.restr <- NULL
