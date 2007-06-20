@@ -198,7 +198,7 @@ systemfit <- function(  eqns,
                   cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
       V <- rbind( t(xMatAll) %*% yVecAll , q.restr )
       if( method == "OLS" || control$residCovRestricted ){
-         coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll)]
+         coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll),]
       } else {
          coef <- solve( crossprod( xMatAll ), crossprod( xMatAll, yVecAll ),
             tol = control$solvetol )
@@ -285,7 +285,7 @@ systemfit <- function(  eqns,
                   cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
       V <- rbind( t(xMatHatAll) %*% yVecAll , q.restr )
       if( method == "2SLS" || control$residCovRestricted ){
-         coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll)]
+         coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll),]
       } else {
          coef <- solve( crossprod( xMatHatAll ), crossprod( xMatHatAll, yVecAll ),
             tol = control$solvetol )
@@ -372,7 +372,7 @@ systemfit <- function(  eqns,
           V <- rbind( t(xMatAll) %*% hMatAll %*% solve( HtOmega
                       %*% hMatAll, tol=control$solvetol) %*% t(hMatAll) %*% yVecAll , q.restr )
           Winv <- solve( W, tol=control$solvetol )
-          coef <- ( Winv %*% V )[1:ncol(xMatAll)]     # restricted coefficients
+          coef <- ( Winv %*% V )[1:ncol(xMatAll),]     # restricted coefficients
         }
       }
       if(control$method3sls=="Schmidt") {
@@ -388,7 +388,7 @@ systemfit <- function(  eqns,
           V <- rbind( xMatHatOmegaInv %*% hMatAll %*% solve( crossprod( hMatAll ), tol=control$solvetol ) %*%
                       crossprod( hMatAll, yVecAll ), q.restr )
           Winv <- solve( W, tol=control$solvetol )
-          coef <- ( Winv %*% V )[1:ncol(xMatAll)]     # restricted coefficients
+          coef <- ( Winv %*% V )[1:ncol(xMatAll),]     # restricted coefficients
         }
       }
       if(control$method3sls=="EViews") {

@@ -36,7 +36,7 @@
          result <- Winv[ 1:ncol(xMat), 1:ncol(xMat) ]
       } else{
          V <- rbind( xtOmegaInv %*% yVec , q.restr )
-         result <- ( Winv %*% V )[1:ncol( xMat )]     # restricted coefficients
+         result <- ( Winv %*% V )[1:ncol( xMat ),]     # restricted coefficients
       }
    }
    return( result )
