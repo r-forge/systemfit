@@ -206,6 +206,25 @@ print( residuals( fitols5 ) )
 print( residuals( fitols5$eq[[ 2 ]] ) )
 
 
+## *************** coefficients *********************
+print( round( coef( fitols1rs ), digits = 6 ) )
+print( round( coef( fitols1rs$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( coef( fitols2s ), digits = 6 ) )
+print( round( coef( fitols2s$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( coef( fitols3p ), digits = 6 ) )
+print( round( coef( fitols3p, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fitols3p$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( coef( fitols4r ), digits = 6 ) )
+print( round( coef( fitols4r$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( coef( fitols5 ), digits = 6 ) )
+print( round( coef( fitols5, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fitols5$eq[[ 2 ]] ), digits = 6 ) )
+
+
 ## *********** variance covariance matrix of the coefficients *******
 print( round( vcov( fitols1rs ), digits = 6 ) )
 print( round( vcov( fitols1rs$eq[[ 2 ]] ), digits = 6 ) )

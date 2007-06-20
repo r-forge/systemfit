@@ -2627,6 +2627,59 @@ Multiple R-Squared: 0.234546 Adjusted R-Squared: 0.091024
 [19]  1.89490133  0.02586298
 > 
 > 
+> ## *************** coefficients *********************
+> print( round( coef( fitsur1r3 ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+         99.225003          -0.267658           0.291629          62.957541 
+      supply_price   supply_farmPrice       supply_trend 
+          0.144186           0.207185           0.333341 
+> print( round( coef( fitsur1r3$eq[[ 2 ]] ), digits = 6 ) )
+(Intercept)       price   farmPrice       trend 
+  62.957541    0.144186    0.207185    0.333341 
+> 
+> print( round( coef( fitsuri2 ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+        107.367833          -0.394459           0.338174          85.044826 
+     supply_income   supply_farmPrice       supply_trend 
+          0.312488          -0.197207           0.338174 
+> print( round( coef( fitsuri2$eq[[ 1 ]] ), digits = 6 ) )
+(Intercept)       price      income 
+ 107.367833   -0.394459    0.338174 
+> 
+> print( round( coef( fitsur3 ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+         98.840761          -0.239780           0.266981          67.428338 
+      supply_price   supply_farmPrice       supply_trend 
+          0.133217           0.179481           0.266981 
+> print( round( coef( fitsur3, transformed = TRUE ), digits = 6 ) )
+       C1        C2        C3        C4        C5        C6 
+98.840761 -0.239780  0.266981 67.428338  0.133217  0.179481 
+> print( round( coef( fitsur3$eq[[ 2 ]] ), digits = 6 ) )
+(Intercept)       price   farmPrice       trend 
+  67.428338    0.133217    0.179481    0.266981 
+> 
+> print( round( coef( fitsur4r2 ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+         92.526596          -0.230404           0.322103          48.701089 
+      supply_price   supply_farmPrice       supply_trend 
+          0.269596           0.226135           0.322103 
+> print( round( coef( fitsur4r2$eq[[ 1 ]] ), digits = 6 ) )
+(Intercept)       price      income 
+  92.526596   -0.230404    0.322103 
+> 
+> print( round( coef( fitsuri5e ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+         97.629728          -0.257559           0.297629          89.543697 
+     supply_income   supply_farmPrice       supply_trend 
+          0.242441          -0.168655           0.297629 
+> print( round( coef( fitsuri5e, transformed = TRUE ), digits = 6 ) )
+       C1        C2        C3        C4        C5        C6 
+97.629728 -0.257559  0.297629 89.543697  0.242441 -0.168655 
+> print( round( coef( fitsuri5e$eq[[ 2 ]] ), digits = 6 ) )
+(Intercept)      income   farmPrice       trend 
+  89.543697    0.242441   -0.168655    0.297629 
+> 
+> 
 > ## *********** variance covariance matrix of the coefficients *******
 > print( round( vcov( fitsur1e2 ), digits = 6 ) )
                    demand_(Intercept) demand_price demand_income

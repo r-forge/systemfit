@@ -42,8 +42,17 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
 
 
 ## return all coefficients
-coef.systemfit <- function( object, ... ) {
-   object$coefficients
+coef.systemfit <- function( object, transformed = FALSE, ... ) {
+   if( transformed ){
+      if( is.null( object$bt ) ){
+         stop( "transformed coefficients are not available,",
+            " because argument 'TX' has not been used in this estimation." )
+      } else {
+         return( drop( object$bt ) )
+      }
+   } else {
+      return( object$coefficients )
+   }
 }
 
 ## return all coefficients, std.errors, t-values and p-values

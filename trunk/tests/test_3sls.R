@@ -280,6 +280,25 @@ print( residuals( fit3slsd[[ 3 ]]$e4 ) )
 print( residuals( fit3slsd[[ 3 ]]$e4$eq[[ 2 ]] ) )
 
 
+## *************** coefficients *********************
+print( round( coef( fit3sls[[ 3 ]]$e1c ), digits = 6 ) )
+print( round( coef( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( coef( fit3slsi[[ 4 ]]$e2 ), digits = 6 ) )
+print( round( coef( fit3slsi[[ 5 ]]$e2$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( coef( fit3slsd[[ 5 ]]$e3e ), digits = 6 ) )
+print( round( coef( fit3slsd[[ 5 ]]$e3e, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fit3slsd[[ 1 ]]$e3e$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( coef( fit3sls[[ 1 ]]$e4 ), digits = 6 ) )
+print( round( coef( fit3sls[[ 2 ]]$e4$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( coef( fit3slsi[[ 2 ]]$e5e ), digits = 6 ) )
+print( round( coef( fit3slsi[[ 2 ]]$e5e, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fit3slsi[[ 3 ]]$e5e$eq[[ 2 ]] ), digits = 6 ) )
+
+
 ## *********** variance covariance matrix of the coefficients *******
 print( round( vcov( fit3sls[[ 3 ]]$e1c ), digits = 6 ) )
 print( round( vcov( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]] ), digits = 6 ) )

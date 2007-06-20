@@ -11,7 +11,7 @@
 }
 
 \usage{
-   \method{coef}{systemfit}( object, \dots )
+   \method{coef}{systemfit}( object, transformed = FALSE, \dots )
 
    \method{coef}{systemfit.equation}( object, \dots )
 
@@ -24,6 +24,11 @@
    \item{object}{an object of class \code{systemfit},
       \code{systemfit.equation}, \code{summary.systemfit}, or
       \code{summary.systemfit.equation}.}
+   \item{transformed}{logical. If \code{TRUE},
+      the transformed coefficients
+      (due to transforming the regressor matrix by argument \code{TX})
+      rather than the re-transformed original coefficients
+      are returned.}
    \item{\dots}{other arguments.}
 }
 
@@ -68,6 +73,21 @@ coef( summary( fitols$eq[[1]] ) )
 ## coefficients of the second equation
 coef( fitols$eq[[2]] )
 coef( summary( fitols$eq[[2]] ) )
+
+## transformed coefficients
+coefMap <- matrix( 0, 7, 6 )
+colnames( coefMap ) <- c( "demIntercept", "demPrice", "demIncome",
+   "supIntercept", "supPrice2", "supTrend" )
+coefMap[ 1, "demIntercept" ] <- 1
+coefMap[ 2, "demPrice" ]     <- 1
+coefMap[ 3, "demIncome" ]    <- 1
+coefMap[ 4, "supIntercept" ] <- 1
+coefMap[ 5, "supPrice2" ]    <- 1
+coefMap[ 6, "supPrice2" ]    <- 1
+coefMap[ 7, "supTrend" ]     <- 1
+fitols3 <- systemfit( system, data = Kmenta, TX = coefMap )
+coef( fitols3, transformed  = TRUE )
+coef( fitols3 )
 }
 
 \keyword{models}

@@ -241,6 +241,25 @@ print( residuals( fitsuri5r2 ) )
 print( residuals( fitsuri5r2$eq[[ 1 ]] ) )
 
 
+## *************** coefficients *********************
+print( round( coef( fitsur1r3 ), digits = 6 ) )
+print( round( coef( fitsur1r3$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( coef( fitsuri2 ), digits = 6 ) )
+print( round( coef( fitsuri2$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( coef( fitsur3 ), digits = 6 ) )
+print( round( coef( fitsur3, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fitsur3$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( coef( fitsur4r2 ), digits = 6 ) )
+print( round( coef( fitsur4r2$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( coef( fitsuri5e ), digits = 6 ) )
+print( round( coef( fitsuri5e, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fitsuri5e$eq[[ 2 ]] ), digits = 6 ) )
+
+
 ## *********** variance covariance matrix of the coefficients *******
 print( round( vcov( fitsur1e2 ), digits = 6 ) )
 print( round( vcov( fitsur1e2$eq[[ 1 ]] ), digits = 6 ) )

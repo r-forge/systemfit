@@ -147,6 +147,25 @@ print( residuals( fitw2slsd3e ) )
 print( residuals( fitw2slsd3e$eq[[ 2 ]] ) )
 
 
+## *************** coefficients *********************
+print( round( coef( fitw2sls1e ), digits = 6 ) )
+print( round( coef( fitw2sls1e$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( coef( fitw2slsd2e ), digits = 6 ) )
+print( round( coef( fitw2slsd2e$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( coef( fitw2slsd3e ), digits = 6 ) )
+print( round( coef( fitw2slsd3e, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fitw2slsd3e$eq[[ 2 ]] ), digits = 6 ) )
+
+print( round( coef( fitw2sls4 ), digits = 6 ) )
+print( round( coef( fitw2sls4$eq[[ 1 ]] ), digits = 6 ) )
+
+print( round( coef( fitw2sls5 ), digits = 6 ) )
+print( round( coef( fitw2sls5, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fitw2sls5$eq[[ 2 ]] ), digits = 6 ) )
+
+
 ## *********** variance covariance matrix of the coefficients *******
 print( round( vcov( fitw2sls1e ), digits = 6 ) )
 print( round( vcov( fitw2sls1e$eq[[ 2 ]] ), digits = 6 ) )

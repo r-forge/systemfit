@@ -1849,6 +1849,59 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 [19]  2.4619269  0.7772942
 > 
 > 
+> ## *************** coefficients *********************
+> print( round( coef( fitols1rs ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+         99.895423          -0.316299           0.334636          58.275431 
+      supply_price   supply_farmPrice       supply_trend 
+          0.160367           0.248133           0.248302 
+> print( round( coef( fitols1rs$eq[[ 2 ]] ), digits = 6 ) )
+(Intercept)       price   farmPrice       trend 
+  58.275431    0.160367    0.248133    0.248302 
+> 
+> print( round( coef( fitols2s ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+         99.556298          -0.291694           0.312881          56.379540 
+      supply_price   supply_farmPrice       supply_trend 
+          0.163912           0.257067           0.312881 
+> print( round( coef( fitols2s$eq[[ 1 ]] ), digits = 6 ) )
+(Intercept)       price      income 
+  99.556298   -0.291694    0.312881 
+> 
+> print( round( coef( fitols3p ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+         99.556298          -0.291694           0.312881          56.379540 
+      supply_price   supply_farmPrice       supply_trend 
+          0.163912           0.257067           0.312881 
+> print( round( coef( fitols3p, transformed = TRUE ), digits = 6 ) )
+       C1        C2        C3        C4        C5        C6 
+99.556298 -0.291694  0.312881 56.379540  0.163912  0.257067 
+> print( round( coef( fitols3p$eq[[ 2 ]] ), digits = 6 ) )
+(Intercept)       price   farmPrice       trend 
+  56.379540    0.163912    0.257067    0.312881 
+> 
+> print( round( coef( fitols4r ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+        101.481708          -0.316799           0.318885          54.149420 
+      supply_price   supply_farmPrice       supply_trend 
+          0.183201           0.259528           0.318885 
+> print( round( coef( fitols4r$eq[[ 1 ]] ), digits = 6 ) )
+(Intercept)       price      income 
+ 101.481708   -0.316799    0.318885 
+> 
+> print( round( coef( fitols5 ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+        101.481708          -0.316799           0.318885          54.149420 
+      supply_price   supply_farmPrice       supply_trend 
+          0.183201           0.259528           0.318885 
+> print( round( coef( fitols5, transformed = TRUE ), digits = 6 ) )
+        C1         C2         C3         C4         C5         C6 
+101.481708  -0.316799   0.318885  54.149420   0.183201   0.259528 
+> print( round( coef( fitols5$eq[[ 2 ]] ), digits = 6 ) )
+(Intercept)       price   farmPrice       trend 
+  54.149420    0.183201    0.259528    0.318885 
+> 
+> 
 > ## *********** variance covariance matrix of the coefficients *******
 > print( round( vcov( fitols1rs ), digits = 6 ) )
                    demand_(Intercept) demand_price demand_income
