@@ -61,8 +61,9 @@ Internally, the $F$ statistic is computed by the hidden function
 \code{.ftest.systemfit}
 and the Wald/$\chi^2$ statistic is computed by the method
 \code{linear.hypothesis.default} of the \pkg{car} package.
-The function \code{lrtest.systemfit}
-computes the Likelihood-ratio (LR) test statistic.
+The method \code{lrtest.systemfit} is a wrapper funtion
+to \code{lrtest.default} of the \pkg{lmtest} package,
+which computes the Likelihood-ratio (LR) test statistic.
 On the other hand, the function \code{hausman.systemfit}
 tests the consistency of the 3SLS estimator.
 All functions return the empirical test statistic,

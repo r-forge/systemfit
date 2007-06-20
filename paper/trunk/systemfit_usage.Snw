@@ -464,7 +464,7 @@ linear restrictions can be tested by an $F$ test, Wald test or
 LR test.
 The \pkg{systemfit} package provides
 the method \code{linear.hypothesis.systemfit} for $F$ tests and Wald tests
-as well as the function \code{lrtest.systemfit} for LR tests.
+as well as the method \code{lrtest} for LR tests.
 
 We will now test the restriction $\beta_2 = -\beta_6$
 that was specified by the matrix \code{Rmat} and the vector \code{qvec}
@@ -474,7 +474,7 @@ linear.hypothesis( fitsur, Rmat, qvec, test = "F" )
 
 linear.hypothesis( fitsur, Rmat, qvec, test = "Chisq" )
 
-lrtest.systemfit( fitsurRmat, fitsur )
+lrtest( fitsurRmat, fitsur )
 @
 The linear restrictions are tested by an $F$ test first,
 then by a Wald test, and finally by an LR test.
@@ -489,9 +489,9 @@ specifying whether to compute
 the finite-sample $F$ statistic (with approximate $F$ distribution)
 or the large-sample Wald statistic (with asymptotic $\chi^2$ distribution).
 
-The first argument of function \code{lrtest.systemfit}
-must be a restricted and the second argument an unrestricted
-regression returned by \code{systemfit}.
+All arguments of the function \code{lrtest.systemfit}
+must be fitted model objects returned by \code{systemfit}.
+It consecutively compares all provided fitted model objects.
 
 All tests print a short explanation first.
 Then the empirical test statistic and the degree(s) of freedom are reported.
