@@ -64,6 +64,20 @@
    }
 
    if( !is.null( TX ) ) {
+      # checking matrix to transform (map) coefficients (TX)
+      if( !is.matrix( TX ) ) {
+         stop( "argument 'TX' must be a matrix" )
+      }
+      if( nrow( TX ) != sum( nCoefEq ) ){
+         stop( "argument 'TX' must be a matrix with number of rows",
+            " equal to the number of all regressors [in this model: ",
+            sum( nCoefEq ), "]" )
+      }
+      # default names for transformed (mapped) regressors and coefficients
+      if( is.null( colnames( TX ) ) ){
+         colnames( TX ) <- paste( "C", c( 1:ncol( TX ) ), sep = "" )
+      }
+      # transform regressor matrix
       XU <- xMatAll
       xMatAll  <- XU %*% TX
    }
