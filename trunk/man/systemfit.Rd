@@ -209,6 +209,21 @@ print( fitols2b )
 # test whether both restricted estimators are identical
 all.equal( coef( fitols2 ), coef( fitols2b ) )
 
+## OLS with parameter restriction by argument TX
+coefMap <- matrix( 0, 7, 6 )
+colnames( coefMap ) <- c( "demIntercept", "demPrice", "demIncome",
+   "supIntercept", "supPrice2", "supTrend" )
+coefMap[ 1, "demIntercept" ] <- 1
+coefMap[ 2, "demPrice" ]     <- 1
+coefMap[ 3, "demIncome" ]    <- 1
+coefMap[ 4, "supIntercept" ] <- 1
+coefMap[ 5, "supPrice2" ]    <- 1
+coefMap[ 6, "supPrice2" ]    <- 1
+coefMap[ 7, "supTrend" ]     <- 1
+fitols3 <- systemfit( system, data = Kmenta, TX = coefMap )
+print( fitols3 )
+
+
 ## iterated SUR estimation
 fitsur <- systemfit( system, "SUR", data = Kmenta, maxit = 100 )
 print( fitsur )
