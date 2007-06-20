@@ -118,7 +118,9 @@ systemfit( eqns, method = "OLS",
   \item{btcov}{covariance matrix of \code{bt}.}
   \item{rcov}{estimated residual covariance matrix.}
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
-  \item{restrictions}{the restriction matrix.}
+  \item{restrictions}{the restriction matrix,
+      or a character vector giving the hypothesis in symbolic form
+      (see \code{\link[car]{linear.hypothesis}} in package "car").}
   \item{restrict.rhs}{the restriction vector.}
   \item{TX}{matrix used to transform the regressor matrix.}
   \item{control}{list of control parameters used for the estimation.}
@@ -197,6 +199,15 @@ qrestr <- c( 0, 0.5 )
 fitols2 <- systemfit( system, data = Kmenta,
                       restrictions = Rrestr, restrict.rhs = qrestr )
 print( fitols2 )
+
+## OLS estimation with the same 2 restrictions in symbolic form
+restrict <- c( "demand_income - supply_trend = 0",
+   "- demand_price + supply_price = 0.5" )
+fitols2b <- systemfit( system, data = Kmenta, restrictions = restrict )
+print( fitols2b )
+
+# test whether both restricted estimators are identical
+all.equal( coef( fitols2 ), coef( fitols2b ) )
 
 ## iterated SUR estimation
 fitsur <- systemfit( system, "SUR", data = Kmenta, maxit = 100 )

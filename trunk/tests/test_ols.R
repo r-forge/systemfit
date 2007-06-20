@@ -8,12 +8,15 @@ system <- list( demand = demand, supply = supply )
 restrm <- matrix(0,1,7)  # restriction matrix "R"
 restrm[1,3] <-  1
 restrm[1,7] <- -1
+restrict <- "demand_income - supply_trend = 0"
 restr2m <- matrix(0,2,7)  # restriction matrix "R" 2
 restr2m[1,3] <-  1
 restr2m[1,7] <- -1
 restr2m[2,2] <- -1
 restr2m[2,5] <-  1
 restr2q <- c( 0, 0.5 )    # restriction vector "q" 2
+restrict2 <- c( "demand_income - supply_trend = 0",
+   "- demand_price + supply_price = 0.5" )
 tc <- matrix(0,7,6)
 tc[1,1] <- 1
 tc[2,2] <- 1
@@ -26,6 +29,7 @@ restr3m <- matrix(0,1,6)  # restriction matrix "R" 2
 restr3m[1,2] <- -1
 restr3m[1,5] <-  1
 restr3q <- c( 0.5 )       # restriction vector "q" 2
+restrict3 <- "demand_income - supply_price = 0"
 
 # It is not possible to estimate OLS with systemfit
 # exactly as EViews does, because EViews uses
@@ -78,6 +82,10 @@ print( summary( fitols1rs ) )
 fitols2 <- systemfit( system, "OLS", data = Kmenta,
    restrictions = restrm )
 print( summary( fitols2 ) )
+# the same with symbolically specified restrictions
+fitols2Sym <- systemfit( system, "OLS", data = Kmenta,
+   restrictions = restrict )
+all.equal( fitols2, fitols2Sym )
 
 ## ****** OLS with cross-equation restriction (single.eq.sigma=T) *******
 fitols2s <- systemfit( system, "OLS", data = Kmenta,
@@ -129,6 +137,10 @@ print( summary( fitols3rs ) )
 fitols4 <- systemfit( system, "OLS", data = Kmenta, restrictions = restr2m,
    restrict.rhs = restr2q )
 print( summary( fitols4 ) )
+# the same with symbolically specified restrictions
+fitols4Sym <- systemfit( system, "OLS", data = Kmenta,
+   restrictions = restrict2 )
+all.equal( fitols4, fitols4Sym )
 
 ## ****** OLS with 2 cross-equation restrictions (single.eq.sigma=T) *******
 fitols4s <- systemfit( system, "OLS", data = Kmenta, restrictions = restr2m,

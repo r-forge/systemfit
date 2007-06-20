@@ -126,7 +126,15 @@ systemfit <- function(  eqns,
    }
 
    # checking and modifying parameter restrictions
-   if( !is.null( restrictions ) ) {
+   if( is.character( restrictions ) ) {
+      R.restr <- car:::makeHypothesis( coefNames, restrictions, restrict.rhs )
+      if( is.null( dim( R.restr ) ) ){
+         R.restr <- t( R.restr )
+      }
+      q.restr <- R.restr[ , ncol( R.restr ), drop = FALSE ]
+      R.restr <- R.restr[ , -ncol( R.restr ), drop = FALSE ]
+      rownames( R.restr ) <- restrictions
+   } else if( !is.null( restrictions ) ) {
       if( is.null( dim( restrictions ) ) ) {
          R.restr <- t( restrictions )
       } else {

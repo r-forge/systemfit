@@ -11,12 +11,15 @@ system <- list( demand = demand, supply = supply )
 restrm <- matrix(0,1,7)  # restriction matrix "R"
 restrm[1,3] <-  1
 restrm[1,7] <- -1
+restrict <- "demand_income - supply_trend = 0"
 restr2m <- matrix(0,2,7)  # restriction matrix "R" 2
 restr2m[1,3] <-  1
 restr2m[1,7] <- -1
 restr2m[2,2] <- -1
 restr2m[2,5] <-  1
 restr2q <- c( 0, 0.5 )  # restriction vector "q" 2
+restrict2 <- c( "demand_income - supply_trend = 0",
+   "- demand_price + supply_price = 0.5" )
 tc <- matrix(0,7,6)
 tc[1,1] <- 1
 tc[2,2] <- 1
@@ -29,6 +32,7 @@ restr3m <- matrix(0,1,6)  # restriction matrix "R" 2
 restr3m[1,2] <- -1
 restr3m[1,5] <-  1
 restr3q <- c( 0.5 )  # restriction vector "q" 2
+restrict3 <- "demand_income - supply_price = 0"
 
 # It is not possible to estimate 2SLS with systemfit exactly
 # as EViews does, because EViews uses
@@ -65,6 +69,10 @@ print( summary( fit2sls1rs ) )
 fit2sls2 <- systemfit( system, "2SLS", data = Kmenta, restrictions = restrm,
    inst = inst )
 print( summary( fit2sls2 ) )
+# the same with symbolically specified restrictions
+fit2sls2Sym <- systemfit( system, "2SLS", data = Kmenta,
+   restrictions = restrict, inst = inst )
+all.equal( fit2sls2, fit2sls2Sym )
 
 ## ************* 2SLS with restriction (single.eq.sigma=T) *****************
 fit2sls2s <- systemfit( system, "2SLS", data = Kmenta, restrictions = restrm,
@@ -102,6 +110,10 @@ print( summary( fit2sls3e, useDfSys = TRUE ) )
 fit2sls4 <- systemfit( system, "2SLS", data = Kmenta, restrictions = restr2m,
    restrict.rhs = restr2q, inst = inst )
 print( summary( fit2sls4 ) )
+# the same with symbolically specified restrictions
+fit2sls4Sym <- systemfit( system, "2SLS", data = Kmenta,
+   restrictions = restrict2, inst = inst )
+all.equal( fit2sls4, fit2sls4Sym )
 
 ## ************ 2SLS with 2 restrictions (single.eq.sigma=T) **************
 fit2sls4s <- systemfit( system, "2SLS", data = Kmenta, restrictions = restr2m,

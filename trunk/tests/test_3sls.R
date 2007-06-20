@@ -11,12 +11,15 @@ system <- list( demand = demand, supply = supply )
 restrm <- matrix(0,1,7)  # restriction matrix "R"
 restrm[1,3] <-  1
 restrm[1,7] <- -1
+restrict <- "demand_income - supply_trend = 0"
 restr2m <- matrix(0,2,7)  # restriction matrix "R" 2
 restr2m[1,3] <-  1
 restr2m[1,7] <- -1
 restr2m[2,2] <- -1
 restr2m[2,5] <-  1
 restr2q <- c( 0, 0.5 )  # restriction vector "q" 2
+restrict2 <- c( "demand_income - supply_trend = 0",
+   "- demand_price + supply_price = 0.5" )
 tc <- matrix(0,7,6)
 tc[1,1] <- 1
 tc[2,2] <- 1
@@ -29,6 +32,7 @@ restr3m <- matrix(0,1,6)  # restriction matrix "R" 2
 restr3m[1,2] <- -1
 restr3m[1,5] <-  1
 restr3q <- c( 0.5 )  # restriction vector "q" 2
+restrict3 <- "demand_income - supply_price = 0"
 
 
 ## *************** 3SLS estimation ************************
@@ -58,6 +62,10 @@ for( i in seq( along = formulas ) ) {
    fit3sls[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, restrictions = restrm, method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e2 ) )
+   # the same with symbolically specified restrictions
+   fit3sls[[ i ]]$e2Sym <- systemfit( system, "3SLS", data = Kmenta,
+      inst = inst, restrictions = restrict, method3sls = formulas[ i ] )
+   print( all.equal( fit3sls[[ i ]]$e2, fit3sls[[ i ]]$e2Sym ) )
 
    print( "************** 3SLS with restriction (EViews-like) *****************" )
    fit3sls[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
@@ -81,6 +89,10 @@ for( i in seq( along = formulas ) ) {
       inst = inst, restrictions = restr2m, restrict.rhs = restr2q,
       method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e4 ) )
+   # the same with symbolically specified restrictions
+   fit3sls[[ i ]]$e4Sym <- systemfit( system, "3SLS", data = Kmenta,
+      inst = inst, restrictions = restrict2, method3sls = formulas[ i ] )
+   print( all.equal( fit3sls[[ i ]]$e4, fit3sls[[ i ]]$e4Sym ) )
 
    print( "*************** 3SLS with 2 restrictions (EViews-like) ************" )
    fit3sls[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,

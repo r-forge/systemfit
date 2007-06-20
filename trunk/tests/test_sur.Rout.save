@@ -36,12 +36,15 @@ Attaching package: 'zoo'
 > restrm <- matrix(0,1,7)  # restriction matrix "R"
 > restrm[1,3] <-  1
 > restrm[1,7] <- -1
+> restrict <- "demand_income - supply_trend = 0"
 > restr2m <- matrix(0,2,7)  # restriction matrix "R" 2
 > restr2m[1,3] <-  1
 > restr2m[1,7] <- -1
 > restr2m[2,2] <- -1
 > restr2m[2,5] <-  1
 > restr2q <- c( 0, 0.5 )  # restriction vector "q" 2
+> restrict2 <- c( "demand_income - supply_trend = 0",
++    "- demand_price + supply_price = 0.5" )
 > tc <- matrix(0,7,6)
 > tc[1,1] <- 1
 > tc[2,2] <- 1
@@ -54,6 +57,7 @@ Attaching package: 'zoo'
 > restr3m[1,2] <- -1
 > restr3m[1,5] <-  1
 > restr3q <- c( 0.5 )  # restriction vector "q" 2
+> restrict3 <- "demand_income - supply_price = 0"
 > 
 > # the standard equations do not converge and lead to a singular weighting matrix
 > # both in R and in EViews, since both equations have the same endogenous variable
@@ -444,6 +448,13 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.806415 MSE: 6.737901 Root MSE: 2.595747 
 Multiple R-Squared: 0.597909 Adjusted R-Squared: 0.522517 
 
+> # the same with symbolically specified restrictions
+> fitsur2Sym <- systemfit( system, "SUR", data = Kmenta,
++    restrictions = restrict )
+> all.equal( fitsur2, fitsur2Sym )
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
+[3] "Component 12: Attributes: < Length mismatch: comparison on first 1 components >"
 > 
 > ## *************** SUR with cross-equation restriction (EViews-like) **
 > fitsur2e <- systemfit( system, "SUR", data = Kmenta, restrictions = restrm,
@@ -699,6 +710,13 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 101.473089 MSE: 6.342068 Root MSE: 2.518346 
 Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567 
 
+> # the same with symbolically specified restrictions
+> fitsur4Sym <- systemfit( system, "SUR", data = Kmenta,
++    restrictions = restrict2 )
+> all.equal( fitsur4, fitsur4Sym )
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
+[3] "Component 12: Attributes: < Length mismatch: comparison on first 1 components >"
 > 
 > ## *************** SUR with 2 restrictions (EViews-like) **************
 > fitsur4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
