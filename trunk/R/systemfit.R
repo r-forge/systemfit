@@ -45,30 +45,6 @@ systemfit <- function(  eqns,
       stop( "The methods '2SLS', 'W2SLS', '3SLS', and 'W3SLS' need instruments!" )
    }
 
-   if( !is.null( restrictions ) ) {
-      if( is.null( dim( restrictions ) ) ) {
-         R.restr <- t( restrictions )
-      } else {
-         R.restr <- restrictions
-      }
-      if( is.null( restrict.rhs ) ) {
-         q.restr <- matrix( 0, nrow( restrictions ) ,1 )
-      } else {
-         if( is.null( dim( restrict.rhs ) ) ) {
-            q.restr <- matrix( restrict.rhs, ncol = 1  )
-         } else {
-            q.restr <- restrict.rhs
-         }
-      }
-   } else {
-      R.restr <- NULL
-      if( !is.null( restrict.rhs ) ) {
-         warning( "ignoring argument 'restrict.rhs',",
-            " because argument 'restrictions' is not specified" )
-      }
-      q.restr <- restrict.rhs
-   }
-
    panelLike <- FALSE
    if( class( data )[1] == "pdata.frame" ) {
       panelLike <- TRUE
@@ -85,8 +61,9 @@ systemfit <- function(  eqns,
       }
    }
 
+   # default value of argument single.eq.sigma
    if( is.null( control$single.eq.sigma ) ) {
-      control$single.eq.sigma <- ( is.null( R.restr ) & is.null( TX ) )
+      control$single.eq.sigma <- ( is.null( restrictions ) & is.null( TX ) )
    }
 
   results <- list()               # results to be returned
@@ -146,6 +123,31 @@ systemfit <- function(  eqns,
       hMatEq  <- preparedData$hMatEq
       # fitted values of all regressors
       xMatHatAll <- preparedData$xMatHatAll
+   }
+
+   # checking and modifying parameter restrictions
+   if( !is.null( restrictions ) ) {
+      if( is.null( dim( restrictions ) ) ) {
+         R.restr <- t( restrictions )
+      } else {
+         R.restr <- restrictions
+      }
+      if( is.null( restrict.rhs ) ) {
+         q.restr <- matrix( 0, nrow( restrictions ) ,1 )
+      } else {
+         if( is.null( dim( restrict.rhs ) ) ) {
+            q.restr <- matrix( restrict.rhs, ncol = 1  )
+         } else {
+            q.restr <- restrict.rhs
+         }
+      }
+   } else {
+      R.restr <- NULL
+      if( !is.null( restrict.rhs ) ) {
+         warning( "ignoring argument 'restrict.rhs',",
+            " because argument 'restrictions' is not specified" )
+      }
+      q.restr <- restrict.rhs
    }
 
    nObsAll  <- sum( nObsEq )  # total number of observations of all equations
