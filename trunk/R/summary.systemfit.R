@@ -53,6 +53,21 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
       "t value", "Pr(>|t|)" )
    result$df <- c( length( coef( object ) ), nObs - length( coef( object ) ) )
 
+   # transformed coefficients
+   if( !is.null( object$bt ) ) {
+      coefTrans <- drop( object$bt )
+      stdErTrans <- diag( object$btcov )^0.5  # standard errors
+      tStatTrans <- coefTrans / stdErTrans    # t-statistic
+      if( useDfSys ) {             # p-values
+         pValTrans <- 2 * ( 1 - pt( abs( tStatTrans ), object$df.residual ) )
+      } else {
+         pValTrans <- rep( NA, length( coefTrans ) )
+      }
+      result$coefTrans <- cbind( coefTrans, stdErTrans, tStatTrans, pValTrans )
+      colnames( result$coefTrans ) <- c( "Estimate", "Std. Error",
+         "t value", "Pr(>|t|)" )
+   }
+
    # R^2 values
    nObsEq <- rep( nObsPerEq, nEq )
    resid <- NULL
