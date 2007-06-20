@@ -56,8 +56,17 @@ coef.systemfit <- function( object, transformed = FALSE, ... ) {
 }
 
 ## return all coefficients, std.errors, t-values and p-values
-coef.summary.systemfit <- function( object, ... ) {
-   object$coefficients
+coef.summary.systemfit <- function( object, transformed = FALSE, ... ) {
+   if( transformed ){
+      if( is.null( object$coefTrans ) ){
+         stop( "transformed coefficients are not available,",
+            " because argument 'TX' has not been used in this estimation." )
+      } else {
+         return( object$coefTrans )
+      }
+   } else {
+      return( object$coefficients )
+   }
 }
 
 ## return the coefficients of a single equation

@@ -188,6 +188,28 @@ print( round( coef( fitwlsi5, transformed = TRUE ), digits = 6 ) )
 print( round( coef( fitwlsi5$eq[[ 1 ]] ), digits = 6 ) )
 
 
+## *************** coefficients with stats *********************
+print( round( coef( summary( fitwls1e ) ), digits = 6 ) )
+print( round( coef( summary( fitwls1e$eq[[ 1 ]] ) ), digits = 6 ) )
+
+print( round( coef( summary( fitwlsi2 ) ), digits = 6 ) )
+print( round( coef( summary( fitwlsi2$eq[[ 2 ]] ) ), digits = 6 ) )
+
+print( round( coef( summary( fitwls3e ) ), digits = 6 ) )
+print( round( coef( summary( fitwls3e ), transformed = TRUE ), digits = 6 ) )
+print( round( coef( summary( fitwls3e$eq[[ 1 ]] ) ), digits = 6 ) )
+
+print( round( coef( summary( fitwls4, useDfSys = FALSE ) ), digits = 6 ) )
+print( round( coef( summary( fitwls4$eq[[ 2 ]], useDfSys = FALSE ) ),
+   digits = 6 ) )
+
+print( round( coef( summary( fitwlsi5, useDfSys = FALSE ) ), digits = 6 ) )
+print( round( coef( summary( fitwlsi5, useDfSys = FALSE ),
+   transformed = TRUE ), digits = 6 ) )
+print( round( coef( summary( fitwlsi5$eq[[ 1 ]], useDfSys = FALSE ) ),
+   digits = 6 ) )
+
+
 ## *********** variance covariance matrix of the coefficients *******
 print( round( vcov( fitwls1e ), digits = 6 ) )
 print( round( vcov( fitwls1e$eq[[ 1 ]] ), digits = 6 ) )

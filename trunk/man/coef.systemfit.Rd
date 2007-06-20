@@ -15,7 +15,7 @@
 
    \method{coef}{systemfit.equation}( object, \dots )
 
-   \method{coef}{summary.systemfit}( object, \dots )
+   \method{coef}{summary.systemfit}( object, transformed = FALSE, \dots )
 
    \method{coef}{summary.systemfit.equation}( object, \dots )
 }

@@ -1314,6 +1314,105 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
   46.422943    0.257248    0.264213    0.306288 
 > 
 > 
+> ## *************** coefficients with stats *********************
+> print( round( coef( summary( fitw2sls1e, useDfSys = FALSE ) ), digits = 6 ) )
+                    Estimate Std. Error   t value Pr(>|t|)
+demand_(Intercept) 94.633304   7.302652 12.958758 0.000000
+demand_price       -0.243557   0.088954 -2.738002 0.014016
+demand_income       0.313992   0.043280  7.254908 0.000001
+supply_(Intercept) 49.532442  10.742541  4.610868 0.000289
+supply_price        0.240076   0.089384  2.685905 0.016234
+supply_farmPrice    0.255606   0.042262  6.048158 0.000017
+supply_trend        0.252924   0.089134  2.837565 0.011883
+> print( round( coef( summary( fitw2sls1e$eq[[ 2 ]], useDfSys = FALSE ) ),
++    digits = 6 ) )
+             Estimate Std. Error  t value Pr(>|t|)
+(Intercept) 49.532442  10.742541 4.610868 0.000289
+price        0.240076   0.089384 2.685905 0.016234
+farmPrice    0.255606   0.042262 6.048158 0.000017
+trend        0.252924   0.089134 2.837565 0.011883
+> 
+> print( round( coef( summary( fitw2slsd2e ) ), digits = 6 ) )
+                     Estimate Std. Error   t value Pr(>|t|)
+demand_(Intercept) 104.463809   9.792942 10.667255 0.000000
+demand_price        -0.363048   0.121986 -2.976140 0.005345
+demand_income        0.335737   0.044358  7.568837 0.000000
+supply_(Intercept)  47.070623  10.689038  4.403635 0.000100
+supply_price         0.244904   0.090956  2.692570 0.010925
+supply_farmPrice     0.267086   0.041635  6.414902 0.000000
+supply_trend         0.335737   0.044358  7.568837 0.000000
+> print( round( coef( summary( fitw2slsd2e$eq[[ 1 ]] ) ), digits = 6 ) )
+              Estimate Std. Error   t value Pr(>|t|)
+(Intercept) 104.463809   9.792942 10.667255 0.000000
+price        -0.363048   0.121986 -2.976140 0.005345
+income        0.335737   0.044358  7.568837 0.000000
+> 
+> print( round( coef( summary( fitw2slsd3e, useDfSys = FALSE ) ), digits = 6 ) )
+                     Estimate Std. Error   t value Pr(>|t|)
+demand_(Intercept) 104.463809   9.792942 10.667255 0.000000
+demand_price        -0.363048   0.121986 -2.976140 0.008475
+demand_income        0.335737   0.044358  7.568837 0.000001
+supply_(Intercept)  47.070623  10.689038  4.403635 0.000444
+supply_price         0.244904   0.090956  2.692570 0.016014
+supply_farmPrice     0.267086   0.041635  6.414902 0.000009
+supply_trend         0.335737   0.044358  7.568837 0.000001
+> print( round( coef( summary( fitw2slsd3e, useDfSys = FALSE ),
++    transformed = TRUE ), digits = 6 ) )
+     Estimate Std. Error   t value Pr(>|t|)
+C1 104.463809   9.792942 10.667255       NA
+C2  -0.363048   0.121986 -2.976140       NA
+C3   0.335737   0.044358  7.568837       NA
+C4  47.070623  10.689038  4.403635       NA
+C5   0.244904   0.090956  2.692570       NA
+C6   0.267086   0.041635  6.414902       NA
+> print( round( coef( summary( fitw2slsd3e$eq[[ 2 ]], useDfSys = FALSE ) ),
++    digits = 6 ) )
+             Estimate Std. Error  t value Pr(>|t|)
+(Intercept) 47.070623  10.689038 4.403635 0.000444
+price        0.244904   0.090956 2.692570 0.016014
+farmPrice    0.267086   0.041635 6.414902 0.000009
+trend        0.335737   0.044358 7.568837 0.000001
+> 
+> print( round( coef( summary( fitw2sls4 ) ), digits = 6 ) )
+                    Estimate Std. Error   t value Pr(>|t|)
+demand_(Intercept) 95.304293   6.305629 15.114162 0.000000
+demand_price       -0.242752   0.068419 -3.548013 0.001128
+demand_income       0.306288   0.039386  7.776593 0.000000
+supply_(Intercept) 46.422943   8.329568  5.573272 0.000003
+supply_price        0.257248   0.068419  3.759871 0.000622
+supply_farmPrice    0.264213   0.045524  5.803815 0.000001
+supply_trend        0.306288   0.039386  7.776593 0.000000
+> print( round( coef( summary( fitw2sls4$eq[[ 1 ]] ) ), digits = 6 ) )
+             Estimate Std. Error   t value Pr(>|t|)
+(Intercept) 95.304293   6.305629 15.114162 0.000000
+price       -0.242752   0.068419 -3.548013 0.001128
+income       0.306288   0.039386  7.776593 0.000000
+> 
+> print( round( coef( summary( fitw2sls5 ) ), digits = 6 ) )
+                    Estimate Std. Error   t value Pr(>|t|)
+demand_(Intercept) 95.304293   6.305629 15.114162 0.000000
+demand_price       -0.242752   0.068419 -3.548013 0.001128
+demand_income       0.306288   0.039386  7.776593 0.000000
+supply_(Intercept) 46.422943   8.329568  5.573272 0.000003
+supply_price        0.257248   0.068419  3.759871 0.000622
+supply_farmPrice    0.264213   0.045524  5.803815 0.000001
+supply_trend        0.306288   0.039386  7.776593 0.000000
+> print( round( coef( summary( fitw2sls5 ), transformed = TRUE ), digits = 6 ) )
+    Estimate Std. Error   t value Pr(>|t|)
+C1 95.304293   6.305629 15.114162 0.000000
+C2 -0.242752   0.068419 -3.548013 0.001128
+C3  0.306288   0.039386  7.776593 0.000000
+C4 46.422943   8.329568  5.573272 0.000003
+C5  0.257248   0.068419  3.759871 0.000622
+C6  0.264213   0.045524  5.803815 0.000001
+> print( round( coef( summary( fitw2sls5$eq[[ 2 ]] ) ), digits = 6 ) )
+             Estimate Std. Error  t value Pr(>|t|)
+(Intercept) 46.422943   8.329568 5.573272 0.000003
+price        0.257248   0.068419 3.759871 0.000622
+farmPrice    0.264213   0.045524 5.803815 0.000001
+trend        0.306288   0.039386 7.776593 0.000000
+> 
+> 
 > ## *********** variance covariance matrix of the coefficients *******
 > print( round( vcov( fitw2sls1e ), digits = 6 ) )
                    demand_(Intercept) demand_price demand_income

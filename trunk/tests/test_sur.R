@@ -260,6 +260,28 @@ print( round( coef( fitsuri5e, transformed = TRUE ), digits = 6 ) )
 print( round( coef( fitsuri5e$eq[[ 2 ]] ), digits = 6 ) )
 
 
+## *************** coefficients with stats *********************
+print( round( coef( summary( fitsur1r3 ) ), digits = 6 ) )
+print( round( coef( summary( fitsur1r3$eq[[ 2 ]] ) ), digits = 6 ) )
+
+print( round( coef( summary( fitsuri2, useDfSys = FALSE ) ), digits = 6 ) )
+print( round( coef( summary( fitsuri2$eq[[ 1 ]], useDfSys = FALSE ) ),
+   digits = 6 ) )
+
+print( round( coef( summary( fitsur3 ) ), digits = 6 ) )
+print( round( coef( summary( fitsur3 ), transformed = TRUE ), digits = 6 ) )
+print( round( coef( summary( fitsur3$eq[[ 2 ]] ) ), digits = 6 ) )
+
+print( round( coef( summary( fitsur4r2 ) ), digits = 6 ) )
+print( round( coef( summary( fitsur4r2$eq[[ 1 ]] ) ), digits = 6 ) )
+
+print( round( coef( summary( fitsuri5e, useDfSys = FALSE ) ), digits = 6 ) )
+print( round( coef( summary( fitsuri5e, useDfSys = FALSE ),
+   transformed = TRUE ), digits = 6 ) )
+print( round( coef( summary( fitsuri5e$eq[[ 2 ]], useDfSys = FALSE ) ),
+   digits = 6 ) )
+
+
 ## *********** variance covariance matrix of the coefficients *******
 print( round( vcov( fitsur1e2 ), digits = 6 ) )
 print( round( vcov( fitsur1e2$eq[[ 1 ]] ), digits = 6 ) )

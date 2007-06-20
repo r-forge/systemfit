@@ -225,6 +225,29 @@ print( round( coef( fitols5, transformed = TRUE ), digits = 6 ) )
 print( round( coef( fitols5$eq[[ 2 ]] ), digits = 6 ) )
 
 
+## *************** coefficients with stats *********************
+print( round( coef( summary( fitols1rs, useDfSys = FALSE ) ), digits = 6 ) )
+print( round( coef( summary( fitols1rs$eq[[ 2 ]], useDfSys = FALSE ) ),
+   digits = 6 ) )
+
+print( round( coef( summary( fitols2s ) ), digits = 6 ) )
+print( round( coef( summary( fitols2s$eq[[ 1 ]] ) ), digits = 6 ) )
+
+print( round( coef( summary( fitols3p, useDfSys = FALSE ) ), digits = 6 ) )
+print( round( coef( summary( fitols3p, useDfSys = FALSE ), transformed = TRUE ),
+   digits = 6 ) )
+print( round( coef( summary( fitols3p$eq[[ 2 ]], useDfSys = FALSE ) ),
+   digits = 6 ) )
+
+print( round( coef( summary( fitols4r, useDfSys = FALSE ) ), digits = 6 ) )
+print( round( coef( summary( fitols4r$eq[[ 1 ]], useDfSys = FALSE ) ),
+   digits = 6 ) )
+
+print( round( coef( summary( fitols5 ) ), digits = 6 ) )
+print( round( coef( summary( fitols5 ), transformed = TRUE ), digits = 6 ) )
+print( round( coef( summary( fitols5$eq[[ 2 ]] ) ), digits = 6 ) )
+
+
 ## *********** variance covariance matrix of the coefficients *******
 print( round( vcov( fitols1rs ), digits = 6 ) )
 print( round( vcov( fitols1rs$eq[[ 2 ]] ), digits = 6 ) )
