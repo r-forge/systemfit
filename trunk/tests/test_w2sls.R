@@ -32,7 +32,7 @@ restr3m <- matrix(0,1,6)  # restriction matrix "R" 2
 restr3m[1,2] <- -1
 restr3m[1,5] <-  1
 restr3q <- c( 0.5 )  # restriction vector "q" 2
-restrict3 <- "demand_income - supply_price = 0"
+restrict3 <- "- C2 + C5 = 0.5"
 
 
 ## ********************* W2SLS *****************
@@ -85,6 +85,10 @@ print( summary( fitw2sls4e, useDfSys = TRUE ) )
 fitw2sls5 <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr3m,
    restrict.rhs = restr3q, TX = tc, inst = inst )
 print( summary( fitw2sls5 ) )
+# the same with symbolically specified restrictions
+fitw2sls5Sym <- systemfit( system, "W2SLS", data = Kmenta,
+   restrictions = restrict3, TX = tc, inst = inst )
+all.equal( fitw2sls5, fitw2sls5Sym )
 
 ## ***************** W2SLS with 2 restrictions via R and TX (EViews-like) **************
 fitw2sls5e <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr3m,

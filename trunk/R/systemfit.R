@@ -219,7 +219,9 @@ systemfit <- function(  eqns,
 
    # checking and modifying parameter restrictions
    if( is.character( restrictions ) ) {
-      R.restr <- car:::makeHypothesis( coefNames, restrictions, restrict.rhs )
+      temp <- if( is.null( TX ) ) coefNames else colnames( TX )
+      R.restr <- car:::makeHypothesis( temp, restrictions, restrict.rhs )
+      rm( temp )
       if( is.null( dim( R.restr ) ) ){
          R.restr <- t( R.restr )
       }

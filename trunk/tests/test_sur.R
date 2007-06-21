@@ -29,7 +29,7 @@ restr3m <- matrix(0,1,6)  # restriction matrix "R" 2
 restr3m[1,2] <- -1
 restr3m[1,5] <-  1
 restr3q <- c( 0.5 )  # restriction vector "q" 2
-restrict3 <- "demand_income - supply_price = 0"
+restrict3 <- "- C2 + C5 = 0.5"
 
 # the standard equations do not converge and lead to a singular weighting matrix
 # both in R and in EViews, since both equations have the same endogenous variable
@@ -107,6 +107,10 @@ print( summary( fitsur4r3 ) )
 fitsur5 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr3m,
    restrict.rhs = restr3q, TX = tc )
 print( summary( fitsur5 ) )
+# the same with symbolically specified restrictions
+fitsur5Sym <- systemfit( system, "SUR", data = Kmenta,
+   restrictions = restrict3, TX = tc )
+all.equal( fitsur5, fitsur5Sym )
 
 ## *************** SUR with 2 restrictions via R and TX (EViews-like) **************
 fitsur5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",

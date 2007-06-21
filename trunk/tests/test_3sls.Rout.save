@@ -60,7 +60,7 @@ Attaching package: 'zoo'
 > restr3m[1,2] <- -1
 > restr3m[1,5] <-  1
 > restr3q <- c( 0.5 )  # restriction vector "q" 2
-> restrict3 <- "demand_income - supply_price = 0"
+> restrict3 <- "- C2 + C5 = 0.5"
 > 
 > 
 > ## *************** 3SLS estimation ************************
@@ -133,6 +133,11 @@ Attaching package: 'zoo'
 +       inst = inst, TX = tc, restrictions = restr3m, restrict.rhs = restr3q,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e5 ) )
++    # the same with symbolically specified restrictions
++    fit3sls[[ i ]]$e5Sym <- systemfit( system, "3SLS", data = Kmenta,
++       inst = inst, TX = tc, restrictions = restrict3,
++       method3sls = formulas[ i ] )
++    print( all.equal( fit3sls[[ i ]]$e5, fit3sls[[ i ]]$e5Sym ) )
 + 
 +    print( "******** 3SLS with 2 restrictions via R and TX (EViews-like)*****" )
 +    fit3sls[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
@@ -770,6 +775,9 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.389143 MSE: 6.586821 Root MSE: 2.56648 
 Multiple R-Squared: 0.606925 Adjusted R-Squared: 0.533223 
 
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
+[3] "Component 12: Attributes: < Length mismatch: comparison on first 1 components >"
 [1] "******** 3SLS with 2 restrictions via R and TX (EViews-like)*****"
 
 systemfit results 
@@ -1462,6 +1470,9 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.389143 MSE: 6.586821 Root MSE: 2.56648 
 Multiple R-Squared: 0.606925 Adjusted R-Squared: 0.533223 
 
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
+[3] "Component 12: Attributes: < Length mismatch: comparison on first 1 components >"
 [1] "******** 3SLS with 2 restrictions via R and TX (EViews-like)*****"
 
 systemfit results 
@@ -2154,6 +2165,9 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.389143 MSE: 6.586821 Root MSE: 2.56648 
 Multiple R-Squared: 0.606925 Adjusted R-Squared: 0.533223 
 
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
+[3] "Component 12: Attributes: < Length mismatch: comparison on first 1 components >"
 [1] "******** 3SLS with 2 restrictions via R and TX (EViews-like)*****"
 
 systemfit results 
@@ -2846,6 +2860,9 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.389143 MSE: 6.586821 Root MSE: 2.56648 
 Multiple R-Squared: 0.606925 Adjusted R-Squared: 0.533223 
 
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
+[3] "Component 12: Attributes: < Length mismatch: comparison on first 1 components >"
 [1] "******** 3SLS with 2 restrictions via R and TX (EViews-like)*****"
 
 systemfit results 
@@ -3538,6 +3555,9 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 277.770203 MSE: 17.360638 Root MSE: 4.16661 
 Multiple R-Squared: -0.036014 Adjusted R-Squared: -0.230267 
 
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
+[3] "Component 12: Attributes: < Length mismatch: comparison on first 1 components >"
 [1] "******** 3SLS with 2 restrictions via R and TX (EViews-like)*****"
 
 systemfit results 

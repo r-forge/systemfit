@@ -57,7 +57,7 @@ Attaching package: 'zoo'
 > restr3m[1,2] <- -1
 > restr3m[1,5] <-  1
 > restr3q <- c( 0.5 )       # restriction vector "q" 2
-> restrict3 <- "demand_income - supply_price = 0"
+> restrict3 <- "- C2 + C5 = 0.5"
 > 
 > # It is not possible to estimate OLS with systemfit
 > # exactly as EViews does, because EViews uses
@@ -1473,6 +1473,13 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.813088 MSE: 5.988318 Root MSE: 2.447104 
 Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636 
 
+> # the same with symbolically specified restrictions
+> fitols5Sym <- systemfit( system, "OLS", data = Kmenta,
++    restrictions = restrict3, TX = tc, methodRCov = "noDfCor")
+> all.equal( fitols5, fitols5Sym )
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 9: Attributes: < Length mismatch: comparison on first 1 components >" 
+[3] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
 > 
 > ## ***** OLS with 2 cross-equation restrictions via R and TX (single.eq.sigma=T) ****
 > fitols5s <- systemfit( system, "OLS", data = Kmenta,restrictions = restr3m,

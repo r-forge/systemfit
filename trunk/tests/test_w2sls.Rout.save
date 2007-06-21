@@ -60,7 +60,7 @@ Attaching package: 'zoo'
 > restr3m[1,2] <- -1
 > restr3m[1,5] <-  1
 > restr3q <- c( 0.5 )  # restriction vector "q" 2
-> restrict3 <- "demand_income - supply_price = 0"
+> restrict3 <- "- C2 + C5 = 0.5"
 > 
 > 
 > ## ********************* W2SLS *****************
@@ -614,6 +614,13 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.254988 MSE: 6.265937 Root MSE: 2.503185 
 Multiple R-Squared: 0.626074 Adjusted R-Squared: 0.555963 
 
+> # the same with symbolically specified restrictions
+> fitw2sls5Sym <- systemfit( system, "W2SLS", data = Kmenta,
++    restrictions = restrict3, TX = tc, inst = inst )
+> all.equal( fitw2sls5, fitw2sls5Sym )
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
+[3] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
 > 
 > ## ***************** W2SLS with 2 restrictions via R and TX (EViews-like) **************
 > fitw2sls5e <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr3m,

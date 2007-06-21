@@ -29,7 +29,7 @@ restr3m <- matrix(0,1,6)  # restriction matrix "R" 2
 restr3m[1,2] <- -1
 restr3m[1,5] <-  1
 restr3q <- c( 0.5 )  # restriction vector "q" 2
-restrict3 <- "demand_income - supply_price = 0"
+restrict3 <- "- C2 + C5 = 0.5"
 
 
 ## *************** WLS estimation ************************
@@ -80,6 +80,10 @@ print( summary( fitwls4e ) )
 fitwls5 <- systemfit( system, "WLS", data = Kmenta, restrictions = restr3m,
    restrict.rhs = restr3q, TX = tc )
 print( summary( fitwls5 ) )
+# the same with symbolically specified restrictions
+fitwls5Sym <- systemfit( system, "WLS", data = Kmenta,
+   restrictions = restrict3, TX = tc )
+all.equal( fitwls5, fitwls5Sym )
 
 ## *********** WLS with 2 cross-equation restrictions via R and TX (EViews-like)
 fitwls5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",

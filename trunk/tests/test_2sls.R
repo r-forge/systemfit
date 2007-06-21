@@ -32,7 +32,7 @@ restr3m <- matrix(0,1,6)  # restriction matrix "R" 2
 restr3m[1,2] <- -1
 restr3m[1,5] <-  1
 restr3q <- c( 0.5 )  # restriction vector "q" 2
-restrict3 <- "demand_income - supply_price = 0"
+restrict3 <- "- C2 + C5 = 0.5"
 
 # It is not possible to estimate 2SLS with systemfit exactly
 # as EViews does, because EViews uses
@@ -140,6 +140,10 @@ print( summary( fit2sls4rs ) )
 fit2sls5 <- systemfit( system, "2SLS", data = Kmenta, restrictions = restr3m,
    restrict.rhs = restr3q, TX = tc, inst = inst )
 print( summary( fit2sls5 ) )
+# the same with symbolically specified restrictions
+fit2sls5Sym <- systemfit( system, "2SLS", data = Kmenta,
+   restrictions = restrict3, TX = tc, inst = inst )
+all.equal( fit2sls5, fit2sls5Sym )
 
 ## ******* 2SLS with 2 restrictions via R and TX (single.eq.sigma=T) ******
 fit2sls5s <- systemfit( system, "2SLS", data = Kmenta, restrictions = restr3m,

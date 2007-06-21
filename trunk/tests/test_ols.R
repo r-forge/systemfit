@@ -29,7 +29,7 @@ restr3m <- matrix(0,1,6)  # restriction matrix "R" 2
 restr3m[1,2] <- -1
 restr3m[1,5] <-  1
 restr3q <- c( 0.5 )       # restriction vector "q" 2
-restrict3 <- "demand_income - supply_price = 0"
+restrict3 <- "- C2 + C5 = 0.5"
 
 # It is not possible to estimate OLS with systemfit
 # exactly as EViews does, because EViews uses
@@ -167,6 +167,10 @@ print( summary( fitols4rs ) )
 fitols5 <- systemfit( system, "OLS", data = Kmenta, restrictions = restr3m,
    restrict.rhs = restr3q, TX = tc, methodRCov = "noDfCor")
 print( summary( fitols5 ) )
+# the same with symbolically specified restrictions
+fitols5Sym <- systemfit( system, "OLS", data = Kmenta,
+   restrictions = restrict3, TX = tc, methodRCov = "noDfCor")
+all.equal( fitols5, fitols5Sym )
 
 ## ***** OLS with 2 cross-equation restrictions via R and TX (single.eq.sigma=T) ****
 fitols5s <- systemfit( system, "OLS", data = Kmenta,restrictions = restr3m,

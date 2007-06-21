@@ -60,7 +60,7 @@ Attaching package: 'zoo'
 > restr3m[1,2] <- -1
 > restr3m[1,5] <-  1
 > restr3q <- c( 0.5 )  # restriction vector "q" 2
-> restrict3 <- "demand_income - supply_price = 0"
+> restrict3 <- "- C2 + C5 = 0.5"
 > 
 > # It is not possible to estimate 2SLS with systemfit exactly
 > # as EViews does, because EViews uses
@@ -1164,6 +1164,13 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> # the same with symbolically specified restrictions
+> fit2sls5Sym <- systemfit( system, "2SLS", data = Kmenta,
++    restrictions = restrict3, TX = tc, inst = inst )
+> all.equal( fit2sls5, fit2sls5Sym )
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 9: Attributes: < Length mismatch: comparison on first 1 components >" 
+[3] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
 > 
 > ## ******* 2SLS with 2 restrictions via R and TX (single.eq.sigma=T) ******
 > fit2sls5s <- systemfit( system, "2SLS", data = Kmenta, restrictions = restr3m,

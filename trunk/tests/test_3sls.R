@@ -32,7 +32,7 @@ restr3m <- matrix(0,1,6)  # restriction matrix "R" 2
 restr3m[1,2] <- -1
 restr3m[1,5] <-  1
 restr3q <- c( 0.5 )  # restriction vector "q" 2
-restrict3 <- "demand_income - supply_price = 0"
+restrict3 <- "- C2 + C5 = 0.5"
 
 
 ## *************** 3SLS estimation ************************
@@ -105,6 +105,11 @@ for( i in seq( along = formulas ) ) {
       inst = inst, TX = tc, restrictions = restr3m, restrict.rhs = restr3q,
       method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e5 ) )
+   # the same with symbolically specified restrictions
+   fit3sls[[ i ]]$e5Sym <- systemfit( system, "3SLS", data = Kmenta,
+      inst = inst, TX = tc, restrictions = restrict3,
+      method3sls = formulas[ i ] )
+   print( all.equal( fit3sls[[ i ]]$e5, fit3sls[[ i ]]$e5Sym ) )
 
    print( "******** 3SLS with 2 restrictions via R and TX (EViews-like)*****" )
    fit3sls[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,

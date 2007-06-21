@@ -57,7 +57,7 @@ Attaching package: 'zoo'
 > restr3m[1,2] <- -1
 > restr3m[1,5] <-  1
 > restr3q <- c( 0.5 )  # restriction vector "q" 2
-> restrict3 <- "demand_income - supply_price = 0"
+> restrict3 <- "- C2 + C5 = 0.5"
 > 
 > 
 > ## *************** WLS estimation ************************
@@ -591,6 +591,13 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.267574 MSE: 6.016723 Root MSE: 2.452901 
 Multiple R-Squared: 0.640946 Adjusted R-Squared: 0.573623 
 
+> # the same with symbolically specified restrictions
+> fitwls5Sym <- systemfit( system, "WLS", data = Kmenta,
++    restrictions = restrict3, TX = tc )
+> all.equal( fitwls5, fitwls5Sym )
+[1] "Component 2: target, current do not match when deparsed"                        
+[2] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
+[3] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
 > 
 > ## *********** WLS with 2 cross-equation restrictions via R and TX (EViews-like)
 > fitwls5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
