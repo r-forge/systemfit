@@ -104,6 +104,9 @@ systemfit <- function(  eqns,
    xMatAll <- preparedData$xMatAll
    # number of observations in each equation
    nObsEq <- preparedData$nObsEq
+   # matrix to transform regressors / map coefficients
+   # (added default dimnames if no dimnames were specified by the user)
+   TX <- preparedData$TX
    # number of exogenous variables /(unrestricted) coefficients in each equation
    nCoefEq <- preparedData$nCoefEq
    # names of coefficients

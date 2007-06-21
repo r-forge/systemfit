@@ -77,6 +77,10 @@
       if( is.null( colnames( TX ) ) ){
          colnames( TX ) <- paste( "C", c( 1:ncol( TX ) ), sep = "" )
       }
+      # default rownames for matrix to transform regressors / map coefficients
+      if( is.null( rownames( TX ) ) ){
+         rownames( TX ) <- coefNames
+      }
       # transform regressor matrix
       XU <- xMatAll
       xMatAll  <- XU %*% TX
@@ -87,6 +91,7 @@
    result$xMatEq     <- xMatEq
    result$yVecAll    <- yVecAll
    result$xMatAll    <- xMatAll
+   result$TX         <- TX
    result$nObsEq     <- nObsEq
    result$nCoefEq    <- nCoefEq
    result$coefNames  <- coefNames
