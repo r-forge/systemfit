@@ -545,9 +545,7 @@ systemfit <- function(  eqns,
   results$df.residual <- nObsAll - nCoefLiAll
      # degrees of freedom of the whole system
   results$coefficients <- coef           # all estimated coefficients
-  results$bt      <- bt             # transformed vector of estimated coefficients
   results$bcov    <- bcov           # coefficients covariance matrix
-  results$btcov   <- btcov          # covariance matrix for transformed coeff. vector
   results$rcov    <- rcov           # residual covarance matrix
   results$iter    <- iter           # residual correlation matrix
   if( method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){

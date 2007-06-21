@@ -8,12 +8,14 @@ hausman.systemfit <- function( results2sls, results3sls ) {
 
    result <- list()
 
-   if( is.null( results2sls$bt ) ) {
+   if( is.null( results2sls$TX ) ) {
       result$q <- coef( results2sls ) - coef( results3sls )
       result$qVar <- vcov( results2sls ) - vcov( results3sls )
    } else {
-      result$q <- results2sls$bt - results3sls$bt
-      result$qVar <- results2sls$btcov - results3sls$btcov
+      result$q <- coef( results2sls, transformed = TRUE ) -
+         coef( results3sls, transformed = TRUE )
+      result$qVar <- vcov( results2sls, transformed = TRUE ) -
+         vcov( results3sls, transformed = TRUE )
    }
 
 #    if( min( eigen( hausman$qVar )$values ) < 0 ) {

@@ -44,11 +44,12 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
 ## return all coefficients
 coef.systemfit <- function( object, transformed = FALSE, ... ) {
    if( transformed ){
-      if( is.null( object$bt ) ){
+      if( is.null( object$TX ) ){
          stop( "transformed coefficients are not available,",
             " because argument 'TX' has not been used in this estimation." )
       } else {
-         return( drop( object$bt ) )
+         return( drop( solve( crossprod( object$TX ),
+            t( object$TX ) %*% coef( object ) ) ) )
       }
    } else {
       return( object$coefficients )
@@ -102,9 +103,9 @@ vcov.systemfit <- function( object, transformed = FALSE, ... ) {
             " are not available,",
             " because argument 'TX' has not been used in this estimation." )
       } else {
-         result <- object$btcov
-         rownames( result ) <- colnames( object$TX )
-         colnames( result ) <- colnames( object$TX )
+         txtxInv <- solve( crossprod( object$TX ) )
+         result <- txtxInv %*% t( object$TX ) %*% vcov( object ) %*%
+            object$TX %*% txtxInv
          return( result )
       }
    } else {
