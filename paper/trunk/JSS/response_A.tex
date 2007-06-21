@@ -13,8 +13,8 @@ Simultaneous Equation Systems in R (JSS~224)}}
 \end{center}
 
 
-We thank this reviewer for a very helpful set of comments and suggestions
-for improving the paper.
+We thank this reviewer for her/his very helpful comments and suggestions
+that assisted us to considerably improve the software as well as the paper.
 The reviewer has made one overall comment, 9 major comments and
 several minor comments.
 We have structured our reply accordingly.
@@ -44,7 +44,28 @@ We have structured our reply accordingly.
 % has to wait more than 10 pages before s/he learns something about the package).
 % I suggest to eliminate Section 2 in its current form and to re-write the
 % description of the theory in a more general and unified way while weaving
-% it with the translation into computational tools. As for the software itself,
+% it with the translation into computational tools.
+We consider the presentation of the theoretical background
+in a separate section
+as an advantage rather than as a drawback.
+As the formulas to calculate the estimators and their covariances
+are not essential to \emph{use} \pkg{systemfit},
+we think that the formulas and the usage should not be presented together.
+Furthermore, our structure allows readers
+who already know the theoretical background
+to skip this entire section
+and go immediately into the section they are interested in
+(e.g.\ section °Using systemfit°).
+Hence, they do not have to scan a large composite section
+just to figure out a few commands of \pkg{systemfit}.
+Readers who have skipped the section °Statistical background°,
+can easily go back to this section
+if they are interested in a particular part of the theory,
+because all parts in section °Using systemfit°
+have references to their theoretical background
+in section °Statistical background°.
+
+% As for the software itself,
 % several modifications are necessary to make it more intuitive for R users
 % and to improve how the underlying concepts are turned into computational 
 % tools. More details are described below.
