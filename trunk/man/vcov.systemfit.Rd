@@ -10,7 +10,7 @@
 }
 
 \usage{
-   \method{vcov}{systemfit}( object, \dots )
+   \method{vcov}{systemfit}( object, transformed = FALSE, \dots )
 
    \method{vcov}{systemfit.equation}( object, \dots )
 }
@@ -18,6 +18,10 @@
 \arguments{
    \item{object}{an object of class \code{systemfit} or
       \code{systemfit.equation}.}
+   \item{transformed}{logical. If \code{TRUE},
+      the covariance matrix of the transformed coefficients
+      (due to transforming the regressor matrix by argument \code{TX})
+      is returned.}
    \item{\dots}{other arguments.}
 }
 
@@ -49,6 +53,21 @@ vcov( fitols$eq[[1]] )
 
 ## variance covariance matrix of the coefficients in the second equation
 vcov( fitols$eq[[2]] )
+
+## transformed coefficients
+coefMap <- matrix( 0, 7, 6 )
+colnames( coefMap ) <- c( "demIntercept", "demPrice", "demIncome",
+   "supIntercept", "supPrice2", "supTrend" )
+coefMap[ 1, "demIntercept" ] <- 1
+coefMap[ 2, "demPrice" ]     <- 1
+coefMap[ 3, "demIncome" ]    <- 1
+coefMap[ 4, "supIntercept" ] <- 1
+coefMap[ 5, "supPrice2" ]    <- 1
+coefMap[ 6, "supPrice2" ]    <- 1
+coefMap[ 7, "supTrend" ]     <- 1
+fitsur <- systemfit( system, "SUR", data = Kmenta, TX = coefMap )
+vcov( fitsur, transformed  = TRUE )
+vcov( fitsur )
 }
 
 \keyword{models}

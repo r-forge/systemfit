@@ -293,12 +293,14 @@ print( round( vcov( fitsur2e ), digits = 6 ) )
 print( round( vcov( fitsur2e$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsur3 ), digits = 6 ) )
+print( round( vcov( fitsur3, transformed = TRUE ), digits = 6 ) )
 print( round( vcov( fitsur3$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsur4r2 ), digits = 6 ) )
 print( round( vcov( fitsur4r2$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsur5e ), digits = 6 ) )
+print( round( vcov( fitsur5e, transformed = TRUE ), digits = 6 ) )
 print( round( vcov( fitsur5e$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsuri1r3 ), digits = 6 ) )
@@ -308,6 +310,7 @@ print( round( vcov( fitsuri2 ), digits = 6 ) )
 print( round( vcov( fitsuri2$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsuri3e ), digits = 6 ) )
+print( round( vcov( fitsuri3e, transformed = TRUE ), digits = 6 ) )
 print( round( vcov( fitsuri3e$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsurio4e ), digits = 6 ) )
@@ -316,8 +319,10 @@ print( round( vcov( fitsuri4e ), digits = 6 ) )
 print( round( vcov( fitsuri4e$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsurio5r2 ), digits = 6 ) )
+print( round( vcov( fitsurio5r2, transformed = TRUE ), digits = 6 ) )
 print( round( vcov( fitsurio5r2$eq[[ 1 ]] ), digits = 6 ) )
 print( round( vcov( fitsuri5r2 ), digits = 6 ) )
+print( round( vcov( fitsuri5r2, transformed = TRUE ), digits = 6 ) )
 print( round( vcov( fitsuri5r2$eq[[ 1 ]] ), digits = 6 ) )
 
 

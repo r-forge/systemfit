@@ -95,8 +95,21 @@ residuals.systemfit.equation <- function( object, ... ) {
 }
 
 ## return the variance covariance matrix of the coefficients
-vcov.systemfit <- function( object, ... ) {
-   object$bcov
+vcov.systemfit <- function( object, transformed = FALSE, ... ) {
+   if( transformed ){
+      if( is.null( object$TX ) ){
+         stop( "transformed coefficients and their covariance matrix",
+            " are not available,",
+            " because argument 'TX' has not been used in this estimation." )
+      } else {
+         result <- object$btcov
+         rownames( result ) <- colnames( object$TX )
+         colnames( result ) <- colnames( object$TX )
+         return( result )
+      }
+   } else {
+      return( object$bcov )
+   }
 }
 
 ## return the variance covariance matrix of the coefficients of a single equation

@@ -256,12 +256,14 @@ print( round( vcov( fitols2s ), digits = 6 ) )
 print( round( vcov( fitols2s$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitols3p ), digits = 6 ) )
+print( round( vcov( fitols3p, transformed = TRUE ), digits = 6 ) )
 print( round( vcov( fitols3p$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitols4r ), digits = 6 ) )
 print( round( vcov( fitols4r$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitols5 ), digits = 6 ) )
+print( round( vcov( fitols5, transformed = TRUE ), digits = 6 ) )
 print( round( vcov( fitols5$eq[[ 2 ]] ), digits = 6 ) )
 
 
