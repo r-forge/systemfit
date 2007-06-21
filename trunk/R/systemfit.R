@@ -87,45 +87,134 @@ systemfit <- function(  eqns,
    results$call <- match.call() # get the original call
 
    # prepare data
-   preparedData <- .prepareData.systemfit( data = data, eqns = eqns,
-      inst = inst, TX = TX, control = control, eqnLabels = eqnLabels,
-      panelLike = panelLike )
+   modelFrame <- .prepareData.systemfit( data )
    # list of terms objects of each equation
-   termsEq <- preparedData$termsEq
-   # list of evaluated model frames of each equation 
-   evalModelFrameEq <- preparedData$evalModelFrameEq
+   termsEq <- list()
+   # terms and model frames for the individual equations
+   modelFrameEq <- list()
+   # list of evaluated model frames of each equation
+   evalModelFrameEq <- list()
    # list for vectors of endogenous variables in each equation
-   yVecEq <- preparedData$yVecEq
+   yVecEq  <- list()
    # stacked endogenous variables of all equations
-   yVecAll <- preparedData$yVecAll
+   yVecAll <- matrix( 0, 0, 1 )
    # list for matrices of regressors in each equation
-   xMatEq <- preparedData$xMatEq
+   xMatEq  <- list()
    # stacked matrices of all regressors (multiplied with TX)
-   xMatAll <- preparedData$xMatAll
+   xMatAll <- matrix( 0, 0, 0 )
    # number of observations in each equation
-   nObsEq <- preparedData$nObsEq
-   # matrix to transform regressors / map coefficients
-   # (added default dimnames if no dimnames were specified by the user)
-   TX <- preparedData$TX
+   nObsEq  <- numeric( nEq )
    # number of exogenous variables /(unrestricted) coefficients in each equation
-   nCoefEq <- preparedData$nCoefEq
+   nCoefEq <- numeric( nEq )
    # names of coefficients
-   coefNames <- preparedData$coefNames
+   coefNames  <- NULL
    # names of coefficients of each equation
-   coefNamesEq <- preparedData$coefNamesEq
+   coefNamesEq <- list()
+   # prepare data for individual equations
+   for(i in 1:nEq ) {
+      modelFrameEq[[ i ]] <- modelFrame
+      modelFrameEq[[ i ]]$formula <- eqns[[ i ]]
+      evalModelFrameEq[[ i ]] <- eval( modelFrameEq[[ i ]] )
+      termsEq[[ i ]] <- attr( evalModelFrameEq[[ i ]], "terms" )
+      weights <- model.extract( evalModelFrameEq[[ i ]], "weights" )
+      yVecEq[[i]] <- model.extract( evalModelFrameEq[[ i ]], "response" )
+      xMatEq[[i]] <- model.matrix( termsEq[[ i ]], evalModelFrameEq[[ i ]] )
+      yVecAll <- c(yVecAll,yVecEq[[i]])
+      xMatAll <- rbind( cbind( xMatAll, matrix( 0, nrow( xMatAll ), ncol( xMatEq[[i]] ))),
+                  cbind( matrix( 0, nrow( xMatEq[[i]] ), ncol( xMatAll )), xMatEq[[i]]))
+      nObsEq[i] <- length( yVecEq[[i]] )
+      nCoefEq[i] <- ncol(xMatEq[[i]])
+      for(j in 1:nCoefEq[i]) {
+         coefNames <- c( coefNames,
+            paste( eqnLabels[ i ],colnames( xMatEq[[i]] )[j],
+            sep = "_" ))
+      }
+      coefNamesEq[[ i ]] <- colnames( xMatEq[[i]] )
+   }
+   rm( modelFrameEq )
+   if( nEq > 1 ) {
+      if( var ( nObsEq ) != 0 ) {
+         stop( "Systems with unequal numbers of observations are not supported yet." )
+      }
+   }
+   # names for coefficients
+   if( panelLike ){
+      for( i in 1:nEq ){
+         coefNames <- sub(
+            paste( "\\.", eqnLabels[ i ], "$", sep = "" ),
+            "", coefNames )
+         coefNamesEq[[ i ]] <- sub(
+            paste( "\\.", eqnLabels[ i ], "$", sep = "" ),
+            "", coefNamesEq[[ i ]] )
+      }
+   }
+
+   if( !is.null( TX ) ) {
+      # checking matrix to transform (map) coefficients (TX)
+      if( !is.matrix( TX ) ) {
+         stop( "argument 'TX' must be a matrix" )
+      }
+      if( nrow( TX ) != sum( nCoefEq ) ){
+         stop( "argument 'TX' must be a matrix with number of rows",
+            " equal to the number of all regressors [in this model: ",
+            sum( nCoefEq ), "]" )
+      }
+      # default names for transformed (mapped) regressors and coefficients
+      if( is.null( colnames( TX ) ) ){
+         colnames( TX ) <- paste( "C", c( 1:ncol( TX ) ), sep = "" )
+      }
+      # default rownames for matrix to transform regressors / map coefficients
+      if( is.null( rownames( TX ) ) ){
+         rownames( TX ) <- coefNames
+      }
+      # transform regressor matrix
+      XU <- xMatAll
+      xMatAll  <- XU %*% TX
+   }
+
+   ## preparing instruments
    if( !is.null( inst ) ) {
       # list of formulas for instruments of each equation
-      instEq <- preparedData$instEq
+      instEq  <- list()
+      for(i in 1:nEq) {
+         if(is.list(inst)) {
+            instEq[[i]] <- inst[[i]]
+         } else {
+            instEq[[i]] <- inst
+         }
+      }
       # list of terms objects of instruments of each equation
-      termsInst  <- preparedData$termsInst
+      termsInst <- list()
       # model frame of instruments
-      evalModelFrameInst  <- preparedData$evalModelFrameInst
+      modelFrameInst <- list()
+      # evaluated model frame of instruments
+      evalModelFrameInst <- list()
       # stacked matrices of all instruments
-      hMatAll  <- preparedData$hMatAll      # stacked matrices of all instruments
+      hMatAll  <- matrix( 0, 0, 0 )
       # list for matrices of instruments in each equation
-      hMatEq  <- preparedData$hMatEq
+      hMatEq  <- list()
       # fitted values of all regressors
-      xMatHatAll <- preparedData$xMatHatAll
+      xMatHatAll <- matrix( 0, 0, ncol( xMatAll ) )
+      # prepare data for individual equations
+      for(i in 1:nEq) {
+         rowsEq <- c( (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) )
+            # rows that belong to the ith equation
+         modelFrameInst[[ i ]] <- modelFrame
+         modelFrameInst[[ i ]]$formula <- instEq[[ i ]]
+         evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]] )
+         termsInst[[ i ]] <- attr( evalModelFrameInst[[ i ]], "terms" )
+         hMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
+         if( nrow( hMatEq[[ i ]] ) != nrow( xMatAll[ rowsEq, ] ) ) {
+            stop( paste( "The instruments and the regressors of equation",
+               as.character( i ), "have different numbers of observations." ) )
+         }
+         # extract instrument matrix
+         xMatHatAll <- rbind(xMatHatAll, hMatEq[[i]] %*% solve( crossprod( hMatEq[[i]]) , tol=control$solvetol )
+              %*% crossprod( hMatEq[[i]], xMatAll[ rowsEq, ] ))       # 'fitted' X-values
+         hMatAll  <-  rbind( cbind( hMatAll, matrix( 0, nrow( hMatAll ), ncol( hMatEq[[i]] ))),
+                         cbind( matrix( 0, nrow( hMatEq[[i]] ), ncol( hMatAll )), hMatEq[[i]]))
+      }
+      rm( modelFrameInst )
    }
 
    # checking and modifying parameter restrictions
