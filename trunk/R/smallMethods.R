@@ -148,8 +148,15 @@ model.matrix.systemfit <- function( object, ... ){
          cbind( matrix( 0, nrow( mmi ), ncol( result ) ), mmi ) )
       mmRowNames <- c( mmRowNames,
          paste( object$eq[[ i ]]$eqnLabel, "_", rownames( mmi ), sep = "" ) )
-      mmColNames <- c( mmColNames,
-         paste( object$eq[[ i ]]$eqnLabel, "_", colnames( mmi ), sep = "" ) )
+      for( j in 1:ncol( mmi ) ){
+         cName <- colnames( mmi )[ j ]
+         if( object$panelLike && cName != "(Intercept)" ){
+            mmColNames <- c( mmColNames, cName )
+         } else {
+            mmColNames <- c( mmColNames,
+               paste( object$eq[[ i ]]$eqnLabel, "_", cName, sep = "" ) )
+         }
+      }
    }
    rownames( result ) <- mmRowNames
    colnames( result ) <- mmColNames
