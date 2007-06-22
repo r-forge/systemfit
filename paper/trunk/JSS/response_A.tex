@@ -127,7 +127,7 @@ rather than on the general theory of estimating systems of equations.
 The reviewer is right that it is possible to shorten
 the description of the estimation methods
 by exploiting the common properties of the different estimators.
-However, in our opinion this shorting would considerably worsen
+However, in our opinion this shortening would considerably worsen
 the readability of this section.
 Furthermore, a major purpose of this section is
 that a user of the \pkg{systemfit} package
@@ -260,6 +260,22 @@ have been resolved by its removal.
 %     a new class along with its print method is introduced for each test. It
 %     would be much easier to re-use "htest" or (probably better) "anova" as
 %     classes for this.
+We have modified the tools for testing linear hypothesis
+according to the suggestions of this reviewer.
+The user can test linear restrictions by a Wald/$\chi^2$ or F test
+using the generic function \code{linear.hypothesis} now.
+The method \code{linear.hypothesis.systemfit} uses
+\code{linear.}\hspace{0pt}\code{hypothesis.}\hspace{0pt}\code{default}
+of the \pkg{car} package
+to compute the Wald/$\chi^2$ statistic.
+The $F$ statistic is computed in the \pkg{systemfit} package internally,
+but the returned object is of the same class and structure
+as the result of \code{linear.hypothesis.default}.
+
+The method \code{lrtest.systemfit} is a wrapper function
+to \code{lrtest.default} of the \pkg{lmtest} package now.
+Its main task is to specify the names for the compared objects.
+
 %
 \subsection{Organize Internals of systemfit}
 %   o organize internals of systemfit
