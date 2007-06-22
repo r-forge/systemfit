@@ -23,7 +23,7 @@
       exogVar <- formula[3]
       eqnData <- data[ data[[ eqnVar ]] == eqn, ]
       for( var in all.vars( formula ) ) {
-         newVar <- paste( var, eqn, sep = "." )
+         newVar <- paste( eqn, var, sep = "_" )
          newVar <- make.names( newVar )
          wideData[[ newVar ]] <- NA
          wideData[ make.names( eqnData[ , timeVar ] ), newVar ] <-

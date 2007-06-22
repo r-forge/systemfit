@@ -77,7 +77,7 @@ The determinant of the residual covariance matrix: 38001.4
 OLS R-squared value of the system: 0.710551
 
 OLS estimates for 'General.Electric' (equation 1)
-Model Formula: invest.General.Electric ~ value.General.Electric + capital.General.Electric
+Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) -9.956306  31.374249 -0.31734  0.75485    
@@ -93,7 +93,7 @@ Multiple R-Squared: 0.705307 Adjusted R-Squared: 0.670637
 
 
 OLS estimates for 'Westinghouse' (equation 2)
-Model Formula: invest.Westinghouse ~ value.Westinghouse + capital.Westinghouse
+Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
             Estimate Std. Error   t value Pr(>|t|)   
 (Intercept) -0.50939   8.015289 -0.063552 0.950068   
@@ -206,7 +206,7 @@ Westinghouse_capital          -0.026  0.211
 > logLik( theilOls )
 'log Lik.' -158.9609 (df=7)
 > model.frame( theilOls )
-      invest.General.Electric value.General.Electric capital.General.Electric
+      General.Electric_invest General.Electric_value General.Electric_capital
 X1935                    33.1                 1170.6                     97.8
 X1936                    45.0                 2015.8                    104.4
 X1937                    77.2                 2803.3                    118.0
@@ -227,7 +227,7 @@ X1951                   135.2                 1819.4                    671.3
 X1952                   157.3                 2079.7                    726.1
 X1953                   179.5                 2371.6                    800.3
 X1954                   189.6                 2759.9                    888.9
-      invest.Westinghouse value.Westinghouse capital.Westinghouse
+      Westinghouse_invest Westinghouse_value Westinghouse_capital
 X1935               12.93              191.5                  1.8
 X1936               25.90              516.0                  0.8
 X1937               35.05              729.0                  7.4
@@ -290,7 +290,7 @@ Westinghouse_X1951                                0
 Westinghouse_X1952                                0
 Westinghouse_X1953                                0
 Westinghouse_X1954                                0
-                       General.Electric_value.General.Electric
+                       General.Electric_General.Electric_value
 General.Electric_X1935                                  1170.6
 General.Electric_X1936                                  2015.8
 General.Electric_X1937                                  2803.3
@@ -331,7 +331,7 @@ Westinghouse_X1951                                         0.0
 Westinghouse_X1952                                         0.0
 Westinghouse_X1953                                         0.0
 Westinghouse_X1954                                         0.0
-                       General.Electric_capital.General.Electric
+                       General.Electric_General.Electric_capital
 General.Electric_X1935                                      97.8
 General.Electric_X1936                                     104.4
 General.Electric_X1937                                     118.0
@@ -372,7 +372,7 @@ Westinghouse_X1951                                           0.0
 Westinghouse_X1952                                           0.0
 Westinghouse_X1953                                           0.0
 Westinghouse_X1954                                           0.0
-                       Westinghouse_(Intercept) Westinghouse_value.Westinghouse
+                       Westinghouse_(Intercept) Westinghouse_Westinghouse_value
 General.Electric_X1935                        0                             0.0
 General.Electric_X1936                        0                             0.0
 General.Electric_X1937                        0                             0.0
@@ -413,7 +413,7 @@ Westinghouse_X1951                            1                           723.8
 Westinghouse_X1952                            1                           864.1
 Westinghouse_X1953                            1                          1193.5
 Westinghouse_X1954                            1                          1188.9
-                       Westinghouse_capital.Westinghouse
+                       Westinghouse_Westinghouse_capital
 General.Electric_X1935                               0.0
 General.Electric_X1936                               0.0
 General.Electric_X1937                               0.0
@@ -499,7 +499,7 @@ OLS R-squared value of the system: 0.698968
 McElroy's R-squared value for the system: 0.615103
 
 SUR estimates for 'General.Electric' (equation 1)
-Model Formula: invest.General.Electric ~ value.General.Electric + capital.General.Electric
+Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -27.719317  27.032828 -1.025395 0.319547    
@@ -515,7 +515,7 @@ Multiple R-Squared: 0.692557 Adjusted R-Squared: 0.656388
 
 
 SUR estimates for 'Westinghouse' (equation 2)
-Model Formula: invest.Westinghouse ~ value.Westinghouse + capital.Westinghouse
+Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -1.251988   6.956347 -0.179978 0.859298    
@@ -628,7 +628,7 @@ Westinghouse_capital          -0.039  0.167
 > logLik( theilSur )
 'log Lik.' -158.3196 (df=9)
 > model.frame( theilSur )
-      invest.General.Electric value.General.Electric capital.General.Electric
+      General.Electric_invest General.Electric_value General.Electric_capital
 X1935                    33.1                 1170.6                     97.8
 X1936                    45.0                 2015.8                    104.4
 X1937                    77.2                 2803.3                    118.0
@@ -649,7 +649,7 @@ X1951                   135.2                 1819.4                    671.3
 X1952                   157.3                 2079.7                    726.1
 X1953                   179.5                 2371.6                    800.3
 X1954                   189.6                 2759.9                    888.9
-      invest.Westinghouse value.Westinghouse capital.Westinghouse
+      Westinghouse_invest Westinghouse_value Westinghouse_capital
 X1935               12.93              191.5                  1.8
 X1936               25.90              516.0                  0.8
 X1937               35.05              729.0                  7.4
@@ -712,7 +712,7 @@ Westinghouse_X1951                                0
 Westinghouse_X1952                                0
 Westinghouse_X1953                                0
 Westinghouse_X1954                                0
-                       General.Electric_value.General.Electric
+                       General.Electric_General.Electric_value
 General.Electric_X1935                                  1170.6
 General.Electric_X1936                                  2015.8
 General.Electric_X1937                                  2803.3
@@ -753,7 +753,7 @@ Westinghouse_X1951                                         0.0
 Westinghouse_X1952                                         0.0
 Westinghouse_X1953                                         0.0
 Westinghouse_X1954                                         0.0
-                       General.Electric_capital.General.Electric
+                       General.Electric_General.Electric_capital
 General.Electric_X1935                                      97.8
 General.Electric_X1936                                     104.4
 General.Electric_X1937                                     118.0
@@ -794,7 +794,7 @@ Westinghouse_X1951                                           0.0
 Westinghouse_X1952                                           0.0
 Westinghouse_X1953                                           0.0
 Westinghouse_X1954                                           0.0
-                       Westinghouse_(Intercept) Westinghouse_value.Westinghouse
+                       Westinghouse_(Intercept) Westinghouse_Westinghouse_value
 General.Electric_X1935                        0                             0.0
 General.Electric_X1936                        0                             0.0
 General.Electric_X1937                        0                             0.0
@@ -835,7 +835,7 @@ Westinghouse_X1951                            1                           723.8
 Westinghouse_X1952                            1                           864.1
 Westinghouse_X1953                            1                          1193.5
 Westinghouse_X1954                            1                          1188.9
-                       Westinghouse_capital.Westinghouse
+                       Westinghouse_Westinghouse_capital
 General.Electric_X1935                               0.0
 General.Electric_X1936                               0.0
 General.Electric_X1937                               0.0
@@ -952,7 +952,7 @@ The determinant of the residual covariance matrix: 2.09423e+14
 OLS R-squared value of the system: 0.847604
 
 OLS estimates for 'Chrysler' (equation 1)
-Model Formula: invest.Chrysler ~ value.Chrysler + capital.Chrysler
+Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
 
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -6.189961  13.506478 -0.458296 0.652544    
@@ -968,7 +968,7 @@ Multiple R-Squared: 0.913578 Adjusted R-Squared: 0.903411
 
 
 OLS estimates for 'General.Electric' (equation 2)
-Model Formula: invest.General.Electric ~ value.General.Electric + capital.General.Electric
+Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
 
              Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) -9.956306  31.374249 -0.31734  0.75485    
@@ -984,7 +984,7 @@ Multiple R-Squared: 0.705307 Adjusted R-Squared: 0.670637
 
 
 OLS estimates for 'General.Motors' (equation 3)
-Model Formula: invest.General.Motors ~ value.General.Motors + capital.General.Motors
+Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
 
                Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -149.782453 105.842125  -1.41515 0.175082    
@@ -1000,7 +1000,7 @@ Multiple R-Squared: 0.921354 Adjusted R-Squared: 0.912102
 
 
 OLS estimates for 'US.Steel' (equation 4)
-Model Formula: invest.US.Steel ~ value.US.Steel + capital.US.Steel
+Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
 
               Estimate Std. Error   t value Pr(>|t|)  
 (Intercept) -30.368532 157.047695 -0.193371  0.84896  
@@ -1016,7 +1016,7 @@ Multiple R-Squared: 0.440312 Adjusted R-Squared: 0.374467
 
 
 OLS estimates for 'Westinghouse' (equation 5)
-Model Formula: invest.Westinghouse ~ value.Westinghouse + capital.Westinghouse
+Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
             Estimate Std. Error   t value Pr(>|t|)   
 (Intercept) -0.50939   8.015289 -0.063552 0.950068   
@@ -1275,7 +1275,7 @@ Westinghouse_capital           -0.026   0.211
 > logLik( greeneOls )
 'log Lik.' -463.5217 (df=16)
 > model.frame( greeneOls )
-      invest.Chrysler value.Chrysler capital.Chrysler invest.General.Electric
+      Chrysler_invest Chrysler_value Chrysler_capital General.Electric_invest
 X1935           40.29          417.5             10.5                    33.1
 X1936           72.76          837.8             10.2                    45.0
 X1937           66.26          883.9             34.7                    77.2
@@ -1296,7 +1296,7 @@ X1951          160.62          809.0            203.5                   135.2
 X1952          145.00          727.0            290.6                   157.3
 X1953          174.93         1001.5            346.1                   179.5
 X1954          172.49          703.2            414.9                   189.6
-      value.General.Electric capital.General.Electric invest.General.Motors
+      General.Electric_value General.Electric_capital General.Motors_invest
 X1935                 1170.6                     97.8                 317.6
 X1936                 2015.8                    104.4                 391.8
 X1937                 2803.3                    118.0                 410.6
@@ -1317,7 +1317,7 @@ X1951                 1819.4                    671.3                 755.9
 X1952                 2079.7                    726.1                 891.2
 X1953                 2371.6                    800.3                1304.4
 X1954                 2759.9                    888.9                1486.7
-      value.General.Motors capital.General.Motors invest.US.Steel
+      General.Motors_value General.Motors_capital US.Steel_invest
 X1935               3078.5                    2.8           209.9
 X1936               4661.7                   52.6           355.3
 X1937               5387.1                  156.9           469.9
@@ -1338,7 +1338,7 @@ X1951               4833.0                 1207.7           588.2
 X1952               4924.9                 1430.5           645.2
 X1953               6241.7                 1777.3           641.0
 X1954               5593.6                 2226.3           459.3
-      value.US.Steel capital.US.Steel invest.Westinghouse value.Westinghouse
+      US.Steel_value US.Steel_capital Westinghouse_invest Westinghouse_value
 X1935         1362.4             53.8               12.93              191.5
 X1936         1807.1             50.5               25.90              516.0
 X1937         2676.3            118.1               35.05              729.0
@@ -1359,7 +1359,7 @@ X1951         2289.5            342.1               54.38              723.8
 X1952         2159.4            444.2               71.78              864.1
 X1953         2031.3            623.6               90.08             1193.5
 X1954         2115.5            669.7               68.60             1188.9
-      capital.Westinghouse
+      Westinghouse_capital
 X1935                  1.8
 X1936                  0.8
 X1937                  7.4
@@ -1381,7 +1381,7 @@ X1952                145.5
 X1953                174.8
 X1954                213.5
 > model.matrix( greeneOls )
-                       Chrysler_(Intercept) Chrysler_value.Chrysler
+                       Chrysler_(Intercept) Chrysler_Chrysler_value
 Chrysler_X1935                            1                   417.5
 Chrysler_X1936                            1                   837.8
 Chrysler_X1937                            1                   883.9
@@ -1482,7 +1482,7 @@ Westinghouse_X1951                        0                     0.0
 Westinghouse_X1952                        0                     0.0
 Westinghouse_X1953                        0                     0.0
 Westinghouse_X1954                        0                     0.0
-                       Chrysler_capital.Chrysler General.Electric_(Intercept)
+                       Chrysler_Chrysler_capital General.Electric_(Intercept)
 Chrysler_X1935                              10.5                            0
 Chrysler_X1936                              10.2                            0
 Chrysler_X1937                              34.7                            0
@@ -1583,7 +1583,7 @@ Westinghouse_X1951                           0.0                            0
 Westinghouse_X1952                           0.0                            0
 Westinghouse_X1953                           0.0                            0
 Westinghouse_X1954                           0.0                            0
-                       General.Electric_value.General.Electric
+                       General.Electric_General.Electric_value
 Chrysler_X1935                                             0.0
 Chrysler_X1936                                             0.0
 Chrysler_X1937                                             0.0
@@ -1684,7 +1684,7 @@ Westinghouse_X1951                                         0.0
 Westinghouse_X1952                                         0.0
 Westinghouse_X1953                                         0.0
 Westinghouse_X1954                                         0.0
-                       General.Electric_capital.General.Electric
+                       General.Electric_General.Electric_capital
 Chrysler_X1935                                               0.0
 Chrysler_X1936                                               0.0
 Chrysler_X1937                                               0.0
@@ -1886,7 +1886,7 @@ Westinghouse_X1951                              0
 Westinghouse_X1952                              0
 Westinghouse_X1953                              0
 Westinghouse_X1954                              0
-                       General.Motors_value.General.Motors
+                       General.Motors_General.Motors_value
 Chrysler_X1935                                         0.0
 Chrysler_X1936                                         0.0
 Chrysler_X1937                                         0.0
@@ -1987,7 +1987,7 @@ Westinghouse_X1951                                     0.0
 Westinghouse_X1952                                     0.0
 Westinghouse_X1953                                     0.0
 Westinghouse_X1954                                     0.0
-                       General.Motors_capital.General.Motors
+                       General.Motors_General.Motors_capital
 Chrysler_X1935                                           0.0
 Chrysler_X1936                                           0.0
 Chrysler_X1937                                           0.0
@@ -2088,7 +2088,7 @@ Westinghouse_X1951                                       0.0
 Westinghouse_X1952                                       0.0
 Westinghouse_X1953                                       0.0
 Westinghouse_X1954                                       0.0
-                       US.Steel_(Intercept) US.Steel_value.US.Steel
+                       US.Steel_(Intercept) US.Steel_US.Steel_value
 Chrysler_X1935                            0                     0.0
 Chrysler_X1936                            0                     0.0
 Chrysler_X1937                            0                     0.0
@@ -2189,7 +2189,7 @@ Westinghouse_X1951                        0                     0.0
 Westinghouse_X1952                        0                     0.0
 Westinghouse_X1953                        0                     0.0
 Westinghouse_X1954                        0                     0.0
-                       US.Steel_capital.US.Steel Westinghouse_(Intercept)
+                       US.Steel_US.Steel_capital Westinghouse_(Intercept)
 Chrysler_X1935                               0.0                        0
 Chrysler_X1936                               0.0                        0
 Chrysler_X1937                               0.0                        0
@@ -2290,7 +2290,7 @@ Westinghouse_X1951                           0.0                        1
 Westinghouse_X1952                           0.0                        1
 Westinghouse_X1953                           0.0                        1
 Westinghouse_X1954                           0.0                        1
-                       Westinghouse_value.Westinghouse
+                       Westinghouse_Westinghouse_value
 Chrysler_X1935                                     0.0
 Chrysler_X1936                                     0.0
 Chrysler_X1937                                     0.0
@@ -2391,7 +2391,7 @@ Westinghouse_X1951                               723.8
 Westinghouse_X1952                               864.1
 Westinghouse_X1953                              1193.5
 Westinghouse_X1954                              1188.9
-                       Westinghouse_capital.Westinghouse
+                       Westinghouse_Westinghouse_capital
 Chrysler_X1935                                       0.0
 Chrysler_X1936                                       0.0
 Chrysler_X1937                                       0.0
@@ -2562,7 +2562,7 @@ The determinant of the residual covariance matrix: 4.20396e+17
 OLS R-squared value of the system: 0.294071
 
 OLS estimates for 'Chrysler' (equation 1)
-Model Formula: invest.Chrysler ~ value.Chrysler + capital.Chrysler
+Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -48.029738  21.480165 -2.236004 0.027643   *
@@ -2578,7 +2578,7 @@ Multiple R-Squared: 0.56415 Adjusted R-Squared: 0.512874
 
 
 OLS estimates for 'General.Electric' (equation 2)
-Model Formula: invest.General.Electric ~ value.General.Electric + capital.General.Electric
+Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -48.029738  21.480165 -2.236004 0.027643   *
@@ -2594,7 +2594,7 @@ Multiple R-Squared: -14.290768 Adjusted R-Squared: -16.089682
 
 
 OLS estimates for 'General.Motors' (equation 3)
-Model Formula: invest.General.Motors ~ value.General.Motors + capital.General.Motors
+Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -48.029738  21.480165 -2.236004 0.027643   *
@@ -2610,7 +2610,7 @@ Multiple R-Squared: 0.896634 Adjusted R-Squared: 0.884473
 
 
 OLS estimates for 'US.Steel' (equation 4)
-Model Formula: invest.US.Steel ~ value.US.Steel + capital.US.Steel
+Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -48.029738  21.480165 -2.236004 0.027643   *
@@ -2626,7 +2626,7 @@ Multiple R-Squared: -1.10474 Adjusted R-Squared: -1.352356
 
 
 OLS estimates for 'Westinghouse' (equation 5)
-Model Formula: invest.Westinghouse ~ value.Westinghouse + capital.Westinghouse
+Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -48.029738  21.480165 -2.236004 0.027643   *
@@ -2882,7 +2882,7 @@ Westinghouse_capital           0.219  0.392
 > logLik( greeneOlsPooled )
 'log Lik.' -539.5676 (df=4)
 > model.frame( greeneOlsPooled )
-      invest.Chrysler value.Chrysler capital.Chrysler invest.General.Electric
+      Chrysler_invest Chrysler_value Chrysler_capital General.Electric_invest
 X1935           40.29          417.5             10.5                    33.1
 X1936           72.76          837.8             10.2                    45.0
 X1937           66.26          883.9             34.7                    77.2
@@ -2903,7 +2903,7 @@ X1951          160.62          809.0            203.5                   135.2
 X1952          145.00          727.0            290.6                   157.3
 X1953          174.93         1001.5            346.1                   179.5
 X1954          172.49          703.2            414.9                   189.6
-      value.General.Electric capital.General.Electric invest.General.Motors
+      General.Electric_value General.Electric_capital General.Motors_invest
 X1935                 1170.6                     97.8                 317.6
 X1936                 2015.8                    104.4                 391.8
 X1937                 2803.3                    118.0                 410.6
@@ -2924,7 +2924,7 @@ X1951                 1819.4                    671.3                 755.9
 X1952                 2079.7                    726.1                 891.2
 X1953                 2371.6                    800.3                1304.4
 X1954                 2759.9                    888.9                1486.7
-      value.General.Motors capital.General.Motors invest.US.Steel
+      General.Motors_value General.Motors_capital US.Steel_invest
 X1935               3078.5                    2.8           209.9
 X1936               4661.7                   52.6           355.3
 X1937               5387.1                  156.9           469.9
@@ -2945,7 +2945,7 @@ X1951               4833.0                 1207.7           588.2
 X1952               4924.9                 1430.5           645.2
 X1953               6241.7                 1777.3           641.0
 X1954               5593.6                 2226.3           459.3
-      value.US.Steel capital.US.Steel invest.Westinghouse value.Westinghouse
+      US.Steel_value US.Steel_capital Westinghouse_invest Westinghouse_value
 X1935         1362.4             53.8               12.93              191.5
 X1936         1807.1             50.5               25.90              516.0
 X1937         2676.3            118.1               35.05              729.0
@@ -2966,7 +2966,7 @@ X1951         2289.5            342.1               54.38              723.8
 X1952         2159.4            444.2               71.78              864.1
 X1953         2031.3            623.6               90.08             1193.5
 X1954         2115.5            669.7               68.60             1188.9
-      capital.Westinghouse
+      Westinghouse_capital
 X1935                  1.8
 X1936                  0.8
 X1937                  7.4
@@ -2988,7 +2988,7 @@ X1952                145.5
 X1953                174.8
 X1954                213.5
 > model.matrix( greeneOlsPooled )
-                       Chrysler_(Intercept) Chrysler_value.Chrysler
+                       Chrysler_(Intercept) Chrysler_Chrysler_value
 Chrysler_X1935                            1                   417.5
 Chrysler_X1936                            1                   837.8
 Chrysler_X1937                            1                   883.9
@@ -3089,7 +3089,7 @@ Westinghouse_X1951                        0                     0.0
 Westinghouse_X1952                        0                     0.0
 Westinghouse_X1953                        0                     0.0
 Westinghouse_X1954                        0                     0.0
-                       Chrysler_capital.Chrysler General.Electric_(Intercept)
+                       Chrysler_Chrysler_capital General.Electric_(Intercept)
 Chrysler_X1935                              10.5                            0
 Chrysler_X1936                              10.2                            0
 Chrysler_X1937                              34.7                            0
@@ -3190,7 +3190,7 @@ Westinghouse_X1951                           0.0                            0
 Westinghouse_X1952                           0.0                            0
 Westinghouse_X1953                           0.0                            0
 Westinghouse_X1954                           0.0                            0
-                       General.Electric_value.General.Electric
+                       General.Electric_General.Electric_value
 Chrysler_X1935                                             0.0
 Chrysler_X1936                                             0.0
 Chrysler_X1937                                             0.0
@@ -3291,7 +3291,7 @@ Westinghouse_X1951                                         0.0
 Westinghouse_X1952                                         0.0
 Westinghouse_X1953                                         0.0
 Westinghouse_X1954                                         0.0
-                       General.Electric_capital.General.Electric
+                       General.Electric_General.Electric_capital
 Chrysler_X1935                                               0.0
 Chrysler_X1936                                               0.0
 Chrysler_X1937                                               0.0
@@ -3493,7 +3493,7 @@ Westinghouse_X1951                              0
 Westinghouse_X1952                              0
 Westinghouse_X1953                              0
 Westinghouse_X1954                              0
-                       General.Motors_value.General.Motors
+                       General.Motors_General.Motors_value
 Chrysler_X1935                                         0.0
 Chrysler_X1936                                         0.0
 Chrysler_X1937                                         0.0
@@ -3594,7 +3594,7 @@ Westinghouse_X1951                                     0.0
 Westinghouse_X1952                                     0.0
 Westinghouse_X1953                                     0.0
 Westinghouse_X1954                                     0.0
-                       General.Motors_capital.General.Motors
+                       General.Motors_General.Motors_capital
 Chrysler_X1935                                           0.0
 Chrysler_X1936                                           0.0
 Chrysler_X1937                                           0.0
@@ -3695,7 +3695,7 @@ Westinghouse_X1951                                       0.0
 Westinghouse_X1952                                       0.0
 Westinghouse_X1953                                       0.0
 Westinghouse_X1954                                       0.0
-                       US.Steel_(Intercept) US.Steel_value.US.Steel
+                       US.Steel_(Intercept) US.Steel_US.Steel_value
 Chrysler_X1935                            0                     0.0
 Chrysler_X1936                            0                     0.0
 Chrysler_X1937                            0                     0.0
@@ -3796,7 +3796,7 @@ Westinghouse_X1951                        0                     0.0
 Westinghouse_X1952                        0                     0.0
 Westinghouse_X1953                        0                     0.0
 Westinghouse_X1954                        0                     0.0
-                       US.Steel_capital.US.Steel Westinghouse_(Intercept)
+                       US.Steel_US.Steel_capital Westinghouse_(Intercept)
 Chrysler_X1935                               0.0                        0
 Chrysler_X1936                               0.0                        0
 Chrysler_X1937                               0.0                        0
@@ -3897,7 +3897,7 @@ Westinghouse_X1951                           0.0                        1
 Westinghouse_X1952                           0.0                        1
 Westinghouse_X1953                           0.0                        1
 Westinghouse_X1954                           0.0                        1
-                       Westinghouse_value.Westinghouse
+                       Westinghouse_Westinghouse_value
 Chrysler_X1935                                     0.0
 Chrysler_X1936                                     0.0
 Chrysler_X1937                                     0.0
@@ -3998,7 +3998,7 @@ Westinghouse_X1951                               723.8
 Westinghouse_X1952                               864.1
 Westinghouse_X1953                              1193.5
 Westinghouse_X1954                              1188.9
-                       Westinghouse_capital.Westinghouse
+                       Westinghouse_Westinghouse_capital
 Chrysler_X1935                                       0.0
 Chrysler_X1936                                       0.0
 Chrysler_X1937                                       0.0
@@ -4184,7 +4184,7 @@ OLS R-squared value of the system: 0.844042
 McElroy's R-squared value for the system: 0.868682
 
 SUR estimates for 'Chrysler' (equation 1)
-Model Formula: invest.Chrysler ~ value.Chrysler + capital.Chrysler
+Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
 
             Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 0.504304  11.512829  0.043804 0.965571    
@@ -4200,7 +4200,7 @@ Multiple R-Squared: 0.911862 Adjusted R-Squared: 0.901493
 
 
 SUR estimates for 'General.Electric' (equation 2)
-Model Formula: invest.General.Electric ~ value.General.Electric + capital.General.Electric
+Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -22.438913  25.518586 -0.879316  0.39149    
@@ -4216,7 +4216,7 @@ Multiple R-Squared: 0.687636 Adjusted R-Squared: 0.650887
 
 
 SUR estimates for 'General.Motors' (equation 3)
-Model Formula: invest.General.Motors ~ value.General.Motors + capital.General.Motors
+Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
 
                Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -162.364105  89.459232 -1.814951 0.087216   .
@@ -4232,7 +4232,7 @@ Multiple R-Squared: 0.920742 Adjusted R-Squared: 0.911417
 
 
 SUR estimates for 'US.Steel' (equation 4)
-Model Formula: invest.US.Steel ~ value.US.Steel + capital.US.Steel
+Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
 
              Estimate Std. Error  t value Pr(>|t|)   
 (Intercept) 85.423255 111.877421 0.763543 0.455606   
@@ -4248,7 +4248,7 @@ Multiple R-Squared: 0.421959 Adjusted R-Squared: 0.353954
 
 
 SUR estimates for 'Westinghouse' (equation 5)
-Model Formula: invest.Westinghouse ~ value.Westinghouse + capital.Westinghouse
+Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
             Estimate Std. Error  t value Pr(>|t|)    
 (Intercept) 1.088877   6.258804 0.173975  0.86394    
@@ -4505,7 +4505,7 @@ Westinghouse_capital           -0.045   0.128
 > logLik( greeneSur )
 'log Lik.' -459.4397 (df=30)
 > model.frame( greeneSur )
-      invest.Chrysler value.Chrysler capital.Chrysler invest.General.Electric
+      Chrysler_invest Chrysler_value Chrysler_capital General.Electric_invest
 X1935           40.29          417.5             10.5                    33.1
 X1936           72.76          837.8             10.2                    45.0
 X1937           66.26          883.9             34.7                    77.2
@@ -4526,7 +4526,7 @@ X1951          160.62          809.0            203.5                   135.2
 X1952          145.00          727.0            290.6                   157.3
 X1953          174.93         1001.5            346.1                   179.5
 X1954          172.49          703.2            414.9                   189.6
-      value.General.Electric capital.General.Electric invest.General.Motors
+      General.Electric_value General.Electric_capital General.Motors_invest
 X1935                 1170.6                     97.8                 317.6
 X1936                 2015.8                    104.4                 391.8
 X1937                 2803.3                    118.0                 410.6
@@ -4547,7 +4547,7 @@ X1951                 1819.4                    671.3                 755.9
 X1952                 2079.7                    726.1                 891.2
 X1953                 2371.6                    800.3                1304.4
 X1954                 2759.9                    888.9                1486.7
-      value.General.Motors capital.General.Motors invest.US.Steel
+      General.Motors_value General.Motors_capital US.Steel_invest
 X1935               3078.5                    2.8           209.9
 X1936               4661.7                   52.6           355.3
 X1937               5387.1                  156.9           469.9
@@ -4568,7 +4568,7 @@ X1951               4833.0                 1207.7           588.2
 X1952               4924.9                 1430.5           645.2
 X1953               6241.7                 1777.3           641.0
 X1954               5593.6                 2226.3           459.3
-      value.US.Steel capital.US.Steel invest.Westinghouse value.Westinghouse
+      US.Steel_value US.Steel_capital Westinghouse_invest Westinghouse_value
 X1935         1362.4             53.8               12.93              191.5
 X1936         1807.1             50.5               25.90              516.0
 X1937         2676.3            118.1               35.05              729.0
@@ -4589,7 +4589,7 @@ X1951         2289.5            342.1               54.38              723.8
 X1952         2159.4            444.2               71.78              864.1
 X1953         2031.3            623.6               90.08             1193.5
 X1954         2115.5            669.7               68.60             1188.9
-      capital.Westinghouse
+      Westinghouse_capital
 X1935                  1.8
 X1936                  0.8
 X1937                  7.4
@@ -4611,7 +4611,7 @@ X1952                145.5
 X1953                174.8
 X1954                213.5
 > model.matrix( greeneSur )
-                       Chrysler_(Intercept) Chrysler_value.Chrysler
+                       Chrysler_(Intercept) Chrysler_Chrysler_value
 Chrysler_X1935                            1                   417.5
 Chrysler_X1936                            1                   837.8
 Chrysler_X1937                            1                   883.9
@@ -4712,7 +4712,7 @@ Westinghouse_X1951                        0                     0.0
 Westinghouse_X1952                        0                     0.0
 Westinghouse_X1953                        0                     0.0
 Westinghouse_X1954                        0                     0.0
-                       Chrysler_capital.Chrysler General.Electric_(Intercept)
+                       Chrysler_Chrysler_capital General.Electric_(Intercept)
 Chrysler_X1935                              10.5                            0
 Chrysler_X1936                              10.2                            0
 Chrysler_X1937                              34.7                            0
@@ -4813,7 +4813,7 @@ Westinghouse_X1951                           0.0                            0
 Westinghouse_X1952                           0.0                            0
 Westinghouse_X1953                           0.0                            0
 Westinghouse_X1954                           0.0                            0
-                       General.Electric_value.General.Electric
+                       General.Electric_General.Electric_value
 Chrysler_X1935                                             0.0
 Chrysler_X1936                                             0.0
 Chrysler_X1937                                             0.0
@@ -4914,7 +4914,7 @@ Westinghouse_X1951                                         0.0
 Westinghouse_X1952                                         0.0
 Westinghouse_X1953                                         0.0
 Westinghouse_X1954                                         0.0
-                       General.Electric_capital.General.Electric
+                       General.Electric_General.Electric_capital
 Chrysler_X1935                                               0.0
 Chrysler_X1936                                               0.0
 Chrysler_X1937                                               0.0
@@ -5116,7 +5116,7 @@ Westinghouse_X1951                              0
 Westinghouse_X1952                              0
 Westinghouse_X1953                              0
 Westinghouse_X1954                              0
-                       General.Motors_value.General.Motors
+                       General.Motors_General.Motors_value
 Chrysler_X1935                                         0.0
 Chrysler_X1936                                         0.0
 Chrysler_X1937                                         0.0
@@ -5217,7 +5217,7 @@ Westinghouse_X1951                                     0.0
 Westinghouse_X1952                                     0.0
 Westinghouse_X1953                                     0.0
 Westinghouse_X1954                                     0.0
-                       General.Motors_capital.General.Motors
+                       General.Motors_General.Motors_capital
 Chrysler_X1935                                           0.0
 Chrysler_X1936                                           0.0
 Chrysler_X1937                                           0.0
@@ -5318,7 +5318,7 @@ Westinghouse_X1951                                       0.0
 Westinghouse_X1952                                       0.0
 Westinghouse_X1953                                       0.0
 Westinghouse_X1954                                       0.0
-                       US.Steel_(Intercept) US.Steel_value.US.Steel
+                       US.Steel_(Intercept) US.Steel_US.Steel_value
 Chrysler_X1935                            0                     0.0
 Chrysler_X1936                            0                     0.0
 Chrysler_X1937                            0                     0.0
@@ -5419,7 +5419,7 @@ Westinghouse_X1951                        0                     0.0
 Westinghouse_X1952                        0                     0.0
 Westinghouse_X1953                        0                     0.0
 Westinghouse_X1954                        0                     0.0
-                       US.Steel_capital.US.Steel Westinghouse_(Intercept)
+                       US.Steel_US.Steel_capital Westinghouse_(Intercept)
 Chrysler_X1935                               0.0                        0
 Chrysler_X1936                               0.0                        0
 Chrysler_X1937                               0.0                        0
@@ -5520,7 +5520,7 @@ Westinghouse_X1951                           0.0                        1
 Westinghouse_X1952                           0.0                        1
 Westinghouse_X1953                           0.0                        1
 Westinghouse_X1954                           0.0                        1
-                       Westinghouse_value.Westinghouse
+                       Westinghouse_Westinghouse_value
 Chrysler_X1935                                     0.0
 Chrysler_X1936                                     0.0
 Chrysler_X1937                                     0.0
@@ -5621,7 +5621,7 @@ Westinghouse_X1951                               723.8
 Westinghouse_X1952                               864.1
 Westinghouse_X1953                              1193.5
 Westinghouse_X1954                              1188.9
-                       Westinghouse_capital.Westinghouse
+                       Westinghouse_Westinghouse_capital
 Chrysler_X1935                                       0.0
 Chrysler_X1936                                       0.0
 Chrysler_X1937                                       0.0
@@ -5807,7 +5807,7 @@ OLS R-squared value of the system: 0.279053
 McElroy's R-squared value for the system: 0.843852
 
 WSUR estimates for 'Chrysler' (equation 1)
-Model Formula: invest.Chrysler ~ value.Chrysler + capital.Chrysler
+Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -28.246694   4.888238 -5.778502        0 ***
@@ -5823,7 +5823,7 @@ Multiple R-Squared: 0.823775 Adjusted R-Squared: 0.803042
 
 
 WSUR estimates for 'General.Electric' (equation 2)
-Model Formula: invest.General.Electric ~ value.General.Electric + capital.General.Electric
+Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -28.246694   4.888238 -5.778502        0 ***
@@ -5839,7 +5839,7 @@ Multiple R-Squared: -14.410331 Adjusted R-Squared: -16.223311
 
 
 WSUR estimates for 'General.Motors' (equation 3)
-Model Formula: invest.General.Motors ~ value.General.Motors + capital.General.Motors
+Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -28.246694   4.888238 -5.778502        0 ***
@@ -5855,7 +5855,7 @@ Multiple R-Squared: 0.889609 Adjusted R-Squared: 0.876622
 
 
 WSUR estimates for 'US.Steel' (equation 4)
-Model Formula: invest.US.Steel ~ value.US.Steel + capital.US.Steel
+Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -28.246694   4.888238 -5.778502        0 ***
@@ -5871,7 +5871,7 @@ Multiple R-Squared: -1.168498 Adjusted R-Squared: -1.423616
 
 
 WSUR estimates for 'Westinghouse' (equation 5)
-Model Formula: invest.Westinghouse ~ value.Westinghouse + capital.Westinghouse
+Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
               Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) -28.246694   4.888238 -5.778502        0 ***
@@ -6125,7 +6125,7 @@ Westinghouse_capital           0.301   0.367
 > logLik( greeneSurPooled )
 'log Lik.' -533.2793 (df=18)
 > model.frame( greeneSurPooled )
-      invest.Chrysler value.Chrysler capital.Chrysler invest.General.Electric
+      Chrysler_invest Chrysler_value Chrysler_capital General.Electric_invest
 X1935           40.29          417.5             10.5                    33.1
 X1936           72.76          837.8             10.2                    45.0
 X1937           66.26          883.9             34.7                    77.2
@@ -6146,7 +6146,7 @@ X1951          160.62          809.0            203.5                   135.2
 X1952          145.00          727.0            290.6                   157.3
 X1953          174.93         1001.5            346.1                   179.5
 X1954          172.49          703.2            414.9                   189.6
-      value.General.Electric capital.General.Electric invest.General.Motors
+      General.Electric_value General.Electric_capital General.Motors_invest
 X1935                 1170.6                     97.8                 317.6
 X1936                 2015.8                    104.4                 391.8
 X1937                 2803.3                    118.0                 410.6
@@ -6167,7 +6167,7 @@ X1951                 1819.4                    671.3                 755.9
 X1952                 2079.7                    726.1                 891.2
 X1953                 2371.6                    800.3                1304.4
 X1954                 2759.9                    888.9                1486.7
-      value.General.Motors capital.General.Motors invest.US.Steel
+      General.Motors_value General.Motors_capital US.Steel_invest
 X1935               3078.5                    2.8           209.9
 X1936               4661.7                   52.6           355.3
 X1937               5387.1                  156.9           469.9
@@ -6188,7 +6188,7 @@ X1951               4833.0                 1207.7           588.2
 X1952               4924.9                 1430.5           645.2
 X1953               6241.7                 1777.3           641.0
 X1954               5593.6                 2226.3           459.3
-      value.US.Steel capital.US.Steel invest.Westinghouse value.Westinghouse
+      US.Steel_value US.Steel_capital Westinghouse_invest Westinghouse_value
 X1935         1362.4             53.8               12.93              191.5
 X1936         1807.1             50.5               25.90              516.0
 X1937         2676.3            118.1               35.05              729.0
@@ -6209,7 +6209,7 @@ X1951         2289.5            342.1               54.38              723.8
 X1952         2159.4            444.2               71.78              864.1
 X1953         2031.3            623.6               90.08             1193.5
 X1954         2115.5            669.7               68.60             1188.9
-      capital.Westinghouse
+      Westinghouse_capital
 X1935                  1.8
 X1936                  0.8
 X1937                  7.4
@@ -6231,7 +6231,7 @@ X1952                145.5
 X1953                174.8
 X1954                213.5
 > model.matrix( greeneSurPooled )
-                       Chrysler_(Intercept) Chrysler_value.Chrysler
+                       Chrysler_(Intercept) Chrysler_Chrysler_value
 Chrysler_X1935                            1                   417.5
 Chrysler_X1936                            1                   837.8
 Chrysler_X1937                            1                   883.9
@@ -6332,7 +6332,7 @@ Westinghouse_X1951                        0                     0.0
 Westinghouse_X1952                        0                     0.0
 Westinghouse_X1953                        0                     0.0
 Westinghouse_X1954                        0                     0.0
-                       Chrysler_capital.Chrysler General.Electric_(Intercept)
+                       Chrysler_Chrysler_capital General.Electric_(Intercept)
 Chrysler_X1935                              10.5                            0
 Chrysler_X1936                              10.2                            0
 Chrysler_X1937                              34.7                            0
@@ -6433,7 +6433,7 @@ Westinghouse_X1951                           0.0                            0
 Westinghouse_X1952                           0.0                            0
 Westinghouse_X1953                           0.0                            0
 Westinghouse_X1954                           0.0                            0
-                       General.Electric_value.General.Electric
+                       General.Electric_General.Electric_value
 Chrysler_X1935                                             0.0
 Chrysler_X1936                                             0.0
 Chrysler_X1937                                             0.0
@@ -6534,7 +6534,7 @@ Westinghouse_X1951                                         0.0
 Westinghouse_X1952                                         0.0
 Westinghouse_X1953                                         0.0
 Westinghouse_X1954                                         0.0
-                       General.Electric_capital.General.Electric
+                       General.Electric_General.Electric_capital
 Chrysler_X1935                                               0.0
 Chrysler_X1936                                               0.0
 Chrysler_X1937                                               0.0
@@ -6736,7 +6736,7 @@ Westinghouse_X1951                              0
 Westinghouse_X1952                              0
 Westinghouse_X1953                              0
 Westinghouse_X1954                              0
-                       General.Motors_value.General.Motors
+                       General.Motors_General.Motors_value
 Chrysler_X1935                                         0.0
 Chrysler_X1936                                         0.0
 Chrysler_X1937                                         0.0
@@ -6837,7 +6837,7 @@ Westinghouse_X1951                                     0.0
 Westinghouse_X1952                                     0.0
 Westinghouse_X1953                                     0.0
 Westinghouse_X1954                                     0.0
-                       General.Motors_capital.General.Motors
+                       General.Motors_General.Motors_capital
 Chrysler_X1935                                           0.0
 Chrysler_X1936                                           0.0
 Chrysler_X1937                                           0.0
@@ -6938,7 +6938,7 @@ Westinghouse_X1951                                       0.0
 Westinghouse_X1952                                       0.0
 Westinghouse_X1953                                       0.0
 Westinghouse_X1954                                       0.0
-                       US.Steel_(Intercept) US.Steel_value.US.Steel
+                       US.Steel_(Intercept) US.Steel_US.Steel_value
 Chrysler_X1935                            0                     0.0
 Chrysler_X1936                            0                     0.0
 Chrysler_X1937                            0                     0.0
@@ -7039,7 +7039,7 @@ Westinghouse_X1951                        0                     0.0
 Westinghouse_X1952                        0                     0.0
 Westinghouse_X1953                        0                     0.0
 Westinghouse_X1954                        0                     0.0
-                       US.Steel_capital.US.Steel Westinghouse_(Intercept)
+                       US.Steel_US.Steel_capital Westinghouse_(Intercept)
 Chrysler_X1935                               0.0                        0
 Chrysler_X1936                               0.0                        0
 Chrysler_X1937                               0.0                        0
@@ -7140,7 +7140,7 @@ Westinghouse_X1951                           0.0                        1
 Westinghouse_X1952                           0.0                        1
 Westinghouse_X1953                           0.0                        1
 Westinghouse_X1954                           0.0                        1
-                       Westinghouse_value.Westinghouse
+                       Westinghouse_Westinghouse_value
 Chrysler_X1935                                     0.0
 Chrysler_X1936                                     0.0
 Chrysler_X1937                                     0.0
@@ -7241,7 +7241,7 @@ Westinghouse_X1951                               723.8
 Westinghouse_X1952                               864.1
 Westinghouse_X1953                              1193.5
 Westinghouse_X1954                              1188.9
-                       Westinghouse_capital.Westinghouse
+                       Westinghouse_Westinghouse_capital
 Chrysler_X1935                                       0.0
 Chrysler_X1936                                       0.0
 Chrysler_X1937                                       0.0

@@ -124,28 +124,27 @@ systemfit <- function(  eqns,
                   cbind( matrix( 0, nrow( xMatEq[[i]] ), ncol( xMatAll )), xMatEq[[i]]))
       nObsEq[i] <- length( yVecEq[[i]] )
       nCoefEq[i] <- ncol(xMatEq[[i]])
+      cNamesEq <- NULL
       for(j in 1:nCoefEq[i]) {
-         coefNames <- c( coefNames,
-            paste( eqnLabels[ i ],colnames( xMatEq[[i]] )[j],
-            sep = "_" ))
+         xjName <- colnames( xMatEq[[ i ]] )[ j ]
+         if( panelLike && xjName != "(Intercept)" ){
+            coefNames <- c( coefNames, xjName )
+            cNamesEq <- c( cNamesEq, sub(
+               paste( "^", eqnLabels[ i ], "_", sep = "" ), "", xjName ) )
+         } else {
+            coefNames <- c( coefNames,
+               paste( eqnLabels[ i ], xjName, sep = "_" ) )
+            cNamesEq <- c( cNamesEq, xjName )
+         }
       }
-      coefNamesEq[[ i ]] <- colnames( xMatEq[[i]] )
+      coefNamesEq[[ i ]] <- cNamesEq
    }
-   rm( modelFrameEq )
+   rm( modelFrameEq, xjName, cNamesEq )
+
+   # test for unequal numbers of observations
    if( nEq > 1 ) {
       if( var ( nObsEq ) != 0 ) {
          stop( "Systems with unequal numbers of observations are not supported yet." )
-      }
-   }
-   # names for coefficients
-   if( panelLike ){
-      for( i in 1:nEq ){
-         coefNames <- sub(
-            paste( "\\.", eqnLabels[ i ], "$", sep = "" ),
-            "", coefNames )
-         coefNamesEq[[ i ]] <- sub(
-            paste( "\\.", eqnLabels[ i ], "$", sep = "" ),
-            "", coefNamesEq[[ i ]] )
       }
    }
 
