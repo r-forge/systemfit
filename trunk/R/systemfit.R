@@ -645,6 +645,7 @@ systemfit <- function(  eqns,
   results$restrict.rhs <- q.restr
   results$TX      <- TX
   results$control <- control
+  results$panelLike <- panelLike
   class(results)  <- "systemfit"
 
   results
