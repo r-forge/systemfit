@@ -225,6 +225,7 @@ systemfit <- function(  eqns,
          R.restr <- t( R.restr )
       }
       q.restr <- R.restr[ , ncol( R.restr ), drop = FALSE ]
+      rownames( q.restr ) <- restrictions
       R.restr <- R.restr[ , -ncol( R.restr ), drop = FALSE ]
       rownames( R.restr ) <- restrictions
    } else if( !is.null( restrictions ) ) {
