@@ -102,31 +102,35 @@ system <- list( demand = eqDemand, supply = eqSupply )
 ## unconstrained SUR estimation
 fitsur <- systemfit( system, method = "SUR", data=Kmenta )
 
-# create restriction matrix to test whether \eqn{beta_2 = \beta_6}
+# create hypothesis matrix to test whether beta_2 = \beta_6
 R1 <- matrix( 0, nrow = 1, ncol = 7 )
 R1[ 1, 2 ] <- 1
 R1[ 1, 6 ] <- -1
+# the same hypothesis in symbolic form
+restrict1 <- "demand_price - supply_farmPrice = 0"
 
 ## perform F-test
-fTest1 <- linear.hypothesis( fitsur, R1 )
-print( fTest1 )   # rejected
+linear.hypothesis( fitsur, R1 )  # rejected
+linear.hypothesis( fitsur, restrict1 )
 
 ## perform Wald-test
-waldTest1 <- linear.hypothesis( fitsur, R1, test = "Chisq" )
-print( waldTest1 )   # rejected
+linear.hypothesis( fitsur, R1, test = "Chisq" )  # rejected
+linear.hypothesis( fitsur, restrict1, test = "Chisq" )
 
-# create restriction matrix to test whether \eqn{beta_2 = - \beta_6}
+# create hypothesis matrix to test whether beta_2 = - \beta_6
 R2 <- matrix( 0, nrow = 1, ncol = 7 )
 R2[ 1, 2 ] <- 1
 R2[ 1, 6 ] <- 1
+# the same hypothesis in symbolic form
+restrict2 <- "demand_price + supply_farmPrice = 0"
 
 ## perform F-test
-fTest2 <- linear.hypothesis( fitsur, R2 )
-print( fTest2 )   # accepted
+linear.hypothesis( fitsur, R2 )  # accepted
+linear.hypothesis( fitsur, restrict2 )
 
 ## perform Wald-test
-waldTest2 <- linear.hypothesis( fitsur, R2, test = "Chisq" )
-print( waldTest2 )   # accepted
+linear.hypothesis( fitsur, R2, test = "Chisq" )  # accepted
+linear.hypothesis( fitsur, restrict2, test = "Chisq" )
 }
 
 \keyword{models}

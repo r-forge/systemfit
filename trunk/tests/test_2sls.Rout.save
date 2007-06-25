@@ -3837,6 +3837,19 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     33                 
 2     34 -1 0.0625 0.8042
+> linear.hypothesis( fit2sls1, restrict )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fit2sls1
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     33                 
+2     34 -1 0.0625 0.8042
+> 
 > print( linear.hypothesis( fit2sls1s, restrm ) )
 Linear hypothesis test (F-test)
 
@@ -3849,6 +3862,19 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     33                 
 2     34 -1 0.0696 0.7936
+> linear.hypothesis( fit2sls1s, restrict )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fit2sls1s
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     33                 
+2     34 -1 0.0696 0.7936
+> 
 > print( linear.hypothesis( fit2sls1p, restrm ) )
 Linear hypothesis test (F-test)
 
@@ -3861,7 +3887,32 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     33                 
 2     34 -1 0.0625 0.8042
+> linear.hypothesis( fit2sls1p, restrict )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fit2sls1p
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     33                 
+2     34 -1 0.0625 0.8042
+> 
 > print( linear.hypothesis( fit2sls1r, restrm ) )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fit2sls1r
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     33                 
+2     34 -1 0.0772 0.7829
+> linear.hypothesis( fit2sls1r, restrict )
 Linear hypothesis test (F-test)
 
 Hypothesis:
@@ -3893,6 +3944,19 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     33                 
 2     34 -1 0.0028  0.958
+> linear.hypothesis( fit2sls1, restrictOnly2 )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fit2sls1
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     33                 
+2     34 -1 0.0028  0.958
+> 
 > # first restriction imposed
 > print( linear.hypothesis( fit2sls2, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (F-test)
@@ -3906,6 +3970,19 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     34                 
 2     35 -1 0.0115 0.9154
+> linear.hypothesis( fit2sls2, restrictOnly2 )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fit2sls2
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     34                 
+2     35 -1 0.0115 0.9154
+> 
 > print( linear.hypothesis( fit2sls2r, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (F-test)
 
@@ -3918,7 +3995,32 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     34                 
 2     35 -1 0.0135 0.9083
+> linear.hypothesis( fit2sls2r, restrictOnly2 )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fit2sls2r
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     34                 
+2     35 -1 0.0135 0.9083
+> 
 > print( linear.hypothesis( fit2sls3, restrOnly2m, restrOnly2q ) )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fit2sls3
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     34                 
+2     35 -1 0.0135 0.9083
+> linear.hypothesis( fit2sls3, restrictOnly2 )
 Linear hypothesis test (F-test)
 
 Hypothesis:
@@ -3933,6 +4035,19 @@ Model 2: restricted model
 > 
 > # testing both of the restrictions
 > print( linear.hypothesis( fit2sls1, restr2m, restr2q ) )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_price = 0.5
+
+Model 1: fit2sls1
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     33                 
+2     35 -2 0.0351 0.9656
+> linear.hypothesis( fit2sls1, restrict2 )
 Linear hypothesis test (F-test)
 
 Hypothesis:

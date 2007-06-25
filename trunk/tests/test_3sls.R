@@ -537,10 +537,19 @@ print( logLik( fit3slsd[[ 3 ]]$e4 ) )
 ## ************** F tests ****************
 # testing first restriction
 print( linear.hypothesis( fit3sls[[ 1 ]]$e1, restrm ) )
+linear.hypothesis( fit3sls[[ 1 ]]$e1, restrict )
+
 print( linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrm ) )
+linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrict )
+
 print( linear.hypothesis( fit3sls[[ 3 ]]$e1c, restrm ) )
+linear.hypothesis( fit3sls[[ 3 ]]$e1c, restrict )
+
 print( linear.hypothesis( fit3slsi[[ 4 ]]$e1, restrm ) )
+linear.hypothesis( fit3slsi[[ 4 ]]$e1, restrict )
+
 print( linear.hypothesis( fit3slsd[[ 5 ]]$e1e, restrm ) )
+linear.hypothesis( fit3slsd[[ 5 ]]$e1e, restrict )
 
 # testing second restriction
 restrOnly2m <- matrix(0,1,7)
@@ -550,20 +559,42 @@ restrOnly2m[1,5] <-  1
 restrictOnly2 <- "- demand_price + supply_price = 0.5"
 # first restriction not imposed
 print( linear.hypothesis( fit3sls[[ 5 ]]$e1c, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit3sls[[ 5 ]]$e1c, restrictOnly2 )
+
 print( linear.hypothesis( fit3slsi[[ 1 ]]$e1e, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit3slsi[[ 1 ]]$e1e, restrictOnly2 )
+
 print( linear.hypothesis( fit3slsd[[ 2 ]]$e1, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit3slsd[[ 2 ]]$e1, restrictOnly2 )
+
 # first restriction imposed
 print( linear.hypothesis( fit3sls[[ 4 ]]$e2, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit3sls[[ 4 ]]$e2, restrictOnly2 )
+
 print( linear.hypothesis( fit3sls[[ 4 ]]$e3, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit3sls[[ 4 ]]$e3, restrictOnly2 )
+
 print( linear.hypothesis( fit3slsi[[ 5 ]]$e2e, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit3slsi[[ 5 ]]$e2e, restrictOnly2 )
+
 print( linear.hypothesis( fit3slsi[[ 5 ]]$e3e, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit3slsi[[ 5 ]]$e3e, restrictOnly2 )
+
 print( linear.hypothesis( fit3slsd[[ 1 ]]$e2, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit3slsd[[ 1 ]]$e2, restrictOnly2 )
+
 print( linear.hypothesis( fit3slsd[[ 1 ]]$e3, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit3slsd[[ 1 ]]$e3, restrictOnly2 )
 
 # testing both of the restrictions
 print( linear.hypothesis( fit3sls[[ 2 ]]$e1e, restr2m, restr2q ) )
+linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrict2 )
+
 print( linear.hypothesis( fit3slsi[[ 3 ]]$e1, restr2m, restr2q ) )
+linear.hypothesis( fit3slsi[[ 3 ]]$e1, restrict2 )
+
 print( linear.hypothesis( fit3slsd[[ 4 ]]$e1e, restr2m, restr2q ) )
+linear.hypothesis( fit3slsd[[ 4 ]]$e1e, restrict2 )
 
 
 ## ************** Wald tests ****************

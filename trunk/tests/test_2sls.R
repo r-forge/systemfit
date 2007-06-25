@@ -476,9 +476,16 @@ print( logLik( fit2slsd2r ) )
 ## ************** F tests ****************
 # testing first restriction
 print( linear.hypothesis( fit2sls1, restrm ) )
+linear.hypothesis( fit2sls1, restrict )
+
 print( linear.hypothesis( fit2sls1s, restrm ) )
+linear.hypothesis( fit2sls1s, restrict )
+
 print( linear.hypothesis( fit2sls1p, restrm ) )
+linear.hypothesis( fit2sls1p, restrict )
+
 print( linear.hypothesis( fit2sls1r, restrm ) )
+linear.hypothesis( fit2sls1r, restrict )
 
 # testing second restriction
 restrOnly2m <- matrix(0,1,7)
@@ -488,13 +495,21 @@ restrOnly2m[1,5] <-  1
 restrictOnly2 <- "- demand_price + supply_price = 0.5"
 # first restriction not imposed 
 print( linear.hypothesis( fit2sls1, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit2sls1, restrictOnly2 )
+
 # first restriction imposed
 print( linear.hypothesis( fit2sls2, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit2sls2, restrictOnly2 )
+
 print( linear.hypothesis( fit2sls2r, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit2sls2r, restrictOnly2 )
+
 print( linear.hypothesis( fit2sls3, restrOnly2m, restrOnly2q ) )
+linear.hypothesis( fit2sls3, restrictOnly2 )
 
 # testing both of the restrictions
 print( linear.hypothesis( fit2sls1, restr2m, restr2q ) )
+linear.hypothesis( fit2sls1, restrict2 )
 
 
 ## ************** Wald tests ****************
