@@ -17,6 +17,8 @@ restr2m[2,5] <-  1
 restr2q <- c( 0, 0.5 )  # restriction vector "q" 2
 restrict2 <- c( "demand_income - supply_trend = 0",
    "- demand_price + supply_price = 0.5" )
+restrict2i <- c( "demand_income - supply_trend = 0",
+   "- demand_price + supply_income = 0.5" )
 tc <- matrix(0,7,6)
 tc[1,1] <- 1
 tc[2,2] <- 1
@@ -624,6 +626,8 @@ restrOnly2m <- matrix(0,1,7)
 restrOnly2q <- 0.5
 restrOnly2m[1,2] <- -1
 restrOnly2m[1,5] <-  1
+restrictOnly2 <- "- demand_price + supply_price = 0.5"
+restrictOnly2i <- "- demand_price + supply_income = 0.5"
 # first restriction not imposed 
 print( linear.hypothesis( fitsur1e2, restrOnly2m, restrOnly2q ) )
 print( linear.hypothesis( fitsuri1, restrOnly2m, restrOnly2q ) )
@@ -641,23 +645,44 @@ print( linear.hypothesis( fitsuri1e2, restr2m, restr2q ) )
 ## ************** Wald tests ****************
 # testing first restriction
 print( linear.hypothesis( fitsur1, restrm, test = "Chisq" ) )
+linear.hypothesis( fitsur1, restrict, test = "Chisq" )
+
 print( linear.hypothesis( fitsur1r2, restrm, test = "Chisq" ) )
+linear.hypothesis( fitsur1r2, restrict, test = "Chisq" )
+
 print( linear.hypothesis( fitsuri1e2, restrm, test = "Chisq" ) )
+linear.hypothesis( fitsuri1e2, restrict, test = "Chisq" )
+
 print( linear.hypothesis( fitsuri1r3, restrm, test = "Chisq" ) )
+linear.hypothesis( fitsuri1r3, restrict, test = "Chisq" )
 
 # testing second restriction
 # first restriction not imposed
 print( linear.hypothesis( fitsur1e2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fitsur1e2, restrictOnly2, test = "Chisq" )
+
 print( linear.hypothesis( fitsuri1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fitsuri1, restrictOnly2i, test = "Chisq" )
+
 # first restriction imposed
 print( linear.hypothesis( fitsur2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fitsur2, restrictOnly2, test = "Chisq" )
+
 print( linear.hypothesis( fitsur3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fitsur3, restrictOnly2, test = "Chisq" )
+
 print( linear.hypothesis( fitsuri2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fitsuri2e, restrictOnly2i, test = "Chisq" )
+
 print( linear.hypothesis( fitsuri3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fitsuri3e, restrictOnly2i, test = "Chisq" )
 
 # testing both of the restrictions
 print( linear.hypothesis( fitsur1r3, restr2m, restr2q, test = "Chisq" ) )
+linear.hypothesis( fitsur1r3, restrict2, test = "Chisq" )
+
 print( linear.hypothesis( fitsuri1e2, restr2m, restr2q, test = "Chisq" ) )
+linear.hypothesis( fitsuri1e2, restrict2i, test = "Chisq" )
 
 
 ## ****************** model frame **************************

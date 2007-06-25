@@ -45,6 +45,8 @@ Attaching package: 'zoo'
 > restr2q <- c( 0, 0.5 )  # restriction vector "q" 2
 > restrict2 <- c( "demand_income - supply_trend = 0",
 +    "- demand_price + supply_price = 0.5" )
+> restrict2i <- c( "demand_income - supply_trend = 0",
++    "- demand_price + supply_income = 0.5" )
 > tc <- matrix(0,7,6)
 > tc[1,1] <- 1
 > tc[2,2] <- 1
@@ -5362,6 +5364,8 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > restrOnly2q <- 0.5
 > restrOnly2m[1,2] <- -1
 > restrOnly2m[1,5] <-  1
+> restrictOnly2 <- "- demand_price + supply_price = 0.5"
+> restrictOnly2i <- "- demand_price + supply_income = 0.5"
 > # first restriction not imposed 
 > print( linear.hypothesis( fitsur1e2, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (F-test)
@@ -5490,6 +5494,19 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     33                     
 2     34 -1 0.8106     0.3679
+> linear.hypothesis( fitsur1, restrict, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitsur1
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     34 -1 0.8106     0.3679
+> 
 > print( linear.hypothesis( fitsur1r2, restrm, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
 
@@ -5502,6 +5519,19 @@ Model 2: restricted model
   Res.Df Df Chisq Pr(>Chisq)
 1     33                    
 2     34 -1 1.116     0.2908
+> linear.hypothesis( fitsur1r2, restrict, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitsur1r2
+Model 2: restricted model
+
+  Res.Df Df Chisq Pr(>Chisq)
+1     33                    
+2     34 -1 1.116     0.2908
+> 
 > print( linear.hypothesis( fitsuri1e2, restrm, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
 
@@ -5516,7 +5546,36 @@ Model 2: restricted model
 2     34 -1 147.44  < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsuri1e2, restrict, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitsuri1e2
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)    
+1     33                         
+2     34 -1 147.44  < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
 > print( linear.hypothesis( fitsuri1r3, restrm, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitsuri1r3
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)    
+1     33                         
+2     34 -1 147.32  < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsuri1r3, restrict, test = "Chisq" )
 Linear hypothesis test (Wald-test)
 
 Hypothesis:
@@ -5545,6 +5604,19 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     33                     
 2     34 -1 1.5959     0.2065
+> linear.hypothesis( fitsur1e2, restrictOnly2, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur1e2
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     34 -1 1.5959     0.2065
+> 
 > print( linear.hypothesis( fitsuri1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
 
@@ -5559,6 +5631,21 @@ Model 2: restricted model
 2     34 -1 12.213  0.0004745 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsuri1, restrictOnly2i, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri1
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)    
+1     33                         
+2     34 -1 12.213  0.0004745 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
 > # first restriction imposed
 > print( linear.hypothesis( fitsur2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
@@ -5574,6 +5661,21 @@ Model 2: restricted model
 2     35 -1 3.9457    0.04699 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsur2, restrictOnly2, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur2
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)  
+1     34                       
+2     35 -1 3.9457    0.04699 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
 > print( linear.hypothesis( fitsur3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
 
@@ -5588,6 +5690,21 @@ Model 2: restricted model
 2     35 -1 3.9457    0.04699 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsur3, restrictOnly2, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur3
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)  
+1     34                       
+2     35 -1 3.9457    0.04699 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
 > print( linear.hypothesis( fitsuri2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
 
@@ -5602,7 +5719,36 @@ Model 2: restricted model
 2     35 -1 2.7641     0.0964 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsuri2e, restrictOnly2i, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri2e
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)  
+1     34                       
+2     35 -1 2.7641     0.0964 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
 > print( linear.hypothesis( fitsuri3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri3e
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)  
+1     34                       
+2     35 -1 2.7641     0.0964 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsuri3e, restrictOnly2i, test = "Chisq" )
 Linear hypothesis test (Wald-test)
 
 Hypothesis:
@@ -5631,7 +5777,36 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     33                     
 2     35 -2 3.5059     0.1733
+> linear.hypothesis( fitsur1r3, restrict2, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur1r3
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     35 -2 3.5059     0.1733
+> 
 > print( linear.hypothesis( fitsuri1e2, restr2m, restr2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri1e2
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)    
+1     33                         
+2     35 -2 188.07  < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsuri1e2, restrict2i, test = "Chisq" )
 Linear hypothesis test (Wald-test)
 
 Hypothesis:

@@ -3016,6 +3016,7 @@ Model 2: restricted model
 > restrOnly2q <- 0.5
 > restrOnly2m[1,2] <- -1
 > restrOnly2m[1,5] <-  1
+> restrictOnly2 <- "- demand_price + supply_price = 0.5"
 > # first restriction not imposed 
 > print( linear.hypothesis( fitols1, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (F-test)
@@ -3085,6 +3086,19 @@ Model 2: restricted model
   Res.Df Df Chisq Pr(>Chisq)
 1     33                    
 2     34 -1 0.644     0.4223
+> linear.hypothesis( fitols1, restrict, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitols1
+Model 2: restricted model
+
+  Res.Df Df Chisq Pr(>Chisq)
+1     33                    
+2     34 -1 0.644     0.4223
+> 
 > print( linear.hypothesis( fitols1s, restrm, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
 
@@ -3097,6 +3111,19 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     33                     
 2     34 -1 0.7179     0.3968
+> linear.hypothesis( fitols1s, restrict, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitols1s
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     34 -1 0.7179     0.3968
+> 
 > print( linear.hypothesis( fitols1p, restrm, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
 
@@ -3109,7 +3136,32 @@ Model 2: restricted model
   Res.Df Df Chisq Pr(>Chisq)
 1     33                    
 2     34 -1 0.644     0.4223
+> linear.hypothesis( fitols1p, restrict, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitols1p
+Model 2: restricted model
+
+  Res.Df Df Chisq Pr(>Chisq)
+1     33                    
+2     34 -1 0.644     0.4223
+> 
 > print( linear.hypothesis( fitols1r, restrm, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitols1r
+Model 2: restricted model
+
+  Res.Df Df Chisq Pr(>Chisq)
+1     33                    
+2     34 -1 0.644     0.4223
+> linear.hypothesis( fitols1r, restrict, test = "Chisq" )
 Linear hypothesis test (Wald-test)
 
 Hypothesis:
@@ -3136,6 +3188,18 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     33                     
 2     34 -1 0.0316     0.8589
+> linear.hypothesis( fitols1, restrictOnly2, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitols1
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     34 -1 0.0316     0.8589
 > # first restriction imposed
 > print( linear.hypothesis( fitols2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
@@ -3149,7 +3213,32 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     34                     
 2     35 -1 0.1158     0.7336
+> linear.hypothesis( fitols2, restrictOnly2, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitols2
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     34                     
+2     35 -1 0.1158     0.7336
+> 
 > print( linear.hypothesis( fitols3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitols3
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     34                     
+2     35 -1 0.1158     0.7336
+> linear.hypothesis( fitols3, restrictOnly2, test = "Chisq" )
 Linear hypothesis test (Wald-test)
 
 Hypothesis:
@@ -3164,6 +3253,19 @@ Model 2: restricted model
 > 
 > # testing both of the restrictions
 > print( linear.hypothesis( fitols1, restr2m, restr2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_price = 0.5
+
+Model 1: fitols1
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     35 -2 0.7242     0.6962
+> linear.hypothesis( fitols1, restrict2, test = "Chisq" )
 Linear hypothesis test (Wald-test)
 
 Hypothesis:

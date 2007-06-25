@@ -547,7 +547,8 @@ restrOnly2m <- matrix(0,1,7)
 restrOnly2q <- 0.5
 restrOnly2m[1,2] <- -1
 restrOnly2m[1,5] <-  1
-# first restriction not imposed 
+restrictOnly2 <- "- demand_price + supply_price = 0.5"
+# first restriction not imposed
 print( linear.hypothesis( fit3sls[[ 5 ]]$e1c, restrOnly2m, restrOnly2q ) )
 print( linear.hypothesis( fit3slsi[[ 1 ]]$e1e, restrOnly2m, restrOnly2q ) )
 print( linear.hypothesis( fit3slsd[[ 2 ]]$e1, restrOnly2m, restrOnly2q ) )
@@ -568,28 +569,59 @@ print( linear.hypothesis( fit3slsd[[ 4 ]]$e1e, restr2m, restr2q ) )
 ## ************** Wald tests ****************
 # testing first restriction
 print( linear.hypothesis( fit3sls[[ 1 ]]$e1, restrm, test = "Chisq" ) )
+linear.hypothesis( fit3sls[[ 1 ]]$e1, restrict, test = "Chisq" )
+
 print( linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrm, test = "Chisq" ) )
+linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrict, test = "Chisq" )
+
 print( linear.hypothesis( fit3sls[[ 3 ]]$e1c, restrm, test = "Chisq" ) )
+linear.hypothesis( fit3sls[[ 3 ]]$e1c, restrict, test = "Chisq" )
+
 print( linear.hypothesis( fit3slsi[[ 4 ]]$e1, restrm, test = "Chisq" ) )
+linear.hypothesis( fit3slsi[[ 4 ]]$e1, restrict, test = "Chisq" )
+
 print( linear.hypothesis( fit3slsd[[ 5 ]]$e1e, restrm, test = "Chisq" ) )
+linear.hypothesis( fit3slsd[[ 5 ]]$e1e, restrict, test = "Chisq" )
 
 # testing second restriction
 # first restriction not imposed
 print( linear.hypothesis( fit3sls[[ 5 ]]$e1c, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fit3sls[[ 5 ]]$e1c, restrictOnly2, test = "Chisq" )
+
 print( linear.hypothesis( fit3slsi[[ 1 ]]$e1e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fit3slsi[[ 1 ]]$e1e, restrictOnly2, test = "Chisq" )
+
 print( linear.hypothesis( fit3slsd[[ 2 ]]$e1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fit3slsd[[ 2 ]]$e1, restrictOnly2, test = "Chisq" )
+
 # first restriction imposed
 print( linear.hypothesis( fit3sls[[ 4 ]]$e2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fit3sls[[ 4 ]]$e2, restrictOnly2, test = "Chisq" )
+
 print( linear.hypothesis( fit3sls[[ 4 ]]$e3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fit3sls[[ 4 ]]$e3, restrictOnly2, test = "Chisq" )
+
 print( linear.hypothesis( fit3slsi[[ 5 ]]$e2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fit3slsi[[ 5 ]]$e2e, restrictOnly2, test = "Chisq" )
+
 print( linear.hypothesis( fit3slsi[[ 5 ]]$e3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fit3slsi[[ 5 ]]$e3e, restrictOnly2, test = "Chisq" )
+
 print( linear.hypothesis( fit3slsd[[ 1 ]]$e2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fit3slsd[[ 1 ]]$e2, restrictOnly2, test = "Chisq" )
+
 print( linear.hypothesis( fit3slsd[[ 1 ]]$e3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linear.hypothesis( fit3slsd[[ 1 ]]$e3, restrictOnly2, test = "Chisq" )
 
 # testing both of the restrictions
 print( linear.hypothesis( fit3sls[[ 2 ]]$e1e, restr2m, restr2q, test = "Chisq" ) )
+linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrict2, test = "Chisq" )
+
 print( linear.hypothesis( fit3slsi[[ 3 ]]$e1, restr2m, restr2q, test = "Chisq" ) )
+linear.hypothesis( fit3slsi[[ 3 ]]$e1, restrict2, test = "Chisq" )
+
 print( linear.hypothesis( fit3slsd[[ 4 ]]$e1e, restr2m, restr2q, test = "Chisq" ) )
+linear.hypothesis( fit3slsd[[ 4 ]]$e1e, restrict2, test = "Chisq" )
 
 
 ## *********** model frame *************
