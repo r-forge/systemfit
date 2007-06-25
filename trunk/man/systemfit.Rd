@@ -42,7 +42,10 @@ systemfit( eqns, method = "OLS",
    \item{restrictions}{an optional j x k matrix to impose linear
       restrictions on the parameters by \code{restrictions} * \eqn{b} = \code{restrict.rhs}
       (j = number of restrictions, k = number of all parameters,
-      \eqn{b} = vector of all parameters).}
+      \eqn{b} = vector of all parameters)
+      or a character vector giving the restrictions in symbolic form
+      (see documentation of \code{\link[car]{linear.hypothesis}}
+      in package "car" for details).}
    \item{restrict.rhs}{an optional vector with j elements to impose linear
       restrictions (see \code{restrictions}); default is a vector
       that contains j zeros.}
