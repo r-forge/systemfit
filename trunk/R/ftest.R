@@ -1,10 +1,6 @@
 .ftest.systemfit <- function( object, restrictions,
    restrict.rhs = NULL, vcov. = NULL ){
 
-   if( is.null( restrict.rhs ) ){
-      restrict.rhs <- rep( 0, nrow( restrictions ) )
-   }
-
    coef <- coef( object )
 
    # coefficient covariance matrix
