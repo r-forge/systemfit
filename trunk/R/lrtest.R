@@ -38,8 +38,8 @@ lrtest.systemfit <- function( object, ... ) {
             compareLikelihood <- "smaller"
             compareDf <- "more"
          }
-         warning( "model '", i, "' has ", compareLikelihood,
-            " log-likelihood value than ", compareDf,
+         warning( "model '", i, "' has a ", compareLikelihood,
+            " log-likelihood value than the ", compareDf,
             " restricted model '", i - 1, "'" )
       }
    }
