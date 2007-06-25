@@ -454,9 +454,7 @@ Multiple R-Squared: 0.597909 Adjusted R-Squared: 0.522517
 > fitsur2Sym <- systemfit( system, "SUR", data = Kmenta,
 +    restrictions = restrict )
 > all.equal( fitsur2, fitsur2Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
-[3] "Component 12: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## *************** SUR with cross-equation restriction (EViews-like) **
 > fitsur2e <- systemfit( system, "SUR", data = Kmenta, restrictions = restrm,
@@ -716,9 +714,7 @@ Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567
 > fitsur4Sym <- systemfit( system, "SUR", data = Kmenta,
 +    restrictions = restrict2 )
 > all.equal( fitsur4, fitsur4Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
-[3] "Component 12: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## *************** SUR with 2 restrictions (EViews-like) **************
 > fitsur4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
@@ -979,9 +975,7 @@ Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567
 > fitsur5Sym <- systemfit( system, "SUR", data = Kmenta,
 +    restrictions = restrict3, TX = tc )
 > all.equal( fitsur5, fitsur5Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
-[3] "Component 12: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## *************** SUR with 2 restrictions via R and TX (EViews-like) **************
 > fitsur5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",

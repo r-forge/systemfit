@@ -431,9 +431,7 @@ Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263
 > fit2sls2Sym <- systemfit( system, "2SLS", data = Kmenta,
 +    restrictions = restrict, inst = inst )
 > all.equal( fit2sls2, fit2sls2Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 9: Attributes: < Length mismatch: comparison on first 1 components >" 
-[3] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ************* 2SLS with restriction (single.eq.sigma=T) *****************
 > fit2sls2s <- systemfit( system, "2SLS", data = Kmenta, restrictions = restrm,
@@ -860,9 +858,7 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 > fit2sls4Sym <- systemfit( system, "2SLS", data = Kmenta,
 +    restrictions = restrict2, inst = inst )
 > all.equal( fit2sls4, fit2sls4Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 9: Attributes: < Length mismatch: comparison on first 1 components >" 
-[3] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ************ 2SLS with 2 restrictions (single.eq.sigma=T) **************
 > fit2sls4s <- systemfit( system, "2SLS", data = Kmenta, restrictions = restr2m,
@@ -1168,9 +1164,7 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 > fit2sls5Sym <- systemfit( system, "2SLS", data = Kmenta,
 +    restrictions = restrict3, TX = tc, inst = inst )
 > all.equal( fit2sls5, fit2sls5Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 9: Attributes: < Length mismatch: comparison on first 1 components >" 
-[3] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ******* 2SLS with 2 restrictions via R and TX (single.eq.sigma=T) ******
 > fit2sls5s <- systemfit( system, "2SLS", data = Kmenta, restrictions = restr3m,

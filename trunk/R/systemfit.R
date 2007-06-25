@@ -217,17 +217,14 @@ systemfit <- function(  eqns,
    }
 
    # checking and modifying parameter restrictions
+   mappedCoefNames <- if( is.null( TX ) ) coefNames else colnames( TX )
    if( is.character( restrictions ) ) {
-      temp <- if( is.null( TX ) ) coefNames else colnames( TX )
-      R.restr <- car:::makeHypothesis( temp, restrictions, restrict.rhs )
-      rm( temp )
+      R.restr <- car:::makeHypothesis( mappedCoefNames, restrictions, restrict.rhs )
       if( is.null( dim( R.restr ) ) ){
          R.restr <- t( R.restr )
       }
       q.restr <- R.restr[ , ncol( R.restr ), drop = FALSE ]
-      rownames( q.restr ) <- restrictions
       R.restr <- R.restr[ , -ncol( R.restr ), drop = FALSE ]
-      rownames( R.restr ) <- restrictions
    } else if( !is.null( restrictions ) ) {
       if( is.null( dim( restrictions ) ) ) {
          R.restr <- t( restrictions )
@@ -250,6 +247,24 @@ systemfit <- function(  eqns,
             " because argument 'restrictions' is not specified" )
       }
       q.restr <- restrict.rhs
+   }
+
+   # row names and column names of restriction matrix and vector
+   if( !is.null( R.restr ) ){
+      if( is.null( rownames( R.restr ) ) ) {
+         rownames( R.restr ) <-
+            car:::printHypothesis( R.restr, q.restr, mappedCoefNames )
+      }
+      if( is.null( colnames( R.restr ) ) ) {
+         colnames( R.restr ) <- mappedCoefNames
+      }
+      if( is.null( rownames( q.restr ) ) ) {
+         rownames( q.restr ) <-
+            car:::printHypothesis( R.restr, q.restr, mappedCoefNames )
+      }
+      if( is.null( colnames( q.restr ) ) ) {
+         colnames( q.restr ) <- "*rhs*"
+      }
    }
 
    nObsAll  <- sum( nObsEq )  # total number of observations of all equations

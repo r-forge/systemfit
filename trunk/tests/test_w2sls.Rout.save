@@ -245,9 +245,7 @@ Multiple R-Squared: 0.632824 Adjusted R-Squared: 0.563979
 > fitw2sls2Sym <- systemfit( system, "W2SLS", data = Kmenta,
 +    restrictions = restrict, inst = inst )
 > all.equal( fitw2sls2, fitw2sls2Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
-[3] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ********************* W2SLS with restriction (EViews-like) **************
 > fitw2sls2e <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restrm,
@@ -491,9 +489,7 @@ Multiple R-Squared: 0.626074 Adjusted R-Squared: 0.555963
 > fitw2sls4Sym <- systemfit( system, "W2SLS", data = Kmenta,
 +    restrictions = restrict2, inst = inst )
 > all.equal( fitw2sls4, fitw2sls4Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
-[3] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ***************** W2SLS with 2 restrictions (EViews-like) **************
 > fitw2sls4e <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr2m,
@@ -618,9 +614,7 @@ Multiple R-Squared: 0.626074 Adjusted R-Squared: 0.555963
 > fitw2sls5Sym <- systemfit( system, "W2SLS", data = Kmenta,
 +    restrictions = restrict3, TX = tc, inst = inst )
 > all.equal( fitw2sls5, fitw2sls5Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
-[3] "Component 11: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ***************** W2SLS with 2 restrictions via R and TX (EViews-like) **************
 > fitw2sls5e <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr3m,

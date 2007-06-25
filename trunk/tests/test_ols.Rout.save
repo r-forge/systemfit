@@ -591,9 +591,7 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > fitols2Sym <- systemfit( system, "OLS", data = Kmenta,
 +    restrictions = restrict )
 > all.equal( fitols2, fitols2Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 9: Attributes: < Length mismatch: comparison on first 1 components >" 
-[3] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ****** OLS with cross-equation restriction (single.eq.sigma=T) *******
 > fitols2s <- systemfit( system, "OLS", data = Kmenta,
@@ -1179,9 +1177,7 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 > fitols4Sym <- systemfit( system, "OLS", data = Kmenta,
 +    restrictions = restrict2 )
 > all.equal( fitols4, fitols4Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 9: Attributes: < Length mismatch: comparison on first 1 components >" 
-[3] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ****** OLS with 2 cross-equation restrictions (single.eq.sigma=T) *******
 > fitols4s <- systemfit( system, "OLS", data = Kmenta, restrictions = restr2m,
@@ -1477,9 +1473,7 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 > fitols5Sym <- systemfit( system, "OLS", data = Kmenta,
 +    restrictions = restrict3, TX = tc, methodRCov = "noDfCor")
 > all.equal( fitols5, fitols5Sym )
-[1] "Component 2: target, current do not match when deparsed"                        
-[2] "Component 9: Attributes: < Length mismatch: comparison on first 1 components >" 
-[3] "Component 10: Attributes: < Length mismatch: comparison on first 1 components >"
+[1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ***** OLS with 2 cross-equation restrictions via R and TX (single.eq.sigma=T) ****
 > fitols5s <- systemfit( system, "OLS", data = Kmenta,restrictions = restr3m,
