@@ -54,7 +54,7 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    result$df <- c( length( coef( object ) ), nObs - length( coef( object ) ) )
 
    # transformed coefficients
-   if( !is.null( object$TX ) ) {
+   if( !is.null( object$restrict.reg ) ) {
       coefTrans <- coef( object, transformed = TRUE )
       stdErTrans <- diag( vcov( object, transformed = TRUE ) )^0.5  # standard errors
       tStatTrans <- coefTrans / stdErTrans    # t-statistic

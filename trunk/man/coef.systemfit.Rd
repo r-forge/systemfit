@@ -26,7 +26,7 @@
       \code{summary.systemfit.equation}.}
    \item{transformed}{logical. If \code{TRUE},
       the transformed coefficients
-      (due to transforming the regressor matrix by argument \code{TX})
+      (due to transforming the regressor matrix by argument \code{restrict.reg})
       rather than the re-transformed original coefficients
       are returned.}
    \item{\dots}{other arguments.}
@@ -85,7 +85,7 @@ coefMap[ 4, "supIntercept" ] <- 1
 coefMap[ 5, "supPrice2" ]    <- 1
 coefMap[ 6, "supPrice2" ]    <- 1
 coefMap[ 7, "supTrend" ]     <- 1
-fitols3 <- systemfit( system, data = Kmenta, TX = coefMap )
+fitols3 <- systemfit( system, data = Kmenta, restrict.reg = coefMap )
 coef( fitols3, transformed  = TRUE )
 coef( fitols3 )
 }

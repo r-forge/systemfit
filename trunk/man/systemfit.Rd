@@ -17,8 +17,8 @@
 \usage{
 systemfit( eqns, method = "OLS",
            inst=NULL, data=list(),
-           restrictions = NULL, restrict.rhs = NULL,
-           TX=NULL, pooled = FALSE, control = systemfit.control( ... ), ... )
+           restrictions = NULL, restrict.rhs = NULL, restrict.reg = NULL,
+           pooled = FALSE, control = systemfit.control( ... ), ... )
 }
 
 \arguments{
@@ -49,8 +49,9 @@ systemfit( eqns, method = "OLS",
    \item{restrict.rhs}{an optional vector with j elements to impose linear
       restrictions (see \code{restrictions}); default is a vector
       that contains j zeros.}
-   \item{TX}{an optional matrix to transform the regressor matrix and,
-      hence, also the coefficient vector (see details).}
+   \item{restrict.reg}{an optional matrix to impose restrictions
+      on the parameters by post-multiplying the regressor matrix
+      with this matrix (see details).}
    \item{control}{list of control parameters.
       The default is constructed by the function \code{\link{systemfit.control}}.
       See the documentation of \code{\link{systemfit.control}} for details.}
@@ -80,20 +81,28 @@ systemfit( eqns, method = "OLS",
    If no cross-equation restrictions are imposed, "WSUR" and "W3SLS"
    generate identical results compared to "SUR" and "3SLS", respectively.
 
-   The matrix \code{TX} transforms the regressor matrix (\eqn{X}) by
-   \eqn{X^{*} = X *} \code{TX}. Thus, the vector of coefficients is now
-   \eqn{b =} \code{TX} \eqn{\cdot b^{*}} , where \eqn{b} is the original (stacked) vector
-   of all coefficients and \eqn{b^{*}} is the new coefficient vector that is
-   estimated instead. Thus, the elements of vector \eqn{b} are
-   \eqn{b_i = \sum_j TX_{ij} \cdot b^{*}_j} \cr
-   The \code{TX} matrix can be used to change the order of the
-   coefficients and also to restrict coefficients (if \code{TX} has less
-   columns than it has rows). However restricting coefficients
-   by the \code{TX} matrix is less powerfull and flexible than the
-   restriction by providing the \code{restrictions} matrix and the
-   \code{restrict.rhs} vector. The advantage of restricting the coefficients
-   by the \code{TX} matrix is that the matrix that is inverted for
-   estimation gets smaller by this procedure, while it gets larger
+   If argument \code{restrict.reg} is specified,
+   the regressor matrix \eqn{X} is post-multiplied by this matrix:
+   \eqn{X^{*} = X \cdot} \code{restrict.reg}.
+   Then, this modified regressor matrix \eqn{X^{*}} is used for the
+   estimation of the parameter vector \eqn{b^{*}}.
+   This means that the parameters of the original regressors (\eqn{X}),
+   vector \eqn{b},
+   can be represented by \eqn{b =} \code{restrict.reg} \eqn{\cdot b^{*}}.
+   If \code{restrict.reg} is a non-singular quadratic matrix,
+   there are no parameter restrictions imposed,
+   but the parameters \eqn{b^{*}} are linear combinations of
+   the original parameters \eqn{b}.
+   If \code{restrict.reg} has less columns than rows,
+   linear restrictions are imposed on the parameters \eqn{b}.
+   However, imposing linear restrictions
+   by the \code{restrict.reg} matrix is less flexible than
+   by providing the matrix \code{restrictions} and the
+   vector \code{restrict.rhs}.
+   The advantage of imposing restrictions on the parameters
+   by the matrix \code{restrict.reg} is that the matrix,
+   which has to be inverted during the estimation,
+   gets smaller by this procedure, while it gets larger
    if the restrictions are imposed by \code{restrictions} and \code{restrict.rhs}.
 }
 
@@ -119,11 +128,11 @@ systemfit( eqns, method = "OLS",
   \item{bcov}{estimated covariance matrix of \code{coefficients}.}
   \item{rcov}{estimated residual covariance matrix.}
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
-  \item{restrictions}{the restriction matrix,
-      or a character vector giving the hypothesis in symbolic form
-      (see \code{\link[car]{linear.hypothesis}} in package "car").}
+  \item{restrictions}{the restriction matrix.}
   \item{restrict.rhs}{the restriction vector.}
-  \item{TX}{matrix used to transform the regressor matrix.}
+  \item{restrict.reg}{matrix used to impose restrictions
+      on the parameters by post-multiplying the regressor matrix
+      with this matrix.}
   \item{control}{list of control parameters used for the estimation.}
   \item{panelLike}{logical. Was this an analysis with panel-like data?}
 
@@ -211,7 +220,7 @@ print( fitols2b )
 # test whether both restricted estimators are identical
 all.equal( coef( fitols2 ), coef( fitols2b ) )
 
-## OLS with parameter restriction by argument TX
+## OLS with parameter restriction by argument restrict.reg
 coefMap <- matrix( 0, 7, 6 )
 colnames( coefMap ) <- c( "demIntercept", "demPrice", "demIncome",
    "supIntercept", "supPrice2", "supTrend" )
@@ -222,7 +231,7 @@ coefMap[ 4, "supIntercept" ] <- 1
 coefMap[ 5, "supPrice2" ]    <- 1
 coefMap[ 6, "supPrice2" ]    <- 1
 coefMap[ 7, "supTrend" ]     <- 1
-fitols3 <- systemfit( system, data = Kmenta, TX = coefMap )
+fitols3 <- systemfit( system, data = Kmenta, restrict.reg = coefMap )
 print( fitols3 )
 
 

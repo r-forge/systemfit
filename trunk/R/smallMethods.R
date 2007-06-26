@@ -44,12 +44,12 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
 ## return all coefficients
 coef.systemfit <- function( object, transformed = FALSE, ... ) {
    if( transformed ){
-      if( is.null( object$TX ) ){
+      if( is.null( object$restrict.reg ) ){
          stop( "transformed coefficients are not available,",
-            " because argument 'TX' has not been used in this estimation." )
+            " because argument 'restrict.reg' has not been used in this estimation." )
       } else {
-         return( drop( solve( crossprod( object$TX ),
-            t( object$TX ) %*% coef( object ) ) ) )
+         return( drop( solve( crossprod( object$restrict.reg ),
+            t( object$restrict.reg ) %*% coef( object ) ) ) )
       }
    } else {
       return( object$coefficients )
@@ -61,7 +61,7 @@ coef.summary.systemfit <- function( object, transformed = FALSE, ... ) {
    if( transformed ){
       if( is.null( object$coefTrans ) ){
          stop( "transformed coefficients are not available,",
-            " because argument 'TX' has not been used in this estimation." )
+            " because argument 'restrict.reg' has not been used in this estimation." )
       } else {
          return( object$coefTrans )
       }
@@ -98,14 +98,14 @@ residuals.systemfit.equation <- function( object, ... ) {
 ## return the variance covariance matrix of the coefficients
 vcov.systemfit <- function( object, transformed = FALSE, ... ) {
    if( transformed ){
-      if( is.null( object$TX ) ){
+      if( is.null( object$restrict.reg ) ){
          stop( "transformed coefficients and their covariance matrix",
             " are not available,",
-            " because argument 'TX' has not been used in this estimation." )
+            " because argument 'restrict.reg' has not been used in this estimation." )
       } else {
-         txtxInv <- solve( crossprod( object$TX ) )
-         result <- txtxInv %*% t( object$TX ) %*% vcov( object ) %*%
-            object$TX %*% txtxInv
+         txtxInv <- solve( crossprod( object$restrict.reg ) )
+         result <- txtxInv %*% t( object$restrict.reg ) %*% vcov( object ) %*%
+            object$restrict.reg %*% txtxInv
          return( result )
       }
    } else {

@@ -20,7 +20,7 @@
       \code{systemfit.equation}.}
    \item{transformed}{logical. If \code{TRUE},
       the covariance matrix of the transformed coefficients
-      (due to transforming the regressor matrix by argument \code{TX})
+      (due to transforming the regressor matrix by argument \code{restrict.reg})
       is returned.}
    \item{\dots}{other arguments.}
 }
@@ -65,7 +65,7 @@ coefMap[ 4, "supIntercept" ] <- 1
 coefMap[ 5, "supPrice2" ]    <- 1
 coefMap[ 6, "supPrice2" ]    <- 1
 coefMap[ 7, "supTrend" ]     <- 1
-fitsur <- systemfit( system, "SUR", data = Kmenta, TX = coefMap )
+fitsur <- systemfit( system, "SUR", data = Kmenta, restrict.reg = coefMap )
 vcov( fitsur, transformed  = TRUE )
 vcov( fitsur )
 }
