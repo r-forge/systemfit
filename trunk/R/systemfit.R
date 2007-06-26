@@ -564,13 +564,9 @@ systemfit <- function(  eqns,
 
   ## for all estimation methods
   fitted.values <- xMatAll %*% coef   # fitted endogenous values
-  bt     <- NULL
-  btcov  <- NULL
   if(!is.null(restrict.reg)) {
-    bt <- coef
-    coef  <- restrict.reg %*% bt
-    btcov <- bcov
-    bcov  <- restrict.reg %*% btcov %*% t(restrict.reg)
+    coef  <- restrict.reg %*% coef
+    bcov  <- restrict.reg %*% bcov %*% t(restrict.reg)
   }
 
 
