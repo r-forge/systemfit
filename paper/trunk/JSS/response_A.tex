@@ -294,7 +294,15 @@ We have renamed single letter elements (not finished yet).
 %       control = systemfit.control()
 %     that sets suitable defaults but can also easily be changed. If possible `...'
 %     arguments could be passed to systemfit.control() assuring backward compatibility
-%     and facilitating interactive usage. The names of various
+%     and facilitating interactive usage.
+Following the suggestion of this referee,
+the technical control parameters of \code{systemfit()} are collected
+in a single argument \code{control} now.
+This argument is a list that contains the technical control parameters,
+where suitable default values are set by the function
+\code{systemfit.control()}.
+
+%     The names of various
 %     arguments should be re-thought, e.g. "tx", "R.restr" and "q.rests" seem rather
 %     arbitrary. Similar comments hold for other arguments, see also below for some
 %     more comments. As noted above, the standard in R seems to supply the formula(s)
