@@ -305,7 +305,24 @@ where suitable default values are set by the function
 %     The names of various
 %     arguments should be re-thought, e.g. "tx", "R.restr" and "q.rests" seem rather
 %     arbitrary. Similar comments hold for other arguments, see also below for some
-%     more comments. As noted above, the standard in R seems to supply the formula(s)
+%     more comments.
+The names of several arguments have been improved.
+The arguments to impose parameter restrictions by $R \beta = q$
+(former \code{R.restr} and \code{q.restr})
+have been renamed to \code{restrict.matrix} and \code{restrict.rhs},
+respectively
+(following the arguments \code{hypothesis.matrix} and \code{rhs}
+of the generic function \code{linear.hypothesis}).
+The argument to impose parameter restrictions
+by modifying (post-multiplying) the regressor matrix
+(fromer \code{TX}) has been renamed to \code{restrict.regMat}.
+Finally, the arguments to specify the methods
+for the 3SLS estimation and to calculated the residual covariance matrix
+(former \code{formula3sls} and \code{rcovformula})
+have been renamed to \code{method3sls} and \code{methodRCov},
+respectively.
+
+%     As noted above, the standard in R seems to supply the formula(s)
 %     as the first argument and to have then some `method' argument.
 We have reversed the order of arguments \code{method} and \code{eqns}
 of \code{systemfit()}.
