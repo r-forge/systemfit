@@ -381,6 +381,81 @@ Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
 > formula( theilOls$eq[[ 1 ]] )
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
+> terms( theilOls )
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+attr(,"variables")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"factors")
+                         General.Electric_value General.Electric_capital
+General.Electric_invest                       0                        0
+General.Electric_value                        1                        0
+General.Electric_capital                      0                        1
+attr(,"term.labels")
+[1] "General.Electric_value"   "General.Electric_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8770ee4>
+attr(,"predvars")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"dataClasses")
+ General.Electric_invest   General.Electric_value General.Electric_capital 
+               "numeric"                "numeric"                "numeric" 
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+attr(,"variables")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"factors")
+                     Westinghouse_value Westinghouse_capital
+Westinghouse_invest                   0                    0
+Westinghouse_value                    1                    0
+Westinghouse_capital                  0                    1
+attr(,"term.labels")
+[1] "Westinghouse_value"   "Westinghouse_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8770ee4>
+attr(,"predvars")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"dataClasses")
+ Westinghouse_invest   Westinghouse_value Westinghouse_capital 
+           "numeric"            "numeric"            "numeric" 
+
+> terms( theilOls$eq[[ 1 ]] )
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+attr(,"variables")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"factors")
+                         General.Electric_value General.Electric_capital
+General.Electric_invest                       0                        0
+General.Electric_value                        1                        0
+General.Electric_capital                      0                        1
+attr(,"term.labels")
+[1] "General.Electric_value"   "General.Electric_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8770ee4>
+attr(,"predvars")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"dataClasses")
+ General.Electric_invest   General.Electric_value General.Electric_capital 
+               "numeric"                "numeric"                "numeric" 
 > 
 > # SUR
 > theilSur <- systemfit( formulaGrunfeld, "SUR",
@@ -730,6 +805,81 @@ Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
 > formula( theilSur$eq[[ 2 ]] )
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+> terms( theilSur )
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+attr(,"variables")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"factors")
+                         General.Electric_value General.Electric_capital
+General.Electric_invest                       0                        0
+General.Electric_value                        1                        0
+General.Electric_capital                      0                        1
+attr(,"term.labels")
+[1] "General.Electric_value"   "General.Electric_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x912ab68>
+attr(,"predvars")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"dataClasses")
+ General.Electric_invest   General.Electric_value General.Electric_capital 
+               "numeric"                "numeric"                "numeric" 
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+attr(,"variables")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"factors")
+                     Westinghouse_value Westinghouse_capital
+Westinghouse_invest                   0                    0
+Westinghouse_value                    1                    0
+Westinghouse_capital                  0                    1
+attr(,"term.labels")
+[1] "Westinghouse_value"   "Westinghouse_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x912ab68>
+attr(,"predvars")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"dataClasses")
+ Westinghouse_invest   Westinghouse_value Westinghouse_capital 
+           "numeric"            "numeric"            "numeric" 
+
+> terms( theilSur$eq[[ 2 ]] )
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+attr(,"variables")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"factors")
+                     Westinghouse_value Westinghouse_capital
+Westinghouse_invest                   0                    0
+Westinghouse_value                    1                    0
+Westinghouse_capital                  0                    1
+attr(,"term.labels")
+[1] "Westinghouse_value"   "Westinghouse_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x912ab68>
+attr(,"predvars")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"dataClasses")
+ Westinghouse_invest   Westinghouse_value Westinghouse_capital 
+           "numeric"            "numeric"            "numeric" 
 > 
 > 
 > ## Repeating the OLS and SUR estimations in Greene (2003, pp. 351)
@@ -1960,6 +2110,156 @@ Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
 > formula( greeneOls$eq[[ 2 ]] )
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
+> terms( greeneOls )
+$Chrysler
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+attr(,"variables")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"factors")
+                 Chrysler_value Chrysler_capital
+Chrysler_invest               0                0
+Chrysler_value                1                0
+Chrysler_capital              0                1
+attr(,"term.labels")
+[1] "Chrysler_value"   "Chrysler_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8e2b5c0>
+attr(,"predvars")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"dataClasses")
+ Chrysler_invest   Chrysler_value Chrysler_capital 
+       "numeric"        "numeric"        "numeric" 
+
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+attr(,"variables")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"factors")
+                         General.Electric_value General.Electric_capital
+General.Electric_invest                       0                        0
+General.Electric_value                        1                        0
+General.Electric_capital                      0                        1
+attr(,"term.labels")
+[1] "General.Electric_value"   "General.Electric_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8e2b5c0>
+attr(,"predvars")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"dataClasses")
+ General.Electric_invest   General.Electric_value General.Electric_capital 
+               "numeric"                "numeric"                "numeric" 
+
+$General.Motors
+General.Motors_invest ~ General.Motors_value + General.Motors_capital
+attr(,"variables")
+list(General.Motors_invest, General.Motors_value, General.Motors_capital)
+attr(,"factors")
+                       General.Motors_value General.Motors_capital
+General.Motors_invest                     0                      0
+General.Motors_value                      1                      0
+General.Motors_capital                    0                      1
+attr(,"term.labels")
+[1] "General.Motors_value"   "General.Motors_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8e2b5c0>
+attr(,"predvars")
+list(General.Motors_invest, General.Motors_value, General.Motors_capital)
+attr(,"dataClasses")
+ General.Motors_invest   General.Motors_value General.Motors_capital 
+             "numeric"              "numeric"              "numeric" 
+
+$US.Steel
+US.Steel_invest ~ US.Steel_value + US.Steel_capital
+attr(,"variables")
+list(US.Steel_invest, US.Steel_value, US.Steel_capital)
+attr(,"factors")
+                 US.Steel_value US.Steel_capital
+US.Steel_invest               0                0
+US.Steel_value                1                0
+US.Steel_capital              0                1
+attr(,"term.labels")
+[1] "US.Steel_value"   "US.Steel_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8e2b5c0>
+attr(,"predvars")
+list(US.Steel_invest, US.Steel_value, US.Steel_capital)
+attr(,"dataClasses")
+ US.Steel_invest   US.Steel_value US.Steel_capital 
+       "numeric"        "numeric"        "numeric" 
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+attr(,"variables")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"factors")
+                     Westinghouse_value Westinghouse_capital
+Westinghouse_invest                   0                    0
+Westinghouse_value                    1                    0
+Westinghouse_capital                  0                    1
+attr(,"term.labels")
+[1] "Westinghouse_value"   "Westinghouse_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8e2b5c0>
+attr(,"predvars")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"dataClasses")
+ Westinghouse_invest   Westinghouse_value Westinghouse_capital 
+           "numeric"            "numeric"            "numeric" 
+
+> terms( greeneOls$eq[[ 2 ]] )
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+attr(,"variables")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"factors")
+                         General.Electric_value General.Electric_capital
+General.Electric_invest                       0                        0
+General.Electric_value                        1                        0
+General.Electric_capital                      0                        1
+attr(,"term.labels")
+[1] "General.Electric_value"   "General.Electric_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8e2b5c0>
+attr(,"predvars")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"dataClasses")
+ General.Electric_invest   General.Electric_value General.Electric_capital 
+               "numeric"                "numeric"                "numeric" 
 > 
 > # OLS Pooled
 > greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
@@ -3181,6 +3481,156 @@ Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
 > formula( greeneOlsPooled$eq[[ 1 ]] )
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
+> terms( greeneOlsPooled )
+$Chrysler
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+attr(,"variables")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"factors")
+                 Chrysler_value Chrysler_capital
+Chrysler_invest               0                0
+Chrysler_value                1                0
+Chrysler_capital              0                1
+attr(,"term.labels")
+[1] "Chrysler_value"   "Chrysler_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8dabeb0>
+attr(,"predvars")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"dataClasses")
+ Chrysler_invest   Chrysler_value Chrysler_capital 
+       "numeric"        "numeric"        "numeric" 
+
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+attr(,"variables")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"factors")
+                         General.Electric_value General.Electric_capital
+General.Electric_invest                       0                        0
+General.Electric_value                        1                        0
+General.Electric_capital                      0                        1
+attr(,"term.labels")
+[1] "General.Electric_value"   "General.Electric_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8dabeb0>
+attr(,"predvars")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"dataClasses")
+ General.Electric_invest   General.Electric_value General.Electric_capital 
+               "numeric"                "numeric"                "numeric" 
+
+$General.Motors
+General.Motors_invest ~ General.Motors_value + General.Motors_capital
+attr(,"variables")
+list(General.Motors_invest, General.Motors_value, General.Motors_capital)
+attr(,"factors")
+                       General.Motors_value General.Motors_capital
+General.Motors_invest                     0                      0
+General.Motors_value                      1                      0
+General.Motors_capital                    0                      1
+attr(,"term.labels")
+[1] "General.Motors_value"   "General.Motors_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8dabeb0>
+attr(,"predvars")
+list(General.Motors_invest, General.Motors_value, General.Motors_capital)
+attr(,"dataClasses")
+ General.Motors_invest   General.Motors_value General.Motors_capital 
+             "numeric"              "numeric"              "numeric" 
+
+$US.Steel
+US.Steel_invest ~ US.Steel_value + US.Steel_capital
+attr(,"variables")
+list(US.Steel_invest, US.Steel_value, US.Steel_capital)
+attr(,"factors")
+                 US.Steel_value US.Steel_capital
+US.Steel_invest               0                0
+US.Steel_value                1                0
+US.Steel_capital              0                1
+attr(,"term.labels")
+[1] "US.Steel_value"   "US.Steel_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8dabeb0>
+attr(,"predvars")
+list(US.Steel_invest, US.Steel_value, US.Steel_capital)
+attr(,"dataClasses")
+ US.Steel_invest   US.Steel_value US.Steel_capital 
+       "numeric"        "numeric"        "numeric" 
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+attr(,"variables")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"factors")
+                     Westinghouse_value Westinghouse_capital
+Westinghouse_invest                   0                    0
+Westinghouse_value                    1                    0
+Westinghouse_capital                  0                    1
+attr(,"term.labels")
+[1] "Westinghouse_value"   "Westinghouse_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8dabeb0>
+attr(,"predvars")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"dataClasses")
+ Westinghouse_invest   Westinghouse_value Westinghouse_capital 
+           "numeric"            "numeric"            "numeric" 
+
+> terms( greeneOlsPooled$eq[[ 1 ]] )
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+attr(,"variables")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"factors")
+                 Chrysler_value Chrysler_capital
+Chrysler_invest               0                0
+Chrysler_value                1                0
+Chrysler_capital              0                1
+attr(,"term.labels")
+[1] "Chrysler_value"   "Chrysler_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x8dabeb0>
+attr(,"predvars")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"dataClasses")
+ Chrysler_invest   Chrysler_value Chrysler_capital 
+       "numeric"        "numeric"        "numeric" 
 > 
 > # SUR
 > greeneSur <- systemfit( formulaGrunfeld, "SUR",
@@ -4418,6 +4868,156 @@ Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
 > formula( greeneSur$eq[[ 1 ]] )
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
+> terms( greeneSur )
+$Chrysler
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+attr(,"variables")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"factors")
+                 Chrysler_value Chrysler_capital
+Chrysler_invest               0                0
+Chrysler_value                1                0
+Chrysler_capital              0                1
+attr(,"term.labels")
+[1] "Chrysler_value"   "Chrysler_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x91a862c>
+attr(,"predvars")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"dataClasses")
+ Chrysler_invest   Chrysler_value Chrysler_capital 
+       "numeric"        "numeric"        "numeric" 
+
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+attr(,"variables")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"factors")
+                         General.Electric_value General.Electric_capital
+General.Electric_invest                       0                        0
+General.Electric_value                        1                        0
+General.Electric_capital                      0                        1
+attr(,"term.labels")
+[1] "General.Electric_value"   "General.Electric_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x91a862c>
+attr(,"predvars")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"dataClasses")
+ General.Electric_invest   General.Electric_value General.Electric_capital 
+               "numeric"                "numeric"                "numeric" 
+
+$General.Motors
+General.Motors_invest ~ General.Motors_value + General.Motors_capital
+attr(,"variables")
+list(General.Motors_invest, General.Motors_value, General.Motors_capital)
+attr(,"factors")
+                       General.Motors_value General.Motors_capital
+General.Motors_invest                     0                      0
+General.Motors_value                      1                      0
+General.Motors_capital                    0                      1
+attr(,"term.labels")
+[1] "General.Motors_value"   "General.Motors_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x91a862c>
+attr(,"predvars")
+list(General.Motors_invest, General.Motors_value, General.Motors_capital)
+attr(,"dataClasses")
+ General.Motors_invest   General.Motors_value General.Motors_capital 
+             "numeric"              "numeric"              "numeric" 
+
+$US.Steel
+US.Steel_invest ~ US.Steel_value + US.Steel_capital
+attr(,"variables")
+list(US.Steel_invest, US.Steel_value, US.Steel_capital)
+attr(,"factors")
+                 US.Steel_value US.Steel_capital
+US.Steel_invest               0                0
+US.Steel_value                1                0
+US.Steel_capital              0                1
+attr(,"term.labels")
+[1] "US.Steel_value"   "US.Steel_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x91a862c>
+attr(,"predvars")
+list(US.Steel_invest, US.Steel_value, US.Steel_capital)
+attr(,"dataClasses")
+ US.Steel_invest   US.Steel_value US.Steel_capital 
+       "numeric"        "numeric"        "numeric" 
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+attr(,"variables")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"factors")
+                     Westinghouse_value Westinghouse_capital
+Westinghouse_invest                   0                    0
+Westinghouse_value                    1                    0
+Westinghouse_capital                  0                    1
+attr(,"term.labels")
+[1] "Westinghouse_value"   "Westinghouse_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x91a862c>
+attr(,"predvars")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"dataClasses")
+ Westinghouse_invest   Westinghouse_value Westinghouse_capital 
+           "numeric"            "numeric"            "numeric" 
+
+> terms( greeneSur$eq[[ 1 ]] )
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+attr(,"variables")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"factors")
+                 Chrysler_value Chrysler_capital
+Chrysler_invest               0                0
+Chrysler_value                1                0
+Chrysler_capital              0                1
+attr(,"term.labels")
+[1] "Chrysler_value"   "Chrysler_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x91a862c>
+attr(,"predvars")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"dataClasses")
+ Chrysler_invest   Chrysler_value Chrysler_capital 
+       "numeric"        "numeric"        "numeric" 
 > 
 > # SUR Pooled
 > greeneSurPooled <- systemfit( formulaGrunfeld, "WSUR",
@@ -5652,4 +6252,154 @@ Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 
 > formula( greeneSurPooled$eq[[ 1 ]] )
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
+> terms( greeneSurPooled )
+$Chrysler
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+attr(,"variables")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"factors")
+                 Chrysler_value Chrysler_capital
+Chrysler_invest               0                0
+Chrysler_value                1                0
+Chrysler_capital              0                1
+attr(,"term.labels")
+[1] "Chrysler_value"   "Chrysler_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x95118a8>
+attr(,"predvars")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"dataClasses")
+ Chrysler_invest   Chrysler_value Chrysler_capital 
+       "numeric"        "numeric"        "numeric" 
+
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+attr(,"variables")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"factors")
+                         General.Electric_value General.Electric_capital
+General.Electric_invest                       0                        0
+General.Electric_value                        1                        0
+General.Electric_capital                      0                        1
+attr(,"term.labels")
+[1] "General.Electric_value"   "General.Electric_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x95118a8>
+attr(,"predvars")
+list(General.Electric_invest, General.Electric_value, General.Electric_capital)
+attr(,"dataClasses")
+ General.Electric_invest   General.Electric_value General.Electric_capital 
+               "numeric"                "numeric"                "numeric" 
+
+$General.Motors
+General.Motors_invest ~ General.Motors_value + General.Motors_capital
+attr(,"variables")
+list(General.Motors_invest, General.Motors_value, General.Motors_capital)
+attr(,"factors")
+                       General.Motors_value General.Motors_capital
+General.Motors_invest                     0                      0
+General.Motors_value                      1                      0
+General.Motors_capital                    0                      1
+attr(,"term.labels")
+[1] "General.Motors_value"   "General.Motors_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x95118a8>
+attr(,"predvars")
+list(General.Motors_invest, General.Motors_value, General.Motors_capital)
+attr(,"dataClasses")
+ General.Motors_invest   General.Motors_value General.Motors_capital 
+             "numeric"              "numeric"              "numeric" 
+
+$US.Steel
+US.Steel_invest ~ US.Steel_value + US.Steel_capital
+attr(,"variables")
+list(US.Steel_invest, US.Steel_value, US.Steel_capital)
+attr(,"factors")
+                 US.Steel_value US.Steel_capital
+US.Steel_invest               0                0
+US.Steel_value                1                0
+US.Steel_capital              0                1
+attr(,"term.labels")
+[1] "US.Steel_value"   "US.Steel_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x95118a8>
+attr(,"predvars")
+list(US.Steel_invest, US.Steel_value, US.Steel_capital)
+attr(,"dataClasses")
+ US.Steel_invest   US.Steel_value US.Steel_capital 
+       "numeric"        "numeric"        "numeric" 
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+attr(,"variables")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"factors")
+                     Westinghouse_value Westinghouse_capital
+Westinghouse_invest                   0                    0
+Westinghouse_value                    1                    0
+Westinghouse_capital                  0                    1
+attr(,"term.labels")
+[1] "Westinghouse_value"   "Westinghouse_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x95118a8>
+attr(,"predvars")
+list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
+attr(,"dataClasses")
+ Westinghouse_invest   Westinghouse_value Westinghouse_capital 
+           "numeric"            "numeric"            "numeric" 
+
+> terms( greeneSurPooled$eq[[ 1 ]] )
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+attr(,"variables")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"factors")
+                 Chrysler_value Chrysler_capital
+Chrysler_invest               0                0
+Chrysler_value                1                0
+Chrysler_capital              0                1
+attr(,"term.labels")
+[1] "Chrysler_value"   "Chrysler_capital"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: 0x95118a8>
+attr(,"predvars")
+list(Chrysler_invest, Chrysler_value, Chrysler_capital)
+attr(,"dataClasses")
+ Chrysler_invest   Chrysler_value Chrysler_capital 
+       "numeric"        "numeric"        "numeric" 
 > 

@@ -6486,3 +6486,933 @@ price ~ income + farmPrice + trend
 > formula( fitsuri5r2$eq[[ 1 ]] )
 consump ~ price + income
 > 
+> 
+> ## **************** model terms *******************
+> terms( fitsur1e2 )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsur1e2$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+> 
+> terms( fitsur2e )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsur2e$eq[[ 1 ]] )
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+> 
+> terms( fitsur3 )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsur3$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+> 
+> terms( fitsur4r3 )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsur4r3$eq[[ 1 ]] )
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+> 
+> terms( fitsur5 )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsur5$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+> 
+> terms( fitsuri1r3 )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+price ~ income + farmPrice + trend
+attr(,"variables")
+list(price, income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+price          0         0     0
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(price, income, farmPrice, trend)
+attr(,"dataClasses")
+    price    income farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsuri1r3$eq[[ 1 ]] )
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+> 
+> terms( fitsuri2 )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+price ~ income + farmPrice + trend
+attr(,"variables")
+list(price, income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+price          0         0     0
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(price, income, farmPrice, trend)
+attr(,"dataClasses")
+    price    income farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsuri2$eq[[ 2 ]] )
+price ~ income + farmPrice + trend
+attr(,"variables")
+list(price, income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+price          0         0     0
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(price, income, farmPrice, trend)
+attr(,"dataClasses")
+    price    income farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+> 
+> terms( fitsuri3e )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+price ~ income + farmPrice + trend
+attr(,"variables")
+list(price, income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+price          0         0     0
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(price, income, farmPrice, trend)
+attr(,"dataClasses")
+    price    income farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsuri3e$eq[[ 1 ]] )
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+> 
+> terms( fitsurio4 )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsurio4$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+> terms( fitsuri4 )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+price ~ income + farmPrice + trend
+attr(,"variables")
+list(price, income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+price          0         0     0
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(price, income, farmPrice, trend)
+attr(,"dataClasses")
+    price    income farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsuri4$eq[[ 2 ]] )
+price ~ income + farmPrice + trend
+attr(,"variables")
+list(price, income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+price          0         0     0
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(price, income, farmPrice, trend)
+attr(,"dataClasses")
+    price    income farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+> 
+> terms( fitsurio5r2 )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsurio5r2$eq[[ 1 ]] )
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+> terms( fitsuri5r2 )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+price ~ income + farmPrice + trend
+attr(,"variables")
+list(price, income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+price          0         0     0
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(price, income, farmPrice, trend)
+attr(,"dataClasses")
+    price    income farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsuri5r2$eq[[ 1 ]] )
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+> 

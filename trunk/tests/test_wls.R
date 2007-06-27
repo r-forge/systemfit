@@ -633,3 +633,35 @@ formula( fitwlsi4$eq[[ 2 ]] )
 
 formula( fitwlsi5e )
 formula( fitwlsi5e$eq[[ 1 ]] )
+
+
+## **************** model terms *******************
+terms( fitwls1 )
+terms( fitwls1$eq[[ 2 ]] )
+
+terms( fitwls2e )
+terms( fitwls2e$eq[[ 1 ]] )
+
+terms( fitwls3 )
+terms( fitwls3$eq[[ 2 ]] )
+
+terms( fitwls4e )
+terms( fitwls4e$eq[[ 1 ]] )
+
+terms( fitwls5 )
+terms( fitwls5$eq[[ 2 ]] )
+
+terms( fitwlsi1e )
+terms( fitwlsi1e$eq[[ 1 ]] )
+
+terms( fitwlsi2 )
+terms( fitwlsi2$eq[[ 2 ]] )
+
+terms( fitwlsi3e )
+terms( fitwlsi3e$eq[[ 1 ]] )
+
+terms( fitwlsi4 )
+terms( fitwlsi4$eq[[ 2 ]] )
+
+terms( fitwlsi5e )
+terms( fitwlsi5e$eq[[ 1 ]] )

@@ -566,3 +566,29 @@ formula( fitw2slsd2e$eq[[ 1 ]] )
 
 formula( fitw2slsd3e )
 formula( fitw2slsd3e$eq[[ 2 ]] )
+
+
+## **************** model terms *******************
+terms( fitw2sls1e )
+terms( fitw2sls1e$eq[[ 1 ]] )
+
+terms( fitw2sls2 )
+terms( fitw2sls2$eq[[ 2 ]] )
+
+terms( fitw2sls3 )
+terms( fitw2sls3$eq[[ 1 ]] )
+
+terms( fitw2sls4e )
+terms( fitw2sls4e$eq[[ 2 ]] )
+
+terms( fitw2sls5 )
+terms( fitw2sls5$eq[[ 1 ]] )
+
+terms( fitw2slsd1 )
+terms( fitw2slsd1$eq[[ 2 ]] )
+
+terms( fitw2slsd2e )
+terms( fitw2slsd2e$eq[[ 1 ]] )
+
+terms( fitw2slsd3e )
+terms( fitw2slsd3e$eq[[ 2 ]] )

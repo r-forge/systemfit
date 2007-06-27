@@ -633,3 +633,26 @@ formula( fit2slsd1p$eq[[ 2 ]] )
 
 formula( fit2slsd2r )
 formula( fit2slsd2r$eq[[ 1 ]] )
+
+
+## **************** model terms *******************
+terms( fit2sls1 )
+terms( fit2sls1$eq[[ 1 ]] )
+
+terms( fit2sls2s )
+terms( fit2sls2s$eq[[ 2 ]] )
+
+terms( fit2sls3e )
+terms( fit2sls3e$eq[[ 1 ]] )
+
+terms( fit2sls4r )
+terms( fit2sls4r$eq[[ 2 ]] )
+
+terms( fit2sls5rs )
+terms( fit2sls5rs$eq[[ 1 ]] )
+
+terms( fit2slsd1p )
+terms( fit2slsd1p$eq[[ 2 ]] )
+
+terms( fit2slsd2r )
+terms( fit2slsd2r$eq[[ 1 ]] )

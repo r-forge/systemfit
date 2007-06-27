@@ -749,3 +749,26 @@ formula( fit3slsi[[ 3 ]]$e3e$eq[[ 1 ]] )
 
 formula( fit3slsd[[ 4 ]]$e4 )
 formula( fit3slsd[[ 4 ]]$e4$eq[[ 2 ]] )
+
+
+## **************** model terms *******************
+terms( fit3sls[[ 2 ]]$e1c )
+terms( fit3sls[[ 2 ]]$e1c$eq[[ 1 ]] )
+
+terms( fit3sls[[ 3 ]]$e2e )
+terms( fit3sls[[ 3 ]]$e2e$eq[[ 2 ]] )
+
+terms( fit3sls[[ 4 ]]$e3 )
+terms( fit3sls[[ 4 ]]$e3$eq[[ 1 ]] )
+
+terms( fit3sls[[ 5 ]]$e4e )
+terms( fit3sls[[ 5 ]]$e4e$eq[[ 2 ]] )
+
+terms( fit3sls[[ 1 ]]$e5 )
+terms( fit3sls[[ 1 ]]$e5$eq[[ 1 ]] )
+
+terms( fit3slsi[[ 3 ]]$e3e )
+terms( fit3slsi[[ 3 ]]$e3e$eq[[ 1 ]] )
+
+terms( fit3slsd[[ 4 ]]$e4 )
+terms( fit3slsd[[ 4 ]]$e4$eq[[ 2 ]] )

@@ -544,3 +544,20 @@ formula( fitols4rs$eq[[ 1 ]] )
 
 formula( fitols5 )
 formula( fitols5$eq[[ 2 ]] )
+
+
+## **************** model terms *******************
+terms( fitols1p )
+terms( fitols1p$eq[[ 2 ]] )
+
+terms( fitols2r )
+terms( fitols2r$eq[[ 1 ]] )
+
+terms( fitols3s )
+terms( fitols3s$eq[[ 2 ]] )
+
+terms( fitols4rs )
+terms( fitols4rs$eq[[ 1 ]] )
+
+terms( fitols5 )
+terms( fitols5$eq[[ 2 ]] )

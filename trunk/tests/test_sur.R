@@ -832,3 +832,39 @@ formula( fitsurio5r2 )
 formula( fitsurio5r2$eq[[ 1 ]] )
 formula( fitsuri5r2 )
 formula( fitsuri5r2$eq[[ 1 ]] )
+
+
+## **************** model terms *******************
+terms( fitsur1e2 )
+terms( fitsur1e2$eq[[ 2 ]] )
+
+terms( fitsur2e )
+terms( fitsur2e$eq[[ 1 ]] )
+
+terms( fitsur3 )
+terms( fitsur3$eq[[ 2 ]] )
+
+terms( fitsur4r3 )
+terms( fitsur4r3$eq[[ 1 ]] )
+
+terms( fitsur5 )
+terms( fitsur5$eq[[ 2 ]] )
+
+terms( fitsuri1r3 )
+terms( fitsuri1r3$eq[[ 1 ]] )
+
+terms( fitsuri2 )
+terms( fitsuri2$eq[[ 2 ]] )
+
+terms( fitsuri3e )
+terms( fitsuri3e$eq[[ 1 ]] )
+
+terms( fitsurio4 )
+terms( fitsurio4$eq[[ 2 ]] )
+terms( fitsuri4 )
+terms( fitsuri4$eq[[ 2 ]] )
+
+terms( fitsurio5r2 )
+terms( fitsurio5r2$eq[[ 1 ]] )
+terms( fitsuri5r2 )
+terms( fitsuri5r2$eq[[ 1 ]] )
