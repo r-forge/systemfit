@@ -1,4 +1,4 @@
-.ftest.systemfit <- function( object, restrictions,
+.ftest.systemfit <- function( object, restrict.matrix,
    restrict.rhs = NULL, vcov. = NULL ){
 
    coef <- coef( object )
@@ -23,12 +23,12 @@
 
    result <- list()
 
-   result$nRestr <- nrow( restrictions )
+   result$nRestr <- nrow( restrict.matrix )
    result$df.residual.sys  <- object$df.residual
 
-   numerator <- t( restrictions %*% coef - restrict.rhs ) %*%
-      solve( restrictions %*% vcov %*% t( restrictions ) ) %*%
-      ( restrictions %*% coef - restrict.rhs )
+   numerator <- t( restrict.matrix %*% coef - restrict.rhs ) %*%
+      solve( restrict.matrix %*% vcov %*% t( restrict.matrix ) ) %*%
+      ( restrict.matrix %*% coef - restrict.rhs )
 
    denominator <- t( resid ) %*%
       ( solve( rcov ) %x% diag( nObsPerEq ) ) %*%

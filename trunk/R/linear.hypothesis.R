@@ -52,7 +52,7 @@ linear.hypothesis.systemfit <- function( model,
       rownames( result ) <- c( 1, 2 )
 
       ftest <- .ftest.systemfit( object = model,
-         restrictions = R.restr, restrict.rhs = q.restr,
+         restrict.matrix = R.restr, restrict.rhs = q.restr,
          vcov. = vcov. )
       result[ 1, 1 ] <- ftest$df.residual.sys
       result[ 2, 1 ] <- ftest$df.residual.sys + ftest$nRestr

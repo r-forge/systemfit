@@ -26,7 +26,7 @@ systemfit <- function(  eqns,
                         method = "OLS",
                         inst=NULL,
                         data=list(),
-                        restrictions = NULL,
+                        restrict.matrix = NULL,
                         restrict.rhs = NULL,
                         restrict.regMat = NULL,
                         pooled = FALSE,
@@ -63,7 +63,7 @@ systemfit <- function(  eqns,
 
    # default value of argument single.eq.sigma
    if( is.null( control$single.eq.sigma ) ) {
-      control$single.eq.sigma <- ( is.null( restrictions ) & is.null( restrict.regMat ) )
+      control$single.eq.sigma <- ( is.null( restrict.matrix ) & is.null( restrict.regMat ) )
    }
 
   results <- list()               # results to be returned
@@ -218,21 +218,21 @@ systemfit <- function(  eqns,
 
    # checking and modifying parameter restrictions
    coefNamesModReg <- if( is.null( restrict.regMat ) ) coefNames else colnames( restrict.regMat )
-   if( is.character( restrictions ) ) {
-      R.restr <- car:::makeHypothesis( coefNamesModReg, restrictions, restrict.rhs )
+   if( is.character( restrict.matrix ) ) {
+      R.restr <- car:::makeHypothesis( coefNamesModReg, restrict.matrix, restrict.rhs )
       if( is.null( dim( R.restr ) ) ){
          R.restr <- t( R.restr )
       }
       q.restr <- R.restr[ , ncol( R.restr ), drop = FALSE ]
       R.restr <- R.restr[ , -ncol( R.restr ), drop = FALSE ]
-   } else if( !is.null( restrictions ) ) {
-      if( is.null( dim( restrictions ) ) ) {
-         R.restr <- t( restrictions )
+   } else if( !is.null( restrict.matrix ) ) {
+      if( is.null( dim( restrict.matrix ) ) ) {
+         R.restr <- t( restrict.matrix )
       } else {
-         R.restr <- restrictions
+         R.restr <- restrict.matrix
       }
       if( is.null( restrict.rhs ) ) {
-         q.restr <- matrix( 0, nrow( restrictions ) ,1 )
+         q.restr <- matrix( 0, nrow( restrict.matrix ) ,1 )
       } else {
          if( is.null( dim( restrict.rhs ) ) ) {
             q.restr <- matrix( restrict.rhs, ncol = 1  )
@@ -244,7 +244,7 @@ systemfit <- function(  eqns,
       R.restr <- NULL
       if( !is.null( restrict.rhs ) ) {
          warning( "ignoring argument 'restrict.rhs',",
-            " because argument 'restrictions' is not specified" )
+            " because argument 'restrict.matrix' is not specified" )
       }
       q.restr <- restrict.rhs
    }
@@ -653,7 +653,7 @@ systemfit <- function(  eqns,
   if( method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
     results$rcovest <- rcovest      # residual covarance matrix used for estimation
   }
-  results$restrictions <- R.restr
+  results$restrict.matrix <- R.restr
   results$restrict.rhs <- q.restr
   results$restrict.regMat <- restrict.regMat
   results$control <- control

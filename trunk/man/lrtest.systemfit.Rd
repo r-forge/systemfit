@@ -78,7 +78,7 @@ R1[ 1, 2 ] <- 1
 R1[ 1, 6 ] <- -1
 
 ## constrained SUR estimation
-fitsur1 <- systemfit( system, "SUR", data = Kmenta, restrictions = R1 )
+fitsur1 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = R1 )
 
 ## perform LR-test
 lrTest1 <- lrtest( fitsur1, fitsur )
@@ -90,7 +90,7 @@ R2[ 1, 2 ] <- 1
 R2[ 1, 6 ] <- 1
 
 ## constrained SUR estimation
-fitsur2 <- systemfit( system, "SUR", data = Kmenta, restrictions = R2 )
+fitsur2 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = R2 )
 
 ## perform LR-test
 lrTest2 <- lrtest( fitsur2, fitsur )

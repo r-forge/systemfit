@@ -17,7 +17,7 @@
 \usage{
 systemfit( eqns, method = "OLS",
            inst=NULL, data=list(),
-           restrictions = NULL, restrict.rhs = NULL, restrict.regMat = NULL,
+           restrict.matrix = NULL, restrict.rhs = NULL, restrict.regMat = NULL,
            pooled = FALSE, control = systemfit.control( ... ), ... )
 }
 
@@ -39,15 +39,15 @@ systemfit( eqns, method = "OLS",
       containing the variables in the model.
       By default the variables are taken from the environment from which
       systemfit is called.}
-   \item{restrictions}{an optional j x k matrix to impose linear
-      restrictions on the parameters by \code{restrictions} * \eqn{b} = \code{restrict.rhs}
+   \item{restrict.matrix}{an optional j x k matrix to impose linear
+      restrictions on the parameters by \code{restrict.matrix} * \eqn{b} = \code{restrict.rhs}
       (j = number of restrictions, k = number of all parameters,
       \eqn{b} = vector of all parameters)
       or a character vector giving the restrictions in symbolic form
       (see documentation of \code{\link[car]{linear.hypothesis}}
       in package "car" for details).}
    \item{restrict.rhs}{an optional vector with j elements to impose linear
-      restrictions (see \code{restrictions}); default is a vector
+      restrictions (see \code{restrict.matrix}); default is a vector
       that contains j zeros.}
    \item{restrict.regMat}{an optional matrix to impose restrictions
       on the parameters by post-multiplying the regressor matrix
@@ -97,13 +97,13 @@ systemfit( eqns, method = "OLS",
    linear restrictions are imposed on the parameters \eqn{b}.
    However, imposing linear restrictions
    by the \code{restrict.regMat} matrix is less flexible than
-   by providing the matrix \code{restrictions} and the
+   by providing the matrix \code{restrict.matrix} and the
    vector \code{restrict.rhs}.
    The advantage of imposing restrictions on the parameters
    by the matrix \code{restrict.regMat} is that the matrix,
    which has to be inverted during the estimation,
    gets smaller by this procedure, while it gets larger
-   if the restrictions are imposed by \code{restrictions} and \code{restrict.rhs}.
+   if the restrictions are imposed by \code{restrict.matrix} and \code{restrict.rhs}.
 }
 
 \value{
@@ -128,7 +128,7 @@ systemfit( eqns, method = "OLS",
   \item{bcov}{estimated covariance matrix of \code{coefficients}.}
   \item{rcov}{estimated residual covariance matrix.}
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
-  \item{restrictions}{the restriction matrix.}
+  \item{restrict.matrix}{the restriction matrix.}
   \item{restrict.rhs}{the restriction vector.}
   \item{restrict.regMat}{matrix used to impose restrictions
       on the parameters by post-multiplying the regressor matrix
@@ -208,13 +208,13 @@ Rrestr[2,2] <- -1
 Rrestr[2,5] <-  1
 qrestr <- c( 0, 0.5 )
 fitols2 <- systemfit( system, data = Kmenta,
-                      restrictions = Rrestr, restrict.rhs = qrestr )
+                      restrict.matrix = Rrestr, restrict.rhs = qrestr )
 print( fitols2 )
 
 ## OLS estimation with the same 2 restrictions in symbolic form
 restrict <- c( "demand_income - supply_trend = 0",
    "- demand_price + supply_price = 0.5" )
-fitols2b <- systemfit( system, data = Kmenta, restrictions = restrict )
+fitols2b <- systemfit( system, data = Kmenta, restrict.matrix = restrict )
 print( fitols2b )
 
 # test whether both restricted estimators are identical
