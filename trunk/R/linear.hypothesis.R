@@ -22,10 +22,10 @@ linear.hypothesis.systemfit <- function( model,
       attributes( result )$heading[ 1 ] <-
          "Linear hypothesis test (Wald-test)\n\nHypothesis:"
 
-      modelPos <- grep( "^Model 1: model\n", attributes( result )$heading )
+      modelPos <- grep( "^Model 1: .*Model 2:", attributes( result )$heading )
       attributes( result )$heading[ modelPos[ 1 ] ] <-
-         sub( "^Model 1: model\n",
-            paste( "Model 1: ", modelName, "\n", sep = "" ),
+         sub( "^Model 1: .*Model 2:",
+            paste( "Model 1: ", modelName, "\nModel 2:", sep = "" ),
             attributes( result )$heading[ modelPos[ 1 ] ] )
 
    } else if ( test == "F" ) {
