@@ -174,7 +174,7 @@ fitsur <- systemfit( list( eqDemand, eqSupply ), "SUR", data = Kmenta )
 As outlined in section~\ref{sec:Restrictions}, parameter restrictions
 can be imposed in two ways.
 The first way is to use the transformation matrix $M$
-that can be specified by the argument \code{restrict.reg}.
+that can be specified by the argument \code{restrict.regMat}.
 If we want to impose the restriction, say $\beta_2 = - \beta_6$,
 we can do this as follows
 <<>>=
@@ -182,7 +182,7 @@ tx <- matrix( 0, nrow = 7, ncol = 6 )
 tx[ 1:5, 1:5 ] <- diag( 5 ) # beta_{1-5} =  beta*_{1-5}
 tx[ 6, 2 ] <- -1   # beta_6 = -beta*_2
 tx[ 7, 6 ] <-  1   # beta_7 =  beta*_6
-fitsurTx <- systemfit( list( eqDemand, eqSupply ), "SUR", restrict.reg = tx )
+fitsurTx <- systemfit( list( eqDemand, eqSupply ), "SUR", restrict.regMat = tx )
 @
 The first line creates a $7 \times 6$ matrix of zeros,
 where 7 is the number of unrestricted coefficients and
@@ -203,7 +203,7 @@ $\beta^M_2 = \beta_2 = - \beta_6$ imposed.
 The second way to impose parameter restrictions is to use
 the matrix $R$ and the vector $q$
 (see section~\ref{sec:Restrictions}).
-Matrix $R$ can be specified with the argument \code{restrictions}
+Matrix $R$ can be specified with the argument \code{restrict.matrix}
 and vector $q$ with argument \code{restrict.rhs}.
 We convert the restriction specified above to $\beta_2 + \beta_6 = 0$
 and impose it in the second way:
@@ -213,7 +213,7 @@ Rmat[ 1, 2 ] <-  1   # beta_2
 Rmat[ 1, 6 ] <-  1   # beta_6
 qvec <- c( 0 )
 fitsurRmat <- systemfit( list( eqDemand, eqSupply ), "SUR",
-   restrictions = Rmat, restrict.rhs = qvec )
+   restrict.matrix = Rmat, restrict.rhs = qvec )
 @
 \label{code:Rmat}
 The first line creates a $1 \times 7$ matrix of zeros,
@@ -348,8 +348,8 @@ the degrees of freedom of the whole system are taken.
 In contrast, if \code{probdfsys} is \code{FALSE},
 the degrees of freedom of the single equation are taken.
 By default, \code{probdfsys} is \code{TRUE}, if any restrictions
-are specified using either the argument \code{restrictions} or the
-argument \code{restrict.reg}, and it is \code{FALSE} otherwise.
+are specified using either the argument \code{restrict.matrix} or the
+argument \code{restrict.regMat}, and it is \code{FALSE} otherwise.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -365,8 +365,8 @@ In contrast, if argument \code{single.eq.sigma} is \code{FALSE},
 equations (\ref{eq:olsCovSameSigma})
 and (\ref{eq:2slsCovSameSigma}) are applied.
 By default, \code{single.eq.sigma} is \code{FALSE}, if any restrictions
-are specified using either the argument \code{restrictions} or the
-argument \code{restrict.reg}, and it is \code{TRUE} otherwise.
+are specified using either the argument \code{restrict.matrix} or the
+argument \code{restrict.regMat}, and it is \code{TRUE} otherwise.
 
 
 

@@ -169,7 +169,7 @@ linear.hypothesis( theilSur, RMatrix )
 Restricted SUR estimation (page~316)
 <<>>=
 theilSurRestr <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldTheil, methodRCov = "noDfCor", restrictions = RMatrix,
+   data = GrunfeldTheil, methodRCov = "noDfCor", restrict.matrix = RMatrix,
    residCovRestricted = FALSE )
 round( coef( summary( theilSurRestr ) ), digits = 3 )
 @
