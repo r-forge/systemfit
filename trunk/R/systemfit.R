@@ -149,7 +149,7 @@ systemfit <- function(  eqns,
    }
 
    if( !is.null( restrict.reg ) ) {
-      # checking matrix to transform (map) coefficients (restrict.reg)
+      # checking matrix to modify (post-multiply) the regressor matrix (restrict.reg)
       if( !is.matrix( restrict.reg ) ) {
          stop( "argument 'restrict.reg' must be a matrix" )
       }
@@ -158,15 +158,15 @@ systemfit <- function(  eqns,
             " equal to the number of all regressors [in this model: ",
             sum( nCoefEq ), "]" )
       }
-      # default names for transformed (mapped) regressors and coefficients
+      # default names for modified regressors and their coefficients
       if( is.null( colnames( restrict.reg ) ) ){
          colnames( restrict.reg ) <- paste( "C", c( 1:ncol( restrict.reg ) ), sep = "" )
       }
-      # default rownames for matrix to transform regressors / map coefficients
+      # default rownames for matrix to modify regressors
       if( is.null( rownames( restrict.reg ) ) ){
          rownames( restrict.reg ) <- coefNames
       }
-      # transform regressor matrix
+      # modify regressor matrix (by restrict.reg)
       XU <- xMatAll
       xMatAll  <- XU %*% restrict.reg
    }
@@ -217,9 +217,9 @@ systemfit <- function(  eqns,
    }
 
    # checking and modifying parameter restrictions
-   mappedCoefNames <- if( is.null( restrict.reg ) ) coefNames else colnames( restrict.reg )
+   coefNamesModReg <- if( is.null( restrict.reg ) ) coefNames else colnames( restrict.reg )
    if( is.character( restrictions ) ) {
-      R.restr <- car:::makeHypothesis( mappedCoefNames, restrictions, restrict.rhs )
+      R.restr <- car:::makeHypothesis( coefNamesModReg, restrictions, restrict.rhs )
       if( is.null( dim( R.restr ) ) ){
          R.restr <- t( R.restr )
       }
@@ -253,14 +253,14 @@ systemfit <- function(  eqns,
    if( !is.null( R.restr ) ){
       if( is.null( rownames( R.restr ) ) ) {
          rownames( R.restr ) <-
-            car:::printHypothesis( R.restr, q.restr, mappedCoefNames )
+            car:::printHypothesis( R.restr, q.restr, coefNamesModReg )
       }
       if( is.null( colnames( R.restr ) ) ) {
-         colnames( R.restr ) <- mappedCoefNames
+         colnames( R.restr ) <- coefNamesModReg
       }
       if( is.null( rownames( q.restr ) ) ) {
          rownames( q.restr ) <-
-            car:::printHypothesis( R.restr, q.restr, mappedCoefNames )
+            car:::printHypothesis( R.restr, q.restr, coefNamesModReg )
       }
       if( is.null( colnames( q.restr ) ) ) {
          colnames( q.restr ) <- "*rhs*"

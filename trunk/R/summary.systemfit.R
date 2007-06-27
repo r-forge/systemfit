@@ -53,18 +53,18 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
       "t value", "Pr(>|t|)" )
    result$df <- c( length( coef( object ) ), nObs - length( coef( object ) ) )
 
-   # transformed coefficients
+   # coefficients of the modified regressor matrix
    if( !is.null( object$restrict.reg ) ) {
-      coefTrans <- coef( object, modified.reg = TRUE )
-      stdErTrans <- diag( vcov( object, modified.reg = TRUE ) )^0.5  # standard errors
-      tStatTrans <- coefTrans / stdErTrans    # t-statistic
+      coefModReg <- coef( object, modified.reg = TRUE )
+      stdErModReg <- diag( vcov( object, modified.reg = TRUE ) )^0.5  # standard errors
+      tStatModReg <- coefModReg / stdErModReg    # t-statistic
       if( useDfSys ) {             # p-values
-         pValTrans <- 2 * ( 1 - pt( abs( tStatTrans ), object$df.residual ) )
+         pValModReg <- 2 * ( 1 - pt( abs( tStatModReg ), object$df.residual ) )
       } else {
-         pValTrans <- rep( NA, length( coefTrans ) )
+         pValModReg <- rep( NA, length( coefModReg ) )
       }
-      result$coefTrans <- cbind( coefTrans, stdErTrans, tStatTrans, pValTrans )
-      colnames( result$coefTrans ) <- c( "Estimate", "Std. Error",
+      result$coefModReg <- cbind( coefModReg, stdErModReg, tStatModReg, pValModReg )
+      colnames( result$coefModReg ) <- c( "Estimate", "Std. Error",
          "t value", "Pr(>|t|)" )
    }
 

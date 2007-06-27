@@ -59,11 +59,11 @@ coef.systemfit <- function( object, modified.reg = FALSE, ... ) {
 ## return all coefficients, std.errors, t-values and p-values
 coef.summary.systemfit <- function( object, modified.reg = FALSE, ... ) {
    if( modified.reg ){
-      if( is.null( object$coefTrans ) ){
+      if( is.null( object$coefModReg ) ){
          stop( "coefficients of the modified regressor matrix are not available,",
             " because argument 'restrict.reg' has not been used in this estimation." )
       } else {
-         return( object$coefTrans )
+         return( object$coefModReg )
       }
    } else {
       return( object$coefficients )
