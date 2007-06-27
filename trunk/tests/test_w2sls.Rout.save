@@ -3741,3 +3741,85 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fitw2sls5$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
+> 
+> ## **************** formulas ************************
+> formula( fitw2sls1e )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitw2sls1e$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitw2sls2 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitw2sls2$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 
+> formula( fitw2sls3 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitw2sls3$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitw2sls4e )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitw2sls4e$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 
+> formula( fitw2sls5 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitw2sls5$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitw2slsd1 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitw2slsd1$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 
+> formula( fitw2slsd2e )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitw2slsd2e$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitw2slsd3e )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitw2slsd3e$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 

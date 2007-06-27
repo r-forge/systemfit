@@ -527,3 +527,20 @@ fitols5s$eq[[ 2 ]]$modelMatrix <- NULL
 print( all.equal( mm, model.matrix( fitols5s ) ) )
 print( all.equal( mm1, model.matrix( fitols5s$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols5s$eq[[ 2 ]] ) ) )
+
+
+## **************** formulas ************************
+formula( fitols1p )
+formula( fitols1p$eq[[ 2 ]] )
+
+formula( fitols2r )
+formula( fitols2r$eq[[ 1 ]] )
+
+formula( fitols3s )
+formula( fitols3s$eq[[ 2 ]] )
+
+formula( fitols4rs )
+formula( fitols4rs$eq[[ 1 ]] )
+
+formula( fitols5 )
+formula( fitols5$eq[[ 2 ]] )

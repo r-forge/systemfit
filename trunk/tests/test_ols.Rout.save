@@ -3715,3 +3715,55 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fitols5s$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
+> 
+> ## **************** formulas ************************
+> formula( fitols1p )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitols1p$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 
+> formula( fitols2r )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitols2r$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitols3s )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitols3s$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 
+> formula( fitols4rs )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitols4rs$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitols5 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitols5$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 

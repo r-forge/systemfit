@@ -20,6 +20,8 @@ fitted(theilOls  )
 logLik( theilOls )
 model.frame( theilOls )
 model.matrix( theilOls )
+formula( theilOls )
+formula( theilOls$eq[[ 1 ]] )
 
 # SUR
 theilSur <- systemfit( formulaGrunfeld, "SUR",
@@ -35,6 +37,8 @@ fitted( theilSur )
 logLik( theilSur )
 model.frame( theilSur )
 model.matrix( theilSur )
+formula( theilSur )
+formula( theilSur$eq[[ 2 ]] )
 
 
 ## Repeating the OLS and SUR estimations in Greene (2003, pp. 351)
@@ -57,6 +61,8 @@ fitted( greeneOls )
 logLik( greeneOls )
 model.frame( greeneOls )
 model.matrix( greeneOls )
+formula( greeneOls )
+formula( greeneOls$eq[[ 2 ]] )
 
 # OLS Pooled
 greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
@@ -76,6 +82,8 @@ fitted( greeneOlsPooled )
 logLik( greeneOlsPooled )
 model.frame( greeneOlsPooled )
 model.matrix( greeneOlsPooled )
+formula( greeneOlsPooled )
+formula( greeneOlsPooled$eq[[ 1 ]] )
 
 # SUR
 greeneSur <- systemfit( formulaGrunfeld, "SUR",
@@ -91,6 +99,8 @@ fitted( greeneSur )
 logLik( greeneSur )
 model.frame( greeneSur )
 model.matrix( greeneSur )
+formula( greeneSur )
+formula( greeneSur$eq[[ 1 ]] )
 
 # SUR Pooled
 greeneSurPooled <- systemfit( formulaGrunfeld, "WSUR",
@@ -109,3 +119,5 @@ fitted( greeneSurPooled )
 logLik( greeneSurPooled )
 model.frame( greeneSurPooled )
 model.matrix( greeneSurPooled )
+formula( greeneSurPooled )
+formula( greeneSurPooled$eq[[ 1 ]] )

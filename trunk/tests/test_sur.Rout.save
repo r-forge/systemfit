@@ -6366,3 +6366,123 @@ attr(,"assign")
 [1] TRUE
 > #print( all.equal( mm2, model.matrix( fitsuri5r2$eq[[ 1 ]] ) ) )
 > 
+> 
+> ## **************** formulas ************************
+> formula( fitsur1e2 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitsur1e2$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 
+> formula( fitsur2e )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitsur2e$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitsur3 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitsur3$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 
+> formula( fitsur4r3 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitsur4r3$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitsur5 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitsur5$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 
+> formula( fitsuri1r3 )
+$demand
+consump ~ price + income
+
+$supply
+price ~ income + farmPrice + trend
+
+> formula( fitsuri1r3$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitsuri2 )
+$demand
+consump ~ price + income
+
+$supply
+price ~ income + farmPrice + trend
+
+> formula( fitsuri2$eq[[ 2 ]] )
+price ~ income + farmPrice + trend
+> 
+> formula( fitsuri3e )
+$demand
+consump ~ price + income
+
+$supply
+price ~ income + farmPrice + trend
+
+> formula( fitsuri3e$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitsurio4 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitsurio4$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> formula( fitsuri4 )
+$demand
+consump ~ price + income
+
+$supply
+price ~ income + farmPrice + trend
+
+> formula( fitsuri4$eq[[ 2 ]] )
+price ~ income + farmPrice + trend
+> 
+> formula( fitsurio5r2 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitsurio5r2$eq[[ 1 ]] )
+consump ~ price + income
+> formula( fitsuri5r2 )
+$demand
+consump ~ price + income
+
+$supply
+price ~ income + farmPrice + trend
+
+> formula( fitsuri5r2$eq[[ 1 ]] )
+consump ~ price + income
+> 

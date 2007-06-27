@@ -601,3 +601,35 @@ fitwls5$eq[[ 2 ]]$modelMatrix <- NULL
 print( all.equal( mm, model.matrix( fitwls5 ) ) )
 print( all.equal( mm1, model.matrix( fitwls5$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitwls5$eq[[ 2 ]] ) ) )
+
+
+## **************** formulas ************************
+formula( fitwls1 )
+formula( fitwls1$eq[[ 2 ]] )
+
+formula( fitwls2e )
+formula( fitwls2e$eq[[ 1 ]] )
+
+formula( fitwls3 )
+formula( fitwls3$eq[[ 2 ]] )
+
+formula( fitwls4e )
+formula( fitwls4e$eq[[ 1 ]] )
+
+formula( fitwls5 )
+formula( fitwls5$eq[[ 2 ]] )
+
+formula( fitwlsi1e )
+formula( fitwlsi1e$eq[[ 1 ]] )
+
+formula( fitwlsi2 )
+formula( fitwlsi2$eq[[ 2 ]] )
+
+formula( fitwlsi3e )
+formula( fitwlsi3e$eq[[ 1 ]] )
+
+formula( fitwlsi4 )
+formula( fitwlsi4$eq[[ 2 ]] )
+
+formula( fitwlsi5e )
+formula( fitwlsi5e$eq[[ 1 ]] )

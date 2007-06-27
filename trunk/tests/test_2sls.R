@@ -610,3 +610,26 @@ fit2sls5rs$eq[[ 2 ]]$modelMatrix <- NULL
 print( all.equal( mm, model.matrix( fit2sls5rs ) ) )
 print( all.equal( mm1, model.matrix( fit2sls5rs$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls5rs$eq[[ 2 ]] ) ) )
+
+
+## **************** formulas ************************
+formula( fit2sls1 )
+formula( fit2sls1$eq[[ 1 ]] )
+
+formula( fit2sls2s )
+formula( fit2sls2s$eq[[ 2 ]] )
+
+formula( fit2sls3e )
+formula( fit2sls3e$eq[[ 1 ]] )
+
+formula( fit2sls4r )
+formula( fit2sls4r$eq[[ 2 ]] )
+
+formula( fit2sls5rs )
+formula( fit2sls5rs$eq[[ 1 ]] )
+
+formula( fit2slsd1p )
+formula( fit2slsd1p$eq[[ 2 ]] )
+
+formula( fit2slsd2r )
+formula( fit2slsd2r$eq[[ 1 ]] )

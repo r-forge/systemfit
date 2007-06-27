@@ -796,3 +796,39 @@ fitsur5$eq[[ 2 ]]$modelMatrix <- NULL
 print( all.equal( mm, model.matrix( fitsur5 ) ) )
 print( all.equal( mm1, model.matrix( fitsur5$eq[[ 1 ]] ) ) )
 #print( all.equal( mm2, model.matrix( fitsuri5r2$eq[[ 1 ]] ) ) )
+
+
+## **************** formulas ************************
+formula( fitsur1e2 )
+formula( fitsur1e2$eq[[ 2 ]] )
+
+formula( fitsur2e )
+formula( fitsur2e$eq[[ 1 ]] )
+
+formula( fitsur3 )
+formula( fitsur3$eq[[ 2 ]] )
+
+formula( fitsur4r3 )
+formula( fitsur4r3$eq[[ 1 ]] )
+
+formula( fitsur5 )
+formula( fitsur5$eq[[ 2 ]] )
+
+formula( fitsuri1r3 )
+formula( fitsuri1r3$eq[[ 1 ]] )
+
+formula( fitsuri2 )
+formula( fitsuri2$eq[[ 2 ]] )
+
+formula( fitsuri3e )
+formula( fitsuri3e$eq[[ 1 ]] )
+
+formula( fitsurio4 )
+formula( fitsurio4$eq[[ 2 ]] )
+formula( fitsuri4 )
+formula( fitsuri4$eq[[ 2 ]] )
+
+formula( fitsurio5r2 )
+formula( fitsurio5r2$eq[[ 1 ]] )
+formula( fitsuri5r2 )
+formula( fitsuri5r2$eq[[ 1 ]] )

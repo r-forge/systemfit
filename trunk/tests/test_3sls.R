@@ -726,3 +726,26 @@ fit3slsd[[ 3 ]]$e5e$eq[[ 2 ]]$modelMatrix <- NULL
 print( all.equal( mm, model.matrix( fit3slsd[[ 3 ]]$e5e ) ) )
 print( all.equal( mm1, model.matrix( fit3slsd[[ 3 ]]$e5e$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3slsd[[ 3 ]]$e5e$eq[[ 2 ]] ) ) )
+
+
+## **************** formulas ************************
+formula( fit3sls[[ 2 ]]$e1c )
+formula( fit3sls[[ 2 ]]$e1c$eq[[ 1 ]] )
+
+formula( fit3sls[[ 3 ]]$e2e )
+formula( fit3sls[[ 3 ]]$e2e$eq[[ 2 ]] )
+
+formula( fit3sls[[ 4 ]]$e3 )
+formula( fit3sls[[ 4 ]]$e3$eq[[ 1 ]] )
+
+formula( fit3sls[[ 5 ]]$e4e )
+formula( fit3sls[[ 5 ]]$e4e$eq[[ 2 ]] )
+
+formula( fit3sls[[ 1 ]]$e5 )
+formula( fit3sls[[ 1 ]]$e5$eq[[ 1 ]] )
+
+formula( fit3slsi[[ 3 ]]$e3e )
+formula( fit3slsi[[ 3 ]]$e3e$eq[[ 1 ]] )
+
+formula( fit3slsd[[ 4 ]]$e4 )
+formula( fit3slsd[[ 4 ]]$e4$eq[[ 2 ]] )

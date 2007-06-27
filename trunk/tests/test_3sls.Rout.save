@@ -13865,3 +13865,75 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fit3slsd[[ 3 ]]$e5e$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
+> 
+> ## **************** formulas ************************
+> formula( fit3sls[[ 2 ]]$e1c )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fit3sls[[ 2 ]]$e1c$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fit3sls[[ 3 ]]$e2e )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fit3sls[[ 3 ]]$e2e$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 
+> formula( fit3sls[[ 4 ]]$e3 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fit3sls[[ 4 ]]$e3$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fit3sls[[ 5 ]]$e4e )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fit3sls[[ 5 ]]$e4e$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 
+> formula( fit3sls[[ 1 ]]$e5 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fit3sls[[ 1 ]]$e5$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fit3slsi[[ 3 ]]$e3e )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fit3slsi[[ 3 ]]$e3e$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fit3slsd[[ 4 ]]$e4 )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fit3slsd[[ 4 ]]$e4$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+> 

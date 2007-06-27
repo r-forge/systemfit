@@ -372,6 +372,15 @@ Westinghouse_X1951                  723.8                129.7
 Westinghouse_X1952                  864.1                145.5
 Westinghouse_X1953                 1193.5                174.8
 Westinghouse_X1954                 1188.9                213.5
+> formula( theilOls )
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+
+> formula( theilOls$eq[[ 1 ]] )
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
 > 
 > # SUR
 > theilSur <- systemfit( formulaGrunfeld, "SUR",
@@ -712,6 +721,15 @@ Westinghouse_X1951                  723.8                129.7
 Westinghouse_X1952                  864.1                145.5
 Westinghouse_X1953                 1193.5                174.8
 Westinghouse_X1954                 1188.9                213.5
+> formula( theilSur )
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+
+> formula( theilSur$eq[[ 2 ]] )
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
 > 
 > 
 > ## Repeating the OLS and SUR estimations in Greene (2003, pp. 351)
@@ -1924,6 +1942,24 @@ Westinghouse_X1951                    129.7
 Westinghouse_X1952                    145.5
 Westinghouse_X1953                    174.8
 Westinghouse_X1954                    213.5
+> formula( greeneOls )
+$Chrysler
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+
+$General.Motors
+General.Motors_invest ~ General.Motors_value + General.Motors_capital
+
+$US.Steel
+US.Steel_invest ~ US.Steel_value + US.Steel_capital
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+
+> formula( greeneOls$eq[[ 2 ]] )
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
 > 
 > # OLS Pooled
 > greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
@@ -3127,6 +3163,24 @@ Westinghouse_X1951                    129.7
 Westinghouse_X1952                    145.5
 Westinghouse_X1953                    174.8
 Westinghouse_X1954                    213.5
+> formula( greeneOlsPooled )
+$Chrysler
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+
+$General.Motors
+General.Motors_invest ~ General.Motors_value + General.Motors_capital
+
+$US.Steel
+US.Steel_invest ~ US.Steel_value + US.Steel_capital
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+
+> formula( greeneOlsPooled$eq[[ 1 ]] )
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
 > 
 > # SUR
 > greeneSur <- systemfit( formulaGrunfeld, "SUR",
@@ -4346,6 +4400,24 @@ Westinghouse_X1951                    129.7
 Westinghouse_X1952                    145.5
 Westinghouse_X1953                    174.8
 Westinghouse_X1954                    213.5
+> formula( greeneSur )
+$Chrysler
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+
+$General.Motors
+General.Motors_invest ~ General.Motors_value + General.Motors_capital
+
+$US.Steel
+US.Steel_invest ~ US.Steel_value + US.Steel_capital
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+
+> formula( greeneSur$eq[[ 1 ]] )
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
 > 
 > # SUR Pooled
 > greeneSurPooled <- systemfit( formulaGrunfeld, "WSUR",
@@ -5562,4 +5634,22 @@ Westinghouse_X1951                    129.7
 Westinghouse_X1952                    145.5
 Westinghouse_X1953                    174.8
 Westinghouse_X1954                    213.5
+> formula( greeneSurPooled )
+$Chrysler
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
+
+$General.Electric
+General.Electric_invest ~ General.Electric_value + General.Electric_capital
+
+$General.Motors
+General.Motors_invest ~ General.Motors_value + General.Motors_capital
+
+$US.Steel
+US.Steel_invest ~ US.Steel_value + US.Steel_capital
+
+$Westinghouse
+Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
+
+> formula( greeneSurPooled$eq[[ 1 ]] )
+Chrysler_invest ~ Chrysler_value + Chrysler_capital
 > 
