@@ -289,6 +289,10 @@ We have renamed single letter elements (not finished yet).
 %     should/could be done in the summary() method, avoiding that certain parameters
 %     (not affecting the fit itself, such as degrees of freedom) necessarily have to
 %     be specified for model fitting.
+Furthermore, we have followed the advice of this referee
+and moved the computation of the partial $t$ statistic
+from the \code{systemfit()} function to its \code{summary()} method.
+
 % 
 %     The technical control parameters could also be collected in a list of arguments, e.g.,
 %       control = systemfit.control()
