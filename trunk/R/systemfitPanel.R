@@ -36,16 +36,16 @@
    names( eqnSystem ) <- eqnLabels
    #reshape( data, idvar=timevar, timevar=eqnVar,direction="wide")
 
-   restrict.reg <- NULL
+   restrict.regMat <- NULL
    if( pooled ) {
       for( eqnNo in 1:nEqn ) {
-         restrict.reg <- rbind( restrict.reg, diag( 1, nRegressors ) )
+         restrict.regMat <- rbind( restrict.regMat, diag( 1, nRegressors ) )
       }
    }
 
    result$eqnSystem <- eqnSystem
    result$wideData  <- wideData
-   result$restrict.reg <- restrict.reg
+   result$restrict.regMat <- restrict.regMat
 
    return( result )
 }

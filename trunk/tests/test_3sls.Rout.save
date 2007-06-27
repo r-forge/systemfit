@@ -101,14 +101,14 @@ Attaching package: 'zoo'
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
-+    print( "*************** 3SLS with restriction via restrict.reg ********************" )
++    print( "*************** 3SLS with restriction via restrict.regMat ********************" )
 +    fit3sls[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.reg = tc, method3sls = formulas[ i ] )
++       inst = inst, restrict.regMat = tc, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e3 ) )
 + 
-+    print( "*************** 3SLS with restriction via restrict.reg (EViews-like) *******" )
++    print( "*************** 3SLS with restriction via restrict.regMat (EViews-like) *******" )
 +    fit3sls[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.reg = tc,
++       inst = inst, methodRCov = "noDfCor", restrict.regMat = tc,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
@@ -128,20 +128,20 @@ Attaching package: 'zoo'
 +       restrict.rhs = restr2q, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
-+    print( "*************** 3SLS with 2 restrictions via R and restrict.reg **********" )
++    print( "*************** 3SLS with 2 restrictions via R and restrict.regMat **********" )
 +    fit3sls[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.reg = tc, restrictions = restr3m, restrict.rhs = restr3q,
++       inst = inst, restrict.regMat = tc, restrictions = restr3m, restrict.rhs = restr3q,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e5 ) )
 +    # the same with symbolically specified restrictions
 +    fit3sls[[ i ]]$e5Sym <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.reg = tc, restrictions = restrict3,
++       inst = inst, restrict.regMat = tc, restrictions = restrict3,
 +       method3sls = formulas[ i ] )
 +    print( all.equal( fit3sls[[ i ]]$e5, fit3sls[[ i ]]$e5Sym ) )
 + 
-+    print( "******** 3SLS with 2 restrictions via R and restrict.reg (EViews-like)*****" )
++    print( "******** 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)*****" )
 +    fit3sls[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.reg = tc, methodRCov = "noDfCor",
++       inst = inst, restrict.regMat = tc, methodRCov = "noDfCor",
 +       restrictions = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e5e, useDfSys = TRUE ) )
 + }
@@ -460,7 +460,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.013257 MSE: 6.500829 Root MSE: 2.549672 
 Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317 
 
-[1] "*************** 3SLS with restriction via restrict.reg ********************"
+[1] "*************** 3SLS with restriction via restrict.regMat ********************"
 
 systemfit results 
 method: 3SLS 
@@ -522,7 +522,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.753099 MSE: 6.547069 Root MSE: 2.558724 
 Multiple R-Squared: 0.609297 Adjusted R-Squared: 0.53604 
 
-[1] "*************** 3SLS with restriction via restrict.reg (EViews-like) *******"
+[1] "*************** 3SLS with restriction via restrict.regMat (EViews-like) *******"
 
 systemfit results 
 method: 3SLS 
@@ -709,7 +709,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.607293 MSE: 6.537956 Root MSE: 2.556943 
 Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686 
 
-[1] "*************** 3SLS with 2 restrictions via R and restrict.reg **********"
+[1] "*************** 3SLS with 2 restrictions via R and restrict.regMat **********"
 
 systemfit results 
 method: 3SLS 
@@ -772,7 +772,7 @@ SSR: 105.389143 MSE: 6.586821 Root MSE: 2.56648
 Multiple R-Squared: 0.606925 Adjusted R-Squared: 0.533223 
 
 [1] "Component 2: target, current do not match when deparsed"
-[1] "******** 3SLS with 2 restrictions via R and restrict.reg (EViews-like)*****"
+[1] "******** 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)*****"
 
 systemfit results 
 method: 3SLS 
@@ -1149,7 +1149,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.013257 MSE: 6.500829 Root MSE: 2.549672 
 Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317 
 
-[1] "*************** 3SLS with restriction via restrict.reg ********************"
+[1] "*************** 3SLS with restriction via restrict.regMat ********************"
 
 systemfit results 
 method: 3SLS 
@@ -1211,7 +1211,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.753099 MSE: 6.547069 Root MSE: 2.558724 
 Multiple R-Squared: 0.609297 Adjusted R-Squared: 0.53604 
 
-[1] "*************** 3SLS with restriction via restrict.reg (EViews-like) *******"
+[1] "*************** 3SLS with restriction via restrict.regMat (EViews-like) *******"
 
 systemfit results 
 method: 3SLS 
@@ -1398,7 +1398,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.607293 MSE: 6.537956 Root MSE: 2.556943 
 Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686 
 
-[1] "*************** 3SLS with 2 restrictions via R and restrict.reg **********"
+[1] "*************** 3SLS with 2 restrictions via R and restrict.regMat **********"
 
 systemfit results 
 method: 3SLS 
@@ -1461,7 +1461,7 @@ SSR: 105.389143 MSE: 6.586821 Root MSE: 2.56648
 Multiple R-Squared: 0.606925 Adjusted R-Squared: 0.533223 
 
 [1] "Component 2: target, current do not match when deparsed"
-[1] "******** 3SLS with 2 restrictions via R and restrict.reg (EViews-like)*****"
+[1] "******** 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)*****"
 
 systemfit results 
 method: 3SLS 
@@ -1838,7 +1838,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.013257 MSE: 6.500829 Root MSE: 2.549672 
 Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317 
 
-[1] "*************** 3SLS with restriction via restrict.reg ********************"
+[1] "*************** 3SLS with restriction via restrict.regMat ********************"
 
 systemfit results 
 method: 3SLS 
@@ -1900,7 +1900,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.753099 MSE: 6.547069 Root MSE: 2.558724 
 Multiple R-Squared: 0.609297 Adjusted R-Squared: 0.53604 
 
-[1] "*************** 3SLS with restriction via restrict.reg (EViews-like) *******"
+[1] "*************** 3SLS with restriction via restrict.regMat (EViews-like) *******"
 
 systemfit results 
 method: 3SLS 
@@ -2087,7 +2087,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.607293 MSE: 6.537956 Root MSE: 2.556943 
 Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686 
 
-[1] "*************** 3SLS with 2 restrictions via R and restrict.reg **********"
+[1] "*************** 3SLS with 2 restrictions via R and restrict.regMat **********"
 
 systemfit results 
 method: 3SLS 
@@ -2150,7 +2150,7 @@ SSR: 105.389143 MSE: 6.586821 Root MSE: 2.56648
 Multiple R-Squared: 0.606925 Adjusted R-Squared: 0.533223 
 
 [1] "Component 2: target, current do not match when deparsed"
-[1] "******** 3SLS with 2 restrictions via R and restrict.reg (EViews-like)*****"
+[1] "******** 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)*****"
 
 systemfit results 
 method: 3SLS 
@@ -2527,7 +2527,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.013257 MSE: 6.500829 Root MSE: 2.549672 
 Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317 
 
-[1] "*************** 3SLS with restriction via restrict.reg ********************"
+[1] "*************** 3SLS with restriction via restrict.regMat ********************"
 
 systemfit results 
 method: 3SLS 
@@ -2589,7 +2589,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.753099 MSE: 6.547069 Root MSE: 2.558724 
 Multiple R-Squared: 0.609297 Adjusted R-Squared: 0.53604 
 
-[1] "*************** 3SLS with restriction via restrict.reg (EViews-like) *******"
+[1] "*************** 3SLS with restriction via restrict.regMat (EViews-like) *******"
 
 systemfit results 
 method: 3SLS 
@@ -2776,7 +2776,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.607293 MSE: 6.537956 Root MSE: 2.556943 
 Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686 
 
-[1] "*************** 3SLS with 2 restrictions via R and restrict.reg **********"
+[1] "*************** 3SLS with 2 restrictions via R and restrict.regMat **********"
 
 systemfit results 
 method: 3SLS 
@@ -2839,7 +2839,7 @@ SSR: 105.389143 MSE: 6.586821 Root MSE: 2.56648
 Multiple R-Squared: 0.606925 Adjusted R-Squared: 0.533223 
 
 [1] "Component 2: target, current do not match when deparsed"
-[1] "******** 3SLS with 2 restrictions via R and restrict.reg (EViews-like)*****"
+[1] "******** 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)*****"
 
 systemfit results 
 method: 3SLS 
@@ -3216,7 +3216,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.013257 MSE: 6.500829 Root MSE: 2.549672 
 Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317 
 
-[1] "*************** 3SLS with restriction via restrict.reg ********************"
+[1] "*************** 3SLS with restriction via restrict.regMat ********************"
 
 systemfit results 
 method: 3SLS 
@@ -3278,7 +3278,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.753099 MSE: 6.547069 Root MSE: 2.558724 
 Multiple R-Squared: 0.609297 Adjusted R-Squared: 0.53604 
 
-[1] "*************** 3SLS with restriction via restrict.reg (EViews-like) *******"
+[1] "*************** 3SLS with restriction via restrict.regMat (EViews-like) *******"
 
 systemfit results 
 method: 3SLS 
@@ -3465,7 +3465,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 270.595239 MSE: 16.912202 Root MSE: 4.112445 
 Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488 
 
-[1] "*************** 3SLS with 2 restrictions via R and restrict.reg **********"
+[1] "*************** 3SLS with 2 restrictions via R and restrict.regMat **********"
 
 systemfit results 
 method: 3SLS 
@@ -3528,7 +3528,7 @@ SSR: 277.770203 MSE: 17.360638 Root MSE: 4.16661
 Multiple R-Squared: -0.036014 Adjusted R-Squared: -0.230267 
 
 [1] "Component 2: target, current do not match when deparsed"
-[1] "******** 3SLS with 2 restrictions via R and restrict.reg (EViews-like)*****"
+[1] "******** 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)*****"
 
 systemfit results 
 method: 3SLS 
@@ -3627,14 +3627,14 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 +       method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
-+    print( "********* iterated 3SLS with restriction via restrict.reg *****************" )
++    print( "********* iterated 3SLS with restriction via restrict.regMat *****************" )
 +    fit3slsi[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.reg = tc, method3sls = formulas[ i ], maxiter = 100 )
++       inst = inst, restrict.regMat = tc, method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e3 ) )
 + 
-+    print( "********* iterated 3SLS with restriction via restrict.reg (EViews-like) ***" )
++    print( "********* iterated 3SLS with restriction via restrict.regMat (EViews-like) ***" )
 +    fit3slsi[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.reg = tc,
++       inst = inst, methodRCov = "noDfCor", restrict.regMat = tc,
 +       method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
@@ -3650,15 +3650,15 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 +       restrict.rhs = restr2q, method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
-+    print( "******** iterated 3SLS with 2 restrictions via R and restrict.reg *********" )
++    print( "******** iterated 3SLS with 2 restrictions via R and restrict.regMat *********" )
 +    fit3slsi[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.reg = tc, restrictions = restr3m, restrict.rhs = restr3q,
++       inst = inst, restrict.regMat = tc, restrictions = restr3m, restrict.rhs = restr3q,
 +       method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e5 ) )
 + 
-+    print( "*** iterated 3SLS with 2 restrictions via R and restrict.reg (EViews-like)**" )
++    print( "*** iterated 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)**" )
 +    fit3slsi[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.reg = tc, methodRCov = "noDfCor",
++       inst = inst, restrict.regMat = tc, methodRCov = "noDfCor",
 +       restrictions = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
 +       maxiter = 100  )
 +    print( summary( fit3slsi[[ i ]]$e5e, useDfSys = TRUE ) )
@@ -3987,7 +3987,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
-[1] "********* iterated 3SLS with restriction via restrict.reg *****************"
+[1] "********* iterated 3SLS with restriction via restrict.regMat *****************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -4051,7 +4051,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 141.147347 MSE: 8.821709 Root MSE: 2.970136 
 Multiple R-Squared: 0.473555 Adjusted R-Squared: 0.374847 
 
-[1] "********* iterated 3SLS with restriction via restrict.reg (EViews-like) ***"
+[1] "********* iterated 3SLS with restriction via restrict.regMat (EViews-like) ***"
 
 systemfit results 
 method: iterated 3SLS 
@@ -4243,7 +4243,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 110.790992 MSE: 6.924437 Root MSE: 2.631432 
 Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298 
 
-[1] "******** iterated 3SLS with 2 restrictions via R and restrict.reg *********"
+[1] "******** iterated 3SLS with 2 restrictions via R and restrict.regMat *********"
 
 systemfit results 
 method: iterated 3SLS 
@@ -4307,7 +4307,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 114.829852 MSE: 7.176866 Root MSE: 2.678967 
 Multiple R-Squared: 0.571713 Adjusted R-Squared: 0.491409 
 
-[1] "*** iterated 3SLS with 2 restrictions via R and restrict.reg (EViews-like)**"
+[1] "*** iterated 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)**"
 
 systemfit results 
 method: iterated 3SLS 
@@ -4695,7 +4695,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
-[1] "********* iterated 3SLS with restriction via restrict.reg *****************"
+[1] "********* iterated 3SLS with restriction via restrict.regMat *****************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -4759,7 +4759,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 141.147347 MSE: 8.821709 Root MSE: 2.970136 
 Multiple R-Squared: 0.473555 Adjusted R-Squared: 0.374847 
 
-[1] "********* iterated 3SLS with restriction via restrict.reg (EViews-like) ***"
+[1] "********* iterated 3SLS with restriction via restrict.regMat (EViews-like) ***"
 
 systemfit results 
 method: iterated 3SLS 
@@ -4951,7 +4951,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 110.790992 MSE: 6.924437 Root MSE: 2.631432 
 Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298 
 
-[1] "******** iterated 3SLS with 2 restrictions via R and restrict.reg *********"
+[1] "******** iterated 3SLS with 2 restrictions via R and restrict.regMat *********"
 
 systemfit results 
 method: iterated 3SLS 
@@ -5015,7 +5015,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 114.829852 MSE: 7.176866 Root MSE: 2.678967 
 Multiple R-Squared: 0.571713 Adjusted R-Squared: 0.491409 
 
-[1] "*** iterated 3SLS with 2 restrictions via R and restrict.reg (EViews-like)**"
+[1] "*** iterated 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)**"
 
 systemfit results 
 method: iterated 3SLS 
@@ -5403,7 +5403,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
-[1] "********* iterated 3SLS with restriction via restrict.reg *****************"
+[1] "********* iterated 3SLS with restriction via restrict.regMat *****************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -5467,7 +5467,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 141.147347 MSE: 8.821709 Root MSE: 2.970136 
 Multiple R-Squared: 0.473555 Adjusted R-Squared: 0.374847 
 
-[1] "********* iterated 3SLS with restriction via restrict.reg (EViews-like) ***"
+[1] "********* iterated 3SLS with restriction via restrict.regMat (EViews-like) ***"
 
 systemfit results 
 method: iterated 3SLS 
@@ -5659,7 +5659,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 110.790992 MSE: 6.924437 Root MSE: 2.631432 
 Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298 
 
-[1] "******** iterated 3SLS with 2 restrictions via R and restrict.reg *********"
+[1] "******** iterated 3SLS with 2 restrictions via R and restrict.regMat *********"
 
 systemfit results 
 method: iterated 3SLS 
@@ -5723,7 +5723,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 114.829852 MSE: 7.176866 Root MSE: 2.678967 
 Multiple R-Squared: 0.571713 Adjusted R-Squared: 0.491409 
 
-[1] "*** iterated 3SLS with 2 restrictions via R and restrict.reg (EViews-like)**"
+[1] "*** iterated 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)**"
 
 systemfit results 
 method: iterated 3SLS 
@@ -6111,7 +6111,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
-[1] "********* iterated 3SLS with restriction via restrict.reg *****************"
+[1] "********* iterated 3SLS with restriction via restrict.regMat *****************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -6175,7 +6175,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 141.147347 MSE: 8.821709 Root MSE: 2.970136 
 Multiple R-Squared: 0.473555 Adjusted R-Squared: 0.374847 
 
-[1] "********* iterated 3SLS with restriction via restrict.reg (EViews-like) ***"
+[1] "********* iterated 3SLS with restriction via restrict.regMat (EViews-like) ***"
 
 systemfit results 
 method: iterated 3SLS 
@@ -6367,7 +6367,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 110.790992 MSE: 6.924437 Root MSE: 2.631432 
 Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298 
 
-[1] "******** iterated 3SLS with 2 restrictions via R and restrict.reg *********"
+[1] "******** iterated 3SLS with 2 restrictions via R and restrict.regMat *********"
 
 systemfit results 
 method: iterated 3SLS 
@@ -6431,7 +6431,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 114.829852 MSE: 7.176866 Root MSE: 2.678967 
 Multiple R-Squared: 0.571713 Adjusted R-Squared: 0.491409 
 
-[1] "*** iterated 3SLS with 2 restrictions via R and restrict.reg (EViews-like)**"
+[1] "*** iterated 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)**"
 
 systemfit results 
 method: iterated 3SLS 
@@ -6819,7 +6819,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
-[1] "********* iterated 3SLS with restriction via restrict.reg *****************"
+[1] "********* iterated 3SLS with restriction via restrict.regMat *****************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -6883,7 +6883,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 141.147347 MSE: 8.821709 Root MSE: 2.970136 
 Multiple R-Squared: 0.473555 Adjusted R-Squared: 0.374847 
 
-[1] "********* iterated 3SLS with restriction via restrict.reg (EViews-like) ***"
+[1] "********* iterated 3SLS with restriction via restrict.regMat (EViews-like) ***"
 
 systemfit results 
 method: iterated 3SLS 
@@ -7075,7 +7075,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 464.036345 MSE: 29.002272 Root MSE: 5.385376 
 Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255 
 
-[1] "******** iterated 3SLS with 2 restrictions via R and restrict.reg *********"
+[1] "******** iterated 3SLS with 2 restrictions via R and restrict.regMat *********"
 
 systemfit results 
 method: iterated 3SLS 
@@ -7139,7 +7139,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 919.811645 MSE: 57.488228 Root MSE: 7.582099 
 Multiple R-Squared: -2.43067 Adjusted R-Squared: -3.07392 
 
-[1] "*** iterated 3SLS with 2 restrictions via R and restrict.reg (EViews-like)**"
+[1] "*** iterated 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)**"
 
 systemfit results 
 method: iterated 3SLS 
@@ -7238,14 +7238,14 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
-+    print( "** 3SLS with different instruments and restriction via restrict.reg *******" )
++    print( "** 3SLS with different instruments and restriction via restrict.regMat *******" )
 +    fit3slsd[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, restrict.reg = tc, method3sls = formulas[ i ] )
++       inst = instlist, restrict.regMat = tc, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e3 ) )
 + 
-+    print( "3SLS with different instruments with restriction via restrict.reg (EViews-like)" )
++    print( "3SLS with different instruments with restriction via restrict.regMat (EViews-like)" )
 +    fit3slsd[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, methodRCov = "noDfCor", restrict.reg = tc,
++       inst = instlist, methodRCov = "noDfCor", restrict.regMat = tc,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
@@ -7261,15 +7261,15 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 +       restrict.rhs = restr2q, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
-+    print( " 3SLS with different instruments with 2 restrictions via R and restrict.reg" )
++    print( " 3SLS with different instruments with 2 restrictions via R and restrict.regMat" )
 +    fit3slsd[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, restrict.reg = tc, restrictions = restr3m, restrict.rhs = restr3q,
++       inst = instlist, restrict.regMat = tc, restrictions = restr3m, restrict.rhs = restr3q,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e5 ) )
 + 
-+    print( "3SLS with diff. instruments and 2 restr. via R and restrict.reg (EViews-like)" )
++    print( "3SLS with diff. instruments and 2 restr. via R and restrict.regMat (EViews-like)" )
 +    fit3slsd[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, restrict.reg = tc, methodRCov = "noDfCor",
++       inst = instlist, restrict.regMat = tc, methodRCov = "noDfCor",
 +       restrictions = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e5e, useDfSys = TRUE ) )
 + }
@@ -7585,7 +7585,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 127.044144 MSE: 7.940259 Root MSE: 2.817847 
 Multiple R-Squared: 0.526157 Adjusted R-Squared: 0.437311 
 
-[1] "** 3SLS with different instruments and restriction via restrict.reg *******"
+[1] "** 3SLS with different instruments and restriction via restrict.regMat *******"
 
 systemfit results 
 method: 3SLS 
@@ -7647,7 +7647,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 128.304305 MSE: 8.019019 Root MSE: 2.831787 
 Multiple R-Squared: 0.521457 Adjusted R-Squared: 0.43173 
 
-[1] "3SLS with different instruments with restriction via restrict.reg (EViews-like)"
+[1] "3SLS with different instruments with restriction via restrict.regMat (EViews-like)"
 
 systemfit results 
 method: 3SLS 
@@ -7833,7 +7833,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 131.997367 MSE: 8.249835 Root MSE: 2.872253 
 Multiple R-Squared: 0.507682 Adjusted R-Squared: 0.415373 
 
-[1] " 3SLS with different instruments with 2 restrictions via R and restrict.reg"
+[1] " 3SLS with different instruments with 2 restrictions via R and restrict.regMat"
 
 systemfit results 
 method: 3SLS 
@@ -7895,7 +7895,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 133.176577 MSE: 8.323536 Root MSE: 2.885054 
 Multiple R-Squared: 0.503284 Adjusted R-Squared: 0.41015 
 
-[1] "3SLS with diff. instruments and 2 restr. via R and restrict.reg (EViews-like)"
+[1] "3SLS with diff. instruments and 2 restr. via R and restrict.regMat (EViews-like)"
 
 systemfit results 
 method: 3SLS 
@@ -8269,7 +8269,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 202.390444 MSE: 12.649403 Root MSE: 3.5566 
 Multiple R-Squared: 0.245134 Adjusted R-Squared: 0.103596 
 
-[1] "** 3SLS with different instruments and restriction via restrict.reg *******"
+[1] "** 3SLS with different instruments and restriction via restrict.regMat *******"
 
 systemfit results 
 method: 3SLS 
@@ -8331,7 +8331,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 222.562488 MSE: 13.910156 Root MSE: 3.729632 
 Multiple R-Squared: 0.169897 Adjusted R-Squared: 0.014253 
 
-[1] "3SLS with different instruments with restriction via restrict.reg (EViews-like)"
+[1] "3SLS with different instruments with restriction via restrict.regMat (EViews-like)"
 
 systemfit results 
 method: 3SLS 
@@ -8517,7 +8517,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 178.456092 MSE: 11.153506 Root MSE: 3.339686 
 Multiple R-Squared: 0.334403 Adjusted R-Squared: 0.209603 
 
-[1] " 3SLS with different instruments with 2 restrictions via R and restrict.reg"
+[1] " 3SLS with different instruments with 2 restrictions via R and restrict.regMat"
 
 systemfit results 
 method: 3SLS 
@@ -8579,7 +8579,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 212.785539 MSE: 13.299096 Root MSE: 3.646793 
 Multiple R-Squared: 0.206363 Adjusted R-Squared: 0.057556 
 
-[1] "3SLS with diff. instruments and 2 restr. via R and restrict.reg (EViews-like)"
+[1] "3SLS with diff. instruments and 2 restr. via R and restrict.regMat (EViews-like)"
 
 systemfit results 
 method: 3SLS 
@@ -8953,7 +8953,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 110.035157 MSE: 6.877197 Root MSE: 2.622441 
 Multiple R-Squared: 0.589596 Adjusted R-Squared: 0.512645 
 
-[1] "** 3SLS with different instruments and restriction via restrict.reg *******"
+[1] "** 3SLS with different instruments and restriction via restrict.regMat *******"
 
 systemfit results 
 method: 3SLS 
@@ -9015,7 +9015,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 110.381705 MSE: 6.898857 Root MSE: 2.626567 
 Multiple R-Squared: 0.588304 Adjusted R-Squared: 0.51111 
 
-[1] "3SLS with different instruments with restriction via restrict.reg (EViews-like)"
+[1] "3SLS with different instruments with restriction via restrict.regMat (EViews-like)"
 
 systemfit results 
 method: 3SLS 
@@ -9201,7 +9201,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 110.671918 MSE: 6.916995 Root MSE: 2.630018 
 Multiple R-Squared: 0.587221 Adjusted R-Squared: 0.509825 
 
-[1] " 3SLS with different instruments with 2 restrictions via R and restrict.reg"
+[1] " 3SLS with different instruments with 2 restrictions via R and restrict.regMat"
 
 systemfit results 
 method: 3SLS 
@@ -9263,7 +9263,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 110.934274 MSE: 6.933392 Root MSE: 2.633134 
 Multiple R-Squared: 0.586243 Adjusted R-Squared: 0.508663 
 
-[1] "3SLS with diff. instruments and 2 restr. via R and restrict.reg (EViews-like)"
+[1] "3SLS with diff. instruments and 2 restr. via R and restrict.regMat (EViews-like)"
 
 systemfit results 
 method: 3SLS 
@@ -9637,7 +9637,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 102.070311 MSE: 6.379394 Root MSE: 2.525746 
 Multiple R-Squared: 0.619303 Adjusted R-Squared: 0.547922 
 
-[1] "** 3SLS with different instruments and restriction via restrict.reg *******"
+[1] "** 3SLS with different instruments and restriction via restrict.regMat *******"
 
 systemfit results 
 method: 3SLS 
@@ -9699,7 +9699,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 102.181192 MSE: 6.386325 Root MSE: 2.527118 
 Multiple R-Squared: 0.618889 Adjusted R-Squared: 0.547431 
 
-[1] "3SLS with different instruments with restriction via restrict.reg (EViews-like)"
+[1] "3SLS with different instruments with restriction via restrict.regMat (EViews-like)"
 
 systemfit results 
 method: 3SLS 
@@ -9885,7 +9885,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 101.14947 MSE: 6.321842 Root MSE: 2.514327 
 Multiple R-Squared: 0.622738 Adjusted R-Squared: 0.552001 
 
-[1] " 3SLS with different instruments with 2 restrictions via R and restrict.reg"
+[1] " 3SLS with different instruments with 2 restrictions via R and restrict.regMat"
 
 systemfit results 
 method: 3SLS 
@@ -9947,7 +9947,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 101.181229 MSE: 6.323827 Root MSE: 2.514722 
 Multiple R-Squared: 0.622619 Adjusted R-Squared: 0.55186 
 
-[1] "3SLS with diff. instruments and 2 restr. via R and restrict.reg (EViews-like)"
+[1] "3SLS with diff. instruments and 2 restr. via R and restrict.regMat (EViews-like)"
 
 systemfit results 
 method: 3SLS 
@@ -10321,7 +10321,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 102.156265 MSE: 6.384767 Root MSE: 2.52681 
 Multiple R-Squared: 0.618982 Adjusted R-Squared: 0.547542 
 
-[1] "** 3SLS with different instruments and restriction via restrict.reg *******"
+[1] "** 3SLS with different instruments and restriction via restrict.regMat *******"
 
 systemfit results 
 method: 3SLS 
@@ -10383,7 +10383,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 102.573851 MSE: 6.410866 Root MSE: 2.531969 
 Multiple R-Squared: 0.617425 Adjusted R-Squared: 0.545692 
 
-[1] "3SLS with different instruments with restriction via restrict.reg (EViews-like)"
+[1] "3SLS with different instruments with restriction via restrict.regMat (EViews-like)"
 
 systemfit results 
 method: 3SLS 
@@ -10569,7 +10569,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 216.315162 MSE: 13.519698 Root MSE: 3.676914 
 Multiple R-Squared: 0.193198 Adjusted R-Squared: 0.041923 
 
-[1] " 3SLS with different instruments with 2 restrictions via R and restrict.reg"
+[1] " 3SLS with different instruments with 2 restrictions via R and restrict.regMat"
 
 systemfit results 
 method: 3SLS 
@@ -10631,7 +10631,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 216.400494 MSE: 13.525031 Root MSE: 3.677639 
 Multiple R-Squared: 0.19288 Adjusted R-Squared: 0.041545 
 
-[1] "3SLS with diff. instruments and 2 restr. via R and restrict.reg (EViews-like)"
+[1] "3SLS with diff. instruments and 2 restr. via R and restrict.regMat (EViews-like)"
 
 systemfit results 
 method: 3SLS 

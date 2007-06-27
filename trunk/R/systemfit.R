@@ -28,7 +28,7 @@ systemfit <- function(  eqns,
                         data=list(),
                         restrictions = NULL,
                         restrict.rhs = NULL,
-                        restrict.reg = NULL,
+                        restrict.regMat = NULL,
                         pooled = FALSE,
                         control = systemfit.control( ... ),
                         ... )
@@ -48,8 +48,8 @@ systemfit <- function(  eqns,
    panelLike <- FALSE
    if( class( data )[1] == "pdata.frame" ) {
       panelLike <- TRUE
-      if( !is.null( restrict.reg ) && pooled ){
-         stop( "argument 'restrict.reg' cannot be used for pooled estimation",
+      if( !is.null( restrict.regMat ) && pooled ){
+         stop( "argument 'restrict.regMat' cannot be used for pooled estimation",
             " of panel-like data" )
       }
       result <- .systemfitPanel( formula = eqns,
@@ -57,13 +57,13 @@ systemfit <- function(  eqns,
       data <- result$wideData
       eqns <- result$eqnSystem
       if( pooled ){
-         restrict.reg <- result$restrict.reg
+         restrict.regMat <- result$restrict.regMat
       }
    }
 
    # default value of argument single.eq.sigma
    if( is.null( control$single.eq.sigma ) ) {
-      control$single.eq.sigma <- ( is.null( restrictions ) & is.null( restrict.reg ) )
+      control$single.eq.sigma <- ( is.null( restrictions ) & is.null( restrict.regMat ) )
    }
 
   results <- list()               # results to be returned
@@ -100,7 +100,7 @@ systemfit <- function(  eqns,
    yVecAll <- matrix( 0, 0, 1 )
    # list for matrices of regressors in each equation
    xMatEq  <- list()
-   # stacked matrices of all regressors (multiplied with restrict.reg)
+   # stacked matrices of all regressors (multiplied with restrict.regMat)
    xMatAll <- matrix( 0, 0, 0 )
    # number of observations in each equation
    nObsEq  <- numeric( nEq )
@@ -148,27 +148,27 @@ systemfit <- function(  eqns,
       }
    }
 
-   if( !is.null( restrict.reg ) ) {
-      # checking matrix to modify (post-multiply) the regressor matrix (restrict.reg)
-      if( !is.matrix( restrict.reg ) ) {
-         stop( "argument 'restrict.reg' must be a matrix" )
+   if( !is.null( restrict.regMat ) ) {
+      # checking matrix to modify (post-multiply) the regressor matrix (restrict.regMat)
+      if( !is.matrix( restrict.regMat ) ) {
+         stop( "argument 'restrict.regMat' must be a matrix" )
       }
-      if( nrow( restrict.reg ) != sum( nCoefEq ) ){
-         stop( "argument 'restrict.reg' must be a matrix with number of rows",
+      if( nrow( restrict.regMat ) != sum( nCoefEq ) ){
+         stop( "argument 'restrict.regMat' must be a matrix with number of rows",
             " equal to the number of all regressors [in this model: ",
             sum( nCoefEq ), "]" )
       }
       # default names for modified regressors and their coefficients
-      if( is.null( colnames( restrict.reg ) ) ){
-         colnames( restrict.reg ) <- paste( "C", c( 1:ncol( restrict.reg ) ), sep = "" )
+      if( is.null( colnames( restrict.regMat ) ) ){
+         colnames( restrict.regMat ) <- paste( "C", c( 1:ncol( restrict.regMat ) ), sep = "" )
       }
       # default rownames for matrix to modify regressors
-      if( is.null( rownames( restrict.reg ) ) ){
-         rownames( restrict.reg ) <- coefNames
+      if( is.null( rownames( restrict.regMat ) ) ){
+         rownames( restrict.regMat ) <- coefNames
       }
-      # modify regressor matrix (by restrict.reg)
+      # modify regressor matrix (by restrict.regMat)
       XU <- xMatAll
-      xMatAll  <- XU %*% restrict.reg
+      xMatAll  <- XU %*% restrict.regMat
    }
 
    ## preparing instruments
@@ -217,7 +217,7 @@ systemfit <- function(  eqns,
    }
 
    # checking and modifying parameter restrictions
-   coefNamesModReg <- if( is.null( restrict.reg ) ) coefNames else colnames( restrict.reg )
+   coefNamesModReg <- if( is.null( restrict.regMat ) ) coefNames else colnames( restrict.regMat )
    if( is.character( restrictions ) ) {
       R.restr <- car:::makeHypothesis( coefNamesModReg, restrictions, restrict.rhs )
       if( is.null( dim( R.restr ) ) ){
@@ -271,8 +271,8 @@ systemfit <- function(  eqns,
    nCoefAll <- sum( nCoefEq ) # total number of exogenous variables/(unrestricted) coefficients in all equations
    nCoefLiAll <- nCoefAll     # total number of linear independent coefficients in all equations
    nCoefLiEq  <- nCoefEq      # total number of linear independent coefficients in each equation
-   if(!is.null(restrict.reg)) {
-      nCoefLiAll <- nCoefLiAll - ( nrow( restrict.reg ) - ncol( restrict.reg ) )
+   if(!is.null(restrict.regMat)) {
+      nCoefLiAll <- nCoefLiAll - ( nrow( restrict.regMat ) - ncol( restrict.regMat ) )
       for(i in 1:nEq) {
          nCoefLiEq[i] <- ncol(xMatAll)
          for(j in 1: ncol(xMatAll) ) {
@@ -284,7 +284,7 @@ systemfit <- function(  eqns,
    }
    if(!is.null(R.restr)) {
       nCoefLiAll  <- nCoefLiAll - nrow(R.restr)
-      if(is.null(restrict.reg)) {
+      if(is.null(restrict.regMat)) {
          for(j in 1:nrow(R.restr)) {
             for(i in 1:nEq) {  # search for restrictions that are NOT cross-equation
                if( sum( R.restr[ j, (1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))]^2) ==
@@ -564,9 +564,9 @@ systemfit <- function(  eqns,
 
   ## for all estimation methods
   fitted.values <- xMatAll %*% coef   # fitted endogenous values
-  if(!is.null(restrict.reg)) {
-    coef  <- restrict.reg %*% coef
-    bcov  <- restrict.reg %*% bcov %*% t(restrict.reg)
+  if(!is.null(restrict.regMat)) {
+    coef  <- restrict.regMat %*% coef
+    bcov  <- restrict.regMat %*% bcov %*% t(restrict.regMat)
   }
 
 
@@ -655,7 +655,7 @@ systemfit <- function(  eqns,
   }
   results$restrictions <- R.restr
   results$restrict.rhs <- q.restr
-  results$restrict.reg <- restrict.reg
+  results$restrict.regMat <- restrict.regMat
   results$control <- control
   results$panelLike <- panelLike
   class(results)  <- "systemfit"

@@ -8,7 +8,7 @@ hausman.systemfit <- function( results2sls, results3sls ) {
 
    result <- list()
 
-   if( is.null( results2sls$restrict.reg ) ) {
+   if( is.null( results2sls$restrict.regMat ) ) {
       result$q <- coef( results2sls ) - coef( results3sls )
       result$qVar <- vcov( results2sls ) - vcov( results3sls )
    } else {

@@ -26,7 +26,7 @@
       \code{summary.systemfit.equation}.}
    \item{modified.reg}{logical. If \code{TRUE},
       the parameters of the modified regressor matrix
-      (original regressor matrix post-multiplied by \code{restrict.reg})
+      (original regressor matrix post-multiplied by \code{restrict.regMat})
       rather than the parameters of the original regressor matrix
       are returned.}
    \item{\dots}{other arguments.}
@@ -85,7 +85,7 @@ modReg[ 4, "supIntercept" ] <- 1
 modReg[ 5, "supPrice2" ]    <- 1
 modReg[ 6, "supPrice2" ]    <- 1
 modReg[ 7, "supTrend" ]     <- 1
-fitols3 <- systemfit( system, data = Kmenta, restrict.reg = modReg )
+fitols3 <- systemfit( system, data = Kmenta, restrict.regMat = modReg )
 coef( fitols3, modified.reg  = TRUE )
 coef( fitols3 )
 }

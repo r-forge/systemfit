@@ -307,8 +307,8 @@ SSR: 98.407706 MSE: 6.150482 Root MSE: 2.480016
 Multiple R-Squared: 0.632964 Adjusted R-Squared: 0.564144 
 
 > 
-> ## ********************* W2SLS with restriction via restrict.reg *******************
-> fitw2sls3 <- systemfit( system, "W2SLS", data = Kmenta, restrict.reg = tc, inst = inst )
+> ## ********************* W2SLS with restriction via restrict.regMat *******************
+> fitw2sls3 <- systemfit( system, "W2SLS", data = Kmenta, restrict.regMat = tc, inst = inst )
 > print( summary( fitw2sls3 ) )
 
 systemfit results 
@@ -366,8 +366,8 @@ SSR: 98.445133 MSE: 6.152821 Root MSE: 2.480488
 Multiple R-Squared: 0.632824 Adjusted R-Squared: 0.563979 
 
 > 
-> ## ********************* W2SLS with restriction via restrict.reg (EViews-like) **************
-> fitw2sls3e <- systemfit( system, "W2SLS", data = Kmenta, restrict.reg = tc, inst = inst,
+> ## ********************* W2SLS with restriction via restrict.regMat (EViews-like) **************
+> fitw2sls3e <- systemfit( system, "W2SLS", data = Kmenta, restrict.regMat = tc, inst = inst,
 +    methodRCov = "noDfCor" )
 > print( summary( fitw2sls3e, useDfSys = TRUE ) )
 
@@ -551,9 +551,9 @@ SSR: 100.224833 MSE: 6.264052 Root MSE: 2.502809
 Multiple R-Squared: 0.626186 Adjusted R-Squared: 0.556096 
 
 > 
-> ## ***************** W2SLS with 2 restrictions via R and restrict.reg ******************
+> ## ***************** W2SLS with 2 restrictions via R and restrict.regMat ******************
 > fitw2sls5 <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr3m,
-+    restrict.rhs = restr3q, restrict.reg = tc, inst = inst )
++    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst )
 > print( summary( fitw2sls5 ) )
 
 systemfit results 
@@ -612,13 +612,13 @@ Multiple R-Squared: 0.626074 Adjusted R-Squared: 0.555963
 
 > # the same with symbolically specified restrictions
 > fitw2sls5Sym <- systemfit( system, "W2SLS", data = Kmenta,
-+    restrictions = restrict3, restrict.reg = tc, inst = inst )
++    restrictions = restrict3, restrict.regMat = tc, inst = inst )
 > all.equal( fitw2sls5, fitw2sls5Sym )
 [1] "Component 2: target, current do not match when deparsed"
 > 
-> ## ***************** W2SLS with 2 restrictions via R and restrict.reg (EViews-like) **************
+> ## ***************** W2SLS with 2 restrictions via R and restrict.regMat (EViews-like) **************
 > fitw2sls5e <- systemfit( system, "W2SLS", data = Kmenta, restrictions = restr3m,
-+    restrict.rhs = restr3q, restrict.reg = tc, inst = inst, methodRCov = "noDfCor" )
++    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst, methodRCov = "noDfCor" )
 > print( summary( fitw2sls5e, useDfSys = TRUE ) )
 
 systemfit results 
@@ -915,8 +915,8 @@ SSR: 101.299326 MSE: 6.331208 Root MSE: 2.516189
 Multiple R-Squared: 0.622179 Adjusted R-Squared: 0.551337 
 
 > 
-> ## ** W2SLS estimation with different instruments and restriction via restrict.reg ****
-> fitw2slsd3 <- systemfit( system, "W2SLS", data = Kmenta, restrict.reg = tc,
+> ## ** W2SLS estimation with different instruments and restriction via restrict.regMat ****
+> fitw2slsd3 <- systemfit( system, "W2SLS", data = Kmenta, restrict.regMat = tc,
 +    inst = instlist)
 > print( summary( fitw2slsd3 ) )
 
@@ -975,8 +975,8 @@ SSR: 101.425951 MSE: 6.339122 Root MSE: 2.517761
 Multiple R-Squared: 0.621706 Adjusted R-Squared: 0.550776 
 
 > 
-> ## W2SLS estimation with different instruments and restriction via restrict.reg (EViews-like)
-> fitw2slsd3e <- systemfit( system, "W2SLS", data = Kmenta, restrict.reg = tc,
+> ## W2SLS estimation with different instruments and restriction via restrict.regMat (EViews-like)
+> fitw2slsd3e <- systemfit( system, "W2SLS", data = Kmenta, restrict.regMat = tc,
 +    inst = instlist, methodRCov = "noDfCor" )
 > print( summary( fitw2slsd3e, useDfSys = TRUE ) )
 

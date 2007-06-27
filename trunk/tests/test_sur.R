@@ -72,12 +72,12 @@ fitsur2e <- systemfit( system, "SUR", data = Kmenta, restrictions = restrm,
    methodRCov = "noDfCor" )
 print( summary( fitsur2e ) )
 
-## *************** SUR with restriction via restrict.reg *******************
-fitsur3 <- systemfit( system, "SUR", data = Kmenta, restrict.reg = tc )
+## *************** SUR with restriction via restrict.regMat *******************
+fitsur3 <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc )
 print( summary( fitsur3 ) )
 
-## *************** SUR with restriction via restrict.reg (EViews-like) **************
-fitsur3e <- systemfit( system, "SUR", data = Kmenta, restrict.reg = tc,
+## *************** SUR with restriction via restrict.regMat (EViews-like) **************
+fitsur3e <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc,
    methodRCov = "noDfCor" )
 print( summary( fitsur3e ) )
 
@@ -105,18 +105,18 @@ fitsur4r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
    restrictions = restr2m, restrict.rhs = restr2q )
 print( summary( fitsur4r3 ) )
 
-## *************** SUR with 2 restrictions via R and restrict.reg ****************
+## *************** SUR with 2 restrictions via R and restrict.regMat ****************
 fitsur5 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr3m,
-   restrict.rhs = restr3q, restrict.reg = tc )
+   restrict.rhs = restr3q, restrict.regMat = tc )
 print( summary( fitsur5 ) )
 # the same with symbolically specified restrictions
 fitsur5Sym <- systemfit( system, "SUR", data = Kmenta,
-   restrictions = restrict3, restrict.reg = tc )
+   restrictions = restrict3, restrict.regMat = tc )
 all.equal( fitsur5, fitsur5Sym )
 
-## *************** SUR with 2 restrictions via R and restrict.reg (EViews-like) **************
+## *************** SUR with 2 restrictions via R and restrict.regMat (EViews-like) **************
 fitsur5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
-   restrictions = restr3m, restrict.rhs = restr3q, restrict.reg = tc )
+   restrictions = restr3m, restrict.rhs = restr3q, restrict.regMat = tc )
 print( summary( fitsur5e ) )
 
 ## ************** iterated SUR ****************************
@@ -153,13 +153,13 @@ fitsuri2e <- systemfit( system2, "SUR", data = Kmenta, restrictions = restrm,
    methodRCov = "noDfCor", maxit = 100 )
 print( summary( fitsuri2e ) )
 
-## *********** iterated SUR with restriction via restrict.reg ********************
-fitsuri3 <- systemfit( system2, "SUR", data = Kmenta, restrict.reg = tc,
+## *********** iterated SUR with restriction via restrict.regMat ********************
+fitsuri3 <- systemfit( system2, "SUR", data = Kmenta, restrict.regMat = tc,
    maxit = 100 )
 print( summary( fitsuri3 ) )
 
-## *********** iterated SUR with restriction via restrict.reg (EViews-like) ***************
-fitsuri3e <- systemfit( system2, "SUR", data = Kmenta, restrict.reg = tc,
+## *********** iterated SUR with restriction via restrict.regMat (EViews-like) ***************
+fitsuri3e <- systemfit( system2, "SUR", data = Kmenta, restrict.regMat = tc,
    methodRCov = "noDfCor", maxit = 100 )
 print( summary( fitsuri3e ) )
 
@@ -179,33 +179,33 @@ fitsuri4e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
    restrictions = restr2m, restrict.rhs = restr2q, maxit = 100 )
 print( summary( fitsuri4e ) )
 
-## *************** iterated SUR with 2 restrictions via R and restrict.reg ****************
+## *************** iterated SUR with 2 restrictions via R and restrict.regMat ****************
 fitsurio5 <- systemfit( system, "SUR", data = Kmenta, restrictions = restr3m,
-   restrict.rhs = restr3q, restrict.reg = tc, maxit = 100 )
+   restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
 print( summary( fitsurio5 ) )
 fitsuri5 <- systemfit( system2, "SUR", data = Kmenta, restrictions = restr3m,
-   restrict.rhs = restr3q, restrict.reg = tc, maxit = 100 )
+   restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
 print( summary( fitsuri5 ) )
 
-## ********* iterated SUR with 2 restrictions via R and restrict.reg (EViews-like) **********
+## ********* iterated SUR with 2 restrictions via R and restrict.regMat (EViews-like) **********
 fitsurio5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
-   restrictions = restr3m, restrict.rhs = restr3q, restrict.reg = tc, maxit = 100 )
+   restrictions = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
 print( summary( fitsurio5e ) )
 fitsuri5e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
-   restrictions = restr3m, restrict.rhs = restr3q, restrict.reg = tc, maxit = 100 )
+   restrictions = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
 print( summary( fitsuri5e ) )
 
-## ********* iterated SUR with 2 restrictions via R and restrict.reg (methodRCov="Theil") **********
+## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodRCov="Theil") **********
 fitsurio5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
-   restrictions = restr3m, restrict.rhs = restr3q, restrict.reg = tc, maxit = 100 )
+   restrictions = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
 print( summary( fitsurio5r2 ) )
 fitsuri5r2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
-   restrictions = restr3m, restrict.rhs = restr3q, restrict.reg = tc, maxit = 100 )
+   restrictions = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
 print( summary( fitsuri5r2 ) )
 
-## ********* iterated SUR with 2 restrictions via R and restrict.reg (methodRCov="max") **********
+## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodRCov="max") **********
 # fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
-#    restrictions = restr3m, restrict.rhs = restr3q, restrict.reg = tc, maxit = 100 )
+#    restrictions = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
 # print( summary( fitsuri5e ) )
 # print( round( vcov( fitsuri5e ), digits = 6 ) )
 # disabled, because the estimation does not converge

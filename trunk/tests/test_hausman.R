@@ -69,18 +69,18 @@ fit3sls2r <- systemfit( eqSystem, "3SLS", data = Kmenta, restrictions = restrm,
 # print( hausman.systemfit( fit2sls2r, fit3sls2r ) )
 
 
-## ****************** estimation with restriction via restrict.reg ******************
+## ****************** estimation with restriction via restrict.regMat ******************
 ## ********************** default estimation ********************
-fit2sls3 <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.reg = tc,
+fit2sls3 <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.regMat = tc,
    inst = inst )
-fit3sls3 <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.reg = tc,
+fit3sls3 <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.regMat = tc,
    inst = inst )
 print( hausman.systemfit( fit2sls3, fit3sls3 ) )
 
 ## ******************* estimations with methodRCov = 0 *******
-fit2sls3r <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.reg = tc,
+fit2sls3r <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.regMat = tc,
    inst = inst, methodRCov = "noDfCor" )
-fit3sls3r <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.reg = tc,
+fit3sls3r <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.regMat = tc,
    inst = inst, methodRCov = "noDfCor" )
 print( hausman.systemfit( fit2sls3r, fit3sls3r ) )
 
@@ -101,17 +101,17 @@ fit3sls4r <- systemfit( eqSystem, "3SLS", data = Kmenta, restrictions = restr2m,
 # print( hausman.systemfit( fit2sls4r, fit3sls4r ) )
 
 
-## *********** estimations with 2 restrictions via R and restrict.reg ***************
+## *********** estimations with 2 restrictions via R and restrict.regMat ***************
 ## ***************** default estimations *******************
 fit2sls5 <- systemfit( eqSystem, "2SLS", data = Kmenta, restrictions = restr3m,
-   restrict.rhs = restr3q, restrict.reg = tc, inst = inst )
+   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst )
 fit3sls5 <- systemfit( eqSystem, "3SLS", data = Kmenta, restrictions = restr3m,
-   restrict.rhs = restr3q, restrict.reg = tc, inst = inst )
+   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst )
 # print( hausman.systemfit( fit2sls5, fit3sls5 ) )
 
 ## ************* estimations with methodRCov = 0 *********
 fit2sls5r <- systemfit( eqSystem, "2SLS", data = Kmenta, restrictions = restr3m,
-   restrict.rhs = restr3q, restrict.reg = tc, inst = inst, methodRCov = "noDfCor" )
+   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst, methodRCov = "noDfCor" )
 fit3sls5r <- systemfit( eqSystem, "3SLS", data = Kmenta, restrictions = restr3m,
-   restrict.rhs = restr3q, restrict.reg = tc, inst = inst, methodRCov = "noDfCor" )
+   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst, methodRCov = "noDfCor" )
 # print( hausman.systemfit( fit2sls5r, fit3sls5r ) )

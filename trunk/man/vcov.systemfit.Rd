@@ -20,7 +20,7 @@
       \code{systemfit.equation}.}
    \item{modified.reg}{logical. If \code{TRUE},
       the covariance matrix of the parameters of the modified regressor matrix
-      (original regressor matrix post-multiplied by \code{restrict.reg})
+      (original regressor matrix post-multiplied by \code{restrict.regMat})
       rather than the covariance matrix of the parameters
       of the original regressor matrix
       is returned.}
@@ -67,7 +67,7 @@ modReg[ 4, "supIntercept" ] <- 1
 modReg[ 5, "supPrice2" ]    <- 1
 modReg[ 6, "supPrice2" ]    <- 1
 modReg[ 7, "supTrend" ]     <- 1
-fitsur <- systemfit( system, "SUR", data = Kmenta, restrict.reg = modReg )
+fitsur <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = modReg )
 vcov( fitsur, modified.reg  = TRUE )
 vcov( fitsur )
 }

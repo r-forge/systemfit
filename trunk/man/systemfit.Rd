@@ -17,7 +17,7 @@
 \usage{
 systemfit( eqns, method = "OLS",
            inst=NULL, data=list(),
-           restrictions = NULL, restrict.rhs = NULL, restrict.reg = NULL,
+           restrictions = NULL, restrict.rhs = NULL, restrict.regMat = NULL,
            pooled = FALSE, control = systemfit.control( ... ), ... )
 }
 
@@ -49,7 +49,7 @@ systemfit( eqns, method = "OLS",
    \item{restrict.rhs}{an optional vector with j elements to impose linear
       restrictions (see \code{restrictions}); default is a vector
       that contains j zeros.}
-   \item{restrict.reg}{an optional matrix to impose restrictions
+   \item{restrict.regMat}{an optional matrix to impose restrictions
       on the parameters by post-multiplying the regressor matrix
       with this matrix (see details).}
    \item{control}{list of control parameters.
@@ -81,26 +81,26 @@ systemfit( eqns, method = "OLS",
    If no cross-equation restrictions are imposed, "WSUR" and "W3SLS"
    generate identical results compared to "SUR" and "3SLS", respectively.
 
-   If argument \code{restrict.reg} is specified,
+   If argument \code{restrict.regMat} is specified,
    the regressor matrix \eqn{X} is post-multiplied by this matrix:
-   \eqn{X^{*} = X \cdot} \code{restrict.reg}.
+   \eqn{X^{*} = X \cdot} \code{restrict.regMat}.
    Then, this modified regressor matrix \eqn{X^{*}} is used for the
    estimation of the parameter vector \eqn{b^{*}}.
    This means that the parameters of the original regressors (\eqn{X}),
    vector \eqn{b},
-   can be represented by \eqn{b =} \code{restrict.reg} \eqn{\cdot b^{*}}.
-   If \code{restrict.reg} is a non-singular quadratic matrix,
+   can be represented by \eqn{b =} \code{restrict.regMat} \eqn{\cdot b^{*}}.
+   If \code{restrict.regMat} is a non-singular quadratic matrix,
    there are no parameter restrictions imposed,
    but the parameters \eqn{b^{*}} are linear combinations of
    the original parameters \eqn{b}.
-   If \code{restrict.reg} has less columns than rows,
+   If \code{restrict.regMat} has less columns than rows,
    linear restrictions are imposed on the parameters \eqn{b}.
    However, imposing linear restrictions
-   by the \code{restrict.reg} matrix is less flexible than
+   by the \code{restrict.regMat} matrix is less flexible than
    by providing the matrix \code{restrictions} and the
    vector \code{restrict.rhs}.
    The advantage of imposing restrictions on the parameters
-   by the matrix \code{restrict.reg} is that the matrix,
+   by the matrix \code{restrict.regMat} is that the matrix,
    which has to be inverted during the estimation,
    gets smaller by this procedure, while it gets larger
    if the restrictions are imposed by \code{restrictions} and \code{restrict.rhs}.
@@ -130,7 +130,7 @@ systemfit( eqns, method = "OLS",
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
   \item{restrictions}{the restriction matrix.}
   \item{restrict.rhs}{the restriction vector.}
-  \item{restrict.reg}{matrix used to impose restrictions
+  \item{restrict.regMat}{matrix used to impose restrictions
       on the parameters by post-multiplying the regressor matrix
       with this matrix.}
   \item{control}{list of control parameters used for the estimation.}
@@ -221,7 +221,7 @@ print( fitols2b )
 all.equal( coef( fitols2 ), coef( fitols2b ) )
 
 ## OLS with parameter restriction by modifying the regressor matrix
-## with argument restrict.reg
+## with argument restrict.regMat
 modReg <- matrix( 0, 7, 6 )
 colnames( modReg ) <- c( "demIntercept", "demPrice", "demIncome",
    "supIntercept", "supPrice2", "supTrend" )
@@ -232,7 +232,7 @@ modReg[ 4, "supIntercept" ] <- 1
 modReg[ 5, "supPrice2" ]    <- 1
 modReg[ 6, "supPrice2" ]    <- 1
 modReg[ 7, "supTrend" ]     <- 1
-fitols3 <- systemfit( system, data = Kmenta, restrict.reg = modReg )
+fitols3 <- systemfit( system, data = Kmenta, restrict.regMat = modReg )
 print( fitols3 )
 
 

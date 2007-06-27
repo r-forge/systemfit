@@ -44,12 +44,12 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
 ## return all coefficients
 coef.systemfit <- function( object, modified.reg = FALSE, ... ) {
    if( modified.reg ){
-      if( is.null( object$restrict.reg ) ){
+      if( is.null( object$restrict.regMat ) ){
          stop( "coefficients of the modified regressor matrix are not available,",
-            " because argument 'restrict.reg' has not been used in this estimation." )
+            " because argument 'restrict.regMat' has not been used in this estimation." )
       } else {
-         return( drop( solve( crossprod( object$restrict.reg ),
-            t( object$restrict.reg ) %*% coef( object ) ) ) )
+         return( drop( solve( crossprod( object$restrict.regMat ),
+            t( object$restrict.regMat ) %*% coef( object ) ) ) )
       }
    } else {
       return( object$coefficients )
@@ -61,7 +61,7 @@ coef.summary.systemfit <- function( object, modified.reg = FALSE, ... ) {
    if( modified.reg ){
       if( is.null( object$coefModReg ) ){
          stop( "coefficients of the modified regressor matrix are not available,",
-            " because argument 'restrict.reg' has not been used in this estimation." )
+            " because argument 'restrict.regMat' has not been used in this estimation." )
       } else {
          return( object$coefModReg )
       }
@@ -98,14 +98,14 @@ residuals.systemfit.equation <- function( object, ... ) {
 ## return the variance covariance matrix of the coefficients
 vcov.systemfit <- function( object, modified.reg = FALSE, ... ) {
    if( modified.reg ){
-      if( is.null( object$restrict.reg ) ){
+      if( is.null( object$restrict.regMat ) ){
          stop( "coefficients of the modified regressor matrix",
             " and their covariance matrix are not available,",
-            " because argument 'restrict.reg' has not been used in this estimation." )
+            " because argument 'restrict.regMat' has not been used in this estimation." )
       } else {
-         txtxInv <- solve( crossprod( object$restrict.reg ) )
-         result <- txtxInv %*% t( object$restrict.reg ) %*% vcov( object ) %*%
-            object$restrict.reg %*% txtxInv
+         txtxInv <- solve( crossprod( object$restrict.regMat ) )
+         result <- txtxInv %*% t( object$restrict.regMat ) %*% vcov( object ) %*%
+            object$restrict.regMat %*% txtxInv
          return( result )
       }
    } else {

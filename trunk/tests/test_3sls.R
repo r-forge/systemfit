@@ -73,14 +73,14 @@ for( i in seq( along = formulas ) ) {
       method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e2e, useDfSys = TRUE ) )
 
-   print( "*************** 3SLS with restriction via restrict.reg ********************" )
+   print( "*************** 3SLS with restriction via restrict.regMat ********************" )
    fit3sls[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
-      inst = inst, restrict.reg = tc, method3sls = formulas[ i ] )
+      inst = inst, restrict.regMat = tc, method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e3 ) )
 
-   print( "*************** 3SLS with restriction via restrict.reg (EViews-like) *******" )
+   print( "*************** 3SLS with restriction via restrict.regMat (EViews-like) *******" )
    fit3sls[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
-      inst = inst, methodRCov = "noDfCor", restrict.reg = tc,
+      inst = inst, methodRCov = "noDfCor", restrict.regMat = tc,
       method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e3e, useDfSys = TRUE ) )
 
@@ -100,20 +100,20 @@ for( i in seq( along = formulas ) ) {
       restrict.rhs = restr2q, method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e4e, useDfSys = TRUE ) )
 
-   print( "*************** 3SLS with 2 restrictions via R and restrict.reg **********" )
+   print( "*************** 3SLS with 2 restrictions via R and restrict.regMat **********" )
    fit3sls[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-      inst = inst, restrict.reg = tc, restrictions = restr3m, restrict.rhs = restr3q,
+      inst = inst, restrict.regMat = tc, restrictions = restr3m, restrict.rhs = restr3q,
       method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e5 ) )
    # the same with symbolically specified restrictions
    fit3sls[[ i ]]$e5Sym <- systemfit( system, "3SLS", data = Kmenta,
-      inst = inst, restrict.reg = tc, restrictions = restrict3,
+      inst = inst, restrict.regMat = tc, restrictions = restrict3,
       method3sls = formulas[ i ] )
    print( all.equal( fit3sls[[ i ]]$e5, fit3sls[[ i ]]$e5Sym ) )
 
-   print( "******** 3SLS with 2 restrictions via R and restrict.reg (EViews-like)*****" )
+   print( "******** 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)*****" )
    fit3sls[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
-      inst = inst, restrict.reg = tc, methodRCov = "noDfCor",
+      inst = inst, restrict.regMat = tc, methodRCov = "noDfCor",
       restrictions = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ] )
    print( summary( fit3sls[[ i ]]$e5e, useDfSys = TRUE ) )
 }
@@ -154,14 +154,14 @@ for( i in seq( along = formulas ) ) {
       method3sls = formulas[ i ], maxiter = 100 )
    print( summary( fit3slsi[[ i ]]$e2e, useDfSys = TRUE ) )
 
-   print( "********* iterated 3SLS with restriction via restrict.reg *****************" )
+   print( "********* iterated 3SLS with restriction via restrict.regMat *****************" )
    fit3slsi[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
-      inst = inst, restrict.reg = tc, method3sls = formulas[ i ], maxiter = 100 )
+      inst = inst, restrict.regMat = tc, method3sls = formulas[ i ], maxiter = 100 )
    print( summary( fit3slsi[[ i ]]$e3 ) )
 
-   print( "********* iterated 3SLS with restriction via restrict.reg (EViews-like) ***" )
+   print( "********* iterated 3SLS with restriction via restrict.regMat (EViews-like) ***" )
    fit3slsi[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
-      inst = inst, methodRCov = "noDfCor", restrict.reg = tc,
+      inst = inst, methodRCov = "noDfCor", restrict.regMat = tc,
       method3sls = formulas[ i ], maxiter = 100 )
    print( summary( fit3slsi[[ i ]]$e3e, useDfSys = TRUE ) )
 
@@ -177,15 +177,15 @@ for( i in seq( along = formulas ) ) {
       restrict.rhs = restr2q, method3sls = formulas[ i ], maxiter = 100 )
    print( summary( fit3slsi[[ i ]]$e4e, useDfSys = TRUE ) )
 
-   print( "******** iterated 3SLS with 2 restrictions via R and restrict.reg *********" )
+   print( "******** iterated 3SLS with 2 restrictions via R and restrict.regMat *********" )
    fit3slsi[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-      inst = inst, restrict.reg = tc, restrictions = restr3m, restrict.rhs = restr3q,
+      inst = inst, restrict.regMat = tc, restrictions = restr3m, restrict.rhs = restr3q,
       method3sls = formulas[ i ], maxiter = 100 )
    print( summary( fit3slsi[[ i ]]$e5 ) )
 
-   print( "*** iterated 3SLS with 2 restrictions via R and restrict.reg (EViews-like)**" )
+   print( "*** iterated 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)**" )
    fit3slsi[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
-      inst = inst, restrict.reg = tc, methodRCov = "noDfCor",
+      inst = inst, restrict.regMat = tc, methodRCov = "noDfCor",
       restrictions = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
       maxiter = 100  )
    print( summary( fit3slsi[[ i ]]$e5e, useDfSys = TRUE ) )
@@ -225,14 +225,14 @@ for( i in seq( along = formulas ) ) {
       method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e2e, useDfSys = TRUE ) )
 
-   print( "** 3SLS with different instruments and restriction via restrict.reg *******" )
+   print( "** 3SLS with different instruments and restriction via restrict.regMat *******" )
    fit3slsd[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
-      inst = instlist, restrict.reg = tc, method3sls = formulas[ i ] )
+      inst = instlist, restrict.regMat = tc, method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e3 ) )
 
-   print( "3SLS with different instruments with restriction via restrict.reg (EViews-like)" )
+   print( "3SLS with different instruments with restriction via restrict.regMat (EViews-like)" )
    fit3slsd[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
-      inst = instlist, methodRCov = "noDfCor", restrict.reg = tc,
+      inst = instlist, methodRCov = "noDfCor", restrict.regMat = tc,
       method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e3e, useDfSys = TRUE ) )
 
@@ -248,15 +248,15 @@ for( i in seq( along = formulas ) ) {
       restrict.rhs = restr2q, method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e4e, useDfSys = TRUE ) )
 
-   print( " 3SLS with different instruments with 2 restrictions via R and restrict.reg" )
+   print( " 3SLS with different instruments with 2 restrictions via R and restrict.regMat" )
    fit3slsd[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-      inst = instlist, restrict.reg = tc, restrictions = restr3m, restrict.rhs = restr3q,
+      inst = instlist, restrict.regMat = tc, restrictions = restr3m, restrict.rhs = restr3q,
       method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e5 ) )
 
-   print( "3SLS with diff. instruments and 2 restr. via R and restrict.reg (EViews-like)" )
+   print( "3SLS with diff. instruments and 2 restr. via R and restrict.regMat (EViews-like)" )
    fit3slsd[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
-      inst = instlist, restrict.reg = tc, methodRCov = "noDfCor",
+      inst = instlist, restrict.regMat = tc, methodRCov = "noDfCor",
       restrictions = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ] )
    print( summary( fit3slsd[[ i ]]$e5e, useDfSys = TRUE ) )
 }
