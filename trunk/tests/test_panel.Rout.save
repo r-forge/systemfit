@@ -182,27 +182,27 @@ Westinghouse_(Intercept)     -17.420 16.401
 Westinghouse_value             0.020  0.086
 Westinghouse_capital          -0.026  0.211
 > fitted(theilOls  )
-      General.Electric Westinghouse
- [1,]         35.96018     9.786167
- [2,]         59.40242    26.857904
- [3,]         82.37452    38.734236
- [4,]         67.89474    30.805036
- [5,]         76.13085    29.161819
- [6,]         74.96222    35.183340
- [7,]         72.25041    31.245160
- [8,]         75.86448    34.793108
- [9,]         85.01921    39.935972
-[10,]         83.58010    41.066831
-[11,]         91.83188    47.022520
-[12,]        101.16276    47.663551
-[13,]        103.26413    40.509616
-[14,]        115.07287    46.590677
-[15,]        121.85201    43.473441
-[16,]        131.01100    45.720926
-[17,]        140.18302    49.760500
-[18,]        155.40712    58.641569
-[19,]        174.41310    78.772404
-[20,]        198.16300    82.105222
+   General.Electric Westinghouse
+1          35.96018     9.786167
+2          59.40242    26.857904
+3          82.37452    38.734236
+4          67.89474    30.805036
+5          76.13085    29.161819
+6          74.96222    35.183340
+7          72.25041    31.245160
+8          75.86448    34.793108
+9          85.01921    39.935972
+10         83.58010    41.066831
+11         91.83188    47.022520
+12        101.16276    47.663551
+13        103.26413    40.509616
+14        115.07287    46.590677
+15        121.85201    43.473441
+16        131.01100    45.720926
+17        140.18302    49.760500
+18        155.40712    58.641569
+19        174.41310    78.772404
+20        198.16300    82.105222
 > logLik( theilOls )
 'log Lik.' -158.9609 (df=7)
 > model.frame( theilOls )
@@ -400,7 +400,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8770ee4>
+<environment: 0x877129c>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -425,7 +425,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8770ee4>
+<environment: 0x877129c>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -450,7 +450,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8770ee4>
+<environment: 0x877129c>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -606,27 +606,27 @@ Westinghouse_(Intercept)     -15.929 13.425
 Westinghouse_value             0.029  0.086
 Westinghouse_capital          -0.039  0.167
 > fitted( theilSur )
-      General.Electric Westinghouse
- [1,]         30.72436     9.899278
- [2,]         64.02178    28.536169
- [3,]         96.08197    41.233571
- [4,]         72.13948    32.201753
- [5,]         82.71383    30.213227
- [6,]         79.90987    36.663757
- [7,]         73.25855    32.016981
- [8,]         73.13193    34.979720
- [9,]         83.77826    39.716871
-[10,]         81.59002    40.699405
-[11,]         93.63208    47.144271
-[12,]        104.98766    48.077586
-[13,]         99.20536    39.361939
-[14,]        109.29789    45.271761
-[15,]        113.09936    41.464377
-[16,]        123.99135    44.100260
-[17,]        135.31732    48.758414
-[18,]        152.90866    57.854727
-[19,]        174.40790    78.712540
-[20,]        201.60237    80.923394
+   General.Electric Westinghouse
+1          30.72436     9.899278
+2          64.02178    28.536169
+3          96.08197    41.233571
+4          72.13948    32.201753
+5          82.71383    30.213227
+6          79.90987    36.663757
+7          73.25855    32.016981
+8          73.13193    34.979720
+9          83.77826    39.716871
+10         81.59002    40.699405
+11         93.63208    47.144271
+12        104.98766    48.077586
+13         99.20536    39.361939
+14        109.29789    45.271761
+15        113.09936    41.464377
+16        123.99135    44.100260
+17        135.31732    48.758414
+18        152.90866    57.854727
+19        174.40790    78.712540
+20        201.60237    80.923394
 > logLik( theilSur )
 'log Lik.' -158.3196 (df=9)
 > model.frame( theilSur )
@@ -824,7 +824,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x912ab68>
+<environment: 0x90c5938>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -849,7 +849,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x912ab68>
+<environment: 0x90c5938>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -874,7 +874,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x912ab68>
+<environment: 0x90c5938>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -1255,27 +1255,27 @@ Westinghouse_(Intercept)      -17.420  16.401
 Westinghouse_value              0.020   0.086
 Westinghouse_capital           -0.026   0.211
 > fitted( greeneOls )
-       Chrysler General.Electric General.Motors US.Steel Westinghouse
- [1,]  29.66830         35.96018       218.4636 205.7475     9.786167
- [2,]  62.33505         59.40242       425.8070 273.9758    26.857904
- [3,]  73.66354         82.37452       551.0750 438.7205    38.734236
- [4,]  44.29759         67.89474       260.9797 362.0463    30.805036
- [5,]  67.09185         76.13085       440.2515 408.6304    29.161819
- [6,]  71.72515         74.96222       481.1092 422.2880    35.183340
- [7,]  67.71926         72.25041       487.8812 453.1468    31.245160
- [8,]  48.38108         75.86448       349.9843 435.7797    34.793108
- [9,]  60.85923         85.01921       431.8448 408.3629    39.935972
-[10,]  67.34975         83.58010       447.4674 371.9362    41.066831
-[11,]  77.02329         91.83188       526.0770 349.9413    47.022520
-[12,]  90.25270        101.16276       584.1961 391.9641    47.663551
-[13,]  69.50335        103.26413       553.7166 363.1819    40.509616
-[14,]  82.74474        115.07287       581.0616 354.2687    46.590677
-[15,]  86.35950        121.85201       670.4913 379.4543    43.473441
-[16,]  99.39206        131.01100       706.4065 383.9225    45.720926
-[17,] 121.11848        140.18302       875.2957 473.1048    49.760500
-[18,] 142.22581        155.40712       969.0155 496.0117    58.641569
-[19,] 181.14485        174.41310      1254.9016 551.9965    78.772404
-[20,] 179.61442        198.16300      1344.3744 584.7199    82.105222
+    Chrysler General.Electric General.Motors US.Steel Westinghouse
+1   29.66830         35.96018       218.4636 205.7475     9.786167
+2   62.33505         59.40242       425.8070 273.9758    26.857904
+3   73.66354         82.37452       551.0750 438.7205    38.734236
+4   44.29759         67.89474       260.9797 362.0463    30.805036
+5   67.09185         76.13085       440.2515 408.6304    29.161819
+6   71.72515         74.96222       481.1092 422.2880    35.183340
+7   67.71926         72.25041       487.8812 453.1468    31.245160
+8   48.38108         75.86448       349.9843 435.7797    34.793108
+9   60.85923         85.01921       431.8448 408.3629    39.935972
+10  67.34975         83.58010       447.4674 371.9362    41.066831
+11  77.02329         91.83188       526.0770 349.9413    47.022520
+12  90.25270        101.16276       584.1961 391.9641    47.663551
+13  69.50335        103.26413       553.7166 363.1819    40.509616
+14  82.74474        115.07287       581.0616 354.2687    46.590677
+15  86.35950        121.85201       670.4913 379.4543    43.473441
+16  99.39206        131.01100       706.4065 383.9225    45.720926
+17 121.11848        140.18302       875.2957 473.1048    49.760500
+18 142.22581        155.40712       969.0155 496.0117    58.641569
+19 181.14485        174.41310      1254.9016 551.9965    78.772404
+20 179.61442        198.16300      1344.3744 584.7199    82.105222
 > logLik( greeneOls )
 'log Lik.' -463.5217 (df=16)
 > model.frame( greeneOls )
@@ -2129,7 +2129,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8e2b5c0>
+<environment: 0x92197dc>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -2154,7 +2154,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8e2b5c0>
+<environment: 0x92197dc>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -2179,7 +2179,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8e2b5c0>
+<environment: 0x92197dc>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -2204,7 +2204,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8e2b5c0>
+<environment: 0x92197dc>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -2229,7 +2229,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8e2b5c0>
+<environment: 0x92197dc>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -2254,7 +2254,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8e2b5c0>
+<environment: 0x92197dc>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -2626,27 +2626,27 @@ Westinghouse_(Intercept)     -90.662 -5.398
 Westinghouse_value             0.083  0.128
 Westinghouse_capital           0.219  0.392
 > fitted( greeneOlsPooled )
-         Chrysler General.Electric General.Motors US.Steel Westinghouse
- [1,]  -0.9502404         104.8480       276.3307 111.5673   -27.356223
- [2,]  43.1255481         195.6816       457.9091 157.2911     6.438627
- [3,]  55.4514414         282.5893       565.9877 269.2740    30.837232
- [4,]  13.8050990         214.0111       309.2722 220.7798    16.387243
- [5,]  43.0318206         241.7701       467.3360 253.1417    13.780258
- [6,]  48.9414524         233.0146       503.2481 261.0868    26.108630
- [7,]  42.5667218         212.1627       508.1643 281.9486    19.465869
- [8,]  16.9529576         206.7301       385.6174 271.0712    29.510420
- [9,]  34.2925462         233.4931       458.6020 252.7346    42.601830
-[10,]  43.8365288         227.3843       473.7325 227.8122    45.676627
-[11,]  57.5875128         260.5451       541.6001 211.6864    57.655004
-[12,]  71.7906008         289.6869       589.8014 240.2834    58.149154
-[13,]  42.3741000         265.4341       555.0898 221.6380    46.993032
-[14,]  58.6138718         286.5049       575.6609 216.5348    61.449070
-[15,]  59.0130617         291.2391       652.3107 234.3615    56.619959
-[16,]  74.6826517         318.9040       682.2258 237.5003    60.463985
-[17,]  99.1262481         348.1545       828.6380 297.0289    67.636994
-[18,] 117.1065834         392.2423       906.3308 314.5351    87.205253
-[19,] 162.9003165         445.5749      1150.6081 355.8562   130.767597
-[20,] 152.5624879         513.4349      1219.6113 378.7818   142.101851
+      Chrysler General.Electric General.Motors US.Steel Westinghouse
+1   -0.9502404         104.8480       276.3307 111.5673   -27.356223
+2   43.1255481         195.6816       457.9091 157.2911     6.438627
+3   55.4514414         282.5893       565.9877 269.2740    30.837232
+4   13.8050990         214.0111       309.2722 220.7798    16.387243
+5   43.0318206         241.7701       467.3360 253.1417    13.780258
+6   48.9414524         233.0146       503.2481 261.0868    26.108630
+7   42.5667218         212.1627       508.1643 281.9486    19.465869
+8   16.9529576         206.7301       385.6174 271.0712    29.510420
+9   34.2925462         233.4931       458.6020 252.7346    42.601830
+10  43.8365288         227.3843       473.7325 227.8122    45.676627
+11  57.5875128         260.5451       541.6001 211.6864    57.655004
+12  71.7906008         289.6869       589.8014 240.2834    58.149154
+13  42.3741000         265.4341       555.0898 221.6380    46.993032
+14  58.6138718         286.5049       575.6609 216.5348    61.449070
+15  59.0130617         291.2391       652.3107 234.3615    56.619959
+16  74.6826517         318.9040       682.2258 237.5003    60.463985
+17  99.1262481         348.1545       828.6380 297.0289    67.636994
+18 117.1065834         392.2423       906.3308 314.5351    87.205253
+19 162.9003165         445.5749      1150.6081 355.8562   130.767597
+20 152.5624879         513.4349      1219.6113 378.7818   142.101851
 > logLik( greeneOlsPooled )
 'log Lik.' -539.5676 (df=4)
 > model.frame( greeneOlsPooled )
@@ -3500,7 +3500,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dabeb0>
+<environment: 0x80d6b34>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -3525,7 +3525,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dabeb0>
+<environment: 0x80d6b34>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -3550,7 +3550,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dabeb0>
+<environment: 0x80d6b34>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -3575,7 +3575,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dabeb0>
+<environment: 0x80d6b34>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -3600,7 +3600,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dabeb0>
+<environment: 0x80d6b34>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -3625,7 +3625,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dabeb0>
+<environment: 0x80d6b34>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -4013,27 +4013,27 @@ Westinghouse_(Intercept)      -12.116  14.294
 Westinghouse_value              0.033   0.081
 Westinghouse_capital           -0.045   0.128
 > fitted( greeneSur )
-       Chrysler General.Electric General.Motors US.Steel Westinghouse
- [1,]  32.77931         34.00501       209.6454 245.1967     12.08084
- [2,]  61.91677         66.38690       419.4707 289.0041     30.53880
- [3,]  72.68217         97.53255       546.7967 404.2484     42.95569
- [4,]  46.94093         74.05273       254.1470 372.3547     33.78807
- [5,]  67.61387         84.27116       435.1970 409.1239     31.70334
- [6,]  71.82294         81.47799       476.4985 410.6475     38.01905
- [7,]  68.46641         74.84727       483.7006 431.5499     33.21103
- [8,]  51.11068         74.41923       344.7673 424.9664     35.60601
- [9,]  62.12828         84.63620       427.1617 407.5851     39.77807
-[10,]  67.74190         82.49977       442.4726 381.1322     40.60190
-[11,]  76.21424         94.22934       522.3583 358.6964     46.95122
-[12,]  88.82875        105.16267       582.1007 388.2878     48.01389
-[13,]  70.63832         99.03116       554.0158 373.6669     38.84537
-[14,]  82.81229        108.45894       582.8496 373.1639     44.26678
-[15,]  87.03654        111.81809       673.9236 395.0245     40.25644
-[16,]  99.08865        122.28785       710.7975 398.7598     42.97502
-[17,] 119.55552        133.20374       882.2212 454.5947     47.73549
-[18,] 140.72701        150.07761       978.5704 482.2315     56.38968
-[19,] 176.94150        170.66708      1269.9720 540.9906     76.38463
-[20,] 177.42391        196.73472      1363.7335 567.9747     77.72869
+    Chrysler General.Electric General.Motors US.Steel Westinghouse
+1   32.77931         34.00501       209.6454 245.1967     12.08084
+2   61.91677         66.38690       419.4707 289.0041     30.53880
+3   72.68217         97.53255       546.7967 404.2484     42.95569
+4   46.94093         74.05273       254.1470 372.3547     33.78807
+5   67.61387         84.27116       435.1970 409.1239     31.70334
+6   71.82294         81.47799       476.4985 410.6475     38.01905
+7   68.46641         74.84727       483.7006 431.5499     33.21103
+8   51.11068         74.41923       344.7673 424.9664     35.60601
+9   62.12828         84.63620       427.1617 407.5851     39.77807
+10  67.74190         82.49977       442.4726 381.1322     40.60190
+11  76.21424         94.22934       522.3583 358.6964     46.95122
+12  88.82875        105.16267       582.1007 388.2878     48.01389
+13  70.63832         99.03116       554.0158 373.6669     38.84537
+14  82.81229        108.45894       582.8496 373.1639     44.26678
+15  87.03654        111.81809       673.9236 395.0245     40.25644
+16  99.08865        122.28785       710.7975 398.7598     42.97502
+17 119.55552        133.20374       882.2212 454.5947     47.73549
+18 140.72701        150.07761       978.5704 482.2315     56.38968
+19 176.94150        170.66708      1269.9720 540.9906     76.38463
+20 177.42391        196.73472      1363.7335 567.9747     77.72869
 > logLik( greeneSur )
 'log Lik.' -459.4397 (df=30)
 > model.frame( greeneSur )
@@ -4887,7 +4887,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x91a862c>
+<environment: 0x9350ef8>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -4912,7 +4912,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x91a862c>
+<environment: 0x9350ef8>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -4937,7 +4937,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x91a862c>
+<environment: 0x9350ef8>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -4962,7 +4962,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x91a862c>
+<environment: 0x9350ef8>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -4987,7 +4987,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x91a862c>
+<environment: 0x9350ef8>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -5012,7 +5012,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x91a862c>
+<environment: 0x9350ef8>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -5397,27 +5397,27 @@ Westinghouse_(Intercept)     -37.948 -18.545
 Westinghouse_value             0.079   0.099
 Westinghouse_capital           0.301   0.367
 > fitted( greeneSurPooled )
-       Chrysler General.Electric General.Motors US.Steel Westinghouse
- [1,]  12.46009         108.7215       246.9857 111.1144    -10.58264
- [2,]  49.80900         186.2341       404.6842 149.6353     17.99659
- [3,]  62.09992         260.9437       504.1558 249.6612     39.17958
- [4,]  28.07257         205.6656       290.4168 219.2149     27.73113
- [5,]  53.79236         230.4338       424.0020 250.5970     25.92622
- [6,]  59.01336         224.0615       454.7369 252.9403     36.60463
- [7,]  54.21658         208.9572       462.5100 271.1695     31.70075
- [8,]  32.21354         209.3751       362.2459 264.7478     42.06485
- [9,]  46.59269         234.4778       421.1550 249.4333     54.93725
-[10,]  54.18929         229.4034       429.2903 226.5970     58.05502
-[11,]  65.40554         257.3924       491.5959 208.0202     68.30148
-[12,]  79.71617         284.0840       542.7688 233.6791     68.23984
-[13,]  55.67539         271.8112       540.3201 220.2881     60.66564
-[14,]  70.45125         296.2106       569.8455 219.1228     74.38720
-[15,]  73.58339         305.8495       642.1732 237.5572     71.13375
-[16,]  88.05604         331.4916       673.4632 240.7217     74.01006
-[17,] 111.80800         358.0878       805.7679 290.0164     79.56629
-[18,] 133.59443         399.5848       888.3749 312.5273     97.34459
-[19,] 176.59047         450.3772      1121.5394 361.0358    136.48107
-[20,] 172.99190         514.5689      1213.7658 383.9361    148.99758
+    Chrysler General.Electric General.Motors US.Steel Westinghouse
+1   12.46009         108.7215       246.9857 111.1144    -10.58264
+2   49.80900         186.2341       404.6842 149.6353     17.99659
+3   62.09992         260.9437       504.1558 249.6612     39.17958
+4   28.07257         205.6656       290.4168 219.2149     27.73113
+5   53.79236         230.4338       424.0020 250.5970     25.92622
+6   59.01336         224.0615       454.7369 252.9403     36.60463
+7   54.21658         208.9572       462.5100 271.1695     31.70075
+8   32.21354         209.3751       362.2459 264.7478     42.06485
+9   46.59269         234.4778       421.1550 249.4333     54.93725
+10  54.18929         229.4034       429.2903 226.5970     58.05502
+11  65.40554         257.3924       491.5959 208.0202     68.30148
+12  79.71617         284.0840       542.7688 233.6791     68.23984
+13  55.67539         271.8112       540.3201 220.2881     60.66564
+14  70.45125         296.2106       569.8455 219.1228     74.38720
+15  73.58339         305.8495       642.1732 237.5572     71.13375
+16  88.05604         331.4916       673.4632 240.7217     74.01006
+17 111.80800         358.0878       805.7679 290.0164     79.56629
+18 133.59443         399.5848       888.3749 312.5273     97.34459
+19 176.59047         450.3772      1121.5394 361.0358    136.48107
+20 172.99190         514.5689      1213.7658 383.9361    148.99758
 > logLik( greeneSurPooled )
 'log Lik.' -533.2793 (df=18)
 > model.frame( greeneSurPooled )
@@ -6271,7 +6271,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x95118a8>
+<environment: 0x9357f4c>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -6296,7 +6296,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x95118a8>
+<environment: 0x9357f4c>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -6321,7 +6321,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x95118a8>
+<environment: 0x9357f4c>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -6346,7 +6346,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x95118a8>
+<environment: 0x9357f4c>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -6371,7 +6371,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x95118a8>
+<environment: 0x9357f4c>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -6396,7 +6396,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x95118a8>
+<environment: 0x9357f4c>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")

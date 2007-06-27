@@ -128,7 +128,7 @@ fitted.systemfit <- function( object, ... ) {
       fitted.values[ , i ]           <- object$eq[[ i ]]$fitted.values
       colnames( fitted.values )[ i ] <- object$eq[[ i ]]$eqnLabel
    }
-   fitted.values
+   return( as.data.frame( fitted.values ) )
 }
 
 ## return the fitted values of e single euation
