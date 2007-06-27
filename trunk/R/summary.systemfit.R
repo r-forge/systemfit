@@ -55,8 +55,8 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
 
    # transformed coefficients
    if( !is.null( object$restrict.reg ) ) {
-      coefTrans <- coef( object, transformed = TRUE )
-      stdErTrans <- diag( vcov( object, transformed = TRUE ) )^0.5  # standard errors
+      coefTrans <- coef( object, modified.reg = TRUE )
+      stdErTrans <- diag( vcov( object, modified.reg = TRUE ) )^0.5  # standard errors
       tStatTrans <- coefTrans / stdErTrans    # t-statistic
       if( useDfSys ) {             # p-values
          pValTrans <- 2 * ( 1 - pt( abs( tStatTrans ), object$df.residual ) )

@@ -10,7 +10,7 @@
 }
 
 \usage{
-   \method{vcov}{systemfit}( object, transformed = FALSE, \dots )
+   \method{vcov}{systemfit}( object, modified.reg = FALSE, \dots )
 
    \method{vcov}{systemfit.equation}( object, \dots )
 }
@@ -18,9 +18,11 @@
 \arguments{
    \item{object}{an object of class \code{systemfit} or
       \code{systemfit.equation}.}
-   \item{transformed}{logical. If \code{TRUE},
-      the covariance matrix of the transformed coefficients
-      (due to transforming the regressor matrix by argument \code{restrict.reg})
+   \item{modified.reg}{logical. If \code{TRUE},
+      the covariance matrix of the parameters of the modified regressor matrix
+      (original regressor matrix post-multiplied by \code{restrict.reg})
+      rather than the covariance matrix of the parameters
+      of the original regressor matrix
       is returned.}
    \item{\dots}{other arguments.}
 }
@@ -54,19 +56,19 @@ vcov( fitols$eq[[1]] )
 ## variance covariance matrix of the coefficients in the second equation
 vcov( fitols$eq[[2]] )
 
-## transformed coefficients
-coefMap <- matrix( 0, 7, 6 )
-colnames( coefMap ) <- c( "demIntercept", "demPrice", "demIncome",
+## estimation with restriction by modifying the regressor matrix
+modReg <- matrix( 0, 7, 6 )
+colnames( modReg ) <- c( "demIntercept", "demPrice", "demIncome",
    "supIntercept", "supPrice2", "supTrend" )
-coefMap[ 1, "demIntercept" ] <- 1
-coefMap[ 2, "demPrice" ]     <- 1
-coefMap[ 3, "demIncome" ]    <- 1
-coefMap[ 4, "supIntercept" ] <- 1
-coefMap[ 5, "supPrice2" ]    <- 1
-coefMap[ 6, "supPrice2" ]    <- 1
-coefMap[ 7, "supTrend" ]     <- 1
-fitsur <- systemfit( system, "SUR", data = Kmenta, restrict.reg = coefMap )
-vcov( fitsur, transformed  = TRUE )
+modReg[ 1, "demIntercept" ] <- 1
+modReg[ 2, "demPrice" ]     <- 1
+modReg[ 3, "demIncome" ]    <- 1
+modReg[ 4, "supIntercept" ] <- 1
+modReg[ 5, "supPrice2" ]    <- 1
+modReg[ 6, "supPrice2" ]    <- 1
+modReg[ 7, "supTrend" ]     <- 1
+fitsur <- systemfit( system, "SUR", data = Kmenta, restrict.reg = modReg )
+vcov( fitsur, modified.reg  = TRUE )
 vcov( fitsur )
 }
 

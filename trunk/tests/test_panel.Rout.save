@@ -2091,7 +2091,7 @@ Multiple R-Squared: -0.825748 Adjusted R-Squared: -1.040541
                  -48.0297376                    0.1050854 
         Westinghouse_capital 
                    0.3053655 
-> coef( greeneOlsPooled, transformed = TRUE )
+> coef( greeneOlsPooled, modified.reg = TRUE )
          C1          C2          C3 
 -48.0297376   0.1050854   0.3053655 
 > coef( summary( greeneOlsPooled ) )
@@ -2111,7 +2111,7 @@ US.Steel_capital               0.3053655  0.04350781  7.018637 3.055980e-10
 Westinghouse_(Intercept)     -48.0297376 21.48016525 -2.236004 2.764345e-02
 Westinghouse_value             0.1050854  0.01137783  9.235980 5.995204e-15
 Westinghouse_capital           0.3053655  0.04350781  7.018637 3.055980e-10
-> coef( summary( greeneOlsPooled ), transformed = TRUE )
+> coef( summary( greeneOlsPooled ), modified.reg = TRUE )
       Estimate  Std. Error   t value     Pr(>|t|)
 C1 -48.0297376 21.48016525 -2.236004 2.764345e-02
 C2   0.1050854  0.01137783  9.235980 5.995204e-15
@@ -2245,7 +2245,7 @@ US.Steel_capital                     0.0018929299
 Westinghouse_(Intercept)            -0.0068908826
 Westinghouse_value                  -0.0003027417
 Westinghouse_capital                 0.0018929299
-> vcov( greeneOlsPooled, transformed = TRUE )
+> vcov( greeneOlsPooled, modified.reg = TRUE )
               C1            C2            C3
 C1 461.397499292 -0.1546684236 -0.0068908826
 C2  -0.154668424  0.0001294550 -0.0003027417
@@ -4526,7 +4526,7 @@ Multiple R-Squared: -1.402026 Adjusted R-Squared: -1.684618
                  -28.2466939                    0.0891009 
         Westinghouse_capital 
                    0.3340150 
-> coef( greeneSurPooled, transformed = TRUE )
+> coef( greeneSurPooled, modified.reg = TRUE )
          C1          C2          C3 
 -28.2466939   0.0891009   0.3340150 
 > coef( summary( greeneSurPooled ) )
@@ -4546,7 +4546,7 @@ US.Steel_capital               0.3340150 0.016712537 19.985896 0.00000e+00
 Westinghouse_(Intercept)     -28.2466939 4.888238014 -5.778502 9.12456e-08
 Westinghouse_value             0.0891009 0.005072263 17.566304 0.00000e+00
 Westinghouse_capital           0.3340150 0.016712537 19.985896 0.00000e+00
-> coef( summary( greeneSurPooled ), transformed = TRUE )
+> coef( summary( greeneSurPooled ), modified.reg = TRUE )
       Estimate  Std. Error   t value    Pr(>|t|)
 C1 -28.2466939 4.888238014 -5.778502 9.12456e-08
 C2   0.0891009 0.005072263 17.566304 0.00000e+00
@@ -4680,7 +4680,7 @@ US.Steel_capital                     2.793089e-04
 Westinghouse_(Intercept)             1.139094e-03
 Westinghouse_value                  -4.739094e-05
 Westinghouse_capital                 2.793089e-04
-> vcov( greeneSurPooled, transformed = TRUE )
+> vcov( greeneSurPooled, modified.reg = TRUE )
              C1            C2            C3
 C1 23.894870886 -1.729122e-02  1.139094e-03
 C2 -0.017291217  2.572785e-05 -4.739094e-05

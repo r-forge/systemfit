@@ -42,10 +42,10 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
 
 
 ## return all coefficients
-coef.systemfit <- function( object, transformed = FALSE, ... ) {
-   if( transformed ){
+coef.systemfit <- function( object, modified.reg = FALSE, ... ) {
+   if( modified.reg ){
       if( is.null( object$restrict.reg ) ){
-         stop( "transformed coefficients are not available,",
+         stop( "coefficients of the modified regressor matrix are not available,",
             " because argument 'restrict.reg' has not been used in this estimation." )
       } else {
          return( drop( solve( crossprod( object$restrict.reg ),
@@ -57,10 +57,10 @@ coef.systemfit <- function( object, transformed = FALSE, ... ) {
 }
 
 ## return all coefficients, std.errors, t-values and p-values
-coef.summary.systemfit <- function( object, transformed = FALSE, ... ) {
-   if( transformed ){
+coef.summary.systemfit <- function( object, modified.reg = FALSE, ... ) {
+   if( modified.reg ){
       if( is.null( object$coefTrans ) ){
-         stop( "transformed coefficients are not available,",
+         stop( "coefficients of the modified regressor matrix are not available,",
             " because argument 'restrict.reg' has not been used in this estimation." )
       } else {
          return( object$coefTrans )
@@ -96,11 +96,11 @@ residuals.systemfit.equation <- function( object, ... ) {
 }
 
 ## return the variance covariance matrix of the coefficients
-vcov.systemfit <- function( object, transformed = FALSE, ... ) {
-   if( transformed ){
+vcov.systemfit <- function( object, modified.reg = FALSE, ... ) {
+   if( modified.reg ){
       if( is.null( object$restrict.reg ) ){
-         stop( "transformed coefficients and their covariance matrix",
-            " are not available,",
+         stop( "coefficients of the modified regressor matrix",
+            " and their covariance matrix are not available,",
             " because argument 'restrict.reg' has not been used in this estimation." )
       } else {
          txtxInv <- solve( crossprod( object$restrict.reg ) )

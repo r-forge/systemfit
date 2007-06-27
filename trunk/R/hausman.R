@@ -12,10 +12,10 @@ hausman.systemfit <- function( results2sls, results3sls ) {
       result$q <- coef( results2sls ) - coef( results3sls )
       result$qVar <- vcov( results2sls ) - vcov( results3sls )
    } else {
-      result$q <- coef( results2sls, transformed = TRUE ) -
-         coef( results3sls, transformed = TRUE )
-      result$qVar <- vcov( results2sls, transformed = TRUE ) -
-         vcov( results3sls, transformed = TRUE )
+      result$q <- coef( results2sls, modified.reg = TRUE ) -
+         coef( results3sls, modified.reg = TRUE )
+      result$qVar <- vcov( results2sls, modified.reg = TRUE ) -
+         vcov( results3sls, modified.reg = TRUE )
    }
 
 #    if( min( eigen( hausman$qVar )$values ) < 0 ) {

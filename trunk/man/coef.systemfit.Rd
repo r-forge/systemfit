@@ -11,11 +11,11 @@
 }
 
 \usage{
-   \method{coef}{systemfit}( object, transformed = FALSE, \dots )
+   \method{coef}{systemfit}( object, modified.reg = FALSE, \dots )
 
    \method{coef}{systemfit.equation}( object, \dots )
 
-   \method{coef}{summary.systemfit}( object, transformed = FALSE, \dots )
+   \method{coef}{summary.systemfit}( object, modified.reg = FALSE, \dots )
 
    \method{coef}{summary.systemfit.equation}( object, \dots )
 }
@@ -24,10 +24,10 @@
    \item{object}{an object of class \code{systemfit},
       \code{systemfit.equation}, \code{summary.systemfit}, or
       \code{summary.systemfit.equation}.}
-   \item{transformed}{logical. If \code{TRUE},
-      the transformed coefficients
-      (due to transforming the regressor matrix by argument \code{restrict.reg})
-      rather than the re-transformed original coefficients
+   \item{modified.reg}{logical. If \code{TRUE},
+      the parameters of the modified regressor matrix
+      (original regressor matrix post-multiplied by \code{restrict.reg})
+      rather than the parameters of the original regressor matrix
       are returned.}
    \item{\dots}{other arguments.}
 }
@@ -74,19 +74,19 @@ coef( summary( fitols$eq[[1]] ) )
 coef( fitols$eq[[2]] )
 coef( summary( fitols$eq[[2]] ) )
 
-## transformed coefficients
-coefMap <- matrix( 0, 7, 6 )
-colnames( coefMap ) <- c( "demIntercept", "demPrice", "demIncome",
+## estimation with restriction by modifying the regressor matrix
+modReg <- matrix( 0, 7, 6 )
+colnames( modReg ) <- c( "demIntercept", "demPrice", "demIncome",
    "supIntercept", "supPrice2", "supTrend" )
-coefMap[ 1, "demIntercept" ] <- 1
-coefMap[ 2, "demPrice" ]     <- 1
-coefMap[ 3, "demIncome" ]    <- 1
-coefMap[ 4, "supIntercept" ] <- 1
-coefMap[ 5, "supPrice2" ]    <- 1
-coefMap[ 6, "supPrice2" ]    <- 1
-coefMap[ 7, "supTrend" ]     <- 1
-fitols3 <- systemfit( system, data = Kmenta, restrict.reg = coefMap )
-coef( fitols3, transformed  = TRUE )
+modReg[ 1, "demIntercept" ] <- 1
+modReg[ 2, "demPrice" ]     <- 1
+modReg[ 3, "demIncome" ]    <- 1
+modReg[ 4, "supIntercept" ] <- 1
+modReg[ 5, "supPrice2" ]    <- 1
+modReg[ 6, "supPrice2" ]    <- 1
+modReg[ 7, "supTrend" ]     <- 1
+fitols3 <- systemfit( system, data = Kmenta, restrict.reg = modReg )
+coef( fitols3, modified.reg  = TRUE )
 coef( fitols3 )
 }
 

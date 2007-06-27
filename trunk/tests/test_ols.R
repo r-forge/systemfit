@@ -218,14 +218,14 @@ print( round( coef( fitols2s ), digits = 6 ) )
 print( round( coef( fitols2s$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( coef( fitols3p ), digits = 6 ) )
-print( round( coef( fitols3p, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fitols3p, modified.reg = TRUE ), digits = 6 ) )
 print( round( coef( fitols3p$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( coef( fitols4r ), digits = 6 ) )
 print( round( coef( fitols4r$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( coef( fitols5 ), digits = 6 ) )
-print( round( coef( fitols5, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fitols5, modified.reg = TRUE ), digits = 6 ) )
 print( round( coef( fitols5$eq[[ 2 ]] ), digits = 6 ) )
 
 
@@ -238,7 +238,7 @@ print( round( coef( summary( fitols2s ) ), digits = 6 ) )
 print( round( coef( summary( fitols2s$eq[[ 1 ]] ) ), digits = 6 ) )
 
 print( round( coef( summary( fitols3p, useDfSys = FALSE ) ), digits = 6 ) )
-print( round( coef( summary( fitols3p, useDfSys = FALSE ), transformed = TRUE ),
+print( round( coef( summary( fitols3p, useDfSys = FALSE ), modified.reg = TRUE ),
    digits = 6 ) )
 print( round( coef( summary( fitols3p$eq[[ 2 ]], useDfSys = FALSE ) ),
    digits = 6 ) )
@@ -248,7 +248,7 @@ print( round( coef( summary( fitols4r$eq[[ 1 ]], useDfSys = FALSE ) ),
    digits = 6 ) )
 
 print( round( coef( summary( fitols5 ) ), digits = 6 ) )
-print( round( coef( summary( fitols5 ), transformed = TRUE ), digits = 6 ) )
+print( round( coef( summary( fitols5 ), modified.reg = TRUE ), digits = 6 ) )
 print( round( coef( summary( fitols5$eq[[ 2 ]] ) ), digits = 6 ) )
 
 
@@ -260,14 +260,14 @@ print( round( vcov( fitols2s ), digits = 6 ) )
 print( round( vcov( fitols2s$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitols3p ), digits = 6 ) )
-print( round( vcov( fitols3p, transformed = TRUE ), digits = 6 ) )
+print( round( vcov( fitols3p, modified.reg = TRUE ), digits = 6 ) )
 print( round( vcov( fitols3p$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitols4r ), digits = 6 ) )
 print( round( vcov( fitols4r$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitols5 ), digits = 6 ) )
-print( round( vcov( fitols5, transformed = TRUE ), digits = 6 ) )
+print( round( vcov( fitols5, modified.reg = TRUE ), digits = 6 ) )
 print( round( vcov( fitols5$eq[[ 2 ]] ), digits = 6 ) )
 
 

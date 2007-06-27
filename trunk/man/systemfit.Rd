@@ -220,18 +220,19 @@ print( fitols2b )
 # test whether both restricted estimators are identical
 all.equal( coef( fitols2 ), coef( fitols2b ) )
 
-## OLS with parameter restriction by argument restrict.reg
-coefMap <- matrix( 0, 7, 6 )
-colnames( coefMap ) <- c( "demIntercept", "demPrice", "demIncome",
+## OLS with parameter restriction by modifying the regressor matrix
+## with argument restrict.reg
+modReg <- matrix( 0, 7, 6 )
+colnames( modReg ) <- c( "demIntercept", "demPrice", "demIncome",
    "supIntercept", "supPrice2", "supTrend" )
-coefMap[ 1, "demIntercept" ] <- 1
-coefMap[ 2, "demPrice" ]     <- 1
-coefMap[ 3, "demIncome" ]    <- 1
-coefMap[ 4, "supIntercept" ] <- 1
-coefMap[ 5, "supPrice2" ]    <- 1
-coefMap[ 6, "supPrice2" ]    <- 1
-coefMap[ 7, "supTrend" ]     <- 1
-fitols3 <- systemfit( system, data = Kmenta, restrict.reg = coefMap )
+modReg[ 1, "demIntercept" ] <- 1
+modReg[ 2, "demPrice" ]     <- 1
+modReg[ 3, "demIncome" ]    <- 1
+modReg[ 4, "supIntercept" ] <- 1
+modReg[ 5, "supPrice2" ]    <- 1
+modReg[ 6, "supPrice2" ]    <- 1
+modReg[ 7, "supTrend" ]     <- 1
+fitols3 <- systemfit( system, data = Kmenta, restrict.reg = modReg )
 print( fitols3 )
 
 

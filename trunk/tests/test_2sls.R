@@ -258,14 +258,14 @@ print( round( coef( fit2sls2p ), digits = 6 ) )
 print( round( coef( fit2sls2p$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( coef( fit2sls3 ), digits = 6 ) )
-print( round( coef( fit2sls3, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fit2sls3, modified.reg = TRUE ), digits = 6 ) )
 print( round( coef( fit2sls3$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( coef( fit2sls4s ), digits = 6 ) )
 print( round( coef( fit2sls4s$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( coef( fit2sls5r ), digits = 6 ) )
-print( round( coef( fit2sls5r, transformed = TRUE ), digits = 6 ) )
+print( round( coef( fit2sls5r, modified.reg = TRUE ), digits = 6 ) )
 print( round( coef( fit2sls5r$eq[[ 2 ]] ), digits = 6 ) )
 
 
@@ -278,7 +278,7 @@ print( round( coef( summary( fit2sls2p$eq[[ 2 ]], useDfSys = FALSE ) ),
    digits = 6 ) )
 
 print( round( coef( summary( fit2sls3 ) ), digits = 6 ) )
-print( round( coef( summary( fit2sls3 ), transformed = TRUE ), digits = 6 ) )
+print( round( coef( summary( fit2sls3 ), modified.reg = TRUE ), digits = 6 ) )
 print( round( coef( summary( fit2sls3$eq[[ 1 ]] ) ), digits = 6 ) )
 
 print( round( coef( summary( fit2sls4s ) ), digits = 6 ) )
@@ -286,7 +286,7 @@ print( round( coef( summary( fit2sls4s$eq[[ 2 ]] ) ), digits = 6 ) )
 
 print( round( coef( summary( fit2sls5r, useDfSys = FALSE ) ), digits = 6 ) )
 print( round( coef( summary( fit2sls5r, useDfSys = FALSE ),
-   transformed = TRUE ), digits = 6 ) )
+   modified.reg = TRUE ), digits = 6 ) )
 print( round( coef( summary( fit2sls5r$eq[[ 2 ]], useDfSys = FALSE ) ),
    digits = 6 ) )
 
@@ -302,14 +302,14 @@ print( round( vcov( fit2sls2p ), digits = 6 ) )
 print( round( vcov( fit2sls2p$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fit2sls3 ), digits = 6 ) )
-print( round( vcov( fit2sls3, transformed = TRUE ), digits = 6 ) )
+print( round( vcov( fit2sls3, modified.reg = TRUE ), digits = 6 ) )
 print( round( vcov( fit2sls3$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fit2sls4s ), digits = 6 ) )
 print( round( vcov( fit2sls4s$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fit2sls5r ), digits = 6 ) )
-print( round( vcov( fit2sls5r, transformed = TRUE ), digits = 6 ) )
+print( round( vcov( fit2sls5r, modified.reg = TRUE ), digits = 6 ) )
 print( round( vcov( fit2sls5r$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fit2slsd1 ), digits = 6 ) )
@@ -319,7 +319,7 @@ print( round( vcov( fit2slsd2rs ), digits = 6 ) )
 print( round( vcov( fit2slsd2rs$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fit2slsd3 ), digits = 6 ) )
-print( round( vcov( fit2slsd3, transformed = TRUE ), digits = 6 ) )
+print( round( vcov( fit2slsd3, modified.reg = TRUE ), digits = 6 ) )
 print( round( vcov( fit2slsd3$eq[[ 1 ]] ), digits = 6 ) )
 
 
