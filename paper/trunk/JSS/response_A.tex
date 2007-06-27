@@ -347,7 +347,20 @@ This allows the application of \code{update()} to \code{systemfit} objects.
 %     Similarly, one could think 
 %     about how the terms and formula can be preserved and possibly made available
 %     in terms() and formula() calls. Other standard methods would also be nice to have,
-%     e.g., df.residual() or logLik(). (By the way: The row/column naming in fitted()
+%     e.g., df.residual() or logLik().
+Following the suggestions of this referee,
+the °model terms° (including the formulas) of each equation are preserved now.
+We have added methods \code{terms.systemfit}, \code{terms.systemfit.equation},
+\code{formula.systemfit}, and \code{formula.systemfit.equation}
+to extract the °model terms° and formulas
+of the system and of a single equation.
+The new method \code{logLik} computes the log-likelihood value
+of a fitted \code{systemfit} object.
+Furthermore, the default method of \code{df.residual}
+can extract the degrees of freedom of the residuals,
+both of the system and of a single equation now.
+
+%     (By the way: The row/column naming in fitted()
 %     and residuals() should match, probably re-using equation and observation names.)
 % 
 %     The coefficient naming should be improved, e.g., "<eqname>_<varname>"
