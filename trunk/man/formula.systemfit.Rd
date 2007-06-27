@@ -21,8 +21,8 @@
 \value{
    \code{formula.systemfit.equation} returns the formula
    of a single equation of a \code{systemfit} object.
-   \code{formula.systemfit.equation} returns a list of formulae,
-   where each formula belongs to a single equation
+   \code{formula.systemfit.equation} returns a list of formulae:
+   one formula object for each equation
    of the \code{systemfit} object.
 }
 
