@@ -340,7 +340,11 @@ because this function has been removed.
 %       fitsur <- systemfit("SUR", list(demand = eqDemand, supply = eqSupply))
 %       fitsur$call <- call("systemfit", "SUR", list(demand = eqDemand, supply = eqSupply))
 %       fitsurRmat <- update(fm, R.restr = Rmat, q.restr = qvec)
-%     The call can easily be captured via match.call(). Similarly, one could think 
+%     The call can easily be captured via match.call().
+The call of \code{systemfit} is stored in the returned object now.
+This allows the application of \code{update()} to \code{systemfit} objects.
+
+%     Similarly, one could think 
 %     about how the terms and formula can be preserved and possibly made available
 %     in terms() and formula() calls. Other standard methods would also be nice to have,
 %     e.g., df.residual() or logLik(). (By the way: The row/column naming in fitted()
