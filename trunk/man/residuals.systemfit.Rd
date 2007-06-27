@@ -22,8 +22,8 @@
 }
 
 \value{
-   \code{residuals.systemfit} returns a matrix of residuals.
-   Each column contains the residuals of one equation.
+   \code{residuals.systemfit} returns a data.frame of residuals,
+   where each column contains the residuals of one equation.
 
    \code{residuals.systemfit.equation} returns a vector of residuals.
 }
