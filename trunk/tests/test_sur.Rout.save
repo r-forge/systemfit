@@ -388,6 +388,135 @@ SSR: 105.186783 MSE: 6.574174 Root MSE: 2.564015
 Multiple R-Squared: 0.607679 Adjusted R-Squared: 0.534119 
 
 > 
+> ## *************** WSUR estimation ************************
+> fitsur1w <- systemfit( system, "WSUR", data = Kmenta )
+> summary( fitsur1w )
+
+systemfit results 
+method: WSUR 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  65.6829 3.86370 1.96563 0.755019 0.726198
+supply 20 16 104.0584 6.50365 2.55023 0.611888 0.539117
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.72539 4.13696
+supply 4.13696 5.78444
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.86370 4.92431
+supply 4.92431 6.50365
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.982348
+supply 0.982348 1.000000
+
+The determinant of the residual covariance matrix: 0.879285
+OLS R-squared value of the system: 0.683453
+McElroy's R-squared value for the system: 0.788722
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 99.332894   7.514452 13.218913        0 ***
+price       -0.275486   0.088509 -3.112513 0.006332  **
+income        0.29855   0.041945  7.117605    2e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.96563 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 65.682902 MSE: 3.8637 Root MSE: 1.96563 
+Multiple R-Squared: 0.755019 Adjusted R-Squared: 0.726198 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 61.966166   11.08079 5.592215    4e-05 ***
+price        0.146884   0.094435 1.555397 0.139408    
+farmPrice    0.214004   0.039868 5.367761  6.3e-05 ***
+trend        0.339304   0.067911 4.996283 0.000132 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.550226 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 104.05843 MSE: 6.503652 Root MSE: 2.550226 
+Multiple R-Squared: 0.611888 Adjusted R-Squared: 0.539117 
+
+> 
+> ## *************** WSUR (methodRCov="Theil", useDfSys = TRUE ) ***************
+> fitsur1we2 <- systemfit( system, "WSUR", data = Kmenta, methodRCov = "Theil" )
+> summary( fitsur1we2, useDfSys = TRUE )
+
+systemfit results 
+method: WSUR 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  66.8022 3.92954 1.98231 0.750844 0.721532
+supply 20 16 105.3221 6.58263 2.56566 0.607175 0.533520
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.72539 4.27624
+supply 4.27624 5.78444
+
+warning: this covariance matrix is NOT positive semidefinit!
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.92954 5.17327
+supply 5.17327 6.58263
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.984044
+supply 0.984044 1.000000
+
+The determinant of the residual covariance matrix: -0.896033
+OLS R-squared value of the system: 0.67901
+McElroy's R-squared value for the system: 1.00928
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 99.211993   7.512677 13.205945        0 ***
+price       -0.266714   0.087712 -3.040792 0.004597  **
+income       0.290795   0.040615  7.159724        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.982307 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 66.802201 MSE: 3.929541 Root MSE: 1.982307 
+Multiple R-Squared: 0.750844 Adjusted R-Squared: 0.721532 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 63.076817   10.97351 5.748099    2e-06 ***
+price        0.143864   0.094341 1.524947   0.1368    
+farmPrice    0.206372   0.038413 5.372498    6e-06 ***
+trend         0.33252   0.064028 5.193358    1e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.565663 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 105.322063 MSE: 6.582629 Root MSE: 2.565663 
+Multiple R-Squared: 0.607175 Adjusted R-Squared: 0.53352 
+
+> 
+> 
 > ## *************** SUR with cross-equation restriction **************
 > fitsur2 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm )
 > print( summary( fitsur2 ) )
@@ -520,6 +649,71 @@ SSR: 107.916871 MSE: 6.744804 Root MSE: 2.597076
 Multiple R-Squared: 0.597497 Adjusted R-Squared: 0.522027 
 
 > 
+> ## *************** WSUR with cross-equation restriction (EViews-like) **
+> fitsur2we <- systemfit( system, "WSUR", data = Kmenta, restrict.matrix = restrm,
++    methodRCov = "noDfCor" )
+> summary( fitsur2we )
+
+systemfit results 
+method: WSUR 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  73.0086 4.29462 2.07235 0.727696 0.695660
+supply 20 16 108.6339 6.78962 2.60569 0.594822 0.518851
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.18968 3.69240
+supply 3.69240 4.77803
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.65043 4.38393
+supply 4.38393 5.43170
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.984518
+supply 0.984518 1.000000
+
+The determinant of the residual covariance matrix: 0.609218
+OLS R-squared value of the system: 0.661259
+McElroy's R-squared value for the system: 0.710796
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 98.754217   6.946822 14.215739        0 ***
+price       -0.233501   0.078997 -2.955819 0.005632  **
+income       0.261429   0.033786  7.737836        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.072347 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 73.008591 MSE: 4.294623 Root MSE: 2.072347 
+Multiple R-Squared: 0.727696 Adjusted R-Squared: 0.69566 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 67.888244   9.564006 7.098306        0 ***
+price         0.13205   0.085457 1.545215 0.131552    
+farmPrice    0.176533   0.030134 5.858301    1e-06 ***
+trend        0.261429   0.033786 7.737836        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.60569 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 108.633939 MSE: 6.789621 Root MSE: 2.60569 
+Multiple R-Squared: 0.594822 Adjusted R-Squared: 0.518851 
+
+> 
+> 
 > ## *************** SUR with restriction via restrict.regMat *******************
 > fitsur3 <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc )
 > print( summary( fitsur3 ) )
@@ -646,6 +840,70 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.916871 MSE: 6.744804 Root MSE: 2.597076 
 Multiple R-Squared: 0.597497 Adjusted R-Squared: 0.522027 
 
+> 
+> ## *************** WSUR with restriction via restrict.regMat *******************
+> fitsur3w <- systemfit( system, "WSUR", data = Kmenta, restrict.regMat = tc )
+> summary( fitsur3w )
+
+systemfit results 
+method: WSUR 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  72.023 4.23665 2.05831 0.731372 0.699769
+supply 20 16 108.579 6.78618 2.60503 0.595028 0.519096
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.74999 4.47951
+supply 4.47951 5.97670
+
+The covariance matrix of the residuals
+        demand  supply
+demand 4.23665 5.27562
+supply 5.27562 6.78618
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.983897
+supply 0.983897 1.000000
+
+The determinant of the residual covariance matrix: 0.918505
+OLS R-squared value of the system: 0.6632
+McElroy's R-squared value for the system: 0.756941
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 98.813894   7.531715 13.119707        0 ***
+price       -0.237831   0.085381 -2.785537 0.008674  **
+income       0.265258   0.036129  7.341939        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.058311 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 72.022983 MSE: 4.236646 Root MSE: 2.058311 
+Multiple R-Squared: 0.731372 Adjusted R-Squared: 0.699769 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+
+            Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 67.73662  10.655644 6.356877        0 ***
+price       0.132374   0.095548 1.385413 0.174948    
+farmPrice    0.17735   0.033171 5.346473    6e-06 ***
+trend       0.265258   0.036129 7.341939        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.605029 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 108.57882 MSE: 6.786176 Root MSE: 2.605029 
+Multiple R-Squared: 0.595028 Adjusted R-Squared: 0.519096 
+
+> 
 > 
 > ## *************** SUR with 2 restrictions ***************************
 > fitsur4 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restr2m,
@@ -908,6 +1166,71 @@ SSR: 106.923958 MSE: 6.682747 Root MSE: 2.585101
 Multiple R-Squared: 0.6012 Adjusted R-Squared: 0.526425 
 
 > 
+> ## *************** WSUR with 2 restrictions (EViews-like) **************
+> fitsur4we <- systemfit( system, "WSUR", data = Kmenta, methodRCov = "noDfCor",
++    restrict.matrix = restr2m, restrict.rhs = restr2q )
+> summary( fitsur4we )
+
+systemfit results 
+method: WSUR 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  63.9355 3.76091 1.93931 0.761536 0.733482
+supply 20 16 101.2010 6.32507 2.51497 0.622545 0.551772
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.18351 3.68711
+supply 3.68711 4.81075
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.19678 3.87025
+supply 3.87025 5.06005
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.962289
+supply 0.962289 1.000000
+
+The determinant of the residual covariance matrix: 1.19701
+OLS R-squared value of the system: 0.692041
+McElroy's R-squared value for the system: 0.654129
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 96.941374   6.889437 14.071015        0 ***
+price       -0.281365   0.076619  -3.67226 0.000796 ***
+income         0.3291   0.018107 18.175434        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.939307 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 63.935526 MSE: 3.760913 Root MSE: 1.939307 
+Multiple R-Squared: 0.761536 Adjusted R-Squared: 0.733482 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 52.996312   7.065215  7.501019        0 ***
+price        0.218635   0.076619  2.853523 0.007215  **
+farmPrice    0.233674   0.018314 12.759505        0 ***
+trend          0.3291   0.018107 18.175434        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.514968 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 101.201048 MSE: 6.325065 Root MSE: 2.514968 
+Multiple R-Squared: 0.622545 Adjusted R-Squared: 0.551772 
+
+> 
+> 
 > ## *************** SUR with 2 restrictions via R and restrict.regMat ****************
 > fitsur5 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restr3m,
 +    restrict.rhs = restr3q, restrict.regMat = tc )
@@ -1040,6 +1363,71 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.835103 MSE: 6.302194 Root MSE: 2.510417 
 Multiple R-Squared: 0.62391 Adjusted R-Squared: 0.553393 
 
+> 
+> ## ************ WSUR with 2 restrictions via R and restrict.regMat ************
+> fitsur5w <- systemfit( system, "WSUR", data = Kmenta, restrict.matrix = restr3m,
++    restrict.rhs = restr3q, restrict.regMat = tc )
+> summary( fitsur5w )
+
+systemfit results 
+method: WSUR 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  64.1601 3.77412 1.94271 0.760699 0.732546
+supply 20 16 101.9671 6.37295 2.52447 0.619688 0.548379
+
+The covariance matrix of the residuals used for estimation
+       demand  supply
+demand 3.7433 4.47340
+supply 4.4734 6.01672
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.77412 4.72213
+supply 4.72213 6.37295
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.962852
+supply 0.962852 1.000000
+
+The determinant of the residual covariance matrix: 1.75379
+OLS R-squared value of the system: 0.690193
+McElroy's R-squared value for the system: 0.69107
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 96.442138   7.423367 12.991697        0 ***
+price       -0.275275    0.08378 -3.285708 0.002318  **
+income       0.327973   0.020233 16.209765        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.94271 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 64.16009 MSE: 3.774123 Root MSE: 1.94271 
+Multiple R-Squared: 0.760699 Adjusted R-Squared: 0.732546 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 52.576104   7.609854   6.90895        0 ***
+price        0.224725    0.08378  2.682336 0.011083   *
+farmPrice    0.231841   0.020811 11.140336        0 ***
+trend        0.327973   0.020233 16.209765        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.52447 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 101.967146 MSE: 6.372947 Root MSE: 2.52447 
+Multiple R-Squared: 0.619688 Adjusted R-Squared: 0.548379 
+
+> 
 > 
 > ## ************** iterated SUR ****************************
 > fitsuri1 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100 )
@@ -1370,6 +1758,73 @@ SSR: 41.708116 MSE: 2.606757 Root MSE: 1.614546
 Multiple R-Squared: 0.937493 Adjusted R-Squared: 0.925773 
 
 > 
+> ## ************** iterated WSUR (methodRCov = "max") ****************************
+> fitsuri1wr3 <- systemfit( system2, "WSUR", data = Kmenta, maxit = 100,
++    methodRCov = "max" )
+> summary( fitsuri1wr3 )
+
+systemfit results 
+method: iterated WSUR 
+
+convergence achieved after 7 iterations
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 66.8258 3.93093 1.98266 0.750756 0.721433
+supply 20 16 41.7081 2.60676 1.61455 0.937493 0.925773
+
+The covariance matrix of the residuals used for estimation
+         demand   supply
+demand  3.93091 -2.48679
+supply -2.48679  2.60675
+
+The covariance matrix of the residuals
+         demand   supply
+demand  3.93093 -2.48681
+supply -2.48681  2.60676
+
+The correlations of the residuals
+          demand    supply
+demand  1.000000 -0.753668
+supply -0.753668  1.000000
+
+The determinant of the residual covariance matrix: 4.06276
+OLS R-squared value of the system: 0.883966
+McElroy's R-squared value for the system: 0.960247
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 93.542723   7.385832 12.665157        0 ***
+price       -0.228481   0.087747 -2.603847 0.018532   *
+income       0.309713   0.045807  6.761201    3e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.982657 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 66.825809 MSE: 3.93093 Root MSE: 1.982657 
+Multiple R-Squared: 0.750756 Adjusted R-Squared: 0.721433 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: price ~ income + farmPrice + trend
+
+             Estimate Std. Error    t value Pr(>|t|)    
+(Intercept) 89.182975    3.38614  26.337655        0 ***
+income       0.663871   0.042272  15.704739        0 ***
+farmPrice   -0.471532   0.036993 -12.746565        0 ***
+trend       -0.795507   0.064465 -12.340106        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.614546 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 41.708116 MSE: 2.606757 Root MSE: 1.614546 
+Multiple R-Squared: 0.937493 Adjusted R-Squared: 0.925773 
+
+> 
+> 
 > ## *********** iterated SUR with restriction *******************
 > fitsuri2 <- systemfit( system2, "SUR", data = Kmenta, restrict.matrix = restrm,
 +    maxit = 100 )
@@ -1502,6 +1957,73 @@ SSR: 520.204913 MSE: 32.512807 Root MSE: 5.702
 Multiple R-Squared: 0.220377 Adjusted R-Squared: 0.074197 
 
 > 
+> ## *********** iterated WSUR with restriction *******************
+> fitsuri2w <- systemfit( system2, "WSUR", data = Kmenta, restrict.matrix = restrm,
++    maxit = 100 )
+> summary( fitsuri2w )
+
+systemfit results 
+method: iterated WSUR 
+
+convergence achieved after 18 iterations
+
+        N DF      SSR      MSE    RMSE       R2   Adj R2
+demand 20 17  67.0232  3.94254 1.98558 0.750020 0.720611
+supply 20 16 520.3267 32.52042 5.70267 0.220194 0.073980
+
+The covariance matrix of the residuals used for estimation
+        demand   supply
+demand 3.94246  4.24086
+supply 4.24086 32.52014
+
+The covariance matrix of the residuals
+        demand   supply
+demand 3.94254  4.24128
+supply 4.24128 32.52042
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.374568
+supply 0.374568 1.000000
+
+The determinant of the residual covariance matrix: 110.225
+OLS R-squared value of the system: 0.372064
+McElroy's R-squared value for the system: 0.669238
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 107.36724   7.498563 14.318374        0 ***
+price       -0.394451   0.091188 -4.325697 0.000126 ***
+income       0.338172   0.046617  7.254288        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.985583 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 67.023202 MSE: 3.942541 Root MSE: 1.985583 
+Multiple R-Squared: 0.75002 Adjusted R-Squared: 0.720611 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: price ~ income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 85.044807   12.10686  7.024514        0 ***
+income       0.312492   0.123346  2.533458 0.016073   *
+farmPrice    -0.19721   0.115708 -1.704373 0.097435   .
+trend        0.338172   0.046617  7.254288        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 5.702668 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 520.326669 MSE: 32.520417 Root MSE: 5.702668 
+Multiple R-Squared: 0.220194 Adjusted R-Squared: 0.07398 
+
+> 
+> 
 > ## *********** iterated SUR with restriction via restrict.regMat ********************
 > fitsuri3 <- systemfit( system2, "SUR", data = Kmenta, restrict.regMat = tc,
 +    maxit = 100 )
@@ -1633,6 +2155,73 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 520.204913 MSE: 32.512807 Root MSE: 5.702 
 Multiple R-Squared: 0.220377 Adjusted R-Squared: 0.074197 
 
+> 
+> ## *********** iterated WSUR with restriction via restrict.regMat (EViews-like) ***************
+> fitsuri3we <- systemfit( system2, "WSUR", data = Kmenta, restrict.regMat = tc,
++    methodRCov = "noDfCor", maxit = 100 )
+> summary( fitsuri3we )
+
+systemfit results 
+method: iterated WSUR 
+
+convergence achieved after 20 iterations
+
+        N DF      SSR      MSE    RMSE       R2   Adj R2
+demand 20 17  67.4707  3.96886 1.99220 0.748351 0.718745
+supply 20 16 520.2063 32.51289 5.70201 0.220375 0.074195
+
+The covariance matrix of the residuals used for estimation
+        demand   supply
+demand 3.37348  3.57784
+supply 3.57784 26.01014
+
+The covariance matrix of the residuals
+        demand   supply
+demand 3.37353  3.57812
+supply 3.57812 26.01031
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.381979
+supply 0.381979 1.000000
+
+The determinant of the residual covariance matrix: 74.9437
+OLS R-squared value of the system: 0.371714
+McElroy's R-squared value for the system: 0.664224
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+              Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 107.805519   6.927015 15.563056        0 ***
+price        -0.398586   0.084288 -4.728852  3.8e-05 ***
+income        0.337918   0.043115  7.837624        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.9922 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 67.470662 MSE: 3.968862 Root MSE: 1.9922 
+Multiple R-Squared: 0.748351 Adjusted R-Squared: 0.718745 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: price ~ income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 85.107093  10.828751  7.859364        0 ***
+income       0.310638   0.110145  2.820265  0.00795  **
+farmPrice   -0.195956   0.103427 -1.894636 0.066671   .
+trend        0.337918   0.043115  7.837624        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 5.702008 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 520.20628 MSE: 32.512892 Root MSE: 5.702008 
+Multiple R-Squared: 0.220375 Adjusted R-Squared: 0.074195 
+
+> 
 > 
 > ## *************** iterated SUR with 2 restrictions ***************************
 > fitsurio4 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restr2m,
@@ -1893,6 +2482,137 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 504.066186 MSE: 31.504137 Root MSE: 5.612855 
 Multiple R-Squared: 0.244563 Adjusted R-Squared: 0.102919 
 
+> 
+> ## *************** iterated WSUR with 2 restrictions ***************************
+> fitsurio4w <- systemfit( system, "WSUR", data = Kmenta, restrict.matrix = restr2m,
++    restrict.rhs = restr2q, maxit = 100 )
+> summary( fitsurio4w )
+
+systemfit results 
+method: iterated WSUR 
+
+convergence achieved after 10 iterations
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  67.2057 3.95327 1.98828 0.749340 0.719850
+supply 20 16 109.2337 6.82711 2.61287 0.592585 0.516195
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.95326 5.02451
+supply 5.02451 6.82706
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.95327 5.02454
+supply 5.02454 6.82711
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.967163
+supply 0.967163 1.000000
+
+The determinant of the residual covariance matrix: 1.7434
+OLS R-squared value of the system: 0.670962
+McElroy's R-squared value for the system: 0.704623
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 92.426163   7.354297 12.567641        0 ***
+price       -0.227612   0.085014 -2.677359  0.01122   *
+income        0.32027   0.018494 17.317864        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.988284 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 67.205664 MSE: 3.953274 Root MSE: 1.988284 
+Multiple R-Squared: 0.74934 Adjusted R-Squared: 0.71985 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+
+            Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 48.72944    7.45869  6.533243        0 ***
+price       0.272388   0.085014  3.204059 0.002887  **
+farmPrice    0.22315   0.018976 11.759396        0 ***
+trend        0.32027   0.018494 17.317864        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.612873 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 109.233696 MSE: 6.827106 Root MSE: 2.612873 
+Multiple R-Squared: 0.592585 Adjusted R-Squared: 0.516195 
+
+> fitsuri4w <- systemfit( system2, "WSUR", data = Kmenta, restrict.matrix = restr2m,
++    restrict.rhs = restr2q, maxit = 100 )
+> summary( fitsuri4w )
+
+systemfit results 
+method: iterated WSUR 
+
+convergence achieved after 18 iterations
+
+        N DF      SSR      MSE    RMSE       R2   Adj R2
+demand 20 17  65.5314  3.85479 1.96336 0.755584 0.726829
+supply 20 16 509.3490 31.83431 5.64219 0.236646 0.093517
+
+The covariance matrix of the residuals used for estimation
+        demand   supply
+demand 3.85481  1.22919
+supply 1.22919 31.83404
+
+The covariance matrix of the residuals
+        demand   supply
+demand 3.85479  1.22938
+supply 1.22938 31.83431
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.110979
+supply 0.110979 1.000000
+
+The determinant of the residual covariance matrix: 121.203
+OLS R-squared value of the system: 0.385395
+McElroy's R-squared value for the system: 0.636565
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 98.036064   6.743736 14.537352        0 ***
+price       -0.264598   0.077731 -3.404031 0.001679  **
+income       0.300681   0.043628  6.891948        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.963362 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 65.53142 MSE: 3.854789 Root MSE: 1.963362 
+Multiple R-Squared: 0.755584 Adjusted R-Squared: 0.726829 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: price ~ income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept)  90.00521  10.436769  8.623858        0 ***
+income       0.235402   0.077731  3.028435 0.004595  **
+farmPrice   -0.166657   0.110833 -1.503687 0.141633    
+trend        0.300681   0.043628  6.891948        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 5.64219 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 509.348991 MSE: 31.834312 Root MSE: 5.64219 
+Multiple R-Squared: 0.236646 Adjusted R-Squared: 0.093517 
+
+> 
 > 
 > ## *************** iterated SUR with 2 restrictions via R and restrict.regMat ****************
 > fitsurio5 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restr3m,
@@ -2293,6 +3013,138 @@ Multiple R-Squared: 0.234546 Adjusted R-Squared: 0.091024
 > # print( round( vcov( fitsuri5e ), digits = 6 ) )
 > # disabled, because the estimation does not converge
 > 
+> ## ********* iterated WSUR with 2 restrictions via R and restrict.regMat (methodRCov="Theil") **********
+> fitsurio5wr2 <- systemfit( system, "WSUR", data = Kmenta, methodRCov = "Theil",
++    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
+> summary( fitsurio5wr2 )
+
+systemfit results 
+method: iterated WSUR 
+
+warning: convergence not achieved after 100 iterations
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  95.7602 5.63295 2.37338 0.642838 0.600819
+supply 20 16 157.7373 9.85858 3.13984 0.411679 0.301369
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 4.25504 5.28586
+supply 5.28586 6.69323
+
+warning: this covariance matrix is NOT positive semidefinit!
+
+The covariance matrix of the residuals
+        demand  supply
+demand 5.63295 7.56339
+supply 7.56339 9.85858
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.981886
+supply 0.981886 1.000000
+
+The determinant of the residual covariance matrix: -1.67203
+OLS R-squared value of the system: 0.527259
+McElroy's R-squared value for the system: 0.926927
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept)  78.03416    7.16377 10.892891        0 ***
+price       -0.064681   0.081525 -0.793381 0.432902    
+income       0.300747   0.013068 23.013486        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.373384 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 95.760152 MSE: 5.63295 Root MSE: 2.373384 
+Multiple R-Squared: 0.642838 Adjusted R-Squared: 0.600819 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 34.195763   7.225714   4.73251  3.6e-05 ***
+price        0.435319   0.081525  5.339674    6e-06 ***
+farmPrice    0.207031   0.012415 16.675571        0 ***
+trend        0.300747   0.013068 23.013486        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 3.139838 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 157.737286 MSE: 9.85858 Root MSE: 3.139838 
+Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369 
+
+> fitsuri5wr2 <- systemfit( system2, "WSUR", data = Kmenta, methodRCov = "Theil",
++    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
+> summary( fitsuri5wr2 )
+
+systemfit results 
+method: iterated WSUR 
+
+convergence achieved after 19 iterations
+
+        N DF      SSR      MSE    RMSE       R2   Adj R2
+demand 20 17  65.4469  3.84982 1.96210 0.755899 0.727181
+supply 20 16 510.7501 31.92188 5.64994 0.234546 0.091024
+
+The covariance matrix of the residuals used for estimation
+        demand   supply
+demand 3.84984  1.33977
+supply 1.33977 31.92159
+
+The covariance matrix of the residuals
+        demand   supply
+demand 3.84982  1.33998
+supply 1.33998 31.92188
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.116655
+supply 0.116655 1.000000
+
+The determinant of the residual covariance matrix: 121.098
+OLS R-squared value of the system: 0.383988
+McElroy's R-squared value for the system: 0.637054
+
+WSUR estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 98.219956   6.759299 14.531086        0 ***
+price       -0.266878   0.077815 -3.429648 0.001565  **
+income       0.301134   0.043544  6.915576        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.962096 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 65.446929 MSE: 3.849819 Root MSE: 1.962096 
+Multiple R-Squared: 0.755899 Adjusted R-Squared: 0.727181 
+
+
+WSUR estimates for 'supply' (equation 2)
+Model Formula: price ~ income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 90.216751  10.434182  8.646269        0 ***
+income       0.233122   0.077815  2.995846 0.005003  **
+farmPrice   -0.166594   0.111097 -1.499543   0.1427    
+trend        0.301134   0.043544  6.915576        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 5.649945 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 510.750052 MSE: 31.921878 Root MSE: 5.649945 
+Multiple R-Squared: 0.234546 Adjusted R-Squared: 0.091024 
+
+> 
 > 
 > ## ****************** residuals **************************
 > print( residuals( fitsur1e2 ) )
@@ -2322,6 +3174,34 @@ Multiple R-Squared: 0.234546 Adjusted R-Squared: 0.091024
  [6]  1.533382323  2.255808743 -3.568342388 -2.027331772  2.532449625
 [11] -1.407327588 -3.014159193 -2.301187196  0.018707909  2.936239781
 [16] -4.004842202 -0.455798174 -3.186833033  2.182844209  0.984968567
+> 
+> print( residuals( fitsur1w ) )
+       demand      supply
+1   0.6963428  0.47128658
+2  -0.5611829  0.01970802
+3   2.4551349  2.77817100
+4   1.6433543  1.83655816
+5   2.1096394  2.47088473
+6   1.3044857  1.47727477
+7   1.6919313  2.20789778
+8  -2.7559303 -3.66625340
+9  -1.2533793 -2.09851792
+10  2.0779751  2.53205161
+11 -0.6754516 -1.27053810
+12 -2.6491664 -2.80678219
+13 -1.7055854 -2.13054829
+14 -0.4187047  0.11496875
+15  1.8874732  2.87719909
+16 -3.3637096 -4.10133342
+17 -0.7622006 -0.56495362
+18 -1.9176465 -3.21830157
+19  1.9784119  2.16371940
+20  0.2182090  0.90750860
+> print( residuals( fitsur1w$eq[[ 2 ]] ) )
+ [1]  0.47128658  0.01970802  2.77817100  1.83655816  2.47088473  1.47727477
+ [7]  2.20789778 -3.66625340 -2.09851792  2.53205161 -1.27053810 -2.80678219
+[13] -2.13054829  0.11496875  2.87719909 -4.10133342 -0.56495362 -3.21830157
+[19]  2.16371940  0.90750860
 > 
 > print( residuals( fitsur2e ) )
        demand     supply
@@ -2574,6 +3454,34 @@ Multiple R-Squared: 0.234546 Adjusted R-Squared: 0.091024
 [13]   0.8949876  -3.2202363  -6.6173745  -3.6068953 -12.8959017  -0.5616921
 [19]  -1.1257514   3.0505014
 > 
+> print( residuals( fitsuri4w ) )
+         demand      supply
+1   0.714628596   5.7753784
+2  -0.607540464   7.1979165
+3   2.419721176   6.2800974
+4   1.593083438   6.5306552
+5   2.126785745   1.4648804
+6   1.304298481   2.0211080
+7   1.668461418   2.2615310
+8  -2.829454652   5.2749604
+9  -1.212483712  -0.8895378
+10  2.192091099  -5.9455466
+11 -0.552150256  -4.4071623
+12 -2.591936252  -1.4821207
+13 -1.709479058   0.8949123
+14 -0.390175825  -3.2202793
+15  1.928967286  -6.6173483
+16 -3.362755762  -3.6068589
+17 -0.612564939 -12.8959235
+18 -1.975792961  -0.5616584
+19  1.887755058  -1.1256784
+20  0.008541586   3.0506747
+> print( residuals( fitsuri4w$eq[[ 2 ]] ) )
+ [1]   5.7753784   7.1979165   6.2800974   6.5306552   1.4648804   2.0211080
+ [7]   2.2615310   5.2749604  -0.8895378  -5.9455466  -4.4071623  -1.4821207
+[13]   0.8949123  -3.2202793  -6.6173483  -3.6068589 -12.8959235  -0.5616584
+[19]  -1.1256784   3.0506747
+> 
 > print( residuals( fitsurio5r2 ) )
        demand      supply
 1   0.6545291  0.02691215
@@ -2649,6 +3557,15 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
 (Intercept)       price      income 
  107.367833   -0.394459    0.338174 
 > 
+> print( round( coef( fitsur2we ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+         98.754217          -0.233501           0.261429          67.888244 
+      supply_price   supply_farmPrice       supply_trend 
+          0.132050           0.176533           0.261429 
+> print( round( coef( fitsur2we$eq[[ 1 ]] ), digits = 6 ) )
+(Intercept)       price      income 
+  98.754217   -0.233501    0.261429 
+> 
 > print( round( coef( fitsur3 ), digits = 6 ) )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
          98.840761          -0.239780           0.266981          67.428338 
@@ -2681,6 +3598,18 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
 > print( round( coef( fitsuri5e$eq[[ 2 ]] ), digits = 6 ) )
 (Intercept)      income   farmPrice       trend 
   89.543697    0.242441   -0.168655    0.297629 
+> 
+> print( round( coef( fitsur5w ), digits = 6 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+         96.442138          -0.275275           0.327973          52.576104 
+      supply_price   supply_farmPrice       supply_trend 
+          0.224725           0.231841           0.327973 
+> print( round( coef( fitsur5w, modified.reg = TRUE ), digits = 6 ) )
+       C1        C2        C3        C4        C5        C6 
+96.442138 -0.275275  0.327973 52.576104  0.224725  0.231841 
+> print( round( coef( fitsur5w$eq[[ 1 ]] ), digits = 6 ) )
+(Intercept)       price      income 
+  96.442138   -0.275275    0.327973 
 > 
 > 
 > ## *************** coefficients with stats *********************
@@ -2740,6 +3669,29 @@ price        0.133217   0.095310 1.397721 0.171250
 farmPrice    0.179481   0.033654 5.333128 0.000006
 trend        0.266981   0.036842 7.246570 0.000000
 > 
+> print( round( coef( summary( fitsuri3we ) ), digits = 6 ) )
+                     Estimate Std. Error   t value Pr(>|t|)
+demand_(Intercept) 107.805519   6.927015 15.563056 0.000000
+demand_price        -0.398586   0.084288 -4.728852 0.000038
+demand_income        0.337918   0.043115  7.837624 0.000000
+supply_(Intercept)  85.107093  10.828751  7.859364 0.000000
+supply_income        0.310638   0.110145  2.820265 0.007950
+supply_farmPrice    -0.195956   0.103427 -1.894636 0.066671
+supply_trend         0.337918   0.043115  7.837624 0.000000
+> print( round( coef( summary( fitsuri3we ), modified.reg = TRUE ), digits = 6 ) )
+     Estimate Std. Error   t value Pr(>|t|)
+C1 107.805519   6.927015 15.563056 0.000000
+C2  -0.398586   0.084288 -4.728852 0.000038
+C3   0.337918   0.043115  7.837624 0.000000
+C4  85.107093  10.828751  7.859364 0.000000
+C5   0.310638   0.110145  2.820265 0.007950
+C6  -0.195956   0.103427 -1.894636 0.066671
+> print( round( coef( summary( fitsuri3we$eq[[ 1 ]] ) ), digits = 6 ) )
+              Estimate Std. Error   t value Pr(>|t|)
+(Intercept) 107.805519   6.927015 15.563056  0.0e+00
+price        -0.398586   0.084288 -4.728852  3.8e-05
+income        0.337918   0.043115  7.837624  0.0e+00
+> 
 > print( round( coef( summary( fitsur4r2 ) ), digits = 6 ) )
                     Estimate Std. Error   t value Pr(>|t|)
 demand_(Intercept) 92.526596   7.289606 12.692949 0.000000
@@ -2754,6 +3706,22 @@ supply_trend        0.322103   0.016626 19.373258 0.000000
 (Intercept) 92.526596   7.289606 12.692949 0.000000
 price       -0.230404   0.082692 -2.786302 0.008552
 income       0.322103   0.016626 19.373258 0.000000
+> 
+> print( round( coef( summary( fitsur4we ) ), digits = 6 ) )
+                    Estimate Std. Error   t value Pr(>|t|)
+demand_(Intercept) 96.941374   6.889437 14.071015 0.000000
+demand_price       -0.281365   0.076619 -3.672260 0.000796
+demand_income       0.329100   0.018107 18.175434 0.000000
+supply_(Intercept) 52.996312   7.065215  7.501019 0.000000
+supply_price        0.218635   0.076619  2.853523 0.007215
+supply_farmPrice    0.233674   0.018314 12.759505 0.000000
+supply_trend        0.329100   0.018107 18.175434 0.000000
+> print( round( coef( summary( fitsur4we$eq[[ 2 ]] ) ), digits = 6 ) )
+             Estimate Std. Error   t value Pr(>|t|)
+(Intercept) 52.996312   7.065215  7.501019 0.000000
+price        0.218635   0.076619  2.853523 0.007215
+farmPrice    0.233674   0.018314 12.759505 0.000000
+trend        0.329100   0.018107 18.175434 0.000000
 > 
 > print( round( coef( summary( fitsuri5e, useDfSys = FALSE ) ), digits = 6 ) )
                     Estimate Std. Error   t value Pr(>|t|)
@@ -2916,6 +3884,45 @@ C6  0.017322 -0.001257  0.001111  -0.165927  0.000448  0.001133
 price         -0.956493  0.009084  0.000448  0.000440
 farmPrice     -0.165927  0.000448  0.001133  0.001111
 trend         -0.165599  0.000440  0.001111  0.001357
+> 
+> print( round( vcov( fitsur3w ), digits = 6 ) )
+                   demand_(Intercept) demand_price demand_income
+demand_(Intercept)          56.726729    -0.585128      0.020348
+demand_price                -0.585128     0.007290     -0.001476
+demand_income                0.020348    -0.001476      0.001305
+supply_(Intercept)          64.882000    -0.489991     -0.160451
+supply_price                -0.664819     0.006231      0.000426
+supply_farmPrice             0.016795    -0.001219      0.001077
+supply_trend                 0.020348    -0.001476      0.001305
+                   supply_(Intercept) supply_price supply_farmPrice
+demand_(Intercept)          64.882000    -0.664819         0.016795
+demand_price                -0.489991     0.006231        -0.001219
+demand_income               -0.160451     0.000426         0.001077
+supply_(Intercept)         113.542748    -0.959668        -0.161181
+supply_price                -0.959668     0.009129         0.000435
+supply_farmPrice            -0.161181     0.000435         0.001100
+supply_trend                -0.160451     0.000426         0.001077
+                   supply_trend
+demand_(Intercept)     0.020348
+demand_price          -0.001476
+demand_income          0.001305
+supply_(Intercept)    -0.160451
+supply_price           0.000426
+supply_farmPrice       0.001077
+supply_trend           0.001305
+> print( round( vcov( fitsur3w, modified.reg = TRUE ), digits = 6 ) )
+          C1        C2        C3         C4        C5        C6
+C1 56.726729 -0.585128  0.020348  64.882000 -0.664819  0.016795
+C2 -0.585128  0.007290 -0.001476  -0.489991  0.006231 -0.001219
+C3  0.020348 -0.001476  0.001305  -0.160451  0.000426  0.001077
+C4 64.882000 -0.489991 -0.160451 113.542748 -0.959668 -0.161181
+C5 -0.664819  0.006231  0.000426  -0.959668  0.009129  0.000435
+C6  0.016795 -0.001219  0.001077  -0.161181  0.000435  0.001100
+> print( round( vcov( fitsur3w$eq[[ 1 ]] ), digits = 6 ) )
+            (Intercept)     price    income
+(Intercept)   56.726729 -0.585128  0.020348
+price         -0.585128  0.007290 -0.001476
+income         0.020348 -0.001476  0.001305
 > 
 > print( round( vcov( fitsur4r2 ), digits = 6 ) )
                    demand_(Intercept) demand_price demand_income
@@ -3230,6 +4237,46 @@ C6  0.210423 -0.003454  0.001385  -0.870241 -0.003454  0.012342
 price         -0.440079  0.006055 -0.001697
 income        -0.015167 -0.001697  0.001896
 > 
+> print( round( vcov( fitsurio5wr2 ), digits = 6 ) )
+                   demand_(Intercept) demand_price demand_income
+demand_(Intercept)          51.319595    -0.579747      0.070528
+demand_price                -0.579747     0.006646     -0.000872
+demand_income                0.070528    -0.000872      0.000171
+supply_(Intercept)          51.551829    -0.583025      0.072036
+supply_price                -0.579747     0.006646     -0.000872
+supply_farmPrice             0.061658    -0.000751      0.000138
+supply_trend                 0.070528    -0.000872      0.000171
+                   supply_(Intercept) supply_price supply_farmPrice
+demand_(Intercept)          51.551829    -0.579747         0.061658
+demand_price                -0.583025     0.006646        -0.000751
+demand_income                0.072036    -0.000872         0.000138
+supply_(Intercept)          52.210946    -0.583025         0.058794
+supply_price                -0.583025     0.006646        -0.000751
+supply_farmPrice             0.058794    -0.000751         0.000154
+supply_trend                 0.072036    -0.000872         0.000138
+                   supply_trend
+demand_(Intercept)     0.070528
+demand_price          -0.000872
+demand_income          0.000171
+supply_(Intercept)     0.072036
+supply_price          -0.000872
+supply_farmPrice       0.000138
+supply_trend           0.000171
+> print( round( vcov( fitsurio5wr2, modified.reg = TRUE ), digits = 6 ) )
+          C1        C2        C3        C4        C5        C6
+C1 51.319595 -0.579747  0.070528 51.551829 -0.579747  0.061658
+C2 -0.579747  0.006646 -0.000872 -0.583025  0.006646 -0.000751
+C3  0.070528 -0.000872  0.000171  0.072036 -0.000872  0.000138
+C4 51.551829 -0.583025  0.072036 52.210946 -0.583025  0.058794
+C5 -0.579747  0.006646 -0.000872 -0.583025  0.006646 -0.000751
+C6  0.061658 -0.000751  0.000138  0.058794 -0.000751  0.000154
+> print( round( vcov( fitsurio5wr2$eq[[ 2 ]] ), digits = 6 ) )
+            (Intercept)     price farmPrice     trend
+(Intercept)   52.210946 -0.583025  0.058794  0.072036
+price         -0.583025  0.006646 -0.000751 -0.000872
+farmPrice      0.058794 -0.000751  0.000154  0.000138
+trend          0.072036 -0.000872  0.000138  0.000171
+> 
 > 
 > ## *********** confidence intervals of coefficients *************
 > print( confint( fitsur1e2, useDfSys = TRUE ) )
@@ -3247,6 +4294,21 @@ supply_trend        0.202   0.463
 price       -0.016  0.304
 farmPrice    0.141  0.271
 trend        0.224  0.441
+> 
+> print( confint( fitsur1we2, useDfSys = TRUE ) )
+                    2.5 %  97.5 %
+demand_(Intercept) 83.927 114.497
+demand_price       -0.445  -0.088
+demand_income       0.208   0.373
+supply_(Intercept) 40.751  85.403
+supply_price       -0.048   0.336
+supply_farmPrice    0.128   0.285
+supply_trend        0.202   0.463
+> print( confint( fitsur1we2$eq[[ 1 ]], level = 0.9, useDfSys = TRUE ) )
+               5 %    95 %
+(Intercept) 86.498 111.926
+price       -0.415  -0.118
+income       0.222   0.360
 > 
 > print( confint( fitsur2e, level = 0.9 ) )
                       5 %    95 %
@@ -3387,6 +4449,21 @@ income       0.202  0.269
 farmPrice   -0.214 -0.119
 trend        0.282  0.319
 > 
+> print( confint( fitsurio4w, level = 0.01 ) )
+                   49.5 %  50.5 %
+demand_(Intercept) 77.496 107.356
+demand_price       -0.400  -0.055
+demand_income       0.283   0.358
+supply_(Intercept) 33.587  63.871
+supply_price        0.100   0.445
+supply_farmPrice    0.185   0.262
+supply_trend        0.283   0.358
+> print( confint( fitsurio4w$eq[[ 1 ]], level = 0.33 ) )
+            33.5 % 66.5 %
+(Intercept) 89.266 95.587
+price       -0.264 -0.191
+income       0.312  0.328
+> 
 > print( confint( fitsurio5r2, level = 0.33 ) )
                    33.5 % 66.5 %
 demand_(Intercept) 63.491 92.577
@@ -3471,6 +4548,33 @@ income       0.213   0.390
  [1]  98.16035  99.91618  99.87453 100.01707 101.96906 101.81075 102.14213
  [8] 102.48214 101.49320 100.69563  96.62806  95.75625  96.81531  99.37103
 [15] 103.51555 103.25746 103.78201 101.76349 103.00829 105.50552
+> 
+> print( fitted( fitsur2we ) )
+      demand    supply
+1   98.17764  98.69749
+2   99.92399  99.67351
+3   99.88228  99.82547
+4  100.02434 100.05179
+5  101.96155 101.69620
+6  101.80481 101.69078
+7  102.13473 101.70583
+8  102.47406 103.19688
+9  101.48807 102.16587
+10 100.69347 100.30835
+11  96.65214  97.35495
+12  95.78802  96.18218
+13  96.84204  97.39196
+14  99.38011  98.95871
+15 103.49722 102.42940
+16 103.24205 103.60746
+17 103.75865 103.26143
+18 101.75962 102.65852
+19 102.99730 102.58653
+20 105.48188 104.52068
+> print( fitted( fitsur2we$eq[[ 2 ]] ) )
+ [1]  98.69749  99.67351  99.82547 100.05179 101.69620 101.69078 101.70583
+ [8] 103.19688 102.16587 100.30835  97.35495  96.18218  97.39196  98.95871
+[15] 102.42940 103.60746 103.26143 102.65852 102.58653 104.52068
 > 
 > print( fitted( fitsur3 ) )
       demand    supply
@@ -3579,6 +4683,33 @@ income       0.213   0.390
  [1]  97.68981  99.94844  99.85911 100.07898 102.06079 101.94515 102.41352
  [8] 102.99351 101.42499 100.23241  95.53408  94.78557  96.23199  99.03892
 [15] 103.74132 103.59945 103.63597 102.11116 103.66182 106.97702
+> 
+> print( fitted( fitsuri1wr3 ) )
+      demand    supply
+1   97.68981 100.19968
+2   99.94844 105.65697
+3   99.85911 104.26398
+4  100.07898 104.93581
+5  102.06079  99.21405
+6  101.94515 100.10923
+7  102.41352 102.33216
+8  102.99351 102.61002
+9  101.42499  94.89785
+10 100.23241  92.80994
+11  95.53408  92.09503
+12  94.78557  98.34149
+13  96.23199 101.57326
+14  99.03892  99.80990
+15 103.74132  97.45777
+16 103.59945  96.71687
+17 103.63597  87.55226
+18 102.11116 100.55529
+19 103.66182 105.45107
+20 106.97702 113.79838
+> print( fitted( fitsuri1wr3$eq[[ 2 ]] ) )
+ [1] 100.19968 105.65697 104.26398 104.93581  99.21405 100.10923 102.33216
+ [8] 102.61002  94.89785  92.80994  92.09503  98.34149 101.57326  99.80990
+[15]  97.45777  96.71687  87.55226 100.55529 105.45107 113.79838
 > 
 > print( fitted( fitsuri2 ) )
       demand    supply
@@ -4019,6 +5150,74 @@ income       0.213   0.390
 19 103.78302 0.5697120 103.60006 103.96599
 20 107.24383 0.9727492 106.93142 107.55624
 > 
+> print( predict( fitsur4we, se.fit = TRUE, interval = "confidence",
++    level = 0.25 ) )
+   demand.pred demand.se.fit demand.lwr demand.upr supply.pred supply.se.fit
+1     97.47725     0.4449568   97.33435   97.62016    98.15951     0.5188164
+2     99.72521     0.5143438   99.56002   99.89040    99.60729     0.6357442
+3     99.66227     0.4818265   99.50753   99.81701    99.75514     0.5912152
+4     99.85458     0.5225532   99.68676  100.02240   100.08472     0.6362371
+5    102.21142     0.4376967  102.07085  102.35199   101.95926     0.5679449
+6    102.03240     0.4079305  101.90139  102.16341   101.99892     0.5233953
+7    102.46797     0.4090126  102.33662  102.59933   102.07247     0.5082679
+8    102.94162     0.5032413  102.78000  103.10324   104.19129     0.6030708
+9    101.59582     0.4789876  101.44199  101.74966   102.44497     0.6312674
+10   100.52992     0.7239875  100.29741  100.76244    99.74048     0.8557677
+11    95.46585     0.6120242   95.26929   95.66241    95.89558     0.6940869
+12    94.44995     0.5196376   94.28306   94.61683    94.57684     0.6765328
+13    95.82845     0.5645588   95.64713   96.00976    96.34132     0.7476109
+14    98.97127     0.4138265   98.83837   99.10418    98.21622     0.5402203
+15   104.10834     0.5923922  103.91809  104.29860   102.63393     0.6895114
+16   103.82903     0.4583169  103.68184  103.97623   104.32244     0.5808409
+17   104.32903     1.0999816  103.97576  104.68230   103.32340     1.3341998
+18   102.03287     0.4769818  101.87968  102.18605   103.27641     0.5644859
+19   103.61296     0.5452111  103.43786  103.78806   103.24102     0.6507778
+20   106.83777     0.9578108  106.53016  107.14538   106.12279     1.0906597
+   supply.lwr supply.upr
+1    97.99289   98.32613
+2    99.40311   99.81146
+3    99.56527   99.94501
+4    99.88039  100.28906
+5   101.77686  102.14166
+6   101.83083  102.16702
+7   101.90924  102.23571
+8   103.99761  104.38498
+9   102.24223  102.64771
+10   99.46564  100.01531
+11   95.67266   96.11849
+12   94.35956   94.79411
+13   96.10121   96.58142
+14   98.04272   98.38972
+15  102.41248  102.85537
+16  104.13589  104.50898
+17  102.89491  103.75189
+18  103.09512  103.45770
+19  103.03202  103.45003
+20  105.77252  106.47307
+> print( predict( fitsur4we$eq[[ 2 ]], se.fit = TRUE, interval = "confidence",
++    level = 0.25 ) )
+         fit    se.fit       lwr       upr
+1   98.15951 0.5188164  97.99289  98.32613
+2   99.60729 0.6357442  99.40311  99.81146
+3   99.75514 0.5912152  99.56527  99.94501
+4  100.08472 0.6362371  99.88039 100.28906
+5  101.95926 0.5679449 101.77686 102.14166
+6  101.99892 0.5233953 101.83083 102.16702
+7  102.07247 0.5082679 101.90924 102.23571
+8  104.19129 0.6030708 103.99761 104.38498
+9  102.44497 0.6312674 102.24223 102.64771
+10  99.74048 0.8557677  99.46564 100.01531
+11  95.89558 0.6940869  95.67266  96.11849
+12  94.57684 0.6765328  94.35956  94.79411
+13  96.34132 0.7476109  96.10121  96.58142
+14  98.21622 0.5402203  98.04272  98.38972
+15 102.63393 0.6895114 102.41248 102.85537
+16 104.32244 0.5808409 104.13589 104.50898
+17 103.32340 1.3341998 102.89491 103.75189
+18 103.27641 0.5644859 103.09512 103.45770
+19 103.24102 0.6507778 103.03202 103.45003
+20 106.12279 1.0906597 105.77252 106.47307
+> 
 > print( predict( fitsur5, se.fit = TRUE, se.pred = TRUE,
 +    interval = "prediction", level = 0.5, newdata = predictData ) )
    demand.pred demand.se.fit demand.se.pred demand.lwr demand.upr supply.pred
@@ -4222,6 +5421,74 @@ income       0.213   0.390
 18 108.77645 2.749305  98.07152 119.4814
 19 111.91123 3.729454 100.38943 123.4330
 20 117.15703 5.621925 103.61626 130.6978
+> 
+> print( predict( fitsuri2w, se.fit = TRUE, interval = "prediction",
++    level = 0.9, newdata = predictData ) )
+   demand.pred demand.se.fit demand.lwr demand.upr supply.pred supply.se.fit
+1     104.2638     0.9600942  100.53444   107.9932    96.09933      1.371746
+2     106.6590     1.0111228  102.89129   110.4268    99.72672      1.690550
+3     106.6185     1.0324085  102.83433   110.4027    99.75553      1.612504
+4     106.7963     1.0189746  103.02253   110.5701   100.80652      1.763990
+5     109.7008     1.5471919  105.44439   113.9572    99.19011      2.002510
+6     109.4447     1.4676569  105.26957   113.6198   100.28165      1.944289
+7     109.8775     1.4645381  105.70551   114.0494   102.06066      2.124784
+8     110.2762     1.4227620  106.14574   114.4066   103.15176      2.601583
+9     109.0625     1.5429384  104.81048   113.3145    99.85697      1.799600
+10    108.0506     1.6994326  103.63127   112.4699    99.14574      1.348972
+11    102.2579     1.2986376   98.24607   106.2697    98.60561      2.251147
+12    100.8982     0.9386886   97.18449   104.6120   102.00792      3.098855
+13    102.3046     0.7306326   98.72699   105.8821   104.53931      3.007554
+14    106.0105     1.1638925  102.11871   109.9022   104.86922      2.265106
+15    111.9515     1.8956653  107.30958   116.5934   105.38246      2.201567
+16    111.5126     1.7325119  107.05672   115.9685   105.87565      2.399903
+17    112.5197     2.3164806  107.36066   117.6787   102.13862      2.020817
+18    109.2766     1.3161850  105.24847   113.3047   108.77650      2.749302
+19    110.9978     1.4969049  106.79312   115.2025   111.91131      3.729452
+20    114.3574     1.9179541  109.68940   119.0254   117.15715      5.621922
+   supply.lwr supply.upr
+1    86.18150   106.0172
+2    89.66915   109.7843
+3    89.73467   109.7764
+4    90.71295   110.9001
+5    88.97009   109.4101
+6    90.09382   110.4695
+7    91.77029   112.3510
+8    92.55294   113.7506
+9    89.74544   109.9685
+10   89.23684   109.0546
+11   88.23870   108.9725
+12   91.03340   112.9824
+13   93.63766   115.4410
+14   94.49362   115.2448
+15   95.04604   115.7189
+16   95.41376   116.3375
+17   91.90830   112.3689
+18   98.07159   119.4814
+19  100.38952   123.4331
+20  103.61640   130.6979
+> print( predict( fitsuri2w$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
++    level = 0.9, newdata = predictData ) )
+         fit   se.fit       lwr      upr
+1   96.09933 1.371746  86.18150 106.0172
+2   99.72672 1.690550  89.66915 109.7843
+3   99.75553 1.612504  89.73467 109.7764
+4  100.80652 1.763990  90.71295 110.9001
+5   99.19011 2.002510  88.97009 109.4101
+6  100.28165 1.944289  90.09382 110.4695
+7  102.06066 2.124784  91.77029 112.3510
+8  103.15176 2.601583  92.55294 113.7506
+9   99.85697 1.799600  89.74544 109.9685
+10  99.14574 1.348972  89.23684 109.0546
+11  98.60561 2.251147  88.23870 108.9725
+12 102.00792 3.098855  91.03340 112.9824
+13 104.53931 3.007554  93.63766 115.4410
+14 104.86922 2.265106  94.49362 115.2448
+15 105.38246 2.201567  95.04604 115.7189
+16 105.87565 2.399903  95.41376 116.3375
+17 102.13862 2.020817  91.90830 112.3689
+18 108.77650 2.749302  98.07159 119.4814
+19 111.91131 3.729452 100.38952 123.4331
+20 117.15715 5.621922 103.61640 130.6979
 > 
 > print( predict( fitsuri3e, interval = "prediction", level = 0.925 ) )
    demand.pred demand.lwr demand.upr supply.pred supply.lwr supply.upr
@@ -4520,6 +5787,17 @@ income       0.213   0.390
        fit   se.fit  se.pred      lwr      upr
 1 108.6960 2.348327 3.060141 107.9418 109.4501
 > 
+> print( predict( fitsuri5wr2, se.fit = TRUE, se.pred = TRUE,
++    interval = "prediction", level = 0.5, newdata = smallData ) )
+  demand.pred demand.se.fit demand.se.pred demand.lwr demand.upr supply.pred
+1    108.6960      2.348327       3.060141   106.6103   110.7816    112.7221
+  supply.se.fit supply.se.pred supply.lwr supply.upr
+1      3.910262       6.871101    108.039   117.4052
+> print( predict( fitsuri5wr2$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
++    interval = "confidence", level = 0.25, newdata = smallData ) )
+       fit   se.fit  se.pred      lwr      upr
+1 108.6960 2.348327 3.060141 107.9418 109.4501
+> 
 > 
 > ## ************ correlation of predicted values ***************
 > print( correlation.systemfit( fitsur1e2, 2, 1 ) )
@@ -4590,6 +5868,29 @@ income       0.213   0.390
 [18,] 0.9359979
 [19,] 0.9285058
 [20,] 0.9368339
+> 
+> print( correlation.systemfit( fitsur3w, 2, 1 ) )
+           [,1]
+ [1,] 0.9401123
+ [2,] 0.9460377
+ [3,] 0.9436443
+ [4,] 0.9435189
+ [5,] 0.9075066
+ [6,] 0.9140830
+ [7,] 0.9224215
+ [8,] 0.9071150
+ [9,] 0.9141287
+[10,] 0.9442820
+[11,] 0.9261432
+[12,] 0.9038078
+[13,] 0.9034740
+[14,] 0.8971980
+[15,] 0.9255264
+[16,] 0.9538435
+[17,] 0.9459752
+[18,] 0.9397690
+[19,] 0.9316222
+[20,] 0.9397124
 > 
 > print( correlation.systemfit( fitsur4r3, 1, 2 ) )
            [,1]
@@ -4682,6 +5983,29 @@ income       0.213   0.390
 [18,] 0.3619560
 [19,] 0.3333701
 [20,] 0.3352304
+> 
+> print( correlation.systemfit( fitsuri2w, 1, 2 ) )
+           [,1]
+ [1,] 0.3599662
+ [2,] 0.3369382
+ [3,] 0.3365160
+ [4,] 0.3361137
+ [5,] 0.2862645
+ [6,] 0.2986912
+ [7,] 0.3168418
+ [8,] 0.2745349
+ [9,] 0.3220938
+[10,] 0.3181588
+[11,] 0.3336657
+[12,] 0.3337396
+[13,] 0.3177261
+[14,] 0.2856584
+[15,] 0.3582278
+[16,] 0.4318822
+[17,] 0.3668208
+[18,] 0.3619342
+[19,] 0.3333498
+[20,] 0.3352088
 > 
 > print( correlation.systemfit( fitsuri3e, 1, 2 ) )
            [,1]
@@ -4813,6 +6137,9 @@ income       0.213   0.390
 > print( logLik( fitsur5 ) )
 'log Lik.' -58.54187 (df=8)
 > 
+> print( logLik( fitsur5w ) )
+'log Lik.' -58.51872 (df=8)
+> 
 > print( logLik( fitsuri1r3 ) )
 'log Lik.' -67.7771 (df=10)
 > 
@@ -4825,6 +6152,9 @@ income       0.213   0.390
 > print( logLik( fitsurio4 ) )
 'log Lik.' -58.45927 (df=8)
 > print( logLik( fitsuri4 ) )
+'log Lik.' -100.8756 (df=8)
+> 
+> print( logLik( fitsuri4w ) )
 'log Lik.' -100.8756 (df=8)
 > 
 > print( logLik( fitsurio5r2 ) )
@@ -4911,6 +6241,15 @@ Model 2: object_2
 2  10 -67.768  1 64.314  1.061e-15 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> # non-iterating, methodRCov = 1, WSUR
+> print( lrtest( fitsur3w, fitsur1w ) )
+Likelihood ratio test
+
+Model 1: fitsur3w
+Model 2: object_2
+  #Df  LogLik Df  Chisq Pr(>Chisq)
+1   9 -52.051                     
+2  10 -51.614  1 0.8728     0.3502
 > 
 > # testing second restriction
 > # non-iterating, methodRCov = 1
@@ -5161,6 +6500,28 @@ Model 2: object_2
 1   9  -99.925                     
 2   8 -100.873 -1 1.8962     0.1685
 > 
+> # non-iterating, methodRCov = 0, WSUR
+> print( lrtest( fitsur4we, fitsur2we ) )
+Likelihood ratio test
+
+Model 1: fitsur4we
+Model 2: object_2
+  #Df  LogLik Df  Chisq Pr(>Chisq)    
+1   8 -58.556                         
+2   9 -51.802  1 13.508  0.0002375 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> # iterating, methodRCov = 1, WSUR
+> print( lrtest( fitsuri2w, fitsuri4w ) )
+Likelihood ratio test
+
+Model 1: fitsuri2w
+Model 2: object_2
+  #Df   LogLik Df Chisq Pr(>Chisq)
+1   9  -99.926                    
+2   8 -100.876 -1 1.899     0.1682
+> 
 > # testing both of the restrictions
 > # non-iterating, methodRCov = 1
 > print( lrtest( fitsur4, fitsur1 ) )
@@ -5296,6 +6657,17 @@ Model 2: object_2
 2   8 -100.873 -2 66.21  4.195e-15 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> # non-iterating, methodRCov = 1, WSUR
+> print( lrtest( fitsur5w, fitsur1w ) )
+Likelihood ratio test
+
+Model 1: fitsur5w
+Model 2: object_2
+  #Df  LogLik Df  Chisq Pr(>Chisq)   
+1   8 -58.519                        
+2  10 -51.614  2 13.809   0.001003 **
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > 
 > ## ************** F tests ****************
@@ -5400,6 +6772,60 @@ Hypothesis:
 demand_income - supply_trend = 0
 
 Model 1: fitsuri1r3
+Model 2: restricted model
+
+  Res.Df Df      F    Pr(>F)    
+1     33                        
+2     34 -1 140.82 1.888e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> print( linear.hypothesis( fitsur1we2, restrm ) )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitsur1we2
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     33                 
+2     34 -1 1.6496 0.2080
+> linear.hypothesis( fitsur1we2, restrict )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitsur1we2
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     33                 
+2     34 -1 1.6496 0.2080
+> 
+> print( linear.hypothesis( fitsuri1wr3, restrm ) )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitsuri1wr3
+Model 2: restricted model
+
+  Res.Df Df      F    Pr(>F)    
+1     33                        
+2     34 -1 140.82 1.888e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsuri1wr3, restrict )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitsuri1wr3
 Model 2: restricted model
 
   Res.Df Df      F    Pr(>F)    
@@ -5579,6 +7005,60 @@ Model 2: restricted model
 1     34                 
 2     35 -1 2.3495 0.1346
 > 
+> print( linear.hypothesis( fitsur2we, restrOnly2m, restrOnly2q ) )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur2we
+Model 2: restricted model
+
+  Res.Df Df      F  Pr(>F)  
+1     34                    
+2     35 -1 6.2567 0.01735 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsur2we, restrictOnly2 )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur2we
+Model 2: restricted model
+
+  Res.Df Df      F  Pr(>F)  
+1     34                    
+2     35 -1 6.2567 0.01735 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> print( linear.hypothesis( fitsuri3we, restrOnly2m, restrOnly2q ) )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri3we
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     34                 
+2     35 -1 2.3496 0.1346
+> linear.hypothesis( fitsuri3we, restrictOnly2i )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri3we
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     34                 
+2     35 -1 2.3496 0.1346
+> 
 > # testing both of the restrictions
 > print( linear.hypothesis( fitsur1r3, restr2m, restr2q ) )
 Linear hypothesis test (F-test)
@@ -5639,6 +7119,64 @@ Model 2: restricted model
   Res.Df Df      F    Pr(>F)    
 1     33                        
 2     35 -2 89.085 4.996e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> print( linear.hypothesis( fitsur1w, restr2m, restr2q ) )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur1w
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     33                 
+2     35 -2 1.8045 0.1804
+> linear.hypothesis( fitsur1w, restrict2 )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur1w
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     33                 
+2     35 -2 1.8045 0.1804
+> 
+> print( linear.hypothesis( fitsuri1wr3, restr2m, restr2q ) )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri1wr3
+Model 2: restricted model
+
+  Res.Df Df      F    Pr(>F)    
+1     33                        
+2     35 -2 89.564 4.641e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsuri1wr3, restrict2i )
+Linear hypothesis test (F-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri1wr3
+Model 2: restricted model
+
+  Res.Df Df      F    Pr(>F)    
+1     33                        
+2     35 -2 89.564 4.641e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
@@ -5752,6 +7290,31 @@ Model 2: restricted model
 2     34 -1 147.32  < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> print( linear.hypothesis( fitsur1w, restrm, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitsur1w
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     34 -1 0.8106     0.3679
+> linear.hypothesis( fitsur1w, restrict, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: fitsur1w
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     34 -1 0.8106     0.3679
 > 
 > # testing second restriction
 > # first restriction not imposed
@@ -5926,6 +7489,61 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
+> print( linear.hypothesis( fitsuri2w, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri2w
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     34                     
+2     35 -1 2.1954     0.1384
+> linear.hypothesis( fitsuri2w, restrictOnly2i, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri2w
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     34                     
+2     35 -1 2.1954     0.1384
+> 
+> print( linear.hypothesis( fitsur3w, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur3w
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)  
+1     34                       
+2     35 -1 4.2575    0.03908 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsur3w, restrictOnly2, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur3w
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)  
+1     34                       
+2     35 -1 4.2575    0.03908 *
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> 
 > # testing both of the restrictions
 > print( linear.hypothesis( fitsur1r3, restr2m, restr2q, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
@@ -5982,6 +7600,64 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)    
 1     33                         
 2     35 -2 188.07  < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> print( linear.hypothesis( fitsur1we2, restr2m, restr2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur1we2
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     35 -2 3.6574     0.1606
+> linear.hypothesis( fitsur1we2, restrict2, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_price = 0.5
+
+Model 1: fitsur1we2
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     33                     
+2     35 -2 3.6574     0.1606
+> 
+> print( linear.hypothesis( fitsuri1wr3, restr2m, restr2q, test = "Chisq" ) )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri1wr3
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)    
+1     33                         
+2     35 -2 187.39  < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linear.hypothesis( fitsuri1wr3, restrict2i, test = "Chisq" )
+Linear hypothesis test (Wald-test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+-demand_price + supply_income = 0.5
+
+Model 1: fitsuri1wr3
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)    
+1     33                         
+2     35 -2 187.39  < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
@@ -6103,6 +7779,11 @@ attr(,"dataClasses")
   consump     price farmPrice     trend 
 "numeric" "numeric" "numeric" "numeric" 
 > 
+> print( all.equal( mf, model.frame( fitsur1w ) ) )
+[1] TRUE
+> print( all.equal( mf1, model.frame( fitsur1w$eq[[ 1 ]] ) ) )
+[1] TRUE
+> 
 > print( all.equal( mf, model.frame( fitsur2e ) ) )
 [1] TRUE
 > print( all.equal( mf1, model.frame( fitsur2e$eq[[ 1 ]] ) ) )
@@ -6116,6 +7797,11 @@ attr(,"dataClasses")
 > print( all.equal( mf, model.frame( fitsur4r3 ) ) )
 [1] TRUE
 > print( all.equal( mf1, model.frame( fitsur4r3$eq[[ 1 ]] ) ) )
+[1] TRUE
+> 
+> print( all.equal( mf, model.frame( fitsur4we ) ) )
+[1] TRUE
+> print( all.equal( mf2, model.frame( fitsur4we$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
 > print( all.equal( mf, model.frame( fitsur5 ) ) )
@@ -6154,6 +7840,11 @@ attr(,"dataClasses")
 > print( all.equal( mf, model.frame( fitsuri5r2 ) ) )
 [1] TRUE
 > print( all.equal( mf1, model.frame( fitsuri5r2$eq[[ 1 ]] ) ) )
+[1] TRUE
+> 
+> print( all.equal( mf, model.frame( fitsuri5wr2 ) ) )
+[1] TRUE
+> print( all.equal( mf1, model.frame( fitsuri5wr2$eq[[ 1 ]] ) ) )
 [1] TRUE
 > 
 > 
@@ -6313,6 +8004,21 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fitsur2$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
+> print( all.equal( mm, model.matrix( fitsur2we ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fitsur2we$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fitsur2we$eq[[ 2 ]] ) ) )
+[1] TRUE
+> fitsur2we$eq[[ 1 ]]$modelMatrix <- NULL
+> fitsur2we$eq[[ 2 ]]$modelMatrix <- NULL
+> print( all.equal( mm, model.matrix( fitsur2we ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fitsur2we$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fitsur2we$eq[[ 2 ]] ) ) )
+[1] TRUE
+> 
 > print( all.equal( mm, model.matrix( fitsur3e ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitsur3e$eq[[ 1 ]] ) ) )
@@ -6326,6 +8032,21 @@ attr(,"assign")
 > print( all.equal( mm1, model.matrix( fitsur3e$eq[[ 1 ]] ) ) )
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitsur3e$eq[[ 2 ]] ) ) )
+[1] TRUE
+> 
+> print( all.equal( mm, model.matrix( fitsur3w ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fitsur3w$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fitsur3w$eq[[ 2 ]] ) ) )
+[1] TRUE
+> fitsur3w$eq[[ 1 ]]$modelMatrix <- NULL
+> fitsur3w$eq[[ 2 ]]$modelMatrix <- NULL
+> print( all.equal( mm, model.matrix( fitsur3w ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fitsur3w$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fitsur3w$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
 > print( all.equal( mm, model.matrix( fitsur4r3 ) ) )
@@ -6386,6 +8107,16 @@ $supply
 consump ~ price + farmPrice + trend
 
 > formula( fitsur2e$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitsur2we )
+$demand
+consump ~ price + income
+
+$supply
+consump ~ price + farmPrice + trend
+
+> formula( fitsur2we$eq[[ 1 ]] )
 consump ~ price + income
 > 
 > formula( fitsur3 )
@@ -6484,6 +8215,16 @@ $supply
 price ~ income + farmPrice + trend
 
 > formula( fitsuri5r2$eq[[ 1 ]] )
+consump ~ price + income
+> 
+> formula( fitsuri5wr2 )
+$demand
+consump ~ price + income
+
+$supply
+price ~ income + farmPrice + trend
+
+> formula( fitsuri5wr2$eq[[ 1 ]] )
 consump ~ price + income
 > 
 > 
@@ -6721,6 +8462,84 @@ attr(,"dataClasses")
   consump     price farmPrice     trend 
 "numeric" "numeric" "numeric" "numeric" 
 > 
+> terms( fitsur3w )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsur3w$eq[[ 2 ]] )
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+> 
 > terms( fitsur4r3 )
 $demand
 consump ~ price + income
@@ -6774,6 +8593,83 @@ attr(,"dataClasses")
 "numeric" "numeric" "numeric" "numeric" 
 
 > terms( fitsur4r3$eq[[ 1 ]] )
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+> 
+> terms( fitsur4we )
+$demand
+consump ~ price + income
+attr(,"variables")
+list(consump, price, income)
+attr(,"factors")
+        price income
+consump     0      0
+price       1      0
+income      0      1
+attr(,"term.labels")
+[1] "price"  "income"
+attr(,"order")
+[1] 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, income)
+attr(,"dataClasses")
+  consump     price    income 
+"numeric" "numeric" "numeric" 
+
+$supply
+consump ~ price + farmPrice + trend
+attr(,"variables")
+list(consump, price, farmPrice, trend)
+attr(,"factors")
+          price farmPrice trend
+consump       0         0     0
+price         1         0     0
+farmPrice     0         1     0
+trend         0         0     1
+attr(,"term.labels")
+[1] "price"     "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 1
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(consump, price, farmPrice, trend)
+attr(,"dataClasses")
+  consump     price farmPrice     trend 
+"numeric" "numeric" "numeric" "numeric" 
+
+> terms( fitsur4we$eq[[ 1 ]] )
 consump ~ price + income
 attr(,"variables")
 list(consump, price, income)
