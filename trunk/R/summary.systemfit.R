@@ -89,7 +89,7 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    # System R^2 value of McElroy (1977)
    # formula from Greene (2003, p. 345 )
    # (first formula, numerator modified to save memory)
-   if( object$method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
+   if( object$method %in% c( "SUR", "3SLS" ) ){
       rtOmega <- .calcXtOmegaInv( xMat = matrix( resid, ncol = 1 ),
          sigma = object$rcov, nObsEq = nObsEq,
          solvetol = object$control$solvetol )

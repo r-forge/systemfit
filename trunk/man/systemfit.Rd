@@ -27,8 +27,8 @@ systemfit( eqns, method = "OLS",
       (if argument \code{data} is of class \code{pdata.frame})
       a single equation (object of class \code{formula})
       that is estimated for all individuals.}
-   \item{method}{the estimation method, one of "OLS", "WLS", "SUR", "WSUR",
-      "2SLS", "W2SLS", "3SLS", or "W3SLS" (see details);
+   \item{method}{the estimation method, one of "OLS", "WLS", "SUR",
+      "2SLS", "W2SLS", or "3SLS" (see details);
       iterated estimation methods can be specified by setting control parameter
       \code{maxiter} larger than 1 (e.g. 500).}
    \item{inst}{one-sided model formula specifying instrumental variables
@@ -68,18 +68,6 @@ systemfit( eqns, method = "OLS",
    In this case, argument \code{pooled} specifies
    whether the coefficients are restricted to be equal for all
    individuals.
-
-   If argument \code{method} is "WSUR" or "W3SLS",
-   the "SUR" or "3SLS" estimation uses a residual variance covariance matrix
-   that is calculated from a "WLS" or "W2SLS" estimation, respectively
-   (and not from an "OLS" or "2SLS" estimation as for a standard "SUR" or "3SLS"
-   estimation).
-   The "WSUR" method is the default method of command "TSCS"
-   in the software LIMDEP that carries out "SUR" estimations
-   in which all coefficient vectors are constrained to be equal
-   (personal information from W.H. Greene, 2006/02/16).
-   If no cross-equation restrictions are imposed, "WSUR" and "W3SLS"
-   generate identical results compared to "SUR" and "3SLS", respectively.
 
    If argument \code{restrict.regMat} is specified,
    the regressor matrix \eqn{X} is post-multiplied by this matrix:

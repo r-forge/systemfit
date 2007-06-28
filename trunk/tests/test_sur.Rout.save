@@ -389,11 +389,11 @@ Multiple R-Squared: 0.607679 Adjusted R-Squared: 0.534119
 
 > 
 > ## *************** WSUR estimation ************************
-> fitsur1w <- systemfit( system, "WSUR", data = Kmenta )
+> fitsur1w <- systemfit( system, "SUR", data = Kmenta, residCovWeighted = TRUE )
 > summary( fitsur1w )
 
 systemfit results 
-method: WSUR 
+method: SUR 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.6829 3.86370 1.96563 0.755019 0.726198
@@ -418,7 +418,7 @@ The determinant of the residual covariance matrix: 0.879285
 OLS R-squared value of the system: 0.683453
 McElroy's R-squared value for the system: 0.788722
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -434,7 +434,7 @@ SSR: 65.682902 MSE: 3.8637 Root MSE: 1.96563
 Multiple R-Squared: 0.755019 Adjusted R-Squared: 0.726198 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -452,11 +452,12 @@ Multiple R-Squared: 0.611888 Adjusted R-Squared: 0.539117
 
 > 
 > ## *************** WSUR (methodRCov="Theil", useDfSys = TRUE ) ***************
-> fitsur1we2 <- systemfit( system, "WSUR", data = Kmenta, methodRCov = "Theil" )
+> fitsur1we2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
++    residCovWeighted = TRUE )
 > summary( fitsur1we2, useDfSys = TRUE )
 
 systemfit results 
-method: WSUR 
+method: SUR 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  66.8022 3.92954 1.98231 0.750844 0.721532
@@ -483,7 +484,7 @@ The determinant of the residual covariance matrix: -0.896033
 OLS R-squared value of the system: 0.67901
 McElroy's R-squared value for the system: 1.00928
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -499,7 +500,7 @@ SSR: 66.802201 MSE: 3.929541 Root MSE: 1.982307
 Multiple R-Squared: 0.750844 Adjusted R-Squared: 0.721532 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -650,12 +651,12 @@ Multiple R-Squared: 0.597497 Adjusted R-Squared: 0.522027
 
 > 
 > ## *************** WSUR with cross-equation restriction (EViews-like) **
-> fitsur2we <- systemfit( system, "WSUR", data = Kmenta, restrict.matrix = restrm,
-+    methodRCov = "noDfCor" )
+> fitsur2we <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm,
++    methodRCov = "noDfCor", residCovWeighted = TRUE )
 > summary( fitsur2we )
 
 systemfit results 
-method: WSUR 
+method: SUR 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  73.0086 4.29462 2.07235 0.727696 0.695660
@@ -680,7 +681,7 @@ The determinant of the residual covariance matrix: 0.609218
 OLS R-squared value of the system: 0.661259
 McElroy's R-squared value for the system: 0.710796
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -696,7 +697,7 @@ SSR: 73.008591 MSE: 4.294623 Root MSE: 2.072347
 Multiple R-Squared: 0.727696 Adjusted R-Squared: 0.69566 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
@@ -842,11 +843,12 @@ Multiple R-Squared: 0.597497 Adjusted R-Squared: 0.522027
 
 > 
 > ## *************** WSUR with restriction via restrict.regMat *******************
-> fitsur3w <- systemfit( system, "WSUR", data = Kmenta, restrict.regMat = tc )
+> fitsur3w <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc,
++    residCovWeighted = TRUE )
 > summary( fitsur3w )
 
 systemfit results 
-method: WSUR 
+method: SUR 
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  72.023 4.23665 2.05831 0.731372 0.699769
@@ -871,7 +873,7 @@ The determinant of the residual covariance matrix: 0.918505
 OLS R-squared value of the system: 0.6632
 McElroy's R-squared value for the system: 0.756941
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -887,7 +889,7 @@ SSR: 72.022983 MSE: 4.236646 Root MSE: 2.058311
 Multiple R-Squared: 0.731372 Adjusted R-Squared: 0.699769 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error  t value Pr(>|t|)    
@@ -1167,12 +1169,12 @@ Multiple R-Squared: 0.6012 Adjusted R-Squared: 0.526425
 
 > 
 > ## *************** WSUR with 2 restrictions (EViews-like) **************
-> fitsur4we <- systemfit( system, "WSUR", data = Kmenta, methodRCov = "noDfCor",
-+    restrict.matrix = restr2m, restrict.rhs = restr2q )
+> fitsur4we <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
++    restrict.matrix = restr2m, restrict.rhs = restr2q, residCovWeighted = TRUE )
 > summary( fitsur4we )
 
 systemfit results 
-method: WSUR 
+method: SUR 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  63.9355 3.76091 1.93931 0.761536 0.733482
@@ -1197,7 +1199,7 @@ The determinant of the residual covariance matrix: 1.19701
 OLS R-squared value of the system: 0.692041
 McElroy's R-squared value for the system: 0.654129
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1213,7 +1215,7 @@ SSR: 63.935526 MSE: 3.760913 Root MSE: 1.939307
 Multiple R-Squared: 0.761536 Adjusted R-Squared: 0.733482 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1365,12 +1367,12 @@ Multiple R-Squared: 0.62391 Adjusted R-Squared: 0.553393
 
 > 
 > ## ************ WSUR with 2 restrictions via R and restrict.regMat ************
-> fitsur5w <- systemfit( system, "WSUR", data = Kmenta, restrict.matrix = restr3m,
-+    restrict.rhs = restr3q, restrict.regMat = tc )
+> fitsur5w <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restr3m,
++    restrict.rhs = restr3q, restrict.regMat = tc, residCovWeighted = TRUE )
 > summary( fitsur5w )
 
 systemfit results 
-method: WSUR 
+method: SUR 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  64.1601 3.77412 1.94271 0.760699 0.732546
@@ -1395,7 +1397,7 @@ The determinant of the residual covariance matrix: 1.75379
 OLS R-squared value of the system: 0.690193
 McElroy's R-squared value for the system: 0.69107
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1411,7 +1413,7 @@ SSR: 64.16009 MSE: 3.774123 Root MSE: 1.94271
 Multiple R-Squared: 0.760699 Adjusted R-Squared: 0.732546 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1759,12 +1761,12 @@ Multiple R-Squared: 0.937493 Adjusted R-Squared: 0.925773
 
 > 
 > ## ************** iterated WSUR (methodRCov = "max") ****************************
-> fitsuri1wr3 <- systemfit( system2, "WSUR", data = Kmenta, maxit = 100,
-+    methodRCov = "max" )
+> fitsuri1wr3 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
++    methodRCov = "max", residCovWeighted = TRUE )
 > summary( fitsuri1wr3 )
 
 systemfit results 
-method: iterated WSUR 
+method: iterated SUR 
 
 convergence achieved after 7 iterations
 
@@ -1791,7 +1793,7 @@ The determinant of the residual covariance matrix: 4.06276
 OLS R-squared value of the system: 0.883966
 McElroy's R-squared value for the system: 0.960247
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -1807,7 +1809,7 @@ SSR: 66.825809 MSE: 3.93093 Root MSE: 1.982657
 Multiple R-Squared: 0.750756 Adjusted R-Squared: 0.721433 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error    t value Pr(>|t|)    
@@ -1958,12 +1960,12 @@ Multiple R-Squared: 0.220377 Adjusted R-Squared: 0.074197
 
 > 
 > ## *********** iterated WSUR with restriction *******************
-> fitsuri2w <- systemfit( system2, "WSUR", data = Kmenta, restrict.matrix = restrm,
-+    maxit = 100 )
+> fitsuri2w <- systemfit( system2, "SUR", data = Kmenta, restrict.matrix = restrm,
++    maxit = 100, residCovWeighted = TRUE )
 > summary( fitsuri2w )
 
 systemfit results 
-method: iterated WSUR 
+method: iterated SUR 
 
 convergence achieved after 18 iterations
 
@@ -1990,7 +1992,7 @@ The determinant of the residual covariance matrix: 110.225
 OLS R-squared value of the system: 0.372064
 McElroy's R-squared value for the system: 0.669238
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2006,7 +2008,7 @@ SSR: 67.023202 MSE: 3.942541 Root MSE: 1.985583
 Multiple R-Squared: 0.75002 Adjusted R-Squared: 0.720611 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2157,12 +2159,12 @@ Multiple R-Squared: 0.220377 Adjusted R-Squared: 0.074197
 
 > 
 > ## *********** iterated WSUR with restriction via restrict.regMat (EViews-like) ***************
-> fitsuri3we <- systemfit( system2, "WSUR", data = Kmenta, restrict.regMat = tc,
-+    methodRCov = "noDfCor", maxit = 100 )
+> fitsuri3we <- systemfit( system2, "SUR", data = Kmenta, restrict.regMat = tc,
++    methodRCov = "noDfCor", maxit = 100, residCovWeighted = TRUE )
 > summary( fitsuri3we )
 
 systemfit results 
-method: iterated WSUR 
+method: iterated SUR 
 
 convergence achieved after 20 iterations
 
@@ -2189,7 +2191,7 @@ The determinant of the residual covariance matrix: 74.9437
 OLS R-squared value of the system: 0.371714
 McElroy's R-squared value for the system: 0.664224
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
               Estimate Std. Error   t value Pr(>|t|)    
@@ -2205,7 +2207,7 @@ SSR: 67.470662 MSE: 3.968862 Root MSE: 1.9922
 Multiple R-Squared: 0.748351 Adjusted R-Squared: 0.718745 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2484,12 +2486,12 @@ Multiple R-Squared: 0.244563 Adjusted R-Squared: 0.102919
 
 > 
 > ## *************** iterated WSUR with 2 restrictions ***************************
-> fitsurio4w <- systemfit( system, "WSUR", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q, maxit = 100 )
+> fitsurio4w <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restr2m,
++    restrict.rhs = restr2q, maxit = 100, residCovWeighted = TRUE )
 > summary( fitsurio4w )
 
 systemfit results 
-method: iterated WSUR 
+method: iterated SUR 
 
 convergence achieved after 10 iterations
 
@@ -2516,7 +2518,7 @@ The determinant of the residual covariance matrix: 1.7434
 OLS R-squared value of the system: 0.670962
 McElroy's R-squared value for the system: 0.704623
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2532,7 +2534,7 @@ SSR: 67.205664 MSE: 3.953274 Root MSE: 1.988284
 Multiple R-Squared: 0.74934 Adjusted R-Squared: 0.71985 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
             Estimate Std. Error   t value Pr(>|t|)    
@@ -2548,12 +2550,12 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 109.233696 MSE: 6.827106 Root MSE: 2.612873 
 Multiple R-Squared: 0.592585 Adjusted R-Squared: 0.516195 
 
-> fitsuri4w <- systemfit( system2, "WSUR", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q, maxit = 100 )
+> fitsuri4w <- systemfit( system2, "SUR", data = Kmenta, restrict.matrix = restr2m,
++    restrict.rhs = restr2q, maxit = 100, residCovWeighted = TRUE )
 > summary( fitsuri4w )
 
 systemfit results 
-method: iterated WSUR 
+method: iterated SUR 
 
 convergence achieved after 18 iterations
 
@@ -2580,7 +2582,7 @@ The determinant of the residual covariance matrix: 121.203
 OLS R-squared value of the system: 0.385395
 McElroy's R-squared value for the system: 0.636565
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -2596,7 +2598,7 @@ SSR: 65.53142 MSE: 3.854789 Root MSE: 1.963362
 Multiple R-Squared: 0.755584 Adjusted R-Squared: 0.726829 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -3014,12 +3016,13 @@ Multiple R-Squared: 0.234546 Adjusted R-Squared: 0.091024
 > # disabled, because the estimation does not converge
 > 
 > ## ********* iterated WSUR with 2 restrictions via R and restrict.regMat (methodRCov="Theil") **********
-> fitsurio5wr2 <- systemfit( system, "WSUR", data = Kmenta, methodRCov = "Theil",
-+    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
+> fitsurio5wr2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
++    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100,
++    residCovWeighted = TRUE )
 > summary( fitsurio5wr2 )
 
 systemfit results 
-method: iterated WSUR 
+method: iterated SUR 
 
 warning: convergence not achieved after 100 iterations
 
@@ -3048,7 +3051,7 @@ The determinant of the residual covariance matrix: -1.67203
 OLS R-squared value of the system: 0.527259
 McElroy's R-squared value for the system: 0.926927
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -3064,7 +3067,7 @@ SSR: 95.760152 MSE: 5.63295 Root MSE: 2.373384
 Multiple R-Squared: 0.642838 Adjusted R-Squared: 0.600819 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -3080,12 +3083,13 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 157.737286 MSE: 9.85858 Root MSE: 3.139838 
 Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369 
 
-> fitsuri5wr2 <- systemfit( system2, "WSUR", data = Kmenta, methodRCov = "Theil",
-+    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
+> fitsuri5wr2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
++    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100,
++    residCovWeighted = TRUE )
 > summary( fitsuri5wr2 )
 
 systemfit results 
-method: iterated WSUR 
+method: iterated SUR 
 
 convergence achieved after 19 iterations
 
@@ -3112,7 +3116,7 @@ The determinant of the residual covariance matrix: 121.098
 OLS R-squared value of the system: 0.383988
 McElroy's R-squared value for the system: 0.637054
 
-WSUR estimates for 'demand' (equation 1)
+SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
              Estimate Std. Error   t value Pr(>|t|)    
@@ -3128,7 +3132,7 @@ SSR: 65.446929 MSE: 3.849819 Root MSE: 1.962096
 Multiple R-Squared: 0.755899 Adjusted R-Squared: 0.727181 
 
 
-WSUR estimates for 'supply' (equation 2)
+SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
              Estimate Std. Error   t value Pr(>|t|)    

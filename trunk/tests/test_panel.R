@@ -113,8 +113,9 @@ terms( greeneSur )
 terms( greeneSur$eq[[ 1 ]] )
 
 # SUR Pooled
-greeneSurPooled <- systemfit( formulaGrunfeld, "WSUR",
-   data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor" )
+greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor",
+   residCovWeighted = TRUE )
 print( greeneSurPooled )
 summary( greeneSurPooled )
 coef( greeneSurPooled )

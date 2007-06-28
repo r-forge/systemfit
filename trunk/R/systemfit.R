@@ -35,14 +35,14 @@ systemfit <- function(  eqns,
 {
 
    ## some tests
-   if(!( method %in% c( "OLS", "WLS", "SUR", "WSUR", "2SLS", "W2SLS", "3SLS",
-         "W3SLS", "LIML", "FIML" ) ) ){
-      stop( "The method must be 'OLS', 'WLS', 'SUR', 'WSUR',",
-         " '2SLS', 'W2SLS', '3SLS', or 'W3SLS'" )
+   if(!( method %in% c( "OLS", "WLS", "SUR", "2SLS", "W2SLS", "3SLS",
+         "LIML", "FIML" ) ) ){
+      stop( "The method must be 'OLS', 'WLS', 'SUR',",
+         " '2SLS', 'W2SLS', or '3SLS'" )
    }
-   if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) &
+   if( method %in% c( "2SLS", "W2SLS", "3SLS" ) &
          is.null(inst) ) {
-      stop( "The methods '2SLS', 'W2SLS', '3SLS', and 'W3SLS' need instruments!" )
+      stop( "The methods '2SLS', 'W2SLS', and '3SLS' need instruments!" )
    }
 
    panelLike <- FALSE
@@ -298,7 +298,7 @@ systemfit <- function(  eqns,
     df <- nObsEq - nCoefLiEq    # degress of freedom of each equation
 
   ## only for OLS, WLS and SUR estimation
-  if( method %in% c( "OLS", "WLS", "SUR", "WSUR" ) ) {
+  if( method %in% c( "OLS", "WLS", "SUR" ) ) {
     if(is.null(R.restr)) {
       coef <- solve( crossprod( xMatAll ), crossprod( xMatAll, yVecAll ), tol=control$solvetol )
                # estimated coefficients
@@ -339,7 +339,8 @@ systemfit <- function(  eqns,
   }
 
   ## only for WLS estimation
-  if( method %in% c( "WLS", "WSUR" ) ) {
+  if( method %in% c( "WLS" ) ||
+      ( method %in% c( "SUR" ) && control$residCovWeighted ) ) {
     bl    <- coef   # coefficients of previous step
     bdif  <- coef   # difference of coefficients between this and previous step
     iter  <- 0
@@ -362,7 +363,7 @@ systemfit <- function(  eqns,
   }
 
   ## only for SUR estimation
-  if( method %in% c( "SUR", "WSUR" ) ) {
+  if( method %in% c( "SUR" ) ) {
     bl    <- coef    # coefficients of previous step
     bdif  <- coef    # difference of coefficients between this and previous step
     iter  <- 0
@@ -385,7 +386,7 @@ systemfit <- function(  eqns,
   }
 
   ## only for 2SLS, W2SLS and 3SLS estimation
-  if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
+  if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
     if(is.null(R.restr)) {
       coef <- solve( crossprod( xMatHatAll ), crossprod( xMatHatAll, yVecAll ), tol=control$solvetol )
          # 2nd stage coefficients
@@ -426,7 +427,8 @@ systemfit <- function(  eqns,
   }
 
   ## only for W2SLS estimation
-  if( method %in% c( "W2SLS", "W3SLS" ) ) {
+  if( method %in% c( "W2SLS" ) ||
+         ( method %in% c( "3SLS" ) && control$residCovWeighted ) ) {
     bl     <- coef   # coefficients of previous step
     bdif   <- coef   # difference of coefficients between this and previous step
     iter  <- 0
@@ -448,7 +450,7 @@ systemfit <- function(  eqns,
   }
 
   ## only for 3SLS estimation
-  if( method %in% c( "3SLS", "W3SLS" ) ) {
+  if( method %in% c( "3SLS" ) ) {
     bl     <- coef  # coefficients of previous step
     bdif   <- coef  # difference of coefficients between this and previous step
     iter  <- 0
@@ -616,7 +618,7 @@ systemfit <- function(  eqns,
     resulti$residuals    <- residi[[i]]     # residuals
     resulti$ssr          <- ssr             # sum of squared errors/residuals
     resulti$sigma        <- sigma           # estimated standard error of the residuals
-    if( method %in% c( "2SLS", "W2SLS", "3SLS", "W3SLS" ) ) {
+    if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
       resulti$inst         <- instEq[[i]]
       if(  control$returnInstMatrix ) {
          resulti$instMatrix   <- hMatEq[[i]]  # matrix of instrumental variables
@@ -627,7 +629,7 @@ systemfit <- function(  eqns,
   }
 
   ## results of the total system
-  if( method %in% c(  "SUR", "WSUR", "3SLS", "W3SLS" ) ) {
+  if( method %in% c(  "SUR", "3SLS" ) ) {
     rcovest <- rcov                   # residual covariance matrix used for estimation
   }
   rcov <- .calcRCov( resids, methodRCov = control$methodRCov, nObsEq = nObsEq,
@@ -650,7 +652,7 @@ systemfit <- function(  eqns,
   results$bcov    <- bcov           # coefficients covariance matrix
   results$rcov    <- rcov           # residual covarance matrix
   results$iter    <- iter           # residual correlation matrix
-  if( method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
+  if( method %in% c( "SUR", "3SLS" ) ){
     results$rcovest <- rcovest      # residual covarance matrix used for estimation
   }
   results$restrict.matrix <- R.restr

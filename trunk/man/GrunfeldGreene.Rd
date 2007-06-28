@@ -63,8 +63,9 @@ greeneSur <- systemfit( formulaGrunfeld, "SUR",
    data = GrunfeldGreene, methodRCov = "noDfCor" )
 summary( greeneSur )
 # SUR Pooled
-greeneSurPooled <- systemfit( formulaGrunfeld, "WSUR",
-   data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor" )
+greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor",
+   residCovWeighted = TRUE )
 summary( greeneSurPooled )
 }
 

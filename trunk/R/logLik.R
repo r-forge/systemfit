@@ -13,7 +13,7 @@ logLik.systemfit <- function( object, ... ){
       nSigma <- 1
    } else if( object$method %in% c( "WLS", "W2SLS" ) ){
       nSigma <- nEq
-   } else if( object$method %in% c( "SUR", "WSUR", "3SLS", "W3SLS" ) ){
+   } else if( object$method %in% c( "SUR", "3SLS" ) ){
       nSigma <- nEq * ( nEq + 1 ) / 2
    } else {
       stop( "internal error: unknown estimation method '", object$method, "'" )

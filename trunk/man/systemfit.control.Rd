@@ -19,6 +19,7 @@ systemfit.control(
       single.eq.sigma = NULL,
       solvetol = .Machine$double.eps,
       residCovRestricted = TRUE,
+      residCovWeighted = FALSE,
       returnModelFrame = TRUE,
       returnModelMatrix = TRUE,
       returnInstMatrix = TRUE,
@@ -48,6 +49,9 @@ systemfit.control(
    \item{residCovRestricted}{logical. If 'FALSE'
       the residual covariance matrix for a WLS, SUR, W2SLS, or 3SLS estimation
       is obtained from an unrestricted first-step estimation.}
+   \item{residCovWeighted}{logical. If 'TRUE'
+      the residual covariance matrix for a SUR or 3SLS estimation
+      is obtained from a WLS or W2SLS estimation.}
    \item{returnModelFrame, returnModelMatrix, returnInstMatrix, returnResponse}{
       logical. If 'TRUE' the corresponding components of the fit
       (the model frame, the model matrix, the matrix of instruments,
@@ -89,6 +93,21 @@ systemfit.control(
    are used in the different equations, only the GMM-3SLS estimator ("GMM")
    and the 3SLS estimator proposed by Schmidt (1990) ("Schmidt") are consistent,
    whereas "GMM" is efficient relative to "Schmidt" (see Schmidt, 1990).
+
+   If \code{residCovWeighted} is \code{TRUE},
+   \code{\link{systemfit}} does a OLS or 2SLS estimation in a first step.
+   It uses the residuals from the first-step estimation
+   to calculate the residual covariance matrix
+   that is used in a second-step WLS or W2SLS estimation.
+   Then, it uses the residuals from the second-step estimation
+   to calculate the residual covariance matrix
+   that is used in a final SUR or 3SLS estimation.
+   This three-step method is the default method of command "TSCS"
+   in the software LIMDEP that carries out "SUR" estimations
+   in which all coefficient vectors are constrained to be equal
+   (personal information from W.H. Greene, 2006/02/16).
+   If no cross-equation restrictions are imposed,
+   \code{residCovWeighted} has no effect on the estimation results.
 }
 
 \value{

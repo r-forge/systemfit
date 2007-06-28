@@ -87,8 +87,9 @@ Attaching package: 'zoo'
 +    print( summary( fit3sls[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
 +    print( "*************** W3SLS with methodRCov = Theil *****************" )
-+    fit3sls[[ i ]]$e1wc <- systemfit( system, "W3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "Theil", method3sls = formulas[ i ] )
++    fit3sls[[ i ]]$e1wc <- systemfit( system, "3SLS", data = Kmenta,
++       inst = inst, methodRCov = "Theil", method3sls = formulas[ i ],
++       residCovWeighted = TRUE )
 +    print( summary( fit3sls[[ i ]]$e1wc, useDfSys = TRUE ) )
 + 
 + 
@@ -108,8 +109,9 @@ Attaching package: 'zoo'
 +    print( summary( fit3sls[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "*************** W3SLS with restriction *****************" )
-+    fit3sls[[ i ]]$e2w <- systemfit( system, "W3SLS", data = Kmenta,
-+       inst = inst, restrict.matrix = restrm, method3sls = formulas[ i ] )
++    fit3sls[[ i ]]$e2w <- systemfit( system, "3SLS", data = Kmenta,
++       inst = inst, restrict.matrix = restrm, method3sls = formulas[ i ],
++       residCovWeighted = TRUE )
 +    print( summary( fit3sls[[ i ]]$e2w ) )
 + 
 + 
@@ -125,9 +127,9 @@ Attaching package: 'zoo'
 +    print( summary( fit3sls[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
 +    print( "**** W3SLS with restriction via restrict.regMat (EViews-like) ****" )
-+    fit3sls[[ i ]]$e3we <- systemfit( system, "W3SLS", data = Kmenta,
++    fit3sls[[ i ]]$e3we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", restrict.regMat = tc,
-+       method3sls = formulas[ i ] )
++       method3sls = formulas[ i ], residCovWeighted = TRUE )
 +    print( summary( fit3sls[[ i ]]$e3we, useDfSys = TRUE ) )
 + 
 + 
@@ -148,8 +150,9 @@ Attaching package: 'zoo'
 +    print( summary( fit3sls[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "********** W3SLS with 2 (symbolic) restrictions ***************" )
-+    fit3sls[[ i ]]$e4wSym <- systemfit( system, "W3SLS", data = Kmenta,
-+       inst = inst, restrict.matrix = restrict2, method3sls = formulas[ i ] )
++    fit3sls[[ i ]]$e4wSym <- systemfit( system, "3SLS", data = Kmenta,
++       inst = inst, restrict.matrix = restrict2, method3sls = formulas[ i ],
++       residCovWeighted = TRUE )
 +    print( summary( fit3sls[[ i ]]$e4wSym ) )
 + 
 + 
@@ -171,9 +174,10 @@ Attaching package: 'zoo'
 +    print( summary( fit3sls[[ i ]]$e5e, useDfSys = TRUE ) )
 + 
 +    print( "*** W3SLS with 2 restrictions via R and restrict.regMat (EViews-like) ***" )
-+    fit3sls[[ i ]]$e5we <- systemfit( system, "W3SLS", data = Kmenta,
++    fit3sls[[ i ]]$e5we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.regMat = tc, methodRCov = "noDfCor",
-+       restrict.matrix = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ] )
++       restrict.matrix = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
++       residCovWeighted = TRUE )
 +    print( summary( fit3sls[[ i ]]$e5we, useDfSys = TRUE ) )
 + }
 [1] "***************************************************"
@@ -369,7 +373,7 @@ Multiple R-Squared: 0.594475 Adjusted R-Squared: 0.518439
 [1] "*************** W3SLS with methodRCov = Theil *****************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -396,7 +400,7 @@ The determinant of the residual covariance matrix: -0.718397
 OLS R-squared value of the system: 0.674661
 McElroy's R-squared value for the system: 0.921552
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -413,7 +417,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -558,7 +562,7 @@ Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317
 [1] "*************** W3SLS with restriction *****************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  68.0575 4.00338 2.00084 0.746162 0.716299
@@ -583,7 +587,7 @@ The determinant of the residual covariance matrix: 1.24446
 OLS R-squared value of the system: 0.676968
 McElroy's R-squared value for the system: 0.725107
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -600,7 +604,7 @@ SSR: 68.057479 MSE: 4.003381 Root MSE: 2.000845
 Multiple R-Squared: 0.746162 Adjusted R-Squared: 0.716299 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -744,7 +748,7 @@ Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317
 [1] "**** W3SLS with restriction via restrict.regMat (EViews-like) ****"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.6719 3.98070 1.99517 0.747601 0.717907
@@ -769,7 +773,7 @@ The determinant of the residual covariance matrix: 0.8735
 OLS R-squared value of the system: 0.679272
 McElroy's R-squared value for the system: 0.680581
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -786,7 +790,7 @@ SSR: 67.671876 MSE: 3.980699 Root MSE: 1.995169
 Multiple R-Squared: 0.747601 Adjusted R-Squared: 0.717907 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -931,7 +935,7 @@ Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686
 [1] "********** W3SLS with 2 (symbolic) restrictions ***************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.9075 3.87691 1.96899 0.754181 0.725262
@@ -956,7 +960,7 @@ The determinant of the residual covariance matrix: 1.7419
 OLS R-squared value of the system: 0.680049
 McElroy's R-squared value for the system: 0.696672
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -973,7 +977,7 @@ SSR: 65.907494 MSE: 3.876911 Root MSE: 1.968987
 Multiple R-Squared: 0.754181 Adjusted R-Squared: 0.725262 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1118,7 +1122,7 @@ Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686
 [1] "*** W3SLS with 2 restrictions via R and restrict.regMat (EViews-like) ***"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.6461 3.86153 1.96508 0.755156 0.726351
@@ -1143,7 +1147,7 @@ The determinant of the residual covariance matrix: 1.18692
 OLS R-squared value of the system: 0.682149
 McElroy's R-squared value for the system: 0.658922
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1160,7 +1164,7 @@ SSR: 65.646068 MSE: 3.861533 Root MSE: 1.965078
 Multiple R-Squared: 0.755156 Adjusted R-Squared: 0.726351 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1370,7 +1374,7 @@ Multiple R-Squared: 0.594475 Adjusted R-Squared: 0.518439
 [1] "*************** W3SLS with methodRCov = Theil *****************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -1397,7 +1401,7 @@ The determinant of the residual covariance matrix: -0.718397
 OLS R-squared value of the system: 0.674661
 McElroy's R-squared value for the system: 0.921552
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1414,7 +1418,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1559,7 +1563,7 @@ Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317
 [1] "*************** W3SLS with restriction *****************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  68.0575 4.00338 2.00084 0.746162 0.716299
@@ -1584,7 +1588,7 @@ The determinant of the residual covariance matrix: 1.24446
 OLS R-squared value of the system: 0.676968
 McElroy's R-squared value for the system: 0.725107
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1601,7 +1605,7 @@ SSR: 68.057479 MSE: 4.003381 Root MSE: 2.000845
 Multiple R-Squared: 0.746162 Adjusted R-Squared: 0.716299 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1745,7 +1749,7 @@ Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317
 [1] "**** W3SLS with restriction via restrict.regMat (EViews-like) ****"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.6719 3.98070 1.99517 0.747601 0.717907
@@ -1770,7 +1774,7 @@ The determinant of the residual covariance matrix: 0.8735
 OLS R-squared value of the system: 0.679272
 McElroy's R-squared value for the system: 0.680581
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1787,7 +1791,7 @@ SSR: 67.671876 MSE: 3.980699 Root MSE: 1.995169
 Multiple R-Squared: 0.747601 Adjusted R-Squared: 0.717907 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -1932,7 +1936,7 @@ Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686
 [1] "********** W3SLS with 2 (symbolic) restrictions ***************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.9075 3.87691 1.96899 0.754181 0.725262
@@ -1957,7 +1961,7 @@ The determinant of the residual covariance matrix: 1.7419
 OLS R-squared value of the system: 0.680049
 McElroy's R-squared value for the system: 0.696672
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -1974,7 +1978,7 @@ SSR: 65.907494 MSE: 3.876911 Root MSE: 1.968987
 Multiple R-Squared: 0.754181 Adjusted R-Squared: 0.725262 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2119,7 +2123,7 @@ Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686
 [1] "*** W3SLS with 2 restrictions via R and restrict.regMat (EViews-like) ***"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.6461 3.86153 1.96508 0.755156 0.726351
@@ -2144,7 +2148,7 @@ The determinant of the residual covariance matrix: 1.18692
 OLS R-squared value of the system: 0.682149
 McElroy's R-squared value for the system: 0.658922
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -2161,7 +2165,7 @@ SSR: 65.646068 MSE: 3.861533 Root MSE: 1.965078
 Multiple R-Squared: 0.755156 Adjusted R-Squared: 0.726351 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2371,7 +2375,7 @@ Multiple R-Squared: 0.594475 Adjusted R-Squared: 0.518439
 [1] "*************** W3SLS with methodRCov = Theil *****************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -2398,7 +2402,7 @@ The determinant of the residual covariance matrix: -0.718397
 OLS R-squared value of the system: 0.674661
 McElroy's R-squared value for the system: 0.921552
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -2415,7 +2419,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2560,7 +2564,7 @@ Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317
 [1] "*************** W3SLS with restriction *****************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  68.0575 4.00338 2.00084 0.746162 0.716299
@@ -2585,7 +2589,7 @@ The determinant of the residual covariance matrix: 1.24446
 OLS R-squared value of the system: 0.676968
 McElroy's R-squared value for the system: 0.725107
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -2602,7 +2606,7 @@ SSR: 68.057479 MSE: 4.003381 Root MSE: 2.000845
 Multiple R-Squared: 0.746162 Adjusted R-Squared: 0.716299 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2746,7 +2750,7 @@ Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317
 [1] "**** W3SLS with restriction via restrict.regMat (EViews-like) ****"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.6719 3.98070 1.99517 0.747601 0.717907
@@ -2771,7 +2775,7 @@ The determinant of the residual covariance matrix: 0.8735
 OLS R-squared value of the system: 0.679272
 McElroy's R-squared value for the system: 0.680581
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -2788,7 +2792,7 @@ SSR: 67.671876 MSE: 3.980699 Root MSE: 1.995169
 Multiple R-Squared: 0.747601 Adjusted R-Squared: 0.717907 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -2933,7 +2937,7 @@ Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686
 [1] "********** W3SLS with 2 (symbolic) restrictions ***************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.9075 3.87691 1.96899 0.754181 0.725262
@@ -2958,7 +2962,7 @@ The determinant of the residual covariance matrix: 1.7419
 OLS R-squared value of the system: 0.680049
 McElroy's R-squared value for the system: 0.696672
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -2975,7 +2979,7 @@ SSR: 65.907494 MSE: 3.876911 Root MSE: 1.968987
 Multiple R-Squared: 0.754181 Adjusted R-Squared: 0.725262 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -3120,7 +3124,7 @@ Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686
 [1] "*** W3SLS with 2 restrictions via R and restrict.regMat (EViews-like) ***"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.6461 3.86153 1.96508 0.755156 0.726351
@@ -3145,7 +3149,7 @@ The determinant of the residual covariance matrix: 1.18692
 OLS R-squared value of the system: 0.682149
 McElroy's R-squared value for the system: 0.658922
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -3162,7 +3166,7 @@ SSR: 65.646068 MSE: 3.861533 Root MSE: 1.965078
 Multiple R-Squared: 0.755156 Adjusted R-Squared: 0.726351 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -3372,7 +3376,7 @@ Multiple R-Squared: 0.594475 Adjusted R-Squared: 0.518439
 [1] "*************** W3SLS with methodRCov = Theil *****************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -3399,7 +3403,7 @@ The determinant of the residual covariance matrix: -0.718397
 OLS R-squared value of the system: 0.674661
 McElroy's R-squared value for the system: 0.921552
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -3416,7 +3420,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -3561,7 +3565,7 @@ Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317
 [1] "*************** W3SLS with restriction *****************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  68.0575 4.00338 2.00084 0.746162 0.716299
@@ -3586,7 +3590,7 @@ The determinant of the residual covariance matrix: 1.24446
 OLS R-squared value of the system: 0.676968
 McElroy's R-squared value for the system: 0.725107
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -3603,7 +3607,7 @@ SSR: 68.057479 MSE: 4.003381 Root MSE: 2.000845
 Multiple R-Squared: 0.746162 Adjusted R-Squared: 0.716299 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -3747,7 +3751,7 @@ Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317
 [1] "**** W3SLS with restriction via restrict.regMat (EViews-like) ****"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.6719 3.98070 1.99517 0.747601 0.717907
@@ -3772,7 +3776,7 @@ The determinant of the residual covariance matrix: 0.8735
 OLS R-squared value of the system: 0.679272
 McElroy's R-squared value for the system: 0.680581
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -3789,7 +3793,7 @@ SSR: 67.671876 MSE: 3.980699 Root MSE: 1.995169
 Multiple R-Squared: 0.747601 Adjusted R-Squared: 0.717907 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -3934,7 +3938,7 @@ Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686
 [1] "********** W3SLS with 2 (symbolic) restrictions ***************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.9075 3.87691 1.96899 0.754181 0.725262
@@ -3959,7 +3963,7 @@ The determinant of the residual covariance matrix: 1.7419
 OLS R-squared value of the system: 0.680049
 McElroy's R-squared value for the system: 0.696672
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -3976,7 +3980,7 @@ SSR: 65.907494 MSE: 3.876911 Root MSE: 1.968987
 Multiple R-Squared: 0.754181 Adjusted R-Squared: 0.725262 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -4121,7 +4125,7 @@ Multiple R-Squared: 0.609841 Adjusted R-Squared: 0.536686
 [1] "*** W3SLS with 2 restrictions via R and restrict.regMat (EViews-like) ***"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.6461 3.86153 1.96508 0.755156 0.726351
@@ -4146,7 +4150,7 @@ The determinant of the residual covariance matrix: 1.18692
 OLS R-squared value of the system: 0.682149
 McElroy's R-squared value for the system: 0.658922
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -4163,7 +4167,7 @@ SSR: 65.646068 MSE: 3.861533 Root MSE: 1.965078
 Multiple R-Squared: 0.755156 Adjusted R-Squared: 0.726351 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -4373,7 +4377,7 @@ Multiple R-Squared: 0.594475 Adjusted R-Squared: 0.518439
 [1] "*************** W3SLS with methodRCov = Theil *****************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -4400,7 +4404,7 @@ The determinant of the residual covariance matrix: -0.718397
 OLS R-squared value of the system: 0.674661
 McElroy's R-squared value for the system: 0.921552
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -4417,7 +4421,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -4562,7 +4566,7 @@ Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317
 [1] "*************** W3SLS with restriction *****************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  68.0575 4.00338 2.00084 0.746162 0.716299
@@ -4587,7 +4591,7 @@ The determinant of the residual covariance matrix: 1.24446
 OLS R-squared value of the system: 0.676968
 McElroy's R-squared value for the system: 0.725107
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -4604,7 +4608,7 @@ SSR: 68.057479 MSE: 4.003381 Root MSE: 2.000845
 Multiple R-Squared: 0.746162 Adjusted R-Squared: 0.716299 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -4748,7 +4752,7 @@ Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317
 [1] "**** W3SLS with restriction via restrict.regMat (EViews-like) ****"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.6719 3.98070 1.99517 0.747601 0.717907
@@ -4773,7 +4777,7 @@ The determinant of the residual covariance matrix: 0.8735
 OLS R-squared value of the system: 0.679272
 McElroy's R-squared value for the system: 0.680581
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -4790,7 +4794,7 @@ SSR: 67.671876 MSE: 3.980699 Root MSE: 1.995169
 Multiple R-Squared: 0.747601 Adjusted R-Squared: 0.717907 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -4935,7 +4939,7 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 [1] "********** W3SLS with 2 (symbolic) restrictions ***************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR      MSE    RMSE        R2    Adj R2
 demand 20 17 166.148  9.77344 3.12625  0.380307  0.307402
@@ -4960,7 +4964,7 @@ The determinant of the residual covariance matrix: 31.1531
 OLS R-squared value of the system: 0.165378
 McElroy's R-squared value for the system: -0.0572157
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -4977,7 +4981,7 @@ SSR: 166.148455 MSE: 9.773439 Root MSE: 3.12625
 Multiple R-Squared: 0.380307 Adjusted R-Squared: 0.307402 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -5122,7 +5126,7 @@ Multiple R-Squared: -0.009253 Adjusted R-Squared: -0.198488
 [1] "*** W3SLS with 2 restrictions via R and restrict.regMat (EViews-like) ***"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR     MSE    RMSE        R2    Adj R2
 demand 20 17 170.659 10.0388 3.16840  0.363484  0.288600
@@ -5147,7 +5151,7 @@ The determinant of the residual covariance matrix: 21.3262
 OLS R-squared value of the system: 0.171572
 McElroy's R-squared value for the system: -0.188208
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -5164,7 +5168,7 @@ SSR: 170.659069 MSE: 10.038769 Root MSE: 3.168402
 Multiple R-Squared: 0.363484 Adjusted R-Squared: 0.2886 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -5208,9 +5212,9 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 +    print( summary( fit3slsi[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
 +    print( "**************** iterated W3SLS EViews-like ****************" )
-+    fit3slsi[[ i ]]$e1we <- systemfit( system, "W3SLS", data = Kmenta,
++    fit3slsi[[ i ]]$e1we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", method3sls = formulas[ i ],
-+       maxiter = 100  )
++       maxiter = 100, residCovWeighted = TRUE  )
 +    print( summary( fit3slsi[[ i ]]$e1we, useDfSys = TRUE ) )
 + 
 + 
@@ -5226,9 +5230,9 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 +    print( summary( fit3slsi[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "******** iterated W3SLS with restriction (EViews-like) *********" )
-+    fit3slsi[[ i ]]$e2we <- systemfit( system, "W3SLS", data = Kmenta,
++    fit3slsi[[ i ]]$e2we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", restrict.matrix = restrm,
-+       method3sls = formulas[ i ], maxiter = 100 )
++       method3sls = formulas[ i ], maxiter = 100, residCovWeighted = TRUE )
 +    print( summary( fit3slsi[[ i ]]$e2we, useDfSys = TRUE ) )
 + 
 + 
@@ -5244,8 +5248,9 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 +    print( summary( fit3slsi[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
 +    print( "***** iterated W3SLS with restriction via restrict.regMat ********" )
-+    fit3slsi[[ i ]]$e3w <- systemfit( system, "W3SLS", data = Kmenta,
-+       inst = inst, restrict.regMat = tc, method3sls = formulas[ i ], maxiter = 100 )
++    fit3slsi[[ i ]]$e3w <- systemfit( system, "3SLS", data = Kmenta,
++       inst = inst, restrict.regMat = tc, method3sls = formulas[ i ], maxiter = 100,
++       residCovWeighted = TRUE )
 +    print( summary( fit3slsi[[ i ]]$e3w ) )
 + 
 + 
@@ -5262,9 +5267,10 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 +    print( summary( fit3slsi[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "******** iterated W3SLS with 2 restrictions (EViews-like) *******" )
-+    fit3slsi[[ i ]]$e4we <- systemfit( system, "W3SLS", data = Kmenta,
++    fit3slsi[[ i ]]$e4we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodRCov = "noDfCor", restrict.matrix = restr2m,
-+       restrict.rhs = restr2q, method3sls = formulas[ i ], maxiter = 100 )
++       restrict.rhs = restr2q, method3sls = formulas[ i ], maxiter = 100,
++       residCovWeighted = TRUE )
 +    print( summary( fit3slsi[[ i ]]$e4we, useDfSys = TRUE ) )
 + 
 + 
@@ -5282,9 +5288,9 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 +    print( summary( fit3slsi[[ i ]]$e5e, useDfSys = TRUE ) )
 + 
 +    print( "** iterated W3SLS with 2 restrictions via R and restrict.regMat ***" )
-+    fit3slsi[[ i ]]$e5w <- systemfit( system, "W3SLS", data = Kmenta,
++    fit3slsi[[ i ]]$e5w <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.regMat = tc, restrict.matrix = restr3m, restrict.rhs = restr3q,
-+       method3sls = formulas[ i ], maxiter = 100 )
++       method3sls = formulas[ i ], maxiter = 100, residCovWeighted = TRUE )
 +    print( summary( fit3slsi[[ i ]]$e5w ) )
 + }
 [1] "***************************************************"
@@ -5486,7 +5492,7 @@ Multiple R-Squared: 0.575666 Adjusted R-Squared: 0.496104
 [1] "**************** iterated W3SLS EViews-like ****************"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 6 iterations
 
@@ -5513,7 +5519,7 @@ The determinant of the residual covariance matrix: 0.666871
 OLS R-squared value of the system: 0.669859
 McElroy's R-squared value for the system: 0.781677
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -5530,7 +5536,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -5678,7 +5684,7 @@ Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399
 [1] "******** iterated W3SLS with restriction (EViews-like) *********"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 20 iterations
 
@@ -5705,7 +5711,7 @@ The determinant of the residual covariance matrix: 0.364262
 OLS R-squared value of the system: 0.557308
 McElroy's R-squared value for the system: 0.755123
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -5722,7 +5728,7 @@ SSR: 99.296691 MSE: 5.840982 Root MSE: 2.416812
 Multiple R-Squared: 0.629648 Adjusted R-Squared: 0.586077 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -5870,7 +5876,7 @@ Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399
 [1] "***** iterated W3SLS with restriction via restrict.regMat ********"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 17 iterations
 
@@ -5897,7 +5903,7 @@ The determinant of the residual covariance matrix: 0.560179
 OLS R-squared value of the system: 0.553208
 McElroy's R-squared value for the system: 0.818908
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -5914,7 +5920,7 @@ SSR: 98.435139 MSE: 5.790302 Root MSE: 2.406305
 Multiple R-Squared: 0.632861 Adjusted R-Squared: 0.589668 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -6062,7 +6068,7 @@ Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298
 [1] "******** iterated W3SLS with 2 restrictions (EViews-like) *******"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 8 iterations
 
@@ -6089,7 +6095,7 @@ The determinant of the residual covariance matrix: 1.18661
 OLS R-squared value of the system: 0.66603
 McElroy's R-squared value for the system: 0.667877
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -6106,7 +6112,7 @@ SSR: 68.293365 MSE: 4.017257 Root MSE: 2.00431
 Multiple R-Squared: 0.745283 Adjusted R-Squared: 0.715316 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -6254,7 +6260,7 @@ Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298
 [1] "** iterated W3SLS with 2 restrictions via R and restrict.regMat ***"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 9 iterations
 
@@ -6281,7 +6287,7 @@ The determinant of the residual covariance matrix: 1.75813
 OLS R-squared value of the system: 0.655469
 McElroy's R-squared value for the system: 0.710284
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -6298,7 +6304,7 @@ SSR: 69.917274 MSE: 4.112781 Root MSE: 2.027999
 Multiple R-Squared: 0.739226 Adjusted R-Squared: 0.708547 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -6514,7 +6520,7 @@ Multiple R-Squared: 0.575666 Adjusted R-Squared: 0.496104
 [1] "**************** iterated W3SLS EViews-like ****************"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 6 iterations
 
@@ -6541,7 +6547,7 @@ The determinant of the residual covariance matrix: 0.666871
 OLS R-squared value of the system: 0.669859
 McElroy's R-squared value for the system: 0.781677
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -6558,7 +6564,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -6706,7 +6712,7 @@ Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399
 [1] "******** iterated W3SLS with restriction (EViews-like) *********"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 20 iterations
 
@@ -6733,7 +6739,7 @@ The determinant of the residual covariance matrix: 0.364262
 OLS R-squared value of the system: 0.557308
 McElroy's R-squared value for the system: 0.755123
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -6750,7 +6756,7 @@ SSR: 99.296691 MSE: 5.840982 Root MSE: 2.416812
 Multiple R-Squared: 0.629648 Adjusted R-Squared: 0.586077 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -6898,7 +6904,7 @@ Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399
 [1] "***** iterated W3SLS with restriction via restrict.regMat ********"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 17 iterations
 
@@ -6925,7 +6931,7 @@ The determinant of the residual covariance matrix: 0.560179
 OLS R-squared value of the system: 0.553208
 McElroy's R-squared value for the system: 0.818908
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -6942,7 +6948,7 @@ SSR: 98.435139 MSE: 5.790302 Root MSE: 2.406305
 Multiple R-Squared: 0.632861 Adjusted R-Squared: 0.589668 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -7090,7 +7096,7 @@ Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298
 [1] "******** iterated W3SLS with 2 restrictions (EViews-like) *******"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 8 iterations
 
@@ -7117,7 +7123,7 @@ The determinant of the residual covariance matrix: 1.18661
 OLS R-squared value of the system: 0.66603
 McElroy's R-squared value for the system: 0.667877
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -7134,7 +7140,7 @@ SSR: 68.293365 MSE: 4.017257 Root MSE: 2.00431
 Multiple R-Squared: 0.745283 Adjusted R-Squared: 0.715316 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -7282,7 +7288,7 @@ Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298
 [1] "** iterated W3SLS with 2 restrictions via R and restrict.regMat ***"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 9 iterations
 
@@ -7309,7 +7315,7 @@ The determinant of the residual covariance matrix: 1.75813
 OLS R-squared value of the system: 0.655469
 McElroy's R-squared value for the system: 0.710284
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -7326,7 +7332,7 @@ SSR: 69.917274 MSE: 4.112781 Root MSE: 2.027999
 Multiple R-Squared: 0.739226 Adjusted R-Squared: 0.708547 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -7542,7 +7548,7 @@ Multiple R-Squared: 0.575666 Adjusted R-Squared: 0.496104
 [1] "**************** iterated W3SLS EViews-like ****************"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 6 iterations
 
@@ -7569,7 +7575,7 @@ The determinant of the residual covariance matrix: 0.666871
 OLS R-squared value of the system: 0.669859
 McElroy's R-squared value for the system: 0.781677
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -7586,7 +7592,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -7734,7 +7740,7 @@ Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399
 [1] "******** iterated W3SLS with restriction (EViews-like) *********"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 20 iterations
 
@@ -7761,7 +7767,7 @@ The determinant of the residual covariance matrix: 0.364262
 OLS R-squared value of the system: 0.557308
 McElroy's R-squared value for the system: 0.755123
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -7778,7 +7784,7 @@ SSR: 99.296691 MSE: 5.840982 Root MSE: 2.416812
 Multiple R-Squared: 0.629648 Adjusted R-Squared: 0.586077 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -7926,7 +7932,7 @@ Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399
 [1] "***** iterated W3SLS with restriction via restrict.regMat ********"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 17 iterations
 
@@ -7953,7 +7959,7 @@ The determinant of the residual covariance matrix: 0.560179
 OLS R-squared value of the system: 0.553208
 McElroy's R-squared value for the system: 0.818908
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -7970,7 +7976,7 @@ SSR: 98.435139 MSE: 5.790302 Root MSE: 2.406305
 Multiple R-Squared: 0.632861 Adjusted R-Squared: 0.589668 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -8118,7 +8124,7 @@ Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298
 [1] "******** iterated W3SLS with 2 restrictions (EViews-like) *******"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 8 iterations
 
@@ -8145,7 +8151,7 @@ The determinant of the residual covariance matrix: 1.18661
 OLS R-squared value of the system: 0.66603
 McElroy's R-squared value for the system: 0.667877
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -8162,7 +8168,7 @@ SSR: 68.293365 MSE: 4.017257 Root MSE: 2.00431
 Multiple R-Squared: 0.745283 Adjusted R-Squared: 0.715316 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -8310,7 +8316,7 @@ Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298
 [1] "** iterated W3SLS with 2 restrictions via R and restrict.regMat ***"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 9 iterations
 
@@ -8337,7 +8343,7 @@ The determinant of the residual covariance matrix: 1.75813
 OLS R-squared value of the system: 0.655469
 McElroy's R-squared value for the system: 0.710284
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -8354,7 +8360,7 @@ SSR: 69.917274 MSE: 4.112781 Root MSE: 2.027999
 Multiple R-Squared: 0.739226 Adjusted R-Squared: 0.708547 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -8570,7 +8576,7 @@ Multiple R-Squared: 0.575666 Adjusted R-Squared: 0.496104
 [1] "**************** iterated W3SLS EViews-like ****************"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 6 iterations
 
@@ -8597,7 +8603,7 @@ The determinant of the residual covariance matrix: 0.666871
 OLS R-squared value of the system: 0.669859
 McElroy's R-squared value for the system: 0.781677
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -8614,7 +8620,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -8762,7 +8768,7 @@ Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399
 [1] "******** iterated W3SLS with restriction (EViews-like) *********"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 20 iterations
 
@@ -8789,7 +8795,7 @@ The determinant of the residual covariance matrix: 0.364262
 OLS R-squared value of the system: 0.557308
 McElroy's R-squared value for the system: 0.755123
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -8806,7 +8812,7 @@ SSR: 99.29669 MSE: 5.840982 Root MSE: 2.416812
 Multiple R-Squared: 0.629648 Adjusted R-Squared: 0.586077 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -8954,7 +8960,7 @@ Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399
 [1] "***** iterated W3SLS with restriction via restrict.regMat ********"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 17 iterations
 
@@ -8981,7 +8987,7 @@ The determinant of the residual covariance matrix: 0.560179
 OLS R-squared value of the system: 0.553208
 McElroy's R-squared value for the system: 0.818908
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -8998,7 +9004,7 @@ SSR: 98.435139 MSE: 5.790302 Root MSE: 2.406305
 Multiple R-Squared: 0.632861 Adjusted R-Squared: 0.589668 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -9146,7 +9152,7 @@ Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298
 [1] "******** iterated W3SLS with 2 restrictions (EViews-like) *******"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 8 iterations
 
@@ -9173,7 +9179,7 @@ The determinant of the residual covariance matrix: 1.18661
 OLS R-squared value of the system: 0.66603
 McElroy's R-squared value for the system: 0.667877
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -9190,7 +9196,7 @@ SSR: 68.293365 MSE: 4.017257 Root MSE: 2.00431
 Multiple R-Squared: 0.745283 Adjusted R-Squared: 0.715316 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -9338,7 +9344,7 @@ Multiple R-Squared: 0.586777 Adjusted R-Squared: 0.509298
 [1] "** iterated W3SLS with 2 restrictions via R and restrict.regMat ***"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 9 iterations
 
@@ -9365,7 +9371,7 @@ The determinant of the residual covariance matrix: 1.75813
 OLS R-squared value of the system: 0.655469
 McElroy's R-squared value for the system: 0.710284
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -9382,7 +9388,7 @@ SSR: 69.917274 MSE: 4.112781 Root MSE: 2.027999
 Multiple R-Squared: 0.739226 Adjusted R-Squared: 0.708547 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -9598,7 +9604,7 @@ Multiple R-Squared: 0.575666 Adjusted R-Squared: 0.496104
 [1] "**************** iterated W3SLS EViews-like ****************"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 6 iterations
 
@@ -9625,7 +9631,7 @@ The determinant of the residual covariance matrix: 0.666871
 OLS R-squared value of the system: 0.669859
 McElroy's R-squared value for the system: 0.781677
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -9642,7 +9648,7 @@ SSR: 65.729088 MSE: 3.866417 Root MSE: 1.966321
 Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -9790,7 +9796,7 @@ Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399
 [1] "******** iterated W3SLS with restriction (EViews-like) *********"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 20 iterations
 
@@ -9817,7 +9823,7 @@ The determinant of the residual covariance matrix: 0.364262
 OLS R-squared value of the system: 0.557308
 McElroy's R-squared value for the system: 0.755123
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -9834,7 +9840,7 @@ SSR: 99.29669 MSE: 5.840982 Root MSE: 2.416812
 Multiple R-Squared: 0.629648 Adjusted R-Squared: 0.586077 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -9982,7 +9988,7 @@ Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399
 [1] "***** iterated W3SLS with restriction via restrict.regMat ********"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 17 iterations
 
@@ -10009,7 +10015,7 @@ The determinant of the residual covariance matrix: 0.560179
 OLS R-squared value of the system: 0.553208
 McElroy's R-squared value for the system: 0.818908
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -10026,7 +10032,7 @@ SSR: 98.435139 MSE: 5.790302 Root MSE: 2.406305
 Multiple R-Squared: 0.632861 Adjusted R-Squared: 0.589668 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -10174,7 +10180,7 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 [1] "******** iterated W3SLS with 2 restrictions (EViews-like) *******"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 convergence achieved after 66 iterations
 
@@ -10201,7 +10207,7 @@ The determinant of the residual covariance matrix: 20.5432
 OLS R-squared value of the system: -0.146633
 McElroy's R-squared value for the system: 0.479606
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -10218,7 +10224,7 @@ SSR: 150.821018 MSE: 8.871825 Root MSE: 2.978561
 Multiple R-Squared: 0.437475 Adjusted R-Squared: 0.371295 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -10366,7 +10372,7 @@ Multiple R-Squared: -0.730741 Adjusted R-Squared: -1.055255
 [1] "** iterated W3SLS with 2 restrictions via R and restrict.regMat ***"
 
 systemfit results 
-method: iterated W3SLS 
+method: iterated 3SLS 
 
 warning: convergence not achieved after 100 iterations
 
@@ -10393,7 +10399,7 @@ The determinant of the residual covariance matrix: 34.6909
 OLS R-squared value of the system: -1.22711
 McElroy's R-squared value for the system: 0.688146
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
@@ -10410,7 +10416,7 @@ SSR: 274.430037 MSE: 16.142943 Root MSE: 4.017828
 Multiple R-Squared: -0.023556 Adjusted R-Squared: -0.143975 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -10452,8 +10458,8 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 +    print( summary( fit3slsd[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
 +    print( "************* W3SLS with different instruments **************" )
-+    fit3slsd[[ i ]]$e1w <- systemfit( system, "W3SLS", data = Kmenta,
-+       inst = instlist, method3sls = formulas[ i ] )
++    fit3slsd[[ i ]]$e1w <- systemfit( system, "3SLS", data = Kmenta,
++       inst = instlist, method3sls = formulas[ i ], residCovWeighted = TRUE )
 +    print( summary( fit3slsd[[ i ]]$e1w ) )
 + 
 + 
@@ -10469,9 +10475,9 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 +    print( summary( fit3slsd[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "** W3SLS with different instruments and restriction (EViews-like) *" )
-+    fit3slsd[[ i ]]$e2we <- systemfit( system, "W3SLS", data = Kmenta,
++    fit3slsd[[ i ]]$e2we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodRCov = "noDfCor", restrict.matrix = restrm,
-+       method3sls = formulas[ i ] )
++       method3sls = formulas[ i ], residCovWeighted = TRUE )
 +    print( summary( fit3slsd[[ i ]]$e2we, useDfSys = TRUE ) )
 + 
 + 
@@ -10487,8 +10493,9 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 +    print( summary( fit3slsd[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
 +    print( "** W3SLS with different instr. and restr. via restrict.regMat ****" )
-+    fit3slsd[[ i ]]$e3w <- systemfit( system, "W3SLS", data = Kmenta,
-+       inst = instlist, restrict.regMat = tc, method3sls = formulas[ i ] )
++    fit3slsd[[ i ]]$e3w <- systemfit( system, "3SLS", data = Kmenta,
++       inst = instlist, restrict.regMat = tc, method3sls = formulas[ i ],
++       residCovWeighted = TRUE )
 +    print( summary( fit3slsd[[ i ]]$e3w ) )
 + 
 + 
@@ -10505,9 +10512,9 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 +    print( summary( fit3slsd[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "**** W3SLS with different instruments and 2 restrictions *********" )
-+    fit3slsd[[ i ]]$e4w <- systemfit( system, "W3SLS", data = Kmenta,
++    fit3slsd[[ i ]]$e4w <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, restrict.matrix = restr2m, restrict.rhs = restr2q,
-+       method3sls = formulas[ i ] )
++       method3sls = formulas[ i ], residCovWeighted = TRUE )
 +    print( summary( fit3slsd[[ i ]]$e4w ) )
 + 
 + 
@@ -10524,9 +10531,10 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 +    print( summary( fit3slsd[[ i ]]$e5e, useDfSys = TRUE ) )
 + 
 +    print( "W3SLS with diff. instr. and 2 restr. via R and restrict.regMat (EViews-like)" )
-+    fit3slsd[[ i ]]$e5we <- systemfit( system, "W3SLS", data = Kmenta,
++    fit3slsd[[ i ]]$e5we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, restrict.regMat = tc, methodRCov = "noDfCor",
-+       restrict.matrix = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ] )
++       restrict.matrix = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
++       residCovWeighted = TRUE )
 +    print( summary( fit3slsd[[ i ]]$e5we, useDfSys = TRUE ) )
 + }
 [1] "***************************************************"
@@ -10720,7 +10728,7 @@ Multiple R-Squared: 0.616886 Adjusted R-Squared: 0.545053
 [1] "************* W3SLS with different instruments **************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.4466 3.96745 1.99185 0.748441 0.718846
@@ -10745,7 +10753,7 @@ The determinant of the residual covariance matrix: 13.3662
 OLS R-squared value of the system: 0.683177
 McElroy's R-squared value for the system: 0.520382
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -10762,7 +10770,7 @@ SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845
 Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -10906,7 +10914,7 @@ Multiple R-Squared: 0.526157 Adjusted R-Squared: 0.437311
 [1] "** W3SLS with different instruments and restriction (EViews-like) *"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  72.4346 4.26086 2.06419 0.729837 0.698053
@@ -10931,7 +10939,7 @@ The determinant of the residual covariance matrix: 1.76554
 OLS R-squared value of the system: 0.628564
 McElroy's R-squared value for the system: 0.650298
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -10948,7 +10956,7 @@ SSR: 72.434592 MSE: 4.260858 Root MSE: 2.064185
 Multiple R-Squared: 0.729837 Adjusted R-Squared: 0.698053 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -11092,7 +11100,7 @@ Multiple R-Squared: 0.526157 Adjusted R-Squared: 0.437311
 [1] "** W3SLS with different instr. and restr. via restrict.regMat ****"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  71.9453 4.23208 2.05720 0.731662 0.700093
@@ -11117,7 +11125,7 @@ The determinant of the residual covariance matrix: 2.75206
 OLS R-squared value of the system: 0.62728
 McElroy's R-squared value for the system: 0.683725
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -11134,7 +11142,7 @@ SSR: 71.945319 MSE: 4.232078 Root MSE: 2.057201
 Multiple R-Squared: 0.731662 Adjusted R-Squared: 0.700093 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -11278,7 +11286,7 @@ Multiple R-Squared: 0.507682 Adjusted R-Squared: 0.415373
 [1] "**** W3SLS with different instruments and 2 restrictions *********"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  78.8527 4.63839 2.15369 0.705899 0.671299
@@ -11303,7 +11311,7 @@ The determinant of the residual covariance matrix: 2.09771
 OLS R-squared value of the system: 0.600791
 McElroy's R-squared value for the system: 0.713087
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -11320,7 +11328,7 @@ SSR: 78.852686 MSE: 4.638393 Root MSE: 2.153693
 Multiple R-Squared: 0.705899 Adjusted R-Squared: 0.671299 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -11464,7 +11472,7 @@ Multiple R-Squared: 0.507682 Adjusted R-Squared: 0.415373
 [1] "W3SLS with diff. instr. and 2 restr. via R and restrict.regMat (EViews-like)"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  78.7134 4.63020 2.15179 0.706419 0.671880
@@ -11489,7 +11497,7 @@ The determinant of the residual covariance matrix: 1.4156
 OLS R-squared value of the system: 0.603848
 McElroy's R-squared value for the system: 0.671026
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -11506,7 +11514,7 @@ SSR: 78.713381 MSE: 4.630199 Root MSE: 2.15179
 Multiple R-Squared: 0.706419 Adjusted R-Squared: 0.67188 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -11714,7 +11722,7 @@ Multiple R-Squared: 0.598384 Adjusted R-Squared: 0.523081
 [1] "************* W3SLS with different instruments **************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.4466 3.96745 1.99185 0.748441 0.718846
@@ -11739,7 +11747,7 @@ The determinant of the residual covariance matrix: 2.11612
 OLS R-squared value of the system: 0.675372
 McElroy's R-squared value for the system: 0.659003
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -11756,7 +11764,7 @@ SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845
 Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -11900,7 +11908,7 @@ Multiple R-Squared: 0.245134 Adjusted R-Squared: 0.103596
 [1] "** W3SLS with different instruments and restriction (EViews-like) *"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR      MSE    RMSE       R2   Adj R2
 demand 20 17 156.133  9.18428 3.03056 0.417663 0.349153
@@ -11925,7 +11933,7 @@ The determinant of the residual covariance matrix: 6.72534
 OLS R-squared value of the system: 0.344703
 McElroy's R-squared value for the system: -0.118081
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -11942,7 +11950,7 @@ SSR: 156.132783 MSE: 9.184281 Root MSE: 3.030558
 Multiple R-Squared: 0.417663 Adjusted R-Squared: 0.349153 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -12086,7 +12094,7 @@ Multiple R-Squared: 0.245134 Adjusted R-Squared: 0.103596
 [1] "** W3SLS with different instr. and restr. via restrict.regMat ****"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR      MSE    RMSE       R2   Adj R2
 demand 20 17 165.668  9.74517 3.12173 0.382100 0.309405
@@ -12111,7 +12119,7 @@ The determinant of the residual covariance matrix: 10.546
 OLS R-squared value of the system: 0.295366
 McElroy's R-squared value for the system: -0.0714925
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -12128,7 +12136,7 @@ SSR: 165.667919 MSE: 9.745172 Root MSE: 3.121726
 Multiple R-Squared: 0.3821 Adjusted R-Squared: 0.309405 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -12272,7 +12280,7 @@ Multiple R-Squared: 0.334403 Adjusted R-Squared: 0.209603
 [1] "**** W3SLS with different instruments and 2 restrictions *********"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR     MSE    RMSE        R2    Adj R2
 demand 20 17 192.561 11.3271 3.36558  0.281794  0.197300
@@ -12297,7 +12305,7 @@ The determinant of the residual covariance matrix: 8.97664
 OLS R-squared value of the system: 0.128476
 McElroy's R-squared value for the system: 0.112888
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -12314,7 +12322,7 @@ SSR: 192.561177 MSE: 11.327128 Root MSE: 3.36558
 Multiple R-Squared: 0.281794 Adjusted R-Squared: 0.1973 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -12458,7 +12466,7 @@ Multiple R-Squared: 0.334403 Adjusted R-Squared: 0.209603
 [1] "W3SLS with diff. instr. and 2 restr. via R and restrict.regMat (EViews-like)"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR      MSE    RMSE       R2   Adj R2
 demand 20 17 152.579  8.97526 2.99587 0.430916 0.363965
@@ -12483,7 +12491,7 @@ The determinant of the residual covariance matrix: 4.26675
 OLS R-squared value of the system: 0.318756
 McElroy's R-squared value for the system: 0.127185
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -12500,7 +12508,7 @@ SSR: 152.579428 MSE: 8.97526 Root MSE: 2.995874
 Multiple R-Squared: 0.430916 Adjusted R-Squared: 0.363965 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -12708,7 +12716,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 [1] "************* W3SLS with different instruments **************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
@@ -12733,7 +12741,7 @@ The determinant of the residual covariance matrix: 9.24969
 OLS R-squared value of the system: 0.694011
 McElroy's R-squared value for the system: 0.512239
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -12750,7 +12758,7 @@ SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845
 Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -12894,7 +12902,7 @@ Multiple R-Squared: 0.589596 Adjusted R-Squared: 0.512645
 [1] "** W3SLS with different instruments and restriction (EViews-like) *"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.090 3.82883 1.95674 0.757230 0.728669
@@ -12919,7 +12927,7 @@ The determinant of the residual covariance matrix: 1.76121
 OLS R-squared value of the system: 0.673624
 McElroy's R-squared value for the system: 0.634655
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -12936,7 +12944,7 @@ SSR: 65.090059 MSE: 3.828827 Root MSE: 1.956739
 Multiple R-Squared: 0.75723 Adjusted R-Squared: 0.728669 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -13080,7 +13088,7 @@ Multiple R-Squared: 0.589596 Adjusted R-Squared: 0.512645
 [1] "** W3SLS with different instr. and restr. via restrict.regMat ****"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  64.8755 3.81621 1.95351 0.758030 0.729563
@@ -13105,7 +13113,7 @@ The determinant of the residual covariance matrix: 2.69834
 OLS R-squared value of the system: 0.673429
 McElroy's R-squared value for the system: 0.663596
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -13122,7 +13130,7 @@ SSR: 64.875533 MSE: 3.816208 Root MSE: 1.953512
 Multiple R-Squared: 0.75803 Adjusted R-Squared: 0.729563 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -13266,7 +13274,7 @@ Multiple R-Squared: 0.587221 Adjusted R-Squared: 0.509825
 [1] "**** W3SLS with different instruments and 2 restrictions *********"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.7187 3.98345 1.99586 0.747426 0.717712
@@ -13291,7 +13299,7 @@ The determinant of the residual covariance matrix: 1.92009
 OLS R-squared value of the system: 0.665567
 McElroy's R-squared value for the system: 0.697933
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -13308,7 +13316,7 @@ SSR: 67.718666 MSE: 3.983451 Root MSE: 1.995858
 Multiple R-Squared: 0.747426 Adjusted R-Squared: 0.717712 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -13452,7 +13460,7 @@ Multiple R-Squared: 0.587221 Adjusted R-Squared: 0.509825
 [1] "W3SLS with diff. instr. and 2 restr. via R and restrict.regMat (EViews-like)"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.800 3.98824 1.99706 0.747123 0.717372
@@ -13477,7 +13485,7 @@ The determinant of the residual covariance matrix: 1.3012
 OLS R-squared value of the system: 0.666095
 McElroy's R-squared value for the system: 0.660969
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -13494,7 +13502,7 @@ SSR: 67.800037 MSE: 3.988237 Root MSE: 1.997057
 Multiple R-Squared: 0.747123 Adjusted R-Squared: 0.717372 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -13702,7 +13710,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 [1] "************* W3SLS with different instruments **************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
@@ -13727,7 +13735,7 @@ The determinant of the residual covariance matrix: 9.24969
 OLS R-squared value of the system: 0.694011
 McElroy's R-squared value for the system: 0.512239
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -13744,7 +13752,7 @@ SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845
 Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -13888,7 +13896,7 @@ Multiple R-Squared: 0.619303 Adjusted R-Squared: 0.547922
 [1] "** W3SLS with different instruments and restriction (EViews-like) *"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  63.3719 3.72776 1.93074 0.763638 0.735831
@@ -13913,7 +13921,7 @@ The determinant of the residual covariance matrix: 1.84992
 OLS R-squared value of the system: 0.691465
 McElroy's R-squared value for the system: 0.607691
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -13930,7 +13938,7 @@ SSR: 63.371898 MSE: 3.727759 Root MSE: 1.93074
 Multiple R-Squared: 0.763638 Adjusted R-Squared: 0.735831 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -14074,7 +14082,7 @@ Multiple R-Squared: 0.619303 Adjusted R-Squared: 0.547922
 [1] "** W3SLS with different instr. and restr. via restrict.regMat ****"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  63.3985 3.72932 1.93114 0.763539 0.735720
@@ -14099,7 +14107,7 @@ The determinant of the residual covariance matrix: 2.7895
 OLS R-squared value of the system: 0.69121
 McElroy's R-squared value for the system: 0.635267
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -14116,7 +14124,7 @@ SSR: 63.398484 MSE: 3.729323 Root MSE: 1.931145
 Multiple R-Squared: 0.763539 Adjusted R-Squared: 0.73572 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -14260,7 +14268,7 @@ Multiple R-Squared: 0.622738 Adjusted R-Squared: 0.552001
 [1] "**** W3SLS with different instruments and 2 restrictions *********"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR    MSE    RMSE       R2  Adj R2
 demand 20 17  64.0798 3.7694 1.94149 0.760998 0.73288
@@ -14285,7 +14293,7 @@ The determinant of the residual covariance matrix: 1.89232
 OLS R-squared value of the system: 0.691627
 McElroy's R-squared value for the system: 0.6772
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -14302,7 +14310,7 @@ SSR: 64.079817 MSE: 3.769401 Root MSE: 1.941495
 Multiple R-Squared: 0.760998 Adjusted R-Squared: 0.73288 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -14446,7 +14454,7 @@ Multiple R-Squared: 0.622738 Adjusted R-Squared: 0.552001
 [1] "W3SLS with diff. instr. and 2 restr. via R and restrict.regMat (EViews-like)"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  64.117 3.77159 1.94206 0.760859 0.732725
@@ -14471,7 +14479,7 @@ The determinant of the residual covariance matrix: 1.28458
 OLS R-squared value of the system: 0.691646
 McElroy's R-squared value for the system: 0.642736
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -14488,7 +14496,7 @@ SSR: 64.117006 MSE: 3.771589 Root MSE: 1.942058
 Multiple R-Squared: 0.760859 Adjusted R-Squared: 0.732725 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -14696,7 +14704,7 @@ Multiple R-Squared: 0.598384 Adjusted R-Squared: 0.523081
 [1] "************* W3SLS with different instruments **************"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.4466 3.96745 1.99185 0.748441 0.718846
@@ -14721,7 +14729,7 @@ The determinant of the residual covariance matrix: 2.11612
 OLS R-squared value of the system: 0.675372
 McElroy's R-squared value for the system: 0.659003
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -14738,7 +14746,7 @@ SSR: 67.446561 MSE: 3.967445 Root MSE: 1.991845
 Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -14882,7 +14890,7 @@ Multiple R-Squared: 0.618982 Adjusted R-Squared: 0.547542
 [1] "** W3SLS with different instruments and restriction (EViews-like) *"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  70.4753 4.14560 2.03607 0.737145 0.706221
@@ -14907,7 +14915,7 @@ The determinant of the residual covariance matrix: 2.28901
 OLS R-squared value of the system: 0.678104
 McElroy's R-squared value for the system: 0.515167
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -14924,7 +14932,7 @@ SSR: 70.47525 MSE: 4.145603 Root MSE: 2.036075
 Multiple R-Squared: 0.737145 Adjusted R-Squared: 0.706221 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -15068,7 +15076,7 @@ Multiple R-Squared: 0.618982 Adjusted R-Squared: 0.547542
 [1] "** W3SLS with different instr. and restr. via restrict.regMat ****"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  71.0166 4.17745 2.04388 0.735125 0.703964
@@ -15093,7 +15101,7 @@ The determinant of the residual covariance matrix: 3.38069
 OLS R-squared value of the system: 0.67634
 McElroy's R-squared value for the system: 0.542915
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -15110,7 +15118,7 @@ SSR: 71.016648 MSE: 4.17745 Root MSE: 2.043881
 Multiple R-Squared: 0.735125 Adjusted R-Squared: 0.703964 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -15254,7 +15262,7 @@ Multiple R-Squared: 0.193198 Adjusted R-Squared: 0.041923
 [1] "**** W3SLS with different instruments and 2 restrictions *********"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR      MSE    RMSE       R2   Adj R2
 demand 20 17 143.236  8.42563 2.90269 0.465766 0.402915
@@ -15279,7 +15287,7 @@ The determinant of the residual covariance matrix: 32.3142
 OLS R-squared value of the system: 0.321737
 McElroy's R-squared value for the system: -0.0215336
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -15296,7 +15304,7 @@ SSR: 143.235789 MSE: 8.425635 Root MSE: 2.902694
 Multiple R-Squared: 0.465766 Adjusted R-Squared: 0.402915 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
@@ -15440,7 +15448,7 @@ Multiple R-Squared: 0.193198 Adjusted R-Squared: 0.041923
 [1] "W3SLS with diff. instr. and 2 restr. via R and restrict.regMat (EViews-like)"
 
 systemfit results 
-method: W3SLS 
+method: 3SLS 
 
         N DF     SSR      MSE    RMSE       R2   Adj R2
 demand 20 17 144.274  8.48668 2.91319 0.461895 0.398589
@@ -15465,7 +15473,7 @@ The determinant of the residual covariance matrix: 21.7869
 OLS R-squared value of the system: 0.320523
 McElroy's R-squared value for the system: -0.069296
 
-W3SLS estimates for 'demand' (equation 1)
+3SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
@@ -15482,7 +15490,7 @@ SSR: 144.273609 MSE: 8.486683 Root MSE: 2.913191
 Multiple R-Squared: 0.461895 Adjusted R-Squared: 0.398589 
 
 
-W3SLS estimates for 'supply' (equation 2)
+3SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
