@@ -123,14 +123,10 @@ All optional arguments are described in the following:
 
 The optional argument \code{method} is a string
 that determines the estimation method.
-It must be either °\code{OLS}°, °\code{WLS}°, °\code{SUR}°, °\code{WSUR}°,
-°\code{2SLS}°, °\code{W2SLS}°, °\code{3SLS}°, or °\code{W3SLS}°.
-While six of these methods correspond to the estimation methods
-described in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions},
-the methods °\code{WSUR}° and °\code{W3SLS}° are °\code{SUR}° and °\code{3SLS}° estimations
-using the residual covariance matrices from
-°\code{WLS}° and °\code{W2SLS}° estimations, respectively
-(see section~\ref{sec:residcov}).
+It must be either °\code{OLS}°, °\code{WLS}°, °\code{SUR}°,
+°\code{2SLS}°, °\code{W2SLS}°, or °\code{3SLS}°.
+These methods correspond to the estimation methods
+described in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions}.
 The following command estimates the model described above as
 °Seemingly Unrelated Regression°.
 <<>>=
@@ -303,6 +299,15 @@ OLS or 2SLS estimation.
 If it is °\code{FALSE}°,
 the residual covariance matrix is obtained from an unrestricted
 first-step estimation.
+
+Finally, argument °\code{residCovWeighted}° can be used to decide,
+whether the residual covariance matrix for a SUR (3SLS) estimation
+should be obtained from a WLS (W2SLS)
+rather than from an OLS (2SLS) estimation
+(see section~\ref{sec:residcov}).
+By default, °\code{residCovWeighted}° is \code{FALSE},
+which means that the residuals of an OLS (2SLS) estimation are used
+to compute the residual covariance matrix.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
