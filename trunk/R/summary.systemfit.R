@@ -21,13 +21,13 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    result$control <- object$control
    result$residuals <- residuals( object )
    result$residCovEst <- object$rcovest
-   result$residCov <- object$rcov
+   result$residCov <- object$residCov
    if( !is.null( result$residCovEst ) ) {
       dimnames( result$residCovEst ) <- dimnames( result$residCov )
    }
    result$residCor <- cor( residuals( object ) )
    dimnames( result$residCor ) <- dimnames( result$residCov )
-   result$detResidCov <- det( object$rcov, tol = object$control$solvetol )
+   result$detResidCov <- det( object$residCov, tol = object$control$solvetol )
 
    # now prepare summury results for the individual equations
    result$eq <- list()
@@ -91,12 +91,12 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    # (first formula, numerator modified to save memory)
    if( object$method %in% c( "SUR", "3SLS" ) ){
       rtOmega <- .calcXtOmegaInv( xMat = matrix( resid, ncol = 1 ),
-         sigma = object$rcov, nObsEq = nObsEq,
+         sigma = object$residCov, nObsEq = nObsEq,
          solvetol = object$control$solvetol )
       yCov <- .calcRCov( response, methodRCov = "noDfCor",
          nObsEq = nObsEq, centered = TRUE,
          solvetol = object$control$solvetol )
-      residCovInv <- solve( object$rcov, tol = object$control$solvetol )
+      residCovInv <- solve( object$residCov, tol = object$control$solvetol )
       denominator <- 0
       for( i in 1:length( object$eq ) ) {
          for( j in 1:length( object$eq ) ) {

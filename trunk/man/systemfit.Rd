@@ -114,7 +114,7 @@ systemfit( eqns, method = "OLS",
   \item{iter}{number of iteration steps.}
   \item{coefficients}{vector of all estimated coefficients.}
   \item{bcov}{estimated covariance matrix of \code{coefficients}.}
-  \item{rcov}{estimated residual covariance matrix.}
+  \item{residCov}{estimated residual covariance matrix.}
   \item{rcovest}{residual covariance matrix used for estimation (only SUR and 3SLS).}
   \item{restrict.matrix}{the restriction matrix.}
   \item{restrict.rhs}{the restriction vector.}

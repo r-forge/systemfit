@@ -650,7 +650,7 @@ systemfit <- function(  eqns,
      # degrees of freedom of the whole system
   results$coefficients <- coef           # all estimated coefficients
   results$bcov    <- bcov           # coefficients covariance matrix
-  results$rcov    <- rcov           # residual covarance matrix
+  results$residCov <- rcov           # residual covarance matrix
   results$iter    <- iter           # residual correlation matrix
   if( method %in% c( "SUR", "3SLS" ) ){
     results$rcovest <- rcovest      # residual covarance matrix used for estimation
