@@ -50,10 +50,10 @@ predict.systemfit.equation <- function( object, newdata = NULL,
 
    # calculate variance covariance matrices
    if( se.fit | interval == "confidence" ) {
-      yCovConf <- drop( xMat %*% object$bcov %*% t( xMat ) )
+      yCovConf <- drop( xMat %*% object$coefCov %*% t( xMat ) )
    }
    if( se.pred | interval == "prediction" ) {
-      yCovPred <- drop( xMat %*% object$bcov %*% t( xMat ) + object$sigma^2 )
+      yCovPred <- drop( xMat %*% object$coefCov %*% t( xMat ) + object$sigma^2 )
    }
    # standard errors of fitted values
    if( se.fit ) {

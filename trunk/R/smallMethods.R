@@ -6,11 +6,11 @@ correlation.systemfit <- function( results, eqni, eqnj ) {
   for( i in 1:length( results$eq ) ) {
      nCoefEq <- c( nCoefEq, length( coef( results$eq[[ i ]] ) ) )
   }
-  cij <- results$bcov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
+  cij <- results$coefCov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
                       (1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj]))]
-  cii <- results$bcov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
+  cii <- results$coefCov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
                       (1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni]))]
-  cjj <- results$bcov[(1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj])),
+  cjj <- results$coefCov[(1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj])),
                       (1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj]))]
   rij <- NULL
 
@@ -32,8 +32,8 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
   ratio <- NULL
   for( i in 1:nrow( residuals( resultsi ) ) ) {
     xik    <- resultsi$eq[[eqni]]$modelMatrix[i,]
-    top    <- sqrt( xik %*% resultsi$eq[[eqni]]$bcov %*% xik )
-    bottom <- sqrt( xik %*% resultsj$eq[[eqni]]$bcov %*% xik )
+    top    <- sqrt( xik %*% resultsi$eq[[eqni]]$coefCov %*% xik )
+    bottom <- sqrt( xik %*% resultsj$eq[[eqni]]$coefCov %*% xik )
     rk     <- top / bottom
     ratio  <- rbind( ratio, rk )
   }
@@ -109,13 +109,13 @@ vcov.systemfit <- function( object, modified.reg = FALSE, ... ) {
          return( result )
       }
    } else {
-      return( object$bcov )
+      return( object$coefCov )
    }
 }
 
 ## return the variance covariance matrix of the coefficients of a single equation
 vcov.systemfit.equation <- function( object, ... ) {
-   object$bcov
+   object$coefCov
 }
 
 

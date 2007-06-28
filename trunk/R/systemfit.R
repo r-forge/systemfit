@@ -604,7 +604,7 @@ systemfit <- function(  eqns,
     resulti$df.residual.sys  <- nObsAll- nCoefLiAll
        # degrees of freedom of residuals of the whole system
     resulti$coefficients <- coefEqI         # estimated coefficients
-    resulti$bcov         <- bcovi           # covariance matrix of estimated coefficients
+    resulti$coefCov      <- bcovi           # covariance matrix of estimated coefficients
     if( control$returnResponse ){
       resulti$response     <- yVecEq[[i]]     # vector of endogenous variables
     }
@@ -649,7 +649,7 @@ systemfit <- function(  eqns,
   results$df.residual <- nObsAll - nCoefLiAll
      # degrees of freedom of the whole system
   results$coefficients <- coef           # all estimated coefficients
-  results$bcov    <- bcov           # coefficients covariance matrix
+  results$coefCov  <- bcov           # coefficients covariance matrix
   results$residCov <- rcov           # residual covarance matrix
   results$iter    <- iter           # residual correlation matrix
   if( method %in% c( "SUR", "3SLS" ) ){
