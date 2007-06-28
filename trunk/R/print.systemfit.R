@@ -29,7 +29,7 @@ print.systemfit.equation <- function( x,
 
    cat("\n")
    cat( x$method, " estimates for '", x$eqnLabel,
-            "' (equation ", x$i, ")\n", sep = "" )
+            "' (equation ", x$eqnNo, ")\n", sep = "" )
 
    cat("Model Formula: ")
    print( formula( x$terms ) )

@@ -591,7 +591,7 @@ systemfit <- function(  eqns,
 
     ## build the "return" structure for the equations
     resulti$method       <- method
-    resulti$i            <- i               # equation number
+    resulti$eqnNo        <- i               # equation number
     resulti$eqnLabel     <- eqnLabels[[i]]
     resulti$terms        <- termsEq[[ i ]]
     resulti$rank         <- nCoefLiEq[i]

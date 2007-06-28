@@ -126,7 +126,8 @@ systemfit( eqns, method = "OLS",
 
   ## elements of the class systemfit.eq
   \item{eq}{a list that contains the results that belong to the individual equations.}
-  \item{eqnLabel*}{the equation label of the ith equation (from the labels list).}
+  \item{eqnLabel*}{the label of this equation.}
+  \item{eqnNo*}{the number of this equation.}
   \item{terms*}{the 'terms' object used for the ith equation.}
   \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
   \item{rank*}{number of linear independent coefficients in the ith equation

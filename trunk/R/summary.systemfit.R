@@ -207,7 +207,7 @@ summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
    # preparing objects that will be returned
    result <- list()
    result$eqnLabel <- object$eqnLabel
-   result$eqnNo <- object$i
+   result$eqnNo <- object$eqnNo
    result$terms <- object$terms
    result$instruments <- object$inst
    result$method <- object$method
