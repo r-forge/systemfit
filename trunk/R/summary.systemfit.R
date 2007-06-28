@@ -20,7 +20,7 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
    result$iter <- object$iter
    result$control <- object$control
    result$residuals <- residuals( object )
-   result$residCovEst <- object$rcovest
+   result$residCovEst <- object$residCovEst
    result$residCov <- object$residCov
    if( !is.null( result$residCovEst ) ) {
       dimnames( result$residCovEst ) <- dimnames( result$residCov )

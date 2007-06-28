@@ -15,10 +15,10 @@
    resid <- unlist( residuals( object ) )
    nEq   <- length( object$eq )
    nObsPerEq <- nrow( residuals( object ) )
-   if( is.null( object$rcovest ) ) {
+   if( is.null( object$residCovEst ) ) {
       rcov <- diag( nEq )
    } else {
-      rcov <- object$rcovest
+      rcov <- object$residCovEst
    }
 
    result <- list()

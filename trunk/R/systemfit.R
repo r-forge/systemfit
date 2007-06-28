@@ -653,7 +653,7 @@ systemfit <- function(  eqns,
   results$residCov <- rcov           # residual covarance matrix
   results$iter    <- iter           # residual correlation matrix
   if( method %in% c( "SUR", "3SLS" ) ){
-    results$rcovest <- rcovest      # residual covarance matrix used for estimation
+    results$residCovEst <- rcovest      # residual covarance matrix used for estimation
   }
   results$restrict.matrix <- R.restr
   results$restrict.rhs <- q.restr
