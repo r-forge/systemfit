@@ -627,10 +627,13 @@ systemfit <- function(  eqns,
   rcov <- .calcRCov( resids, methodRCov = control$methodRCov, nObsEq = nObsEq,
       nCoefEq = nCoefLiEq, xEq = xMatEq, centered = control$centerResiduals, solvetol = control$solvetol )
 
-  coef           <- drop(coef)
-  names(coef)    <- coefNames
-  colnames( coefCov ) <- coefNames
-  rownames( coefCov ) <- coefNames
+  results$coefficients <- drop( coef ) # all estimated coefficients
+  names( results$coefficients ) <- coefNames
+
+  results$coefCov <- coefCov # coefficients covariance matrix
+  colnames( results$coefCov ) <- coefNames
+  rownames( results$coefCov ) <- coefNames
+
   colnames( rcov ) <- eqnLabels
   rownames( rcov ) <- eqnLabels
 
@@ -640,8 +643,6 @@ systemfit <- function(  eqns,
      # rank = total number of linear independent coefficients of all equations
   results$df.residual <- nObsAll - nCoefLiAll
      # degrees of freedom of the whole system
-  results$coefficients <- coef           # all estimated coefficients
-  results$coefCov  <- coefCov           # coefficients covariance matrix
   results$residCov <- rcov           # residual covarance matrix
   results$iter    <- iter           # residual correlation matrix
   if( method %in% c( "SUR", "3SLS" ) ){
