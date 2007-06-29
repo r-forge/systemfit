@@ -570,6 +570,10 @@ systemfit <- function(  eqns,
   ## equation wise results
   for(i in 1:nEq) {
     results$eq[[ i ]] <- list()
+    results$eq[[ i ]]$eqnNo    <- i               # equation number
+    results$eq[[ i ]]$eqnLabel <- eqnLabels[[i]]
+    results$eq[[ i ]]$method   <- method
+
     results$eq[[ i ]]$residuals <-
       resids[ ( 1 + sum(nObsEq[1:i]) -nObsEq[i] ):( sum(nObsEq[1:i]) ) ]
     results$eq[[ i ]]$coefficients <-
@@ -588,10 +592,6 @@ systemfit <- function(  eqns,
     results$eq[[ i ]]$fitted.values <-
       fitted.values[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
 
-    ## build the "return" structure for the equations
-    results$eq[[ i ]]$method   <- method
-    results$eq[[ i ]]$eqnNo    <- i               # equation number
-    results$eq[[ i ]]$eqnLabel <- eqnLabels[[i]]
     results$eq[[ i ]]$terms    <- termsEq[[ i ]]
     results$eq[[ i ]]$rank     <- nCoefLiEq[i]
       # rank = number of linear independent coefficients
