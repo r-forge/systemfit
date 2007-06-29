@@ -586,7 +586,6 @@ systemfit <- function(  eqns,
     rownames( results$eq[[ i ]]$coefCov ) <- coefNamesEq[[ i ]]
 
     ssr    <- sum( results$eq[[ i ]]$residuals^2 )  # sum of squared residuals
-    sigma  <- sqrt( ssr / df[i] ) # estimated standand deviation of residuals
     results$eq[[ i ]]$fitted.values <-
       fitted.values[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
 
@@ -614,7 +613,6 @@ systemfit <- function(  eqns,
       results$eq[[ i ]]$modelFrame <- evalModelFrameEq[[ i ]] # model frame of this equation
     }
     results$eq[[ i ]]$ssr          <- ssr             # sum of squared errors/residuals
-    results$eq[[ i ]]$sigma        <- sigma           # estimated standard error of the residuals
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
       results$eq[[ i ]]$inst         <- instEq[[i]]
       if(  control$returnInstMatrix ) {

@@ -150,7 +150,6 @@ systemfit( eqns, method = "OLS",
   \item{residuals*}{vector of residuals of the ith equation.}
 
   \item{ssr*}{sum of squared residuals of the ith equation.}
-  \item{sigma*}{estimated standard error of the residuals (\eqn{\hat{\sigma}}) of the ith equation.}
 }
 
 \references{

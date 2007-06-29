@@ -53,7 +53,8 @@ predict.systemfit.equation <- function( object, newdata = NULL,
       yCovConf <- drop( xMat %*% object$coefCov %*% t( xMat ) )
    }
    if( se.pred | interval == "prediction" ) {
-      yCovPred <- drop( xMat %*% object$coefCov %*% t( xMat ) + object$sigma^2 )
+      sigmaSqr <- object$ssr / df.residual( object )
+      yCovPred <- drop( xMat %*% object$coefCov %*% t( xMat ) + sigmaSqr )
    }
    # standard errors of fitted values
    if( se.fit ) {
