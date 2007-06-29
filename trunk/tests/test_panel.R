@@ -55,7 +55,7 @@ greeneOls <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldGreene )
 print( greeneOls )
 summary( greeneOls )
-sapply( greeneOls$eq, function(x){return(x$ssr/20)} ) # sigma^2
+sapply( greeneOls$eq, function(x){return(summary(x)$ssr/20)} ) # sigma^2
 coef( greeneOls )
 coef( summary( greeneOls ) )
 vcov( greeneOls )
@@ -75,7 +75,7 @@ greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldGreene, pooled = TRUE )
 print( greeneOlsPooled )
 summary( greeneOlsPooled )
-sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/97 # sigma^2
+sum( sapply( greeneOlsPooled$eq, function(x){return(summary(x)$ssr)}) )/97 # sigma^2
 coef( greeneOlsPooled )
 coef( greeneOlsPooled, modified.reg = TRUE )
 coef( summary( greeneOlsPooled ) )

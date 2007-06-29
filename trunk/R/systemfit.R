@@ -585,7 +585,6 @@ systemfit <- function(  eqns,
     colnames( results$eq[[ i ]]$coefCov ) <- coefNamesEq[[ i ]]
     rownames( results$eq[[ i ]]$coefCov ) <- coefNamesEq[[ i ]]
 
-    ssr    <- sum( results$eq[[ i ]]$residuals^2 )  # sum of squared residuals
     results$eq[[ i ]]$fitted.values <-
       fitted.values[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
 
@@ -612,7 +611,6 @@ systemfit <- function(  eqns,
     if( control$returnModelFrame ){
       results$eq[[ i ]]$modelFrame <- evalModelFrameEq[[ i ]] # model frame of this equation
     }
-    results$eq[[ i ]]$ssr          <- ssr             # sum of squared errors/residuals
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
       results$eq[[ i ]]$inst         <- instEq[[i]]
       if(  control$returnInstMatrix ) {

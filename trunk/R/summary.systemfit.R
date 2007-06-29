@@ -227,8 +227,8 @@ summary.systemfit.equation <- function( object, useDfSys = NULL, ... ) {
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
    result$df <- c( length( coef( object ) ), nObs - length( coef( object ) ) )
-   result$sigma <- sqrt( object$ssr / df.residual( object ) )
-   result$ssr <- object$ssr
+   result$ssr <- sum( residuals( object )^2 )
+   result$sigma <- sqrt( result$ssr / df.residual( object ) )
 
    # R^2 values
    response <- fitted( object ) + residuals( object )

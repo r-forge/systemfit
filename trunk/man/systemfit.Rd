@@ -148,8 +148,6 @@ systemfit( eqns, method = "OLS",
   \item{modelFrame*}{if requested (the default), the model frame of the ith equation.}
   \item{fitted.values*}{vector of fitted values of the ith equation.}
   \item{residuals*}{vector of residuals of the ith equation.}
-
-  \item{ssr*}{sum of squared residuals of the ith equation.}
 }
 
 \references{
