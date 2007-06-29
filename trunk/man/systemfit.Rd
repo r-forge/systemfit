@@ -115,7 +115,8 @@ systemfit( eqns, method = "OLS",
   \item{coefficients}{vector of all estimated coefficients.}
   \item{coefCov}{estimated covariance matrix of \code{coefficients}.}
   \item{residCov}{estimated residual covariance matrix.}
-  \item{residCovEst}{residual covariance matrix used for estimation (only SUR and 3SLS).}
+  \item{residCovEst}{residual covariance matrix used for estimation
+      (only WLS, W2SLS, SUR and 3SLS).}
   \item{restrict.matrix}{the restriction matrix.}
   \item{restrict.rhs}{the restriction vector.}
   \item{restrict.regMat}{matrix used to impose restrictions

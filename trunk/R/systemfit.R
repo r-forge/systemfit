@@ -621,8 +621,11 @@ systemfit <- function(  eqns,
   }
 
   ## results of the total system
-  if( method %in% c(  "SUR", "3SLS" ) ) {
-    rcovest <- rcov                   # residual covariance matrix used for estimation
+  # residual covarance matrix used for estimation
+  if( method %in% c( "WLS", "W2SLS", "SUR", "3SLS" ) ){
+    results$residCovEst <- rcov
+    colnames( results$residCovEst ) <- eqnLabels
+    rownames( results$residCovEst ) <- eqnLabels
   }
   rcov <- .calcRCov( resids, methodRCov = control$methodRCov, nObsEq = nObsEq,
       nCoefEq = nCoefLiEq, xEq = xMatEq, centered = control$centerResiduals, solvetol = control$solvetol )
@@ -645,9 +648,6 @@ systemfit <- function(  eqns,
      # degrees of freedom of the whole system
   results$residCov <- rcov           # residual covarance matrix
   results$iter    <- iter           # residual correlation matrix
-  if( method %in% c( "SUR", "3SLS" ) ){
-    results$residCovEst <- rcovest      # residual covarance matrix used for estimation
-  }
   results$restrict.matrix <- R.restr
   results$restrict.rhs <- q.restr
   results$restrict.regMat <- restrict.regMat
