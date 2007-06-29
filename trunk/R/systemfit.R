@@ -68,7 +68,6 @@ systemfit <- function(  eqns,
 
   results <- list()               # results to be returned
   results$eq <- list()            # results for the individual equations
-  resulti <- list()               # results of the ith equation
   residi  <- list()               # residuals equation wise
   iter    <- NULL                 # number of iterations
   nEq     <- length( eqns )       # number of equations
@@ -574,6 +573,7 @@ systemfit <- function(  eqns,
 
   ## equation wise results
   for(i in 1:nEq) {
+    results$eq[[ i ]] <- list()
     residi[[i]] <- resids[ ( 1 + sum(nObsEq[1:i]) -nObsEq[i] ):( sum(nObsEq[1:i]) ) ]
     coefEqI <- drop( coef[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))] )
               # estimated coefficients of equation i
@@ -590,42 +590,41 @@ systemfit <- function(  eqns,
     fitted.values.i <- fitted.values[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
 
     ## build the "return" structure for the equations
-    resulti$method       <- method
-    resulti$eqnNo        <- i               # equation number
-    resulti$eqnLabel     <- eqnLabels[[i]]
-    resulti$terms        <- termsEq[[ i ]]
-    resulti$rank         <- nCoefLiEq[i]
+    results$eq[[ i ]]$method   <- method
+    results$eq[[ i ]]$eqnNo    <- i               # equation number
+    results$eq[[ i ]]$eqnLabel <- eqnLabels[[i]]
+    results$eq[[ i ]]$terms    <- termsEq[[ i ]]
+    results$eq[[ i ]]$rank     <- nCoefLiEq[i]
       # rank = number of linear independent coefficients
-    resulti$nCoef.sys    <- nCoefAll
+    results$eq[[ i ]]$nCoef.sys    <- nCoefAll
       # total number of coefficients of the entire system
-    resulti$rank.sys     <- nCoefLiAll
+    results$eq[[ i ]]$rank.sys     <- nCoefLiAll
       # rank = number of linear independent coefficients of the entire system
-    resulti$df.residual  <- df[i]           # degrees of freedom of residuals
-    resulti$df.residual.sys  <- nObsAll- nCoefLiAll
+    results$eq[[ i ]]$df.residual  <- df[i]           # degrees of freedom of residuals
+    results$eq[[ i ]]$df.residual.sys  <- nObsAll- nCoefLiAll
        # degrees of freedom of residuals of the whole system
-    resulti$coefficients <- coefEqI         # estimated coefficients
-    resulti$coefCov      <- bcovi           # covariance matrix of estimated coefficients
+    results$eq[[ i ]]$coefficients <- coefEqI         # estimated coefficients
+    results$eq[[ i ]]$coefCov      <- bcovi           # covariance matrix of estimated coefficients
     if( control$returnResponse ){
-      resulti$response     <- yVecEq[[i]]     # vector of endogenous variables
+      results$eq[[ i ]]$response   <- yVecEq[[i]]     # vector of endogenous variables
     }
     if( control$returnModelMatrix ){
-      resulti$modelMatrix  <- xMatEq[[i]]     # matrix of regressors
+      results$eq[[ i ]]$modelMatrix  <- xMatEq[[i]]     # matrix of regressors
     }
     if( control$returnModelFrame ){
-      resulti$modelFrame   <- evalModelFrameEq[[ i ]] # model frame of this equation
+      results$eq[[ i ]]$modelFrame <- evalModelFrameEq[[ i ]] # model frame of this equation
     }
-    resulti$fitted.values <- fitted.values.i # fitted values
-    resulti$residuals    <- residi[[i]]     # residuals
-    resulti$ssr          <- ssr             # sum of squared errors/residuals
-    resulti$sigma        <- sigma           # estimated standard error of the residuals
+    results$eq[[ i ]]$fitted.values <- fitted.values.i # fitted values
+    results$eq[[ i ]]$residuals    <- residi[[i]]     # residuals
+    results$eq[[ i ]]$ssr          <- ssr             # sum of squared errors/residuals
+    results$eq[[ i ]]$sigma        <- sigma           # estimated standard error of the residuals
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
-      resulti$inst         <- instEq[[i]]
+      results$eq[[ i ]]$inst         <- instEq[[i]]
       if(  control$returnInstMatrix ) {
-         resulti$instMatrix   <- hMatEq[[i]]  # matrix of instrumental variables
+         results$eq[[ i ]]$instMatrix <- hMatEq[[i]]  # matrix of instrumental variables
       }
     }
-    class(resulti)        <- "systemfit.equation"
-    results$eq[[i]]      <- resulti
+    class( results$eq[[ i ]] ) <- "systemfit.equation"
   }
 
   ## results of the total system
