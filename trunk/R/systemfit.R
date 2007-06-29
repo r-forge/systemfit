@@ -68,7 +68,6 @@ systemfit <- function(  eqns,
 
   results <- list()               # results to be returned
   results$eq <- list()            # results for the individual equations
-  residi  <- list()               # residuals equation wise
   iter    <- NULL                 # number of iterations
   nEq     <- length( eqns )       # number of equations
   ssr     <- numeric( nEq ) # sum of squared residuals of each equation
@@ -358,7 +357,6 @@ systemfit <- function(  eqns,
        sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )
        # final step coefficient covariance matrix
     resids <- yVecAll - xMatAll %*% coef                        # residuals
-    for(i in 1:nEq) residi[[i]] <- resids[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
   }
 
   ## only for SUR estimation
@@ -381,7 +379,6 @@ systemfit <- function(  eqns,
        sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )
             # final step coefficient covariance matrix
     resids <- yVecAll - xMatAll %*% coef                        # residuals
-    for(i in 1:nEq) residi[[i]] <- resids[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
   }
 
   ## only for 2SLS, W2SLS and 3SLS estimation
@@ -445,7 +442,6 @@ systemfit <- function(  eqns,
     bcov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
        sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )  # coefficient covariance matrix
     resids <- yVecAll - xMatAll %*% coef                        # residuals
-    for(i in 1:nEq) residi[[i]] <- resids[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
   }
 
   ## only for 3SLS estimation
@@ -574,7 +570,8 @@ systemfit <- function(  eqns,
   ## equation wise results
   for(i in 1:nEq) {
     results$eq[[ i ]] <- list()
-    residi[[i]] <- resids[ ( 1 + sum(nObsEq[1:i]) -nObsEq[i] ):( sum(nObsEq[1:i]) ) ]
+    results$eq[[ i ]]$residuals <-
+      resids[ ( 1 + sum(nObsEq[1:i]) -nObsEq[i] ):( sum(nObsEq[1:i]) ) ]
     coefEqI <- drop( coef[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))] )
               # estimated coefficients of equation i
     bcovi  <- bcov[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i])),(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))]
@@ -585,7 +582,7 @@ systemfit <- function(  eqns,
     colnames( bcovi ) <- coefNamesEq[[ i ]]
     rownames( bcovi ) <- coefNamesEq[[ i ]]
 
-    ssr    <- sum(residi[[i]]^2)                         # sum of squared residuals
+    ssr    <- sum( results$eq[[ i ]]$residuals^2 )  # sum of squared residuals
     sigma  <- sqrt( ssr / df[i] ) # estimated standand deviation of residuals
     fitted.values.i <- fitted.values[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
 
@@ -615,7 +612,6 @@ systemfit <- function(  eqns,
       results$eq[[ i ]]$modelFrame <- evalModelFrameEq[[ i ]] # model frame of this equation
     }
     results$eq[[ i ]]$fitted.values <- fitted.values.i # fitted values
-    results$eq[[ i ]]$residuals    <- residi[[i]]     # residuals
     results$eq[[ i ]]$ssr          <- ssr             # sum of squared errors/residuals
     results$eq[[ i ]]$sigma        <- sigma           # estimated standard error of the residuals
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
