@@ -320,17 +320,17 @@ systemfit <- function(  eqns,
       rcov <- .calcRCov( resids, methodRCov = control$methodRCov, nObsEq = nObsEq,
          nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE, centered = control$centerResiduals,
          solvetol = control$solvetol )               # residual covariance matrix
-      bcov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
+      coefCov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
          sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )
                     # coefficient covariance matrix
     } else {
       s2 <- .calcSigma2( resids, nObs = nObsAll, nCoef = nCoefLiAll, methodRCov = control$methodRCov )
                            # sigma squared
       if(is.null(R.restr)) {
-        bcov   <- s2 * solve( crossprod( xMatAll ), tol=control$solvetol )
+        coefCov <- s2 * solve( crossprod( xMatAll ), tol=control$solvetol )
                           # coefficient covariance matrix
       } else {
-        bcov   <- s2 * solve( W, tol=control$solvetol )[1:ncol(xMatAll),1:ncol(xMatAll)]
+        coefCov <- s2 * solve( W, tol=control$solvetol )[1:ncol(xMatAll),1:ncol(xMatAll)]
                     # coefficient covariance matrix
       }
     }
@@ -353,7 +353,7 @@ systemfit <- function(  eqns,
          sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol ) # coefficients
       bdif <- coef-bl # difference of coefficients between this and previous step
     }
-    bcov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
+    coefCov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
        sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )
        # final step coefficient covariance matrix
     resids <- yVecAll - xMatAll %*% coef                        # residuals
@@ -375,7 +375,7 @@ systemfit <- function(  eqns,
          sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )     # coefficients
       bdif <- coef-bl  # difference of coefficients between this and previous step
     }
-    bcov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
+    coefCov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
        sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )
             # final step coefficient covariance matrix
     resids <- yVecAll - xMatAll %*% coef                        # residuals
@@ -407,16 +407,16 @@ systemfit <- function(  eqns,
       rcov <- .calcRCov( resids, methodRCov = control$methodRCov, nObsEq = nObsEq,
          nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE, centered = control$centerResiduals,
          solvetol = control$solvetol )
-      bcov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
+      coefCov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
          sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )  # coefficient covariance matrix
     } else {
       s2 <- .calcSigma2( resids, nObs = nObsAll, nCoef = nCoefLiAll, methodRCov = control$methodRCov )
                            # sigma squared
       if(is.null(R.restr)) {
-        bcov   <- s2 * solve( crossprod( xMatHatAll ), tol=control$solvetol )
+        coefCov <- s2 * solve( crossprod( xMatHatAll ), tol=control$solvetol )
                   # coefficient covariance matrix
       } else {
-        bcov   <- s2 * solve( W, tol=control$solvetol )[1:ncol(xMatAll),1:ncol(xMatAll)]
+        coefCov <- s2 * solve( W, tol=control$solvetol )[1:ncol(xMatAll),1:ncol(xMatAll)]
                     # coeff. covariance matrix
       }
     }
@@ -439,7 +439,7 @@ systemfit <- function(  eqns,
          sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )          # (unrestr.) coeffic.
       bdif <- coef - bl # difference of coefficients between this and previous step
     }
-    bcov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
+    coefCov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
        sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )  # coefficient covariance matrix
     resids <- yVecAll - xMatAll %*% coef                        # residuals
   }
@@ -505,20 +505,20 @@ systemfit <- function(  eqns,
       bdif <- coef - bl # difference of coefficients between this and previous step
     }
     if(control$method3sls=="GLS") {
-       bcov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
+       coefCov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
           sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )  # coefficient covariance matrix
     }
     if(control$method3sls=="IV") {
-       bcov <- .calcGLS( xMat = xMatHatAll, xMat2 = xMatAll, R.restr = R.restr, q.restr = q.restr,
+       coefCov <- .calcGLS( xMat = xMatHatAll, xMat2 = xMatAll, R.restr = R.restr, q.restr = q.restr,
           sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )
     }
     if(control$method3sls=="GMM") {
       if(is.null(R.restr)) {
-        bcov <- solve( t(xMatAll) %*% hMatAll %*% solve( HtOmega %*% hMatAll, tol=control$solvetol ) %*%
+        coefCov <- solve( t(xMatAll) %*% hMatAll %*% solve( HtOmega %*% hMatAll, tol=control$solvetol ) %*%
            t(hMatAll) %*% xMatAll, tol=control$solvetol )
                 # final step coefficient covariance matrix
       } else {
-        bcov   <- Winv[1:ncol(xMatAll),1:ncol(xMatAll)] # coefficient covariance matrix
+        coefCov <- Winv[1:ncol(xMatAll),1:ncol(xMatAll)] # coefficient covariance matrix
       }
     }
     if(control$method3sls=="Schmidt") {
@@ -528,7 +528,7 @@ systemfit <- function(  eqns,
       PHOmega <- .calcXtOmegaInv( xMat = t( PH ), sigma = rcov, nObsEq = nObsEq,
            invertSigma = FALSE )
       if(is.null(R.restr)) {
-         bcov <- solve( xMatHatOmegaInv %*% xMatHatAll, tol=control$solvetol ) %*%
+         coefCov <- solve( xMatHatOmegaInv %*% xMatHatAll, tol=control$solvetol ) %*%
             xMatHatOmegaInv %*% PHOmega %*%
             PH %*% t( xMatHatOmegaInv ) %*% solve( xMatHatOmegaInv %*% xMatHatAll, tol=control$solvetol )
                   # final step coefficient covariance matrix
@@ -537,12 +537,12 @@ systemfit <- function(  eqns,
             PH %*% t( xMatHatOmegaInv )
          VV <- rbind( cbind( VV, matrix( 0, nrow( VV ), nrow( R.restr ) ) ),
             matrix( 0, nrow( R.restr ), nrow( VV ) + nrow( R.restr ) ) )
-         bcov <- ( Winv %*% VV %*% Winv )[ 1:ncol(xMatAll), 1:ncol(xMatAll) ]
+         coefCov <- ( Winv %*% VV %*% Winv )[ 1:ncol(xMatAll), 1:ncol(xMatAll) ]
                   # coefficient covariance matrix
       }
     }
     if(control$method3sls=="EViews") {
-       bcov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
+       coefCov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
           sigma = rcov, nObsEq = nObsEq, solvetol = control$solvetol )  # final step coefficient covariance matrix
     }
     resids <- yVecAll - xMatAll %*% coef                        # residuals
@@ -555,7 +555,7 @@ systemfit <- function(  eqns,
       centerResiduals = control$centerResiduals, solvetol = control$solvetol )
     #print( fimlResult )
     coef <- fimlResult$coefficients
-    bcov <- fimlResult$coefCov
+    coefCov <- fimlResult$coefCov
     resids <- fimlResult$resids
   }
 
@@ -563,7 +563,7 @@ systemfit <- function(  eqns,
   fitted.values <- xMatAll %*% coef   # fitted endogenous values
   if(!is.null(restrict.regMat)) {
     coef  <- restrict.regMat %*% coef
-    bcov  <- restrict.regMat %*% bcov %*% t(restrict.regMat)
+    coefCov <- restrict.regMat %*% coefCov %*% t(restrict.regMat)
   }
 
 
@@ -580,7 +580,7 @@ systemfit <- function(  eqns,
       drop( coef[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))] )
               # estimated coefficients of equation i
     results$eq[[ i ]]$coefCov  <-
-      bcov[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i])),
+      coefCov[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i])),
         (1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))]
               # covariance matrix of estimated coefficients of equation i
 
@@ -629,8 +629,8 @@ systemfit <- function(  eqns,
 
   coef           <- drop(coef)
   names(coef)    <- coefNames
-  colnames( bcov ) <- coefNames
-  rownames( bcov ) <- coefNames
+  colnames( coefCov ) <- coefNames
+  rownames( coefCov ) <- coefNames
   colnames( rcov ) <- eqnLabels
   rownames( rcov ) <- eqnLabels
 
@@ -641,7 +641,7 @@ systemfit <- function(  eqns,
   results$df.residual <- nObsAll - nCoefLiAll
      # degrees of freedom of the whole system
   results$coefficients <- coef           # all estimated coefficients
-  results$coefCov  <- bcov           # coefficients covariance matrix
+  results$coefCov  <- coefCov           # coefficients covariance matrix
   results$residCov <- rcov           # residual covarance matrix
   results$iter    <- iter           # residual correlation matrix
   if( method %in% c( "SUR", "3SLS" ) ){
