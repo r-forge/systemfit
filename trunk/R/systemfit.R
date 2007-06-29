@@ -575,13 +575,15 @@ systemfit <- function(  eqns,
     results$eq[[ i ]]$coefficients <-
       drop( coef[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))] )
               # estimated coefficients of equation i
-    bcovi  <- bcov[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i])),(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))]
+    results$eq[[ i ]]$coefCov  <-
+      bcov[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i])),
+        (1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))]
               # covariance matrix of estimated coefficients of equation i
 
     # set names
     names( results$eq[[ i ]]$coefficients )  <- coefNamesEq[[ i ]]
-    colnames( bcovi ) <- coefNamesEq[[ i ]]
-    rownames( bcovi ) <- coefNamesEq[[ i ]]
+    colnames( results$eq[[ i ]]$coefCov ) <- coefNamesEq[[ i ]]
+    rownames( results$eq[[ i ]]$coefCov ) <- coefNamesEq[[ i ]]
 
     ssr    <- sum( results$eq[[ i ]]$residuals^2 )  # sum of squared residuals
     sigma  <- sqrt( ssr / df[i] ) # estimated standand deviation of residuals
@@ -601,7 +603,6 @@ systemfit <- function(  eqns,
     results$eq[[ i ]]$df.residual  <- df[i]           # degrees of freedom of residuals
     results$eq[[ i ]]$df.residual.sys  <- nObsAll- nCoefLiAll
        # degrees of freedom of residuals of the whole system
-    results$eq[[ i ]]$coefCov      <- bcovi           # covariance matrix of estimated coefficients
     if( control$returnResponse ){
       results$eq[[ i ]]$response   <- yVecEq[[i]]     # vector of endogenous variables
     }
