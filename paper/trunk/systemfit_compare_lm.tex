@@ -1,43 +1,68 @@
-\section{Comparison of systemfit and lm}
+\section[Object returned by systemfit]{Object returned by \code{systemfit}}
+
+\code{systemfit} returns a list of class \code{systemfit}
+that contains all results that belong to the entire system
+of equations.
+One special element of this list called \code{eq}.
+It is a list that contains one object for each estimated equation.
+These objects are of the class \code{systemfit.equation}
+and contain the results that belong only to the regarding equation.
+
+The elements returned by \code{systemfit}
+are similar to those returned by \code{lm},
+the basic tool for linear regressions in \proglang{R}.
+While some counterparts of elements returned by \code{lm}
+can be found directly in objects of class \code{systemfit},
+other counterparts are available for each equation
+in objects of class \code{systemfit.equation}.
+This is demonstrated in table~\ref{tab:compare-lm}
+
 
 \begin{table}[htbp]
-\caption{Values returned by systemfit and lm}
+\caption{Elements returned by \code{systemfit} and \code{lm}}
+\label{tab:compare-lm}
+\centering
+\setlength{\tabcolsep}{4mm}
 \begin{tabular}{lll}
-\hline
-lm & systemfit & systemfit.equation \\
+\hline  \hline
+\textbf{\code{lm}} & \textbf{\code{systemfit}} & \textbf{\code{systemfit.equation}} \\
 \hline
 coefficients    & coefficients   & coefficients \\
-residuals       &                & residuals \\
+                & coefCov        & coefCov \\
 fitted.values   &                & fitted.values \\
+residuals       &                & residuals \\
+                & residCov       & \\
+                & residCovEst    & \\
 rank            & rank           & rank \\
                 &                & rank.sys \\
                 &                & nCoef.sys \\
-weights         &                & \\
 df.residual     & df.residual    & df.residual \\
                 &                & df.residual.sys \\
 call            & call           & \\
 terms           &                & terms \\
                 &                & inst \\
+weights         &                & \\
 contrasts       &                & \\
 xlevels         &                & \\
 offset          &                & \\
-y**             &                & response* \\
-x**             &                & modelMatrix* \\
-                &                & instMatrix* \\
 model*          &                & modelFrame* \\
-                & method         & method \\
+y**             &                & response** \\
+x**             &                & modelMatrix** \\
+                &                & instMatrix** \\
+                & iter           & \\
+                & eq             & \\
                 &                & eqnLabel \\
                 &                & eqnNo \\
-                & iter           & \\
-                & coefCov        & coefCov \\
-                & residCov       & \\
-                & residCovEst    & \\
+                & method         & method \\
+                & panelLike      & \\
                 & restrict.matrix& \\
                 & restrict.rhs   & \\
                 & restrict.regMat& \\
                 & control        & \\
-                & eq             & \\
-                & panelLike      & \\
-\hline
+\hline  \hline
 \end{tabular}
+\medskip\\
+Note:
+*) if requested by the user (default is \code{TRUE})\\
+**) if requested by the user (default is \code{FALSE})
 \end{table}
