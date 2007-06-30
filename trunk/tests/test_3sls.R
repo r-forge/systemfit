@@ -376,6 +376,31 @@ for( i in seq( along = formulas ) ) {
 }
 
 
+## **************** shorter summaries **********************
+print( summary( fit3sls[[ 2 ]]$e1c, printEquations = FALSE ) )
+
+print( summary( fit3sls[[ 3 ]]$e2e ), residCov = FALSE )
+
+print( summary( fit3sls[[ 4 ]]$e3, useDfSys = FALSE ), residCov = FALSE )
+
+print( summary( fit3sls[[ 5 ]]$e4e, printEquations = FALSE ),
+   equations = FALSE )
+
+print( summary( fit3sls[[ 1 ]]$e4wSym, printResidCov = FALSE ),
+   equations = FALSE )
+
+print( summary( fit3sls[[ 2 ]]$e5, printResidCov = FALSE ), residCov = TRUE )
+
+print( summary( fit3slsi[[ 3 ]]$e3e, printResidCov = FALSE,
+   printEquations = FALSE ) )
+
+print( summary( fit3slsi[[ 4 ]]$e1we ), equations = FALSE, residCov = FALSE )
+
+print( summary( fit3slsd[[ 5 ]]$e4, printResidCov = FALSE ) )
+
+print( summary( fit3slsd[[ 1 ]]$e2we, printEquations = FALSE ) )
+
+
 ## ****************** residuals **************************
 print( residuals( fit3sls[[ 1 ]]$e1c ) )
 print( residuals( fit3sls[[ 1 ]]$e1c$eq[[ 1 ]] ) )

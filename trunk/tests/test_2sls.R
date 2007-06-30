@@ -230,6 +230,31 @@ fit2slsd3r <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
 print( summary( fit2slsd3r ) )
 
 
+## **************** shorter summaries **********************
+print( summary( fit2sls1, useDfSys = TRUE, printResidCov = FALSE ) )
+
+print( summary( fit2sls1p, printEquations = FALSE ) )
+
+print( summary( fit2sls1rs, printResidCov = FALSE, printEquations = FALSE ) )
+
+print( summary( fit2sls2Sym, useDfSys = FALSE ), equations = FALSE )
+
+print( summary( fit2sls2p ), residCov = FALSE )
+
+print( summary( fit2sls3, useDfSys = FALSE, printResidCov = FALSE,
+   printEquations = FALSE ) )
+
+print( summary( fit2sls4s ), equations = FALSE, residCov = FALSE )
+
+print( summary( fit2sls5r, printEquations = FALSE, printResidCov = FALSE ) )
+
+print( summary( fit2slsd1s ), residCov = FALSE, equations = FALSE )
+
+print( summary( fit2slsd2, printResidCov = FALSE, printEquations = FALSE ) )
+
+print( summary( fit2slsd3r ), residCov = FALSE, equations = FALSE )
+
+
 ## ****************** residuals **************************
 print( residuals( fit2sls1 ) )
 print( residuals( fit2sls1$eq[[ 1 ]] ) )

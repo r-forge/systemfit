@@ -195,6 +195,18 @@ fitols5rs <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
 print( summary( fitols5rs ) )
 
 
+## **************** shorter summaries **********************
+print( summary( fitols1p, useDfSys = TRUE, printEquations = FALSE ) )
+
+print( summary( fitols2r ), residCov = FALSE, equations = FALSE )
+
+print( summary( fitols3s, useDfSys = FALSE ), residCov = TRUE )
+
+print( summary( fitols4rs, printResidCov = FALSE, printEquations = FALSE ) )
+
+print( summary( fitols5, printEquations = FALSE ), residCov = FALSE )
+
+
 ## ****************** residuals **************************
 print( residuals( fitols1p ) )
 print( residuals( fitols1p$eq[[ 2 ]] ) )

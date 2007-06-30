@@ -1710,6 +1710,158 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 
 > 
 > 
+> ## **************** shorter summaries **********************
+> print( summary( fitols1p, useDfSys = TRUE, printEquations = FALSE ) )
+
+systemfit results 
+method: OLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
+supply 20 16 92.5511 5.78444 2.40509 0.654807 0.590084
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.72539 4.13696
+supply 4.13696 5.78444
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.891179
+supply 0.891179 1.000000
+
+The determinant of the residual covariance matrix: 4.43485
+OLS R-squared value of the system: 0.709298
+
+Coefficients:
+                     Estimate  Std. Error   t value     Pr(>|t|)
+demand_(Intercept) 99.8954229  7.51936214 13.285093 8.437695e-15
+demand_price       -0.3162988  0.09067741 -3.488177 1.399847e-03
+demand_income       0.3346356  0.04542183  7.367285 1.844670e-08
+supply_(Intercept) 58.2754312 11.46290989  5.083825 1.440876e-05
+supply_price        0.1603666  0.09488394  1.690134 1.004290e-01
+supply_farmPrice    0.2481333  0.04618785  5.372263 6.148758e-06
+supply_trend        0.2483023  0.09751777  2.546227 1.574136e-02
+> 
+> print( summary( fitols2r ), residCov = FALSE, equations = FALSE )
+
+systemfit results 
+method: OLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 64.1862 3.77566 1.94311 0.760601 0.732437
+supply 20 16 95.0878 5.94299 2.43782 0.645346 0.578848
+
+OLS R-squared value of the system: 0.702974
+
+Coefficients:
+                     Estimate Std. Error   t value     Pr(>|t|)
+demand_(Intercept) 99.5562982 7.76518401 12.820855 1.421085e-14
+demand_price       -0.2916943 0.08987559 -3.245534 2.634070e-03
+demand_income       0.3128814 0.04061420  7.703743 5.862335e-09
+supply_(Intercept) 56.3795396 9.28604437  6.071427 6.958090e-07
+supply_price        0.1639116 0.07862973  2.084601 4.468812e-02
+supply_farmPrice    0.2570673 0.03707832  6.933088 5.435113e-08
+supply_trend        0.3128814 0.04061420  7.703743 5.862335e-09
+> 
+> print( summary( fitols3s, useDfSys = FALSE ), residCov = TRUE )
+
+systemfit results 
+method: OLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 64.1862 3.77566 1.94311 0.760601 0.732437
+supply 20 16 95.0878 5.94299 2.43782 0.645346 0.578848
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.77566 4.46578
+supply 4.46578 5.94299
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.942753
+supply 0.942753 1.000000
+
+The determinant of the residual covariance matrix: 2.49554
+OLS R-squared value of the system: 0.702974
+
+OLS estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 99.556298   7.564002 13.161854        0 ***
+price       -0.291694   0.088667 -3.289779 0.004324  **
+income       0.312881   0.041501  7.539044    1e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.943105 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 64.186183 MSE: 3.775658 Root MSE: 1.943105 
+Multiple R-Squared: 0.760601 Adjusted R-Squared: 0.732437 
+
+
+OLS estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+
+            Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 56.37954  11.316513 4.982059 0.000136 ***
+price       0.163912   0.096049 1.706535 0.107239    
+farmPrice   0.257067   0.045142 5.694686  3.3e-05 ***
+trend       0.312881   0.041501 7.539044    1e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.437824 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 95.087806 MSE: 5.942988 Root MSE: 2.437824 
+Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848 
+
+> 
+> print( summary( fitols4rs, printResidCov = FALSE, printEquations = FALSE ) )
+
+systemfit results 
+method: OLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 64.0034 3.76491 1.94034 0.761283 0.733199
+supply 20 16 95.8131 5.98832 2.44710 0.642641 0.575636
+
+OLS R-squared value of the system: 0.701962
+
+Coefficients:
+                      Estimate Std. Error   t value     Pr(>|t|)
+demand_(Intercept) 101.4817081 5.52342020 18.372983 0.000000e+00
+demand_price        -0.3167993 0.05886458 -5.381831 5.045670e-06
+demand_income        0.3188850 0.03521855  9.054462 1.066955e-10
+supply_(Intercept)  54.1494199 7.20885574  7.511514 8.459090e-09
+supply_price         0.1832007 0.05886458  3.112241 3.686400e-03
+supply_farmPrice     0.2595283 0.03987349  6.508793 1.659827e-07
+supply_trend         0.3188850 0.03521855  9.054462 1.066955e-10
+> 
+> print( summary( fitols5, printEquations = FALSE ), residCov = FALSE )
+
+systemfit results 
+method: OLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17 64.0034 3.76491 1.94034 0.761283 0.733199
+supply 20 16 95.8131 5.98832 2.44710 0.642641 0.575636
+
+OLS R-squared value of the system: 0.701962
+
+Coefficients:
+                      Estimate Std. Error   t value     Pr(>|t|)
+demand_(Intercept) 101.4817081 5.76207948 17.611994 0.000000e+00
+demand_price        -0.3167993 0.05885196 -5.382986 5.028016e-06
+demand_income        0.3188850 0.03727849  8.554130 4.269094e-10
+supply_(Intercept)  54.1494199 7.06379495  7.665769 5.396102e-09
+supply_price         0.1832007 0.05885196  3.112908 3.679896e-03
+supply_farmPrice     0.2595283 0.03653600  7.103358 2.811582e-08
+supply_trend         0.3188850 0.03727849  8.554130 4.269094e-10
+> 
+> 
 > ## ****************** residuals **************************
 > print( residuals( fitols1p ) )
        demand     supply

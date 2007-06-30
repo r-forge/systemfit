@@ -288,6 +288,35 @@ fitsuri5wr2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
 summary( fitsuri5wr2 )
 
 
+## **************** shorter summaries **********************
+print( summary( fitsur1e2, useDfSys = TRUE, printEquations = FALSE ) )
+
+print( summary( fitsur2e, useDfSys = FALSE, printResidCov = FALSE ) )
+
+print( summary( fitsur3 ), equations = FALSE )
+
+print( summary( fitsur4r3 ), residCov = FALSE, equations = FALSE )
+
+print( summary( fitsur5, printResidCov = FALSE ), equations = FALSE )
+
+print( summary( fitsur5w, printEquations = FALSE, printResidCov = FALSE ),
+   equations = TRUE )
+
+print( summary( fitsuri1r3, useDfSys = FALSE ), residCov = FALSE )
+
+print( summary( fitsuri2 ), residCov = FALSE )
+
+print( summary( fitsuri3e, printResidCov = FALSE, printEquations = FALSE ) )
+
+print( summary( fitsurio4, printResidCov = FALSE ), equations = FALSE )
+print( summary( fitsuri4, printEquations = FALSE ), residCov = FALSE )
+
+print( summary( fitsuri4w, useDfSys = FALSE, printEquations = FALSE ) )
+
+print( summary( fitsurio5r2, printEquations = FALSE ) )
+print( summary( fitsuri5r2 ), residCov = FALSE )
+
+
 ## ****************** residuals **************************
 print( residuals( fitsur1e2 ) )
 print( residuals( fitsur1e2$eq[[ 2 ]] ) )

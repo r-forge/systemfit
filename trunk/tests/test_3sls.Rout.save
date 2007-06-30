@@ -15519,6 +15519,401 @@ Multiple R-Squared: 0.179151 Adjusted R-Squared: 0.025242
 
 > 
 > 
+> ## **************** shorter summaries **********************
+> print( summary( fit3sls[[ 2 ]]$e1c, printEquations = FALSE ) )
+
+systemfit results 
+method: 3SLS 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
+supply 20 16 108.7271 6.79544 2.60681 0.594475 0.518439
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.86642 4.50414
+supply 4.50414 6.03958
+
+warning: this covariance matrix is NOT positive semidefinit!
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.86642 5.19542
+supply 5.19542 6.79544
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.980567
+supply 0.980567 1.000000
+
+The determinant of the residual covariance matrix: -0.718397
+OLS R-squared value of the system: 0.674661
+McElroy's R-squared value for the system: 0.921552
+
+Coefficients:
+                     Estimate  Std. Error   t value     Pr(>|t|)
+demand_(Intercept) 94.6333039  7.92083831 11.947385 1.076169e-09
+demand_price       -0.2435565  0.09648429 -2.524313 2.183240e-02
+demand_income       0.3139918  0.04694366  6.688695 3.810852e-06
+supply_(Intercept) 52.2869172 11.88530860  4.399290 4.479014e-04
+supply_price        0.2282025  0.09965529  2.289918 3.595058e-02
+supply_farmPrice    0.2272339  0.04376200  5.192494 8.895171e-05
+supply_trend        0.3647816  0.07068712  5.160510 9.481642e-05
+> 
+> print( summary( fit3sls[[ 3 ]]$e2e ), residCov = FALSE )
+
+systemfit results 
+method: 3SLS 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  67.4668 3.96863 1.99214 0.748366 0.718762
+supply 20 16 104.0133 6.50083 2.54967 0.612056 0.539317
+
+OLS R-squared value of the system: 0.680211
+McElroy's R-squared value for the system: 0.678452
+
+3SLS estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 94.273675   7.390469 12.756116        0 ***
+price       -0.224285   0.088804 -2.525619 0.016377   *
+income       0.297917   0.041967  7.098797        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.992143 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 67.466752 MSE: 3.968632 Root MSE: 1.992143 
+Multiple R-Squared: 0.748366 Adjusted R-Squared: 0.718762 
+
+
+3SLS estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 55.452085  10.399358  5.33226    6e-06 ***
+price        0.220741   0.089618 2.463122 0.018993   *
+farmPrice    0.209466   0.036569 5.728004    2e-06 ***
+trend        0.297917   0.041967 7.098797        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.549672 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 104.013257 MSE: 6.500829 Root MSE: 2.549672 
+Multiple R-Squared: 0.612056 Adjusted R-Squared: 0.539317 
+
+> 
+> print( summary( fit3sls[[ 4 ]]$e3, useDfSys = FALSE ), residCov = FALSE )
+
+systemfit results 
+method: 3SLS 
+
+        N DF     SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  67.796 3.98800 1.99700 0.747138 0.717389
+supply 20 16 104.753 6.54707 2.55872 0.609297 0.536040
+
+OLS R-squared value of the system: 0.678217
+McElroy's R-squared value for the system: 0.722318
+
+3SLS estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 94.221569   8.014681 11.756122        0 ***
+price       -0.221493   0.095985 -2.307589  0.03387   *
+income       0.295588   0.045022  6.565414    5e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.996998 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 67.79605 MSE: 3.988003 Root MSE: 1.996998 
+Multiple R-Squared: 0.747138 Adjusted R-Squared: 0.717389 
+
+
+3SLS estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
+
+             Estimate Std. Error  t value Pr(>|t|)    
+(Intercept) 55.960438  11.577676 4.833478 0.000183 ***
+price        0.219277   0.100158 2.189307 0.043743   *
+farmPrice    0.205974   0.040347 5.105022 0.000106 ***
+trend        0.295588   0.045022 6.565414    7e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.558724 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 104.753099 MSE: 6.547069 Root MSE: 2.558724 
+Multiple R-Squared: 0.609297 Adjusted R-Squared: 0.53604 
+
+> 
+> print( summary( fit3sls[[ 5 ]]$e4e, printEquations = FALSE ),
++    equations = FALSE )
+
+systemfit results 
+method: 3SLS 
+
+        N DF     SSR     MSE    RMSE        R2    Adj R2
+demand 20 17 168.882  9.9342 3.15186  0.370114  0.296009
+supply 20 16 270.595 16.9122 4.11245 -0.009253 -0.198488
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.30406 3.73451
+supply 3.73451 4.99853
+
+The covariance matrix of the residuals
+        demand   supply
+demand 8.44408  9.64206
+supply 9.64206 13.52976
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.902087
+supply 0.902087 1.000000
+
+The determinant of the residual covariance matrix: 21.277
+OLS R-squared value of the system: 0.18043
+McElroy's R-squared value for the system: -0.180169
+
+Coefficients:
+                     Estimate Std. Error     t value     Pr(>|t|)
+demand_(Intercept) 93.2925793 7.31537364 12.75294795 1.021405e-14
+demand_price       -0.4780986 0.08115472 -5.89119965 1.074028e-06
+demand_income       0.5682534 0.02086253 27.23799362 0.000000e+00
+supply_(Intercept)  0.6559071 7.55025144  0.08687222 9.312682e-01
+supply_price        0.5219014 0.08115472  6.43094279 2.098166e-07
+supply_farmPrice    0.4354521 0.02124834 20.49346477 0.000000e+00
+supply_trend        0.5682534 0.02086253 27.23799362 0.000000e+00
+> 
+> print( summary( fit3sls[[ 1 ]]$e4wSym, printResidCov = FALSE ),
++    equations = FALSE )
+
+systemfit results 
+method: 3SLS 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  65.9075 3.87691 1.96899 0.754181 0.725262
+supply 20 16 105.6592 6.60370 2.56977 0.605917 0.532027
+
+OLS R-squared value of the system: 0.680049
+McElroy's R-squared value for the system: 0.696672
+
+Coefficients:
+                     Estimate Std. Error   t value     Pr(>|t|)
+demand_(Intercept) 93.7869588 7.90879307 11.858568 8.193446e-14
+demand_price       -0.2442767 0.08915586 -2.739883 9.607240e-03
+demand_income       0.3234076 0.02286970 14.141314 4.440892e-16
+supply_(Intercept) 49.8092665 8.15222573  6.109898 5.534091e-07
+supply_price        0.2557233 0.08915586  2.868273 6.948801e-03
+supply_farmPrice    0.2288843 0.02367910  9.666090 2.046097e-11
+supply_trend        0.3234076 0.02286970 14.141314 4.440892e-16
+> 
+> print( summary( fit3sls[[ 2 ]]$e5, printResidCov = FALSE ), residCov = TRUE )
+
+systemfit results 
+method: 3SLS 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  65.8073 3.87102 1.96749 0.754555 0.725679
+supply 20 16 105.3891 6.58682 2.56648 0.606925 0.533223
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.88713 4.52876
+supply 4.52876 6.24816
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.87102 4.87391
+supply 4.87391 6.58682
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.965222
+supply 0.965222 1.000000
+
+The determinant of the residual covariance matrix: 1.74268
+OLS R-squared value of the system: 0.68074
+McElroy's R-squared value for the system: 0.696013
+
+3SLS estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 93.906991   7.923414 11.851835        0 ***
+price        -0.24569   0.089125 -2.756678 0.009212  **
+income       0.323627   0.023259 13.914323        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.96749 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 65.807303 MSE: 3.871018 Root MSE: 1.96749 
+Multiple R-Squared: 0.754555 Adjusted R-Squared: 0.725679 
+
+
+3SLS estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 49.904921   8.179689  6.101078    1e-06 ***
+price         0.25431   0.089125  2.853389 0.007217  **
+farmPrice    0.229334     0.0241  9.516107        0 ***
+trend        0.323627   0.023259 13.914323        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.56648 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 105.389143 MSE: 6.586821 Root MSE: 2.56648 
+Multiple R-Squared: 0.606925 Adjusted R-Squared: 0.533223 
+
+> 
+> print( summary( fit3slsi[[ 3 ]]$e3e, printResidCov = FALSE,
++    printEquations = FALSE ) )
+
+systemfit results 
+method: iterated 3SLS 
+
+convergence achieved after 20 iterations
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  99.2966 5.84098 2.41681 0.629648 0.586077
+supply 20 16 138.0875 8.63047 2.93777 0.484968 0.388399
+
+OLS R-squared value of the system: 0.557308
+McElroy's R-squared value for the system: 0.755123
+
+Coefficients:
+                     Estimate  Std. Error   t value     Pr(>|t|)
+demand_(Intercept) 92.0353469  8.92142001 10.316222 5.224488e-12
+demand_price       -0.1043412  0.09577617 -1.089428 2.836268e-01
+demand_income       0.1978671  0.02991907  6.613411 1.391245e-07
+supply_(Intercept) 68.2829847 11.15300156  6.122386 5.976710e-07
+supply_price        0.1850839  0.10525400  1.758450 8.767025e-02
+supply_farmPrice    0.1244574  0.02508705  4.961019 1.929575e-05
+supply_trend        0.1978671  0.02991907  6.613411 1.391245e-07
+> 
+> print( summary( fit3slsi[[ 4 ]]$e1we ), equations = FALSE, residCov = FALSE )
+
+systemfit results 
+method: iterated 3SLS 
+
+convergence achieved after 6 iterations
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
+supply 20 16 111.3019 6.95637 2.63749 0.584871 0.507035
+
+OLS R-squared value of the system: 0.669859
+McElroy's R-squared value for the system: 0.781677
+
+Coefficients:
+                     Estimate  Std. Error   t value     Pr(>|t|)
+demand_(Intercept) 94.6333039  7.30265210 12.958758 3.077867e-10
+demand_price       -0.2435565  0.08895412 -2.738002 1.401595e-02
+demand_income       0.3139918  0.04327991  7.254908 1.345362e-06
+supply_(Intercept) 52.5526676 11.39562396  4.611653 2.887544e-04
+supply_price        0.2270570  0.09563077  2.374309 3.043407e-02
+supply_farmPrice    0.2244966  0.04162604  5.393178 5.975874e-05
+supply_trend        0.3755736  0.06409468  5.859668 2.417984e-05
+> 
+> print( summary( fit3slsd[[ 5 ]]$e4, printResidCov = FALSE ) )
+
+systemfit results 
+method: 3SLS 
+
+        N DF     SSR      MSE    RMSE      R2   Adj R2
+demand 20 17 141.436  8.31974 2.88440 0.47248 0.410419
+supply 20 16 216.400 13.52503 3.67764 0.19288 0.041545
+
+OLS R-squared value of the system: 0.33268
+McElroy's R-squared value for the system: -0.01276
+
+3SLS estimates for 'demand' (equation 1)
+Model Formula: consump ~ price + income
+Instruments: ~income + farmPrice
+
+              Estimate Std. Error    t value Pr(>|t|)    
+(Intercept) 108.583652   5.376972  20.194201        0 ***
+price        -0.603351    0.05038 -11.975974        0 ***
+income         0.53992   0.018175  29.705979        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.884396 on 17 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 17 
+SSR: 141.435615 MSE: 8.319742 Root MSE: 2.884396 
+Multiple R-Squared: 0.47248 Adjusted R-Squared: 0.410419 
+
+
+3SLS estimates for 'supply' (equation 2)
+Model Formula: consump ~ price + farmPrice + trend
+Instruments: ~income + farmPrice + trend
+
+             Estimate Std. Error   t value Pr(>|t|)    
+(Intercept) 14.704342   5.431566  2.707201 0.010421   *
+price        0.396649    0.05038  7.873126        0 ***
+farmPrice    0.422792   0.020475 20.649569        0 ***
+trend         0.53992   0.018175 29.705979        0 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 3.677639 on 16 degrees of freedom
+Number of observations: 20 Degrees of Freedom: 16 
+SSR: 216.400494 MSE: 13.525031 Root MSE: 3.677639 
+Multiple R-Squared: 0.19288 Adjusted R-Squared: 0.041545 
+
+> 
+> print( summary( fit3slsd[[ 1 ]]$e2we, printEquations = FALSE ) )
+
+systemfit results 
+method: 3SLS 
+
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  72.4346 4.26086 2.06419 0.729837 0.698053
+supply 20 16 126.7398 7.92124 2.81447 0.527292 0.438659
+
+The covariance matrix of the residuals used for estimation
+        demand  supply
+demand 3.23577 3.59677
+supply 3.59677 5.06497
+
+The covariance matrix of the residuals
+        demand  supply
+demand 3.62173 4.60275
+supply 4.60275 6.33699
+
+The correlations of the residuals
+         demand   supply
+demand 1.000000 0.960767
+supply 0.960767 1.000000
+
+The determinant of the residual covariance matrix: 1.76554
+OLS R-squared value of the system: 0.628564
+McElroy's R-squared value for the system: 0.650298
+
+Coefficients:
+                     Estimate  Std. Error   t value     Pr(>|t|)
+demand_(Intercept) 88.9298234  5.90829699 15.051685 2.220446e-16
+demand_price       -0.1760181  0.07458396 -2.360000 2.415466e-02
+demand_income       0.3032095  0.04339906  6.986546 4.648484e-08
+supply_(Intercept) 40.8325042 10.10943048  4.039051 2.894876e-04
+supply_price        0.3561763  0.07109718  5.009711 1.668725e-05
+supply_farmPrice    0.2200009  0.04053291  5.427709 4.778341e-06
+supply_trend        0.3032095  0.04339906  6.986546 4.648484e-08
+> 
+> 
 > ## ****************** residuals **************************
 > print( residuals( fit3sls[[ 1 ]]$e1c ) )
        demand     supply

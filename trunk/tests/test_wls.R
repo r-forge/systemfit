@@ -149,6 +149,30 @@ fitwlsi5e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
 print( summary( fitwlsi5e ) )
 
 
+## **************** shorter summaries **********************
+print( summary( fitwls1 ), residCov = FALSE, equations = FALSE )
+
+print( summary( fitwls2e, useDfSys = FALSE, printResidCov = FALSE ),
+   equations = FALSE )
+
+print( summary( fitwls3 ), residCov = FALSE )
+
+print( summary( fitwls4e, printResidCov = FALSE, printEquations = FALSE ) )
+
+print( summary( fitwls5, useDfSys = FALSE ), residCov = FALSE )
+
+print( summary( fitwlsi1e, useDfSys = TRUE, printEquations = FALSE ) )
+
+print( summary( fitwlsi2, printEquations = FALSE, printResidCov = FALSE ),
+   residCov = TRUE )
+
+print( summary( fitwlsi3e ), equations = FALSE, residCov = FALSE )
+
+print( summary( fitwlsi4, printEquations = FALSE ), equations = TRUE )
+
+print( summary( fitwlsi5e, useDfSys = FALSE, printResidCov = FALSE ) )
+
+
 ## ****************** residuals **************************
 print( residuals( fitwls1 ) )
 print( residuals( fitwls1$eq[[ 2 ]] ) )
