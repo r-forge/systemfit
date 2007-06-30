@@ -6,17 +6,17 @@ correlation.systemfit <- function( results, eqni, eqnj ) {
   for( i in 1:length( results$eq ) ) {
      nCoefEq <- c( nCoefEq, length( coef( results$eq[[ i ]] ) ) )
   }
-  cij <- results$coefCov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
+  cij <- vcov( results )[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
                       (1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj]))]
-  cii <- results$coefCov[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
+  cii <- vcov( results )[(1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni])),
                       (1+sum(nCoefEq[1:eqni])-nCoefEq[eqni]):(sum(nCoefEq[1:eqni]))]
-  cjj <- results$coefCov[(1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj])),
+  cjj <- vcov( results )[(1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj])),
                       (1+sum(nCoefEq[1:eqnj])-nCoefEq[eqnj]):(sum(nCoefEq[1:eqnj]))]
   rij <- NULL
 
   for( i in 1:nrow( residuals( results ) ) ) {
-    xik    <- results$eq[[eqni]]$modelMatrix[i,]
-    xjk    <- results$eq[[eqnj]]$modelMatrix[i,]
+    xik    <- model.matrix( results$eq[[eqni]] )[i,]
+    xjk    <- model.matrix( results$eq[[eqnj]] )[i,]
     top    <- xik %*% cij %*% xjk
     bottom <- sqrt( ( xik %*% cii %*% xik ) * ( xjk %*% cjj %*% xjk ) )
     rijk   <- top / bottom
@@ -31,9 +31,9 @@ correlation.systemfit <- function( results, eqni, eqnj ) {
 se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
   ratio <- NULL
   for( i in 1:nrow( residuals( resultsi ) ) ) {
-    xik    <- resultsi$eq[[eqni]]$modelMatrix[i,]
-    top    <- sqrt( xik %*% resultsi$eq[[eqni]]$coefCov %*% xik )
-    bottom <- sqrt( xik %*% resultsj$eq[[eqni]]$coefCov %*% xik )
+    xik    <- model.matrix( resultsi$eq[[eqni]] )[i,]
+    top    <- sqrt( xik %*% vcov( resultsi$eq[[eqni]] ) %*% xik )
+    bottom <- sqrt( xik %*% vcov( resultsj$eq[[eqni]] ) %*% xik )
     rk     <- top / bottom
     ratio  <- rbind( ratio, rk )
   }
