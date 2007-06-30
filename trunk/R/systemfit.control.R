@@ -9,9 +9,9 @@ systemfit.control <- function(
       residCovRestricted = TRUE,
       residCovWeighted = FALSE,
       returnModelFrame = TRUE,
-      returnModelMatrix = TRUE,
-      returnInstMatrix = TRUE,
-      returnResponse = TRUE )
+      returnModelMatrix = FALSE,
+      returnInstMatrix = FALSE,
+      returnResponse = FALSE )
 {
    result <- list()
 
