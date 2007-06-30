@@ -341,18 +341,18 @@ print( round( coef( fitsur2we ), digits = 6 ) )
 print( round( coef( fitsur2we$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( coef( fitsur3 ), digits = 6 ) )
-print( round( coef( fitsur3, modified.reg = TRUE ), digits = 6 ) )
+print( round( coef( fitsur3, modified.regMat = TRUE ), digits = 6 ) )
 print( round( coef( fitsur3$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( coef( fitsur4r2 ), digits = 6 ) )
 print( round( coef( fitsur4r2$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( coef( fitsuri5e ), digits = 6 ) )
-print( round( coef( fitsuri5e, modified.reg = TRUE ), digits = 6 ) )
+print( round( coef( fitsuri5e, modified.regMat = TRUE ), digits = 6 ) )
 print( round( coef( fitsuri5e$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( coef( fitsur5w ), digits = 6 ) )
-print( round( coef( fitsur5w, modified.reg = TRUE ), digits = 6 ) )
+print( round( coef( fitsur5w, modified.regMat = TRUE ), digits = 6 ) )
 print( round( coef( fitsur5w$eq[[ 1 ]] ), digits = 6 ) )
 
 
@@ -365,11 +365,11 @@ print( round( coef( summary( fitsuri2$eq[[ 1 ]], useDfSys = FALSE ) ),
    digits = 6 ) )
 
 print( round( coef( summary( fitsur3 ) ), digits = 6 ) )
-print( round( coef( summary( fitsur3 ), modified.reg = TRUE ), digits = 6 ) )
+print( round( coef( summary( fitsur3 ), modified.regMat = TRUE ), digits = 6 ) )
 print( round( coef( summary( fitsur3$eq[[ 2 ]] ) ), digits = 6 ) )
 
 print( round( coef( summary( fitsuri3we ) ), digits = 6 ) )
-print( round( coef( summary( fitsuri3we ), modified.reg = TRUE ), digits = 6 ) )
+print( round( coef( summary( fitsuri3we ), modified.regMat = TRUE ), digits = 6 ) )
 print( round( coef( summary( fitsuri3we$eq[[ 1 ]] ) ), digits = 6 ) )
 
 print( round( coef( summary( fitsur4r2 ) ), digits = 6 ) )
@@ -380,7 +380,7 @@ print( round( coef( summary( fitsur4we$eq[[ 2 ]] ) ), digits = 6 ) )
 
 print( round( coef( summary( fitsuri5e, useDfSys = FALSE ) ), digits = 6 ) )
 print( round( coef( summary( fitsuri5e, useDfSys = FALSE ),
-   modified.reg = TRUE ), digits = 6 ) )
+   modified.regMat = TRUE ), digits = 6 ) )
 print( round( coef( summary( fitsuri5e$eq[[ 2 ]], useDfSys = FALSE ) ),
    digits = 6 ) )
 
@@ -396,18 +396,18 @@ print( round( vcov( fitsur2e ), digits = 6 ) )
 print( round( vcov( fitsur2e$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsur3 ), digits = 6 ) )
-print( round( vcov( fitsur3, modified.reg = TRUE ), digits = 6 ) )
+print( round( vcov( fitsur3, modified.regMat = TRUE ), digits = 6 ) )
 print( round( vcov( fitsur3$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsur3w ), digits = 6 ) )
-print( round( vcov( fitsur3w, modified.reg = TRUE ), digits = 6 ) )
+print( round( vcov( fitsur3w, modified.regMat = TRUE ), digits = 6 ) )
 print( round( vcov( fitsur3w$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsur4r2 ), digits = 6 ) )
 print( round( vcov( fitsur4r2$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsur5e ), digits = 6 ) )
-print( round( vcov( fitsur5e, modified.reg = TRUE ), digits = 6 ) )
+print( round( vcov( fitsur5e, modified.regMat = TRUE ), digits = 6 ) )
 print( round( vcov( fitsur5e$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsuri1r3 ), digits = 6 ) )
@@ -417,7 +417,7 @@ print( round( vcov( fitsuri2 ), digits = 6 ) )
 print( round( vcov( fitsuri2$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsuri3e ), digits = 6 ) )
-print( round( vcov( fitsuri3e, modified.reg = TRUE ), digits = 6 ) )
+print( round( vcov( fitsuri3e, modified.regMat = TRUE ), digits = 6 ) )
 print( round( vcov( fitsuri3e$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsurio4e ), digits = 6 ) )
@@ -426,14 +426,14 @@ print( round( vcov( fitsuri4e ), digits = 6 ) )
 print( round( vcov( fitsuri4e$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsurio5r2 ), digits = 6 ) )
-print( round( vcov( fitsurio5r2, modified.reg = TRUE ), digits = 6 ) )
+print( round( vcov( fitsurio5r2, modified.regMat = TRUE ), digits = 6 ) )
 print( round( vcov( fitsurio5r2$eq[[ 1 ]] ), digits = 6 ) )
 print( round( vcov( fitsuri5r2 ), digits = 6 ) )
-print( round( vcov( fitsuri5r2, modified.reg = TRUE ), digits = 6 ) )
+print( round( vcov( fitsuri5r2, modified.regMat = TRUE ), digits = 6 ) )
 print( round( vcov( fitsuri5r2$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fitsurio5wr2 ), digits = 6 ) )
-print( round( vcov( fitsurio5wr2, modified.reg = TRUE ), digits = 6 ) )
+print( round( vcov( fitsurio5wr2, modified.regMat = TRUE ), digits = 6 ) )
 print( round( vcov( fitsurio5wr2$eq[[ 2 ]] ), digits = 6 ) )
 
 

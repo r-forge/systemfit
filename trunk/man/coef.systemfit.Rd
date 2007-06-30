@@ -11,11 +11,11 @@
 }
 
 \usage{
-   \method{coef}{systemfit}( object, modified.reg = FALSE, \dots )
+   \method{coef}{systemfit}( object, modified.regMat = FALSE, \dots )
 
    \method{coef}{systemfit.equation}( object, \dots )
 
-   \method{coef}{summary.systemfit}( object, modified.reg = FALSE, \dots )
+   \method{coef}{summary.systemfit}( object, modified.regMat = FALSE, \dots )
 
    \method{coef}{summary.systemfit.equation}( object, \dots )
 }
@@ -24,7 +24,7 @@
    \item{object}{an object of class \code{systemfit},
       \code{systemfit.equation}, \code{summary.systemfit}, or
       \code{summary.systemfit.equation}.}
-   \item{modified.reg}{logical. If \code{TRUE},
+   \item{modified.regMat}{logical. If \code{TRUE},
       the parameters of the modified regressor matrix
       (original regressor matrix post-multiplied by \code{restrict.regMat})
       rather than the parameters of the original regressor matrix
@@ -86,7 +86,7 @@ modReg[ 5, "supPrice2" ]    <- 1
 modReg[ 6, "supPrice2" ]    <- 1
 modReg[ 7, "supTrend" ]     <- 1
 fitols3 <- systemfit( system, data = Kmenta, restrict.regMat = modReg )
-coef( fitols3, modified.reg  = TRUE )
+coef( fitols3, modified.regMat  = TRUE )
 coef( fitols3 )
 }
 

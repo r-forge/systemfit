@@ -15834,7 +15834,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
         109.108517          -0.442188           0.369271          57.267872 
       supply_price   supply_farmPrice       supply_trend 
           0.137465           0.269121           0.369271 
-> print( round( coef( fit3slsd[[ 5 ]]$e3e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fit3slsd[[ 5 ]]$e3e, modified.regMat = TRUE ), digits = 6 ) )
         C1         C2         C3         C4         C5         C6 
 109.108517  -0.442188   0.369271  57.267872   0.137465   0.269121 
 > print( round( coef( fit3slsd[[ 1 ]]$e3e$eq[[ 2 ]] ), digits = 6 ) )
@@ -15846,7 +15846,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
         100.173537          -0.324910           0.340615          49.742529 
       supply_price   supply_farmPrice       supply_trend 
           0.236666           0.247432           0.340615 
-> print( round( coef( fit3slsd[[ 4 ]]$e3w, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fit3slsd[[ 4 ]]$e3w, modified.regMat = TRUE ), digits = 6 ) )
         C1         C2         C3         C4         C5         C6 
 100.173537  -0.324910   0.340615  49.742529   0.236666   0.247432 
 > print( round( coef( fit3slsd[[ 5 ]]$e3w$eq[[ 2 ]] ), digits = 6 ) )
@@ -15876,7 +15876,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
          91.390122          -0.216847           0.319854          47.578701 
       supply_price   supply_farmPrice       supply_trend 
           0.283153           0.223962           0.319854 
-> print( round( coef( fit3slsi[[ 2 ]]$e5e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fit3slsi[[ 2 ]]$e5e, modified.regMat = TRUE ), digits = 6 ) )
        C1        C2        C3        C4        C5        C6 
 91.390122 -0.216847  0.319854 47.578701  0.283153  0.223962 
 > print( round( coef( fit3slsi[[ 3 ]]$e5e$eq[[ 2 ]] ), digits = 6 ) )
@@ -15947,7 +15947,7 @@ supply_price         0.137465   0.070540  1.948764 0.069081
 supply_farmPrice     0.269121   0.040262  6.684191 0.000005
 supply_trend         0.369271   0.043237  8.540605 0.000000
 > print( round( coef( summary( fit3slsd[[ 5 ]]$e3e, useDfSys = FALSE ),
-+    modified.reg = TRUE ), digits = 6 ) )
++    modified.regMat = TRUE ), digits = 6 ) )
      Estimate Std. Error   t value Pr(>|t|)
 C1 109.108517   5.842829 18.673918       NA
 C2  -0.442188   0.073710 -5.999053       NA
@@ -15974,7 +15974,7 @@ supply_price        0.183298   0.118878  1.541901 0.142642
 supply_farmPrice    0.120196   0.025956  4.630759 0.000278
 supply_trend        0.199604   0.029661  6.729461 0.000005
 > print( round( coef( summary( fit3slsi[[ 4 ]]$e3w, useDfSys = FALSE ),
-+    modified.reg = TRUE ), digits = 6 ) )
++    modified.regMat = TRUE ), digits = 6 ) )
     Estimate Std. Error   t value Pr(>|t|)
 C1 92.074206   9.630330  9.560856       NA
 C2 -0.106424   0.102285 -1.040457       NA
@@ -16014,7 +16014,7 @@ supply_(Intercept) 47.578701   7.426812  6.406343 0.000000
 supply_price        0.283153   0.083490  3.391466 0.001738
 supply_farmPrice    0.223962   0.016758 13.364671 0.000000
 supply_trend        0.319854   0.016776 19.065993 0.000000
-> print( round( coef( summary( fit3slsi[[ 2 ]]$e5e ), modified.reg = TRUE ),
+> print( round( coef( summary( fit3slsi[[ 2 ]]$e5e ), modified.regMat = TRUE ),
 +    digits = 6 ) )
     Estimate Std. Error   t value Pr(>|t|)
 C1 91.390122   7.316070 12.491695 0.000000
@@ -16039,7 +16039,7 @@ supply_(Intercept) 50.019020   7.531401  6.641396 0.000000
 supply_price        0.251553   0.081202  3.097877 0.003829
 supply_farmPrice    0.230895   0.020899 11.048341 0.000000
 supply_trend        0.324649   0.020529 15.814212 0.000000
-> print( round( coef( summary( fit3sls[[ 2 ]]$e5we ), modified.reg = TRUE ),
+> print( round( coef( summary( fit3sls[[ 2 ]]$e5we ), modified.regMat = TRUE ),
 +    digits = 6 ) )
     Estimate Std. Error   t value Pr(>|t|)
 C1 94.082962   7.305826 12.877799 0.000000
@@ -16145,7 +16145,7 @@ supply_(Intercept)    -0.210650
 supply_price           0.000582
 supply_farmPrice       0.001387
 supply_trend           0.001761
-> print( round( vcov( fit3sls[[ 5 ]]$e3e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fit3sls[[ 5 ]]$e3e, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3         C4        C5        C6
 C1 54.619025 -0.582825  0.039403  55.136055 -0.583484  0.031022
 C2 -0.582825  0.007886 -0.002111  -0.343960  0.005267 -0.001662
@@ -16247,7 +16247,7 @@ supply_(Intercept)     0.052591
 supply_price          -0.000855
 supply_farmPrice       0.000293
 supply_trend           0.000435
-> print( round( vcov( fit3sls[[ 2 ]]$e5e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fit3sls[[ 2 ]]$e5e, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 53.514692 -0.575365  0.043041 53.949283 -0.575365  0.034494
 C2 -0.575365  0.006586 -0.000855 -0.588808  0.006586 -0.000631
@@ -16382,7 +16382,7 @@ supply_(Intercept)    -0.113305
 supply_price           0.000315
 supply_farmPrice       0.000751
 supply_trend           0.000880
-> print( round( vcov( fit3slsi[[ 1 ]]$e3, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 1 ]]$e3, modified.regMat = TRUE ), digits = 6 ) )
            C1        C2        C3         C4        C5        C6
 C1  92.743109 -0.943554  0.019683 110.770122 -1.122234  0.016801
 C2  -0.943554  0.010462 -0.001055  -0.993446  0.010913 -0.000900
@@ -16453,7 +16453,7 @@ supply_(Intercept)     0.099090
 supply_price          -0.001318
 supply_farmPrice       0.000299
 supply_trend           0.000370
-> print( round( vcov( fit3slsi[[ 3 ]]$e5, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 3 ]]$e5, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 62.685752 -0.718034  0.095729 62.731653 -0.718034  0.086351
 C2 -0.718034  0.008464 -0.001318 -0.721192  0.008464 -0.001155
@@ -16492,7 +16492,7 @@ supply_(Intercept)     0.292049
 supply_price          -0.005178
 supply_farmPrice       0.002142
 supply_trend           0.001795
-> print( round( vcov( fit3slsi[[ 5 ]]$e5w, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 5 ]]$e5w, modified.regMat = TRUE ), digits = 6 ) )
            C1        C2        C3        C4        C5        C6
 C1 107.334302 -1.399365  0.342810 95.421774 -1.399365  0.439185
 C2  -1.399365  0.019040 -0.005178 -1.223891  0.019040 -0.006480
@@ -16625,7 +16625,7 @@ supply_(Intercept)     0.138536
 supply_price          -0.005220
 supply_farmPrice       0.003498
 supply_trend           0.004338
-> print( round( vcov( fit3slsd[[ 2 ]]$e3, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 2 ]]$e3, modified.regMat = TRUE ), digits = 6 ) )
            C1        C2        C3         C4        C5        C6
 C1 155.228028 -2.213733  0.680545 -25.182594 -0.426139  0.630025
 C2  -1.929312  0.030050 -0.011035   0.811365  0.002708 -0.010001
@@ -16696,7 +16696,7 @@ supply_(Intercept)     0.041669
 supply_price          -0.000729
 supply_farmPrice       0.000278
 supply_trend           0.000411
-> print( round( vcov( fit3slsd[[ 4 ]]$e5e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 4 ]]$e5e, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 57.387843 -0.604144  0.032799 57.482852 -0.604144  0.028794
 C2 -0.604144  0.006751 -0.000729 -0.613518  0.006751 -0.000559

@@ -55,8 +55,8 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
 
    # coefficients of the modified regressor matrix
    if( !is.null( object$restrict.regMat ) ) {
-      coefModReg <- coef( object, modified.reg = TRUE )
-      stdErModReg <- diag( vcov( object, modified.reg = TRUE ) )^0.5  # standard errors
+      coefModReg <- coef( object, modified.regMat = TRUE )
+      stdErModReg <- diag( vcov( object, modified.regMat = TRUE ) )^0.5  # standard errors
       tStatModReg <- coefModReg / stdErModReg    # t-statistic
       if( useDfSys ) {             # p-values
          pValModReg <- 2 * ( 1 - pt( abs( tStatModReg ), object$df.residual ) )

@@ -42,8 +42,8 @@ se.ratio.systemfit <- function( resultsi, resultsj, eqni ) {
 
 
 ## return all coefficients
-coef.systemfit <- function( object, modified.reg = FALSE, ... ) {
-   if( modified.reg ){
+coef.systemfit <- function( object, modified.regMat = FALSE, ... ) {
+   if( modified.regMat ){
       if( is.null( object$restrict.regMat ) ){
          stop( "coefficients of the modified regressor matrix are not available,",
             " because argument 'restrict.regMat' has not been used in this estimation." )
@@ -57,8 +57,8 @@ coef.systemfit <- function( object, modified.reg = FALSE, ... ) {
 }
 
 ## return all coefficients, std.errors, t-values and p-values
-coef.summary.systemfit <- function( object, modified.reg = FALSE, ... ) {
-   if( modified.reg ){
+coef.summary.systemfit <- function( object, modified.regMat = FALSE, ... ) {
+   if( modified.regMat ){
       if( is.null( object$coefModReg ) ){
          stop( "coefficients of the modified regressor matrix are not available,",
             " because argument 'restrict.regMat' has not been used in this estimation." )
@@ -96,8 +96,8 @@ residuals.systemfit.equation <- function( object, ... ) {
 }
 
 ## return the variance covariance matrix of the coefficients
-vcov.systemfit <- function( object, modified.reg = FALSE, ... ) {
-   if( modified.reg ){
+vcov.systemfit <- function( object, modified.regMat = FALSE, ... ) {
+   if( modified.regMat ){
       if( is.null( object$restrict.regMat ) ){
          stop( "coefficients of the modified regressor matrix",
             " and their covariance matrix are not available,",

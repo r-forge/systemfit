@@ -1662,7 +1662,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
          99.646089          -0.298209           0.318641          56.210441 
       supply_price   supply_farmPrice       supply_trend 
           0.164228           0.257864           0.318641 
-> print( round( coef( fitwls3e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fitwls3e, modified.regMat = TRUE ), digits = 6 ) )
        C1        C2        C3        C4        C5        C6 
 99.646089 -0.298209  0.318641 56.210441  0.164228  0.257864 
 > print( round( coef( fitwls3e$eq[[ 1 ]] ), digits = 6 ) )
@@ -1683,7 +1683,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
         100.903146          -0.315938           0.323934          53.937948 
       supply_price   supply_farmPrice       supply_trend 
           0.184062           0.260277           0.323934 
-> print( round( coef( fitwlsi5, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fitwlsi5, modified.regMat = TRUE ), digits = 6 ) )
         C1         C2         C3         C4         C5         C6 
 100.903146  -0.315938   0.323934  53.937948   0.184062   0.260277 
 > print( round( coef( fitwlsi5$eq[[ 1 ]] ), digits = 6 ) )
@@ -1732,7 +1732,7 @@ supply_(Intercept) 56.210441  10.124784  5.551767 0.000003
 supply_price        0.164228   0.085910  1.911618 0.064384
 supply_farmPrice    0.257864   0.040393  6.383959 0.000000
 supply_trend        0.318641   0.038053  8.373531 0.000000
-> print( round( coef( summary( fitwls3e ), modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( summary( fitwls3e ), modified.regMat = TRUE ), digits = 6 ) )
     Estimate Std. Error   t value Pr(>|t|)
 C1 99.646089   6.973388 14.289481 0.000000
 C2 -0.298209   0.081622 -3.653543 0.000863
@@ -1773,7 +1773,7 @@ supply_price         0.184062   0.064794  2.840703 0.011806
 supply_farmPrice     0.260277   0.044665  5.827325 0.000026
 supply_trend         0.323934   0.038416  8.432317 0.000000
 > print( round( coef( summary( fitwlsi5, useDfSys = FALSE ),
-+    modified.reg = TRUE ), digits = 6 ) )
++    modified.regMat = TRUE ), digits = 6 ) )
      Estimate Std. Error   t value Pr(>|t|)
 C1 100.903146   6.039552 16.707059       NA
 C2  -0.315938   0.064794 -4.876008       NA
@@ -1878,7 +1878,7 @@ supply_(Intercept)    -0.042512
 supply_price           0.000079
 supply_farmPrice       0.000200
 supply_trend           0.001448
-> print( round( vcov( fitwls3e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitwls3e, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3         C4        C5        C6
 C1 48.628136 -0.506597  0.022574  -0.662713  0.001239  0.003123
 C2 -0.506597  0.006662 -0.001638   0.048082 -0.000090 -0.000227
@@ -1949,7 +1949,7 @@ supply_(Intercept)     0.074877
 supply_price          -0.001011
 supply_farmPrice       0.000111
 supply_trend           0.001481
-> print( round( vcov( fitwls5, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitwls5, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 36.571016 -0.321554 -0.043279 35.846737 -0.321554 -0.033436
 C2 -0.321554  0.004201 -0.001011 -0.431417  0.004201  0.000226
@@ -2051,7 +2051,7 @@ supply_(Intercept)    -0.050327
 supply_price           0.000094
 supply_farmPrice       0.000237
 supply_trend           0.001714
-> print( round( vcov( fitwlsi3, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitwlsi3, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3         C4        C5        C6
 C1 56.818574 -0.592263  0.026724  -0.784542  0.001467  0.003697
 C2 -0.592263  0.007812 -0.001939   0.056921 -0.000106 -0.000268
@@ -2122,7 +2122,7 @@ supply_(Intercept)     0.060620
 supply_price          -0.000827
 supply_farmPrice       0.000094
 supply_trend           0.001237
-> print( round( vcov( fitwlsi5e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitwlsi5e, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 30.437717 -0.265752 -0.037918 29.676241 -0.265752 -0.027921
 C2 -0.265752  0.003463 -0.000827 -0.355820  0.003463  0.000187

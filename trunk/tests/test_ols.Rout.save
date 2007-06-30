@@ -1876,7 +1876,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
          99.556298          -0.291694           0.312881          56.379540 
       supply_price   supply_farmPrice       supply_trend 
           0.163912           0.257067           0.312881 
-> print( round( coef( fitols3p, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fitols3p, modified.regMat = TRUE ), digits = 6 ) )
        C1        C2        C3        C4        C5        C6 
 99.556298 -0.291694  0.312881 56.379540  0.163912  0.257067 
 > print( round( coef( fitols3p$eq[[ 2 ]] ), digits = 6 ) )
@@ -1897,7 +1897,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
         101.481708          -0.316799           0.318885          54.149420 
       supply_price   supply_farmPrice       supply_trend 
           0.183201           0.259528           0.318885 
-> print( round( coef( fitols5, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fitols5, modified.regMat = TRUE ), digits = 6 ) )
         C1         C2         C3         C4         C5         C6 
 101.481708  -0.316799   0.318885  54.149420   0.183201   0.259528 
 > print( round( coef( fitols5$eq[[ 2 ]] ), digits = 6 ) )
@@ -1947,7 +1947,7 @@ supply_(Intercept) 56.379540  10.072129  5.597579 0.000040
 supply_price        0.163912   0.085286  1.921907 0.072611
 supply_farmPrice    0.257067   0.040217  6.391991 0.000009
 supply_trend        0.312881   0.044052  7.102500 0.000003
-> print( round( coef( summary( fitols3p, useDfSys = FALSE ), modified.reg = TRUE ),
+> print( round( coef( summary( fitols3p, useDfSys = FALSE ), modified.regMat = TRUE ),
 +    digits = 6 ) )
     Estimate Std. Error   t value Pr(>|t|)
 C1 99.556298   8.422525 11.820244       NA
@@ -1989,7 +1989,7 @@ supply_(Intercept)  54.149420   7.063795  7.665769 0.000000
 supply_price         0.183201   0.058852  3.112908 0.003680
 supply_farmPrice     0.259528   0.036536  7.103358 0.000000
 supply_trend         0.318885   0.037278  8.554130 0.000000
-> print( round( coef( summary( fitols5 ), modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( summary( fitols5 ), modified.regMat = TRUE ), digits = 6 ) )
      Estimate Std. Error   t value Pr(>|t|)
 C1 101.481708   5.762079 17.611994 0.000000
 C2  -0.316799   0.058852 -5.382986 0.000005
@@ -2094,7 +2094,7 @@ supply_(Intercept)    -0.056972
 supply_price           0.000107
 supply_farmPrice       0.000268
 supply_trend           0.001941
-> print( round( vcov( fitols3p, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitols3p, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3         C4        C5        C6
 C1 70.938921 -0.736413  0.030252  -0.888127  0.001661  0.004185
 C2 -0.736413  0.009503 -0.002195   0.064436 -0.000120 -0.000304
@@ -2165,7 +2165,7 @@ supply_(Intercept)     0.050012
 supply_price          -0.000762
 supply_farmPrice       0.000120
 supply_trend           0.001390
-> print( round( vcov( fitols5, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitols5, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 33.201560 -0.272100 -0.059329 30.865153 -0.272100 -0.031328
 C2 -0.272100  0.003464 -0.000762 -0.357363  0.003464  0.000196

@@ -2353,7 +2353,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
          94.281641          -0.224712           0.298273          48.184330 
       supply_price   supply_farmPrice       supply_trend 
           0.242720           0.261893           0.298273 
-> print( round( coef( fit2sls3, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fit2sls3, modified.regMat = TRUE ), digits = 6 ) )
        C1        C2        C3        C4        C5        C6 
 94.281641 -0.224712  0.298273 48.184330  0.242720  0.261893 
 > print( round( coef( fit2sls3$eq[[ 1 ]] ), digits = 6 ) )
@@ -2374,7 +2374,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
          95.705870          -0.243279           0.302710          46.563713 
       supply_price   supply_farmPrice       supply_trend 
           0.256721           0.263690           0.302710 
-> print( round( coef( fit2sls5r, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fit2sls5r, modified.regMat = TRUE ), digits = 6 ) )
        C1        C2        C3        C4        C5        C6 
 95.705870 -0.243279  0.302710 46.563713  0.256721  0.263690 
 > print( round( coef( fit2sls5r$eq[[ 2 ]] ), digits = 6 ) )
@@ -2424,7 +2424,7 @@ supply_(Intercept) 48.184330   9.715930  4.959312 0.000019
 supply_price        0.242720   0.082628  2.937495 0.005903
 supply_farmPrice    0.261893   0.037855  6.918353 0.000000
 supply_trend        0.298273   0.041857  7.126050 0.000000
-> print( round( coef( summary( fit2sls3 ), modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( summary( fit2sls3 ), modified.regMat = TRUE ), digits = 6 ) )
     Estimate Std. Error   t value Pr(>|t|)
 C1 94.281641   8.177055 11.530024 0.000000
 C2 -0.224712   0.095360 -2.356462 0.024352
@@ -2464,7 +2464,7 @@ supply_price        0.256721   0.062054  4.137068 0.000774
 supply_farmPrice    0.263690   0.037253  7.078394 0.000003
 supply_trend        0.302710   0.038159  7.932884 0.000001
 > print( round( coef( summary( fit2sls5r, useDfSys = FALSE ),
-+    modified.reg = TRUE ), digits = 6 ) )
++    modified.regMat = TRUE ), digits = 6 ) )
     Estimate Std. Error   t value Pr(>|t|)
 C1 95.705870   6.004353 15.939415       NA
 C2 -0.243279   0.062054 -3.920441       NA
@@ -2601,7 +2601,7 @@ supply_(Intercept)    -0.052082
 supply_price           0.000102
 supply_farmPrice       0.000243
 supply_trend           0.001752
-> print( round( vcov( fit2sls3, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fit2sls3, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 66.864225 -0.704668  0.039196 -1.165191  0.002285  0.005434
 C2 -0.704668  0.009094 -0.002100  0.062438 -0.000122 -0.000291
@@ -2672,7 +2672,7 @@ supply_(Intercept)     0.057684
 supply_price          -0.000847
 supply_farmPrice       0.000122
 supply_trend           0.001456
-> print( round( vcov( fit2sls5r, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fit2sls5r, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 36.052251 -0.302514 -0.057288 34.112051 -0.302514 -0.033671
 C2 -0.302514  0.003851 -0.000847 -0.397307  0.003851  0.000218
@@ -2775,7 +2775,7 @@ supply_(Intercept)    -0.077656
 supply_price           0.000152
 supply_farmPrice       0.000362
 supply_trend           0.002612
-> print( round( vcov( fit2slsd3, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fit2slsd3, modified.regMat = TRUE ), digits = 6 ) )
            C1        C2        C3         C4        C5        C6
 C1 141.442455 -1.640068  0.234151  -6.960747  0.013653  0.032462
 C2  -1.640068  0.021165 -0.004888   0.145321 -0.000285 -0.000678

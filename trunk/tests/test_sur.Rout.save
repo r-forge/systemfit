@@ -3581,7 +3581,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
          98.840761          -0.239780           0.266981          67.428338 
       supply_price   supply_farmPrice       supply_trend 
           0.133217           0.179481           0.266981 
-> print( round( coef( fitsur3, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fitsur3, modified.regMat = TRUE ), digits = 6 ) )
        C1        C2        C3        C4        C5        C6 
 98.840761 -0.239780  0.266981 67.428338  0.133217  0.179481 
 > print( round( coef( fitsur3$eq[[ 2 ]] ), digits = 6 ) )
@@ -3602,7 +3602,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
          97.629728          -0.257559           0.297629          89.543697 
      supply_income   supply_farmPrice       supply_trend 
           0.242441          -0.168655           0.297629 
-> print( round( coef( fitsuri5e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fitsuri5e, modified.regMat = TRUE ), digits = 6 ) )
        C1        C2        C3        C4        C5        C6 
 97.629728 -0.257559  0.297629 89.543697  0.242441 -0.168655 
 > print( round( coef( fitsuri5e$eq[[ 2 ]] ), digits = 6 ) )
@@ -3614,7 +3614,7 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
          96.442138          -0.275275           0.327973          52.576104 
       supply_price   supply_farmPrice       supply_trend 
           0.224725           0.231841           0.327973 
-> print( round( coef( fitsur5w, modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( fitsur5w, modified.regMat = TRUE ), digits = 6 ) )
        C1        C2        C3        C4        C5        C6 
 96.442138 -0.275275  0.327973 52.576104  0.224725  0.231841 
 > print( round( coef( fitsur5w$eq[[ 1 ]] ), digits = 6 ) )
@@ -3664,7 +3664,7 @@ supply_(Intercept) 67.428338  10.664717  6.322562 0.000000
 supply_price        0.133217   0.095310  1.397721 0.171250
 supply_farmPrice    0.179481   0.033654  5.333128 0.000006
 supply_trend        0.266981   0.036842  7.246570 0.000000
-> print( round( coef( summary( fitsur3 ), modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( summary( fitsur3 ), modified.regMat = TRUE ), digits = 6 ) )
     Estimate Std. Error   t value Pr(>|t|)
 C1 98.840761   7.558137 13.077398 0.000000
 C2 -0.239780   0.085993 -2.788350 0.008613
@@ -3688,7 +3688,7 @@ supply_(Intercept)  85.107093  10.828751  7.859364 0.000000
 supply_income        0.310638   0.110145  2.820265 0.007950
 supply_farmPrice    -0.195956   0.103427 -1.894636 0.066671
 supply_trend         0.337918   0.043115  7.837624 0.000000
-> print( round( coef( summary( fitsuri3we ), modified.reg = TRUE ), digits = 6 ) )
+> print( round( coef( summary( fitsuri3we ), modified.regMat = TRUE ), digits = 6 ) )
      Estimate Std. Error   t value Pr(>|t|)
 C1 107.805519   6.927015 15.563056 0.000000
 C2  -0.398586   0.084288 -4.728852 0.000038
@@ -3743,7 +3743,7 @@ supply_income       0.242441   0.070910  3.419018 0.003516
 supply_farmPrice   -0.168655   0.098793 -1.707147 0.107123
 supply_trend        0.297629   0.040327  7.380428 0.000002
 > print( round( coef( summary( fitsuri5e, useDfSys = FALSE ),
-+    modified.reg = TRUE ), digits = 6 ) )
++    modified.regMat = TRUE ), digits = 6 ) )
     Estimate Std. Error   t value Pr(>|t|)
 C1 97.629728   6.155972 15.859351       NA
 C2 -0.257559   0.070910 -3.632214       NA
@@ -3880,7 +3880,7 @@ supply_(Intercept)    -0.165599
 supply_price           0.000440
 supply_farmPrice       0.001111
 supply_trend           0.001357
-> print( round( vcov( fitsur3, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitsur3, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3         C4        C5        C6
 C1 57.125431 -0.589892  0.021160  64.595187 -0.662552  0.017322
 C2 -0.589892  0.007395 -0.001535  -0.482110  0.006195 -0.001257
@@ -3920,7 +3920,7 @@ supply_(Intercept)    -0.160451
 supply_price           0.000426
 supply_farmPrice       0.001077
 supply_trend           0.001305
-> print( round( vcov( fitsur3w, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitsur3w, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3         C4        C5        C6
 C1 56.726729 -0.585128  0.020348  64.882000 -0.664819  0.016795
 C2 -0.585128  0.007290 -0.001476  -0.489991  0.006231 -0.001219
@@ -3990,7 +3990,7 @@ supply_(Intercept)     0.047594
 supply_price          -0.000738
 supply_farmPrice       0.000234
 supply_trend           0.000340
-> print( round( vcov( fitsur5e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitsur5e, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 47.886704 -0.516747  0.040579 48.218725 -0.516747  0.033361
 C2 -0.516747  0.005886 -0.000738 -0.526670  0.005886 -0.000562
@@ -4093,7 +4093,7 @@ supply_(Intercept)    -0.172089
 supply_income          0.000428
 supply_farmPrice       0.001147
 supply_trend           0.001859
-> print( round( vcov( fitsuri3e, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitsuri3e, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3         C4        C5        C6
 C1 47.983367 -0.505917  0.028570   4.986011 -0.211763  0.160903
 C2 -0.505917  0.007104 -0.002098   0.119753  0.001700 -0.002728
@@ -4195,7 +4195,7 @@ supply_(Intercept)     0.072036
 supply_price          -0.000872
 supply_farmPrice       0.000138
 supply_trend           0.000171
-> print( round( vcov( fitsurio5r2, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitsurio5r2, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 51.319595 -0.579747  0.070528 51.551829 -0.579747  0.061658
 C2 -0.579747  0.006646 -0.000872 -0.583025  0.006646 -0.000751
@@ -4233,7 +4233,7 @@ supply_(Intercept)     0.011864
 supply_income         -0.001697
 supply_farmPrice       0.001385
 supply_trend           0.001896
-> print( round( vcov( fitsuri5r2, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitsuri5r2, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3         C4        C5        C6
 C1 45.688124 -0.440079 -0.015167  22.817210 -0.440079  0.210423
 C2 -0.440079  0.006055 -0.001697  -0.239028  0.006055 -0.003454
@@ -4272,7 +4272,7 @@ supply_(Intercept)     0.072036
 supply_price          -0.000872
 supply_farmPrice       0.000138
 supply_trend           0.000171
-> print( round( vcov( fitsurio5wr2, modified.reg = TRUE ), digits = 6 ) )
+> print( round( vcov( fitsurio5wr2, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
 C1 51.319595 -0.579747  0.070528 51.551829 -0.579747  0.061658
 C2 -0.579747  0.006646 -0.000872 -0.583025  0.006646 -0.000751
