@@ -57,9 +57,9 @@ fit3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta )
 print( fit2sls )
 print( fit3sls )
 print( "covariance of residuals used for estimation (from 2sls)" )
-print( fit3sls$rcovest )
+print( fit3sls$residCovEst )
 print( "covariance of residuals" )
-print( fit3sls$rcov )
+print( fit3sls$residCov )
 
 ## examine the improvement of 3SLS over 2SLS by computing
 ## the ratio of the standard errors of the estimates
