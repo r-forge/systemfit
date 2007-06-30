@@ -37,15 +37,17 @@ fitwls1 <- systemfit( system, "WLS", data = Kmenta )
 print( summary( fitwls1 ) )
 
 ## *************** WLS estimation (EViews-like) ************************
-fitwls1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor" )
+fitwls1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
+   returnModelMatrix = TRUE )
 print( summary( fitwls1e, useDfSys = TRUE ) )
 
 ## ************** WLS with cross-equation restriction ***************
-fitwls2 <- systemfit( system, "WLS", data = Kmenta, restrict.matrix = restrm )
+fitwls2 <- systemfit( system, "WLS", data = Kmenta, restrict.matrix = restrm,
+   returnModelMatrix = TRUE )
 print( summary( fitwls2 ) )
 # the same with symbolically specified restrictions
 fitwls2Sym <- systemfit( system, "WLS", data = Kmenta,
-   restrict.matrix = restrict )
+   restrict.matrix = restrict, returnModelMatrix = TRUE )
 all.equal( fitwls2, fitwls2Sym )
 
 ## ************** WLS with cross-equation restriction (EViews-like) *******
@@ -54,7 +56,8 @@ fitwls2e <- systemfit( system, "WLS", data = Kmenta, restrict.matrix = restrm,
 print( summary( fitwls2e ) )
 
 ## ******* WLS with cross-equation restriction via restrict.regMat **********
-fitwls3 <- systemfit( system,"WLS", data = Kmenta, restrict.regMat = tc,)
+fitwls3 <- systemfit( system,"WLS", data = Kmenta, restrict.regMat = tc,
+   returnModelMatrix = TRUE )
 print( summary( fitwls3 ) )
 
 ## ******* WLS with cross-equation restriction via restrict.regMat (EViews-like) *****
@@ -73,16 +76,19 @@ all.equal( fitwls4, fitwls4Sym )
 
 ## ***** WLS with 2 cross-equation restrictions (EViews-like) **********
 fitwls4e <- systemfit( system,"WLS", data = Kmenta, methodRCov = "noDfCor",
-   restrict.matrix = restr2m, restrict.rhs = restr2q )
+   restrict.matrix = restr2m, restrict.rhs = restr2q,
+   returnModelMatrix = TRUE )
 print( summary( fitwls4e ) )
 
 ## *********** WLS with 2 cross-equation restrictions via R and restrict.regMat ******
 fitwls5 <- systemfit( system, "WLS", data = Kmenta, restrict.matrix = restr3m,
-   restrict.rhs = restr3q, restrict.regMat = tc )
+   restrict.rhs = restr3q, restrict.regMat = tc,
+   returnModelMatrix = TRUE )
 print( summary( fitwls5 ) )
 # the same with symbolically specified restrictions
 fitwls5Sym <- systemfit( system, "WLS", data = Kmenta,
-   restrict.matrix = restrict3, restrict.regMat = tc )
+   restrict.matrix = restrict3, restrict.regMat = tc,
+   returnModelMatrix = TRUE )
 all.equal( fitwls5, fitwls5Sym )
 
 ## *********** WLS with 2 cross-equation restrictions via R and restrict.regMat (EViews-like)
@@ -97,12 +103,12 @@ print( summary( fitwlsi1, useDfSys = TRUE ) )
 
 ## *************** iterated WLS estimation (EViews-like) ************
 fitwlsi1e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-   maxit = 100 )
+   maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitwlsi1e, useDfSys = TRUE ) )
 
 ## ****** iterated WLS with cross-equation restriction ***************
 fitwlsi2 <- systemfit( system, "WLS", data = Kmenta, restrict.matrix = restrm,
-   maxit = 100 )
+   maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitwlsi2 ) )
 
 ## ****** iterated WLS with cross-equation restriction (EViews-like) ********
@@ -112,7 +118,7 @@ print( summary( fitwlsi2e ) )
 
 ## ******* iterated WLS with cross-equation restriction via restrict.regMat **********
 fitwlsi3 <- systemfit( system, "WLS", data = Kmenta, restrict.regMat = tc,
-   maxit = 100 )
+   maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitwlsi3 ) )
 
 ## ******* iterated WLS with cross-equation restriction via restrict.regMat (EViews-like) ***
@@ -127,12 +133,14 @@ print( summary( fitwlsi4 ) )
 
 ## ******* iterated WLS with 2 cross-equation restrictions (EViews-like) *****
 fitwlsi4e <- systemfit( system, "WLS", data = Kmenta, methodRCov = "noDfCor",
-   restrict.matrix = restr2m, restrict.rhs = restr2q, maxit = 100 )
+   restrict.matrix = restr2m, restrict.rhs = restr2q, maxit = 100,
+   returnModelMatrix = TRUE )
 print( summary( fitwlsi4e ) )
 
 ## ***** iterated WLS with 2 cross-equation restrictions via R and restrict.regMat ******
 fitwlsi5 <- systemfit( system, "WLS", data = Kmenta, restrict.matrix = restr3m,
-   restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
+   restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100,
+   returnModelMatrix = TRUE )
 print( summary( fitwlsi5 ) )
 
 ## *** iterated WLS with 2 cross-equation restrictions via R and restrict.regMat (EViews-like)
@@ -557,50 +565,65 @@ print( all.equal( mf1, model.frame( fitwlsi5e$eq[[ 1 ]] ) ) )
 
 
 ## **************** model matrix ************************
+# with returnModelMatrix = TRUE
+print( !is.null( fitwls1e$eq[[ 1 ]]$modelMatrix ) )
 print( mm <- model.matrix( fitwlsi1e ) )
 print( mm1 <- model.matrix( fitwlsi1e$eq[[ 1 ]] ) )
 print( mm2 <- model.matrix( fitwlsi1e$eq[[ 2 ]] ) )
-fitwlsi1e$eq[[ 1 ]]$modelMatrix <- NULL
-fitwlsi1e$eq[[ 2 ]]$modelMatrix <- NULL
-print( all.equal( mm, model.matrix( fitwlsi1e ) ) )
-print( all.equal( mm1, model.matrix( fitwlsi1e$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitwlsi1e$eq[[ 2 ]] ) ) )
 
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitwlsi1 ) ) )
+print( all.equal( mm1, model.matrix( fitwlsi1$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitwlsi1$eq[[ 2 ]] ) ) )
+print( !is.null( fitwls1$eq[[ 1 ]]$modelMatrix ) )
+
+# with returnModelMatrix = TRUE
+print( !is.null( fitwls2$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitwls2 ) ) )
 print( all.equal( mm1, model.matrix( fitwls2$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitwls2$eq[[ 2 ]] ) ) )
-fitwls2$eq[[ 1 ]]$modelMatrix <- NULL
-fitwls2$eq[[ 2 ]]$modelMatrix <- NULL
-print( all.equal( mm, model.matrix( fitwls2 ) ) )
-print( all.equal( mm1, model.matrix( fitwls2$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitwls2$eq[[ 2 ]] ) ) )
 
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitwls2e ) ) )
+print( all.equal( mm1, model.matrix( fitwls2e$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitwls2e$eq[[ 2 ]] ) ) )
+print( !is.null( fitwls2e$eq[[ 1 ]]$modelMatrix ) )
+
+# with returnModelMatrix = TRUE
+print( !is.null( fitwlsi3$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitwlsi3 ) ) )
 print( all.equal( mm1, model.matrix( fitwlsi3$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitwlsi3$eq[[ 2 ]] ) ) )
-fitwlsi3$eq[[ 1 ]]$modelMatrix <- NULL
-fitwlsi3$eq[[ 2 ]]$modelMatrix <- NULL
-print( all.equal( mm, model.matrix( fitwlsi3 ) ) )
-print( all.equal( mm1, model.matrix( fitwlsi3$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitwlsi3$eq[[ 2 ]] ) ) )
 
-print( all.equal( mm, model.matrix( fitwls4e ) ) )
-print( all.equal( mm1, model.matrix( fitwls4e$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitwls4e$eq[[ 2 ]] ) ) )
-fitwls4e$eq[[ 1 ]]$modelMatrix <- NULL
-fitwls4e$eq[[ 2 ]]$modelMatrix <- NULL
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitwlsi3e ) ) )
+print( all.equal( mm1, model.matrix( fitwlsi3e$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitwlsi3e$eq[[ 2 ]] ) ) )
+print( !is.null( fitwlsi3e$eq[[ 1 ]]$modelMatrix ) )
+
+# with returnModelMatrix = TRUE
+print( !is.null( fitwls4e$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitwls4e ) ) )
 print( all.equal( mm1, model.matrix( fitwls4e$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitwls4e$eq[[ 2 ]] ) ) )
 
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitwls4Sym ) ) )
+print( all.equal( mm1, model.matrix( fitwls4Sym$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitwls4Sym$eq[[ 2 ]] ) ) )
+print( !is.null( fitwls4Sym$eq[[ 1 ]]$modelMatrix ) )
+
+# with returnModelMatrix = TRUE
+print( !is.null( fitwls5$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitwls5 ) ) )
 print( all.equal( mm1, model.matrix( fitwls5$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitwls5$eq[[ 2 ]] ) ) )
-fitwls5$eq[[ 1 ]]$modelMatrix <- NULL
-fitwls5$eq[[ 2 ]]$modelMatrix <- NULL
-print( all.equal( mm, model.matrix( fitwls5 ) ) )
-print( all.equal( mm1, model.matrix( fitwls5$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitwls5$eq[[ 2 ]] ) ) )
+
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitwls5e ) ) )
+print( all.equal( mm1, model.matrix( fitwls5e$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitwls5e$eq[[ 2 ]] ) ) )
+print( !is.null( fitwls5e$eq[[ 1 ]]$modelMatrix ) )
 
 
 ## **************** formulas ************************

@@ -52,7 +52,8 @@ fitsur1r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
 print( summary( fitsur1r2 ) )
 
 ## *************** SUR (methodRCov="Theil", useDfSys = TRUE ) ***************
-fitsur1e2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
+fitsur1e2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+   returnModelMatrix = TRUE )
 print( summary( fitsur1e2, useDfSys = TRUE ) )
 
 ## ********************* SUR (methodRCov="max") *****************
@@ -79,12 +80,12 @@ all.equal( fitsur2, fitsur2Sym )
 
 ## *************** SUR with cross-equation restriction (EViews-like) **
 fitsur2e <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm,
-   methodRCov = "noDfCor" )
+   methodRCov = "noDfCor", returnModelMatrix = TRUE )
 print( summary( fitsur2e ) )
 
 ## *************** WSUR with cross-equation restriction (EViews-like) **
 fitsur2we <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm,
-   methodRCov = "noDfCor", residCovWeighted = TRUE )
+   methodRCov = "noDfCor", residCovWeighted = TRUE, returnModelMatrix = TRUE )
 summary( fitsur2we )
 
 
@@ -94,12 +95,12 @@ print( summary( fitsur3 ) )
 
 ## *************** SUR with restriction via restrict.regMat (EViews-like) **************
 fitsur3e <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc,
-   methodRCov = "noDfCor" )
+   methodRCov = "noDfCor", returnModelMatrix = TRUE )
 print( summary( fitsur3e ) )
 
 ## *************** WSUR with restriction via restrict.regMat *******************
 fitsur3w <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc,
-   residCovWeighted = TRUE )
+   residCovWeighted = TRUE, returnModelMatrix = TRUE )
 summary( fitsur3w )
 
 
@@ -124,7 +125,8 @@ print( summary( fitsur4r2 ) )
 
 ## *************** SUR with 2 restrictions (methodRCov = "max") **************
 fitsur4r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
-   restrict.matrix = restr2m, restrict.rhs = restr2q )
+   restrict.matrix = restr2m, restrict.rhs = restr2q,
+   returnModelMatrix = TRUE )
 print( summary( fitsur4r3 ) )
 
 ## *************** WSUR with 2 restrictions (EViews-like) **************
@@ -135,11 +137,13 @@ summary( fitsur4we )
 
 ## *************** SUR with 2 restrictions via R and restrict.regMat ****************
 fitsur5 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restr3m,
-   restrict.rhs = restr3q, restrict.regMat = tc )
+   restrict.rhs = restr3q, restrict.regMat = tc,
+   returnModelMatrix = TRUE )
 print( summary( fitsur5 ) )
 # the same with symbolically specified restrictions
 fitsur5Sym <- systemfit( system, "SUR", data = Kmenta,
-   restrict.matrix = restrict3, restrict.regMat = tc )
+   restrict.matrix = restrict3, restrict.regMat = tc,
+   returnModelMatrix = TRUE )
 all.equal( fitsur5, fitsur5Sym )
 
 ## *************** SUR with 2 restrictions via R and restrict.regMat (EViews-like) **************
@@ -169,7 +173,7 @@ print( summary( fitsuri1r2 ) )
 
 ## ************** iterated SUR (methodRCov="Theil", useDfSys=TRUE) *****************
 fitsuri1e2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
-   maxit = 100 )
+   maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitsuri1e2, useDfSys = TRUE ) )
 
 ## ************** iterated SUR (methodRCov = "max") ****************************
@@ -190,7 +194,7 @@ print( summary( fitsuri2 ) )
 
 ## *********** iterated SUR with restriction (EViews-like) ***************
 fitsuri2e <- systemfit( system2, "SUR", data = Kmenta, restrict.matrix = restrm,
-   methodRCov = "noDfCor", maxit = 100 )
+   methodRCov = "noDfCor", maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitsuri2e ) )
 
 ## *********** iterated WSUR with restriction *******************
@@ -206,7 +210,7 @@ print( summary( fitsuri3 ) )
 
 ## *********** iterated SUR with restriction via restrict.regMat (EViews-like) ***************
 fitsuri3e <- systemfit( system2, "SUR", data = Kmenta, restrict.regMat = tc,
-   methodRCov = "noDfCor", maxit = 100 )
+   methodRCov = "noDfCor", maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitsuri3e ) )
 
 ## *********** iterated WSUR with restriction via restrict.regMat (EViews-like) ***************
@@ -258,10 +262,12 @@ print( summary( fitsuri5e ) )
 
 ## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodRCov="Theil") **********
 fitsurio5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
-   restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
+   restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc,
+   maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitsurio5r2 ) )
 fitsuri5r2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
-   restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
+   restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc,
+   maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitsuri5r2 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodRCov="max") **********
@@ -933,74 +939,97 @@ print( all.equal( mf1, model.frame( fitsuri5wr2$eq[[ 1 ]] ) ) )
 
 
 ## **************** model matrix ************************
+# with returnModelMatrix = TRUE
+print( !is.null( fitsur1e2$eq[[ 1 ]]$modelMatrix ) )
 print( mm <- model.matrix( fitsur1e2 ) )
 print( mm1 <- model.matrix( fitsur1e2$eq[[ 1 ]] ) )
 print( mm2 <- model.matrix( fitsur1e2$eq[[ 2 ]] ) )
-fitsur1e2$eq[[ 1 ]]$modelMatrix <- NULL
-fitsur1e2$eq[[ 2 ]]$modelMatrix <- NULL
-print( all.equal( mm, model.matrix( fitsur1e2 ) ) )
-print( all.equal( mm1, model.matrix( fitsur1e2$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitsur1e2$eq[[ 2 ]] ) ) )
 
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitsur1r2 ) ) )
+print( all.equal( mm1, model.matrix( fitsur1r2$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitsur1r2$eq[[ 2 ]] ) ) )
+print( !is.null( fitsur1r2$eq[[ 1 ]]$modelMatrix ) )
+
+# with returnModelMatrix = TRUE
+print( !is.null( fitsur2e$eq[[ 1 ]]$modelMatrix ) )
+print( all.equal( mm, model.matrix( fitsur2e ) ) )
+print( all.equal( mm1, model.matrix( fitsur2e$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitsur2e$eq[[ 2 ]] ) ) )
+
+# with returnModelMatrix = FALSE
 print( all.equal( mm, model.matrix( fitsur2 ) ) )
 print( all.equal( mm1, model.matrix( fitsur2$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitsur2$eq[[ 2 ]] ) ) )
-fitsur2$eq[[ 1 ]]$modelMatrix <- NULL
-fitsur2$eq[[ 2 ]]$modelMatrix <- NULL
+print( !is.null( fitsur2$eq[[ 1 ]]$modelMatrix ) )
+
+# with returnModelMatrix = TRUE
+print( !is.null( fitsur2we$eq[[ 1 ]]$modelMatrix ) )
+print( all.equal( mm, model.matrix( fitsur2we ) ) )
+print( all.equal( mm1, model.matrix( fitsur2we$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitsur2we$eq[[ 2 ]] ) ) )
+
+# with returnModelMatrix = FALSE
 print( all.equal( mm, model.matrix( fitsur2 ) ) )
 print( all.equal( mm1, model.matrix( fitsur2$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitsur2$eq[[ 2 ]] ) ) )
+print( !is.null( fitsuri2$eq[[ 1 ]]$modelMatrix ) )
 
-print( all.equal( mm, model.matrix( fitsur2we ) ) )
-print( all.equal( mm1, model.matrix( fitsur2we$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitsur2we$eq[[ 2 ]] ) ) )
-fitsur2we$eq[[ 1 ]]$modelMatrix <- NULL
-fitsur2we$eq[[ 2 ]]$modelMatrix <- NULL
-print( all.equal( mm, model.matrix( fitsur2we ) ) )
-print( all.equal( mm1, model.matrix( fitsur2we$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitsur2we$eq[[ 2 ]] ) ) )
-
-print( all.equal( mm, model.matrix( fitsur3e ) ) )
-print( all.equal( mm1, model.matrix( fitsur3e$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitsur3e$eq[[ 2 ]] ) ) )
-fitsur3e$eq[[ 1 ]]$modelMatrix <- NULL
-fitsur3e$eq[[ 2 ]]$modelMatrix <- NULL
+# with returnModelMatrix = TRUE
+print( !is.null( fitsur3e$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitsur3e ) ) )
 print( all.equal( mm1, model.matrix( fitsur3e$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitsur3e$eq[[ 2 ]] ) ) )
 
-print( all.equal( mm, model.matrix( fitsur3w ) ) )
-print( all.equal( mm1, model.matrix( fitsur3w$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitsur3w$eq[[ 2 ]] ) ) )
-fitsur3w$eq[[ 1 ]]$modelMatrix <- NULL
-fitsur3w$eq[[ 2 ]]$modelMatrix <- NULL
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitsur3 ) ) )
+print( all.equal( mm1, model.matrix( fitsur3$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitsur3$eq[[ 2 ]] ) ) )
+print( !is.null( fitsur3$eq[[ 1 ]]$modelMatrix ) )
+
+# with returnModelMatrix = TRUE
+print( !is.null( fitsur3w$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitsur3w ) ) )
 print( all.equal( mm1, model.matrix( fitsur3w$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitsur3w$eq[[ 2 ]] ) ) )
 
-print( all.equal( mm, model.matrix( fitsur4r3 ) ) )
-print( all.equal( mm1, model.matrix( fitsur4r3$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitsur4r3$eq[[ 2 ]] ) ) )
-fitsur4r3$eq[[ 1 ]]$modelMatrix <- NULL
-fitsur4r3$eq[[ 2 ]]$modelMatrix <- NULL
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitsur3 ) ) )
+print( all.equal( mm1, model.matrix( fitsur3$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitsur3$eq[[ 2 ]] ) ) )
+print( !is.null( fitsuri3$eq[[ 1 ]]$modelMatrix ) )
+
+# with returnModelMatrix = TRUE
+print( !is.null( fitsur4r3$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitsur4r3 ) ) )
 print( all.equal( mm1, model.matrix( fitsur4r3$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitsur4r3$eq[[ 2 ]] ) ) )
 
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitsur4we ) ) )
+print( all.equal( mm1, model.matrix( fitsur4we$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitsur4we$eq[[ 2 ]] ) ) )
+print( !is.null( fitsur4we$eq[[ 1 ]]$modelMatrix ) )
+
+# with returnModelMatrix = TRUE
+print( !is.null( fitsurio5r2$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fitsur5$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitsurio5r2 ) ) )
 print( all.equal( mm1, model.matrix( fitsurio5r2$eq[[ 1 ]] ) ) )
 print( all.equal( mm, model.matrix( fitsur5 ) ) )
 print( all.equal( mm1, model.matrix( fitsur5$eq[[ 1 ]] ) ) )
 #print( all.equal( mm2, model.matrix( fitsuri5r2$eq[[ 2 ]] ) ) )
-fitsurio5r2$eq[[ 1 ]]$modelMatrix <- NULL
-fitsurio5r2$eq[[ 2 ]]$modelMatrix <- NULL
-print( all.equal( mm, model.matrix( fitsurio5r2 ) ) )
-print( all.equal( mm1, model.matrix( fitsurio5r2$eq[[ 1 ]] ) ) )
-fitsur5$eq[[ 1 ]]$modelMatrix <- NULL
-fitsur5$eq[[ 2 ]]$modelMatrix <- NULL
-print( all.equal( mm, model.matrix( fitsur5 ) ) )
-print( all.equal( mm1, model.matrix( fitsur5$eq[[ 1 ]] ) ) )
+
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitsurio5 ) ) )
+print( all.equal( mm1, model.matrix( fitsurio5$eq[[ 1 ]] ) ) )
+
+# with returnModelMatrix = FALSE
+print( all.equal( mm, model.matrix( fitsur5w ) ) )
+print( all.equal( mm1, model.matrix( fitsur5w$eq[[ 1 ]] ) ) )
 #print( all.equal( mm2, model.matrix( fitsuri5r2$eq[[ 1 ]] ) ) )
+print( !is.null( fitsurio5$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fitsur5w$eq[[ 1 ]]$modelMatrix ) )
 
 
 ## **************** formulas ************************

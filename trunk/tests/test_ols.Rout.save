@@ -240,7 +240,7 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 > 
 > ## ****************  OLS (methodRCov="noDfCor") ***********************
 > fitols1r <- systemfit( system, "OLS", data = Kmenta,
-+    methodRCov = "noDfCor" )
++    methodRCov = "noDfCor", returnModelMatrix = TRUE )
 > print( summary( fitols1r ) )
 
 systemfit results 
@@ -356,7 +356,7 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 > 
 > ## ****************  OLS (methodRCov="Theil" ) ***********************
 > fitols1r <- systemfit( system, "OLS", data = Kmenta,
-+    methodRCov = "Theil" )
++    methodRCov = "Theil", returnModelMatrix = TRUE )
 > print( summary( fitols1r ) )
 
 systemfit results 
@@ -414,7 +414,7 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 > 
 > ## ****************  OLS (methodRCov="max") ***********************
 > fitols1r <- systemfit( system, "OLS", data = Kmenta,
-+    methodRCov = "max" )
++    methodRCov = "max", returnModelMatrix = TRUE )
 > print( summary( fitols1r ) )
 
 systemfit results 
@@ -769,7 +769,7 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > 
 > ## ** OLS with cross-equation restriction (methodRCov="noDfCor",single.eq.sigma=T) ***
 > fitols2rs <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.matrix = restrm, methodRCov = "noDfCor" )
++    restrict.matrix = restrm, methodRCov = "noDfCor", returnModelMatrix = TRUE )
 > print( summary( fitols2rs ) )
 
 systemfit results 
@@ -827,7 +827,8 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > 
 > ## *** OLS with cross-equation restriction via restrict.regMat ***
 > ## *** OLS with cross-equation restriction via restrict.regMat (default) ***
-> fitols3 <- systemfit( system, "OLS", data = Kmenta, restrict.regMat = tc )
+> fitols3 <- systemfit( system, "OLS", data = Kmenta, restrict.regMat = tc,
++    returnModelMatrix = TRUE )
 > print( summary( fitols3 ) )
 
 systemfit results 
@@ -1239,7 +1240,7 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 > 
 > ## ****** OLS with 2 cross-equation restrictions (useDfSys=F) *******
 > fitols4p <- systemfit( system, "OLS", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q )
++    restrict.rhs = restr2q, returnModelMatrix = TRUE )
 > print( summary( fitols4p, useDfSys = FALSE ) )
 
 systemfit results 
@@ -1477,7 +1478,8 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 > 
 > ## ***** OLS with 2 cross-equation restrictions via R and restrict.regMat (single.eq.sigma=T) ****
 > fitols5s <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
-+    restrict.rhs = restr3q, restrict.regMat = tc, single.eq.sigma = T )
++    restrict.rhs = restr3q, restrict.regMat = tc, single.eq.sigma = T,
++    returnModelMatrix = TRUE )
 > print( summary( fitols5s ) )
 
 systemfit results 
@@ -3515,6 +3517,9 @@ attr(,"dataClasses")
 > 
 > 
 > ## **************** model matrix ************************
+> # with returnModelMatrix = TRUE
+> print( !is.null( fitols1r$eq[[ 1 ]]$modelMatrix ) )
+[1] TRUE
 > print( mm <- model.matrix( fitols1r ) )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
 demand_1                   1      100.323          87.4                  0
@@ -3646,53 +3651,60 @@ attr(,"assign")
 20           1 113.490      93.0    20
 attr(,"assign")
 [1] 0 1 2 3
-> fitols1r$eq[[ 1 ]]$modelMatrix <- NULL
-> fitols1r$eq[[ 2 ]]$modelMatrix <- NULL
-> print( all.equal( mm, model.matrix( fitols1r ) ) )
-[1] TRUE
-> print( all.equal( mm1, model.matrix( fitols1r$eq[[ 1 ]] ) ) )
-[1] TRUE
-> print( all.equal( mm2, model.matrix( fitols1r$eq[[ 2 ]] ) ) )
-[1] TRUE
 > 
+> # with returnModelMatrix = FALSE
+> print( all.equal( mm, model.matrix( fitols1rs ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fitols1rs$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fitols1rs$eq[[ 2 ]] ) ) )
+[1] TRUE
+> print( !is.null( fitols1rs$eq[[ 1 ]]$modelMatrix ) )
+[1] FALSE
+> 
+> # with returnModelMatrix = TRUE
+> print( !is.null( fitols2rs$eq[[ 1 ]]$modelMatrix ) )
+[1] TRUE
 > print( all.equal( mm, model.matrix( fitols2rs ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitols2rs$eq[[ 1 ]] ) ) )
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitols2rs$eq[[ 2 ]] ) ) )
 [1] TRUE
-> fitols2rs$eq[[ 1 ]]$modelMatrix <- NULL
-> fitols2rs$eq[[ 2 ]]$modelMatrix <- NULL
-> print( all.equal( mm, model.matrix( fitols2rs ) ) )
-[1] TRUE
-> print( all.equal( mm1, model.matrix( fitols2rs$eq[[ 1 ]] ) ) )
-[1] TRUE
-> print( all.equal( mm2, model.matrix( fitols2rs$eq[[ 2 ]] ) ) )
-[1] TRUE
 > 
+> # with returnModelMatrix = FALSE
+> print( all.equal( mm, model.matrix( fitols2p ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fitols2p$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fitols2p$eq[[ 2 ]] ) ) )
+[1] TRUE
+> print( !is.null( fitols2p$eq[[ 1 ]]$modelMatrix ) )
+[1] FALSE
+> 
+> # with returnModelMatrix = TRUE
+> print( !is.null( fitols3$eq[[ 1 ]]$modelMatrix ) )
+[1] TRUE
 > print( all.equal( mm, model.matrix( fitols3 ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitols3$eq[[ 1 ]] ) ) )
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitols3$eq[[ 2 ]] ) ) )
 [1] TRUE
-> fitols3$eq[[ 1 ]]$modelMatrix <- NULL
-> fitols3$eq[[ 2 ]]$modelMatrix <- NULL
-> print( all.equal( mm, model.matrix( fitols3 ) ) )
-[1] TRUE
-> print( all.equal( mm1, model.matrix( fitols3$eq[[ 1 ]] ) ) )
-[1] TRUE
-> print( all.equal( mm2, model.matrix( fitols3$eq[[ 2 ]] ) ) )
-[1] TRUE
 > 
-> print( all.equal( mm, model.matrix( fitols4p ) ) )
+> # with returnModelMatrix = FALSE
+> print( all.equal( mm, model.matrix( fitols3r ) ) )
 [1] TRUE
-> print( all.equal( mm1, model.matrix( fitols4p$eq[[ 1 ]] ) ) )
+> print( all.equal( mm1, model.matrix( fitols3r$eq[[ 1 ]] ) ) )
 [1] TRUE
-> print( all.equal( mm2, model.matrix( fitols4p$eq[[ 2 ]] ) ) )
+> print( all.equal( mm2, model.matrix( fitols3r$eq[[ 2 ]] ) ) )
 [1] TRUE
-> fitols4p$eq[[ 1 ]]$modelMatrix <- NULL
-> fitols4p$eq[[ 2 ]]$modelMatrix <- NULL
+> print( !is.null( fitols3r$eq[[ 1 ]]$modelMatrix ) )
+[1] FALSE
+> 
+> # with returnModelMatrix = TRUE
+> print( !is.null( fitols4p$eq[[ 1 ]]$modelMatrix ) )
+[1] TRUE
 > print( all.equal( mm, model.matrix( fitols4p ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitols4p$eq[[ 1 ]] ) ) )
@@ -3700,20 +3712,35 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fitols4p$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
+> # with returnModelMatrix = FALSE
+> print( all.equal( mm, model.matrix( fitols4Sym ) ) )
+[1] TRUE
+> print( all.equal( mm1, model.matrix( fitols4Sym$eq[[ 1 ]] ) ) )
+[1] TRUE
+> print( all.equal( mm2, model.matrix( fitols4Sym$eq[[ 2 ]] ) ) )
+[1] TRUE
+> print( !is.null( fitols4Sym$eq[[ 1 ]]$modelMatrix ) )
+[1] FALSE
+> 
+> # with returnModelMatrix = TRUE
+> print( !is.null( fitols5s$eq[[ 1 ]]$modelMatrix ) )
+[1] TRUE
 > print( all.equal( mm, model.matrix( fitols5s ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitols5s$eq[[ 1 ]] ) ) )
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitols5s$eq[[ 2 ]] ) ) )
 [1] TRUE
-> fitols5s$eq[[ 1 ]]$modelMatrix <- NULL
-> fitols5s$eq[[ 2 ]]$modelMatrix <- NULL
-> print( all.equal( mm, model.matrix( fitols5s ) ) )
+> 
+> # with returnModelMatrix = FALSE
+> print( all.equal( mm, model.matrix( fitols5 ) ) )
 [1] TRUE
-> print( all.equal( mm1, model.matrix( fitols5s$eq[[ 1 ]] ) ) )
+> print( all.equal( mm1, model.matrix( fitols5$eq[[ 1 ]] ) ) )
 [1] TRUE
-> print( all.equal( mm2, model.matrix( fitols5s$eq[[ 2 ]] ) ) )
+> print( all.equal( mm2, model.matrix( fitols5$eq[[ 2 ]] ) ) )
 [1] TRUE
+> print( !is.null( fitols5$eq[[ 1 ]]$modelMatrix ) )
+[1] FALSE
 > 
 > 
 > ## **************** formulas ************************
