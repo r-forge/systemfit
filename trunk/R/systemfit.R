@@ -621,33 +621,35 @@ systemfit <- function(  eqns,
   }
 
   ## results of the total system
+  # all estimated coefficients
+  results$coefficients <- drop( coef )
+  names( results$coefficients ) <- coefNames
+
+  # coefficients covariance matrix
+  results$coefCov <- coefCov
+  colnames( results$coefCov ) <- coefNames
+  rownames( results$coefCov ) <- coefNames
+
   # residual covarance matrix used for estimation
   if( method %in% c( "WLS", "W2SLS", "SUR", "3SLS" ) ){
     results$residCovEst <- rcov
     colnames( results$residCovEst ) <- eqnLabels
     rownames( results$residCovEst ) <- eqnLabels
   }
-  rcov <- .calcRCov( resids, methodRCov = control$methodRCov, nObsEq = nObsEq,
-      nCoefEq = nCoefLiEq, xEq = xMatEq, centered = control$centerResiduals, solvetol = control$solvetol )
 
-  results$coefficients <- drop( coef ) # all estimated coefficients
-  names( results$coefficients ) <- coefNames
+  # residual covarance matrix
+  results$residCov <- .calcRCov( resids, methodRCov = control$methodRCov,
+      nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq,
+      centered = control$centerResiduals, solvetol = control$solvetol )
+  colnames( results$residCov ) <- eqnLabels
+  rownames( results$residCov ) <- eqnLabels
 
-  results$coefCov <- coefCov # coefficients covariance matrix
-  colnames( results$coefCov ) <- coefNames
-  rownames( results$coefCov ) <- coefNames
-
-  colnames( rcov ) <- eqnLabels
-  rownames( rcov ) <- eqnLabels
-
-  ## build the "return" structure for the whole system
   results$method  <- method
   results$rank    <- nCoefLiAll
      # rank = total number of linear independent coefficients of all equations
   results$df.residual <- nObsAll - nCoefLiAll
      # degrees of freedom of the whole system
-  results$residCov <- rcov           # residual covarance matrix
-  results$iter    <- iter           # residual correlation matrix
+  results$iter    <- iter
   results$restrict.matrix <- R.restr
   results$restrict.rhs <- q.restr
   results$restrict.regMat <- restrict.regMat
