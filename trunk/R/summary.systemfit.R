@@ -1,5 +1,6 @@
 ## prepare summary results that belong to the whole system
-summary.systemfit <- function( object, useDfSys = NULL, ... ) {
+summary.systemfit <- function( object, useDfSys = NULL,
+      printResidCov = TRUE, printEquations = TRUE, ... ) {
 
    if( is.null( useDfSys ) ) {
       useDfSys <- length( coef( object ) ) != object$rank
@@ -107,13 +108,17 @@ summary.systemfit <- function( object, useDfSys = NULL, ... ) {
       result$mcelroy.r.squared <- drop( 1 - ( rtOmega %*% resid ) / denominator )
    }
 
+   result$printEquations <- printEquations
+   result$printResidCov  <- printResidCov
+
    class( result ) <- "summary.systemfit"
    return( result )
 }
 
 ## print summary results of the whole system
 print.summary.systemfit <- function( x,
-      digits = max( 3, getOption("digits") - 1 ), ... ) {
+      digits = max( 3, getOption("digits") - 1 ),
+      residCov = x$printResidCov, equations = x$printEquations, ... ) {
 
   table <- NULL
   labels <- NULL
@@ -154,27 +159,29 @@ print.summary.systemfit <- function( x,
 
   cat("\n")
 
-  if(!is.null(x$residCovEst)) {
-    cat("The covariance matrix of the residuals used for estimation\n")
-    print( x$residCovEst, digits = digits )
-    cat("\n")
-    if( min(eigen( x$residCov, only.values=TRUE)$values) < 0 ) {
-      cat("warning: this covariance matrix is NOT positive semidefinit!\n")
+   if( residCov ){
+      if(!is.null(x$residCovEst)) {
+         cat("The covariance matrix of the residuals used for estimation\n")
+         print( x$residCovEst, digits = digits )
+         cat("\n")
+         if( min(eigen( x$residCov, only.values=TRUE)$values) < 0 ) {
+            cat("warning: this covariance matrix is NOT positive semidefinit!\n")
+            cat("\n")
+         }
+      }
+
+      cat("The covariance matrix of the residuals\n")
+      print( x$residCov, digits = digits )
       cat("\n")
-    }
-  }
 
-  cat("The covariance matrix of the residuals\n")
-  print( x$residCov, digits = digits )
-  cat("\n")
+      cat("The correlations of the residuals\n")
+      print( x$residCor, digits = digits )
+      cat("\n")
 
-  cat("The correlations of the residuals\n")
-  print( x$residCor, digits = digits )
-  cat("\n")
-
-  cat("The determinant of the residual covariance matrix: ")
-  cat( formatC( x$detResidCov, digits = digits, width = -1 ) )
-  cat("\n")
+      cat("The determinant of the residual covariance matrix: ")
+      cat( formatC( x$detResidCov, digits = digits, width = -1 ) )
+      cat("\n")
+   }
 
   cat("OLS R-squared value of the system: ")
   cat( formatC( x$ols.r.squared, digits = digits, width = -1 ) )
@@ -185,10 +192,17 @@ print.summary.systemfit <- function( x,
     cat( formatC( x$mcelroy.r.squared, digits = digits, width = -1 ) )
     cat("\n")
   }
-  ## now print the individual equations
-  for(i in 1:length( x$eq ) ) {
-      print( x$eq[[i]], digits = digits )
-  }
+
+   if( equations ){
+      ## now print the individual equations
+      for(i in 1:length( x$eq ) ) {
+         print( x$eq[[i]], digits = digits )
+      }
+   } else {
+      cat( "\nCoefficients:\n" )
+      print( coef( x ) ) 
+   }
+
   invisible( x )
 }
 

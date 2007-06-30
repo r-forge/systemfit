@@ -11,12 +11,14 @@
 }
 
 \usage{
-   \method{summary}{systemfit}( object, useDfSys = NULL, ... )
+   \method{summary}{systemfit}( object, useDfSys = NULL,
+      printResidCov = TRUE, printEquations = TRUE, ... )
 
    \method{summary}{systemfit.equation}( object, useDfSys = NULL, ... )
 
    \method{print}{summary.systemfit}( x,
-      digits = max( 3, getOption("digits") - 1 ), ... )
+      digits = max( 3, getOption("digits") - 1 ),
+      residCov = x$printResidCov, equations = x$printEquations, ... )
 
    \method{print}{summary.systemfit.equation}( x,
       digits = max( 3, getOption("digits") - 1 ), ... )
@@ -33,6 +35,12 @@
       If it not specified (\code{NULL}), it is set to \code{TRUE}
       if there are parameter restrictions and \code{FALSE} otherwise.}
    \item{digits}{number of digits to print.}
+   \item{printResidCov, residCov}{logical. If \code{TRUE},
+      the residual correlation matrix, the residual covariance matrix,
+      and its determinant are printed.}
+   \item{printEquations, equations}{logical. If \code{TRUE},
+      summary results of each equation are printed.
+      If \code{FALSE}, just the coefficients are printed.}
    \item{...}{not used by user.}
 }
 
@@ -83,6 +91,8 @@
    \item{sigma+}{estimated standard error of the residuals
       of the respective equation.}
    \item{ssr+}{sum of squared residuals of the respective equation.}
+   \item{printResidCov*}{argument \code{printResidCov}.}
+   \item{printEquations*}{argument \code{printEquations}.}
 }
 
 \author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com},\cr
@@ -101,8 +111,11 @@ system <- list( demand = eqDemand, supply = eqSupply )
 ## perform OLS on each of the equations in the system
 fitols <- systemfit( system, data = Kmenta )
 
-## results of the whole system
+## results of the system
 summary( fitols )
+
+## short results of the system
+summary( fitols, printResidCov = FALSE, printEquations = FALSE )
 
 ## results of the first equation
 summary( fitols$eq[[1]] )
