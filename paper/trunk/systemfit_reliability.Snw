@@ -214,21 +214,21 @@ OLS estimation (Table 14.2):
 greeneOls <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldGreene )
 round( coef( summary( greeneOls ) ), digits = 4 )
-round( sapply( greeneOls$eq, function(x){return(x$ssr/20)} ), digits = 3 )
+round( sapply( greeneOls$eq, function(x){return(summary(x)$ssr/20)} ), digits = 3 )
 @
 pooled OLS (Table 14.2):
 <<>>=
 greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
    data = GrunfeldGreene, pooled = TRUE )
 round( coef( summary( greeneOlsPooled$eq[[1]] ) ), digits = 4 ) #$
-sum( sapply( greeneOlsPooled$eq, function(x){return(x$ssr)}) )/100
+sum( sapply( greeneOlsPooled$eq, function(x){return(summary(x)$ssr)}) )/100
 @
 SUR estimation (Table~14.1):
 <<>>=
 greeneSur <- systemfit( formulaGrunfeld, "SUR",
    data = GrunfeldGreene, methodRCov = "noDfCor" )
 round( coef( summary( greeneSur ) ), digits = 4 )
-round( greeneSur$rcov, digits = 3 ) #$
+round( greeneSur$residCov, digits = 3 ) #$
 round( summary( greeneSur )$residCor, digits = 3 ) #$
 @
 pooled SUR estimation (Table~14.1):
@@ -238,7 +238,7 @@ greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
    residCovWeighted = TRUE )
 round( coef( summary( greeneSurPooled$eq[[1]] ) ), digits = 4 ) #$
 
-round( greeneSurPooled$rcov, digits = 3 ) #$
+round( greeneSurPooled$residCov, digits = 3 ) #$
 round( cov( residuals( greeneSurPooled ) ), digits = 3 )
 round( summary( greeneSurPooled )$residCor, digits = 3 ) #$
 @
