@@ -25,13 +25,16 @@ There exist several different versions of this data set,
 and this version is considered incorrect
 (see \url{http://www.stanford.edu/~clint/bench/grunfeld.htm} for details).
 However, we provide this incorrect version to replicated the results
-published in Greene (2003).
+published in Theil (1971) and Greene (2003).
+A correct version of this data set with 5 additional firms
+is available in the \code{Ecdat} package
+(data set \code{\link[Ecdat]{Grunfeld}}).
 }
 
 \source{
    Greene (2003), Appendix F, Data Sets Used in Applications, Table F13.1.
-
    \url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}
+   (a subset of this data set is available in Theil (1971), p. 296).
 }
 
 \references{
@@ -40,6 +43,9 @@ Upper Saddle River (NJ).
 
 Grunfeld, Y. (1958). \emph{The Determinants of Corporate Investment},
 Unpublished Ph.D. Dissertation, University of Chicago.
+
+Theil, Henri (1971). \emph{Principles of Econometrics},
+   John Wiley & Sons, New York.
 }
 
 \examples{
@@ -67,6 +73,20 @@ greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
    data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor",
    residCovWeighted = TRUE )
 summary( greeneSurPooled )
+
+## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
+GrunfeldTheil <- subset( GrunfeldGreene,
+   firm \%in\% c( "General Electric", "Westinghouse" ) )
+pdata.frame( GrunfeldTheil, "firm", "year" )
+formulaGrunfeld <- invest ~ value + capital
+# OLS
+theilOls <- systemfit( formulaGrunfeld, "OLS",
+   data = GrunfeldTheil )
+summary( theilOls )
+# SUR
+theilSur <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldTheil, methodRCov = "noDfCor" )
+summary( theilSur )
 }
 
 \keyword{datasets}

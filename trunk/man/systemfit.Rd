@@ -247,20 +247,20 @@ print( fit3sls )
 
 
 ## Examples how to use systemfit() with panel-like data
-## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
-data( "GrunfeldTheil" )
+## Repeating the SUR estimations in Greene (2003, p. 351)
+data( "GrunfeldGreene" )
 library( plm )
-pdata.frame( GrunfeldTheil, "firm", "year" )
+pdata.frame( GrunfeldGreene, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
-# OLS
-theilOls <- systemfit( formulaGrunfeld, "OLS",
-   data = GrunfeldTheil )
-summary( theilOls )
 # SUR
-theilSur <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldTheil, methodRCov = "noDfCor" )
-summary( theilSur )
-
+greeneSur <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldGreene, methodRCov = "noDfCor" )
+summary( greeneSur )
+# SUR Pooled
+greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor",
+   residCovWeighted = TRUE )
+summary( greeneSurPooled )
 
 ## Further examples are in the documentation to the data sets
 ## 'KleinI' and 'GrunfeldGreene'.

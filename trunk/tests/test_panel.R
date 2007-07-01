@@ -2,7 +2,9 @@ library( systemfit )
 library( plm )
 
 ## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
-data( "GrunfeldTheil" )
+data( "GrunfeldGreene" )
+GrunfeldTheil <- subset( GrunfeldGreene,
+   firm %in% c( "General Electric", "Westinghouse" ) )
 pdata.frame( GrunfeldTheil, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 
@@ -51,7 +53,6 @@ terms( theilSur$eq[[ 2 ]] )
 
 
 ## Repeating the OLS and SUR estimations in Greene (2003, pp. 351)
-data( "GrunfeldGreene" )
 pdata.frame( GrunfeldGreene, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 
