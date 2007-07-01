@@ -121,96 +121,26 @@ where only the last digit is different.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Theil (1971): Example on p. 295ff (General Electric and Westinghouse)}
+\subsection{Greene (2003): Example 14.1 (Grunfeld's investment data)}
+\label{sec:grunfeld-greene}
 
-Third, we estimate an example taken from \citet[p.~295ff]{theil71}
+Third, we reproduce Example~14.1 of \citet[p.~340]{greene03}
 that is based on \citet{grunfeld58}.
-The data are available in Table~7.1 of \citet[p.~296]{theil71}.
-They are a subset of the data set published by \citet{greene03}
-(see section~\ref{sec:grunfeld-greene}).
-Several different versions of the °Grunfeld° data set can be found.
-Although the versions of \citet{theil71} and \citet{greene03}
-are considered incorrect \citep{cummins01},
-we use them to replicate the results in \citet{theil71} and \citet{greene03}.%
+The data are available from the online complements to \citet{greene03},
+Table~F13.1
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+Several different versions of the °Grunfeld° data set can be found,
+and the version of \citet{greene03}
+is considered incorrect \citep{cummins01}.
+However, we use this incorrect version to replicate the results
+in \citet{greene03}, tables~14.1 and~14.2 (p.~351).%
 \footnote{
 A correct version of this data set with five additional firms
 is available as data set \code{Grunfeld} in the \pkg{Ecdat} package
 \citep{r-Ecdat-0.1-5}.
 }
 
-After loading the data and the \pkg{plm} package,
-the individual (cross-section) and time identifiers are indicated.
-Then, the formula is specified,
-and the model is estimated by OLS and SUR.
-The coefficients of each estimation are reported.
-<<>>=
-data( "GrunfeldGreene" )
-GrunfeldTheil <- subset( GrunfeldGreene,
-   firm %in% c( "General Electric", "Westinghouse" ) )
-library( plm )
-pdata.frame( GrunfeldTheil, "firm", "year" )
-formulaGrunfeld <- invest ~ value + capital
-@
-OLS estimation (page 295)
-<<>>=
-theilOls <- systemfit( formulaGrunfeld, "OLS",
-   data = GrunfeldTheil )
-round( coef( summary( theilOls ) ), digits = 3 )
-@
-SUR estimation (page 300)
-<<>>=
-theilSur <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldTheil, methodRCov = "noDfCor" )
-round( coef( summary( theilSur ) ), digits = 3 )
-@
-
-The \code{systemfit} function
-returns exactly the same results as published in
-\citet[pp.~295, 300]{theil71}.
-
-Now, we apply an F-test to check whether the slope prameters are equal
-for General Electric and Westinghouse (pages~313--315).
-Then we re-estimate the model under these parameter restrictions.
-
-F-test (page 315)
-<<>>=
-RMatrix <- matrix( c( 0, 1, 0, 0, -1, 0, 0, 0, 1, 0, 0, -1 ), nrow = 2,
-   byrow = TRUE )
-linear.hypothesis( theilSur, RMatrix )
-@
-
-Restricted SUR estimation (page~316)
-<<>>=
-theilSurRestr <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldTheil, methodRCov = "noDfCor", restrict.matrix = RMatrix,
-   residCovRestricted = FALSE )
-round( coef( summary( theilSurRestr ) ), digits = 3 )
-@
-
-The method \code{linear.hypothesis} returns the same value of the F-statistic
-as published in \citet[p.~315]{theil71}.
-Hence, we arrive at the the same conclusion:
-we accept the null hypothesis (parameter restrictions are true)
-at the 5~percent significance level.
-
-Also the results of the restricted SUR estimation are identical
-to the results published in
-\citet[p.~316]{theil71}.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Greene (2003): Example 14.1 (Grunfeld's investment data)}
-\label{sec:grunfeld-greene}
-
-Finally, we reproduce Example~14.1 of \citet[p.~340]{greene03}
-that is also based on \citet{grunfeld58}.
-The data are available from the online complements to \citet{greene03},
-Table~F13.1
-(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}),
-and the estimation results are presented in Tables~14.1
-and~14.2 (p.~351).
-
-First, we load the data,
+First, we load the data and the \pkg{plm} package,
 indicate the individual (cross-section) and time identifiers,
 and specify the formula to be estimated.
 Then, the system is estimated by OLS, pooled OLS, SUR, and pooled SUR.
@@ -220,6 +150,7 @@ the residual covariance matrix as well as the residual correlation matrix
 of the SUR estimations are printed.
 <<>>=
 data( "GrunfeldGreene" )
+library( plm )
 pdata.frame( GrunfeldGreene, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 @
@@ -273,4 +204,71 @@ The second residual covariance matrix is calculated after centering the results.
 It is equal to the one published in the errata
 (\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Theil (1971): Example on p. 295ff (General Electric and Westinghouse)}
+
+Finally, we estimate an example taken from \citet[p.~295ff]{theil71}
+that is also based on \citet{grunfeld58}.
+The data are available in Table~7.1 of \citet[p.~296]{theil71}.
+They are a subset of the data set published by \citet{greene03}
+(see section~\ref{sec:grunfeld-greene}).
+
+After extracting the data from the \code{GrunfeldGreene} data set,
+the individual (cross-section) and time identifiers are indicated.
+Then, the formula is specified,
+and the model is estimated by OLS and SUR.
+The coefficients of each estimation are reported.
+<<>>=
+GrunfeldTheil <- subset( GrunfeldGreene,
+   firm %in% c( "General Electric", "Westinghouse" ) )
+pdata.frame( GrunfeldTheil, "firm", "year" )
+formulaGrunfeld <- invest ~ value + capital
+@
+OLS estimation (page 295)
+<<>>=
+theilOls <- systemfit( formulaGrunfeld, "OLS",
+   data = GrunfeldTheil )
+round( coef( summary( theilOls ) ), digits = 3 )
+@
+SUR estimation (page 300)
+<<>>=
+theilSur <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldTheil, methodRCov = "noDfCor" )
+round( coef( summary( theilSur ) ), digits = 3 )
+@
+
+The \code{systemfit} function
+returns exactly the same results as published in
+\citet[pp.~295, 300]{theil71}.
+
+Now, we apply an F-test to check whether the slope prameters are equal
+for General Electric and Westinghouse (pages~313--315).
+Then we re-estimate the model under these parameter restrictions.
+
+F-test (page 315)
+<<>>=
+RMatrix <- matrix( c( 0, 1, 0, 0, -1, 0, 0, 0, 1, 0, 0, -1 ), nrow = 2,
+   byrow = TRUE )
+linear.hypothesis( theilSur, RMatrix )
+@
+
+Restricted SUR estimation (page~316)
+<<>>=
+theilSurRestr <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldTheil, methodRCov = "noDfCor", restrict.matrix = RMatrix,
+   residCovRestricted = FALSE )
+round( coef( summary( theilSurRestr ) ), digits = 3 )
+@
+
+The method \code{linear.hypothesis} returns the same value of the F-statistic
+as published in \citet[p.~315]{theil71}.
+Hence, we arrive at the the same conclusion:
+we accept the null hypothesis (parameter restrictions are true)
+at the 5~percent significance level.
+
+Also the results of the restricted SUR estimation are identical
+to the results published in
+\citet[p.~316]{theil71}.
 
