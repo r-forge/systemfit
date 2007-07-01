@@ -24,7 +24,7 @@ A data frame containing 20 annual observations on 3 variables for 5 firms.
 There exist several different versions of this data set,
 and this version is considered incorrect
 (see \url{http://www.stanford.edu/~clint/bench/grunfeld.htm} for details).
-However, we provide this incorrect version to replicated the results
+However, we provide this incorrect version to replicate the results
 published in Theil (1971) and Greene (2003).
 A correct version of this data set with 5 additional firms
 is available in the \code{Ecdat} package
