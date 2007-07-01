@@ -423,6 +423,12 @@ of function \code{print.summary.systemfit()}.
 %       method %in% c("OLS", "WLS", ...)
 %     instead of
 %       method == "OLS" | method == "WLS" | method == ...
+We have streamlined the source code of the \pkg{systemfit} package.
+For instance, we have followed the suggestion of this referee
+and replaced all
+°\code{method == "OLS" | method == "WLS" | method == ...}°
+by °\code{method \%in\% c("OLS", "WLS", ...)}°.
+
 %     Furthermore, various marix computations can be made even more stable. Currently,
 %     the code still has    
 %       solve(crossprod(X), crossprod(X,Y))    
