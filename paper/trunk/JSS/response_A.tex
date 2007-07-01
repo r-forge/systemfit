@@ -397,6 +397,22 @@ individual are just \code{<varname>}.
 %     number of equations increases. One could want to control the equations and
 %     correlations used, e.g., by something like
 %       summary(sfobject, equation = ..., cor = ...)
+The user has more control about the amount of output of
+\code{summary()} now.
+We have added arguments \code{residCov} and \code{equations}
+to function \code{print.summary.systemfit()}.
+Argument \code{residCov} indicates
+whether the residual correlation matrix,
+the residual covariance matrix, and its determinant are printed;
+argument \code{equations} indicates
+whether summary results of each equation are printed
+(or if just the coefficients are printed).
+As users often use \code{summary()} without \code{print()},
+we have added arguments \code{printResidCov} and \code{printEquations}
+to \code{summary()},
+which set default values for arguments \code{residCov} and \code{equations}
+of function \code{print.summary.systemfit()}.
+
 % 
 %
 \subsection{Computations in systemfit}
