@@ -125,7 +125,18 @@ where only the last digit is different.
 
 Third, we estimate an example taken from \citet[p.~295ff]{theil71}
 that is based on \citet{grunfeld58}.
-The data are available from Table~7.1 (p.~296).
+The data are available in Table~7.1 of \citet[p.~296]{theil71}.
+They are a subset of the data set published by \citet{greene03}
+(see section~\ref{sec:grunfeld-greene}).
+Several different versions of the °Grunfeld° data set can be found.
+Although the versions of \citet{theil71} and \citet{greene03}
+are considered incorrect \citep{cummins01},
+we use them to replicate the results in \citet{theil71} and \citet{greene03}.%
+\footnote{
+A correct version of this data set with five additional firms
+is available as data set \code{Grunfeld} in the \pkg{Ecdat} package
+\citep{r-Ecdat-0.1-5}.
+}
 
 After loading the data and the \pkg{plm} package,
 the individual (cross-section) and time identifiers are indicated.
@@ -133,7 +144,9 @@ Then, the formula is specified,
 and the model is estimated by OLS and SUR.
 The coefficients of each estimation are reported.
 <<>>=
-data( "GrunfeldTheil" )
+data( "GrunfeldGreene" )
+GrunfeldTheil <- subset( GrunfeldGreene,
+   firm %in% c( "General Electric", "Westinghouse" ) )
 library( plm )
 pdata.frame( GrunfeldTheil, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
@@ -187,6 +200,7 @@ to the results published in
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Greene (2003): Example 14.1 (Grunfeld's investment data)}
+\label{sec:grunfeld-greene}
 
 Finally, we reproduce Example~14.1 of \citet[p.~340]{greene03}
 that is also based on \citet{grunfeld58}.
