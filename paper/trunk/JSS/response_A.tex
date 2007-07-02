@@ -476,6 +476,15 @@ and present the commands to replicate these results only.
 %     for the full model which is not unsimilar to Greene's results but also not very
 %     close either. Is this a problem of systemfit or of Greene or of me fitting the
 %     wrong model?
+In theory, iterated FGLS should converge to ML results,
+but in practice these results often (more or less) slightly deviate.
+As the \pkg{systemfit} package currently does not provide ML estimations,
+we cannot determine the reason for the deviations
+between \code{systemfit()}'s iterated FGLS results
+and Greene's ML results.
+We will take a look at this issue,
+when we have finished to implement ML estimations in \pkg{systemfit()}.
+
 % 
 %     Having two Grunfeld data sets is confusing as the data used by Theil is simply
 %     a subset of the data used by Greene:
