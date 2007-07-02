@@ -418,9 +418,9 @@ This formula is estimated for all individuals.
 
 We demonstrate the application of \code{systemfit}
 to panel-like data
-using an example taken from \citet[pp.\ 295, 300]{theil71}
+using an example taken from \citet[p.~340]{greene03}
 that is based on \citet{grunfeld58}.
-We want to estimate a model for gross investment of 2 US firms
+We want to estimate a model for gross investment of 5 US firms
 in the years 1935--1954:
 \begin{equation}
 \texttt{invest}_{it} = \beta_1 + \beta_2 \cdot \texttt{value}_{it} +
@@ -434,13 +434,13 @@ previous year.
 
 This model can be estimated by
 <<>>=
-data( "GrunfeldTheil" )
+data( "GrunfeldGreene" )
 library( plm )
-pdata.frame( GrunfeldTheil, "firm", "year" )
-theilSur <- systemfit( invest ~ value + capital, "SUR",
-   data = GrunfeldTheil )
+pdata.frame( GrunfeldGreene, "firm", "year" )
+greeneSur <- systemfit( invest ~ value + capital, "SUR",
+   data = GrunfeldGreene )
 @
-The first line loads the example data set \code{GrunfeldTheil}
+The first line loads the example data set \code{GrunfeldGreene}
 that is included in the \pkg{systemfit} package.
 The second line loads the \pkg{plm} package
 and the following line specifies a \code{pdata.frame},
@@ -456,8 +456,8 @@ The following command does a seemingly unrelated regression
 of the same model as before,
 but with coefficients restricted to be equal for all individuals.
 <<>>=
-theilSur <- systemfit( invest ~ value + capital, "SUR",
-   data = GrunfeldTheil, pooled = TRUE )
+greeneSurPooled <- systemfit( invest ~ value + capital, "SUR",
+   data = GrunfeldGreene, pooled = TRUE )
 @
 
 
