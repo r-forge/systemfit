@@ -21,7 +21,7 @@ an estimator of the covariance matrix of the estimated parameters is
    \COVHat \left[ \bHat_{OLS} \right] = \sHat^2 \left( X'X \right)^{-1} ,
    \label{eq:olsCovSameSigma}
 \end{equation}
-where $\sHat^2$ is the estimated variance of the residuals.
+where $\sHat^2$ is the estimated variance of the disturbances.
 This assumes that the disturbances of all equations have the
 same variance $(\E [ u_{it}^2 ] = \sigma^2 \, \forall \, i)$.
 
@@ -35,7 +35,7 @@ an estimator of the covariance matrix of the estimated parameters is
 where $\OHat = \SHat \otimes I$,
 $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
 $\sHat_{ii} = \sHat_i^2$ is the estimated variance
-of the disturbence term in the $i$th equation.
+of the disturbance term in the $i$th equation.
 
 If no cross-equation parameter restrictions are imposed, the simultaneous 
 OLS estimation of the system leads to the same parameter estimates 
@@ -58,14 +58,16 @@ The WLS estimator can be obtained by
 \end{equation}
 where $\OHat = \SHat \otimes I$,
 $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
-$\sHat_{ii} = \sHat_i^2$ is the estimated variance
-of the disturbance term in the $i$th equation.%
-\footnote{%
-Theoretically, one should use the variances of the true residuals.
+$\sHat_{ii} = \sHat_i^2$ is the variance
+of the (estimated) residuals in the $i$th equation.
+Theoretically, it would be better to use the variances of
+the (true) disturbances $( \sigma_{ii} )$.
 However, they are not known in most empirical applications.
 Therefore, true variances are generally replaced by estimated variances
-that are calculated from the residuals of a first-step OLS estimation.
-}
+$( \sHat_{ii} )$
+that are calculated from the residuals of a first-step OLS estimation
+(see section~\ref{sec:residcov}).
+
 Like the OLS estimates, these estimates are only efficient
 if the disturbance terms are not contemporaneously correlated.
 An estimator of the covariance matrix of the estimated parameters is
