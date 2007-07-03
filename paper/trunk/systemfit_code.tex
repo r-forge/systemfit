@@ -133,3 +133,33 @@ where $\sigma^{ij}$ are the elements of the matrix $\Sigma^{-1}$,
 and $X^i$ is a submatrix of $X$ that contains the rows
 that belong to the $i$'s equation.
 
+
+\subsection[Overlap with other functions and packages in R]
+   {Overlap with other functions and packages in \proglang{R}}
+
+Single-equation models can be fitted in \proglang{R}
+by OLS with function \code{lm} (package \pkg{stats})
+and by 2SLS with function \code{tsls}
+(package \pkg{sem}, \citealp{r-sem-0.9-8}).
+This is also possible with the \code{systemfit} function,
+but \code{systemfit} is specialized in estimating systems of equation,
+i.e.\ more than one equation.
+Its capability to estimate single-equation models is just a side-effect.
+
+Function \code{sem} (package \pkg{sem}, \citealp{r-sem-0.9-8})
+can be used to estimate structural equation models in \proglang{R}
+by Full Information Maximum Likelihood (FIML)
+assuming multinormal errors.
+A special feature of this function is the estimation
+of models with unobserved (°latent°) variables,
+which is not possible with \code{systemfit}.
+While \code{sem} cannot be used to consistently estimate
+systems of simultaneous equations with some endogenous regressors,
+it can be used to estimate systems of equations,
+where all regressors are exogenous.
+However, the latter is rather cumbersome.
+Hence, \code{systemfit} is the only function in \proglang{R}
+that can be used to estimate systems of simultaneous equations
+and it is the most convenient function to estimate
+systems of equations with purely exogenous regressors.
+
