@@ -76,6 +76,7 @@ is so small that it empirically does not matter.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Greene (2003): Example 15.1 (Klein's model I)}
+\label{sec:KleinsModel}
 
 Second, we try to replicate Klein's °Model I° \citep{klein50}
 that is described in \citet[p.~381]{greene03}.
