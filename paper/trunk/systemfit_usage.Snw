@@ -139,7 +139,10 @@ fitsur <- systemfit( list( demand = eqDemand, supply = eqSupply ), "SUR" )
 The instruments for a 2SLS, W2SLS or 3SLS estimation can be specified
 by the argument \code{inst}.
 If the same instruments should be used for all equations,
-\code{inst} must be a one-sided formula.
+\code{inst} must be a one-sided formula.%
+\footnote{
+A one-sided formula is a standard formula in \proglang{R}
+without a dependent variable.}
 If different instruments should be used for the equations,
 \code{inst} must be a list that contains a one-sided formula
 for each equation.
