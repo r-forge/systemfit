@@ -68,7 +68,7 @@ $( \sHat_{ii} )$
 that are calculated from the residuals of a first-step OLS estimation
 (see section~\ref{sec:residcov}).
 
-Like the OLS estimates, these estimates are only efficient
+These estimates are (asymptotically) efficient
 if the disturbance terms are not contemporaneously correlated.
 An estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
@@ -84,11 +84,13 @@ When the disturbances are contemporaneously correlated, a Generalized
 Least Squares (GLS) estimation leads to efficient parameter estimates.
 In this case, the GLS estimator is generally called °Seemingly Unrelated Regression°
 (SUR) estimator \citep{zellner62}.
-Since the true covariance matrix of the disturbance terms
-is generally unknown,
-a Feasible Generalized Least Squares (FGLS) estimation,
-which is based on an estimated covariance matrix of the disturbance terms,
-is the textbook solution for this problem.
+However, the true covariance matrix of the disturbance terms
+is generally unknown.
+The textbook solution for this problem is
+a Feasible Generalized Least Squares (FGLS) estimation.
+As the FGLS estimator is based on
+an estimated covariance matrix of the disturbance terms,
+it is only asymptotically efficient.
 It should be noted that while an unbiased OLS or WLS estimation requires only that
 the regressors and the disturbance terms of each single 
 equation are uncorrelated
