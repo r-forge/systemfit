@@ -9,7 +9,7 @@
          length( mlCoef ), " but must have length ", ncol( mlVars$xMat ) )
    }
    mlResids <- mlVars$yVec - mlVars$xMat %*% mlCoef
-   mlSigma <- .calcRCov( resids = mlResids, methodResidCov = mlVars$methodResidCov,
+   mlSigma <- .calcResidCov( resids = mlResids, methodResidCov = mlVars$methodResidCov,
       nObsEq = mlVars$nObsEq, nCoefEq = mlVars$nCoefEq, xEq = mlVars$xEq,
       centered = mlVars$centerResiduals, diag = FALSE,
       solvetol = mlVars$solvetol )

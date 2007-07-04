@@ -317,7 +317,7 @@ systemfit <- function(  eqns,
   if(method=="OLS") {
     resids <- yVecAll - xMatAll %*% coef                                        # residuals
     if(control$single.eq.sigma) {
-      rcov <- .calcRCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
+      rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
          nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE, centered = control$centerResiduals,
          solvetol = control$solvetol )               # residual covariance matrix
       coefCov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
@@ -346,7 +346,7 @@ systemfit <- function(  eqns,
       iter  <- iter+1
       bl    <- coef                # coefficients of previous step
       resids <- yVecAll - xMatAll %*% coef     # residuals
-      rcov <- .calcRCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
+      rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
          nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE, centered = control$centerResiduals,
          solvetol = control$solvetol )
       coef  <- .calcGLS( xMat = xMatAll, yVec = yVecAll, R.restr = R.restr, q.restr = q.restr,
@@ -368,7 +368,7 @@ systemfit <- function(  eqns,
       iter  <- iter+1
       bl    <- coef                           # coefficients of previous step
       resids <- yVecAll-xMatAll%*%coef                     # residuals
-      rcov <- .calcRCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
+      rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
          nCoefEq = nCoefLiEq, xEq = xMatEq, centered = control$centerResiduals,
          solvetol = control$solvetol )
       coef <- .calcGLS( xMat = xMatAll, yVec = yVecAll, R.restr = R.restr, q.restr = q.restr,
@@ -404,7 +404,7 @@ systemfit <- function(  eqns,
   if(method=="2SLS") {
     resids <- yVecAll - xMatAll %*% coef                        # residuals
     if(control$single.eq.sigma) {
-      rcov <- .calcRCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
+      rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
          nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE, centered = control$centerResiduals,
          solvetol = control$solvetol )
       coefCov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
@@ -432,7 +432,7 @@ systemfit <- function(  eqns,
       iter  <- iter+1
       bl    <- coef                           # coefficients of previous step
       resids <- yVecAll-xMatAll%*%coef                     # residuals
-      rcov <- .calcRCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
+      rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
          nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE, centered = control$centerResiduals,
          solvetol = control$solvetol )
       coef <- .calcGLS( xMat = xMatHatAll, yVec = yVecAll, R.restr = R.restr, q.restr = q.restr,
@@ -453,7 +453,7 @@ systemfit <- function(  eqns,
       iter  <- iter+1
       bl    <- coef                           # coefficients of previous step
       resids <- yVecAll-xMatAll%*%coef                     # residuals
-      rcov <- .calcRCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
+      rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov, nObsEq = nObsEq,
          nCoefEq = nCoefLiEq, xEq = xMatEq, centered = control$centerResiduals, solvetol = control$solvetol )
       if(control$method3sls=="GLS") {
          coef <- .calcGLS( xMat = xMatHatAll, yVec = yVecAll, R.restr = R.restr, q.restr = q.restr,
@@ -638,7 +638,7 @@ systemfit <- function(  eqns,
   }
 
   # residual covarance matrix
-  results$residCov <- .calcRCov( resids, methodResidCov = control$methodResidCov,
+  results$residCov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
       nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq,
       centered = control$centerResiduals, solvetol = control$solvetol )
   colnames( results$residCov ) <- eqnLabels

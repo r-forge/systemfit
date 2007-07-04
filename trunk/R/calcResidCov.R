@@ -1,5 +1,5 @@
 ## Calculate the residual covariance matrix
-.calcRCov <- function( resids, methodResidCov, nObsEq = NULL, nCoefEq = NULL, xEq = NULL,
+.calcResidCov <- function( resids, methodResidCov, nObsEq = NULL, nCoefEq = NULL, xEq = NULL,
       diag = FALSE, centered = FALSE, solvetol = .Machine$double.eps ) {
 
    eqNames <- NULL
