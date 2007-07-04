@@ -38,39 +38,34 @@ We have structured our reply accordingly.
 % systemfit compared to this. Also it is a weakness that systemfit only allows analysis of complete
 % cases.
 
-\textbf{[Still working on this section]}
-
-It was our intention to create a package for fitting models that could
+It was our intention to create a package
+for fitting simultaneous equation models that could
 be verified against published results before moving on to include more
 sophisticated fitting methods. 
 
 The reasons for doing this were two-fold.  Our first reason was to
-simply introduce an econometrics package where the main focus of the
-package was "pure" econometrics and not to have a few specialized
-routines, as is the case with the tsls() function is the SEM
+simply introduce an econometrics package where the main objective of the
+package was a unified framework for simultaneous equation models
+and not to have a few specialized
+routines, as is the case with the \code{tsls()} function in the \pkg{sem}
 package. While there are definitely links among structural equation
 models, IV methods and experimental design, the focus of this package
 was econometrics; more specifically simultaneous equation methods.   
 
-The second reason for creating the package was to create a "forum" for
+The second reason for creating the package was to create a °forum° for
 more advanced fitting methods as described in Section 6 (Summary and
-Outlook). It is our intention to impliment these more advanced methods
+Outlook). It is our intention to implement these more advanced methods
 (unbalanced data sets, FIML, GMM, etc.) over time, but we felt that
-having a "basic" package that was accepted as part of a peer-review
+having a °basic° package that was accepted as part of a peer-review
 process would create an environment that would reduce resistance to
 acceptance in the future since the more sophisticated methods can be
 subject to the difficulties beyond simple numerical routines as were
-used in the systemfit package so far.  Perhaps once the package gains
-enough acceptance, the functions can be made part of the core
-functions of R, but attempting to directly include the functions
-presented in the package might prove to be exceedingly difficult with
-the core development team.
+used in the \pkg{systemfit} package so far.
 
-At the time the package was originally introduced (2002), there were
-very few econometrics functions for R and only recently have more
-functions and packages been submitted. Adding these functions to an
-existing econometrics package would have made sense, had one been
-available. 
+Encouraged by the question of this referee,
+we have added a comparison of \code{systemfit()} and \code{sem()}
+(see section~3.4 and appendix~B).
+
 
 \section{Specific comments}
 % Specific comments
