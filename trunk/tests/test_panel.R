@@ -32,7 +32,7 @@ terms( theilOls$eq[[ 1 ]] )
 
 # SUR
 theilSur <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldTheil, methodRCov = "noDfCor" )
+   data = GrunfeldTheil, methodResidCov = "noDfCor" )
 print( theilSur )
 summary( theilSur )
 summary( theilSur, useDfSys = TRUE, printEquations = FALSE )
@@ -105,7 +105,7 @@ terms( greeneOlsPooled$eq[[ 1 ]] )
 
 # SUR
 greeneSur <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldGreene, methodRCov = "noDfCor" )
+   data = GrunfeldGreene, methodResidCov = "noDfCor" )
 print( greeneSur )
 summary( greeneSur )
 summary( greeneSur, useDfSys = TRUE, printResidCov = FALSE )
@@ -126,7 +126,7 @@ terms( greeneSur$eq[[ 1 ]] )
 
 # SUR Pooled
 greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor",
+   data = GrunfeldGreene, pooled = TRUE, methodResidCov = "noDfCor",
    residCovWeighted = TRUE )
 print( greeneSurPooled )
 summary( greeneSurPooled )

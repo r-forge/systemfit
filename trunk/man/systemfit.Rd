@@ -254,11 +254,11 @@ pdata.frame( GrunfeldGreene, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 # SUR
 greeneSur <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldGreene, methodRCov = "noDfCor" )
+   data = GrunfeldGreene, methodResidCov = "noDfCor" )
 summary( greeneSur )
 # SUR Pooled
 greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor",
+   data = GrunfeldGreene, pooled = TRUE, methodResidCov = "noDfCor",
    residCovWeighted = TRUE )
 summary( greeneSurPooled )
 

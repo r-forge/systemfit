@@ -13,7 +13,7 @@
 systemfit.control(
       maxiter = 1,
       tol = 1e-5,
-      methodRCov = "geomean",
+      methodResidCov = "geomean",
       centerResiduals = FALSE,
       method3sls = "GLS",
       single.eq.sigma = NULL,
@@ -31,7 +31,7 @@ systemfit.control(
       3SLS estimations.}
    \item{tol}{tolerance level indicating when to stop the iteration (only
       WLS, SUR, W2SLS and 3SLS estimations).}
-   \item{methodRCov}{method for calculating the estimated residual covariance
+   \item{methodResidCov}{method for calculating the estimated residual covariance
       matrix, one of "noDfCor", "geomean", "max", or "Theil" (see details).}
    \item{centerResiduals}{logical. Subtract the means from the residuals
       of each equation before calculating the estimated residual covariance matrix.}
@@ -69,15 +69,15 @@ systemfit.control(
    The method for calculating the estimated covariance matrix of the residuals
    (\eqn{\hat{\Sigma}}) can be one of the following
    (see Judge et al., 1985, p. 469): \cr
-   if methodRCov='noDfCor':
+   if methodResidCov='noDfCor':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}{T}}
-   if methodRCov='geomean':
+   if methodResidCov='geomean':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}
          {\sqrt{(T - k_i)*(T - k_j)}}}
-   if methodRCov='Theil':
+   if methodResidCov='Theil':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}{T - k_i - k_j
       + tr[X_i(X_i'X_i)^{-1}X_i'X_j(X_j'X_j)^{-1}X_j']}}
-   if methodRCov='max':
+   if methodResidCov='max':
       \deqn{\hat{\sigma}_{ij} = \frac{\hat{e}_i' \hat{e}_j}
          {T - \max( k_i, k_j)}}
    If \eqn{ i = j}, the formulas 'geomean', 'Theil', and 'max' are equal.
@@ -141,7 +141,7 @@ eqSystem <- list( demand = eqDemand, supply = eqSupply )
 ## SUR estimation: calculation of residual covariance
 ## matrix without correction for degrees of freedom
 fitsur <- systemfit( eqSystem, "SUR", data = Kmenta,
-    control = systemfit.control( methodRCov = "noDfCor" ) )
+    control = systemfit.control( methodResidCov = "noDfCor" ) )
 print( fitsur )
 }
 

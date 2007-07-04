@@ -44,28 +44,28 @@ fitsur1 <- systemfit( system, "SUR", data = Kmenta )
 print( summary( fitsur1 ) )
 
 ## ********************* SUR (EViews-like) *****************
-fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor" )
+fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "noDfCor" )
 print( summary( fitsur1e, useDfSys = TRUE ) )
 
-## ********************* SUR (methodRCov="Theil") *****************
-fitsur1r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil" )
+## ********************* SUR (methodResidCov="Theil") *****************
+fitsur1r2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil" )
 print( summary( fitsur1r2 ) )
 
-## *************** SUR (methodRCov="Theil", useDfSys = TRUE ) ***************
-fitsur1e2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+## *************** SUR (methodResidCov="Theil", useDfSys = TRUE ) ***************
+fitsur1e2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
    returnModelMatrix = TRUE )
 print( summary( fitsur1e2, useDfSys = TRUE ) )
 
-## ********************* SUR (methodRCov="max") *****************
-fitsur1r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max" )
+## ********************* SUR (methodResidCov="max") *****************
+fitsur1r3 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "max" )
 print( summary( fitsur1r3 ) )
 
 ## *************** WSUR estimation ************************
 fitsur1w <- systemfit( system, "SUR", data = Kmenta, residCovWeighted = TRUE )
 summary( fitsur1w )
 
-## *************** WSUR (methodRCov="Theil", useDfSys = TRUE ) ***************
-fitsur1we2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+## *************** WSUR (methodResidCov="Theil", useDfSys = TRUE ) ***************
+fitsur1we2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
    residCovWeighted = TRUE )
 summary( fitsur1we2, useDfSys = TRUE )
 
@@ -80,12 +80,12 @@ all.equal( fitsur2, fitsur2Sym )
 
 ## *************** SUR with cross-equation restriction (EViews-like) **
 fitsur2e <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm,
-   methodRCov = "noDfCor", returnModelMatrix = TRUE )
+   methodResidCov = "noDfCor", returnModelMatrix = TRUE )
 print( summary( fitsur2e ) )
 
 ## *************** WSUR with cross-equation restriction (EViews-like) **
 fitsur2we <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm,
-   methodRCov = "noDfCor", residCovWeighted = TRUE, returnModelMatrix = TRUE )
+   methodResidCov = "noDfCor", residCovWeighted = TRUE, returnModelMatrix = TRUE )
 summary( fitsur2we )
 
 
@@ -95,7 +95,7 @@ print( summary( fitsur3 ) )
 
 ## *************** SUR with restriction via restrict.regMat (EViews-like) **************
 fitsur3e <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc,
-   methodRCov = "noDfCor", returnModelMatrix = TRUE )
+   methodResidCov = "noDfCor", returnModelMatrix = TRUE )
 print( summary( fitsur3e ) )
 
 ## *************** WSUR with restriction via restrict.regMat *******************
@@ -114,23 +114,23 @@ fitsur4Sym <- systemfit( system, "SUR", data = Kmenta,
 all.equal( fitsur4, fitsur4Sym )
 
 ## *************** SUR with 2 restrictions (EViews-like) **************
-fitsur4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+fitsur4e <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "noDfCor",
    restrict.matrix = restr2m, restrict.rhs = restr2q )
 print( summary( fitsur4e ) )
 
-## *************** SUR with 2 restrictions (methodRCov = "Theil") **************
-fitsur4r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+## *************** SUR with 2 restrictions (methodResidCov = "Theil") **************
+fitsur4r2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
    restrict.matrix = restr2m, restrict.rhs = restr2q )
 print( summary( fitsur4r2 ) )
 
-## *************** SUR with 2 restrictions (methodRCov = "max") **************
-fitsur4r3 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
+## *************** SUR with 2 restrictions (methodResidCov = "max") **************
+fitsur4r3 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "max",
    restrict.matrix = restr2m, restrict.rhs = restr2q,
    returnModelMatrix = TRUE )
 print( summary( fitsur4r3 ) )
 
 ## *************** WSUR with 2 restrictions (EViews-like) **************
-fitsur4we <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+fitsur4we <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "noDfCor",
    restrict.matrix = restr2m, restrict.rhs = restr2q, residCovWeighted = TRUE )
 summary( fitsur4we )
 
@@ -147,7 +147,7 @@ fitsur5Sym <- systemfit( system, "SUR", data = Kmenta,
 all.equal( fitsur5, fitsur5Sym )
 
 ## *************** SUR with 2 restrictions via R and restrict.regMat (EViews-like) **************
-fitsur5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+fitsur5e <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "noDfCor",
    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc )
 print( summary( fitsur5e ) )
 
@@ -162,28 +162,28 @@ fitsuri1 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100 )
 print( summary( fitsuri1 ) )
 
 ## ************** iterated SUR (EViews-like) *****************
-fitsuri1e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
+fitsuri1e <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "noDfCor",
    maxit = 100 )
 print( summary( fitsuri1e, useDfSys = TRUE ) )
 
-## ************** iterated SUR (methodRCov = "Theil") ****************************
+## ************** iterated SUR (methodResidCov = "Theil") ****************************
 fitsuri1r2 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
-   methodRCov = "Theil" )
+   methodResidCov = "Theil" )
 print( summary( fitsuri1r2 ) )
 
-## ************** iterated SUR (methodRCov="Theil", useDfSys=TRUE) *****************
-fitsuri1e2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
+## ************** iterated SUR (methodResidCov="Theil", useDfSys=TRUE) *****************
+fitsuri1e2 <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "Theil",
    maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitsuri1e2, useDfSys = TRUE ) )
 
-## ************** iterated SUR (methodRCov = "max") ****************************
+## ************** iterated SUR (methodResidCov = "max") ****************************
 fitsuri1r3 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
-   methodRCov = "max" )
+   methodResidCov = "max" )
 print( summary( fitsuri1r3 ) )
 
-## ************** iterated WSUR (methodRCov = "max") ****************************
+## ************** iterated WSUR (methodResidCov = "max") ****************************
 fitsuri1wr3 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
-   methodRCov = "max", residCovWeighted = TRUE )
+   methodResidCov = "max", residCovWeighted = TRUE )
 summary( fitsuri1wr3 )
 
 
@@ -194,7 +194,7 @@ print( summary( fitsuri2 ) )
 
 ## *********** iterated SUR with restriction (EViews-like) ***************
 fitsuri2e <- systemfit( system2, "SUR", data = Kmenta, restrict.matrix = restrm,
-   methodRCov = "noDfCor", maxit = 100, returnModelMatrix = TRUE )
+   methodResidCov = "noDfCor", maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitsuri2e ) )
 
 ## *********** iterated WSUR with restriction *******************
@@ -210,12 +210,12 @@ print( summary( fitsuri3 ) )
 
 ## *********** iterated SUR with restriction via restrict.regMat (EViews-like) ***************
 fitsuri3e <- systemfit( system2, "SUR", data = Kmenta, restrict.regMat = tc,
-   methodRCov = "noDfCor", maxit = 100, returnModelMatrix = TRUE )
+   methodResidCov = "noDfCor", maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitsuri3e ) )
 
 ## *********** iterated WSUR with restriction via restrict.regMat (EViews-like) ***************
 fitsuri3we <- systemfit( system2, "SUR", data = Kmenta, restrict.regMat = tc,
-   methodRCov = "noDfCor", maxit = 100, residCovWeighted = TRUE )
+   methodResidCov = "noDfCor", maxit = 100, residCovWeighted = TRUE )
 summary( fitsuri3we )
 
 
@@ -228,10 +228,10 @@ fitsuri4 <- systemfit( system2, "SUR", data = Kmenta, restrict.matrix = restr2m,
 print( summary( fitsuri4 ) )
 
 ## *************** iterated SUR with 2 restrictions (EViews-like) **************
-fitsurio4e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+fitsurio4e <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "noDfCor",
    restrict.matrix = restr2m, restrict.rhs = restr2q, maxit = 100 )
 print( summary( fitsurio4e ) )
-fitsuri4e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
+fitsuri4e <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "noDfCor",
    restrict.matrix = restr2m, restrict.rhs = restr2q, maxit = 100 )
 print( summary( fitsuri4e ) )
 
@@ -253,36 +253,36 @@ fitsuri5 <- systemfit( system2, "SUR", data = Kmenta, restrict.matrix = restr3m,
 print( summary( fitsuri5 ) )
 
 ## ********* iterated SUR with 2 restrictions via R and restrict.regMat (EViews-like) **********
-fitsurio5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "noDfCor",
+fitsurio5e <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "noDfCor",
    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
 print( summary( fitsurio5e ) )
-fitsuri5e <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "noDfCor",
+fitsuri5e <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "noDfCor",
    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
 print( summary( fitsuri5e ) )
 
-## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodRCov="Theil") **********
-fitsurio5r2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodResidCov="Theil") **********
+fitsurio5r2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc,
    maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitsurio5r2 ) )
-fitsuri5r2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
+fitsuri5r2 <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "Theil",
    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc,
    maxit = 100, returnModelMatrix = TRUE )
 print( summary( fitsuri5r2 ) )
 
-## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodRCov="max") **********
-# fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodRCov = "max",
+## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodResidCov="max") **********
+# fitsuri5e <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "max",
 #    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100 )
 # print( summary( fitsuri5e ) )
 # print( round( vcov( fitsuri5e ), digits = 6 ) )
 # disabled, because the estimation does not converge
 
-## ********* iterated WSUR with 2 restrictions via R and restrict.regMat (methodRCov="Theil") **********
-fitsurio5wr2 <- systemfit( system, "SUR", data = Kmenta, methodRCov = "Theil",
+## ********* iterated WSUR with 2 restrictions via R and restrict.regMat (methodResidCov="Theil") **********
+fitsurio5wr2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100,
    residCovWeighted = TRUE )
 summary( fitsurio5wr2 )
-fitsuri5wr2 <- systemfit( system2, "SUR", data = Kmenta, methodRCov = "Theil",
+fitsuri5wr2 <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "Theil",
    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc, maxit = 100,
    residCovWeighted = TRUE )
 summary( fitsuri5wr2 )
@@ -716,33 +716,33 @@ print( logLik( fitsuri5r2 ) )
 
 ## *********** likelihood ratio tests *************
 # testing first restriction
-# non-iterating, methodRCov = 1
+# non-iterating, methodResidCov = 1
 print( lrtest( fitsur2, fitsur1 ) )
 print( lrtest( fitsur3, fitsur1 ) )
-# non-iterating, methodRCov = 0
+# non-iterating, methodResidCov = 0
 print( lrtest( fitsur2e, fitsur1e ) )
 print( lrtest( fitsur3e, fitsur1e ) )
-# iterating, methodRCov = 1
+# iterating, methodResidCov = 1
 print( lrtest( fitsuri2, fitsuri1 ) )
 print( lrtest( fitsuri3, fitsuri1 ) )
-# iterating, methodRCov = 0
+# iterating, methodResidCov = 0
 print( lrtest( fitsuri2e, fitsuri1e ) )
 print( lrtest( fitsuri3e, fitsuri1e ) )
-# non-iterating, methodRCov = 1, WSUR
+# non-iterating, methodResidCov = 1, WSUR
 print( lrtest( fitsur3w, fitsur1w ) )
 
 # testing second restriction
-# non-iterating, methodRCov = 1
+# non-iterating, methodResidCov = 1
 print( lrtest( fitsur4, fitsur2 ) )
 print( lrtest( fitsur4, fitsur3 ) )
 print( lrtest( fitsur5, fitsur2 ) )
 print( lrtest( fitsur5, fitsur3 ) )
-# non-iterating, methodRCov = 0
+# non-iterating, methodResidCov = 0
 print( lrtest( fitsur4e, fitsur2e ) )
 print( lrtest( fitsur4e, fitsur3e ) )
 print( lrtest( fitsur5e, fitsur2e ) )
 print( lrtest( fitsur5e, fitsur3e ) )
-# iterating, methodRCov = 1
+# iterating, methodResidCov = 1
 print( lrtest( fitsurio4, fitsuri2 ) )
 print( lrtest( fitsurio4, fitsuri3 ) )
 print( lrtest( fitsurio5, fitsuri2 ) )
@@ -753,7 +753,7 @@ print( lrtest( fitsuri3, fitsuri4 ) )
 print( lrtest( fitsuri2, fitsuri5 ) )
 print( lrtest( fitsuri3, fitsuri5 ) )
 
-# iterating, methodRCov = 0
+# iterating, methodResidCov = 0
 print( lrtest( fitsurio4e, fitsuri2e ) )
 print( lrtest( fitsurio4e, fitsuri3e ) )
 print( lrtest( fitsurio5e, fitsuri2e ) )
@@ -764,32 +764,32 @@ print( lrtest( fitsuri3e, fitsuri4e ) )
 print( lrtest( fitsuri2e, fitsuri5e ) )
 print( lrtest( fitsuri3e, fitsuri5e ) )
 
-# non-iterating, methodRCov = 0, WSUR
+# non-iterating, methodResidCov = 0, WSUR
 print( lrtest( fitsur4we, fitsur2we ) )
 
-# iterating, methodRCov = 1, WSUR
+# iterating, methodResidCov = 1, WSUR
 print( lrtest( fitsuri2w, fitsuri4w ) )
 
 # testing both of the restrictions
-# non-iterating, methodRCov = 1
+# non-iterating, methodResidCov = 1
 print( lrtest( fitsur4, fitsur1 ) )
 print( lrtest( fitsur5, fitsur1 ) )
-# non-iterating, methodRCov = 0
+# non-iterating, methodResidCov = 0
 print( lrtest( fitsur4e, fitsur1e ) )
 print( lrtest( fitsur5e, fitsur1e ) )
-# iterating, methodRCov = 1
+# iterating, methodResidCov = 1
 print( lrtest( fitsurio4, fitsuri1 ) )
 print( lrtest( fitsurio5, fitsuri1 ) )
    # corrected
 print( lrtest( fitsuri1, fitsuri4 ) )
 print( lrtest( fitsuri1, fitsuri5 ) )
-# iterating, methodRCov = 0
+# iterating, methodResidCov = 0
 print( lrtest( fitsurio4e, fitsuri1e ) )
 print( lrtest( fitsurio5e, fitsuri1e ) )
    # corrected
 print( lrtest( fitsuri1e, fitsuri4e ) )
 print( lrtest( fitsuri1e, fitsuri5e ) )
-# non-iterating, methodRCov = 1, WSUR
+# non-iterating, methodResidCov = 1, WSUR
 print( lrtest( fitsur5w, fitsur1w ) )
 
 

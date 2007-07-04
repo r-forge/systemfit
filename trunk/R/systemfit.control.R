@@ -1,7 +1,7 @@
 systemfit.control <- function(
       maxiter = 1,
       tol = 1e-5,
-      methodRCov = "geomean",
+      methodResidCov = "geomean",
       centerResiduals = FALSE,
       method3sls = "GLS",
       single.eq.sigma = NULL,
@@ -27,12 +27,12 @@ systemfit.control <- function(
    }
    result$tol <- tol
 
-   ## methodRCov
-   if( !( methodRCov %in% c( "noDfCor", "geomean", "max", "Theil" ) ) ) {
-      stop( "control parameter 'methodRCov' must be either",
+   ## methodResidCov
+   if( !( methodResidCov %in% c( "noDfCor", "geomean", "max", "Theil" ) ) ) {
+      stop( "control parameter 'methodResidCov' must be either",
          " 'noDfCor', 'geomean', 'max', or 'Theil'" )
    }
-   result$methodRCov <- methodRCov
+   result$methodResidCov <- methodResidCov
 
    ## centerResiduals
    if( !is.logical( centerResiduals ) || length( centerResiduals ) != 1 ) {

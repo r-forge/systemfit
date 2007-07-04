@@ -94,7 +94,7 @@ summary.systemfit <- function( object, useDfSys = NULL,
       rtOmega <- .calcXtOmegaInv( xMat = matrix( resid, ncol = 1 ),
          sigma = object$residCov, nObsEq = nObsEq,
          solvetol = object$control$solvetol )
-      yCov <- .calcRCov( response, methodRCov = "noDfCor",
+      yCov <- .calcRCov( response, methodResidCov = "noDfCor",
          nObsEq = nObsEq, centered = TRUE,
          solvetol = object$control$solvetol )
       residCovInv <- solve( object$residCov, tol = object$control$solvetol )

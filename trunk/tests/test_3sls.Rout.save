@@ -78,18 +78,18 @@ Attaching package: 'zoo'
 + 
 +    print( "********************* 3SLS EViews-like *****************" )
 +    fit3sls[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", method3sls = formulas[ i ] )
++       inst = inst, methodResidCov = "noDfCor", method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e1e, useDfSys = TRUE ) )
 + 
-+    print( "********************* 3SLS with methodRCov = Theil *****************" )
++    print( "********************* 3SLS with methodResidCov = Theil *****************" )
 +    fit3sls[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "Theil", method3sls = formulas[ i ],
++       inst = inst, methodResidCov = "Theil", method3sls = formulas[ i ],
 +       returnModelMatrix = TRUE )
 +    print( summary( fit3sls[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
-+    print( "*************** W3SLS with methodRCov = Theil *****************" )
++    print( "*************** W3SLS with methodResidCov = Theil *****************" )
 +    fit3sls[[ i ]]$e1wc <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "Theil", method3sls = formulas[ i ],
++       inst = inst, methodResidCov = "Theil", method3sls = formulas[ i ],
 +       residCovWeighted = TRUE )
 +    print( summary( fit3sls[[ i ]]$e1wc, useDfSys = TRUE ) )
 + 
@@ -107,7 +107,7 @@ Attaching package: 'zoo'
 + 
 +    print( "************** 3SLS with restriction (EViews-like) *****************" )
 +    fit3sls[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.matrix = restrm,
++       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restrm,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
@@ -125,13 +125,13 @@ Attaching package: 'zoo'
 + 
 +    print( "*************** 3SLS with restriction via restrict.regMat (EViews-like) *******" )
 +    fit3sls[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.regMat = tc,
++       inst = inst, methodResidCov = "noDfCor", restrict.regMat = tc,
 +       method3sls = formulas[ i ], returnModelMatrix = TRUE )
 +    print( summary( fit3sls[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
 +    print( "**** W3SLS with restriction via restrict.regMat (EViews-like) ****" )
 +    fit3sls[[ i ]]$e3we <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.regMat = tc,
++       inst = inst, methodResidCov = "noDfCor", restrict.regMat = tc,
 +       method3sls = formulas[ i ], residCovWeighted = TRUE )
 +    print( summary( fit3sls[[ i ]]$e3we, useDfSys = TRUE ) )
 + 
@@ -149,7 +149,7 @@ Attaching package: 'zoo'
 + 
 +    print( "*************** 3SLS with 2 restrictions (EViews-like) ************" )
 +    fit3sls[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.matrix = restr2m,
++       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restr2m,
 +       restrict.rhs = restr2q, method3sls = formulas[ i ] )
 +    print( summary( fit3sls[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
@@ -173,14 +173,14 @@ Attaching package: 'zoo'
 + 
 +    print( "******** 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)*****" )
 +    fit3sls[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.regMat = tc, methodRCov = "noDfCor",
++       inst = inst, restrict.regMat = tc, methodResidCov = "noDfCor",
 +       restrict.matrix = restr3m, restrict.rhs = restr3q,
 +       method3sls = formulas[ i ], returnModelMatrix = TRUE )
 +    print( summary( fit3sls[[ i ]]$e5e, useDfSys = TRUE ) )
 + 
 +    print( "*** W3SLS with 2 restrictions via R and restrict.regMat (EViews-like) ***" )
 +    fit3sls[[ i ]]$e5we <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.regMat = tc, methodRCov = "noDfCor",
++       inst = inst, restrict.regMat = tc, methodResidCov = "noDfCor",
 +       restrict.matrix = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
 +       residCovWeighted = TRUE )
 +    print( summary( fit3sls[[ i ]]$e5we, useDfSys = TRUE ) )
@@ -311,7 +311,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.216178 MSE: 6.701011 Root MSE: 2.588631 
 Multiple R-Squared: 0.60011 Adjusted R-Squared: 0.525131 
 
-[1] "********************* 3SLS with methodRCov = Theil *****************"
+[1] "********************* 3SLS with methodResidCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -375,7 +375,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 108.727103 MSE: 6.795444 Root MSE: 2.606807 
 Multiple R-Squared: 0.594475 Adjusted R-Squared: 0.518439 
 
-[1] "*************** W3SLS with methodRCov = Theil *****************"
+[1] "*************** W3SLS with methodResidCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -1312,7 +1312,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.216178 MSE: 6.701011 Root MSE: 2.588631 
 Multiple R-Squared: 0.60011 Adjusted R-Squared: 0.525131 
 
-[1] "********************* 3SLS with methodRCov = Theil *****************"
+[1] "********************* 3SLS with methodResidCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -1376,7 +1376,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 108.727103 MSE: 6.795444 Root MSE: 2.606807 
 Multiple R-Squared: 0.594475 Adjusted R-Squared: 0.518439 
 
-[1] "*************** W3SLS with methodRCov = Theil *****************"
+[1] "*************** W3SLS with methodResidCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -2313,7 +2313,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.216178 MSE: 6.701011 Root MSE: 2.588631 
 Multiple R-Squared: 0.60011 Adjusted R-Squared: 0.525131 
 
-[1] "********************* 3SLS with methodRCov = Theil *****************"
+[1] "********************* 3SLS with methodResidCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -2377,7 +2377,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 108.727103 MSE: 6.795444 Root MSE: 2.606807 
 Multiple R-Squared: 0.594475 Adjusted R-Squared: 0.518439 
 
-[1] "*************** W3SLS with methodRCov = Theil *****************"
+[1] "*************** W3SLS with methodResidCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -3314,7 +3314,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.216178 MSE: 6.701011 Root MSE: 2.588631 
 Multiple R-Squared: 0.60011 Adjusted R-Squared: 0.525131 
 
-[1] "********************* 3SLS with methodRCov = Theil *****************"
+[1] "********************* 3SLS with methodResidCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -3378,7 +3378,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 108.727103 MSE: 6.795444 Root MSE: 2.606807 
 Multiple R-Squared: 0.594475 Adjusted R-Squared: 0.518439 
 
-[1] "*************** W3SLS with methodRCov = Theil *****************"
+[1] "*************** W3SLS with methodResidCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -4315,7 +4315,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.216178 MSE: 6.701011 Root MSE: 2.588631 
 Multiple R-Squared: 0.60011 Adjusted R-Squared: 0.525131 
 
-[1] "********************* 3SLS with methodRCov = Theil *****************"
+[1] "********************* 3SLS with methodResidCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -4379,7 +4379,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 108.727103 MSE: 6.795444 Root MSE: 2.606807 
 Multiple R-Squared: 0.594475 Adjusted R-Squared: 0.518439 
 
-[1] "*************** W3SLS with methodRCov = Theil *****************"
+[1] "*************** W3SLS with methodResidCov = Theil *****************"
 
 systemfit results 
 method: 3SLS 
@@ -5206,19 +5206,19 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 + 
 +    print( "********************* iterated 3SLS EViews-like ****************" )
 +    fit3slsi[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", method3sls = formulas[ i ],
++       inst = inst, methodResidCov = "noDfCor", method3sls = formulas[ i ],
 +       maxiter = 100  )
 +    print( summary( fit3slsi[[ i ]]$e1e, useDfSys = TRUE ) )
 + 
-+    print( "************** iterated 3SLS with methodRCov = Theil **************" )
++    print( "************** iterated 3SLS with methodResidCov = Theil **************" )
 +    fit3slsi[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "Theil", method3sls = formulas[ i ],
++       inst = inst, methodResidCov = "Theil", method3sls = formulas[ i ],
 +       maxiter = 100, returnModelMatrix = TRUE  )
 +    print( summary( fit3slsi[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
 +    print( "**************** iterated W3SLS EViews-like ****************" )
 +    fit3slsi[[ i ]]$e1we <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", method3sls = formulas[ i ],
++       inst = inst, methodResidCov = "noDfCor", method3sls = formulas[ i ],
 +       maxiter = 100, residCovWeighted = TRUE  )
 +    print( summary( fit3slsi[[ i ]]$e1we, useDfSys = TRUE ) )
 + 
@@ -5231,13 +5231,13 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 + 
 +    print( "********* iterated 3SLS with restriction (EViews-like) *********" )
 +    fit3slsi[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.matrix = restrm,
++       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restrm,
 +       method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "******** iterated W3SLS with restriction (EViews-like) *********" )
 +    fit3slsi[[ i ]]$e2we <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.matrix = restrm,
++       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restrm,
 +       method3sls = formulas[ i ], maxiter = 100, residCovWeighted = TRUE )
 +    print( summary( fit3slsi[[ i ]]$e2we, useDfSys = TRUE ) )
 + 
@@ -5249,7 +5249,7 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 + 
 +    print( "********* iterated 3SLS with restriction via restrict.regMat (EViews-like) ***" )
 +    fit3slsi[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.regMat = tc,
++       inst = inst, methodResidCov = "noDfCor", restrict.regMat = tc,
 +       method3sls = formulas[ i ], maxiter = 100, returnModelMatrix = TRUE )
 +    print( summary( fit3slsi[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
@@ -5268,13 +5268,13 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 + 
 +    print( "********* iterated 3SLS with 2 restrictions (EViews-like) *******" )
 +    fit3slsi[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.matrix = restr2m,
++       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restr2m,
 +       restrict.rhs = restr2q, method3sls = formulas[ i ], maxiter = 100 )
 +    print( summary( fit3slsi[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "******** iterated W3SLS with 2 restrictions (EViews-like) *******" )
 +    fit3slsi[[ i ]]$e4we <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodRCov = "noDfCor", restrict.matrix = restr2m,
++       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restr2m,
 +       restrict.rhs = restr2q, method3sls = formulas[ i ], maxiter = 100,
 +       residCovWeighted = TRUE )
 +    print( summary( fit3slsi[[ i ]]$e4we, useDfSys = TRUE ) )
@@ -5288,7 +5288,7 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 + 
 +    print( "*** iterated 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)**" )
 +    fit3slsi[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.regMat = tc, methodRCov = "noDfCor",
++       inst = inst, restrict.regMat = tc, methodResidCov = "noDfCor",
 +       restrict.matrix = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
 +       maxiter = 100  )
 +    print( summary( fit3slsi[[ i ]]$e5e, useDfSys = TRUE ) )
@@ -5430,7 +5430,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 111.301948 MSE: 6.956372 Root MSE: 2.637493 
 Multiple R-Squared: 0.584871 Adjusted R-Squared: 0.507035 
 
-[1] "************** iterated 3SLS with methodRCov = Theil **************"
+[1] "************** iterated 3SLS with methodResidCov = Theil **************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -6458,7 +6458,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 111.301948 MSE: 6.956372 Root MSE: 2.637493 
 Multiple R-Squared: 0.584871 Adjusted R-Squared: 0.507035 
 
-[1] "************** iterated 3SLS with methodRCov = Theil **************"
+[1] "************** iterated 3SLS with methodResidCov = Theil **************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -7486,7 +7486,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 111.301948 MSE: 6.956372 Root MSE: 2.637493 
 Multiple R-Squared: 0.584871 Adjusted R-Squared: 0.507035 
 
-[1] "************** iterated 3SLS with methodRCov = Theil **************"
+[1] "************** iterated 3SLS with methodResidCov = Theil **************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -8514,7 +8514,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 111.301948 MSE: 6.956372 Root MSE: 2.637493 
 Multiple R-Squared: 0.584871 Adjusted R-Squared: 0.507035 
 
-[1] "************** iterated 3SLS with methodRCov = Theil **************"
+[1] "************** iterated 3SLS with methodResidCov = Theil **************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -9542,7 +9542,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 111.301948 MSE: 6.956372 Root MSE: 2.637493 
 Multiple R-Squared: 0.584871 Adjusted R-Squared: 0.507035 
 
-[1] "************** iterated 3SLS with methodRCov = Theil **************"
+[1] "************** iterated 3SLS with methodResidCov = Theil **************"
 
 systemfit results 
 method: iterated 3SLS 
@@ -10456,12 +10456,12 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 + 
 +    print( "******* 3SLS with different instruments (EViews-like) **********" )
 +    fit3slsd[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, methodRCov = "noDfCor", method3sls = formulas[ i ] )
++       inst = instlist, methodResidCov = "noDfCor", method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e1e, useDfSys = TRUE ) )
 + 
-+    print( "**** 3SLS with different instruments and methodRCov = Theil ***" )
++    print( "**** 3SLS with different instruments and methodResidCov = Theil ***" )
 +    fit3slsd[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, methodRCov = "Theil", method3sls = formulas[ i ],
++       inst = instlist, methodResidCov = "Theil", method3sls = formulas[ i ],
 +       returnModelMatrix = TRUE )
 +    print( summary( fit3slsd[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
@@ -10479,13 +10479,13 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 + 
 +    print( "** 3SLS with different instruments and restriction (EViews-like) *" )
 +    fit3slsd[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, methodRCov = "noDfCor", restrict.matrix = restrm,
++       inst = instlist, methodResidCov = "noDfCor", restrict.matrix = restrm,
 +       method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "** W3SLS with different instruments and restriction (EViews-like) *" )
 +    fit3slsd[[ i ]]$e2we <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, methodRCov = "noDfCor", restrict.matrix = restrm,
++       inst = instlist, methodResidCov = "noDfCor", restrict.matrix = restrm,
 +       method3sls = formulas[ i ], residCovWeighted = TRUE )
 +    print( summary( fit3slsd[[ i ]]$e2we, useDfSys = TRUE ) )
 + 
@@ -10497,7 +10497,7 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 + 
 +    print( "3SLS with different instruments with restriction via restrict.regMat (EViews-like)" )
 +    fit3slsd[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, methodRCov = "noDfCor", restrict.regMat = tc,
++       inst = instlist, methodResidCov = "noDfCor", restrict.regMat = tc,
 +       method3sls = formulas[ i ], returnModelMatrix = TRUE )
 +    print( summary( fit3slsd[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
@@ -10516,7 +10516,7 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 + 
 +    print( "** 3SLS with different instruments and 2 restrictions (EViews-like) *" )
 +    fit3slsd[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, methodRCov = "noDfCor", restrict.matrix = restr2m,
++       inst = instlist, methodResidCov = "noDfCor", restrict.matrix = restr2m,
 +       restrict.rhs = restr2q, method3sls = formulas[ i ] )
 +    print( summary( fit3slsd[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
@@ -10535,14 +10535,14 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 + 
 +    print( "3SLS with diff. instruments and 2 restr. via R and restrict.regMat (EViews-like)" )
 +    fit3slsd[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, restrict.regMat = tc, methodRCov = "noDfCor",
++       inst = instlist, restrict.regMat = tc, methodResidCov = "noDfCor",
 +       restrict.matrix = restr3m, restrict.rhs = restr3q,
 +       method3sls = formulas[ i ], returnModelMatrix = TRUE )
 +    print( summary( fit3slsd[[ i ]]$e5e, useDfSys = TRUE ) )
 + 
 +    print( "W3SLS with diff. instr. and 2 restr. via R and restrict.regMat (EViews-like)" )
 +    fit3slsd[[ i ]]$e5we <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, restrict.regMat = tc, methodRCov = "noDfCor",
++       inst = instlist, restrict.regMat = tc, methodResidCov = "noDfCor",
 +       restrict.matrix = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
 +       residCovWeighted = TRUE )
 +    print( summary( fit3slsd[[ i ]]$e5we, useDfSys = TRUE ) )
@@ -10673,7 +10673,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 102.203056 MSE: 6.387691 Root MSE: 2.527388 
 Multiple R-Squared: 0.618808 Adjusted R-Squared: 0.547334 
 
-[1] "**** 3SLS with different instruments and methodRCov = Theil ***"
+[1] "**** 3SLS with different instruments and methodResidCov = Theil ***"
 
 systemfit results 
 method: 3SLS 
@@ -11667,7 +11667,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.73524 MSE: 6.608452 Root MSE: 2.570691 
 Multiple R-Squared: 0.605634 Adjusted R-Squared: 0.53169 
 
-[1] "**** 3SLS with different instruments and methodRCov = Theil ***"
+[1] "**** 3SLS with different instruments and methodResidCov = Theil ***"
 
 systemfit results 
 method: 3SLS 
@@ -12661,7 +12661,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
-[1] "**** 3SLS with different instruments and methodRCov = Theil ***"
+[1] "**** 3SLS with different instruments and methodResidCov = Theil ***"
 
 systemfit results 
 method: 3SLS 
@@ -13655,7 +13655,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
-[1] "**** 3SLS with different instruments and methodRCov = Theil ***"
+[1] "**** 3SLS with different instruments and methodResidCov = Theil ***"
 
 systemfit results 
 method: 3SLS 
@@ -14649,7 +14649,7 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 105.73524 MSE: 6.608452 Root MSE: 2.570691 
 Multiple R-Squared: 0.605634 Adjusted R-Squared: 0.53169 
 
-[1] "**** 3SLS with different instruments and methodRCov = Theil ***"
+[1] "**** 3SLS with different instruments and methodResidCov = Theil ***"
 
 systemfit results 
 method: 3SLS 
