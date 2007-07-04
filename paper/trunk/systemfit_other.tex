@@ -252,12 +252,20 @@ under the null hypothesis
 \label{sec:hausman}
 
 \citet{hausman78} developed a test for misspecification.
-The null hypothesis of the test is that all exogenous variables are
-uncorrelated with all disturbance terms.
+The null hypothesis of the test is
+that the instrumental variables of each equation are
+uncorrelated with the disturbance terms of all other equations
+($\E \left[ u_i' H_j \right] = 0 \, \forall \, i \neq j$).
 Under this hypothesis both the 2SLS and the 3SLS estimator are consistent
 but only the 3SLS estimator is (asymptotically) efficient.
 Under the alternative hypothesis the 2SLS estimator is consistent
-but the 3SLS estimator is inconsistent.
+but the 3SLS estimator is inconsistent,
+i.e.\ the instrumental variables of each equation are
+uncorrelated with the disturbances of the same equation
+($\E \left[ u_i' H_i \right] = 0 \, \forall \, i$),
+but the instrumental variables of at least one equation
+are correlated with the disturbances of another equation
+($\E \left[ u_i' H_j \right] \neq 0 \, \exists \, i \neq j$).
 The Hausman test statistic is
 \begin{equation}
   m = \left( \bHat_{2SLS} - \bHat_{3SLS} \right)^{'}
