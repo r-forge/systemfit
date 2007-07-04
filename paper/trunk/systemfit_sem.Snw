@@ -75,7 +75,7 @@ Theoretically, results of an iterated SUR estimation should
 coverge to FIML results.
 Therefore, we re-estimate this model by iterated SUR with \code{systemfit}.
 <<>>=
-surResult <- systemfit( system, "SUR", data = KleinI, methodRCov = "noDfCor",
+surResult <- systemfit( system, "SUR", data = KleinI, methodResidCov = "noDfCor",
    maxit = 500 )
 print( surResult )
 @

@@ -254,18 +254,18 @@ It was explained in section~\ref{sec:residcov} that several different
 methods have been proposed to calculate the residual
 covariance matrix.
 The user can specify, which method \pkg{systemfit} should use.
-Possible values of the argument \code{methodRCov} are presented in
-table~\ref{tab:methodRCov}.
+Possible values of the argument \code{methodResidCov} are presented in
+table~\ref{tab:methodResidCov}.
 By default, \pkg{systemfit} uses equation (\ref{eq:rcovGeomean}).
 
 \begin{table}[H]
-\caption{Possible values of argument \code{methodRCov}}
-\label{tab:methodRCov}
+\caption{Possible values of argument \code{methodResidCov}}
+\label{tab:methodResidCov}
 \centering
 \begin{tabular}{|c|c|}
 \hline
 argument & equation \\
-\code{methodRCov} & \\
+\code{methodResidCov} & \\
 \hline
 'noDfCor' & \ref{eq:rcovNoDfCor} \\
 \hline

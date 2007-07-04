@@ -107,19 +107,19 @@ round( coef( summary( kleinOls ) ), digits = 3 )
 2SLS estimation:
 <<results=hide>>=
 klein2sls <- systemfit( system, "2SLS", inst = inst, data = KleinI,
-   methodRCov = "noDfCor" )
+   methodResidCov = "noDfCor" )
 round( coef( summary( klein2sls ) ), digits = 3 )
 @
 3SLS estimation:
 <<results=hide>>=
 klein3sls <- systemfit( system, "3SLS", inst = inst, data = KleinI,
-   methodRCov = "noDfCor" )
+   methodResidCov = "noDfCor" )
 round( coef( summary( klein3sls ) ), digits = 3 )
 @
 iterated 3SLS estimation:
 <<results=hide>>=
 kleinI3sls <- systemfit( system, "3SLS", inst = inst, data = KleinI,
-   methodRCov = "noDfCor", maxit = 500 )
+   methodResidCov = "noDfCor", maxit = 500 )
 round( coef( summary( kleinI3sls ) ), digits = 3 )
 @
 
@@ -185,7 +185,7 @@ sum( sapply( greeneOlsPooled$eq, function(x){return(summary(x)$ssr)}) )/100
 SUR estimation (Table~14.1):
 <<results=hide>>=
 greeneSur <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldGreene, methodRCov = "noDfCor" )
+   data = GrunfeldGreene, methodResidCov = "noDfCor" )
 round( coef( summary( greeneSur ) ), digits = 4 )
 round( greeneSur$residCov, digits = 3 ) #$
 round( summary( greeneSur )$residCor, digits = 3 ) #$
@@ -193,7 +193,7 @@ round( summary( greeneSur )$residCor, digits = 3 ) #$
 pooled SUR estimation (Table~14.1):
 <<results=hide>>=
 greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldGreene, pooled = TRUE, methodRCov = "noDfCor",
+   data = GrunfeldGreene, pooled = TRUE, methodResidCov = "noDfCor",
    residCovWeighted = TRUE )
 round( coef( summary( greeneSurPooled$eq[[1]] ) ), digits = 4 ) #$
 
@@ -251,7 +251,7 @@ round( coef( summary( theilOls ) ), digits = 3 )
 SUR estimation (page 300)
 <<results=hide>>=
 theilSur <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldTheil, methodRCov = "noDfCor" )
+   data = GrunfeldTheil, methodResidCov = "noDfCor" )
 round( coef( summary( theilSur ) ), digits = 3 )
 @
 
@@ -273,7 +273,7 @@ linear.hypothesis( theilSur, RMatrix )
 Restricted SUR estimation (page~316)
 <<results=hide>>=
 theilSurRestr <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldTheil, methodRCov = "noDfCor", restrict.matrix = RMatrix,
+   data = GrunfeldTheil, methodResidCov = "noDfCor", restrict.matrix = RMatrix,
    residCovRestricted = FALSE )
 round( coef( summary( theilSurRestr ) ), digits = 3 )
 @
