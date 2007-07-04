@@ -76,18 +76,23 @@ Hence, °it is doubtful whether [this formula] is really superior to
 The WLS, SUR, W2SLS and 3SLS parameter estimates are consistent
 if the residual covariance matrix is calculated
 using the residuals from a first-step OLS or 2SLS estimation.
-There exists also an alternative slightly different approach.%
+There exists also an alternative slightly different approach
+that consists of three steps.%
 \footnote{
 For instance, this approach is applied by
 the command °TSCS° of the software LIMDEP that carries out SUR estimations
 in which all coefficient vectors are constrained to be equal
 \citep{greene06}.
 }
-This alternative approach uses the residuals of a first-step OLS or 2SLS estimation
-to apply a WLS or W2SLS estimation on a second step.
-Then, it calculates the residual covariance matrix
-from the residuals of the second-step estimation
-to estimates the model by SUR or 3SLS in a third step.
+In a first step, an OLS or 2SLS estimation is applied to obtain residuals
+to calculate a (first-step) residual covariance matrix.
+In a second step, the first-step residual covariance matrix
+is used to estimate the model by WLS or W2SLS
+and new residuals are obtained to calculate
+a (second-step) residual covariance matrix.
+Finally, in the third step,
+the second-step residual covariance matrix is used
+to estimate the model by SUR or 3SLS.
 If no cross-equation restrictions are imposed,
 the parameter estimates of OLS and WLS as well as 2SLS and W2SLS are identical.
 Hence, in this case both approaches generate the same results.
