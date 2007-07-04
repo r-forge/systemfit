@@ -10,17 +10,17 @@
 
 Since the (true) disturbances of the estimated equations are generally not known,
 their covariance matrix cannot be determined.
-Thus, this covariance matrix must be calculated from the
-estimated residuals.
-Generally, the residual covariance matrix
-($\SHat = \left[ \sHat_{ij} \right]$)
-can be calculated from the residuals of a first-step OLS or 2SLS estimation.
-In many cases, the formula
+Therefore, this covariance matrix is generally calculated from
+estimated residuals
+that are obtained from a first-step OLS or 2SLS estimation.
+Then, in a second step, the estimated residual covariance matrix
+can be employed for a WLS, SUR, W2SLS, or 3SLS estimation.
+In many cases, the residual covariance matrix is calculated by
 \begin{equation}
-   \sHat_{ij} = \frac{ \uHat_i' \uHat_j }{ T }
+   \sHat_{ij} = \frac{ \uHat_i' \uHat_j }{ T },
    \label{eq:rcovNoDfCor}
 \end{equation}
-is applied, where $T$ is the number of observations in each equation.
+where $T$ is the number of observations in each equation.
 However, in finite samples this estimator is biased,
 because it is not corrected for degrees of freedom.
 The usual single-equation procedure to correct for degrees of freedom

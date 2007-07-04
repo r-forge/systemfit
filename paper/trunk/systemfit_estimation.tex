@@ -60,7 +60,7 @@ where $\OHat = \SHat \otimes I$,
 $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
 $\sHat_{ii} = \sHat_i^2$ is the variance
 of the (estimated) residuals in the $i$th equation.
-Theoretically, it would be better to use the variances of
+Theoretically, $\sHat_{ii}$ should be the variance of
 the (true) disturbances $( \sigma_{ii} )$.
 However, they are not known in most empirical applications.
 Therefore, true variances are generally replaced by estimated variances
@@ -121,7 +121,7 @@ This can be circumvented by an instrumental variable (IV)
 two-stage least squares (2SLS) estimation.
 The instrumental variables for each equation $H_i$ 
 can be either different or identical for all equations.
-The instrumental variables of each equation may not be correlated with 
+The instrumental variables of each equation may not be correlated with
 the disturbance terms of the corresponding equation 
 ($\E \left[ u_i' H_i \right] = 0$).
 
