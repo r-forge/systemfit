@@ -1,4 +1,4 @@
-.stackMatList <- function( matList, way ){
+.stackMatList <- function( matList, way, useMatrix = FALSE ){
    if( way == "diag" ){
       result <- matrix( 0, 0, 0 )
       for( i in 1:length( matList ) ){
@@ -14,5 +14,10 @@
          result <- rbind( result, matList[[ i ]] )
       }
    }
+
+   if( useMatrix ){
+      result <- as( result, "dgCMatrix" )
+   }
+
    return( result )
 }

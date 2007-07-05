@@ -1,6 +1,7 @@
 ## Calculate the residual covariance matrix
-.calcResidCov <- function( resids, methodResidCov, nObsEq = NULL, nCoefEq = NULL, xEq = NULL,
-      diag = FALSE, centered = FALSE, solvetol = .Machine$double.eps ) {
+.calcResidCov <- function( resids, methodResidCov, nObsEq = NULL,
+      nCoefEq = NULL, xEq = NULL, diag = FALSE, centered = FALSE,
+      useMatrix = FALSE, solvetol = .Machine$double.eps ) {
 
    eqNames <- NULL
    if( class( resids ) == "data.frame" ) {
@@ -50,6 +51,10 @@
    if( !is.null( eqNames ) ) {
       rownames( result ) <- eqNames
       colnames( result ) <- eqNames
+   }
+
+   if( useMatrix ){
+      result <- as( result, "dspMatrix" )
    }
    return( result )
 }

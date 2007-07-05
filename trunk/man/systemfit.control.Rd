@@ -17,6 +17,7 @@ systemfit.control(
       centerResiduals = FALSE,
       method3sls = "GLS",
       single.eq.sigma = NULL,
+      useMatrix = FALSE,
       solvetol = .Machine$double.eps,
       residCovRestricted = TRUE,
       residCovWeighted = FALSE,
@@ -43,6 +44,7 @@ systemfit.control(
       If \code{single.eq.sigma} is \code{NULL}, it is automatically determined:
       It is set to \code{TRUE}, if there are any parameter restrictions imposed,
       and it is set to \code{FALSE} otherwise.}
+   \item{useMatrix}{logical. Use package \code{Matrix} for matrix calculations?}
    \item{solvetol}{tolerance level for detecting linear dependencies
       when inverting a matrix or calculating a determinant (see
       \code{\link{solve}} and \code{\link{det}}).}
