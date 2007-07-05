@@ -302,7 +302,7 @@ systemfit <- function(  eqns,
     } else {
       W <- rbind( cbind( t(xMatAll) %*% xMatAll, t(R.restr) ),
                   cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
-      V <- rbind( t(xMatAll) %*% yVecAll , q.restr )
+      V <- c( crossprod( xMatAll, yVecAll ), q.restr )
       if( method == "OLS" || control$residCovRestricted ){
          coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll),]
       } else {
@@ -388,7 +388,7 @@ systemfit <- function(  eqns,
     } else {
       W <- rbind( cbind( crossprod(xMatHatAll), t(R.restr) ),
                   cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-      V <- rbind( t(xMatHatAll) %*% yVecAll , q.restr )
+      V <- c( crossprod( xMatHatAll, yVecAll ), q.restr )
       if( method == "2SLS" || control$residCovRestricted ){
          coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll),]
       } else {
@@ -474,8 +474,8 @@ systemfit <- function(  eqns,
           W <- rbind( cbind( t(xMatAll) %*% hMatAll %*% solve( HtOmega
                               %*% hMatAll, tol=control$solvetol) %*% t(hMatAll) %*% xMatAll, t(R.restr) ),
                       cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-          V <- rbind( t(xMatAll) %*% hMatAll %*% solve( HtOmega
-                      %*% hMatAll, tol=control$solvetol) %*% t(hMatAll) %*% yVecAll , q.restr )
+          V <- c( crossprod( xMatAll, hMatAll ) %*% solve( HtOmega
+                      %*% hMatAll, tol=control$solvetol) %*% crossprod( hMatAll, yVecAll ), q.restr )
           Winv <- solve( W, tol=control$solvetol )
           coef <- ( Winv %*% V )[1:ncol(xMatAll),]     # restricted coefficients
         }
@@ -490,7 +490,7 @@ systemfit <- function(  eqns,
         } else {
           W <- rbind( cbind( t(xMatHatAll) %*% t( xMatHatOmegaInv ), t(R.restr) ),
                       cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
-          V <- rbind( xMatHatOmegaInv %*% hMatAll %*% solve( crossprod( hMatAll ), tol=control$solvetol ) %*%
+          V <- c( xMatHatOmegaInv %*% hMatAll %*% solve( crossprod( hMatAll ), tol=control$solvetol ) %*%
                       crossprod( hMatAll, yVecAll ), q.restr )
           Winv <- solve( W, tol=control$solvetol )
           coef <- ( Winv %*% V )[1:ncol(xMatAll),]     # restricted coefficients
