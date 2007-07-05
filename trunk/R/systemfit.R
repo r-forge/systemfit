@@ -98,8 +98,6 @@ systemfit <- function(  eqns,
    yVecAll <- matrix( 0, 0, 1 )
    # list for matrices of regressors in each equation
    xMatEq  <- list()
-   # stacked matrices of all regressors (multiplied with restrict.regMat)
-   xMatAll <- matrix( 0, 0, 0 )
    # number of observations in each equation
    nObsEq  <- numeric( nEq )
    # number of exogenous variables /(unrestricted) coefficients in each equation
@@ -118,8 +116,6 @@ systemfit <- function(  eqns,
       yVecEq[[i]] <- model.extract( evalModelFrameEq[[ i ]], "response" )
       xMatEq[[i]] <- model.matrix( termsEq[[ i ]], evalModelFrameEq[[ i ]] )
       yVecAll <- c(yVecAll,yVecEq[[i]])
-      xMatAll <- rbind( cbind( xMatAll, matrix( 0, nrow( xMatAll ), ncol( xMatEq[[i]] ))),
-                  cbind( matrix( 0, nrow( xMatEq[[i]] ), ncol( xMatAll )), xMatEq[[i]]))
       nObsEq[i] <- length( yVecEq[[i]] )
       nCoefEq[i] <- ncol(xMatEq[[i]])
       cNamesEq <- NULL
@@ -137,6 +133,8 @@ systemfit <- function(  eqns,
       }
       coefNamesEq[[ i ]] <- cNamesEq
    }
+   # stacked matrices of all regressors
+   xMatAll <- .stackMatList( xMatEq, way = "diag" )
    rm( modelFrameEq, xjName, cNamesEq )
 
    # test for unequal numbers of observations
@@ -186,12 +184,10 @@ systemfit <- function(  eqns,
       modelFrameInst <- list()
       # evaluated model frame of instruments
       evalModelFrameInst <- list()
-      # stacked matrices of all instruments
-      hMatAll  <- matrix( 0, 0, 0 )
       # list for matrices of instruments in each equation
       hMatEq  <- list()
-      # fitted values of all regressors
-      xMatHatAll <- matrix( 0, 0, ncol( xMatAll ) )
+      # fitted values of regressors
+      xMatHatEq <- list()
       # prepare data for individual equations
       for(i in 1:nEq) {
          rowsEq <- c( (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) )
@@ -206,12 +202,15 @@ systemfit <- function(  eqns,
                as.character( i ), "have different numbers of observations." ) )
          }
          # extract instrument matrix
-         xMatHatAll <- rbind(xMatHatAll, hMatEq[[i]] %*% solve( crossprod( hMatEq[[i]]) , tol=control$solvetol )
-              %*% crossprod( hMatEq[[i]], xMatAll[ rowsEq, ] ))       # 'fitted' X-values
-         hMatAll  <-  rbind( cbind( hMatAll, matrix( 0, nrow( hMatAll ), ncol( hMatEq[[i]] ))),
-                         cbind( matrix( 0, nrow( hMatEq[[i]] ), ncol( hMatAll )), hMatEq[[i]]))
+         xMatHatEq[[ i ]] <- hMatEq[[i]] %*% 
+            solve( crossprod( hMatEq[[i]]) , tol=control$solvetol ) %*% 
+            crossprod( hMatEq[[i]], xMatAll[ rowsEq, ] )
       }
-      rm( modelFrameInst )
+      # stacked matrices of all instruments
+      hMatAll <- .stackMatList( hMatEq, way = "diag" )
+      # fitted values of all regressors
+      xMatHatAll <- .stackMatList( xMatHatEq, way = "below" )
+      rm( modelFrameInst, xMatHatEq )
    }
 
    # checking and modifying parameter restrictions
