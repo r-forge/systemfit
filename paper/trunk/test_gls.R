@@ -1,18 +1,12 @@
-nEq <- 3
-nExog <- 4
-nObs <- 1000
+library( MASS )
 
-# myData <- data.frame( obsNo = c( 1:nObs ) )
-# yNames <- paste( "y", 1:nEq, sep = "." )
-# xNames <- matrix(
-#    paste( "x", rep( 1:nEq, nExog ), rep( 1:nExog, each = nEq ), sep = "." ),
-#    nrow = nEq, ncol = nExog )
-# eqns <- list()
+nEq <- 6
+nExog <- 10
+nObs <- 2000
 
 xMat   <- NULL
 xMatEq <- list()
 for( eqNo in 1:nEq ){
-   yVecEq[[ eqNo ]] <- rep( eqNo, nObs )
    xMatEq[[ eqNo ]] <- matrix( 1, nrow = nObs, ncol = 1 )
    for( exogNo in 1:nExog ){
       xMatEq[[ eqNo ]] <- cbind( xMatEq[[ eqNo ]], rnorm( nObs ) )
@@ -24,14 +18,47 @@ for( eqNo in 1:nEq ){
          cbind( xMat, matrix( 0, nrow = nrow( xMat ), ncol = nExog + 1 ) ),
          cbind( matrix( 0, nrow = nObs, ncol = ncol( xMat ) ), xMatEq[[ eqNo ]] ) )
    }
-#    eqns[[ eqNo ]] <- as.formula( paste( "y.", eqNo, " ~ ",
-#       paste( paste( "x.", eqNo, ".", sep = "" ),
-#          c( 1:nExog ), sep = "", collapse = " + " ), sep = "" ) )
 }
-myCoef <- c( 1:( nEq * ( nExog + 1 ) ) )
+myCoef <- c( 10:( 9 + nEq * ( nExog + 1 ) ) ) / 10
 
-yVec <- xMat %*% myCoef
+sigma <- diag( c( 1:nEq ) ) * 20
+sigma[ upper.tri( sigma ) ] <- sigma[ lower.tri( sigma ) ] <- 12
 
-myCoefEst <- solve( crossprod( xMat ), crossprod( xMat, yVec ) )
+disturbances <- mvrnorm( nObs, rep( 0, nEq ), sigma )
+
+yVec <- xMat %*% myCoef + c( disturbances )
+
+## OLS
+print( system.time(
+   olsNaive <- solve( t( xMat ) %*% xMat ) %*% t( xMat ) %*%  yVec
+) )
+
+print( system.time(
+   olsSolve <- solve( t( xMat ) %*% xMat, t( xMat ) %*%  yVec )
+) )
+
+print( system.time(
+   olsCross <- solve( crossprod( xMat ) ) %*% crossprod( xMat, yVec )
+) )
+
+print( system.time(
+   olsCrossSolve <- solve( crossprod( xMat ), crossprod( xMat, yVec ) )
+) )
+
+
+## residuals
+residVec <- yVec - xMat %*% olsNaive
+residMat <- matrix( residVec, nrow = nObs, ncol = nEq )
+residCov <- crossprod( residMat ) / nObs
+
+
+## SUR ( GLS )
+print( system.time(
+   omegaInv <- solve( residCov ) %x% diag( nObs )
+))
+print( system.time(
+   surNaive <- solve( t( xMat ) %*% omegaInv %*% xMat ) %*%
+      t( xMat ) %*% omegaInv %*%  yVec
+) )
 
 
