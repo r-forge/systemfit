@@ -1,8 +1,9 @@
 library( MASS )
+set.seed( 20070705 )
 
 nEq <- 6
 nExog <- 10
-nObs <- 2000
+nObs <- 2500
 
 xMat   <- NULL
 xMatEq <- list()
@@ -29,21 +30,28 @@ disturbances <- mvrnorm( nObs, rep( 0, nEq ), sigma )
 yVec <- xMat %*% myCoef + c( disturbances )
 
 ## OLS
-print( system.time(
+# Naive
+system.time(
    olsNaive <- solve( t( xMat ) %*% xMat ) %*% t( xMat ) %*%  yVec
-) )
+)
 
-print( system.time(
+# with solve( , )
+system.time(
    olsSolve <- solve( t( xMat ) %*% xMat, t( xMat ) %*%  yVec )
-) )
+)
+all.equal( olsNaive, olsSolve )
 
-print( system.time(
+# with crossprod
+system.time(
    olsCross <- solve( crossprod( xMat ) ) %*% crossprod( xMat, yVec )
-) )
+)
+all.equal( olsNaive, olsCross )
 
-print( system.time(
+#with
+system.time(
    olsCrossSolve <- solve( crossprod( xMat ), crossprod( xMat, yVec ) )
-) )
+)
+all.equal( olsNaive, olsCrossSolve )
 
 
 ## residuals
@@ -53,12 +61,73 @@ residCov <- crossprod( residMat ) / nObs
 
 
 ## SUR ( GLS )
-print( system.time(
+# Naive
+system.time( {
+   surNaive <- solve( t( xMat ) %*% ( solve( residCov ) %x% diag( nObs ) ) %*%
+      xMat ) %*% t( xMat ) %*% ( solve( residCov ) %x% diag( nObs ) ) %*%  yVec
+} )
+
+# omegaInv
+system.time( {
    omegaInv <- solve( residCov ) %x% diag( nObs )
-))
-print( system.time(
-   surNaive <- solve( t( xMat ) %*% omegaInv %*% xMat ) %*%
-      t( xMat ) %*% omegaInv %*%  yVec
-) )
+   surOmegaInv <- solve( t( xMat ) %*% omegaInv %*% xMat,
+      t( xMat ) %*% omegaInv %*%  yVec )
+} )
+all.equal( surNaive, surOmegaInv )
 
+# Loop
+system.time( {
+   sigmaInv <- solve( residCov )
+   xtOmegaInv <- matrix( 0, nrow = nEq * ( nExog + 1 ), ncol = nEq * nObs )
+   eqSelect <- rep( NA, nEq * nObs )
+   for( i in 1:nEq ){
+      eqSelect[ ( ( i - 1 ) * nObs + 1 ):( i * nObs ) ] <- i
+   }
+   for( i in 1:nEq ){
+      for( j in 1:nEq ){
+         xtOmegaInv[ , eqSelect == i ] <- xtOmegaInv[ , eqSelect == i ] +
+            t( xMat )[ , eqSelect == j ] * sigmaInv[ i, j ]
+      }
+   }
+   surLoop <- solve( xtOmegaInv %*% xMat, xtOmegaInv %*%  yVec )
+} )
+all.equal( surNaive, surLoop )
 
+# Matrix package
+library( "Matrix" )
+xMatM <- as( xMat, "dgCMatrix" )
+residCovM <- as( residCov, "dspMatrix" )
+system.time( {
+   sigmaInvM <- solve( residCovM )
+   omegaInvM <- kronecker( sigmaInvM, Diagonal( nObs ) )
+   surMatrix <- solve( t( xMatM ) %*% omegaInvM %*% xMatM,
+      t( xMatM ) %*% omegaInvM %*%  yVec )
+} )
+all.equal( surNaive, surMatrix )
+
+xMatM <- as( xMat, "dgCMatrix" )
+residCovM <- as( residCov, "dspMatrix" )
+system.time( {
+   sigmaInvM <- solve( residCovM )
+   xtOmegaInvM <- t( xMatM ) %*% kronecker( sigmaInvM, Diagonal( nObs ) )
+   surMatrix2 <- solve( xtOmegaInvM %*% xMatM, xtOmegaInvM %*%  yVec )
+} )
+all.equal( surNaive, surMatrix )
+
+system.time( sigmaInvM <- solve( residCovM ) )
+system.time( omegaInvM <- kronecker( sigmaInvM, Diagonal( nObs ) ) )
+system.time( surMatrix <- solve( t( xMatM ) %*% omegaInvM %*% xMatM,
+      t( xMatM ) %*% omegaInvM %*%  yVec ) )
+
+system.time( xtOmegaInvM <- t( xMatM ) %*% omegaInvM )
+
+system.time( omegaInvM <- as( kronecker( sigmaInvM, Diagonal( nObs ) ), "dsCMatrix" ) )
+system.time( xtOmegaInvM <- t( xMatM ) %*% omegaInvM )
+
+system.time( xtOmegaInvM <- t( xMatM ) %*% as( kronecker( sigmaInvM, Diagonal( nObs ) ), "dsCMatrix" ) )
+
+system.time( sigmaInvM <- solve( residCovM ) )
+system.time( xtOmegaInvM <- t( xMatM ) %*% kronecker( sigmaInvM, Diagonal( nObs ) ) )
+system.time( surMatrix2 <- solve( xtOmegaInvM %*% xMatM, xtOmegaInvM %*%  yVec ) )
+
+system.time( xtOmegaInvM <- crossprod( xMatM, kronecker( sigmaInvM, Diagonal( nObs ) ) ) )
