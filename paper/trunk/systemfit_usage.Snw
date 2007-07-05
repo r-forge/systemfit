@@ -521,12 +521,17 @@ All arguments of the function \code{lrtest.systemfit}
 must be fitted model objects returned by \code{systemfit}.
 It consecutively compares all provided fitted model objects.
 
-All tests print a short explanation first.
-Then the empirical test statistic and the degree(s) of freedom are reported.
-Finally the $p$ value is printed.
-While there is some variation of the $p$ values across
-the three different tests,
-all tests suggest the same decision:
+All tests print a short description of the test
+and the tested model objects first.
+Then, a small table is printed,
+where each row belongs to one (unrestricted or restricted) model.
+The second row reports (amongst others)
+the degree(s) of freedom of the test,
+the empirical test statistic,
+and the marginal level of significance ($p$ value).
+Although all tests check the same hypothesis,
+there is some variation of the $p$ values.
+However, all tests suggest the same decision:
 The null hypothesis $\beta_2 = -\beta_6$ cannot be rejected at any
 reasonable level of significance.
 
