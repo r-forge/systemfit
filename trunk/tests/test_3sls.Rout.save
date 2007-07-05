@@ -8438,7 +8438,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 52.661822  12.805106 4.112564 0.000815 ***
+(Intercept) 52.661821  12.805106 4.112564 0.000815 ***
 price        0.226586   0.107459  2.10858 0.051096   .
 farmPrice    0.223372   0.046774 4.775617 0.000206 ***
 trend        0.380006    0.07201 5.277149  7.5e-05 ***
@@ -8815,7 +8815,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.416812 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
-SSR: 99.296691 MSE: 5.840982 Root MSE: 2.416812 
+SSR: 99.29669 MSE: 5.840982 Root MSE: 2.416812 
 Multiple R-Squared: 0.629648 Adjusted R-Squared: 0.586077 
 
 
@@ -8961,7 +8961,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.937766 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
-SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
+SSR: 138.087514 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
 [1] "***** iterated W3SLS with restriction via restrict.regMat ********"

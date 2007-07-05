@@ -300,7 +300,7 @@ systemfit <- function(  eqns,
       coef <- solve( crossprod( xMatAll ), crossprod( xMatAll, yVecAll ), tol=control$solvetol )
                # estimated coefficients
     } else {
-      W <- rbind( cbind( t(xMatAll) %*% xMatAll, t(R.restr) ),
+      W <- rbind( cbind( crossprod( xMatAll ), t(R.restr) ),
                   cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
       V <- c( crossprod( xMatAll, yVecAll ), q.restr )
       if( method == "OLS" || control$residCovRestricted ){
@@ -466,14 +466,18 @@ systemfit <- function(  eqns,
         HtOmega <- .calcXtOmegaInv( xMat = hMatAll, sigma = rcov, nObsEq = nObsEq,
            invertSigma = FALSE )
         if(is.null(R.restr)) {
-          coef <- solve(t(xMatAll) %*% hMatAll %*% solve( HtOmega %*%
-                 hMatAll, tol=control$solvetol) %*% t(hMatAll) %*% xMatAll, tol=control$solvetol) %*% t(xMatAll) %*% hMatAll %*%
-                 solve( HtOmega %*%
-                 hMatAll, tol=control$solvetol) %*% t(hMatAll) %*% yVecAll  #(unrestr.) coeffic.
+          coef <- solve( crossprod( xMatAll, hMatAll ) %*% 
+            solve( HtOmega %*% hMatAll, tol=control$solvetol ) %*% 
+            crossprod( hMatAll, xMatAll ), tol=control$solvetol ) %*% 
+            crossprod( xMatAll, hMatAll ) %*%
+            solve( HtOmega %*% hMatAll, tol=control$solvetol ) %*% 
+            crossprod( hMatAll, yVecAll )  #(unrestr.) coeffic.
         } else {
-          W <- rbind( cbind( t(xMatAll) %*% hMatAll %*% solve( HtOmega
-                              %*% hMatAll, tol=control$solvetol) %*% t(hMatAll) %*% xMatAll, t(R.restr) ),
-                      cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
+          W <- rbind( 
+            cbind( crossprod( xMatAll, hMatAll ) %*% 
+               solve( HtOmega %*% hMatAll, tol=control$solvetol) %*% 
+               crossprod( hMatAll, xMatAll ), t(R.restr) ),
+            cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr))))
           V <- c( crossprod( xMatAll, hMatAll ) %*% solve( HtOmega
                       %*% hMatAll, tol=control$solvetol) %*% crossprod( hMatAll, yVecAll ), q.restr )
           Winv <- solve( W, tol=control$solvetol )
@@ -484,11 +488,14 @@ systemfit <- function(  eqns,
         xMatHatOmegaInv <- .calcXtOmegaInv( xMat = xMatHatAll, sigma = rcov, nObsEq = nObsEq,
            solvetol = control$solvetol )
         if(is.null(R.restr)) {
-          coef <- solve( t(xMatHatAll) %*% t( xMatHatOmegaInv ), tol=control$solvetol) %*% ( xMatHatOmegaInv
-                      %*% hMatAll %*% solve( crossprod( hMatAll ), tol=control$solvetol ) %*% crossprod(hMatAll, yVecAll) )
+          coef <- solve( crossprod( xMatHatAll, t( xMatHatOmegaInv ) ), 
+               tol=control$solvetol ) %*% 
+            ( xMatHatOmegaInv %*% hMatAll %*% 
+            solve( crossprod( hMatAll ), tol=control$solvetol ) %*% 
+            crossprod( hMatAll, yVecAll) )
                            # (unrestr.) coeffic.
         } else {
-          W <- rbind( cbind( t(xMatHatAll) %*% t( xMatHatOmegaInv ), t(R.restr) ),
+          W <- rbind( cbind( crossprod(xMatHatAll, t( xMatHatOmegaInv ) ), t(R.restr) ),
                       cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
           V <- c( xMatHatOmegaInv %*% hMatAll %*% solve( crossprod( hMatAll ), tol=control$solvetol ) %*%
                       crossprod( hMatAll, yVecAll ), q.restr )
@@ -513,8 +520,9 @@ systemfit <- function(  eqns,
     }
     if(control$method3sls=="GMM") {
       if(is.null(R.restr)) {
-        coefCov <- solve( t(xMatAll) %*% hMatAll %*% solve( HtOmega %*% hMatAll, tol=control$solvetol ) %*%
-           t(hMatAll) %*% xMatAll, tol=control$solvetol )
+        coefCov <- solve( crossprod( xMatAll, hMatAll ) %*% 
+           solve( HtOmega %*% hMatAll, tol=control$solvetol ) %*%
+           crossprod( hMatAll, xMatAll ), tol=control$solvetol )
                 # final step coefficient covariance matrix
       } else {
         coefCov <- Winv[1:ncol(xMatAll),1:ncol(xMatAll)] # coefficient covariance matrix
@@ -523,7 +531,8 @@ systemfit <- function(  eqns,
     if(control$method3sls=="Schmidt") {
       xMatHatOmegaInv <- .calcXtOmegaInv( xMat = xMatHatAll, sigma = rcov, nObsEq = nObsEq,
          solvetol = control$solvetol )
-      PH <- hMatAll %*%  solve( t(hMatAll) %*% hMatAll, tol=control$solvetol ) %*% t(hMatAll)
+      PH <- hMatAll %*%  solve( crossprod( hMatAll ), t( hMatAll ), 
+         tol=control$solvetol )
       PHOmega <- .calcXtOmegaInv( xMat = t( PH ), sigma = rcov, nObsEq = nObsEq,
            invertSigma = FALSE )
       if(is.null(R.restr)) {

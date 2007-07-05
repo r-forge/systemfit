@@ -22,7 +22,7 @@ hausman.systemfit <- function( results2sls, results3sls ) {
 #       warning( "the matrix V is not 'positive definite'" )
 #    }
 
-   result$statistic <- t( result$q ) %*% solve( result$qVar, result$q )
+   result$statistic <- crossprod( result$q, solve( result$qVar, result$q ) )
    names( result$statistic ) <- "Hausman"
    result$parameter <- nrow( result$qVar )
    names( result$parameter ) <- "df"
