@@ -106,6 +106,8 @@ systemfit <- function(  eqns,
    coefNames  <- NULL
    # names of coefficients of each equation
    coefNamesEq <- list()
+   # names of observations of each equation
+   obsNamesEq <- list()
    # prepare data for individual equations
    for(i in 1:nEq ) {
       modelFrameEq[[ i ]] <- modelFrame
@@ -115,6 +117,7 @@ systemfit <- function(  eqns,
       weights <- model.extract( evalModelFrameEq[[ i ]], "weights" )
       yVecEq[[i]] <- model.extract( evalModelFrameEq[[ i ]], "response" )
       xMatEq[[i]] <- model.matrix( termsEq[[ i ]], evalModelFrameEq[[ i ]] )
+      obsNamesEq[[ i ]] <- rownames( xMatEq[[ i ]] )
       yVecAll <- c(yVecAll,yVecEq[[i]])
       nObsEq[i] <- length( yVecEq[[i]] )
       nCoefEq[i] <- ncol(xMatEq[[i]])
@@ -608,6 +611,8 @@ systemfit <- function(  eqns,
 
     results$eq[[ i ]]$residuals <-
       resids[ ( 1 + sum(nObsEq[1:i]) -nObsEq[i] ):( sum(nObsEq[1:i]) ) ]
+    names( results$eq[[ i ]]$residuals ) <- obsNamesEq[[ i ]]
+
     results$eq[[ i ]]$coefficients <-
       drop( coef[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))] )
               # estimated coefficients of equation i
@@ -623,6 +628,7 @@ systemfit <- function(  eqns,
 
     results$eq[[ i ]]$fitted.values <-
       fitted.values[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
+    names( results$eq[[ i ]]$fitted.values ) <- obsNamesEq[[ i ]]
 
     results$eq[[ i ]]$terms    <- termsEq[[ i ]]
     results$eq[[ i ]]$rank     <- nCoefLiEq[i]
@@ -636,17 +642,21 @@ systemfit <- function(  eqns,
        # degrees of freedom of residuals of the whole system
     if( control$returnResponse ){
       results$eq[[ i ]]$response   <- yVecEq[[i]]     # vector of endogenous variables
+      names( results$eq[[ i ]]$response ) <- obsNamesEq[[ i ]]
     }
     if( control$returnModelMatrix ){
       results$eq[[ i ]]$modelMatrix  <- xMatEq[[i]]     # matrix of regressors
+      rownames( results$eq[[ i ]]$modelMatrix ) <- obsNamesEq[[ i ]]
     }
     if( control$returnModelFrame ){
       results$eq[[ i ]]$modelFrame <- evalModelFrameEq[[ i ]] # model frame of this equation
+      rownames( results$eq[[ i ]]$modelFrame ) <- obsNamesEq[[ i ]]
     }
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
       results$eq[[ i ]]$inst         <- instEq[[i]]
       if(  control$returnInstMatrix ) {
          results$eq[[ i ]]$instMatrix <- hMatEq[[i]]  # matrix of instrumental variables
+         rownames( results$eq[[ i ]]$instMatrix ) <- obsNamesEq[[ i ]]
       }
     }
     class( results$eq[[ i ]] ) <- "systemfit.equation"
