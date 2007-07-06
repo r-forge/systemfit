@@ -303,8 +303,7 @@ systemfit <- function(  eqns,
       coef <- solve( crossprod( xMatAll ), crossprod( xMatAll, yVecAll ), tol=control$solvetol )
                # estimated coefficients
     } else {
-      W <- rbind2( cbind2( crossprod( xMatAll ), t(R.restr) ),
-                  cbind2( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
+      W <- .prepareWmatrix( crossprod( xMatAll ), R.restr )
       V <- c( as.numeric( crossprod( xMatAll, yVecAll ) ), q.restr )
       if( method == "OLS" || control$residCovRestricted ){
          coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll),]
@@ -397,8 +396,7 @@ systemfit <- function(  eqns,
       coef <- solve( crossprod( xMatHatAll ), crossprod( xMatHatAll, yVecAll ), tol=control$solvetol )
          # 2nd stage coefficients
     } else {
-      W <- rbind( cbind( crossprod(xMatHatAll), t(R.restr) ),
-                  cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
+      W <- .prepareWmatrix( crossprod(xMatHatAll), R.restr )
       V <- c( crossprod( xMatHatAll, yVecAll ), q.restr )
       if( method == "2SLS" || control$residCovRestricted ){
          coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll),]
@@ -495,11 +493,9 @@ systemfit <- function(  eqns,
             solve( HtOmega %*% hMatAll, tol=control$solvetol ) %*% 
             crossprod( hMatAll, yVecAll )  #(unrestr.) coeffic.
         } else {
-          W <- rbind( 
-            cbind( crossprod( xMatAll, hMatAll ) %*% 
+          W <- .prepareWmatrix( crossprod( xMatAll, hMatAll ) %*%
                solve( HtOmega %*% hMatAll, tol=control$solvetol) %*% 
-               crossprod( hMatAll, xMatAll ), t(R.restr) ),
-            cbind( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr))))
+               crossprod( hMatAll, xMatAll ), R.restr )
           V <- c( crossprod( xMatAll, hMatAll ) %*% solve( HtOmega
                       %*% hMatAll, tol=control$solvetol) %*% crossprod( hMatAll, yVecAll ), q.restr )
           Winv <- solve( W, tol=control$solvetol )
@@ -517,8 +513,8 @@ systemfit <- function(  eqns,
             crossprod( hMatAll, yVecAll) )
                            # (unrestr.) coeffic.
         } else {
-          W <- rbind( cbind( crossprod(xMatHatAll, t( xMatHatOmegaInv ) ), t(R.restr) ),
-                      cbind( R.restr, matrix(0, nrow(R.restr), nrow(R.restr))))
+          W <- .prepareWmatrix( crossprod( xMatHatAll, t( xMatHatOmegaInv ) ),
+             R.restr )
           V <- c( xMatHatOmegaInv %*% hMatAll %*% solve( crossprod( hMatAll ), tol=control$solvetol ) %*%
                       crossprod( hMatAll, yVecAll ), q.restr )
           Winv <- solve( W, tol=control$solvetol )

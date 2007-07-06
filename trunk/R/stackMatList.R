@@ -21,3 +21,9 @@
 
    return( result )
 }
+
+.prepareWmatrix <- function( upperleft, R.restr ){
+   result <- rbind2( cbind2( upperleft, t(R.restr) ),
+      cbind2( R.restr, matrix( 0, nrow(R.restr), nrow(R.restr) )))
+   return( result )
+}
