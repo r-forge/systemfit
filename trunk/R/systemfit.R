@@ -98,6 +98,10 @@ systemfit <- function(  eqns,
    yVecAll <- matrix( 0, 0, 1 )
    # list for matrices of regressors in each equation
    xMatEq  <- list()
+   # attributes of the model matrices
+   if( control$useMatrix ){
+      xMatEqAttr <- list()
+   }
    # number of observations in each equation
    nObsEq  <- numeric( nEq )
    # number of exogenous variables /(unrestricted) coefficients in each equation
@@ -117,6 +121,10 @@ systemfit <- function(  eqns,
       weights <- model.extract( evalModelFrameEq[[ i ]], "weights" )
       yVecEq[[i]] <- model.extract( evalModelFrameEq[[ i ]], "response" )
       xMatEq[[i]] <- model.matrix( termsEq[[ i ]], evalModelFrameEq[[ i ]] )
+      if( control$useMatrix ){
+         xMatEqAttr[[ i ]] <- attributes( xMatEq[[i]] )
+         xMatEq[[ i ]] <- as( xMatEq[[ i ]], "dgeMatrix" )
+      }
       obsNamesEq[[ i ]] <- rownames( xMatEq[[ i ]] )
       yVecAll <- c(yVecAll,yVecEq[[i]])
       nObsEq[i] <- length( yVecEq[[i]] )
@@ -169,6 +177,9 @@ systemfit <- function(  eqns,
       # modify regressor matrix (by restrict.regMat)
       XU <- xMatAll
       xMatAll  <- XU %*% restrict.regMat
+      if( control$useMatrix ){
+         xMatAll <- as( xMatAll, "dgCMatrix" )
+      }
    }
 
    ## preparing instruments
@@ -201,14 +212,21 @@ systemfit <- function(  eqns,
          evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]] )
          termsInst[[ i ]] <- attr( evalModelFrameInst[[ i ]], "terms" )
          hMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
+         if( control$useMatrix ){
+            hMatEq[[ i ]] <- as( hMatEq[[ i ]], "dgeMatrix" )
+         }
          if( nrow( hMatEq[[ i ]] ) != nrow( xMatAll[ rowsEq, ] ) ) {
             stop( paste( "The instruments and the regressors of equation",
                as.character( i ), "have different numbers of observations." ) )
          }
          # extract instrument matrix
+         xMatAllThisEq <- xMatAll[ rowsEq, ]
+         if( control$useMatrix ){
+            xMatAllThisEq <- as( xMatAllThisEq, "dgeMatrix" )
+         }
          xMatHatEq[[ i ]] <- hMatEq[[i]] %*% 
             solve( crossprod( hMatEq[[i]]) , tol=control$solvetol ) %*% 
-            crossprod( hMatEq[[i]], xMatAll[ rowsEq, ] )
+            crossprod( hMatEq[[i]], xMatAllThisEq )
       }
       # stacked matrices of all instruments
       hMatAll <- .stackMatList( hMatEq, way = "diag",
@@ -306,7 +324,8 @@ systemfit <- function(  eqns,
       coef <- solve( crossprod( xMatAll ), crossprod( xMatAll, yVecAll ), tol=control$solvetol )
                # estimated coefficients
     } else {
-      W <- .prepareWmatrix( crossprod( xMatAll ), R.restr )
+      W <- .prepareWmatrix( crossprod( xMatAll ), R.restr,
+         useMatrix = control$useMatrix )
       V <- c( as.numeric( crossprod( xMatAll, yVecAll ) ), q.restr )
       if( method == "OLS" || control$residCovRestricted ){
          coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll),]
@@ -399,8 +418,9 @@ systemfit <- function(  eqns,
       coef <- solve( crossprod( xMatHatAll ), crossprod( xMatHatAll, yVecAll ), tol=control$solvetol )
          # 2nd stage coefficients
     } else {
-      W <- .prepareWmatrix( crossprod(xMatHatAll), R.restr )
-      V <- c( crossprod( xMatHatAll, yVecAll ), q.restr )
+      W <- .prepareWmatrix( crossprod(xMatHatAll), R.restr,
+         useMatrix = control$useMatrix )
+      V <- c( as.numeric( crossprod( xMatHatAll, yVecAll ) ), q.restr )
       if( method == "2SLS" || control$residCovRestricted ){
          coef <- ( solve( W, tol=control$solvetol ) %*% V )[1:ncol(xMatAll),]
       } else {
@@ -486,8 +506,9 @@ systemfit <- function(  eqns,
             solvetol = control$solvetol )   # (unrestr.) coeffic.
       }
       if(control$method3sls=="GMM") {
-        HtOmega <- .calcXtOmegaInv( xMat = hMatAll, sigma = rcov, nObsEq = nObsEq,
-           invertSigma = FALSE )
+        HtOmega <- .calcXtOmegaInv( xMat = hMatAll, sigma = rcov,
+           nObsEq = nObsEq, invertSigma = FALSE, useMatrix = control$useMatrix,
+           solvetol = control$solvetol )
         if(is.null(R.restr)) {
           coef <- solve( crossprod( xMatAll, hMatAll ) %*% 
             solve( HtOmega %*% hMatAll, tol=control$solvetol ) %*% 
@@ -498,15 +519,18 @@ systemfit <- function(  eqns,
         } else {
           W <- .prepareWmatrix( crossprod( xMatAll, hMatAll ) %*%
                solve( HtOmega %*% hMatAll, tol=control$solvetol) %*% 
-               crossprod( hMatAll, xMatAll ), R.restr )
-          V <- c( crossprod( xMatAll, hMatAll ) %*% solve( HtOmega
-                      %*% hMatAll, tol=control$solvetol) %*% crossprod( hMatAll, yVecAll ), q.restr )
+               crossprod( hMatAll, xMatAll ), R.restr,
+               useMatrix = control$useMatrix )
+          V <- c( as.numeric( crossprod( xMatAll, hMatAll ) %*%
+            solve( HtOmega  %*% hMatAll, tol = control$solvetol ) %*%
+            crossprod( hMatAll, yVecAll ) ), q.restr )
           Winv <- solve( W, tol=control$solvetol )
           coef <- ( Winv %*% V )[1:ncol(xMatAll),]     # restricted coefficients
         }
       }
       if(control$method3sls=="Schmidt") {
-        xMatHatOmegaInv <- .calcXtOmegaInv( xMat = xMatHatAll, sigma = rcov, nObsEq = nObsEq,
+        xMatHatOmegaInv <- .calcXtOmegaInv( xMat = xMatHatAll, sigma = rcov,
+           nObsEq = nObsEq, useMatrix = control$useMatrix,
            solvetol = control$solvetol )
         if(is.null(R.restr)) {
           coef <- solve( crossprod( xMatHatAll, t( xMatHatOmegaInv ) ), 
@@ -517,9 +541,10 @@ systemfit <- function(  eqns,
                            # (unrestr.) coeffic.
         } else {
           W <- .prepareWmatrix( crossprod( xMatHatAll, t( xMatHatOmegaInv ) ),
-             R.restr )
-          V <- c( xMatHatOmegaInv %*% hMatAll %*% solve( crossprod( hMatAll ), tol=control$solvetol ) %*%
-                      crossprod( hMatAll, yVecAll ), q.restr )
+             R.restr, useMatrix = control$useMatrix )
+          V <- c( as.numeric( xMatHatOmegaInv %*% hMatAll %*%
+            solve( crossprod( hMatAll ), tol = control$solvetol ) %*%
+            crossprod( hMatAll, yVecAll ) ), q.restr )
           Winv <- solve( W, tol=control$solvetol )
           coef <- ( Winv %*% V )[1:ncol(xMatAll),]     # restricted coefficients
         }
@@ -554,22 +579,24 @@ systemfit <- function(  eqns,
       }
     }
     if(control$method3sls=="Schmidt") {
-      xMatHatOmegaInv <- .calcXtOmegaInv( xMat = xMatHatAll, sigma = rcov, nObsEq = nObsEq,
+      xMatHatOmegaInv <- .calcXtOmegaInv( xMat = xMatHatAll, sigma = rcov,
+         nObsEq = nObsEq, useMatrix = control$useMatrix,
          solvetol = control$solvetol )
       PH <- hMatAll %*%  solve( crossprod( hMatAll ), t( hMatAll ), 
          tol=control$solvetol )
-      PHOmega <- .calcXtOmegaInv( xMat = t( PH ), sigma = rcov, nObsEq = nObsEq,
-           invertSigma = FALSE )
+      PHOmega <- .calcXtOmegaInv( xMat = t( PH ), sigma = rcov,
+         nObsEq = nObsEq, invertSigma = FALSE, useMatrix = control$useMatrix,
+         solvetol = control$solvetol )
       if(is.null(R.restr)) {
          coefCov <- solve( xMatHatOmegaInv %*% xMatHatAll, tol=control$solvetol ) %*%
             xMatHatOmegaInv %*% PHOmega %*%
             PH %*% t( xMatHatOmegaInv ) %*% solve( xMatHatOmegaInv %*% xMatHatAll, tol=control$solvetol )
                   # final step coefficient covariance matrix
       } else {
-         VV <- xMatHatOmegaInv %*% PHOmega %*%
-            PH %*% t( xMatHatOmegaInv )
-         VV <- rbind( cbind( VV, matrix( 0, nrow( VV ), nrow( R.restr ) ) ),
-            matrix( 0, nrow( R.restr ), nrow( VV ) + nrow( R.restr ) ) )
+         VV <- .stackMatList(
+            list( xMatHatOmegaInv %*% PHOmega %*% PH %*% t( xMatHatOmegaInv ),
+            matrix( 0, nrow( R.restr ), nrow( R.restr ) ) ), "diag",
+            useMatrix = control$useMatrix )
          coefCov <- ( Winv %*% VV %*% Winv )[ 1:ncol(xMatAll), 1:ncol(xMatAll) ]
                   # coefficient covariance matrix
       }
@@ -616,9 +643,9 @@ systemfit <- function(  eqns,
     results$eq[[ i ]]$coefficients <-
       drop( coef[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))] )
               # estimated coefficients of equation i
-    results$eq[[ i ]]$coefCov  <-
+    results$eq[[ i ]]$coefCov  <- as.matrix(
       coefCov[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i])),
-        (1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))]
+        (1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))] )
               # covariance matrix of estimated coefficients of equation i
 
     # set names
@@ -645,7 +672,10 @@ systemfit <- function(  eqns,
       names( results$eq[[ i ]]$response ) <- obsNamesEq[[ i ]]
     }
     if( control$returnModelMatrix ){
-      results$eq[[ i ]]$modelMatrix  <- xMatEq[[i]]     # matrix of regressors
+      results$eq[[ i ]]$modelMatrix  <- as.matrix( xMatEq[[i]] )
+      if( control$useMatrix ){
+         attributes( results$eq[[ i ]]$modelMatrix ) <- xMatEqAttr[[ i ]]
+      }
       rownames( results$eq[[ i ]]$modelMatrix ) <- obsNamesEq[[ i ]]
     }
     if( control$returnModelFrame ){

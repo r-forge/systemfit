@@ -1,11 +1,17 @@
 .calcXtOmegaInv <- function( xMat, sigma, nObsEq, invertSigma = TRUE,
-      useMatrix = FALSE, solvetol = 1e-5 ){
+      useMatrix = FALSE, warnMatrix = TRUE, solvetol = 1e-5 ){
 
    nEq <- length( nObsEq )
 
-   if( useMatrix ){
-      sigma <- as( sigma, "dspMatrix" )
-      xMat <- as( xMat, "dgCMatrix" )
+   if( useMatrix && warnMatrix ){
+      if( class( sigma ) != "dspMatrix" ){
+         warning( "class of 'sigma' is '", class( sigma ),
+            "', but it should be 'dspMatrix'" )
+      }
+      if( class( xMat ) != "dgCMatrix" ){
+         warning( "class of 'xMat' is '", class( xMat ),
+            "', but it should be 'dgCMatrix'" )
+      }
    }
 
    if( invertSigma ) {
@@ -34,12 +40,22 @@
 }
 
 .calcGLS <- function( xMat, yVec = NULL, xMat2 = xMat, R.restr = NULL,
-      q.restr = NULL, sigma, nObsEq, useMatrix = TRUE, solvetol = 1e-5 ){
+      q.restr = NULL, sigma, nObsEq, useMatrix = TRUE, warnMatrix = TRUE,
+      solvetol = 1e-5 ){
 
-   if( useMatrix ){
-      xMat  <- as( xMat,  "dgCMatrix" )
-      xMat2 <- as( xMat2, "dgCMatrix" )
-      sigma <- as( sigma, "dspMatrix" )
+   if( useMatrix && warnMatrix ){
+      if( class( xMat ) != "dgCMatrix" ){
+         warning( "class of 'xMat' is '", class( xMat ),
+            "', but it should be 'dgCMatrix'" )
+      }
+      if( class( xMat2 ) != "dgCMatrix" ){
+         warning( "class of 'xMat2' is '", class( xMat2 ),
+            "', but it should be 'dgCMatrix'" )
+      }
+      if( class( sigma ) != "dspMatrix" ){
+         warning( "class of 'sigma' is '", class( sigma ),
+            "', but it should be 'dspMatrix'" )
+      }
    }
 
    xtOmegaInv <- .calcXtOmegaInv( xMat = xMat, sigma = sigma, nObsEq = nObsEq,
