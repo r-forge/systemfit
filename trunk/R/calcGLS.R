@@ -21,7 +21,8 @@
    }
 
    if( useMatrix ){
-      result <- crossprod( xMat, kronecker( sigmaInv, Diagonal( nObsEq[ 1 ] ) ) )
+      result <- crossprod( xMat, suppressWarnings(
+         kronecker( sigmaInv, Diagonal( nObsEq[ 1 ] ) ) ) )
    } else {
       eqSelect <- rep( 0, nrow( xMat ) )
       for( i in 1:nEq ) {
