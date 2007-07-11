@@ -65,7 +65,7 @@
       if( is.null( yVec ) ) {
          result <- solve( xtOmegaInv %*% xMat2, tol = solvetol )
       } else {
-         result <- as.matrix( solve( xtOmegaInv %*% xMat2, xtOmegaInv %*% yVec,
+         result <- as.numeric( solve( xtOmegaInv %*% xMat2, xtOmegaInv %*% yVec,
             tol = solvetol ) )
       }
    } else {

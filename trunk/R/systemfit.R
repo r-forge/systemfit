@@ -510,11 +510,11 @@ systemfit <- function(  eqns,
            nObsEq = nObsEq, invertSigma = FALSE, useMatrix = control$useMatrix,
            solvetol = control$solvetol )
         if(is.null(R.restr)) {
-          coef <- solve( crossprod( xMatAll, hMatAll ) %*% 
+          coef <- as.numeric( solve( crossprod( xMatAll, hMatAll ) %*% 
             solve( HtOmega %*% hMatAll, crossprod( hMatAll, xMatAll ),
             tol=control$solvetol ), crossprod( xMatAll, hMatAll ) %*%
             solve( HtOmega %*% hMatAll, crossprod( hMatAll, yVecAll ),
-            tol=control$solvetol ), tol=control$solvetol )
+            tol=control$solvetol ), tol=control$solvetol ) )
         } else {
           W <- .prepareWmatrix( crossprod( xMatAll, hMatAll ) %*%
                solve( HtOmega %*% hMatAll, crossprod( hMatAll, xMatAll ),
@@ -532,10 +532,10 @@ systemfit <- function(  eqns,
            nObsEq = nObsEq, useMatrix = control$useMatrix,
            solvetol = control$solvetol )
         if(is.null(R.restr)) {
-          coef <- solve( crossprod( xMatHatAll, t( xMatHatOmegaInv ) ), 
+          coef <- as.numeric( solve( crossprod( xMatHatAll, t( xMatHatOmegaInv ) ), 
             xMatHatOmegaInv %*% hMatAll %*%
             solve( crossprod( hMatAll ), crossprod( hMatAll, yVecAll),
-            tol=control$solvetol ), tol=control$solvetol )
+            tol=control$solvetol ), tol=control$solvetol ) )
                            # (unrestr.) coeffic.
         } else {
           W <- .prepareWmatrix( crossprod( xMatHatAll, t( xMatHatOmegaInv ) ),
