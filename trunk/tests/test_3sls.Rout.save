@@ -5733,7 +5733,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.416812 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
-SSR: 99.296691 MSE: 5.840982 Root MSE: 2.416812 
+SSR: 99.29669 MSE: 5.840982 Root MSE: 2.416812 
 Multiple R-Squared: 0.629648 Adjusted R-Squared: 0.586077 
 
 
@@ -6761,7 +6761,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.416812 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
-SSR: 99.296691 MSE: 5.840982 Root MSE: 2.416812 
+SSR: 99.29669 MSE: 5.840982 Root MSE: 2.416812 
 Multiple R-Squared: 0.629648 Adjusted R-Squared: 0.586077 
 
 
@@ -7719,7 +7719,7 @@ Instruments: ~income + farmPrice + trend
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 92.035347    8.92142 10.316222        0 ***
 price       -0.104341   0.095776 -1.089428 0.283627    
-income       0.197867   0.029919  6.613411        0 ***
+income       0.197867   0.029919   6.61341        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -7737,7 +7737,7 @@ Instruments: ~income + farmPrice + trend
 (Intercept) 68.282985  11.153002 6.122386    1e-06 ***
 price        0.185084   0.105254  1.75845  0.08767   .
 farmPrice    0.124457   0.025087 4.961019  1.9e-05 ***
-trend        0.197867   0.029919 6.613411        0 ***
+trend        0.197867   0.029919  6.61341        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -7911,7 +7911,7 @@ Instruments: ~income + farmPrice + trend
              Estimate Std. Error   t value Pr(>|t|)    
 (Intercept) 92.035347    8.92142 10.316222        0 ***
 price       -0.104341   0.095776 -1.089428 0.283627    
-income       0.197867   0.029919  6.613411        0 ***
+income       0.197867   0.029919   6.61341        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -7929,7 +7929,7 @@ Instruments: ~income + farmPrice + trend
 (Intercept) 68.282985  11.153002 6.122386    1e-06 ***
 price        0.185084   0.105254  1.75845  0.08767   .
 farmPrice    0.124457   0.025087 4.961019  1.9e-05 ***
-trend        0.197867   0.029919 6.613411        0 ***
+trend        0.197867   0.029919  6.61341        0 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -8440,7 +8440,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
              Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 52.661821  12.805106 4.112564 0.000815 ***
+(Intercept) 52.661822  12.805106 4.112564 0.000815 ***
 price        0.226586   0.107459  2.10858 0.051096   .
 farmPrice    0.223372   0.046774 4.775617 0.000206 ***
 trend        0.380006    0.07201 5.277149  7.5e-05 ***
@@ -8963,7 +8963,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.937766 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
-SSR: 138.087514 MSE: 8.63047 Root MSE: 2.937766 
+SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
 [1] "***** iterated W3SLS with restriction via restrict.regMat ********"
@@ -12162,7 +12162,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 3.641574 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
-SSR: 212.176993 MSE: 13.261062 Root MSE: 3.641574 
+SSR: 212.176994 MSE: 13.261062 Root MSE: 3.641574 
 Multiple R-Squared: 0.208632 Adjusted R-Squared: 0.060251 
 
 [1] "****** 3SLS with different instruments and 2 restrictions *********"
@@ -15798,13 +15798,13 @@ McElroy's R-squared value for the system: 0.755123
 
 Coefficients:
                      Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 92.0353469  8.92142001 10.316222 5.224488e-12
+demand_(Intercept) 92.0353469  8.92142002 10.316222 5.224488e-12
 demand_price       -0.1043412  0.09577617 -1.089428 2.836268e-01
-demand_income       0.1978671  0.02991907  6.613411 1.391245e-07
-supply_(Intercept) 68.2829847 11.15300156  6.122386 5.976710e-07
+demand_income       0.1978671  0.02991907  6.613410 1.391245e-07
+supply_(Intercept) 68.2829847 11.15300156  6.122386 5.976711e-07
 supply_price        0.1850839  0.10525400  1.758450 8.767025e-02
 supply_farmPrice    0.1244574  0.02508705  4.961019 1.929575e-05
-supply_trend        0.1978671  0.02991907  6.613411 1.391245e-07
+supply_trend        0.1978671  0.02991907  6.613410 1.391245e-07
 > 
 > print( summary( fit3slsi[[ 4 ]]$e1we ), equations = FALSE, residCov = FALSE )
 
@@ -16181,7 +16181,7 @@ supply_trend        0.3032095  0.04339906  6.986546 4.648484e-08
 16 -3.3140796 -3.70428888
 17 -0.0169310  1.44454881
 18 -2.1691745 -3.47339545
-19  1.6008414  1.71577469
+19  1.6008414  1.71577470
 20 -0.6602509 -0.53000411
 > print( residuals( fit3slsd[[ 3 ]]$e4$eq[[ 2 ]] ) )
           1           2           3           4           5           6 
@@ -16191,7 +16191,7 @@ supply_trend        0.3032095  0.04339906  6.986546 4.648484e-08
          13          14          15          16          17          18 
 -2.39737497  0.42317873  3.68194110 -3.70428888  1.44454881 -3.47339545 
          19          20 
- 1.71577469 -0.53000411 
+ 1.71577470 -0.53000411 
 > 
 > print( residuals( fit3slsd[[ 5 ]]$e5we ) )
        demand     supply

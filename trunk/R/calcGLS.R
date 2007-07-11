@@ -62,19 +62,20 @@
    xtOmegaInv <- .calcXtOmegaInv( xMat = xMat, sigma = sigma, nObsEq = nObsEq,
       useMatrix = useMatrix, solvetol = solvetol )
    if( is.null( R.restr ) ) {
-      result <- solve( xtOmegaInv %*% xMat2, tol = solvetol )
-      if( !is.null( yVec ) ) {
-         result <- result %*% xtOmegaInv %*% yVec
+      if( is.null( yVec ) ) {
+         result <- solve( xtOmegaInv %*% xMat2, tol = solvetol )
+      } else {
+         result <- solve( xtOmegaInv %*% xMat2, xtOmegaInv %*% yVec,
+            tol = solvetol )
       }
    } else {
       W <- rbind2( cbind2( xtOmegaInv %*% xMat2, t(R.restr) ),
                   cbind2( R.restr, matrix(0, nrow(R.restr), nrow(R.restr) )))
-      Winv <- solve( W, tol=solvetol )
       if( is.null( yVec ) ) {
-         result <- Winv[ 1:ncol(xMat), 1:ncol(xMat) ]
+         result <- solve( W, tol=solvetol )[ 1:ncol(xMat), 1:ncol(xMat) ]
       } else{
          V <- c( as.numeric( xtOmegaInv %*% yVec ), q.restr )
-         result <- ( Winv %*% V )[1:ncol( xMat ),]     # restricted coefficients
+         result <- solve( W, V, tol=solvetol )[ 1:ncol( xMat ) ]
       }
    }
    return( result )
