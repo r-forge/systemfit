@@ -5,7 +5,7 @@ systemfit.control <- function(
       centerResiduals = FALSE,
       method3sls = "GLS",
       single.eq.sigma = NULL,
-      useMatrix = FALSE,
+      useMatrix = TRUE,
       solvetol = .Machine$double.eps,
       residCovRestricted = TRUE,
       residCovWeighted = FALSE,
