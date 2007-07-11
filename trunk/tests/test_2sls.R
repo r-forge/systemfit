@@ -52,8 +52,7 @@ fit2sls1s <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
 print( summary( fit2sls1s ) )
 
 ## ********************* 2SLS (useDfSys = TRUE) *****************
-fit2sls1p <- systemfit( system, "2SLS", data = Kmenta, inst = inst )
-print( summary( fit2sls1p, useDfSys = TRUE ) )
+print( summary( fit2sls1, useDfSys = TRUE ) )
 
 ## ********************* 2SLS (methodResidCov = "noDfCor" ) *****************
 fit2sls1r <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
@@ -81,9 +80,7 @@ fit2sls2s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
 print( summary( fit2sls2s ) )
 
 ## ********************* 2SLS with restriction (useDfSys=T) **************
-fit2sls2p <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-   inst = inst )
-print( summary( fit2sls2p, useDfSys = TRUE ) )
+print( summary( fit2sls2, useDfSys = TRUE ) )
 
 ## ********************* 2SLS with restriction (methodResidCov = "noDfCor") **************
 fit2sls2r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
@@ -101,10 +98,6 @@ fit2sls3 <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
    inst = inst, methodResidCov = "noDfCor" )
 print( summary( fit2sls3, useDfSys = TRUE ) )
 
-## ********************* 2SLS with restriction via restrict.regMat (EViews-like) *******
-fit2sls3e <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
-   inst = inst, methodResidCov = "noDfCor", returnModelMatrix = TRUE )
-print( summary( fit2sls3e, useDfSys = TRUE ) )
 
 ## ***************** 2SLS with 2 restrictions *******************
 ## ************** 2SLS with 2 restrictions (default) **************
@@ -122,9 +115,7 @@ fit2sls4s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m
 print( summary( fit2sls4s ) )
 
 ## ***************** 2SLS with 2 restrictions (useDfSys=T) **************
-fit2sls4p <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
-   restrict.rhs = restr2q, inst = inst )
-print( summary( fit2sls4p, useDfSys = TRUE ) )
+print( summary( fit2sls4, useDfSys = TRUE ) )
 
 ## ***************** 2SLS with 2 restrictions (methodResidCov="noDfCor") **************
 fit2sls4r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
@@ -153,9 +144,7 @@ fit2sls5s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m
 print( summary( fit2sls5s ) )
 
 ## ********** 2SLS with 2 restrictions via R and restrict.regMat (useDfSys=T) *******
-fit2sls5p <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
-   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst )
-print( summary( fit2sls5p, useDfSys = TRUE ) )
+print( summary( fit2sls5, useDfSys = TRUE ) )
 
 ## ************* 2SLS with 2 restrictions via R and restrict.regMat (methodResidCov="noDfCor") *********
 fit2sls5r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
@@ -179,8 +168,7 @@ fit2slsd1s <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
 print( summary( fit2slsd1s ) )
 
 ## ********* 2SLS estimation with different instruments (useDfSys=T) *******
-fit2slsd1p <- systemfit( system, "2SLS", data = Kmenta, inst = instlist )
-print( summary( fit2slsd1p, useDfSys = TRUE ) )
+print( summary( fit2slsd1, useDfSys = TRUE ) )
 
 ## ********* 2SLS estimation with different instruments (methodResidCov="noDfCor") ******
 fit2slsd1r <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
@@ -204,9 +192,7 @@ fit2slsd2s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm
 print( summary( fit2slsd2s ) )
 
 ## **** 2SLS estimation with different instruments and restriction (useDfSys=F)
-fit2slsd2p <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-   inst = instlist )
-print( summary( fit2slsd2p, useDfSys = FALSE ) )
+print( summary( fit2slsd2, useDfSys = FALSE ) )
 
 ## **** 2SLS estimation with different instruments and restriction (methodResidCov="noDfCor")
 fit2slsd2r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
@@ -233,13 +219,13 @@ print( summary( fit2slsd3r ) )
 ## **************** shorter summaries **********************
 print( summary( fit2sls1, useDfSys = TRUE, printResidCov = FALSE ) )
 
-print( summary( fit2sls1p, printEquations = FALSE ) )
+print( summary( fit2sls1, printEquations = FALSE ) )
 
 print( summary( fit2sls1rs, printResidCov = FALSE, printEquations = FALSE ) )
 
 print( summary( fit2sls2Sym, useDfSys = FALSE ), equations = FALSE )
 
-print( summary( fit2sls2p ), residCov = FALSE )
+print( summary( fit2sls2 ), residCov = FALSE )
 
 print( summary( fit2sls3, useDfSys = FALSE, printResidCov = FALSE,
    printEquations = FALSE ) )
@@ -262,8 +248,8 @@ print( residuals( fit2sls1$eq[[ 1 ]] ) )
 print( residuals( fit2sls2s ) )
 print( residuals( fit2sls2s$eq[[ 2 ]] ) )
 
-print( residuals( fit2sls3e ) )
-print( residuals( fit2sls3e$eq[[ 1 ]] ) )
+print( residuals( fit2sls3 ) )
+print( residuals( fit2sls3$eq[[ 1 ]] ) )
 
 print( residuals( fit2sls4r ) )
 print( residuals( fit2sls4r$eq[[ 2 ]] ) )
@@ -271,8 +257,8 @@ print( residuals( fit2sls4r$eq[[ 2 ]] ) )
 print( residuals( fit2sls5rs ) )
 print( residuals( fit2sls5rs$eq[[ 1 ]] ) )
 
-print( residuals( fit2slsd1p ) )
-print( residuals( fit2slsd1p$eq[[ 2 ]] ) )
+print( residuals( fit2slsd1 ) )
+print( residuals( fit2slsd1$eq[[ 2 ]] ) )
 
 print( residuals( fit2slsd2r ) )
 print( residuals( fit2slsd2r$eq[[ 1 ]] ) )
@@ -282,8 +268,8 @@ print( residuals( fit2slsd2r$eq[[ 1 ]] ) )
 print( round( coef( fit2sls1s ), digits = 6 ) )
 print( round( coef( fit2sls1s$eq[[ 1 ]] ), digits = 6 ) )
 
-print( round( coef( fit2sls2p ), digits = 6 ) )
-print( round( coef( fit2sls2p$eq[[ 2 ]] ), digits = 6 ) )
+print( round( coef( fit2sls2 ), digits = 6 ) )
+print( round( coef( fit2sls2$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( coef( fit2sls3 ), digits = 6 ) )
 print( round( coef( fit2sls3, modified.regMat = TRUE ), digits = 6 ) )
@@ -301,8 +287,8 @@ print( round( coef( fit2sls5r$eq[[ 2 ]] ), digits = 6 ) )
 print( round( coef( summary( fit2sls1s ) ), digits = 6 ) )
 print( round( coef( summary( fit2sls1s$eq[[ 1 ]] ) ), digits = 6 ) )
 
-print( round( coef( summary( fit2sls2p, useDfSys = FALSE ) ), digits = 6 ) )
-print( round( coef( summary( fit2sls2p$eq[[ 2 ]], useDfSys = FALSE ) ),
+print( round( coef( summary( fit2sls2, useDfSys = FALSE ) ), digits = 6 ) )
+print( round( coef( summary( fit2sls2$eq[[ 2 ]], useDfSys = FALSE ) ),
    digits = 6 ) )
 
 print( round( coef( summary( fit2sls3 ) ), digits = 6 ) )
@@ -326,8 +312,8 @@ print( round( vcov( fit2sls1s$eq[[ 1 ]] ), digits = 6 ) )
 print( round( vcov( fit2sls1r ), digits = 6 ) )
 print( round( vcov( fit2sls1r$eq[[ 2 ]] ), digits = 6 ) )
 
-print( round( vcov( fit2sls2p ), digits = 6 ) )
-print( round( vcov( fit2sls2p$eq[[ 1 ]] ), digits = 6 ) )
+print( round( vcov( fit2sls2 ), digits = 6 ) )
+print( round( vcov( fit2sls2$eq[[ 1 ]] ), digits = 6 ) )
 
 print( round( vcov( fit2sls3 ), digits = 6 ) )
 print( round( vcov( fit2sls3, modified.regMat = TRUE ), digits = 6 ) )
@@ -358,8 +344,8 @@ print( confint( fit2sls1$eq[[ 1 ]], level = 0.9 ) )
 print( confint( fit2sls2s, level = 0.9 ) )
 print( confint( fit2sls2s$eq[[ 2 ]], level = 0.99 ) )
 
-print( confint( fit2sls3e, level = 0.99, useDfSys = TRUE ) )
-print( confint( fit2sls3e$eq[[ 1 ]], level = 0.5, useDfSys = TRUE ) )
+print( confint( fit2sls3, level = 0.99, useDfSys = TRUE ) )
+print( confint( fit2sls3$eq[[ 1 ]], level = 0.5, useDfSys = TRUE ) )
 
 print( confint( fit2sls4r, level = 0.5 ) )
 print( confint( fit2sls4r$eq[[ 2 ]], level = 0.25 ) )
@@ -367,8 +353,8 @@ print( confint( fit2sls4r$eq[[ 2 ]], level = 0.25 ) )
 print( confint( fit2sls5rs, level = 0.25 ) )
 print( confint( fit2sls5rs$eq[[ 1 ]], level = 0.975 ) )
 
-print( confint( fit2slsd1p, level = 0.975, useDfSys = TRUE ) )
-print( confint( fit2slsd1p$eq[[ 2 ]], level = 0.999, useDfSys = TRUE ) )
+print( confint( fit2slsd1, level = 0.975, useDfSys = TRUE ) )
+print( confint( fit2slsd1$eq[[ 2 ]], level = 0.999, useDfSys = TRUE ) )
 
 print( confint( fit2slsd2r, level = 0.999 ) )
 print( confint( fit2slsd2r$eq[[ 1 ]] ) )
@@ -381,8 +367,8 @@ print( fitted( fit2sls1$eq[[ 1 ]] ) )
 print( fitted( fit2sls2s ) )
 print( fitted( fit2sls2s$eq[[ 2 ]] ) )
 
-print( fitted( fit2sls3e ) )
-print( fitted( fit2sls3e$eq[[ 1 ]] ) )
+print( fitted( fit2sls3 ) )
+print( fitted( fit2sls3$eq[[ 1 ]] ) )
 
 print( fitted( fit2sls4r ) )
 print( fitted( fit2sls4r$eq[[ 2 ]] ) )
@@ -390,8 +376,8 @@ print( fitted( fit2sls4r$eq[[ 2 ]] ) )
 print( fitted( fit2sls5rs ) )
 print( fitted( fit2sls5rs$eq[[ 1 ]] ) )
 
-print( fitted( fit2slsd1p ) )
-print( fitted( fit2slsd1p$eq[[ 2 ]] ) )
+print( fitted( fit2slsd1 ) )
+print( fitted( fit2slsd1$eq[[ 2 ]] ) )
 
 print( fitted( fit2slsd2r ) )
 print( fitted( fit2slsd2r$eq[[ 1 ]] ) )
@@ -411,9 +397,9 @@ print( predict( fit2sls2s, se.pred = TRUE, interval = "confidence",
 print( predict( fit2sls2s$eq[[ 2 ]], se.pred = TRUE, interval = "confidence",
    level = 0.999, newdata = predictData ) )
 
-print( predict( fit2sls3e, se.pred = TRUE, interval = "prediction",
+print( predict( fit2sls3, se.pred = TRUE, interval = "prediction",
    level = 0.975, useDfSys = TRUE ) )
-print( predict( fit2sls3e$eq[[ 1 ]], se.pred = TRUE, interval = "prediction",
+print( predict( fit2sls3$eq[[ 1 ]], se.pred = TRUE, interval = "prediction",
    level = 0.975, useDfSys = TRUE ) )
 
 print( predict( fit2sls4r, se.fit = TRUE, interval = "confidence",
@@ -426,9 +412,9 @@ print( predict( fit2sls5rs, se.fit = TRUE, se.pred = TRUE,
 print( predict( fit2sls5rs$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
    interval = "prediction", level = 0.5, newdata = predictData ) )
 
-print( predict( fit2slsd1p, se.fit = TRUE, se.pred = TRUE,
+print( predict( fit2slsd1, se.fit = TRUE, se.pred = TRUE,
    interval = "confidence", level = 0.99, useDfSys = TRUE ) )
-print( predict( fit2slsd1p$eq[[ 2 ]], se.fit = TRUE, se.pred = TRUE,
+print( predict( fit2slsd1$eq[[ 2 ]], se.fit = TRUE, se.pred = TRUE,
    interval = "confidence", level = 0.99, useDfSys = TRUE ) )
 
 print( predict( fit2slsd2r, se.fit = TRUE, interval = "prediction",
@@ -443,14 +429,14 @@ smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
 print( predict( fit2sls1rs, newdata = smallData ) )
 print( predict( fit2sls1rs$eq[[ 1 ]], newdata = smallData ) )
 
-print( predict( fit2sls2p, se.fit = TRUE, level = 0.9,
+print( predict( fit2sls2, se.fit = TRUE, level = 0.9,
    newdata = smallData ) )
-print( predict( fit2sls2p$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
+print( predict( fit2sls2$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
    newdata = smallData ) )
 
-print( predict( fit2sls3e, interval = "prediction", level = 0.975,
+print( predict( fit2sls3, interval = "prediction", level = 0.975,
    newdata = smallData ) )
-print( predict( fit2sls3e$eq[[ 1 ]], interval = "confidence", level = 0.8,
+print( predict( fit2sls3$eq[[ 1 ]], interval = "confidence", level = 0.8,
    newdata = smallData ) )
 
 print( predict( fit2sls4r, se.fit = TRUE, interval = "confidence",
@@ -474,13 +460,13 @@ print( correlation.systemfit( fit2sls1, 1, 2 ) )
 
 print( correlation.systemfit( fit2sls2s, 2, 1 ) )
 
-print( correlation.systemfit( fit2sls3e, 1, 2 ) )
+print( correlation.systemfit( fit2sls3, 1, 2 ) )
 
 print( correlation.systemfit( fit2sls4r, 2, 1 ) )
 
 print( correlation.systemfit( fit2sls5rs, 1, 2 ) )
 
-print( correlation.systemfit( fit2slsd1p, 2, 1 ) )
+print( correlation.systemfit( fit2slsd1, 2, 1 ) )
 
 print( correlation.systemfit( fit2slsd2r, 1, 2 ) )
 
@@ -490,13 +476,13 @@ print( logLik( fit2sls1 ) )
 
 print( logLik( fit2sls2s ) )
 
-print( logLik( fit2sls3e ) )
+print( logLik( fit2sls3 ) )
 
 print( logLik( fit2sls4r ) )
 
 print( logLik( fit2sls5rs ) )
 
-print( logLik( fit2slsd1p ) )
+print( logLik( fit2slsd1 ) )
 
 print( logLik( fit2slsd2r ) )
 
@@ -509,8 +495,8 @@ linear.hypothesis( fit2sls1, restrict )
 print( linear.hypothesis( fit2sls1s, restrm ) )
 linear.hypothesis( fit2sls1s, restrict )
 
-print( linear.hypothesis( fit2sls1p, restrm ) )
-linear.hypothesis( fit2sls1p, restrict )
+print( linear.hypothesis( fit2sls1, restrm ) )
+linear.hypothesis( fit2sls1, restrict )
 
 print( linear.hypothesis( fit2sls1r, restrm ) )
 linear.hypothesis( fit2sls1r, restrict )
@@ -548,8 +534,8 @@ linear.hypothesis( fit2sls1, restrict, test = "Chisq" )
 print( linear.hypothesis( fit2sls1s, restrm, test = "Chisq" ) )
 linear.hypothesis( fit2sls1s, restrict, test = "Chisq" )
 
-print( linear.hypothesis( fit2sls1p, restrm, test = "Chisq" ) )
-linear.hypothesis( fit2sls1p, restrict, test = "Chisq" )
+print( linear.hypothesis( fit2sls1, restrm, test = "Chisq" ) )
+linear.hypothesis( fit2sls1, restrict, test = "Chisq" )
 
 print( linear.hypothesis( fit2sls1r, restrm, test = "Chisq" ) )
 linear.hypothesis( fit2sls1r, restrict, test = "Chisq" )
@@ -583,8 +569,8 @@ print( attributes( mf2 )$terms )
 print( all.equal( mf, model.frame( fit2sls2s ) ) )
 print( all.equal( mf2, model.frame( fit2sls2s$eq[[ 2 ]] ) ) )
 
-print( all.equal( mf, model.frame( fit2sls3e ) ) )
-print( all.equal( mf1, model.frame( fit2sls3e$eq[[ 1 ]] ) ) )
+print( all.equal( mf, model.frame( fit2sls3 ) ) )
+print( all.equal( mf1, model.frame( fit2sls3$eq[[ 1 ]] ) ) )
 
 print( all.equal( mf, model.frame( fit2sls4r ) ) )
 print( all.equal( mf2, model.frame( fit2sls4r$eq[[ 2 ]] ) ) )
@@ -601,10 +587,10 @@ print( mm1 <- model.matrix( fit2sls1$eq[[ 1 ]] ) )
 print( mm2 <- model.matrix( fit2sls1$eq[[ 2 ]] ) )
 
 # with returnModelMatrix = FALSE
-print( all.equal( mm, model.matrix( fit2sls1p ) ) )
-print( all.equal( mm1, model.matrix( fit2sls1p$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fit2sls1p$eq[[ 2 ]] ) ) )
-print( !is.null( fit2sls1p$eq[[ 1 ]]$modelMatrix ) )
+print( all.equal( mm, model.matrix( fit2sls1s ) ) )
+print( all.equal( mm1, model.matrix( fit2sls1s$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fit2sls1s$eq[[ 2 ]] ) ) )
+print( !is.null( fit2sls1s$eq[[ 1 ]]$modelMatrix ) )
 
 # with returnModelMatrix = TRUE
 print( !is.null( fit2sls2s$eq[[ 1 ]]$modelMatrix ) )
@@ -617,12 +603,6 @@ print( all.equal( mm, model.matrix( fit2sls2Sym ) ) )
 print( all.equal( mm1, model.matrix( fit2sls2Sym$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls2Sym$eq[[ 2 ]] ) ) )
 print( !is.null( fit2sls2Sym$eq[[ 1 ]]$modelMatrix ) )
-
-# with returnModelMatrix = TRUE
-print( !is.null( fit2sls3e$eq[[ 1 ]]$modelMatrix ) )
-print( all.equal( mm, model.matrix( fit2sls3e ) ) )
-print( all.equal( mm1, model.matrix( fit2sls3e$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fit2sls3e$eq[[ 2 ]] ) ) )
 
 # with returnModelMatrix = FALSE
 print( all.equal( mm, model.matrix( fit2sls3 ) ) )
@@ -662,8 +642,8 @@ formula( fit2sls1$eq[[ 1 ]] )
 formula( fit2sls2s )
 formula( fit2sls2s$eq[[ 2 ]] )
 
-formula( fit2sls3e )
-formula( fit2sls3e$eq[[ 1 ]] )
+formula( fit2sls3 )
+formula( fit2sls3$eq[[ 1 ]] )
 
 formula( fit2sls4r )
 formula( fit2sls4r$eq[[ 2 ]] )
@@ -671,8 +651,8 @@ formula( fit2sls4r$eq[[ 2 ]] )
 formula( fit2sls5rs )
 formula( fit2sls5rs$eq[[ 1 ]] )
 
-formula( fit2slsd1p )
-formula( fit2slsd1p$eq[[ 2 ]] )
+formula( fit2slsd1 )
+formula( fit2slsd1$eq[[ 2 ]] )
 
 formula( fit2slsd2r )
 formula( fit2slsd2r$eq[[ 1 ]] )
@@ -685,8 +665,8 @@ terms( fit2sls1$eq[[ 1 ]] )
 terms( fit2sls2s )
 terms( fit2sls2s$eq[[ 2 ]] )
 
-terms( fit2sls3e )
-terms( fit2sls3e$eq[[ 1 ]] )
+terms( fit2sls3 )
+terms( fit2sls3$eq[[ 1 ]] )
 
 terms( fit2sls4r )
 terms( fit2sls4r$eq[[ 2 ]] )
@@ -694,8 +674,8 @@ terms( fit2sls4r$eq[[ 2 ]] )
 terms( fit2sls5rs )
 terms( fit2sls5rs$eq[[ 1 ]] )
 
-terms( fit2slsd1p )
-terms( fit2slsd1p$eq[[ 2 ]] )
+terms( fit2slsd1 )
+terms( fit2slsd1$eq[[ 2 ]] )
 
 terms( fit2slsd2r )
 terms( fit2slsd2r$eq[[ 1 ]] )

@@ -192,8 +192,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 
 > 
 > ## ********************* 2SLS (useDfSys = TRUE) *****************
-> fit2sls1p <- systemfit( system, "2SLS", data = Kmenta, inst = inst )
-> print( summary( fit2sls1p, useDfSys = TRUE ) )
+> print( summary( fit2sls1, useDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -497,9 +496,7 @@ Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263
 
 > 
 > ## ********************* 2SLS with restriction (useDfSys=T) **************
-> fit2sls2p <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = inst )
-> print( summary( fit2sls2p, useDfSys = TRUE ) )
+> print( summary( fit2sls2, useDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -737,65 +734,6 @@ SSR: 98.155009 MSE: 6.134688 Root MSE: 2.47683
 Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263 
 
 > 
-> ## ********************* 2SLS with restriction via restrict.regMat (EViews-like) *******
-> fit2sls3e <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
-+    inst = inst, methodResidCov = "noDfCor", returnModelMatrix = TRUE )
-> print( summary( fit2sls3e, useDfSys = TRUE ) )
-
-systemfit results 
-method: 2SLS 
-
-        N DF     SSR     MSE    RMSE       R2   Adj R2
-demand 20 17 67.4181 3.96577 1.99143 0.748547 0.718964
-supply 20 16 98.1550 6.13469 2.47683 0.633906 0.565263
-
-The covariance matrix of the residuals
-        demand  supply
-demand 3.37091 3.75426
-supply 3.75426 4.90775
-
-The correlations of the residuals
-         demand   supply
-demand 1.000000 0.923017
-supply 0.923017 1.000000
-
-The determinant of the residual covariance matrix: 2.4491
-OLS R-squared value of the system: 0.691227
-
-2SLS estimates for 'demand' (equation 1)
-Model Formula: consump ~ price + income
-Instruments: ~income + farmPrice + trend
-
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.281641   8.177055 11.530024        0 ***
-price       -0.224712    0.09536 -2.356462 0.024352   *
-income       0.298273   0.041857   7.12605        0 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-
-Residual standard error: 1.991425 on 17 degrees of freedom
-Number of observations: 20 Degrees of Freedom: 17 
-SSR: 67.418139 MSE: 3.965773 Root MSE: 1.991425 
-Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964 
-
-
-2SLS estimates for 'supply' (equation 2)
-Model Formula: consump ~ price + farmPrice + trend
-Instruments: ~income + farmPrice + trend
-
-            Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.18433    9.71593 4.959312  1.9e-05 ***
-price        0.24272   0.082628 2.937495 0.005903  **
-farmPrice   0.261893   0.037855 6.918353        0 ***
-trend       0.298273   0.041857  7.12605        0 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-
-Residual standard error: 2.47683 on 16 degrees of freedom
-Number of observations: 20 Degrees of Freedom: 16 
-SSR: 98.155009 MSE: 6.134688 Root MSE: 2.47683 
-Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263 
-
 > 
 > ## ***************** 2SLS with 2 restrictions *******************
 > ## ************** 2SLS with 2 restrictions (default) **************
@@ -924,9 +862,7 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 
 > 
 > ## ***************** 2SLS with 2 restrictions (useDfSys=T) **************
-> fit2sls4p <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q, inst = inst )
-> print( summary( fit2sls4p, useDfSys = TRUE ) )
+> print( summary( fit2sls4, useDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -1231,9 +1167,7 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 
 > 
 > ## ********** 2SLS with 2 restrictions via R and restrict.regMat (useDfSys=T) *******
-> fit2sls5p <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
-+    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst )
-> print( summary( fit2sls5p, useDfSys = TRUE ) )
+> print( summary( fit2sls5, useDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -1532,8 +1466,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 
 > 
 > ## ********* 2SLS estimation with different instruments (useDfSys=T) *******
-> fit2slsd1p <- systemfit( system, "2SLS", data = Kmenta, inst = instlist )
-> print( summary( fit2slsd1p, useDfSys = TRUE ) )
+> print( summary( fit2slsd1, useDfSys = TRUE ) )
 
 systemfit results 
 method: 2SLS 
@@ -1832,9 +1765,7 @@ Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672
 
 > 
 > ## **** 2SLS estimation with different instruments and restriction (useDfSys=F)
-> fit2slsd2p <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = instlist )
-> print( summary( fit2slsd2p, useDfSys = FALSE ) )
+> print( summary( fit2slsd2, useDfSys = FALSE ) )
 
 systemfit results 
 method: 2SLS 
@@ -2180,7 +2111,7 @@ SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
 > 
-> print( summary( fit2sls1p, printEquations = FALSE ) )
+> print( summary( fit2sls1, printEquations = FALSE ) )
 
 systemfit results 
 method: 2SLS 
@@ -2265,7 +2196,7 @@ supply_price        0.2427200  0.08962289  2.708237 1.550809e-02
 supply_farmPrice    0.2618927  0.04105926  6.378406 9.147889e-06
 supply_trend        0.2982730  0.04539998  6.569893 6.449533e-06
 > 
-> print( summary( fit2sls2p ), residCov = FALSE )
+> print( summary( fit2sls2 ), residCov = FALSE )
 
 systemfit results 
 method: 2SLS 
@@ -2502,7 +2433,7 @@ supply_trend         0.3260285  0.04712125  6.918928 5.665153e-08
          19          20 
  2.31221537  0.17989834 
 > 
-> print( residuals( fit2sls3e ) )
+> print( residuals( fit2sls3 ) )
         demand      supply
 1   0.67809823 -0.01348357
 2  -0.77669575 -0.85439804
@@ -2524,7 +2455,7 @@ supply_trend         0.3260285  0.04712125  6.918928 5.665153e-08
 18 -2.11868085 -3.09608001
 19  1.69011965  2.31221537
 20 -0.45755494  0.17989834
-> print( residuals( fit2sls3e$eq[[ 1 ]] ) )
+> print( residuals( fit2sls3$eq[[ 1 ]] ) )
           1           2           3           4           5           6 
  0.67809823 -0.77669575  2.28146355  1.41572079  2.21273120  1.33389633 
           7           8           9          10          11          12 
@@ -2596,7 +2527,7 @@ supply_trend         0.3260285  0.04712125  6.918928 5.665153e-08
         15         16         17         18         19         20 
  2.0221398 -3.3446758 -0.3220079 -2.0749325  1.7384609 -0.3386310 
 > 
-> print( residuals( fit2slsd1p ) )
+> print( residuals( fit2slsd1 ) )
         demand      supply
 1   1.37754421 -0.43484924
 2   0.01250751 -1.21307836
@@ -2618,7 +2549,7 @@ supply_trend         0.3260285  0.04712125  6.918928 5.665153e-08
 18 -1.80700101 -2.77132858
 19  1.92994046  2.66683272
 20  0.18532435  0.62354227
-> print( residuals( fit2slsd1p$eq[[ 2 ]] ) )
+> print( residuals( fit2slsd1$eq[[ 2 ]] ) )
           1           2           3           4           5           6 
 -0.43484924 -1.21307836  1.70902028  0.79558067  1.59415675  0.65949720 
           7           8           9          10          11          12 
@@ -2669,12 +2600,12 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
 (Intercept)       price      income 
   94.633304   -0.243557    0.313992 
 > 
-> print( round( coef( fit2sls2p ), digits = 6 ) )
+> print( round( coef( fit2sls2 ), digits = 6 ) )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
          94.281641          -0.224712           0.298273          48.184330 
       supply_price   supply_farmPrice       supply_trend 
           0.242720           0.261893           0.298273 
-> print( round( coef( fit2sls2p$eq[[ 2 ]] ), digits = 6 ) )
+> print( round( coef( fit2sls2$eq[[ 2 ]] ), digits = 6 ) )
 (Intercept)       price   farmPrice       trend 
   48.184330    0.242720    0.261893    0.298273 
 > 
@@ -2728,7 +2659,7 @@ supply_trend        0.252924   0.089946  2.811956 0.012528
 price       -0.243557   0.108840 -2.237751 0.038916
 income       0.313992   0.052955  5.929390 0.000016
 > 
-> print( round( coef( summary( fit2sls2p, useDfSys = FALSE ) ), digits = 6 ) )
+> print( round( coef( summary( fit2sls2, useDfSys = FALSE ) ), digits = 6 ) )
                     Estimate Std. Error   t value Pr(>|t|)
 demand_(Intercept) 94.281641   8.869261 10.630157 0.000000
 demand_price       -0.224712   0.103432 -2.172551 0.044246
@@ -2737,7 +2668,7 @@ supply_(Intercept) 48.184330  10.538406  4.572260 0.000313
 supply_price        0.242720   0.089623  2.708237 0.015508
 supply_farmPrice    0.261893   0.041059  6.378406 0.000009
 supply_trend        0.298273   0.045400  6.569893 0.000006
-> print( round( coef( summary( fit2sls2p$eq[[ 2 ]], useDfSys = FALSE ) ),
+> print( round( coef( summary( fit2sls2$eq[[ 2 ]], useDfSys = FALSE ) ),
 +    digits = 6 ) )
              Estimate Std. Error  t value Pr(>|t|)
 (Intercept) 48.184330  10.538406 4.572260 0.000313
@@ -2875,7 +2806,7 @@ price         -0.876328  0.007989  0.000749  0.000463
 farmPrice     -0.259055  0.000749  0.001786  0.001101
 trend         -0.236183  0.000463  0.001101  0.007945
 > 
-> print( round( vcov( fit2sls2p ), digits = 6 ) )
+> print( round( vcov( fit2sls2 ), digits = 6 ) )
                    demand_(Intercept) demand_price demand_income
 demand_(Intercept)          78.663794    -0.829021      0.046112
 demand_price                -0.829021     0.010698     -0.002471
@@ -2900,7 +2831,7 @@ supply_(Intercept)    -0.061273
 supply_price           0.000120
 supply_farmPrice       0.000286
 supply_trend           0.002061
-> print( round( vcov( fit2sls2p$eq[[ 1 ]] ), digits = 6 ) )
+> print( round( vcov( fit2sls2$eq[[ 1 ]] ), digits = 6 ) )
             (Intercept)     price    income
 (Intercept)   78.663794 -0.829021  0.046112
 price         -0.829021  0.010698 -0.002471
@@ -3152,7 +3083,7 @@ price       -0.032  0.517
 farmPrice    0.137  0.387
 trend        0.181  0.416
 > 
-> print( confint( fit2sls3e, level = 0.99, useDfSys = TRUE ) )
+> print( confint( fit2sls3, level = 0.99, useDfSys = TRUE ) )
                     0.5 %  99.5 %
 demand_(Intercept) 77.664 110.899
 demand_price       -0.419  -0.031
@@ -3161,7 +3092,7 @@ supply_(Intercept) 28.439  67.929
 supply_price        0.075   0.411
 supply_farmPrice    0.185   0.339
 supply_trend        0.213   0.383
-> print( confint( fit2sls3e$eq[[ 1 ]], level = 0.5, useDfSys = TRUE ) )
+> print( confint( fit2sls3$eq[[ 1 ]], level = 0.5, useDfSys = TRUE ) )
               25 %   75 %
 (Intercept) 88.707 99.857
 price       -0.290 -0.160
@@ -3198,7 +3129,7 @@ supply_trend        0.230   0.376
 price       -0.389  -0.098
 income       0.218   0.387
 > 
-> print( confint( fit2slsd1p, level = 0.975, useDfSys = TRUE ) )
+> print( confint( fit2slsd1, level = 0.975, useDfSys = TRUE ) )
                     1.3 %  98.8 %
 demand_(Intercept) 84.118 129.461
 demand_price       -0.706  -0.117
@@ -3207,7 +3138,7 @@ supply_(Intercept) 25.097  73.968
 supply_price        0.037   0.443
 supply_farmPrice    0.159   0.352
 supply_trend        0.050   0.456
-> print( confint( fit2slsd1p$eq[[ 2 ]], level = 0.999, useDfSys = TRUE ) )
+> print( confint( fit2slsd1$eq[[ 2 ]], level = 0.999, useDfSys = TRUE ) )
              0.1 %  100 %
 (Intercept)  6.163 92.901
 price       -0.121  0.601
@@ -3291,7 +3222,7 @@ income       0.230   0.422
        17        18        19        20 
 103.18891 103.02508 102.91078 106.05210 
 > 
-> print( fitted( fit2sls3e ) )
+> print( fitted( fit2sls3 ) )
       demand    supply
 1   97.80690  98.49848
 2   99.96370 100.04140
@@ -3313,7 +3244,7 @@ income       0.230   0.422
 18 102.04768 103.02508
 19 103.53288 102.91078
 20 106.68955 106.05210
-> print( fitted( fit2sls3e$eq[[ 1 ]] ) )
+> print( fitted( fit2sls3$eq[[ 1 ]] ) )
         1         2         3         4         5         6         7         8 
  97.80690  99.96370  99.88154 100.08828 102.02727 101.90910 102.35265 102.89395 
         9        10        11        12        13        14        15        16 
@@ -3381,7 +3312,7 @@ income       0.230   0.422
        17        18        19        20 
 103.84401 102.00393 103.48454 106.57063 
 > 
-> print( fitted( fit2slsd1p ) )
+> print( fitted( fit2slsd1 ) )
       demand    supply
 1   97.10746  98.91985
 2   99.17449 100.40008
@@ -3403,7 +3334,7 @@ income       0.230   0.422
 18 101.73600 102.70033
 19 103.29306 102.55617
 20 106.04668 105.60846
-> print( fitted( fit2slsd1p$eq[[ 2 ]] ) )
+> print( fitted( fit2slsd1$eq[[ 2 ]] ) )
         1         2         3         4         5         6         7         8 
  98.91985 100.40008 100.45398 100.70842 102.64584 102.58350 102.55837 104.77240 
         9        10        11        12        13        14        15        16 
@@ -3582,7 +3513,7 @@ income       0.230   0.422
 19 100.34356 2.635438  97.10122 103.58590
 20 103.29747 2.579621 100.70156 105.89338
 > 
-> print( predict( fit2sls3e, se.pred = TRUE, interval = "prediction",
+> print( predict( fit2sls3, se.pred = TRUE, interval = "prediction",
 +    level = 0.975, useDfSys = TRUE ) )
    demand.pred demand.se.pred demand.lwr demand.upr supply.pred supply.se.pred
 1     97.80690       2.089613   92.90664   102.7072    98.49848       2.548858
@@ -3626,7 +3557,7 @@ income       0.230   0.422
 18   97.02570   109.0245
 19   96.84077   108.9808
 20   99.54133   112.5629
-> print( predict( fit2sls3e$eq[[ 1 ]], se.pred = TRUE, interval = "prediction",
+> print( predict( fit2sls3$eq[[ 1 ]], se.pred = TRUE, interval = "prediction",
 +    level = 0.975, useDfSys = TRUE ) )
          fit  se.pred       lwr      upr
 1   97.80690 2.089613  92.90664 102.7072
@@ -3786,7 +3717,7 @@ income       0.230   0.422
 19 109.40868 1.1107097 2.262919 107.86635 110.9510
 20 113.17905 1.5292558 2.495146 111.47845 114.8796
 > 
-> print( predict( fit2slsd1p, se.fit = TRUE, se.pred = TRUE,
+> print( predict( fit2slsd1, se.fit = TRUE, se.pred = TRUE,
 +    interval = "confidence", level = 0.99, useDfSys = TRUE ) )
    demand.pred demand.se.fit demand.se.pred demand.lwr demand.upr supply.pred
 1     97.10746     0.7508704       2.128674   95.05512   99.15979    98.91985
@@ -3830,7 +3761,7 @@ income       0.230   0.422
 18     0.9883293       2.648844   99.99895  105.40171
 19     1.1294989       2.704690   99.46893  105.64340
 20     1.7325747       3.006891  100.87285  110.34406
-> print( predict( fit2slsd1p$eq[[ 2 ]], se.fit = TRUE, se.pred = TRUE,
+> print( predict( fit2slsd1$eq[[ 2 ]], se.fit = TRUE, se.pred = TRUE,
 +    interval = "confidence", level = 0.99, useDfSys = TRUE ) )
          fit    se.fit  se.pred       lwr       upr
 1   98.91985 1.0792946 2.684112  95.96984 101.86986
@@ -3933,20 +3864,20 @@ income       0.230   0.422
        fit
 1 110.0697
 > 
-> print( predict( fit2sls2p, se.fit = TRUE, level = 0.9,
+> print( predict( fit2sls2, se.fit = TRUE, level = 0.9,
 +    newdata = smallData ) )
   demand.pred demand.se.fit supply.pred supply.se.fit
 1      109.81      2.785617    118.6219      3.179108
-> print( predict( fit2sls2p$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
+> print( predict( fit2sls2$eq[[ 1 ]], se.pred = TRUE, level = 0.99,
 +    newdata = smallData ) )
      fit  se.pred
 1 109.81 3.424242
 > 
-> print( predict( fit2sls3e, interval = "prediction", level = 0.975,
+> print( predict( fit2sls3, interval = "prediction", level = 0.975,
 +    newdata = smallData ) )
   demand.pred demand.lwr demand.upr supply.pred supply.lwr supply.upr
 1      109.81   102.1889   117.4311    118.6219   109.6230   127.6207
-> print( predict( fit2sls3e$eq[[ 1 ]], interval = "confidence", level = 0.8,
+> print( predict( fit2sls3$eq[[ 1 ]], interval = "confidence", level = 0.8,
 +    newdata = smallData ) )
      fit      lwr      upr
 1 109.81 106.4535 113.1665
@@ -4032,7 +3963,7 @@ income       0.230   0.422
 [19,]  0.1470076607
 [20,]  0.1245927216
 > 
-> print( correlation.systemfit( fit2sls3e, 1, 2 ) )
+> print( correlation.systemfit( fit2sls3, 1, 2 ) )
                [,1]
  [1,]  0.4487714448
  [2,]  0.1687531815
@@ -4101,7 +4032,7 @@ income       0.230   0.422
 [19,]  0.343361348
 [20,]  0.547173845
 > 
-> print( correlation.systemfit( fit2slsd1p, 2, 1 ) )
+> print( correlation.systemfit( fit2slsd1, 2, 1 ) )
       [,1]
  [1,]    0
  [2,]    0
@@ -4155,7 +4086,7 @@ income       0.230   0.422
 > print( logLik( fit2sls2s ) )
 'log Lik.' -65.71475 (df=7)
 > 
-> print( logLik( fit2sls3e ) )
+> print( logLik( fit2sls3 ) )
 'log Lik.' -65.71475 (df=7)
 > 
 > print( logLik( fit2sls4r ) )
@@ -4164,7 +4095,7 @@ income       0.230   0.422
 > print( logLik( fit2sls5rs ) )
 'log Lik.' -66.19217 (df=6)
 > 
-> print( logLik( fit2slsd1p ) )
+> print( logLik( fit2slsd1 ) )
 'log Lik.' -75.14682 (df=8)
 > 
 > print( logLik( fit2slsd2r ) )
@@ -4223,25 +4154,25 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.0696 0.7936
 > 
-> print( linear.hypothesis( fit2sls1p, restrm ) )
+> print( linear.hypothesis( fit2sls1, restrm ) )
 Linear hypothesis test (F-test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fit2sls1p
+Model 1: fit2sls1
 Model 2: restricted model
 
   Res.Df Df      F Pr(>F)
 1     33                 
 2     34 -1 0.0625 0.8042
-> linear.hypothesis( fit2sls1p, restrict )
+> linear.hypothesis( fit2sls1, restrict )
 Linear hypothesis test (F-test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fit2sls1p
+Model 1: fit2sls1
 Model 2: restricted model
 
   Res.Df Df      F Pr(>F)
@@ -4462,25 +4393,25 @@ Model 2: restricted model
 1     33                     
 2     34 -1 0.3423     0.5585
 > 
-> print( linear.hypothesis( fit2sls1p, restrm, test = "Chisq" ) )
+> print( linear.hypothesis( fit2sls1, restrm, test = "Chisq" ) )
 Linear hypothesis test (Wald-test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fit2sls1p
+Model 1: fit2sls1
 Model 2: restricted model
 
   Res.Df Df  Chisq Pr(>Chisq)
 1     33                     
 2     34 -1 0.3073     0.5793
-> linear.hypothesis( fit2sls1p, restrict, test = "Chisq" )
+> linear.hypothesis( fit2sls1, restrict, test = "Chisq" )
 Linear hypothesis test (Wald-test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fit2sls1p
+Model 1: fit2sls1
 Model 2: restricted model
 
   Res.Df Df  Chisq Pr(>Chisq)
@@ -4765,9 +4696,9 @@ attr(,"dataClasses")
 > print( all.equal( mf2, model.frame( fit2sls2s$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
-> print( all.equal( mf, model.frame( fit2sls3e ) ) )
+> print( all.equal( mf, model.frame( fit2sls3 ) ) )
 [1] TRUE
-> print( all.equal( mf1, model.frame( fit2sls3e$eq[[ 1 ]] ) ) )
+> print( all.equal( mf1, model.frame( fit2sls3$eq[[ 1 ]] ) ) )
 [1] TRUE
 > 
 > print( all.equal( mf, model.frame( fit2sls4r ) ) )
@@ -4918,13 +4849,13 @@ attr(,"assign")
 [1] 0 1 2 3
 > 
 > # with returnModelMatrix = FALSE
-> print( all.equal( mm, model.matrix( fit2sls1p ) ) )
+> print( all.equal( mm, model.matrix( fit2sls1s ) ) )
 [1] TRUE
-> print( all.equal( mm1, model.matrix( fit2sls1p$eq[[ 1 ]] ) ) )
+> print( all.equal( mm1, model.matrix( fit2sls1s$eq[[ 1 ]] ) ) )
 [1] TRUE
-> print( all.equal( mm2, model.matrix( fit2sls1p$eq[[ 2 ]] ) ) )
+> print( all.equal( mm2, model.matrix( fit2sls1s$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fit2sls1p$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fit2sls1s$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
 > # with returnModelMatrix = TRUE
@@ -4946,16 +4877,6 @@ attr(,"assign")
 [1] TRUE
 > print( !is.null( fit2sls2Sym$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
-> 
-> # with returnModelMatrix = TRUE
-> print( !is.null( fit2sls3e$eq[[ 1 ]]$modelMatrix ) )
-[1] TRUE
-> print( all.equal( mm, model.matrix( fit2sls3e ) ) )
-[1] TRUE
-> print( all.equal( mm1, model.matrix( fit2sls3e$eq[[ 1 ]] ) ) )
-[1] TRUE
-> print( all.equal( mm2, model.matrix( fit2sls3e$eq[[ 2 ]] ) ) )
-[1] TRUE
 > 
 > # with returnModelMatrix = FALSE
 > print( all.equal( mm, model.matrix( fit2sls3 ) ) )
@@ -5029,14 +4950,14 @@ consump ~ price + farmPrice + trend
 > formula( fit2sls2s$eq[[ 2 ]] )
 consump ~ price + farmPrice + trend
 > 
-> formula( fit2sls3e )
+> formula( fit2sls3 )
 $demand
 consump ~ price + income
 
 $supply
 consump ~ price + farmPrice + trend
 
-> formula( fit2sls3e$eq[[ 1 ]] )
+> formula( fit2sls3$eq[[ 1 ]] )
 consump ~ price + income
 > 
 > formula( fit2sls4r )
@@ -5059,14 +4980,14 @@ consump ~ price + farmPrice + trend
 > formula( fit2sls5rs$eq[[ 1 ]] )
 consump ~ price + income
 > 
-> formula( fit2slsd1p )
+> formula( fit2slsd1 )
 $demand
 consump ~ price + income
 
 $supply
 consump ~ price + farmPrice + trend
 
-> formula( fit2slsd1p$eq[[ 2 ]] )
+> formula( fit2slsd1$eq[[ 2 ]] )
 consump ~ price + farmPrice + trend
 > 
 > formula( fit2slsd2r )
@@ -5236,7 +5157,7 @@ attr(,"dataClasses")
   consump     price farmPrice     trend 
 "numeric" "numeric" "numeric" "numeric" 
 > 
-> terms( fit2sls3e )
+> terms( fit2sls3 )
 $demand
 consump ~ price + income
 attr(,"variables")
@@ -5288,7 +5209,7 @@ attr(,"dataClasses")
   consump     price farmPrice     trend 
 "numeric" "numeric" "numeric" "numeric" 
 
-> terms( fit2sls3e$eq[[ 1 ]] )
+> terms( fit2sls3$eq[[ 1 ]] )
 consump ~ price + income
 attr(,"variables")
 list(consump, price, income)
@@ -5468,7 +5389,7 @@ attr(,"dataClasses")
   consump     price    income 
 "numeric" "numeric" "numeric" 
 > 
-> terms( fit2slsd1p )
+> terms( fit2slsd1 )
 $demand
 consump ~ price + income
 attr(,"variables")
@@ -5520,7 +5441,7 @@ attr(,"dataClasses")
   consump     price farmPrice     trend 
 "numeric" "numeric" "numeric" "numeric" 
 
-> terms( fit2slsd1p$eq[[ 2 ]] )
+> terms( fit2slsd1$eq[[ 2 ]] )
 consump ~ price + farmPrice + trend
 attr(,"variables")
 list(consump, price, farmPrice, trend)

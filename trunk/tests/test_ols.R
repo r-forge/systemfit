@@ -48,8 +48,7 @@ fitols1s <- systemfit( system, "OLS", data = Kmenta,
 print( summary( fitols1s ) )
 
 ## ****************  OLS (useDfSys=T) ***********************
-fitols1p <- systemfit( system, "OLS", data = Kmenta )
-print( summary( fitols1p, useDfSys = TRUE ) )
+print( summary( fitols1, useDfSys = TRUE ) )
 
 ## ****************  OLS (methodResidCov="noDfCor") ***********************
 fitols1r <- systemfit( system, "OLS", data = Kmenta,
@@ -93,9 +92,7 @@ fitols2s <- systemfit( system, "OLS", data = Kmenta,
 print( summary( fitols2s ) )
 
 ## ****** OLS with cross-equation restriction (useDfSys=F) *******
-fitols2p <- systemfit( system, "OLS", data = Kmenta,
-   restrict.matrix = restrm )
-print( summary( fitols2p, useDfSys = FALSE ) )
+print( summary( fitols2, useDfSys = FALSE ) )
 
 ## ****** OLS with cross-equation restriction (methodResidCov="noDfCor") *******
 fitols2r <- systemfit( system, "OLS", data = Kmenta,
@@ -119,9 +116,7 @@ fitols3s <- systemfit( system, "OLS", data = Kmenta,
 print( summary( fitols3s ) )
 
 ## *** OLS with cross-equation restriction via restrict.regMat (useDfSys=F) ***
-fitols3p <- systemfit( system, "OLS", data = Kmenta,
-   restrict.regMat = tc )
-print( summary( fitols3p, useDfSys = FALSE ) )
+print( summary( fitols3, useDfSys = FALSE ) )
 
 ## *** OLS with cross-equation restriction via restrict.regMat (methodResidCov="noDfCor") ***
 fitols3r <- systemfit( system, "OLS", data = Kmenta,
@@ -145,13 +140,11 @@ all.equal( fitols4, fitols4Sym )
 
 ## ****** OLS with 2 cross-equation restrictions (single.eq.sigma=T) *******
 fitols4s <- systemfit( system, "OLS", data = Kmenta, restrict.matrix = restr2m,
-   restrict.rhs = restr2q, single.eq.sigma = T )
+   restrict.rhs = restr2q, single.eq.sigma = TRUE, returnModelMatrix = TRUE )
 print( summary( fitols4s ) )
 
 ## ****** OLS with 2 cross-equation restrictions (useDfSys=F) *******
-fitols4p <- systemfit( system, "OLS", data = Kmenta, restrict.matrix = restr2m,
-   restrict.rhs = restr2q, returnModelMatrix = TRUE )
-print( summary( fitols4p, useDfSys = FALSE ) )
+print( summary( fitols4, useDfSys = FALSE ) )
 
 ## ****** OLS with 2 cross-equation restrictions (methodResidCov="noDfCor") *******
 fitols4r <- systemfit( system, "OLS", data = Kmenta, restrict.matrix = restr2m,
@@ -180,14 +173,9 @@ fitols5s <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
 print( summary( fitols5s ) )
 
 ## ***** OLS with 2 cross-equation restrictions via R and restrict.regMat (useDfSys=F) ****
-fitols5p <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
+fitols5o <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
    restrict.rhs = restr3q, restrict.regMat = tc )
-print( summary( fitols5p, useDfSys = FALSE ) )
-
-## ***** OLS with 2 cross-equation restrictions via R and restrict.regMat (methodResidCov="noDfCor") ****
-fitols5r <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
-   restrict.rhs = restr3q, restrict.regMat = tc, methodResidCov = "noDfCor" )
-print( summary( fitols5r ) )
+print( summary( fitols5o, useDfSys = FALSE ) )
 
 ## OLS with 2 cross-equation restr. via R and restrict.regMat (methodResidCov="noDfCor",single.eq.sigma=T)
 fitols5rs <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
@@ -196,7 +184,7 @@ print( summary( fitols5rs ) )
 
 
 ## **************** shorter summaries **********************
-print( summary( fitols1p, useDfSys = TRUE, printEquations = FALSE ) )
+print( summary( fitols1, useDfSys = TRUE, printEquations = FALSE ) )
 
 print( summary( fitols2r ), residCov = FALSE, equations = FALSE )
 
@@ -208,8 +196,8 @@ print( summary( fitols5, printEquations = FALSE ), residCov = FALSE )
 
 
 ## ****************** residuals **************************
-print( residuals( fitols1p ) )
-print( residuals( fitols1p$eq[[ 2 ]] ) )
+print( residuals( fitols1 ) )
+print( residuals( fitols1$eq[[ 2 ]] ) )
 
 print( residuals( fitols2r ) )
 print( residuals( fitols2r$eq[[ 1 ]] ) )
@@ -231,9 +219,9 @@ print( round( coef( fitols1rs$eq[[ 2 ]] ), digits = 6 ) )
 print( round( coef( fitols2s ), digits = 6 ) )
 print( round( coef( fitols2s$eq[[ 1 ]] ), digits = 6 ) )
 
-print( round( coef( fitols3p ), digits = 6 ) )
-print( round( coef( fitols3p, modified.regMat = TRUE ), digits = 6 ) )
-print( round( coef( fitols3p$eq[[ 2 ]] ), digits = 6 ) )
+print( round( coef( fitols3 ), digits = 6 ) )
+print( round( coef( fitols3, modified.regMat = TRUE ), digits = 6 ) )
+print( round( coef( fitols3$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( coef( fitols4r ), digits = 6 ) )
 print( round( coef( fitols4r$eq[[ 1 ]] ), digits = 6 ) )
@@ -251,10 +239,10 @@ print( round( coef( summary( fitols1rs$eq[[ 2 ]], useDfSys = FALSE ) ),
 print( round( coef( summary( fitols2s ) ), digits = 6 ) )
 print( round( coef( summary( fitols2s$eq[[ 1 ]] ) ), digits = 6 ) )
 
-print( round( coef( summary( fitols3p, useDfSys = FALSE ) ), digits = 6 ) )
-print( round( coef( summary( fitols3p, useDfSys = FALSE ), modified.regMat = TRUE ),
+print( round( coef( summary( fitols3, useDfSys = FALSE ) ), digits = 6 ) )
+print( round( coef( summary( fitols3, useDfSys = FALSE ), modified.regMat = TRUE ),
    digits = 6 ) )
-print( round( coef( summary( fitols3p$eq[[ 2 ]], useDfSys = FALSE ) ),
+print( round( coef( summary( fitols3$eq[[ 2 ]], useDfSys = FALSE ) ),
    digits = 6 ) )
 
 print( round( coef( summary( fitols4r, useDfSys = FALSE ) ), digits = 6 ) )
@@ -273,9 +261,9 @@ print( round( vcov( fitols1rs$eq[[ 2 ]] ), digits = 6 ) )
 print( round( vcov( fitols2s ), digits = 6 ) )
 print( round( vcov( fitols2s$eq[[ 1 ]] ), digits = 6 ) )
 
-print( round( vcov( fitols3p ), digits = 6 ) )
-print( round( vcov( fitols3p, modified.regMat = TRUE ), digits = 6 ) )
-print( round( vcov( fitols3p$eq[[ 2 ]] ), digits = 6 ) )
+print( round( vcov( fitols3 ), digits = 6 ) )
+print( round( vcov( fitols3, modified.regMat = TRUE ), digits = 6 ) )
+print( round( vcov( fitols3$eq[[ 2 ]] ), digits = 6 ) )
 
 print( round( vcov( fitols4r ), digits = 6 ) )
 print( round( vcov( fitols4r$eq[[ 1 ]] ), digits = 6 ) )
@@ -286,8 +274,8 @@ print( round( vcov( fitols5$eq[[ 2 ]] ), digits = 6 ) )
 
 
 ## *********** confidence intervals of coefficients *************
-print( confint( fitols1p, useDfSys = TRUE ) )
-print( confint( fitols1p$eq[[ 2 ]], level = 0.9, useDfSys = TRUE ) )
+print( confint( fitols1, useDfSys = TRUE ) )
+print( confint( fitols1$eq[[ 2 ]], level = 0.9, useDfSys = TRUE ) )
 
 print( confint( fitols2r, level = 0.9 ) )
 print( confint( fitols2r$eq[[ 1 ]], level = 0.99 ) )
@@ -301,13 +289,13 @@ print( confint( fitols4rs$eq[[ 1 ]], level = 0.25 ) )
 print( confint( fitols5, level = 0.25 ) )
 print( confint( fitols5$eq[[ 2 ]], level = 0.999 ) )
 
-print( confint( fitols3p, level = 0.999, useDfSys = FALSE ) )
-print( confint( fitols3p$eq[[ 1 ]], useDfSys = FALSE ) )
+print( confint( fitols3, level = 0.999, useDfSys = FALSE ) )
+print( confint( fitols3$eq[[ 1 ]], useDfSys = FALSE ) )
 
 
 ## *********** fitted values *************
-print( fitted( fitols1p ) )
-print( fitted( fitols1p$eq[[ 2 ]] ) )
+print( fitted( fitols1 ) )
+print( fitted( fitols1$eq[[ 2 ]] ) )
 
 print( fitted( fitols2r ) )
 print( fitted( fitols2r$eq[[ 1 ]] ) )
@@ -328,9 +316,9 @@ predictData$consump <- NULL
 predictData$price <- Kmenta$price * 0.9
 predictData$income <- Kmenta$income * 1.1
 
-print( predict( fitols1p, se.fit = TRUE, interval = "prediction",
+print( predict( fitols1, se.fit = TRUE, interval = "prediction",
    useDfSys = TRUE ) )
-print( predict( fitols1p$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
+print( predict( fitols1$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
    useDfSys = TRUE ) )
 
 print( predict( fitols2r, se.pred = TRUE, interval = "confidence",
@@ -357,8 +345,8 @@ print( predict( fitols5$eq[[ 2 ]], se.fit = TRUE, interval = "prediction",
 smallData <- data.frame( price = 130, income = 150, farmPrice = 120,
    trend = 25 )
 
-print( predict( fitols1p, newdata = smallData ) )
-print( predict( fitols1p$eq[[ 1 ]], newdata = smallData ) )
+print( predict( fitols1, newdata = smallData ) )
+print( predict( fitols1$eq[[ 1 ]], newdata = smallData ) )
 
 print( predict( fitols2r, se.fit = TRUE, level = 0.9,
    newdata = smallData ) )
@@ -387,7 +375,7 @@ print( predict( fitols5rs$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
 
 
 ## ************ correlation of predicted values ***************
-print( correlation.systemfit( fitols1p, 1, 2 ) )
+print( correlation.systemfit( fitols1, 1, 2 ) )
 
 print( correlation.systemfit( fitols2r, 2, 1 ) )
 
@@ -399,7 +387,7 @@ print( correlation.systemfit( fitols5, 1, 2 ) )
 
 
 ## ************ Log-Likelihood values ***************
-print( logLik( fitols1p ) )
+print( logLik( fitols1 ) )
 
 print( logLik( fitols2r ) )
 
@@ -418,8 +406,8 @@ linear.hypothesis( fitols1, restrict )
 print( linear.hypothesis( fitols1s, restrm ) )
 linear.hypothesis( fitols1s, restrict )
 
-print( linear.hypothesis( fitols1p, restrm ) )
-linear.hypothesis( fitols1p, restrict )
+print( linear.hypothesis( fitols1, restrm ) )
+linear.hypothesis( fitols1, restrict )
 
 print( linear.hypothesis( fitols1r, restrm ) )
 linear.hypothesis( fitols1r, restrict )
@@ -454,8 +442,8 @@ linear.hypothesis( fitols1, restrict, test = "Chisq" )
 print( linear.hypothesis( fitols1s, restrm, test = "Chisq" ) )
 linear.hypothesis( fitols1s, restrict, test = "Chisq" )
 
-print( linear.hypothesis( fitols1p, restrm, test = "Chisq" ) )
-linear.hypothesis( fitols1p, restrict, test = "Chisq" )
+print( linear.hypothesis( fitols1, restrm, test = "Chisq" ) )
+linear.hypothesis( fitols1, restrict, test = "Chisq" )
 
 print( linear.hypothesis( fitols1r, restrm, test = "Chisq" ) )
 linear.hypothesis( fitols1r, restrict, test = "Chisq" )
@@ -477,10 +465,10 @@ linear.hypothesis( fitols1, restrict2, test = "Chisq" )
 
 
 ## ****************** model frame **************************
-print( mf <- model.frame( fitols1p ) )
-print( mf1 <- model.frame( fitols1p$eq[[ 1 ]] ) )
+print( mf <- model.frame( fitols1 ) )
+print( mf1 <- model.frame( fitols1$eq[[ 1 ]] ) )
 print( attributes( mf1 )$terms )
-print( mf2 <- model.frame( fitols1p$eq[[ 2 ]] ) )
+print( mf2 <- model.frame( fitols1$eq[[ 2 ]] ) )
 print( attributes( mf2 )$terms )
 
 print( all.equal( mf, model.frame( fitols2r ) ) )
@@ -516,10 +504,10 @@ print( all.equal( mm1, model.matrix( fitols2rs$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols2rs$eq[[ 2 ]] ) ) )
 
 # with returnModelMatrix = FALSE
-print( all.equal( mm, model.matrix( fitols2p ) ) )
-print( all.equal( mm1, model.matrix( fitols2p$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitols2p$eq[[ 2 ]] ) ) )
-print( !is.null( fitols2p$eq[[ 1 ]]$modelMatrix ) )
+print( all.equal( mm, model.matrix( fitols2 ) ) )
+print( all.equal( mm1, model.matrix( fitols2$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitols2$eq[[ 2 ]] ) ) )
+print( !is.null( fitols2$eq[[ 1 ]]$modelMatrix ) )
 
 # with returnModelMatrix = TRUE
 print( !is.null( fitols3$eq[[ 1 ]]$modelMatrix ) )
@@ -534,10 +522,10 @@ print( all.equal( mm2, model.matrix( fitols3r$eq[[ 2 ]] ) ) )
 print( !is.null( fitols3r$eq[[ 1 ]]$modelMatrix ) )
 
 # with returnModelMatrix = TRUE
-print( !is.null( fitols4p$eq[[ 1 ]]$modelMatrix ) )
-print( all.equal( mm, model.matrix( fitols4p ) ) )
-print( all.equal( mm1, model.matrix( fitols4p$eq[[ 1 ]] ) ) )
-print( all.equal( mm2, model.matrix( fitols4p$eq[[ 2 ]] ) ) )
+print( !is.null( fitols4s$eq[[ 1 ]]$modelMatrix ) )
+print( all.equal( mm, model.matrix( fitols4s ) ) )
+print( all.equal( mm1, model.matrix( fitols4s$eq[[ 1 ]] ) ) )
+print( all.equal( mm2, model.matrix( fitols4s$eq[[ 2 ]] ) ) )
 
 # with returnModelMatrix = FALSE
 print( all.equal( mm, model.matrix( fitols4Sym ) ) )
@@ -559,8 +547,8 @@ print( !is.null( fitols5$eq[[ 1 ]]$modelMatrix ) )
 
 
 ## **************** formulas ************************
-formula( fitols1p )
-formula( fitols1p$eq[[ 2 ]] )
+formula( fitols1 )
+formula( fitols1$eq[[ 2 ]] )
 
 formula( fitols2r )
 formula( fitols2r$eq[[ 1 ]] )
@@ -576,8 +564,8 @@ formula( fitols5$eq[[ 2 ]] )
 
 
 ## **************** model terms *******************
-terms( fitols1p )
-terms( fitols1p$eq[[ 2 ]] )
+terms( fitols1 )
+terms( fitols1$eq[[ 2 ]] )
 
 terms( fitols2r )
 terms( fitols2r$eq[[ 1 ]] )
