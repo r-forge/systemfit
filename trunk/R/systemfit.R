@@ -364,12 +364,12 @@ systemfit <- function(  eqns,
   ## only for WLS estimation
   if( method %in% c( "WLS" ) ||
       ( method %in% c( "SUR" ) && control$residCovWeighted ) ) {
-    bl    <- coef   # coefficients of previous step
-    bdif  <- coef   # difference of coefficients between this and previous step
+    coefOld  <- coef # coefficients of previous step
+    coefDiff <- coef # difference of coefficients between this and previous step
     iter  <- 0
-    while((sum(bdif^2)/sum(bl^2))^0.5>control$tol & iter < control$maxiter^( method == "WLS" ) ) {
+    while((sum(coefDiff^2)/sum(coefOld^2))^0.5>control$tol & iter < control$maxiter^( method == "WLS" ) ) {
       iter  <- iter+1
-      bl    <- coef                # coefficients of previous step
+      coefOld <- coef                # coefficients of previous step
       resids <- yVecAll - xMatAll %*% coef     # residuals
       rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
          nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE,
@@ -378,7 +378,7 @@ systemfit <- function(  eqns,
       coef  <- .calcGLS( xMat = xMatAll, yVec = yVecAll, R.restr = R.restr,
          q.restr = q.restr, sigma = rcov, nObsEq = nObsEq,
          useMatrix = control$useMatrix, solvetol = control$solvetol )
-      bdif <- coef-bl # difference of coefficients between this and previous step
+      coefDiff <- coef - coefOld # difference of coefficients between this and previous step
     }
     coefCov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
        sigma = rcov, nObsEq = nObsEq, useMatrix = control$useMatrix,
@@ -388,12 +388,12 @@ systemfit <- function(  eqns,
 
   ## only for SUR estimation
   if( method %in% c( "SUR" ) ) {
-    bl    <- coef    # coefficients of previous step
-    bdif  <- coef    # difference of coefficients between this and previous step
+    coefOld  <- coef # coefficients of previous step
+    coefDiff <- coef # difference of coefficients between this and previous step
     iter  <- 0
-    while((sum(bdif^2)/sum(bl^2))^0.5>control$tol & iter < control$maxiter) {
+    while((sum(coefDiff^2)/sum(coefOld^2))^0.5>control$tol & iter < control$maxiter) {
       iter  <- iter+1
-      bl    <- coef                           # coefficients of previous step
+      coefOld <- coef                           # coefficients of previous step
       resids <- yVecAll-xMatAll%*%coef                     # residuals
       rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
          nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq,
@@ -403,7 +403,7 @@ systemfit <- function(  eqns,
          R.restr = R.restr, q.restr = q.restr,
          sigma = rcov, nObsEq = nObsEq, useMatrix = control$useMatrix,
          solvetol = control$solvetol )     # coefficients
-      bdif <- coef-bl  # difference of coefficients between this and previous step
+      coefDiff <- coef - coefOld # difference of coefficients between this and previous step
     }
     coefCov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
        sigma = rcov, nObsEq = nObsEq, useMatrix = control$useMatrix,
@@ -458,12 +458,12 @@ systemfit <- function(  eqns,
   ## only for W2SLS estimation
   if( method %in% c( "W2SLS" ) ||
          ( method %in% c( "3SLS" ) && control$residCovWeighted ) ) {
-    bl     <- coef   # coefficients of previous step
-    bdif   <- coef   # difference of coefficients between this and previous step
+    coefOld  <- coef # coefficients of previous step
+    coefDiff <- coef # difference of coefficients between this and previous step
     iter  <- 0
-    while((sum(bdif^2)/sum(bl^2))^0.5>control$tol & iter < control$maxiter^( method == "W2LS" ) ) {
+    while((sum(coefDiff^2)/sum(coefOld^2))^0.5>control$tol & iter < control$maxiter^( method == "W2LS" ) ) {
       iter  <- iter+1
-      bl    <- coef                           # coefficients of previous step
+      coefOld <- coef                           # coefficients of previous step
       resids <- yVecAll-xMatAll%*%coef                     # residuals
       rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
          nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE,
@@ -472,7 +472,7 @@ systemfit <- function(  eqns,
       coef <- .calcGLS( xMat = xMatHatAll, yVec = yVecAll, R.restr = R.restr, q.restr = q.restr,
          sigma = rcov, nObsEq = nObsEq, useMatrix = control$useMatrix,
          solvetol = control$solvetol )          # (unrestr.) coeffic.
-      bdif <- coef - bl # difference of coefficients between this and previous step
+      coefDiff <- coef - coefOld # difference of coefficients between this and previous step
     }
     coefCov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
        sigma = rcov, nObsEq = nObsEq, useMatrix = control$useMatrix,
@@ -482,12 +482,12 @@ systemfit <- function(  eqns,
 
   ## only for 3SLS estimation
   if( method %in% c( "3SLS" ) ) {
-    bl     <- coef  # coefficients of previous step
-    bdif   <- coef  # difference of coefficients between this and previous step
+    coefOld  <- coef # coefficients of previous step
+    coefDiff <- coef # difference of coefficients between this and previous step
     iter  <- 0
-    while((sum(bdif^2)/sum(bl^2))^0.5>control$tol & iter < control$maxiter) {
+    while((sum(coefDiff^2)/sum(coefOld^2))^0.5>control$tol & iter < control$maxiter) {
       iter  <- iter+1
-      bl    <- coef                           # coefficients of previous step
+      coefOld <- coef                           # coefficients of previous step
       resids <- yVecAll-xMatAll%*%coef                     # residuals
       rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
          nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq,
@@ -553,7 +553,7 @@ systemfit <- function(  eqns,
             nObsEq = nObsEq, useMatrix = control$useMatrix,
             solvetol = control$solvetol )  # (unrestr.) coeffic.
       }
-      bdif <- as.numeric( coef ) - bl # difference of coefficients between this and previous step
+      coefDiff <- coef - coefOld # difference of coefficients between this and previous step
     }
     if(control$method3sls=="GLS") {
        coefCov <- .calcGLS( xMat = xMatHatAll, R.restr = R.restr, q.restr = q.restr,
