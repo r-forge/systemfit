@@ -91,9 +91,15 @@ summary.systemfit <- function( object, useDfSys = NULL,
    # formula from Greene (2003, p. 345 )
    # (first formula, numerator modified to save memory)
    if( object$method %in% c( "SUR", "3SLS" ) ){
-      rtOmega <- .calcXtOmegaInv( xMat = matrix( resid, ncol = 1 ),
+      xMat <- matrix( resid, ncol = 1 )
+      if( object$control$useMatrix ){
+         object$residCov <- as( object$residCov, "dspMatrix" )
+         xMat <- as( xMat, "dgCMatrix" )
+      }
+      rtOmega <- .calcXtOmegaInv( xMat = xMat,
          sigma = object$residCov, nObsEq = nObsEq,
-         solvetol = object$control$solvetol )
+         solvetol = object$control$solvetol,
+         useMatrix = object$control$useMatrix )
       yCov <- .calcResidCov( response, methodResidCov = "noDfCor",
          nObsEq = nObsEq, centered = TRUE,
          solvetol = object$control$solvetol )
