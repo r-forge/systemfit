@@ -1,6 +1,7 @@
 
 library( systemfit )
 data( "Kmenta" )
+useMatrix <- FALSE
 
 eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
@@ -31,87 +32,95 @@ restr3q <- c( 0.5 )  # restriction vector "q" 2
 
 ## ******************* unrestricted estimation *****************
 ## ******************** default estimation *********************
-fit2sls1 <- systemfit( eqSystem, "2SLS", data = Kmenta, inst = inst )
-fit3sls1 <- systemfit( eqSystem, "3SLS", data = Kmenta, inst = inst )
+fit2sls1 <- systemfit( eqSystem, "2SLS", data = Kmenta, inst = inst,
+   useMatrix = useMatrix )
+fit3sls1 <- systemfit( eqSystem, "3SLS", data = Kmenta, inst = inst,
+   useMatrix = useMatrix )
 print( hausman.systemfit( fit2sls1, fit3sls1 ) )
 
 ## ************** 2SLS estimation with single.eq.sigma = FALSE *****************
 fit2sls1s <- systemfit( eqSystem, "2SLS", data = Kmenta, inst = inst,
-   single.eq.sigma = FALSE )
+   single.eq.sigma = FALSE, useMatrix = useMatrix )
 print( hausman.systemfit( fit2sls1s, fit3sls1 ) )
 
 ## ******************* estimations with methodResidCov = 0 *****************
 fit2sls1r <- systemfit( eqSystem, "2SLS", data = Kmenta, inst = inst,
-   methodResidCov = "noDfCor" )
+   methodResidCov = "noDfCor", useMatrix = useMatrix )
 fit3sls1r <- systemfit( eqSystem, "3SLS", data = Kmenta, inst = inst,
-   methodResidCov = "noDfCor" )
+   methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( hausman.systemfit( fit2sls1r, fit3sls1r ) )
 
 
 ## ********************* estimation with restriction ********************
 ## *********************** default estimation ***********************
 fit2sls2 <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.matrix = restrm,
-   inst = inst )
+   inst = inst, useMatrix = useMatrix )
 fit3sls2 <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.matrix = restrm,
-   inst = inst )
+   inst = inst, useMatrix = useMatrix )
 # print( hausman.systemfit( fit2sls2, fit3sls2 ) )
 
 ## ************* 2SLS estimation with single.eq.sigma = TRUE *****************
 fit2sls2s <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.matrix = restrm,
-   inst = inst, single.eq.sigma = TRUE )
+   inst = inst, single.eq.sigma = TRUE, useMatrix = useMatrix )
 # print( hausman.systemfit( fit2sls2s, fit3sls2 ) )
 
 ## ********************* estimations with methodResidCov = 0 **************
 fit2sls2r <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.matrix = restrm,
    inst = inst, methodResidCov = "noDfCor" )
 fit3sls2r <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.matrix = restrm,
-   inst = inst, methodResidCov = "noDfCor" )
+   inst = inst, methodResidCov = "noDfCor", useMatrix = useMatrix )
 # print( hausman.systemfit( fit2sls2r, fit3sls2r ) )
 
 
 ## ****************** estimation with restriction via restrict.regMat ******************
 ## ********************** default estimation ********************
 fit2sls3 <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.regMat = tc,
-   inst = inst )
+   inst = inst, useMatrix = useMatrix )
 fit3sls3 <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.regMat = tc,
-   inst = inst )
+   inst = inst, useMatrix = useMatrix )
 print( hausman.systemfit( fit2sls3, fit3sls3 ) )
 
 ## ******************* estimations with methodResidCov = 0 *******
 fit2sls3r <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.regMat = tc,
-   inst = inst, methodResidCov = "noDfCor" )
+   inst = inst, methodResidCov = "noDfCor", useMatrix = useMatrix )
 fit3sls3r <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.regMat = tc,
-   inst = inst, methodResidCov = "noDfCor" )
+   inst = inst, methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( hausman.systemfit( fit2sls3r, fit3sls3r ) )
 
 
 ## ***************** estimations with 2 restrictions *******************
 ## *********************** default estimations **************
 fit2sls4 <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.matrix = restr2m,
-   restrict.rhs = restr2q, inst = inst )
+   restrict.rhs = restr2q, inst = inst, useMatrix = useMatrix )
 fit3sls4 <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.matrix = restr2m,
-   restrict.rhs = restr2q, inst = inst )
+   restrict.rhs = restr2q, inst = inst, useMatrix = useMatrix )
 # print( hausman.systemfit( fit2sls4, fit3sls4 ) )
 
 ## ***************** estimations with methodResidCov = 0 **************
 fit2sls4r <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.matrix = restr2m,
-   restrict.rhs = restr2q, inst = inst, methodResidCov = "noDfCor" )
+   restrict.rhs = restr2q, inst = inst, methodResidCov = "noDfCor",
+   useMatrix = useMatrix )
 fit3sls4r <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.matrix = restr2m,
-   restrict.rhs = restr2q, inst = inst, methodResidCov = "noDfCor" )
+   restrict.rhs = restr2q, inst = inst, methodResidCov = "noDfCor",
+   useMatrix = useMatrix )
 # print( hausman.systemfit( fit2sls4r, fit3sls4r ) )
 
 
 ## *********** estimations with 2 restrictions via R and restrict.regMat ***************
 ## ***************** default estimations *******************
 fit2sls5 <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.matrix = restr3m,
-   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst )
+   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
+   useMatrix = useMatrix )
 fit3sls5 <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.matrix = restr3m,
-   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst )
+   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
+   useMatrix = useMatrix )
 # print( hausman.systemfit( fit2sls5, fit3sls5 ) )
 
 ## ************* estimations with methodResidCov = 0 *********
 fit2sls5r <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.matrix = restr3m,
-   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst, methodResidCov = "noDfCor" )
+   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
+   methodResidCov = "noDfCor", useMatrix = useMatrix )
 fit3sls5r <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.matrix = restr3m,
-   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst, methodResidCov = "noDfCor" )
+   restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
+   methodResidCov = "noDfCor", useMatrix = useMatrix )
 # print( hausman.systemfit( fit2sls5r, fit3sls5r ) )

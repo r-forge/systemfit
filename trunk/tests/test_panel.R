@@ -1,5 +1,6 @@
 library( systemfit )
 library( plm )
+useMatrix <- FALSE
 
 ## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)
 data( "GrunfeldGreene" )
@@ -10,7 +11,7 @@ formulaGrunfeld <- invest ~ value + capital
 
 # OLS
 theilOls <- systemfit( formulaGrunfeld, "OLS",
-   data = GrunfeldTheil )
+   data = GrunfeldTheil, useMatrix = useMatrix )
 print( theilOls )
 summary( theilOls )
 summary( theilOls, useDfSys = TRUE, printResidCov = FALSE,
@@ -32,7 +33,7 @@ terms( theilOls$eq[[ 1 ]] )
 
 # SUR
 theilSur <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldTheil, methodResidCov = "noDfCor" )
+   data = GrunfeldTheil, methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( theilSur )
 summary( theilSur )
 summary( theilSur, useDfSys = TRUE, printEquations = FALSE )
@@ -58,7 +59,7 @@ formulaGrunfeld <- invest ~ value + capital
 
 # OLS
 greeneOls <- systemfit( formulaGrunfeld, "OLS",
-   data = GrunfeldGreene )
+   data = GrunfeldGreene, useMatrix = useMatrix )
 print( greeneOls )
 summary( greeneOls )
 summary( greeneOls, useDfSys = TRUE, printEquations = FALSE )
@@ -80,7 +81,7 @@ terms( greeneOls$eq[[ 2 ]] )
 
 # OLS Pooled
 greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
-   data = GrunfeldGreene, pooled = TRUE )
+   data = GrunfeldGreene, pooled = TRUE, useMatrix = useMatrix )
 print( greeneOlsPooled )
 summary( greeneOlsPooled )
 summary( greeneOlsPooled, useDfSys = FALSE, printResidCov = FALSE )
@@ -105,7 +106,7 @@ terms( greeneOlsPooled$eq[[ 1 ]] )
 
 # SUR
 greeneSur <- systemfit( formulaGrunfeld, "SUR",
-   data = GrunfeldGreene, methodResidCov = "noDfCor" )
+   data = GrunfeldGreene, methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( greeneSur )
 summary( greeneSur )
 summary( greeneSur, useDfSys = TRUE, printResidCov = FALSE )
@@ -127,7 +128,7 @@ terms( greeneSur$eq[[ 1 ]] )
 # SUR Pooled
 greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
    data = GrunfeldGreene, pooled = TRUE, methodResidCov = "noDfCor",
-   residCovWeighted = TRUE )
+   residCovWeighted = TRUE, useMatrix = useMatrix )
 print( greeneSurPooled )
 summary( greeneSurPooled )
 summary( greeneSurPooled, useDfSys = FALSE, printEquations = FALSE )

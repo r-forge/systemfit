@@ -31,6 +31,7 @@ Attaching package: 'zoo'
 	 rapply 
 
 > data( "Kmenta" )
+> useMatrix <- FALSE
 > 
 > demand <- consump ~ price + income
 > supply <- consump ~ price + farmPrice + trend
@@ -69,7 +70,7 @@ Attaching package: 'zoo'
 > 
 > ## *************** OLS estimation ************************
 > ## ********** OLS estimation (default) ********************
-> fitols1 <- systemfit( system, "OLS", data = Kmenta )
+> fitols1 <- systemfit( system, "OLS", data = Kmenta, useMatrix = useMatrix )
 > print( summary( fitols1 ) )
 
 systemfit results 
@@ -127,7 +128,7 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 > 
 > ## ********** OLS estimation (no single.eq sigma=F) ******************
 > fitols1s <- systemfit( system, "OLS", data = Kmenta,
-+    single.eq.sigma = FALSE )
++    single.eq.sigma = FALSE, useMatrix = useMatrix )
 > print( summary( fitols1s ) )
 
 systemfit results 
@@ -241,7 +242,8 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 > 
 > ## ****************  OLS (methodResidCov="noDfCor") ***********************
 > fitols1r <- systemfit( system, "OLS", data = Kmenta,
-+    methodResidCov = "noDfCor", returnModelMatrix = TRUE )
++    methodResidCov = "noDfCor", returnModelMatrix = TRUE,
++    useMatrix = useMatrix )
 > print( summary( fitols1r ) )
 
 systemfit results 
@@ -299,7 +301,8 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 > 
 > ## ********  OLS (methodResidCov="noDfCor", single.eq.sigma=F) ***********
 > fitols1rs <- systemfit( system, "OLS", data = Kmenta,
-+    methodResidCov = "noDfCor", single.eq.sigma = FALSE )
++    methodResidCov = "noDfCor", single.eq.sigma = FALSE,
++    useMatrix = useMatrix )
 > print( summary( fitols1rs ) )
 
 systemfit results 
@@ -357,7 +360,8 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 > 
 > ## ****************  OLS (methodResidCov="Theil" ) ***********************
 > fitols1r <- systemfit( system, "OLS", data = Kmenta,
-+    methodResidCov = "Theil", returnModelMatrix = TRUE )
++    methodResidCov = "Theil", returnModelMatrix = TRUE,
++    useMatrix = useMatrix )
 > print( summary( fitols1r ) )
 
 systemfit results 
@@ -415,7 +419,8 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 > 
 > ## ****************  OLS (methodResidCov="max") ***********************
 > fitols1r <- systemfit( system, "OLS", data = Kmenta,
-+    methodResidCov = "max", returnModelMatrix = TRUE )
++    methodResidCov = "max", returnModelMatrix = TRUE,
++    useMatrix = useMatrix )
 > print( summary( fitols1r ) )
 
 systemfit results 
@@ -473,7 +478,8 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 > 
 > ## ********  OLS (methodResidCov="max", single.eq.sigma=F) ***********
 > fitols1rs <- systemfit( system, "OLS", data = Kmenta,
-+    methodResidCov = "max", single.eq.sigma = FALSE )
++    methodResidCov = "max", single.eq.sigma = FALSE,
++    useMatrix = useMatrix )
 > print( summary( fitols1rs ) )
 
 systemfit results 
@@ -533,7 +539,7 @@ Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084
 > ## ********* OLS with cross-equation restriction ************
 > ## ****** OLS with cross-equation restriction (default) *********
 > fitols2 <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.matrix = restrm )
++    restrict.matrix = restrm, useMatrix = useMatrix )
 > print( summary( fitols2 ) )
 
 systemfit results 
@@ -590,13 +596,14 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 
 > # the same with symbolically specified restrictions
 > fitols2Sym <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.matrix = restrict )
++    restrict.matrix = restrict, useMatrix = useMatrix )
 > all.equal( fitols2, fitols2Sym )
 [1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ****** OLS with cross-equation restriction (single.eq.sigma=T) *******
 > fitols2s <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.matrix = restrm, single.eq.sigma = TRUE )
++    restrict.matrix = restrm, single.eq.sigma = TRUE,
++    useMatrix = useMatrix )
 > print( summary( fitols2s ) )
 
 systemfit results 
@@ -710,7 +717,8 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > 
 > ## ****** OLS with cross-equation restriction (methodResidCov="noDfCor") *******
 > fitols2r <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.matrix = restrm, methodResidCov = "noDfCor" )
++    restrict.matrix = restrm, methodResidCov = "noDfCor",
++    useMatrix = useMatrix )
 > print( summary( fitols2r ) )
 
 systemfit results 
@@ -768,7 +776,8 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > 
 > ## ** OLS with cross-equation restriction (methodResidCov="noDfCor",single.eq.sigma=T) ***
 > fitols2rs <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.matrix = restrm, methodResidCov = "noDfCor", returnModelMatrix = TRUE )
++    restrict.matrix = restrm, methodResidCov = "noDfCor",
++    returnModelMatrix = TRUE, useMatrix = useMatrix )
 > print( summary( fitols2rs ) )
 
 systemfit results 
@@ -827,7 +836,7 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > ## *** OLS with cross-equation restriction via restrict.regMat ***
 > ## *** OLS with cross-equation restriction via restrict.regMat (default) ***
 > fitols3 <- systemfit( system, "OLS", data = Kmenta, restrict.regMat = tc,
-+    returnModelMatrix = TRUE )
++    returnModelMatrix = TRUE, useMatrix = useMatrix )
 > print( summary( fitols3 ) )
 
 systemfit results 
@@ -885,7 +894,7 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > 
 > ## *** OLS with cross-equation restriction via restrict.regMat (single.eq.sigma=T) ***
 > fitols3s <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.regMat = tc, single.eq.sigma = TRUE )
++    restrict.regMat = tc, single.eq.sigma = TRUE, useMatrix = useMatrix )
 > print( summary( fitols3s ) )
 
 systemfit results 
@@ -999,7 +1008,8 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > 
 > ## *** OLS with cross-equation restriction via restrict.regMat (methodResidCov="noDfCor") ***
 > fitols3r <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.regMat = tc, methodResidCov = "noDfCor" )
++    restrict.regMat = tc, methodResidCov = "noDfCor",
++    useMatrix = useMatrix )
 > print( summary( fitols3r ) )
 
 systemfit results 
@@ -1057,7 +1067,8 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > 
 > ## OLS with cross-equation restriction via restrict.regMat (methodResidCov="noDfCor",single.eq.sigma=T)
 > fitols3rs <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.regMat = tc, methodResidCov = "noDfCor", single.eq.sigma = TRUE )
++    restrict.regMat = tc, methodResidCov = "noDfCor", single.eq.sigma = TRUE,
++    useMatrix = useMatrix )
 > print( summary( fitols3rs ) )
 
 systemfit results 
@@ -1116,7 +1127,7 @@ Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848
 > ## ********* OLS with 2 cross-equation restrictions ***********
 > ## ********* OLS with 2 cross-equation restrictions (default) ***********
 > fitols4 <- systemfit( system, "OLS", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q )
++    restrict.rhs = restr2q, useMatrix = useMatrix )
 > print( summary( fitols4 ) )
 
 systemfit results 
@@ -1173,13 +1184,14 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 
 > # the same with symbolically specified restrictions
 > fitols4Sym <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.matrix = restrict2 )
++    restrict.matrix = restrict2, useMatrix = useMatrix )
 > all.equal( fitols4, fitols4Sym )
 [1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ****** OLS with 2 cross-equation restrictions (single.eq.sigma=T) *******
 > fitols4s <- systemfit( system, "OLS", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q, single.eq.sigma = TRUE, returnModelMatrix = TRUE )
++    restrict.rhs = restr2q, single.eq.sigma = TRUE, returnModelMatrix = TRUE,
++    useMatrix = useMatrix )
 > print( summary( fitols4s ) )
 
 systemfit results 
@@ -1293,7 +1305,8 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 > 
 > ## ****** OLS with 2 cross-equation restrictions (methodResidCov="noDfCor") *******
 > fitols4r <- systemfit( system, "OLS", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q, methodResidCov = "noDfCor" )
++    restrict.rhs = restr2q, methodResidCov = "noDfCor",
++    useMatrix = useMatrix )
 > print( summary( fitols4r ) )
 
 systemfit results 
@@ -1351,7 +1364,8 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 > 
 > ## OLS with 2 cross-equation restrictions (methodResidCov="noDfCor", single.eq.sigma=T) *
 > fitols4rs <- systemfit( system, "OLS", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q, methodResidCov = "noDfCor", single.eq.sigma = T )
++    restrict.rhs = restr2q, methodResidCov = "noDfCor",
++    single.eq.sigma = TRUE, useMatrix = useMatrix )
 > print( summary( fitols4rs ) )
 
 systemfit results 
@@ -1410,7 +1424,8 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 > ## ***** OLS with 2 cross-equation restrictions via R and restrict.regMat ****
 > ## ***** OLS with 2 cross-equation restrictions via R and restrict.regMat (default) ****
 > fitols5 <- systemfit( system, "OLS", data = Kmenta, restrict.matrix = restr3m,
-+    restrict.rhs = restr3q, restrict.regMat = tc, methodResidCov = "noDfCor")
++    restrict.rhs = restr3q, restrict.regMat = tc, methodResidCov = "noDfCor",
++    useMatrix = useMatrix )
 > print( summary( fitols5 ) )
 
 systemfit results 
@@ -1467,14 +1482,15 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 
 > # the same with symbolically specified restrictions
 > fitols5Sym <- systemfit( system, "OLS", data = Kmenta,
-+    restrict.matrix = restrict3, restrict.regMat = tc, methodResidCov = "noDfCor")
++    restrict.matrix = restrict3, restrict.regMat = tc,
++    methodResidCov = "noDfCor", useMatrix = useMatrix )
 > all.equal( fitols5, fitols5Sym )
 [1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ***** OLS with 2 cross-equation restrictions via R and restrict.regMat (single.eq.sigma=T) ****
 > fitols5s <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
 +    restrict.rhs = restr3q, restrict.regMat = tc, single.eq.sigma = T,
-+    returnModelMatrix = TRUE )
++    returnModelMatrix = TRUE, useMatrix = useMatrix )
 > print( summary( fitols5s ) )
 
 systemfit results 
@@ -1532,7 +1548,7 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 > 
 > ## ***** OLS with 2 cross-equation restrictions via R and restrict.regMat (useDfSys=F) ****
 > fitols5o <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
-+    restrict.rhs = restr3q, restrict.regMat = tc )
++    restrict.rhs = restr3q, restrict.regMat = tc, useMatrix = useMatrix )
 > print( summary( fitols5o, useDfSys = FALSE ) )
 
 systemfit results 
@@ -1590,7 +1606,8 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 > 
 > ## OLS with 2 cross-equation restr. via R and restrict.regMat (methodResidCov="noDfCor",single.eq.sigma=T)
 > fitols5rs <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
-+    restrict.rhs = restr3q, restrict.regMat = tc, methodResidCov = "noDfCor", single.eq.sigma = T )
++    restrict.rhs = restr3q, restrict.regMat = tc, methodResidCov = "noDfCor",
++    single.eq.sigma = TRUE, useMatrix = useMatrix )
 > print( summary( fitols5rs ) )
 
 systemfit results 

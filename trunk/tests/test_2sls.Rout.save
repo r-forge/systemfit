@@ -31,6 +31,7 @@ Attaching package: 'zoo'
 	 rapply 
 
 > data( "Kmenta" )
+> useMatrix <- FALSE
 > 
 > demand <- consump ~ price + income
 > supply <- consump ~ price + farmPrice + trend
@@ -73,7 +74,7 @@ Attaching package: 'zoo'
 > ## *************** 2SLS estimation ************************
 > ## ************ 2SLS estimation (default)*********************
 > fit2sls1 <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
-+    returnModelMatrix = TRUE )
++    returnModelMatrix = TRUE, useMatrix = useMatrix )
 > print( summary( fit2sls1 ) )
 
 systemfit results 
@@ -133,7 +134,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 > 
 > ## *************** 2SLS estimation (single.eq.sigma=F)*******************
 > fit2sls1s <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
-+    single.eq.sigma = FALSE )
++    single.eq.sigma = FALSE, useMatrix = useMatrix )
 > print( summary( fit2sls1s ) )
 
 systemfit results 
@@ -251,7 +252,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 > 
 > ## ********************* 2SLS (methodResidCov = "noDfCor" ) *****************
 > fit2sls1r <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
-+    methodResidCov = "noDfCor" )
++    methodResidCov = "noDfCor", useMatrix = useMatrix )
 > print( summary( fit2sls1r ) )
 
 systemfit results 
@@ -311,7 +312,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 > 
 > ## *************** 2SLS (methodResidCov="noDfCor", single.eq.sigma=F) *************
 > fit2sls1rs <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
-+    methodResidCov = "noDfCor", single.eq.sigma = FALSE )
++    methodResidCov = "noDfCor", single.eq.sigma = FALSE, useMatrix = useMatrix )
 > print( summary( fit2sls1rs ) )
 
 systemfit results 
@@ -372,7 +373,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 > ## ********************* 2SLS with restriction ********************
 > ## **************** 2SLS with restriction (default)********************
 > fit2sls2 <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = inst )
++    inst = inst, useMatrix = useMatrix )
 > print( summary( fit2sls2 ) )
 
 systemfit results 
@@ -431,13 +432,14 @@ Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263
 
 > # the same with symbolically specified restrictions
 > fit2sls2Sym <- systemfit( system, "2SLS", data = Kmenta,
-+    restrict.matrix = restrict, inst = inst )
++    restrict.matrix = restrict, inst = inst, useMatrix = useMatrix )
 > all.equal( fit2sls2, fit2sls2Sym )
 [1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ************* 2SLS with restriction (single.eq.sigma=T) *****************
 > fit2sls2s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = inst, single.eq.sigma = TRUE, returnModelMatrix = TRUE )
++    inst = inst, single.eq.sigma = TRUE, returnModelMatrix = TRUE,
++    useMatrix = useMatrix )
 > print( summary( fit2sls2s ) )
 
 systemfit results 
@@ -555,7 +557,7 @@ Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263
 > 
 > ## ********************* 2SLS with restriction (methodResidCov = "noDfCor") **************
 > fit2sls2r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = inst, methodResidCov = "noDfCor" )
++    inst = inst, methodResidCov = "noDfCor", useMatrix = useMatrix )
 > print( summary( fit2sls2r ) )
 
 systemfit results 
@@ -615,7 +617,8 @@ Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263
 > 
 > ## ******** 2SLS with restriction (methodResidCov="noDfCor", single.eq.sigma=TRUE) *********
 > fit2sls2rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = inst, methodResidCov = "noDfCor", single.eq.sigma = TRUE )
++    inst = inst, methodResidCov = "noDfCor", single.eq.sigma = TRUE,
++    useMatrix = useMatrix )
 > print( summary( fit2sls2rs ) )
 
 systemfit results 
@@ -676,7 +679,7 @@ Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263
 > ## ********************* 2SLS with restriction via restrict.regMat ******************
 > ## *************** 2SLS with restriction via restrict.regMat (default )***************
 > fit2sls3 <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
-+    inst = inst, methodResidCov = "noDfCor" )
++    inst = inst, methodResidCov = "noDfCor", useMatrix = useMatrix )
 > print( summary( fit2sls3, useDfSys = TRUE ) )
 
 systemfit results 
@@ -738,7 +741,7 @@ Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263
 > ## ***************** 2SLS with 2 restrictions *******************
 > ## ************** 2SLS with 2 restrictions (default) **************
 > fit2sls4 <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q, inst = inst )
++    restrict.rhs = restr2q, inst = inst, useMatrix = useMatrix )
 > print( summary( fit2sls4 ) )
 
 systemfit results 
@@ -797,13 +800,14 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 
 > # the same with symbolically specified restrictions
 > fit2sls4Sym <- systemfit( system, "2SLS", data = Kmenta,
-+    restrict.matrix = restrict2, inst = inst )
++    restrict.matrix = restrict2, inst = inst, useMatrix = useMatrix )
 > all.equal( fit2sls4, fit2sls4Sym )
 [1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ************ 2SLS with 2 restrictions (single.eq.sigma=T) **************
 > fit2sls4s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q, inst = inst, single.eq.sigma = TRUE )
++    restrict.rhs = restr2q, inst = inst, single.eq.sigma = TRUE,
++    useMatrix = useMatrix )
 > print( summary( fit2sls4s ) )
 
 systemfit results 
@@ -922,7 +926,7 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 > ## ***************** 2SLS with 2 restrictions (methodResidCov="noDfCor") **************
 > fit2sls4r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
 +    restrict.rhs = restr2q, inst = inst, methodResidCov = "noDfCor",
-+    returnModelMatrix = TRUE )
++    returnModelMatrix = TRUE, useMatrix = useMatrix )
 > print( summary( fit2sls4r ) )
 
 systemfit results 
@@ -982,7 +986,8 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 > 
 > ## ***** 2SLS with 2 restrictions (methodResidCov="noDfCor", single.eq.sigma=T) *******
 > fit2sls4rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
-+    restrict.rhs = restr2q, inst = inst, methodResidCov = "noDfCor", single.eq.sigma = TRUE )
++    restrict.rhs = restr2q, inst = inst, methodResidCov = "noDfCor",
++    single.eq.sigma = TRUE, useMatrix = useMatrix )
 > print( summary( fit2sls4rs ) )
 
 systemfit results 
@@ -1043,7 +1048,8 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 > ## ************* 2SLS with 2 restrictions via R and restrict.regMat ******************
 > ## ******** 2SLS with 2 restrictions via R and restrict.regMat (default) *************
 > fit2sls5 <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
-+    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst )
++    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
++    useMatrix = useMatrix )
 > print( summary( fit2sls5 ) )
 
 systemfit results 
@@ -1102,13 +1108,15 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 
 > # the same with symbolically specified restrictions
 > fit2sls5Sym <- systemfit( system, "2SLS", data = Kmenta,
-+    restrict.matrix = restrict3, restrict.regMat = tc, inst = inst )
++    restrict.matrix = restrict3, restrict.regMat = tc, inst = inst,
++    useMatrix = useMatrix )
 > all.equal( fit2sls5, fit2sls5Sym )
 [1] "Component 2: target, current do not match when deparsed"
 > 
 > ## ******* 2SLS with 2 restrictions via R and restrict.regMat (single.eq.sigma=T) ******
 > fit2sls5s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
-+    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst, single.eq.sigma = TRUE )
++    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
++    single.eq.sigma = TRUE, useMatrix = useMatrix )
 > print( summary( fit2sls5s ) )
 
 systemfit results 
@@ -1226,7 +1234,8 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 > 
 > ## ************* 2SLS with 2 restrictions via R and restrict.regMat (methodResidCov="noDfCor") *********
 > fit2sls5r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
-+    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst, methodResidCov = "noDfCor" )
++    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
++    methodResidCov = "noDfCor", useMatrix = useMatrix )
 > print( summary( fit2sls5r ) )
 
 systemfit results 
@@ -1287,7 +1296,8 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 > ## ** 2SLS with 2 restrictions via R and restrict.regMat (methodResidCov="noDfCor", single.eq.sigma=T) **
 > fit2sls5rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
 +    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
-+    methodResidCov = "noDfCor", single.eq.sigma = TRUE, returnModelMatrix = TRUE )
++    methodResidCov = "noDfCor", single.eq.sigma = TRUE,
++    returnModelMatrix = TRUE, useMatrix = useMatrix )
 > print( summary( fit2sls5rs ) )
 
 systemfit results 
@@ -1347,7 +1357,8 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 > 
 > ## *********** 2SLS estimation with different instruments **************
 > ## ******* 2SLS estimation with different instruments (default) *********
-> fit2slsd1 <- systemfit( system, "2SLS", data = Kmenta, inst = instlist )
+> fit2slsd1 <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
++    useMatrix = useMatrix )
 > print( summary( fit2slsd1 ) )
 
 systemfit results 
@@ -1407,7 +1418,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 > 
 > ## *********** 2SLS estimation with different instruments (single.eq.sigma=F)*****
 > fit2slsd1s <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
-+    single.eq.sigma = FALSE )
++    single.eq.sigma = FALSE, useMatrix = useMatrix )
 > print( summary( fit2slsd1s ) )
 
 systemfit results 
@@ -1525,7 +1536,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 > 
 > ## ********* 2SLS estimation with different instruments (methodResidCov="noDfCor") ******
 > fit2slsd1r <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
-+    methodResidCov = "noDfCor" )
++    methodResidCov = "noDfCor", useMatrix = useMatrix )
 > print( summary( fit2slsd1r ) )
 
 systemfit results 
@@ -1585,7 +1596,8 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 > 
 > ## 2SLS estimation with different instruments (methodResidCov="noDfCor",single.eq.sigma=F)
 > fit2slsd1r <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
-+    methodResidCov = "noDfCor", single.eq.sigma = FALSE )
++    methodResidCov = "noDfCor", single.eq.sigma = FALSE,
++    useMatrix = useMatrix )
 > print( summary( fit2slsd1r ) )
 
 systemfit results 
@@ -1646,7 +1658,7 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 > ## **** 2SLS estimation with different instruments and restriction *******
 > ## ** 2SLS estimation with different instruments and restriction (default) ****
 > fit2slsd2 <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = instlist )
++    inst = instlist, useMatrix = useMatrix )
 > print( summary( fit2slsd2 ) )
 
 systemfit results 
@@ -1706,7 +1718,7 @@ Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672
 > 
 > ## 2SLS estimation with different instruments and restriction (single.eq.sigma=T)
 > fit2slsd2s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = instlist, single.eq.sigma = TRUE )
++    inst = instlist, single.eq.sigma = TRUE, useMatrix = useMatrix )
 > print( summary( fit2slsd2s ) )
 
 systemfit results 
@@ -1824,7 +1836,7 @@ Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672
 > 
 > ## **** 2SLS estimation with different instruments and restriction (methodResidCov="noDfCor")
 > fit2slsd2r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = instlist, methodResidCov = "noDfCor" )
++    inst = instlist, methodResidCov = "noDfCor", useMatrix = useMatrix )
 > print( summary( fit2slsd2r ) )
 
 systemfit results 
@@ -1884,7 +1896,8 @@ Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672
 > 
 > ## 2SLS estimation with different instr. and restr. (methodResidCov="noDfCor", single.eq.sigma=T)
 > fit2slsd2rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = instlist, methodResidCov = "noDfCor", single.eq.sigma = TRUE )
++    inst = instlist, methodResidCov = "noDfCor", single.eq.sigma = TRUE,
++    useMatrix = useMatrix )
 > print( summary( fit2slsd2rs ) )
 
 systemfit results 
@@ -1945,7 +1958,7 @@ Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672
 > ## **** 2SLS estimation with different instruments and restriction via restrict.regMat *
 > ## 2SLS estimation with different instruments and restriction via restrict.regMat (default)
 > fit2slsd3 <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
-+    inst = instlist )
++    inst = instlist, useMatrix = useMatrix )
 > print( summary( fit2slsd3 ) )
 
 systemfit results 
@@ -2005,7 +2018,7 @@ Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672
 > 
 > ## **** 2SLS estimation with different instr. and restr. via restrict.regMat (methodResidCov="noDfCor")
 > fit2slsd3r <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
-+    inst = instlist, methodResidCov = "noDfCor" )
++    inst = instlist, methodResidCov = "noDfCor", useMatrix = useMatrix )
 > print( summary( fit2slsd3r ) )
 
 systemfit results 

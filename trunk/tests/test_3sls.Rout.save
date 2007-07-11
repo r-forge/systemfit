@@ -31,6 +31,7 @@ Attaching package: 'zoo'
 	 rapply 
 
 > data( "Kmenta" )
+> useMatrix <- FALSE
 > 
 > demand <- consump ~ price + income
 > supply <- consump ~ price + farmPrice + trend
@@ -75,116 +76,124 @@ Attaching package: 'zoo'
 +    print( paste( "3SLS formula:", formulas[ i ] ) )
 +    print( "************* 3SLS *********************************" )
 +    fit3sls[[ i ]]$e1 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, method3sls = formulas[ i ] )
++       inst = inst, method3sls = formulas[ i ], useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e1 ) )
 + 
 +    print( "********************* 3SLS EViews-like *****************" )
 +    fit3sls[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, methodResidCov = "noDfCor", method3sls = formulas[ i ] )
++       inst = inst, methodResidCov = "noDfCor", method3sls = formulas[ i ],
++       useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e1e, useDfSys = TRUE ) )
 + 
 +    print( "********************* 3SLS with methodResidCov = Theil *****************" )
 +    fit3sls[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "Theil", method3sls = formulas[ i ],
-+       returnModelMatrix = TRUE )
++       returnModelMatrix = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
 +    print( "*************** W3SLS with methodResidCov = Theil *****************" )
 +    fit3sls[[ i ]]$e1wc <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "Theil", method3sls = formulas[ i ],
-+       residCovWeighted = TRUE )
++       residCovWeighted = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e1wc, useDfSys = TRUE ) )
 + 
 + 
 +    print( "*************** 3SLS with restriction *****************" )
 +    fit3sls[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.matrix = restrm, method3sls = formulas[ i ],
-+       returnModelMatrix = TRUE )
++       returnModelMatrix = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e2 ) )
 +    # the same with symbolically specified restrictions
 +    fit3sls[[ i ]]$e2Sym <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.matrix = restrict, method3sls = formulas[ i ],
-+       returnModelMatrix = TRUE )
++       returnModelMatrix = TRUE, useMatrix = useMatrix )
 +    print( all.equal( fit3sls[[ i ]]$e2, fit3sls[[ i ]]$e2Sym ) )
 + 
 +    print( "************** 3SLS with restriction (EViews-like) *****************" )
 +    fit3sls[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restrm,
-+       method3sls = formulas[ i ] )
++       method3sls = formulas[ i ], useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "*************** W3SLS with restriction *****************" )
 +    fit3sls[[ i ]]$e2w <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.matrix = restrm, method3sls = formulas[ i ],
-+       residCovWeighted = TRUE )
++       residCovWeighted = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e2w ) )
 + 
 + 
 +    print( "*************** 3SLS with restriction via restrict.regMat ********************" )
 +    fit3sls[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.regMat = tc, method3sls = formulas[ i ] )
++       inst = inst, restrict.regMat = tc, method3sls = formulas[ i ],
++       useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e3 ) )
 + 
 +    print( "*************** 3SLS with restriction via restrict.regMat (EViews-like) *******" )
 +    fit3sls[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", restrict.regMat = tc,
-+       method3sls = formulas[ i ], returnModelMatrix = TRUE )
++       method3sls = formulas[ i ], returnModelMatrix = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
 +    print( "**** W3SLS with restriction via restrict.regMat (EViews-like) ****" )
 +    fit3sls[[ i ]]$e3we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", restrict.regMat = tc,
-+       method3sls = formulas[ i ], residCovWeighted = TRUE )
++       method3sls = formulas[ i ], residCovWeighted = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e3we, useDfSys = TRUE ) )
 + 
 + 
 +    print( "*************** 3SLS with 2 restrictions **********************" )
 +    fit3sls[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.matrix = restr2m, restrict.rhs = restr2q,
-+       method3sls = formulas[ i ], returnModelMatrix = TRUE )
++       method3sls = formulas[ i ], returnModelMatrix = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e4 ) )
 +    # the same with symbolically specified restrictions
 +    fit3sls[[ i ]]$e4Sym <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.matrix = restrict2, method3sls = formulas[ i ],
-+       returnModelMatrix = TRUE )
++       returnModelMatrix = TRUE, useMatrix = useMatrix )
 +    print( all.equal( fit3sls[[ i ]]$e4, fit3sls[[ i ]]$e4Sym ) )
 + 
 +    print( "*************** 3SLS with 2 restrictions (EViews-like) ************" )
 +    fit3sls[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restr2m,
-+       restrict.rhs = restr2q, method3sls = formulas[ i ] )
++       restrict.rhs = restr2q, method3sls = formulas[ i ],
++       useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "********** W3SLS with 2 (symbolic) restrictions ***************" )
 +    fit3sls[[ i ]]$e4wSym <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.matrix = restrict2, method3sls = formulas[ i ],
-+       residCovWeighted = TRUE )
++       residCovWeighted = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e4wSym ) )
 + 
 + 
 +    print( "*************** 3SLS with 2 restrictions via R and restrict.regMat **********" )
 +    fit3sls[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.regMat = tc, restrict.matrix = restr3m, restrict.rhs = restr3q,
-+       method3sls = formulas[ i ] )
++       inst = inst, restrict.regMat = tc, restrict.matrix = restr3m,
++       restrict.rhs = restr3q, method3sls = formulas[ i ],
++       useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e5 ) )
 +    # the same with symbolically specified restrictions
 +    fit3sls[[ i ]]$e5Sym <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.regMat = tc, restrict.matrix = restrict3,
-+       method3sls = formulas[ i ] )
++       method3sls = formulas[ i ], useMatrix = useMatrix )
 +    print( all.equal( fit3sls[[ i ]]$e5, fit3sls[[ i ]]$e5Sym ) )
 + 
 +    print( "******** 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)*****" )
 +    fit3sls[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.regMat = tc, methodResidCov = "noDfCor",
 +       restrict.matrix = restr3m, restrict.rhs = restr3q,
-+       method3sls = formulas[ i ], returnModelMatrix = TRUE )
++       method3sls = formulas[ i ], returnModelMatrix = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e5e, useDfSys = TRUE ) )
 + 
 +    print( "*** W3SLS with 2 restrictions via R and restrict.regMat (EViews-like) ***" )
 +    fit3sls[[ i ]]$e5we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.regMat = tc, methodResidCov = "noDfCor",
 +       restrict.matrix = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
-+       residCovWeighted = TRUE )
++       residCovWeighted = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3sls[[ i ]]$e5we, useDfSys = TRUE ) )
 + }
 [1] "***************************************************"
@@ -5203,103 +5212,111 @@ Multiple R-Squared: -0.02034 Adjusted R-Squared: -0.211654
 +    print( paste( "3SLS formula:", formulas[ i ] ) )
 +    print( "************* 3SLS *********************************" )
 +    fit3slsi[[ i ]]$e1 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, method3sls = formulas[ i ], maxiter = 100 )
++       inst = inst, method3sls = formulas[ i ], maxiter = 100,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e1 ) )
 + 
 +    print( "********************* iterated 3SLS EViews-like ****************" )
 +    fit3slsi[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", method3sls = formulas[ i ],
-+       maxiter = 100  )
++       maxiter = 100, useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e1e, useDfSys = TRUE ) )
 + 
 +    print( "************** iterated 3SLS with methodResidCov = Theil **************" )
 +    fit3slsi[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "Theil", method3sls = formulas[ i ],
-+       maxiter = 100, returnModelMatrix = TRUE  )
++       maxiter = 100, returnModelMatrix = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
 +    print( "**************** iterated W3SLS EViews-like ****************" )
 +    fit3slsi[[ i ]]$e1we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", method3sls = formulas[ i ],
-+       maxiter = 100, residCovWeighted = TRUE  )
++       maxiter = 100, residCovWeighted = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e1we, useDfSys = TRUE ) )
 + 
 + 
 +    print( "******* iterated 3SLS with restriction *****************" )
 +    fit3slsi[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.matrix = restrm, method3sls = formulas[ i ],
-+       maxiter = 100, returnModelMatrix = TRUE )
++       maxiter = 100, returnModelMatrix = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e2 ) )
 + 
 +    print( "********* iterated 3SLS with restriction (EViews-like) *********" )
 +    fit3slsi[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restrm,
-+       method3sls = formulas[ i ], maxiter = 100 )
++       method3sls = formulas[ i ], maxiter = 100, useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "******** iterated W3SLS with restriction (EViews-like) *********" )
 +    fit3slsi[[ i ]]$e2we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restrm,
-+       method3sls = formulas[ i ], maxiter = 100, residCovWeighted = TRUE )
++       method3sls = formulas[ i ], maxiter = 100, residCovWeighted = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e2we, useDfSys = TRUE ) )
 + 
 + 
 +    print( "********* iterated 3SLS with restriction via restrict.regMat *****************" )
 +    fit3slsi[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.regMat = tc, method3sls = formulas[ i ], maxiter = 100 )
++       inst = inst, restrict.regMat = tc, method3sls = formulas[ i ],
++       maxiter = 100, useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e3 ) )
 + 
 +    print( "********* iterated 3SLS with restriction via restrict.regMat (EViews-like) ***" )
 +    fit3slsi[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", restrict.regMat = tc,
-+       method3sls = formulas[ i ], maxiter = 100, returnModelMatrix = TRUE )
++       method3sls = formulas[ i ], maxiter = 100, returnModelMatrix = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
 +    print( "***** iterated W3SLS with restriction via restrict.regMat ********" )
 +    fit3slsi[[ i ]]$e3w <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.regMat = tc, method3sls = formulas[ i ], maxiter = 100,
-+       residCovWeighted = TRUE, returnModelMatrix = TRUE )
++       residCovWeighted = TRUE, returnModelMatrix = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e3w ) )
 + 
 + 
 +    print( "******** iterated 3SLS with 2 restrictions *********************" )
 +    fit3slsi[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.matrix = restr2m, restrict.rhs = restr2q,
-+       method3sls = formulas[ i ], maxiter = 100, returnModelMatrix = TRUE )
++       method3sls = formulas[ i ], maxiter = 100, returnModelMatrix = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e4 ) )
 + 
 +    print( "********* iterated 3SLS with 2 restrictions (EViews-like) *******" )
 +    fit3slsi[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restr2m,
-+       restrict.rhs = restr2q, method3sls = formulas[ i ], maxiter = 100 )
++       restrict.rhs = restr2q, method3sls = formulas[ i ], maxiter = 100,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "******** iterated W3SLS with 2 restrictions (EViews-like) *******" )
 +    fit3slsi[[ i ]]$e4we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restr2m,
 +       restrict.rhs = restr2q, method3sls = formulas[ i ], maxiter = 100,
-+       residCovWeighted = TRUE )
++       residCovWeighted = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e4we, useDfSys = TRUE ) )
 + 
 + 
 +    print( "******** iterated 3SLS with 2 restrictions via R and restrict.regMat *********" )
 +    fit3slsi[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.regMat = tc, restrict.matrix = restr3m, restrict.rhs = restr3q,
-+       method3sls = formulas[ i ], maxiter = 100 )
++       inst = inst, restrict.regMat = tc, restrict.matrix = restr3m,
++       restrict.rhs = restr3q, method3sls = formulas[ i ], maxiter = 100,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e5 ) )
 + 
 +    print( "*** iterated 3SLS with 2 restrictions via R and restrict.regMat (EViews-like)**" )
 +    fit3slsi[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = inst, restrict.regMat = tc, methodResidCov = "noDfCor",
-+       restrict.matrix = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
-+       maxiter = 100  )
++       restrict.matrix = restr3m, restrict.rhs = restr3q,
++       method3sls = formulas[ i ], maxiter = 100, useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e5e, useDfSys = TRUE ) )
 + 
 +    print( "** iterated W3SLS with 2 restrictions via R and restrict.regMat ***" )
 +    fit3slsi[[ i ]]$e5w <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = inst, restrict.regMat = tc, restrict.matrix = restr3m, restrict.rhs = restr3q,
-+       method3sls = formulas[ i ], maxiter = 100, residCovWeighted = TRUE,
-+       returnModelMatrix = TRUE )
++       inst = inst, restrict.regMat = tc, restrict.matrix = restr3m,
++       restrict.rhs = restr3q, method3sls = formulas[ i ], maxiter = 100,
++       residCovWeighted = TRUE, returnModelMatrix = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsi[[ i ]]$e5w ) )
 + }
 [1] "***************************************************"
@@ -10453,100 +10470,111 @@ Multiple R-Squared: -2.430669 Adjusted R-Squared: -3.073919
 +    print( paste( "3SLS formula:", formulas[ i ] ) )
 +    print( "************* 3SLS with different instruments **************" )
 +    fit3slsd[[ i ]]$e1 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, method3sls = formulas[ i ] )
++       inst = instlist, method3sls = formulas[ i ], useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e1 ) )
 + 
 +    print( "******* 3SLS with different instruments (EViews-like) **********" )
 +    fit3slsd[[ i ]]$e1e <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, methodResidCov = "noDfCor", method3sls = formulas[ i ] )
++       inst = instlist, methodResidCov = "noDfCor", method3sls = formulas[ i ],
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e1e, useDfSys = TRUE ) )
 + 
 +    print( "**** 3SLS with different instruments and methodResidCov = Theil ***" )
 +    fit3slsd[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodResidCov = "Theil", method3sls = formulas[ i ],
-+       returnModelMatrix = TRUE )
++       returnModelMatrix = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e1c, useDfSys = TRUE ) )
 + 
 +    print( "************* W3SLS with different instruments **************" )
 +    fit3slsd[[ i ]]$e1w <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, method3sls = formulas[ i ], residCovWeighted = TRUE )
++       inst = instlist, method3sls = formulas[ i ], residCovWeighted = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e1w ) )
 + 
 + 
 +    print( "******* 3SLS with different instruments and restriction ********" )
 +    fit3slsd[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, restrict.matrix = restrm, method3sls = formulas[ i ],
-+       returnModelMatrix = TRUE )
++       returnModelMatrix = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e2 ) )
 + 
 +    print( "** 3SLS with different instruments and restriction (EViews-like) *" )
 +    fit3slsd[[ i ]]$e2e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodResidCov = "noDfCor", restrict.matrix = restrm,
-+       method3sls = formulas[ i ] )
++       method3sls = formulas[ i ], useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e2e, useDfSys = TRUE ) )
 + 
 +    print( "** W3SLS with different instruments and restriction (EViews-like) *" )
 +    fit3slsd[[ i ]]$e2we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodResidCov = "noDfCor", restrict.matrix = restrm,
-+       method3sls = formulas[ i ], residCovWeighted = TRUE )
++       method3sls = formulas[ i ], residCovWeighted = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e2we, useDfSys = TRUE ) )
 + 
 + 
 +    print( "** 3SLS with different instruments and restriction via restrict.regMat *******" )
 +    fit3slsd[[ i ]]$e3 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, restrict.regMat = tc, method3sls = formulas[ i ] )
++       inst = instlist, restrict.regMat = tc, method3sls = formulas[ i ],
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e3 ) )
 + 
 +    print( "3SLS with different instruments with restriction via restrict.regMat (EViews-like)" )
 +    fit3slsd[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodResidCov = "noDfCor", restrict.regMat = tc,
-+       method3sls = formulas[ i ], returnModelMatrix = TRUE )
++       method3sls = formulas[ i ], returnModelMatrix = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e3e, useDfSys = TRUE ) )
 + 
 +    print( "** W3SLS with different instr. and restr. via restrict.regMat ****" )
 +    fit3slsd[[ i ]]$e3w <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, restrict.regMat = tc, method3sls = formulas[ i ],
-+       residCovWeighted = TRUE, returnModelMatrix = TRUE )
++       residCovWeighted = TRUE, returnModelMatrix = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e3w ) )
 + 
 + 
 +    print( "****** 3SLS with different instruments and 2 restrictions *********" )
 +    fit3slsd[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, restrict.matrix = restr2m, restrict.rhs = restr2q,
-+       method3sls = formulas[ i ], returnModelMatrix = TRUE )
++       method3sls = formulas[ i ], returnModelMatrix = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e4 ) )
 + 
 +    print( "** 3SLS with different instruments and 2 restrictions (EViews-like) *" )
 +    fit3slsd[[ i ]]$e4e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, methodResidCov = "noDfCor", restrict.matrix = restr2m,
-+       restrict.rhs = restr2q, method3sls = formulas[ i ] )
++       restrict.rhs = restr2q, method3sls = formulas[ i ],
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e4e, useDfSys = TRUE ) )
 + 
 +    print( "**** W3SLS with different instruments and 2 restrictions *********" )
 +    fit3slsd[[ i ]]$e4w <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, restrict.matrix = restr2m, restrict.rhs = restr2q,
-+       method3sls = formulas[ i ], residCovWeighted = TRUE )
++       method3sls = formulas[ i ], residCovWeighted = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e4w ) )
 + 
 + 
 +    print( " 3SLS with different instruments with 2 restrictions via R and restrict.regMat" )
 +    fit3slsd[[ i ]]$e5 <- systemfit( system, "3SLS", data = Kmenta,
-+       inst = instlist, restrict.regMat = tc, restrict.matrix = restr3m, restrict.rhs = restr3q,
-+       method3sls = formulas[ i ] )
++       inst = instlist, restrict.regMat = tc, restrict.matrix = restr3m,
++       restrict.rhs = restr3q, method3sls = formulas[ i ],
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e5 ) )
 + 
 +    print( "3SLS with diff. instruments and 2 restr. via R and restrict.regMat (EViews-like)" )
 +    fit3slsd[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, restrict.regMat = tc, methodResidCov = "noDfCor",
 +       restrict.matrix = restr3m, restrict.rhs = restr3q,
-+       method3sls = formulas[ i ], returnModelMatrix = TRUE )
++       method3sls = formulas[ i ], returnModelMatrix = TRUE,
++       useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e5e, useDfSys = TRUE ) )
 + 
 +    print( "W3SLS with diff. instr. and 2 restr. via R and restrict.regMat (EViews-like)" )
 +    fit3slsd[[ i ]]$e5we <- systemfit( system, "3SLS", data = Kmenta,
 +       inst = instlist, restrict.regMat = tc, methodResidCov = "noDfCor",
 +       restrict.matrix = restr3m, restrict.rhs = restr3q, method3sls = formulas[ i ],
-+       residCovWeighted = TRUE )
++       residCovWeighted = TRUE, useMatrix = useMatrix )
 +    print( summary( fit3slsd[[ i ]]$e5we, useDfSys = TRUE ) )
 + }
 [1] "***************************************************"
