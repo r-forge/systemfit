@@ -101,7 +101,7 @@ the degrees of freedom, and the $p$ value.
 \subsection{Efficiency of the code}
 We have followed \cite{bates04} to make the code faster and more stable.
 First, if a formula contains an inverse of a matrix
-that is post-multiplied by a vector,
+that is post-multiplied by a vector or matrix,
 we use \code{solve(A,b)} instead of \code{solve(A) \%*\% b}.
 Second, we calculate crossproducts
 by \code{crossprod(X)} or \code{crossprod(X,y)}
@@ -128,10 +128,44 @@ X' \Omega^{-1}
    \vdots \\
    \sigma^{Gi} {X^G} \\
 \end{array} \right]' ,
+\label{eq:omegaInv}
 \end{equation}
 where $\sigma^{ij}$ are the elements of the matrix $\Sigma^{-1}$,
 and $X^i$ is a submatrix of $X$ that contains the rows
 that belong to the $i$'s equation.
+
+Since version 1.0, \pkg{systemfit} uses the \pkg{Matrix} package
+\citep{r-matrix-07} by default.
+This package provides classes for different types of matrices.
+For instance, we choose class \code{dgeMatrix}
+(°real matrices in general storage mode°),
+for matrices $X_i$ in~(\ref{eq:model-array}),
+class \code{dgCMatrix} (°general, numeric, sparse matrices
+in the (sorted) compressed sparse column format°)
+for matrix $X$ in~(\ref{eq:model-matrices}),
+and class \code{dspMatrix}
+(°symmetric real matrices in packed storage (one triangle only)°)
+for the residual covariance matrix $\SHat$.
+If the \pkg{Matrix} package is used,
+the possibly huge matrix $\Omega^{-1}$ is no longer a problem,
+because it is a sparse matrix
+that can be stored in a compressed format (class \code{dgCMatrix}).
+Hence, we no longer need the algorithm in equation~(\ref{eq:omegaInv}).
+We have tried different ways to calculate a GLS estimator
+like in (\ref{eq:sur})
+and we found
+that the following code is the fastest:
+\begin{Schunk}
+\begin{Sinput}
+> sigmaInv <- solve( residCov )
+> xtOmegaInv <- t( xMat ) %*% kronecker( sigmaInv, Diagonal( nObs ) )
+> coef <- solve( xtOmegaInv %*% xMat, xtOmegaInv %*%  yVec )
+\end{Sinput}
+\end{Schunk}
+In this code snippet,
+\code{residCov} is the residual covariance matrix $\SHat$,
+\code{xMat} is the matrix $X$ and
+\code{yVec} is the vector $y$ in~(\ref{eq:sur}).
 
 
 \subsection[Overlap with other functions and packages in R]
