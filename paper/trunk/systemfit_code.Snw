@@ -155,13 +155,11 @@ We have tried different ways to calculate a GLS estimator
 like in (\ref{eq:sur})
 and we found
 that the following code is the fastest:
-\begin{Schunk}
-\begin{Sinput}
-> sigmaInv <- solve( residCov )
-> xtOmegaInv <- t( xMat ) %*% kronecker( sigmaInv, Diagonal( nObs ) )
-> coef <- solve( xtOmegaInv %*% xMat, xtOmegaInv %*%  yVec )
-\end{Sinput}
-\end{Schunk}
+<<eval=FALSE>>=
+sigmaInv <- solve( residCov )
+xtOmegaInv <- t( xMat ) %*% kronecker( sigmaInv, Diagonal( nObs ) )
+coef <- solve( xtOmegaInv %*% xMat, xtOmegaInv %*%  yVec )
+@
 In this code snippet,
 \code{residCov} is the residual covariance matrix $\SHat$,
 \code{xMat} is the matrix $X$ and
