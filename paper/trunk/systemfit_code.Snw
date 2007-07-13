@@ -43,7 +43,11 @@ This function estimates the equation system as described
 in sections~\ref{sec:Estimation}.
 If parameter restrictions are provided, the formulas in
 section~\ref{sec:Restrictions} are applied.
-Furthermore, the user can control several details of the estimation.
+The calculation of the GLS estimator is implemented in the
+internal (hidden) function \code{.calcGLS}
+and the residual covariance matrix is calculated inside
+\code{.calcResidCov}.
+The user can control several details of the estimation.
 For instance, the
 formula to calculate the residual covariance matrix
 (see section~\ref{sec:residcov}),
@@ -69,8 +73,9 @@ is available in appendix~\ref{sec:returned-object}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Efficiency of the code}
-We have followed \cite{bates04} to make the code faster and more stable.
+\subsection{Efficiency of computations}
+We have followed \cite{bates04} to make the code of \pkg{systemfit}
+faster and more stable.
 First, if a formula contains an inverse of a matrix
 that is post-multiplied by a vector or matrix,
 we use \code{solve(A,b)} instead of \code{solve(A) \%*\% b}.
@@ -104,10 +109,13 @@ X' \Omega^{-1}
 where $\sigma^{ij}$ are the elements of the matrix $\Sigma^{-1}$,
 and $X^i$ is a submatrix of $X$ that contains the rows
 that belong to the $i$'s equation.
+This computation is done inside the internal (hidden) function
+\code{.calcXtOmegaInv}.
 
-Since version 1.0, \pkg{systemfit} uses the \pkg{Matrix} package
-\citep{r-matrix-07} by default.
-This package provides classes for different types of matrices.
+Since version 1.0, the \code{systemfit} function by default
+uses the \pkg{Matrix} package \citep{r-matrix-07}
+for all computations where matrices are involved.
+The \pkg{Matrix}package provides classes for different types of matrices.
 For instance, we choose class \code{dgeMatrix}
 (°real matrices in general storage mode°),
 for matrices $X_i$ in~(\ref{eq:model-array}),
@@ -122,17 +130,18 @@ the possibly huge matrix $\Omega^{-1}$ is no longer a problem,
 because it is a sparse matrix
 that can be stored in a compressed format (class \code{dgCMatrix}).
 Hence, we no longer need the algorithm in equation~(\ref{eq:omegaInv}).
-We have tried different ways to calculate a GLS estimator
+We have tested different ways to calculate a GLS estimator
 like in (\ref{eq:sur})
 and we found
 that the following code is the fastest:
 <<eval=FALSE>>=
 sigmaInv <- solve( residCov )
-xtOmegaInv <- t( xMat ) %*% kronecker( sigmaInv, Diagonal( nObs ) )
+xtOmegaInv <- crossprod( xMat, kronecker( sigmaInv, Diagonal( nObs ) ) )
 coef <- solve( xtOmegaInv %*% xMat, xtOmegaInv %*%  yVec )
 @
 In this code snippet,
 \code{residCov} is the residual covariance matrix $\SHat$,
+\code{nObs} is the number of observations in each equation $T$,
 \code{xMat} is the matrix $X$ and
 \code{yVec} is the vector $y$ in~(\ref{eq:sur}).
 
@@ -142,7 +151,7 @@ faster and more robust than calculations with the traditional method.
 To test this hypothesis, we use function \code{createSystemfitModel}
 to create a medium-sized multi-equation model with 8~equations,
 10~regressors in each equation (without constant),
-and 750~obsevations.
+and 750~observations.
 Then, we estimated this model with and without using the \pkg{Matrix} package.
 Finally, the results are compared.
 <<>>=
