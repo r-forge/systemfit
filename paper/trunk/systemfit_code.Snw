@@ -69,35 +69,6 @@ is available in appendix~\ref{sec:returned-object}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Statistical tests}
-This section explains the implementation of the statistical tests described in
-sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
-The method \code{linear.hypothesis.systemfit}
-can be used to test linear restrictions on the estimated parameters
-by an $F$ test or a Wald/$\chi^2$ test.
-Internally, the $F$ statistic is computed by the hidden function
-\code{.ftest.systemfit}
-and the Wald/$\chi^2$ statistic is computed by the method
-\code{linear.hypothesis.default} of the \pkg{car} package
-\citep{r-car-1.2-1}.
-The method \code{lrtest.systemfit} is a wrapper function
-to \code{lrtest.default} of the \pkg{lmtest} package
-\citep{r-lmtest},
-which computes the Likelihood-ratio (LR) test statistic.
-All these functions return an object of class \code{anova}
-that contains --- amongst others ---
-the empirical test statistic, the degrees of freedom,
-and the corresponding $p$ value.
-
-The function \code{hausman.systemfit}
-tests the consistency of the 3SLS estimator.
-It returns an object of class \code{htest},
-which contains --- amongst others ---
-the empirical test statistic,
-the degrees of freedom, and the $p$ value.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Efficiency of the code}
 We have followed \cite{bates04} to make the code faster and more stable.
 First, if a formula contains an inverse of a matrix
@@ -216,6 +187,35 @@ By default, the \code{systemfit} function uses the \pkg{Matrix} package
 for the GLS estimations,
 but the user can opt for not using it to decrease the computation time
 of small models (e.g.\ in Monte Carlo studies).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Statistical tests}
+This section explains the implementation of the statistical tests described in
+sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
+The method \code{linear.hypothesis.systemfit}
+can be used to test linear restrictions on the estimated parameters
+by an $F$ test or a Wald/$\chi^2$ test.
+Internally, the $F$ statistic is computed by the hidden function
+\code{.ftest.systemfit}
+and the Wald/$\chi^2$ statistic is computed by the method
+\code{linear.hypothesis.default} of the \pkg{car} package
+\citep{r-car-1.2-1}.
+The method \code{lrtest.systemfit} is a wrapper function
+to \code{lrtest.default} of the \pkg{lmtest} package
+\citep{r-lmtest},
+which computes the Likelihood-ratio (LR) test statistic.
+All these functions return an object of class \code{anova}
+that contains --- amongst others ---
+the empirical test statistic, the degrees of freedom,
+and the corresponding $p$ value.
+
+The function \code{hausman.systemfit}
+tests the consistency of the 3SLS estimator.
+It returns an object of class \code{htest},
+which contains --- amongst others ---
+the empirical test statistic,
+the degrees of freedom, and the $p$ value.
 
 
 \subsection[Overlap with other functions and packages in R]
