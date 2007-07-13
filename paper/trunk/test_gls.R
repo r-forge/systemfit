@@ -109,7 +109,7 @@ xMatM <- as( xMat, "dgCMatrix" )
 residCovM <- as( residCov, "dspMatrix" )
 system.time( {
    sigmaInvM <- solve( residCovM )
-   xtOmegaInvM <- t( xMatM ) %*% kronecker( sigmaInvM, Diagonal( nObs ) )
+   xtOmegaInvM <- crossprod( xMatM, kronecker( sigmaInvM, Diagonal( nObs ) ) )
    surMatrix2 <- solve( xtOmegaInvM %*% xMatM, xtOmegaInvM %*%  yVec )
 } )
 all.equal( surNaive, surMatrix )
