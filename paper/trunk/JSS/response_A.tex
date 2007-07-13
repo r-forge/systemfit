@@ -442,6 +442,10 @@ by °\code{method \%in\% c("OLS", "WLS", ...)}°.
 %      chol2inv(qr.R(qr(X)))
 %      chol2inv(chol(crossprod(X)))
 %     where chol() should be faster but qr() might be more accurate.
+Furthermore, we have made the computations in \pkg{systemfit} more stable
+by using the \pkg{Matrix} package for matrix computations.
+This is described in section~3.2.
+
 %
 \subsection{Replication of Textbook Results (5)}
 %   o Replication of textbook results (5)
