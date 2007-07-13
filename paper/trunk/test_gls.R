@@ -113,6 +113,11 @@ system.time( {
    surMatrix2 <- solve( xtOmegaInvM %*% xMatM, xtOmegaInvM %*%  yVec )
 } )
 all.equal( surNaive, surMatrix )
+system.time( {
+   xtOmegaInvM <- .calcXtOmegaInv( xMatM, residCovM, nObs, useMatrix = TRUE )
+   surMatrix2 <- solve( xtOmegaInvM %*% xMatM, xtOmegaInvM %*%  yVec )
+} )
+
 
 system.time( sigmaInvM <- solve( residCovM ) )
 system.time( omegaInvM <- kronecker( sigmaInvM, Diagonal( nObs ) ) )
