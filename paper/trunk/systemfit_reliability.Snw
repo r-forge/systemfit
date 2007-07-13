@@ -11,7 +11,8 @@ confirms the reliability of the \pkg{systemfit} package.
 Second, this section helps teachers and students
 to use \pkg{systemfit} in their lectures.
 Third, a section like this encourages reproducible research,
-which should be a general goal in scientific analysis \citep{buckheit95}.
+which should be a general goal in scientific analysis
+\citep{buckheit95,schwab00}.
 For instance, by preparing this section
 the exact estimation methods of the replicated analyses have been discovered
 and a few errors in \citet{greene03} have been found
