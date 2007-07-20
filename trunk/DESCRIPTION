@@ -2,9 +2,9 @@ Package: systemfit
 Version: 1.0-0
 Date: 2007/07/13
 Title: Estimating Systems of Simultaneous Equations
-Author: Jeff D. Hamann <jeff.hamann@forestinformatics.com> and
-        Arne Henningsen <ahenningsen@agric-econ.uni-kiel.de>
-Maintainer: Jeff D. Hamann <jeff.hamann@forestinformatics.com>
+Author: Arne Henningsen <ahenningsen@agric-econ.uni-kiel.de>
+	Jeff D. Hamann <jeff.hamann@forestinformatics.com> and
+Maintainer: Arne Henningsen <ahenningsen@agric-econ.uni-kiel.de>
 Depends: R (>= 1.8.0), Matrix, car, lmtest
 Suggests: plm, MASS
 Description: This package contains functions for fitting simultaneous
@@ -14,4 +14,3 @@ Description: This package contains functions for fitting simultaneous
  Two-Stage Least Squares (W2SLS), and Three-Stage Least Squares (3SLS).
 License: GPL version 2 or newer
 URL: http://www.r-project.org, http://www.systemfit.org
-
