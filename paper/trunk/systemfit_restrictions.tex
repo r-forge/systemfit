@@ -9,7 +9,7 @@ that are derived from the underlying theoretical model.%
 For instance in econometric demand and production analysis,
 it is common to impose (and test) homogeneity and symmetry properties.
 }
-There are two ways to impose linear parameter restrictions.
+There are two methods to impose linear parameter restrictions.
 First, a matrix $M$ can be specified that
 \begin{equation}
    \beta = M \cdot \beta^M \label{eq:T-restr} ,
@@ -22,7 +22,7 @@ the number of columns equal to the number of restricted coefficients
 $M$ can be used to map each unrestricted coefficient to one or more
 restricted coefficients.
 
-The second way to impose linear parameter restrictions
+The second method to impose linear parameter restrictions
 can be formulated by
 \begin{equation}
    R \beta^R = q ,
@@ -34,14 +34,14 @@ to impose the restrictions \citep[see][p.\ 100]{greene03}.
 Each linear independent restriction is represented by one row of $R$
 and the corresponding element of~$q$.
 
-The first way is less flexible than this latter one%
+The first method is less flexible than the second%
 \footnote{
 While restrictions like $\beta_1 = 2 \beta_2$ can be imposed by
 both methods,
 restrictions like $\beta_1 + \beta_2 = 4$ can be imposed only
 by the second method.
 }, 
-but the first way is preferable if equality constraints for coefficients
+and is preferable if equality constraints for coefficients
 across many equations of the system are imposed. 
 Of course, these restrictions can be also imposed using
 the latter method.
