@@ -78,6 +78,7 @@ is available in appendix~\ref{sec:returned-object}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Efficiency of computations}
+\label{sec:code-efficiency}
 We have followed \cite{bates04} to make the code of \pkg{systemfit}
 faster and more stable.
 First, if a formula contains an inverse of a matrix
