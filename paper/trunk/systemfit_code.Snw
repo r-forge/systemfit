@@ -54,12 +54,13 @@ is used to create the restriction matrix.
 The user can control several details of the estimation.
 For instance, the
 formula to calculate the residual covariance matrix
-(see section~\ref{sec:residcov}),
-the degrees of freedom for the $t$ tests
-(see section~\ref{sec:degreesOfFreedom}), or
+(see section~\ref{sec:residcov}), or
 the formula for the 3SLS estimation
 (see sections~\ref{sec:Estimation} and~\ref{sec:Restrictions})
 can be specified by the user.
+The function \code{systemfit.control} sets suitable default values
+for the technical control parameters.
+
 If \code{systemfit} is applied to
 a (classical) °Seemingly Unrelated Regression° analysis with panel-like data,
 it calls the hidden internal function \code{.systemfitPanel},
