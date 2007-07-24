@@ -64,6 +64,7 @@ eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
 eqSystem <- list( demand = eqDemand, supply = eqSupply )
 fitols <- systemfit( eqSystem )
+print( fitols )
 @
 
 The first line loads the \pkg{systemfit} package.
@@ -80,32 +81,8 @@ are labeled °demand° and °supply°, respectively.%
 If no labels are provided, the equations are numbered consecutively
 ( °eq1°, °eq2°, \ldots ).
 }
-Finally, in the last line, the regression is performed
-and the result is assigned to the variable \code{fitols}.
-
-Summary results can be printed by
-<<>>=
-summary( fitols )
-@
-
-First, the estimation method is reported
-and a few summary statistics for each equation are given.
-Then, some results regarding the whole equation system are printed:
-covariance matrix and correlations of the residuals,
-log of the determinant of the residual covariance matrix,
-and $R^2$ value of the whole system.%
-\footnote{
-If the model is estimated by SUR or 3SLS,
-McElroy's $R^2$ value and
-the covariance matrix used for estimation are printed additionally.
-}
-Finally, the estimation results of each equation are reported:
-formula of the estimated equation,
-estimated parameters, their standard errors, $t$ values, $P$ values
-and codes indicating their statistical significance,
-and some other statistics like
-standard error of the residuals or
-$R^2$ value of the equation.
+Finally, in the last two lines, the regression is performed
+and the estimation results are printed.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -381,23 +358,6 @@ argument           & equation       & equation \\
 \end{table}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection[Degrees of freedom for t tests]{Degrees of freedom for $\boldsymbol{t}$ tests}
-Two different approaches exist to determine the degrees of freedom
-of $t$ tests on the estimated parameters
-(section~\ref{sec:degreesOfFreedom}).
-The approach applied in \code{systemfit} can be selected
-with argument \code{probdfsys}.
-If it is \code{TRUE},
-the degrees of freedom of the whole system are taken.
-In contrast, if \code{probdfsys} is \code{FALSE},
-the degrees of freedom of the single equation are taken.
-If no parameter restrictions are imposed,
-argument \code{probdfsys} is \code{FALSE} by default.
-However, if any parameter restrictions are imposed
-by argument \code{restrict.matrix} or \code{restrict.regMat},
-\code{probdfsys} is \code{TRUE} by default.
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Sigma squared}
@@ -485,7 +445,7 @@ that is included in the \pkg{systemfit} package.
 The second line loads the \pkg{plm} package
 and the following line specifies a \code{pdata.frame},
 where the variables \code{firm} and \code{year} indicate
-the indivuidual (cross-section) and time identifier, respectively.
+the individual (cross-section) and time identifier, respectively.
 Finally, a seemingly unrelated regression is performed.
 
 The optional argument \code{pooled} is a logical variable indicating
@@ -498,6 +458,68 @@ but with coefficients restricted to be equal for all individuals.
 <<>>=
 greeneSurPooled <- systemfit( invest ~ value + capital, "SUR",
    data = GrunfeldGreene, pooled = TRUE )
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[Summary results with summary.systemfit]
+   {Summary results with \code{summary.systemfit}}
+
+The \code{summary} method can be used
+to compute and print summary results of objects
+returned by \code{systemfit}.
+<<>>=
+summary( fitsur )
+@
+First, the estimation method is reported
+and a few summary statistics for each equation are given.
+Then, some results regarding the whole equation system are printed:
+the covariance matrix used for estimation,
+the covariance matrix and correlation matrix of the (final) residuals,
+the log of the determinant of the residual covariance matrix,
+the $R^2$ value of the whole system,
+and McElroy's $R^2$ value.
+Finally, the estimation results of each equation are reported:
+the formula of the estimated equation,
+the estimated parameters, their standard errors, $t$ values, $P$ values
+and codes indicating their statistical significance,
+as well as some other statistics like
+the standard error of the residuals and
+the $R^2$ value of the equation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection[Degrees of freedom for t tests]
+   {Degrees of freedom for $t$ tests}
+
+Function \code{summary.systemfit} has an optional argument \code{probdfsys}.
+It selects the approach
+that is applied by \code{systemfit}
+to determine the degrees of freedom of $t$ tests on the estimated parameters
+(section~\ref{sec:degreesOfFreedom}).
+If argument \code{probdfsys} is \code{TRUE},
+the degrees of freedom of the whole system are taken.
+In contrast, if \code{probdfsys} is \code{FALSE},
+the degrees of freedom of the single equation are taken.
+If the estimation was not restricted by any parameter restrictions,
+argument \code{probdfsys} is \code{FALSE} by default.
+However, if parameter restrictions were imposed,
+the default value of \code{probdfsys} is \code{TRUE}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Reduce amount of printed output}
+
+The optional arguments \code{printResidCov} and \code{printEquations}
+can be used reduce the amount of the printed output.
+Argument \code{printResidCov} specifies
+whether the residual covariance matrix,
+the residual correlation matrix,
+and the determinant of the residual covariance matrix are printed.
+Argument \code{printEquations} specifies
+whether summary results of each equation are printed.
+By default, both arguments are \code{TRUE}.
+The following command returns a sparse summary output:
+<<>>=
+summary( fitsur, printResidCov = FALSE, printEquations = FALSE )
 @
 
 
