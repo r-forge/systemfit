@@ -47,6 +47,10 @@ The calculation of the GLS estimator is implemented in the
 internal (hidden) function \code{.calcGLS}
 and the residual covariance matrix is calculated inside
 \code{.calcResidCov}.
+If parameter restrictions are specified symbolically,
+function \code{makeHypothesis} of the \pkg{car} package \citep{r-car-1.2-1}
+is used to create the restriction matrix.
+
 The user can control several details of the estimation.
 For instance, the
 formula to calculate the residual covariance matrix
