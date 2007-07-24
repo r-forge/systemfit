@@ -8,10 +8,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Residual covariance matrix}\label{sec:residcov}
 
-Since the (true) disturbances of the estimated equations are generally not known,
+Since the (true) disturbances ($u_i$) of the estimated equations
+are generally not known,
 their covariance matrix cannot be determined.
 Therefore, this covariance matrix is generally calculated from
-estimated residuals
+estimated residuals ($\uHat_i$)
 that are obtained from a first-step OLS or 2SLS estimation.
 Then, in a second step, the estimated residual covariance matrix
 can be employed for a WLS, SUR, W2SLS, or 3SLS estimation.
@@ -149,7 +150,7 @@ the estimated parameters and their standard errors are identical
 to an equation-wise OLS estimation.
 In this case, it is reasonable to use the degrees of freedom of
 each single equation,
-because this yields the same $p$ values as the equation-wise
+because this yields the same $P$ values as the equation-wise
 OLS estimation.
 
 In contrast, if a system of equations is estimated with many
@@ -213,9 +214,9 @@ $T$ is the number of observations per equation,
 $K$ is the total number of estimated coefficients, and
 $\SHat$ is the (estimated) residual covariance matrix
 used in the estimation.
-Under the null hypothesis, $F$ has an $F$ distribution
+Under the null hypothesis, $F$ has an approximate $F$ distribution
 with $j$ and $G \cdot T - K$ degrees of freedom
-\citep[p.\ 314]{theil71}.
+\citep[p.~314]{theil71}.
 
 The Wald statistic for systems of equations is
 \begin{equation}
@@ -229,7 +230,7 @@ distribution with $j$ degrees of freedom
 under the null hypothesis
 \citep[p.\ 347]{greene03}.
 
-The LR statistic for systems of equations is
+The Likelihood-Ratio (LR) statistic for systems of equations is
 \begin{equation}
 LR = T \cdot \left(
    log \left| \SHat_r \right|
@@ -256,9 +257,9 @@ The null hypothesis of the test is
 that the instrumental variables of each equation are
 uncorrelated with the disturbance terms of all other equations
 ($\E \left[ u_i' H_j \right] = 0 \, \forall \, i \neq j$).
-Under this hypothesis both the 2SLS and the 3SLS estimator are consistent
-but only the 3SLS estimator is (asymptotically) efficient.
-Under the alternative hypothesis the 2SLS estimator is consistent
+Under this null hypothesis, both the 2SLS and the 3SLS estimator are consistent,
+but the 3SLS estimator is (asymptotically) more efficient.
+Under the alternative hypothesis, the 2SLS estimator is consistent
 but the 3SLS estimator is inconsistent,
 i.e.\ the instrumental variables of each equation are
 uncorrelated with the disturbances of the same equation
@@ -275,10 +276,10 @@ The Hausman test statistic is
 \label{eq:hausman}
 \end{equation}
 where $\bHat_{2SLS}$ and $\COVHat \left[ \bHat_{2SLS} \right]$ are the estimated
-coefficient and covariance matrix from 2SLS estimation, and
+coefficient and covariance matrix from a 2SLS estimation, and
 $\bHat_{3SLS}$ and $\COVHat \left[ \bHat_{3SLS} \right]$ are the estimated
-coefficients and covariance matrix from 3SLS estimation.
-Under the null hypothesis this test statistic has a
+coefficients and covariance matrix from a 3SLS estimation.
+Under the null hypothesis, this test statistic has a
 $\chi^2$ distribution with degrees of freedom equal to the number of
 estimated parameters.
 

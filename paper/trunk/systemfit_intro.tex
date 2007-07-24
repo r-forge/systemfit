@@ -36,12 +36,13 @@ that appear on the left-hand side in one equation
 and on the right-hand side of another equation.
 Ignoring the endogeneity of these variables can lead to inconsistent
 parameter estimates.
-This simultaneity bias can be corrected for in each equation by
-applying a °Two-Stage Least Squares° (2SLS) method or for all
-equations simultaneously when combined with SUR resulting in a
-°Three-Stage Least Squares° (3SLS) estimation of the system of
-equations.
-
+This simultaneity bias can be corrected for by
+applying a °Two-Stage Least Squares° (2SLS) estimation
+to each equation.
+Combining this estimation method with the SUR method results
+in a simultaneous estimation of the system of equations
+by the °Three-Stage Least Squares° (3SLS) method
+\citep{zellner62b}.
 
 % For all of the methods developed in the package, the disturbances of
 % the individual equations are assumed to be independent and identically

@@ -59,7 +59,7 @@ As expected, the results are identical.
 
 Now, we estimate the system by Full Information Maximum Likelihood
 (FIML) with \code{sem}:
-<<>>=
+<<keep.source = TRUE>>=
 fimlRam <- rbind( limlRam,
    c( "consump  <-> invest",   "s12", NA ),
    c( "consump  <-> privWage", "s13", NA ),

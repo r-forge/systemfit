@@ -67,8 +67,8 @@ The \code{systemfit} function returns an object of class \code{systemfit}
 that contains many elements users might be interested in.
 A complete description is available in the documentation of this function
 that is included in the package.
-A comparison with the elements returned by \code{lm},
-the basic tool for linear regressions in \proglang{R},
+A comparison with the elements returned by \code{lm}
+--- the basic tool for linear regressions in \proglang{R} ---
 is available in appendix~\ref{sec:returned-object}.
 
 
@@ -115,7 +115,7 @@ This computation is done inside the internal (hidden) function
 Since version 1.0, the \code{systemfit} function by default
 uses the \pkg{Matrix} package \citep{r-matrix-07}
 for all computations where matrices are involved.
-The \pkg{Matrix}package provides classes for different types of matrices.
+The \pkg{Matrix} package provides classes for different types of matrices.
 For instance, we choose class \code{dgeMatrix}
 (°real matrices in general storage mode°),
 for matrices $X_i$ in~(\ref{eq:model-array}),
@@ -160,7 +160,7 @@ set.seed( 1 )
 systemfitModel <- createSystemfitModel( nEq = 8, nReg = 10, nObs = 750 )
 system.time(
    fitMatrix <- systemfit( systemfitModel$eqns, "SUR",
-      data = systemfitModel$data, useMatrix = TRUE )
+      data = systemfitModel$data )
 )
 system.time(
    fitTrad <- systemfit( systemfitModel$eqns, "SUR",
@@ -191,6 +191,9 @@ system.time(
 )
 all.equal( fitSmallMatrix, fitSmallTrad )
 @
+As mentioned above, the usage of the \pkg{Matrix} package
+clearly increases the computation times
+for iterated (SUR) estimations of small models with small data sets.
 
 By default, the \code{systemfit} function uses the \pkg{Matrix} package
 for the GLS estimations,
@@ -217,14 +220,14 @@ which computes the Likelihood-ratio (LR) test statistic.
 All these functions return an object of class \code{anova}
 that contains --- amongst others ---
 the empirical test statistic, the degrees of freedom,
-and the corresponding $p$ value.
+and the corresponding $P$ value.
 
 The function \code{hausman.systemfit}
 tests the consistency of the 3SLS estimator.
 It returns an object of class \code{htest},
 which contains --- amongst others ---
 the empirical test statistic,
-the degrees of freedom, and the $p$ value.
+the degrees of freedom, and the $P$ value.
 
 
 \subsection[Overlap with other functions and packages in R]

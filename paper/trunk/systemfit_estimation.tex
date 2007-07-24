@@ -123,7 +123,7 @@ This can be circumvented by an instrumental variable (IV)
 two-stage least squares (2SLS) estimation.
 The instrumental variables for each equation $H_i$ 
 can be either different or identical for all equations.
-The instrumental variables of each equation must not be correlated with
+They must not be correlated with
 the disturbance terms of the corresponding equation 
 ($\E \left[ u_i' H_i \right] = 0$).
 
@@ -187,7 +187,7 @@ If the regressors are correlated with the disturbances
 ($\E \left[ u_i' X_i \right] \neq 0$) and
 the disturbances are contemporaneously correlated, 
 a Feasible Generalized Least Squares (FGLS) version of the two-stage least squares
-estimation leads to consistent and asymptotically efficient estimates.
+estimation leads to consistent and asymptotically more efficient estimates.
 This estimation procedure is generally called °Three-stage Least
 Squares° (3SLS) \citep{zellner62b}.
 
@@ -211,17 +211,8 @@ equation are uncorrelated
 $( \E \left[ u_i' H_i \right]) = 0 \; \forall \; i )$,
 \cite{schmidt90} points out that this estimator is only consistent 
 if all disturbance terms and all instrumental variables are uncorrelated
-$( \E \left[ u_i' H_j \right]) = 0 \; \forall \; i, j )$
-with
-\begin{equation}
-   H =
-   \left[ \begin{array}{cccc}
-      H_1 & 0 & \cdots & 0\\
-      0 & H_2 & \cdots & 0\\
-      \vdots & \vdots & \ddots & \vdots\\
-      0 & 0 & \cdots & H_G
-   \end{array}\right] .
-\end{equation}
+$( \E \left[ u_i' H_j \right]) = 0 \; \forall \; i, j )$.
+
 Since there might be occasions where this cannot be avoided,
 \cite{schmidt90} analyses other approaches to obtain 3SLS estimators.
 One of these approaches based on instrumental variable estimation
@@ -240,8 +231,18 @@ Another approach based on the Generalized Method of Moments (GMM)
 estimator (3SLS-GMM) is
 \begin{equation}
    \bHat_{3SLS-GMM} = \left( X' H \left( H' \OHat H \right)^{-1}
-   H' X \right)^{-1} X' H \left( H' \OHat H \right)^{-1} H' y .
+   H' X \right)^{-1} X' H \left( H' \OHat H \right)^{-1} H' y
    \label{eq:3slsGmm}
+\end{equation}
+with
+\begin{equation}
+   H =
+   \left[ \begin{array}{cccc}
+      H_1 & 0 & \cdots & 0\\
+      0 & H_2 & \cdots & 0\\
+      \vdots & \vdots & \ddots & \vdots\\
+      0 & 0 & \cdots & H_G
+   \end{array}\right] .
 \end{equation}
 An estimator of the covariance matrix of the estimated 3SLS-GMM parameters is
 \begin{equation}
@@ -256,13 +257,14 @@ A fourth approach developed by \cite{schmidt90} himself is
    \label{eq:3slsSchmidt}
 \end{equation}
 An estimator of the covariance matrix of these estimated parameters is
-\begin{equation}
-   \COVHat \left[ \bHat_{3SLS-Schmidt} \right] =
+\begin{align}
+   \COVHat \left[ \bHat_{3SLS-Schmidt} \right] = &
    \left( \XHat' \OHat^{-1}  \XHat \right)^{-1}
-   \XHat' \OHat^{-1} H \left( H' H \right)^{-1} H' \OHat
-   H \left( H' H \right)^{-1} H' \OHat^{-1} \XHat
+   \XHat' \OHat^{-1} H \left( H' H \right)^{-1} H' \OHat H \\
+   & \left( H' H \right)^{-1} H' \OHat^{-1} \XHat
    \left( \XHat' \OHat^{-1}  \XHat \right)^{-1} .
-\end{equation}
+   \nonumber
+\end{align}
 The econometrics software \proglang{EViews} uses
 \begin{equation}
    \bHat_{3SLS-EViews} = \bHat_{2SLS} +
