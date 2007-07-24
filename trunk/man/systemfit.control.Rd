@@ -15,12 +15,12 @@ systemfit.control(
       tol = 1e-5,
       methodResidCov = "geomean",
       centerResiduals = FALSE,
+      residCovRestricted = TRUE,
+      residCovWeighted = FALSE,
       method3sls = "GLS",
       single.eq.sigma = NULL,
       useMatrix = TRUE,
       solvetol = .Machine$double.eps,
-      residCovRestricted = TRUE,
-      residCovWeighted = FALSE,
       returnModelFrame = TRUE,
       returnModelMatrix = FALSE,
       returnInstMatrix = FALSE,
@@ -36,6 +36,12 @@ systemfit.control(
       matrix, one of "noDfCor", "geomean", "max", or "Theil" (see details).}
    \item{centerResiduals}{logical. Subtract the means from the residuals
       of each equation before calculating the estimated residual covariance matrix.}
+   \item{residCovRestricted}{logical. If 'FALSE'
+      the residual covariance matrix for a WLS, SUR, W2SLS, or 3SLS estimation
+      is obtained from an unrestricted first-step estimation.}
+   \item{residCovWeighted}{logical. If 'TRUE'
+      the residual covariance matrix for a SUR or 3SLS estimation
+      is obtained from a WLS or W2SLS estimation.}
    \item{method3sls}{method for calculating the 3SLS estimator,
       one of "GLS", "IV", "GMM", "Schmidt", or "EViews" (see details).}
    \item{single.eq.sigma}{logical. use different \eqn{\sigma^2}s for each
@@ -48,12 +54,6 @@ systemfit.control(
    \item{solvetol}{tolerance level for detecting linear dependencies
       when inverting a matrix or calculating a determinant (see
       \code{\link{solve}} and \code{\link{det}}).}
-   \item{residCovRestricted}{logical. If 'FALSE'
-      the residual covariance matrix for a WLS, SUR, W2SLS, or 3SLS estimation
-      is obtained from an unrestricted first-step estimation.}
-   \item{residCovWeighted}{logical. If 'TRUE'
-      the residual covariance matrix for a SUR or 3SLS estimation
-      is obtained from a WLS or W2SLS estimation.}
    \item{returnModelFrame, returnModelMatrix, returnInstMatrix, returnResponse}{
       logical. If 'TRUE' the corresponding components of the fit
       (the model frame, the model matrix, the matrix of instruments,
