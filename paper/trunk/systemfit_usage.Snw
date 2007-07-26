@@ -16,7 +16,7 @@ Finally, we demonstrate how to apply some statistical tests.
 \label{sec:standard-usage}
 
 As described in the previous section,
-equation systems can be econometrically estimated
+systems of equations can be econometrically estimated
 with the function \code{systemfit}.
 It is generally called by
 <<eval=FALSE>>=
@@ -569,6 +569,9 @@ must be an unrestricted regression
 returned by \code{systemfit}.
 The second and third argument are the restriction matrix $R$ and
 optionally the vector $q$ as described in section~\ref{sec:Restrictions}.
+Analogously to the argument \code{restrict.matrix}
+of the \code{systemfit} function,
+the restrictions can be specified either in matrix form or symbolically.
 The optional argument \code{test} must be
 a character string, °\code{F}° or °\code{Chisq}°,
 specifying whether to compute
