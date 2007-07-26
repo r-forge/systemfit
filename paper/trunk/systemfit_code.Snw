@@ -2,66 +2,94 @@
 \section{Source code}\label{sec:code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The most important function in the \pkg{systemfit} package
+The source code of the \pkg{systemfit} package is publicly available
+for download from °CRAN° (The Comprehensive R Archive Network,
+\url{http://cran.r-project.org/src/contrib/Descriptions/systemfit.html}).
+The most important function in this package
 is called \code{systemfit}.
 It can be used to estimate systems of linear equations
 by different estimation methods.
-Furthermore, this package provides methods
-to test hypotheses
-(\code{linear.hypothesis},
-\code{lrtest}, \code{hausman}\hspace{0pt}\code{.systemfit}),
-to calculate summary results (\code{summary}),
-to print (summary) results (\code{print})
-and to calculate predicted values (\code{predict}).
-Moreover, there are several methods to extract
-the estimated coefficients (\code{coef}),
-their covariance matrix (\code{vcov}),
-the fitted values (\code{fitted}),
-the residuals (\code{residuals}),
-the formula(s) (\code{formula}),
-the model terms (\code{terms}),
-the model frame (\code{model.frame}),
-the model matrix (\code{model.matrix}),
-and the log likelihood value (\code{logLik}).
+Furthermore, this package provides functions (methods)
+to print the results
+(\codeD{print}{systemfit}, \codeDD{print}{systemfit}{equation}),
+to calculate and print summary results
+(\codeD{summary}{systemfit}, \codeDD{summary}{systemfit}{equation},
+\codeDD{print}{summary}{systemfit},
+\codeDDD{print}{summary}{systemfit}{equation}),
+to compute and print confidence intervals of the coefficients
+(\codeD{confint}{systemfit}, \codeDD{confint}{systemfit}{equation},
+\code{print.confint.systemfit}),
+to calculate predicted values
+(\codeD{predict}{systemfit}, \codeDD{predict}{systemfit}{equation}),
+to obtain the correlations between the predictions of two equations
+(\codeD{correlation}{systemfit}),
+and to compute the ratios of the standard errors of the predictions
+of two models
+(\codeD{se.ratio}{systemfit}).
+
+Moreover, there are several functions to extract
+the estimated coefficients
+(\codeD{coef}{systemfit}, \codeDD{coef}{systemfit}{equation},
+\codeDD{coef}{summary}{systemfit},
+\codeDDD{coef}{summary}{systemfit}{equation}),
+their covariance matrix
+(\codeD{vcov}{systemfit}, \codeDD{vcov}{systemfit}{equation}),
+the fitted values
+(\codeD{fitted}{systemfit}, \codeDD{fitted}{systemfit}{equation}),
+the residuals
+(\codeD{residuals}{systemfit}, \codeDD{residuals}{systemfit}{equation}),
+the formula(s)
+(\codeD{formula}{systemfit}, \codeDD{formula}{systemfit}{equation}),
+the model terms
+(\codeD{terms}{systemfit}, \codeDD{terms}{systemfit}{equation}),
+the model frame
+(\codeDD{model}{frame}{systemfit}, \codeDDD{model}{frame}{systemfit}{equation}),
+the model matrix
+(\codeDD{model}{matrix}{systemfit},
+\codeDDD{model}{matrix}{systemfit}{equation}),
+and the log likelihood value (\codeD{logLik}{systemfit}).%
+\footnote{%
 There does not exist a special method to extract
 the degrees of freedom of the residuals from \code{systemfit} objects,
 because the default method of \code{df.residual}
 works for these objects.
+}
 
-The source code of \pkg{systemfit} is publicly available
-for download from °CRAN° (The Comprehensive R Archive Network,
-\url{http://cran.r-project.org/src/contrib/Descriptions/systemfit.html}).
-It corresponds exactly to the procedures and formulas
-described in the previous section.
+The functions \codeDD{linear}{hypothesis}{systemfit},
+\codeD{lrtest}{systemfit}, and \codeD{hausman}{systemfit},
+test hypotheses;
+\code{createSystemfitModel} creates a model for \code{systemfit}
+by random numbers;
+\codeD{systemfit}{control} sets suitable default values
+for the technical control parameters for \code{systemfit}.
+
+Finally, the package includes some internal (hidden) helper functions:
+\codeD{.prepareData}{systemfit}, \code{.systemfitPanel},
+\code{.stackMatList}, and \code{.prepareWmatrix}
+for preparing the data matrices;
+\code{.calcXtOmegaInv} and \code{.calcGLS}
+for calculating the GLS estimator;
+\code{.calcResidCov} and \code{.calcSigma2}
+for calculating the (co)variances of the residuals;
+and \codeD{.ftest}{systemfit}
+for calculating the $F$ statistic.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection[Basic function systemfit]{The basic function \code{systemfit}}
 The basic functionality of this package is provided by the
 function \code{systemfit}.
-This function estimates the equation system as described
-in sections~\ref{sec:Estimation}.
-If parameter restrictions are provided, the formulas in
-section~\ref{sec:Restrictions} are applied.
-The calculation of the GLS estimator is implemented in the
-internal (hidden) function \code{.calcGLS}
-and the residual covariance matrix is calculated inside
-\code{.calcResidCov}.
-If parameter restrictions are specified symbolically,
+This function estimates the system of equations by applying
+the formulas in section~\ref{sec:Estimation}
+or --- if parameter restrictions are imposed ---
+by the formulas in section~\ref{sec:Restrictions}.
+If the parameter restrictions are specified symbolically,
 function \code{makeHypothesis} of the \pkg{car} package \citep{r-car-1.2-1}
 is used to create the restriction matrix.
 
-The user can control several details of the estimation.
-For instance, the
-formula to calculate the residual covariance matrix
-(see section~\ref{sec:residcov}), or
-the formula for the 3SLS estimation
-(see sections~\ref{sec:Estimation} and~\ref{sec:Restrictions})
-can be specified by the user.
-The function \code{systemfit.control} sets suitable default values
-for the technical control parameters.
-
-If \code{systemfit} is applied to
+\code{systemfit} utilizes most of the internal helper functions
+described above.
+For instance, if it is applied to
 a (classical) °Seemingly Unrelated Regression° analysis with panel-like data,
 it calls the hidden internal function \code{.systemfitPanel},
 which reshapes the data, creates the formulas to be estimated,
