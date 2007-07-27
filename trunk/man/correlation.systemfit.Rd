@@ -8,7 +8,7 @@
 
 \description{
   \code{correlation} returns a vector of the correlations
-  between the preditions of two equations in a set of equations. The
+  between the predictions of two equations in a set of equations. The
   correlation between the predictions is defined as,
 
   \deqn{
