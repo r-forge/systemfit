@@ -1,0 +1,108 @@
+
+%       $Id$    
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Many theoretical models consist of more than one equation.
+If these models are econometrically estimated,
+the disturbance terms of these equations are likely
+to be contemporaneously correlated,
+because unconsidered factors
+that influence the disturbance term in one equation
+probably influence the disturbance terms in other equations.
+Ignoring this contemporaneous correlation
+and estimating these equations separately
+leads to inefficient parameter estimates.
+However, estimating all equations simultaneously
+with a °Generalized Least Squares° (GLS) estimator,
+which takes the covariance structure of the residuals into account,
+leads to efficient estimates.
+This estimation procedure is generally called
+°Seemingly Unrelated Regression° (SUR) \citep{zellner62}.
+Another reason to estimate a system of equations simultaneously are
+cross-equation parameter restrictions.%
+\footnote{
+Especially the economic theory suggests many cross-equation parameter
+restrictions (e.g.\ the symmetry restriction in demand models).
+}
+These restrictions can be tested and/or imposed only in a simultaneous
+estimation approach.
+
+Furthermore, these models can contain variables
+that appear on the left-hand side in one equation
+and on the right-hand side of another equation.
+Ignoring the endogeneity of these variables can lead to inconsistent
+parameter estimates.
+This simultaneity bias can be corrected for by
+applying a °Two-Stage Least Squares° (2SLS) estimation
+to each equation.
+Combining this estimation method with the SUR method results
+in a simultaneous estimation of the system of equations
+by the °Three-Stage Least Squares° (3SLS) method
+\citep{zellner62b}.
+
+% For all of the methods developed in the package, the disturbances of
+% the individual equations are assumed to be independent and identically
+% distributed (iid).  
+% In the future, we would like to add the ability to fit equations were
+% the disturbances are serially correlated (wikins 1969).
+
+The \pkg{systemfit} package provides the capability to estimate
+systems of linear equations in \proglang{R}
+\citep{r-project}.
+Currently, the estimation methods
+°Ordinary Least Squares° (OLS),
+°Weighted Least Squares° (WLS),
+°Seemingly Unrelated Regression° (SUR),
+°Two-Stage Least Squares° (2SLS),
+°Weighted Two-Stage Least Squares° (W2SLS), and
+°Three-Stage Least Squares° (3SLS)
+are implemented.%
+\footnote{
+In this context,
+the term °weighted° in °Weighted Least Squares° (WLS) and
+°Weighted Two-Stage Least Squares° (W2SLS) means
+that the \emph{equations} might have different weights
+and \emph{not}
+that the \emph{observations} have different weights.
+}
+The WLS, SUR, W2SLS, and 3SLS estimates can be based
+either on one-step (OLS or 2SLS) (co)variances
+or these estimations can be iterated,
+where the (co)variances are calculated from the estimates of the previous step.
+Furthermore,
+the \pkg{systemfit} package
+provides statistical tests for parameter restrictions
+and for testing the consistency of the 3SLS estimation.
+
+Although systems of linear equations can be estimated
+with several other statistical and econometric software packages
+(e.g.\ \proglang{SAS}, \proglang{EViews}, \proglang{TSP}),
+\pkg{systemfit} has several advantages.
+First, all estimation procedures are publicly available in the source code.
+Second, the estimation algorithms can be easily modified to meet specific
+requirements.
+Third, the (advanced) user can control estimation details generally
+not available in other software packages by overriding reasonable defaults.
+
+% This paper is organized as follows:
+In Section~\ref{sec:statistics} we introduce the statistical
+background of estimating equation systems.
+The implementation of the statistical procedures in \proglang{R} is
+briefly explained in Section~\ref{sec:code}.
+Section~\ref{sec:Usage} demonstrates how to run
+\pkg{systemfit} and how some of the features presented in the previous
+section can be used.
+In Section~\ref{sec:reliability} we replicate several textbook results
+with the \pkg{systemfit} package.
+Finally, a summary and outlook are presented in
+Section~\ref{sec:Summmary}.
+
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "systemfit"
+%%% End: 

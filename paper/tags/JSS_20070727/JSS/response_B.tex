@@ -1,0 +1,211 @@
+\documentclass[12pt,english]{scrartcl}
+\input{response_commands}
+
+\begin{document}
+\begin{center}
+{\Large\textbf{\textsf{
+systemfit: A Package for Estimating\\[0.3em]
+Systems of Simultaneous Equations in \proglang{R} (JSS~224)%
+\footnote{
+The original title was: °systemfit: A Package to Estimate
+Simultaneous Equation Systems in \proglang{R}°.}
+}}}
+
+\bigskip
+
+{\Large\textbf{\textsf{Responses to Reviewer B}}}
+\end{center}
+
+
+We thank this reviewer for a very helpful set of comments and suggestions
+for improving the paper.
+The reviewer has made one overall comment, 9 specific comments and
+several smaller comments.
+We have structured our reply accordingly.
+
+\section{Overall Comment}
+% Review of the manuscript 'systemfit: A package to estimate
+% simultaneous equation systems in R'
+% This manuscript describes a new R package systemfit for inference in multi-equation models. The
+% main parts are section 2 and 4. Section 2 gives the statistical background for the analysis tools
+% available in systemfit while section 4 describes how to apply systemfit. The theory is adequately
+% explained and the syntax in systemfit is nice and logical allowing complicated models to be quite
+% easily fitted.
+% My only real concern is that systemfit relies on classic econometric (least squares) developed 40
+% years ago. Since then computational power has increased dramatically and superior methods may be
+% available. First of all, full likelihood methods are available in existing software for structural
+% equation modelling. In particular, R has a package called SEM. I am not sure what is gained with
+% systemfit compared to this. Also it is a weakness that systemfit only allows analysis of complete
+% cases.
+
+It was our intention to create a package
+for fitting simultaneous equation models that could
+be verified against published results before moving on to include more
+sophisticated fitting methods. 
+
+The reasons for doing this were two-fold.  Our first reason was to
+simply introduce an econometrics package where the main objective of the
+package was a unified framework for simultaneous equation models
+and not to have a few specialized
+routines, as is the case with the \code{tsls()} function in the \pkg{sem}
+package. While there are definitely links among structural equation
+models, IV methods and experimental design, the focus of this package
+was econometrics; more specifically simultaneous equation methods.   
+
+The second reason for creating the package was to create a °forum° for
+more advanced fitting methods as described in Section 6 (Summary and
+Outlook). It is our intention to implement these more advanced methods
+(unbalanced data sets, FIML, GMM, etc.) over time, but we felt that
+having a °basic° package that was accepted as part of a peer-review
+process would create an environment that would reduce resistance to
+acceptance in the future since the more sophisticated methods can be
+subject to the difficulties beyond simple numerical routines as were
+used in the \pkg{systemfit} package so far.
+
+Encouraged by the question of this referee,
+we have added a comparison of \code{systemfit()} and \code{sem()}
+(see section~3.4 and appendix~B).
+
+
+\section{Specific comments}
+% Specific comments
+
+\subsection{Instrumental variable estimation}
+% Instrumental variable estimation has received much attention lately
+% in biostatistics. Maybe it would help 'sell' systemfit if this was
+% emphasized at bit more. For instance, instrumental variables could
+% be mentioned directly in the introduction and included as a key
+% word.
+
+We have mentioned °instrumental variables° in the abstract, included
+three examples of topics that use IV methods and have added
+°instrumental variables° to the keywords.
+
+\subsection{Section 2}
+% Section 2 gives a brief overview of the statistical background. This
+% may be a bit hard to follow for people outside econometrics. It
+% would help to include more references, especially in section 2.1.
+
+We have added several references to literature (e.g.\ econometrics textbooks)
+that provides a detailed description of simultaneous equations systems.
+
+
+\subsection{Number of observations}
+% Page 2: 'observations' should be explained earlier together with the presentation of the data
+% structure. The number of observations should be stated.
+
+We have included a brief statement that the number of observations for
+each equation in the system is the same. 
+
+\subsection{x and y variables}
+% Page 2: It should be clarified whether y-variables in one equation can be x-variables in another.
+
+This is stated in the introduction (page 2, lines 14-15).
+
+\subsection{Instrumental variables}
+% Page 4, line 82: 'may' should be 'must'. Here the difference is extremely important.
+
+According to the comment of this referee,
+we have replaced °may° by °must°.
+
+% Maybe the text
+% could emphasize more clearly what is required of a variable if it is to be used as an instrumental
+% variable. What is a good instrumental variable and what happens if the requirements are not
+% fulfilled?
+
+The selection of instrument variables is discussed in more detail in
+other references and may quite unique to each field. 
+We chose not to focus on details such as selection of instrument
+variables, variance-covariance structures and other specifics of
+simultaneous equations as this article was written to present the
+basic equations, fitting methods and usage of the software package.
+While we desired to include a wide variety of topics, such as
+structure of the residual variance-covariance matrix, many of these
+were included in the package to compare, and finally match, the
+results from other software packages.
+For guidance on selection of instrument variables, the reader is
+referred to the citations in the article.
+
+\subsection{Equation 20 and 23}
+% The difference between equation 20 and 23 is so smaller that maybe it should be noted in the text
+% what it is.
+
+We have added a note to make the reader aware of the difference
+between these two equations. 
+
+\subsection{Residual covariance matrix (Sigma)}
+% Line 193-194: Language is confusing. It should be explained that calculation of some of the
+% estimators earlier introduced require Sigma to be known. Often Sigma is not known so an estimator
+% is used instead. However, then statistical properties may changed compared to the theory described
+% earlier.
+
+We have described this issue more clearly now.
+For instance in sections~2.1 and~2.2, the residual covariance matrix
+is no longer treated as known.
+Hence, the fact that $\Sigma$ and $\Omega$ are unknown and have to be estimated
+is no longer °hidden° in section 2.3.
+
+
+\subsection{First step OLS}
+% Line 196: It should be explained what is meant by a first step OLS.
+
+We have explained the two-step procedure
+to obtain the estimated residual covariance matrix
+more clearly now.
+
+
+\subsection{Efficiency and maximum likelihood}
+% Section 2.3: Somewhere in this section or (2.1) it should be noted that the efficiency results of
+% section 2.1 depend on Sigma being known. And that a full maximum likelihood analysis may be
+% superior.
+
+We have noted that the GLS estimator (with known $\Sigma$) is efficient,
+but the FGLS estimator (with unknown $\Sigma$)
+is only \emph{asymptotically} efficient.
+Since the iterated SUR (FGLS) estimator converges to FIML results,
+the FIML method is not more efficient than iterated SUR (FGLS).
+
+
+\subsection{Alternative approach}
+% Line 215-219: Alternative approach should be explained more clearly.
+
+We have explained the °alternative approach° more clearly now.
+
+
+\subsection{Syntax for instrumental variables}
+% Line 375-379: Syntax on programming of instrumental variables should be made more clear. What
+% is a one-sided formula? Does the code given imply that the sum of income, farmPrice and trend was
+% used as and instrumental variable? If so, it should be stated in the text.
+
+We have explained the syntax for instrumental variables (one-sided formula)
+more clearly now.
+
+
+\subsection{Hausman test (section 2.7)}
+% Section 2.7: Given the theory of the previous sections, I was confused about the Hausman test.
+% Under the alternative hypothesis, independent variables are correlated with error terms. In this
+% section it is stated that this leads to inconsistency of 3SLS. However, on page 5 (top) the opposite is
+% stated? Would it not make more sense to compare SUR to 3SLS?
+
+Indeed, there was a mistake in the description of the null hypothesis
+of the Hausman test.
+We have corrected this mistake
+and explain the alternative hypothesis in more detail now.
+
+
+\section{Smaller comments}
+% Smaller corrections:
+% Sometimes ':' is used just before an equation other times not.
+% Page 7, line 147: change 'doesn't' to 'does not'.
+% Line 135: '\beta^*' should be '\widehat{\beta^*}'
+% Line 209: first \widehat{\Sigma} should be \Sigma
+% Equation 63: '\Sigma' should be '\widehat{\Sigma}
+% Equation 65: Why two hats?
+% Line 299: 'interest' should be 'interested'
+% Page 14: 'dependant' should be 'dependent'
+We have corrected the paper according to all of these comments.
+
+% \bibliographystyle{}
+% \bibliography{}
+
+\end{document}

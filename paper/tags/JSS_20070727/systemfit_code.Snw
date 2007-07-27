@@ -1,0 +1,295 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Source code}\label{sec:code}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The source code of the \pkg{systemfit} package is publicly available
+for download from °CRAN° (The Comprehensive R Archive Network,
+\url{http://cran.r-project.org/src/contrib/Descriptions/systemfit.html}).
+The most important function in this package
+is called \code{systemfit}.
+It can be used to estimate systems of linear equations
+by different estimation methods.
+Furthermore, this package provides functions (methods)
+to print the results
+(\codeD{print}{systemfit}, \codeDD{print}{systemfit}{equation}),
+to calculate and print summary results
+(\codeD{summary}{systemfit}, \codeDD{summary}{systemfit}{equation},
+\codeDD{print}{summary}{systemfit},
+\codeDDD{print}{summary}{systemfit}{equation}),
+to compute and print confidence intervals of the coefficients
+(\codeD{confint}{systemfit}, \codeDD{confint}{systemfit}{equation},
+\code{print.confint.systemfit}),
+to calculate predicted values
+(\codeD{predict}{systemfit}, \codeDD{predict}{systemfit}{equation}),
+to obtain the correlations between the predictions of two equations
+(\codeD{correlation}{systemfit}),
+and to compute the ratios of the standard errors of the predictions
+of two models
+(\codeD{se.ratio}{systemfit}).
+
+Moreover, there are several functions to extract
+the estimated coefficients
+(\codeD{coef}{systemfit}, \codeDD{coef}{systemfit}{equation},
+\codeDD{coef}{summary}{systemfit},
+\codeDDD{coef}{summary}{systemfit}{equation}),
+their covariance matrix
+(\codeD{vcov}{systemfit}, \codeDD{vcov}{systemfit}{equation}),
+the fitted values
+(\codeD{fitted}{systemfit}, \codeDD{fitted}{systemfit}{equation}),
+the residuals
+(\codeD{residuals}{systemfit}, \codeDD{residuals}{systemfit}{equation}),
+the formula(s)
+(\codeD{formula}{systemfit}, \codeDD{formula}{systemfit}{equation}),
+the model terms
+(\codeD{terms}{systemfit}, \codeDD{terms}{systemfit}{equation}),
+the model frame
+(\codeDD{model}{frame}{systemfit}, \codeDDD{model}{frame}{systemfit}{equation}),
+the model matrix
+(\codeDD{model}{matrix}{systemfit},
+\codeDDD{model}{matrix}{systemfit}{equation}),
+and the log likelihood value (\codeD{logLik}{systemfit}).%
+\footnote{%
+There does not exist a special method to extract
+the degrees of freedom of the residuals from \code{systemfit} objects,
+because the default method of \code{df.residual}
+works for these objects.
+}
+
+The functions \codeDD{linear}{hypothesis}{systemfit},
+\codeD{lrtest}{systemfit}, and \codeD{hausman}{systemfit},
+test hypotheses;
+\code{createSystemfitModel} creates a model for \code{systemfit}
+by random numbers;
+\codeD{systemfit}{control} sets suitable default values
+for the technical control parameters for \code{systemfit}.
+
+Finally, the package includes some internal (hidden) helper functions:
+\codeD{.prepareData}{systemfit}, \code{.systemfitPanel},
+\code{.stackMatList}, and \code{.prepareWmatrix}
+for preparing the data matrices;
+\code{.calcXtOmegaInv} and \code{.calcGLS}
+for calculating the GLS estimator;
+\code{.calcResidCov} and \code{.calcSigma2}
+for calculating the (co)variances of the residuals;
+and \codeD{.ftest}{systemfit}
+for calculating the $F$ statistic.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[Basic function systemfit]{The basic function \code{systemfit}}
+The basic functionality of this package is provided by the
+function \code{systemfit}.
+This function estimates the system of equations by applying
+the formulas in section~\ref{sec:Estimation}
+or --- if parameter restrictions are imposed ---
+by the formulas in section~\ref{sec:Restrictions}.
+If the parameter restrictions are specified symbolically,
+function \code{makeHypothesis} of the \pkg{car} package \citep{r-car-1.2-1}
+is used to create the restriction matrix.
+
+\code{systemfit} utilizes most of the internal helper functions
+described above.
+For instance, if it is applied to
+a (classical) °Seemingly Unrelated Regression° analysis with panel-like data,
+it calls the hidden internal function \code{.systemfitPanel},
+which reshapes the data, creates the formulas to be estimated,
+and --- if requested --- specifies restrictions
+to ensure that the parameters of all individuals are equal.
+
+The \code{systemfit} function returns an object of class \code{systemfit}
+that contains many elements users might be interested in.
+A complete description is available in the documentation of this function
+that is included in the package.
+A comparison with the elements returned by \code{lm}
+--- the basic tool for linear regressions in \proglang{R} ---
+is available in appendix~\ref{sec:returned-object}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Efficiency of computations}
+\label{sec:code-efficiency}
+We have followed \cite{bates04} to make the code of \pkg{systemfit}
+faster and more stable.
+First, if a formula contains an inverse of a matrix
+that is post-multiplied by a vector or matrix,
+we use \code{solve(A,b)} instead of \code{solve(A) \%*\% b}.
+Second, we calculate crossproducts
+by \code{crossprod(X)} or \code{crossprod(X,y)}
+instead of \code{t(X) \%*\% X} or \code{t(X) \%*\% y},
+respectively.
+
+The matrix $\Omega^{-1}$ that is used to compute the estimated
+coefficients and their covariance matrix is of size
+$( G \cdot T ) \times ( G \cdot T )$
+(see sections~\ref{sec:Estimation} and~\ref{sec:Restrictions}).
+In case of large data sets, $\Omega^{-1}$ becomes computationally infeasible.
+Therefore, we use the following transformation and compute $X' \Omega^{-1}$
+by dividing the $X$ matrix into submatrices,
+doing some calculations with these submatrices,
+adding up some of these submatrices, and
+finally putting the submatrices together, so that
+\begin{equation}
+X' \Omega^{-1}
+%= X' \left( \Sigma^{-1} \otimes I \right)
+= \sum_{i=1} \left[ \begin{array}{c}
+   \sigma^{1i} {X^1} \\
+   \sigma^{2i} {X^2} \\
+   \vdots \\
+   \sigma^{Gi} {X^G} \\
+\end{array} \right]' ,
+\label{eq:omegaInv}
+\end{equation}
+where $\sigma^{ij}$ are the elements of the matrix $\Sigma^{-1}$,
+and $X^i$ is a submatrix of $X$ that contains the rows
+that belong to the $i$'s equation.
+This computation is done inside the internal (hidden) function
+\code{.calcXtOmegaInv}.
+
+Since version 1.0, the \code{systemfit} function by default
+uses the \pkg{Matrix} package \citep{r-matrix-07}
+for all computations where matrices are involved.
+The \pkg{Matrix} package provides classes for different types of matrices.
+For instance, we choose class \code{dgeMatrix}
+(°real matrices in general storage mode°),
+for matrices $X_i$ in~(\ref{eq:model-array}),
+class \code{dgCMatrix} (°general, numeric, sparse matrices
+in the (sorted) compressed sparse column format°)
+for matrix $X$ in~(\ref{eq:model-matrices}),
+and class \code{dspMatrix}
+(°symmetric real matrices in packed storage (one triangle only)°)
+for the residual covariance matrix $\SHat$.
+If the \pkg{Matrix} package is used,
+the possibly huge matrix $\Omega^{-1}$ is no longer a problem,
+because it is a sparse matrix
+that can be stored in a compressed format (class \code{dgCMatrix}).
+Hence, we no longer need the algorithm in equation~(\ref{eq:omegaInv}).
+We have tested different ways to calculate a GLS estimator
+like in (\ref{eq:sur})
+and we found
+that the following code is the fastest:
+<<eval=FALSE>>=
+sigmaInv <- solve( residCov )
+xtOmegaInv <- crossprod( xMat, kronecker( sigmaInv, Diagonal( nObs ) ) )
+coef <- solve( xtOmegaInv %*% xMat, xtOmegaInv %*%  yVec )
+@
+In this code snippet,
+\code{residCov} is the residual covariance matrix $\SHat$,
+\code{nObs} is the number of observations in each equation $T$,
+\code{xMat} is the matrix $X$ and
+\code{yVec} is the vector $y$ in~(\ref{eq:sur}).
+
+Theoretically, one would expect
+that the calculations with the \pkg{Matrix} package are
+faster and more robust than calculations with the traditional method.
+To test this hypothesis, we use function \code{createSystemfitModel}
+to create a medium-sized multi-equation model with 8~equations,
+10~regressors in each equation (without constant),
+and 750~observations.
+Then, we estimated this model with and without using the \pkg{Matrix} package.
+Finally, the results are compared.
+<<>>=
+library( systemfit )
+set.seed( 1 )
+systemfitModel <- createSystemfitModel( nEq = 8, nReg = 10, nObs = 750 )
+system.time(
+   fitMatrix <- systemfit( systemfitModel$eqns, "SUR",
+      data = systemfitModel$data )
+)
+system.time(
+   fitTrad <- systemfit( systemfitModel$eqns, "SUR",
+      data = systemfitModel$data, useMatrix = FALSE )
+)
+all.equal( fitMatrix, fitTrad )
+@
+The returned computation times clearly show
+that using the \pkg{Matrix} package makes the estimation faster.
+The comparison of the estimation results shows
+that both methods return the same results.
+The only differences between the returned objects
+are the °call° and the stored control variable \code{useMatrix}.
+
+However, the estimation of rather small models is much slower
+with the \pkg{Matrix} package than without this package.
+Moreover, the differences in computation time accumulate,
+if the estimation is iterated.
+<<>>=
+smallModel <- createSystemfitModel( nEq = 3, nReg = 4, nObs = 50 )
+system.time(
+   fitSmallMatrix <- systemfit( smallModel$eqns, "SUR",
+      data = smallModel$data, maxit = 500 )
+)
+system.time(
+   fitSmallTrad <- systemfit( smallModel$eqns, "SUR",
+      data = smallModel$data, maxit = 500, useMatrix = FALSE )
+)
+all.equal( fitSmallMatrix, fitSmallTrad )
+@
+As mentioned above, the usage of the \pkg{Matrix} package
+clearly increases the computation times
+for iterated (SUR) estimations of small models with small data sets.
+
+By default, the \code{systemfit} function uses the \pkg{Matrix} package
+for the GLS estimations,
+but the user can opt for not using it to decrease the computation time
+of small models (e.g.\ in Monte Carlo studies).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Statistical tests}
+This section explains the implementation of the statistical tests described in
+sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
+The method \code{linear.hypothesis.systemfit}
+can be used to test linear restrictions on the estimated parameters
+by an $F$ test or a Wald/$\chi^2$ test.
+Internally, the $F$ statistic is computed by the hidden function
+\code{.ftest.systemfit}
+and the Wald/$\chi^2$ statistic is computed by the method
+\code{linear.hypothesis.default} of the \pkg{car} package
+\citep{r-car-1.2-1}.
+The method \code{lrtest.systemfit} is a wrapper function
+to \code{lrtest.default} of the \pkg{lmtest} package
+\citep{r-lmtest},
+which computes the Likelihood-ratio (LR) test statistic.
+All these functions return an object of class \code{anova}
+that contains --- amongst others ---
+the empirical test statistic, the degrees of freedom,
+and the corresponding $P$ value.
+
+The function \code{hausman.systemfit}
+tests the consistency of the 3SLS estimator.
+It returns an object of class \code{htest},
+which contains --- amongst others ---
+the empirical test statistic,
+the degrees of freedom, and the $P$ value.
+
+
+\subsection[Overlap with other functions and packages in R]
+   {Overlap with other functions and packages in \proglang{R}}
+
+Single-equation models can be fitted in \proglang{R}
+by OLS with function \code{lm} (package \pkg{stats})
+and by 2SLS with function \code{tsls}
+(package \pkg{sem}, \citealp{r-sem-0.9-8}).
+This is also possible with the \code{systemfit} function,
+but \code{systemfit} is specialized in estimating systems of equation,
+i.e.\ more than one equation.
+Its capability to estimate single-equation models is just a side-effect.
+
+Function \code{sem} (package \pkg{sem}, \citealp{r-sem-0.9-8})
+can be used to estimate structural equation models in \proglang{R}
+by Full Information Maximum Likelihood (FIML)
+assuming multinormal errors.
+A special feature of this function is the estimation
+of models with unobserved (°latent°) variables,
+which is not possible with \code{systemfit}.
+While \code{sem} cannot be used to consistently estimate
+systems of simultaneous equations with some endogenous regressors,
+it can be used to estimate systems of equations,
+where all regressors are exogenous.
+However, the latter is rather cumbersome
+(see appendix~\ref{sec:sem}).
+Hence, \code{systemfit} is the only function in \proglang{R}
+that can be used to estimate systems of simultaneous equations
+and it is the most convenient function to estimate
+systems of equations with purely exogenous regressors.
+

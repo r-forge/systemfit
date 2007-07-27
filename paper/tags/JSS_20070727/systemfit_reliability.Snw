@@ -1,0 +1,295 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Replication of textbook results}\label{sec:reliability}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this section we replicate several textbook results
+with the \pkg{systemfit} package.
+First, a comparison of \pkg{systemfit}'s results
+with results published in the literature
+confirms the reliability of the \pkg{systemfit} package.
+Second, this section helps teachers and students
+to use \pkg{systemfit} in their lectures.
+Third, a section like this encourages reproducible research,
+which should be a general goal in scientific analysis
+\citep{buckheit95,schwab00}.
+For instance, by preparing this section,
+the exact estimation methods of the replicated analyses have been discovered
+and a few errors in \citet{greene03} have been found
+(see errata on
+\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Kmenta (1986): Example on p. 685 (food market)}
+
+First, we reproduce an example taken from \citet[p.~685]{kmenta86}.
+The data are available from Table~13-1 (p.~687),
+and the results are presented in Table~13-2 (p.~712) of this book.
+
+Before starting the estimation,
+we load the data and specify the two formulas of the model
+as well as the instrumental variables.
+Then the equation system is estimated by OLS, 2SLS, 3SLS, and
+iterated 3SLS.
+After each estimation, we provide the commands
+to print the estimated coefficients.
+<<echo=FALSE>>=
+library( systemfit )
+@
+<<results=hide>>=
+data( "Kmenta" )
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
+inst <- ~ income + farmPrice + trend
+system <- list( demand = eqDemand, supply = eqSupply )
+@
+OLS estimation:
+<<results=hide>>=
+fitOls <- systemfit( system, data = Kmenta )
+round( coef( summary( fitOls ) ), digits = 4 )
+@
+2SLS estimation:
+<<results=hide>>=
+fit2sls <- systemfit( system, "2SLS", inst = inst, data = Kmenta )
+round( coef( summary( fit2sls ) ), digits = 4 )
+@
+3SLS estimation:
+<<results=hide>>=
+fit3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta )
+round( coef( summary( fit3sls ) ), digits = 4 )
+@
+Iterated 3SLS estimation:
+<<results=hide>>=
+fitI3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta,
+   maxit = 250 )
+round( coef( summary( fitI3sls ) ), digits = 4 )
+@
+
+The above commands return exactly the same
+coefficients and standard errors as published in \citet[p.~712]{kmenta86}
+except for two minor exceptions:
+two standard errors of the 2SLS estimation deviate by $0.0001$.
+However, this difference is likely due to rounding errors
+in \code{systemfit} or \citet{kmenta86} and
+is so small that it empirically does not matter.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Greene (2003): Example 15.1 (Klein's model I)}
+\label{sec:KleinsModel}
+
+Second, we try to replicate Klein's °Model I° \citep{klein50}
+that is described in \citet[p.~381]{greene03}.
+The data are available from the online complements to \citet{greene03},
+Table~F15.1
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}),
+and the estimation results are presented in Table~15.3 (p.~412).
+
+Initially, the data are loaded and three equations
+as well as the instrumental variables are specified.
+As in the example before, the equation system is estimated by
+OLS, 2SLS, 3SLS, and iterated 3SLS, and
+commands to print the estimated coefficients are presented.
+<<>>=
+data( "KleinI" )
+eqConsump  <- consump ~ corpProf + corpProfLag + wages
+eqInvest   <- invest ~ corpProf + corpProfLag + capitalLag
+eqPrivWage <- privWage ~ gnp + gnpLag + trend
+inst <- ~ govExp + taxes + govWage + trend + capitalLag + corpProfLag + gnpLag
+system <- list( Consumption = eqConsump, Investment = eqInvest,
+   PrivateWages = eqPrivWage )
+@
+OLS estimation:
+<<results=hide>>=
+kleinOls <- systemfit( system, data = KleinI )
+round( coef( summary( kleinOls ) ), digits = 3 )
+@
+2SLS estimation:
+<<results=hide>>=
+klein2sls <- systemfit( system, "2SLS", inst = inst, data = KleinI,
+   methodResidCov = "noDfCor" )
+round( coef( summary( klein2sls ) ), digits = 3 )
+@
+3SLS estimation:
+<<results=hide>>=
+klein3sls <- systemfit( system, "3SLS", inst = inst, data = KleinI,
+   methodResidCov = "noDfCor" )
+round( coef( summary( klein3sls ) ), digits = 3 )
+@
+iterated 3SLS estimation:
+<<results=hide>>=
+kleinI3sls <- systemfit( system, "3SLS", inst = inst, data = KleinI,
+   methodResidCov = "noDfCor", maxit = 500 )
+round( coef( summary( kleinI3sls ) ), digits = 3 )
+@
+
+Again, these commands return almost the same results
+as published in \citet{greene03}.%
+\footnote{
+There are two typos in Table~15.3 (p.~412).
+Please take a look at the errata
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+}
+There are only two minor deviations,
+where these values differ merely in the last digit.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Greene (2003): Example 14.1 (Grunfeld's investment data)}
+\label{sec:grunfeld-greene}
+
+Third, we reproduce Example~14.1 of \citet[p.~340]{greene03}
+that is based on \citet{grunfeld58}.
+The data are available from the online complements to \citet{greene03},
+Table~F13.1
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+Several different versions of the °Grunfeld° data set can be found,
+whereas the version of \citet{greene03}
+is considered incorrect \citep{cummins01}.
+However, we use this incorrect version to replicate the results
+in \citet{greene03}, tables~14.1 and~14.2 (p.~351).%
+\footnote{
+A correct version of this data set with five additional firms
+is available as data set \code{Grunfeld} in the \pkg{Ecdat} package
+\citep{r-Ecdat-0.1-5}.
+}
+
+First, we load the data and the \pkg{plm} package,
+indicate the individual (cross-section) and time identifiers,
+and specify the formula to be estimated.
+Then, the system is estimated by OLS, pooled OLS, SUR, and pooled SUR.
+After each estimation, we show the commands to print the estimated coefficients,
+the $\sigma^2$ values of the OLS estimations, and
+the residual covariance matrix as well as the residual correlation matrix
+of the SUR estimations.
+<<>>=
+data( "GrunfeldGreene" )
+library( plm )
+pdata.frame( GrunfeldGreene, "firm", "year" )
+formulaGrunfeld <- invest ~ value + capital
+@
+OLS estimation (Table 14.2):
+<<results=hide>>=
+greeneOls <- systemfit( formulaGrunfeld, "OLS",
+   data = GrunfeldGreene )
+round( coef( summary( greeneOls ) ), digits = 4 )
+round( sapply( greeneOls$eq, function(x){return(summary(x)$ssr/20)} ), digits = 3 )
+@
+pooled OLS (Table 14.2):
+<<results=hide>>=
+greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
+   data = GrunfeldGreene, pooled = TRUE )
+round( coef( summary( greeneOlsPooled$eq[[1]] ) ), digits = 4 ) #$
+sum( sapply( greeneOlsPooled$eq, function(x){return(summary(x)$ssr)}) )/100
+@
+SUR estimation (Table~14.1):
+<<results=hide>>=
+greeneSur <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldGreene, methodResidCov = "noDfCor" )
+round( coef( summary( greeneSur ) ), digits = 4 )
+round( greeneSur$residCov, digits = 3 ) #$
+round( summary( greeneSur )$residCor, digits = 3 ) #$
+@
+pooled SUR estimation (Table~14.1):
+<<results=hide>>=
+greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldGreene, pooled = TRUE, methodResidCov = "noDfCor",
+   residCovWeighted = TRUE )
+round( coef( summary( greeneSurPooled$eq[[1]] ) ), digits = 4 ) #$
+
+round( greeneSurPooled$residCov, digits = 3 ) #$
+round( cov( residuals( greeneSurPooled ) ), digits = 3 )
+round( summary( greeneSurPooled )$residCor, digits = 3 ) #$
+@
+
+These commands return
+nearly the same results as published in \citet{greene03}.%
+\footnote{
+There are several typos and errors in Table~14.1 (p.~412).
+Please take a look at the errata of this book
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+}
+We present two different commands to print
+the residual covariance matrix of the pooled SUR estimation.
+The first calculates the covariance matrix without centering the residuals
+(see section~\ref{sec:residcov});
+the returned values are equal to those published in \citet[p.~351]{greene03}.
+The second command calculates the residual covariance matrix
+after centering the residuals;
+these returned values are equal to those published in the errata
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Theil (1971): Example on p. 295ff (Grunfeld's investment data)}
+
+Finally, we estimate an example taken from \citet[p.~295ff]{theil71}
+that is also based on \citet{grunfeld58}.
+The data are available in Table~7.1 of \citet[p.~296]{theil71}.
+They are a subset of the data set published by \citet{greene03}
+(see section~\ref{sec:grunfeld-greene}).
+
+After extracting the data from the \code{GrunfeldGreene} data set,
+the individual (cross-section) and time identifiers are indicated.
+Then, the formula is specified,
+and the model is estimated by OLS and SUR.
+Commands to print the estimated coefficients are reported
+after each estimation.
+<<>>=
+GrunfeldTheil <- subset( GrunfeldGreene,
+   firm %in% c( "General Electric", "Westinghouse" ) )
+pdata.frame( GrunfeldTheil, "firm", "year" )
+formulaGrunfeld <- invest ~ value + capital
+@
+OLS estimation (page 295)
+<<results=hide>>=
+theilOls <- systemfit( formulaGrunfeld, "OLS",
+   data = GrunfeldTheil )
+round( coef( summary( theilOls ) ), digits = 3 )
+@
+SUR estimation (page 300)
+<<results=hide>>=
+theilSur <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldTheil, methodResidCov = "noDfCor" )
+round( coef( summary( theilSur ) ), digits = 3 )
+@
+
+These commands
+return exactly the same results as published in
+\citet[pp.~295, 300]{theil71}.
+
+Now, we apply an F-test to check whether the slope prameters are equal
+for General Electric and Westinghouse (pages~313--315).
+Then we re-estimate the model under these parameter restrictions.
+
+F-test (page 313--315)%
+\footnote{%
+The same restriction can be imposed also symbolically by
+\code{RMatrix <- c( "General.Electric\_value = Westinghouse\_value",
+"General.Electric\_capital = Westinghouse\_capital" )}
+}
+<<results=hide>>=
+RMatrix <- rbind( c( 0, 1, 0, 0, -1, 0 ), c( 0, 0, 1, 0, 0, -1 ) )
+linear.hypothesis( theilSur, RMatrix )
+@
+
+Restricted SUR estimation (page~316)
+<<results=hide>>=
+theilSurRestr <- systemfit( formulaGrunfeld, "SUR",
+   data = GrunfeldTheil, methodResidCov = "noDfCor", restrict.matrix = RMatrix,
+   residCovRestricted = FALSE )
+round( coef( summary( theilSurRestr ) ), digits = 3 )
+@
+
+The method \code{linear.hypothesis} returns the same value of the F-statistic
+as published in \citet[p.~315]{theil71}.
+Hence, we arrive at the the same conclusion:
+we accept the null hypothesis (parameter restrictions are true)
+at the 5~percent significance level.
+
+Also the results of the restricted SUR estimation are identical
+to the results published in
+\citet[p.~316]{theil71}.
+

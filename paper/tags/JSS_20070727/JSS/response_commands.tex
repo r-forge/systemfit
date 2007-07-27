@@ -1,0 +1,26 @@
+\usepackage{lmodern}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{babel}
+\usepackage{geometry}
+\geometry{tmargin=0.75in, bmargin=0.9in, lmargin=0.8in,
+   rmargin=0.8in, headheight=0.1cm, headsep=0.1cm, footskip=0.4in }
+\usepackage{setspace}
+\onehalfspacing
+\usepackage[authoryear]{natbib}
+\usepackage{url}
+\usepackage{csquotes}
+\MakeOuterQuote{°}
+
+\newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
+\let\proglang=\textsf
+\let\code=\texttt
+
+% avoid club lines / orphans
+\clubpenalty=10000
+% avoid widow lines
+\widowpenalty=10000
+\displaywidowpenalty=10000
+
+% increase stretchability of the spaces (avoid overful hboxes)
+\setlength{\emergencystretch}{3em}

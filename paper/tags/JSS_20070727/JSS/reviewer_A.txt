@@ -1,0 +1,301 @@
+########################################################
+## Review for                                         ##
+##   systemfit: A Package to Estimate Simultaneous    ##
+##   Equation Systems in R                            ##
+##   Arne Henningsen, Jeff D. Hamann                  ##
+## submitted for publication in                       ##
+##   Journal of Statistical Software                  ##
+########################################################
+
+The paper describes the CRAN package "systemfit" for fitting simultaneous
+equation models in R. Estimation procedures include standard techniques in
+econometrics such as SUR, 2SLS and 3SLS.
+The paper can be divided roughly into three parts: Sections 1/2 explain
+the underlying theory (~12 pages), Sections 3/4 describe the code in systemfit
+and how to use it (~10 pages) and Section 5 reproduces results from various
+textbooks (~8 pages).
+The paper and software are both interesting and mostly well-written: they
+deserve publication in JSS. However, some major and minor comments have to
+be addressed before it can be accepted. In particular, the revision has to
+streamline exposition and notation of standard results, and to combine the
+(established) theory with the implementation more closely (otherwise the reader
+has to wait more than 10 pages before s/he learns something about the package).
+I suggest to eliminate Section 2 in its current form and to re-write the
+description of the theory in a more general and unified way while weaving
+it with the translation into computational tools. As for the software itself,
+several modifications are necessary to make it more intuitive for R users
+and to improve how the underlying concepts are turned into computational 
+tools. More details are described below.
+
+
+MAJOR POINTS:
+
+  o title
+
+    The title sounds a bit awkward in English: first, "a package *for*
+    estimat*ing*" would be more appropriate, secondly "systems of
+    equations" seems to be preferred over "equation systems" in English.
+
+
+  o abstract/introduction
+
+    Both, abstract and introduction, talk rather generally about
+    systems of equations reviewing rather well-known theoretical
+    results. I would suggest to revise both, focusing on what
+    *can* be done *in R* rather than giving a tutorial what *should*
+    be done *in general*. Of course, it is ok to review some theory,
+    however, practitioners should know what they are doing and the
+    paper should mainly teach them how to do it in R.
+
+  o estimation methods (2.1)
+
+    The description of the estimation methods can be shortened considerably
+    and should focus on the unifying properties of the different estimators.
+    All methods from OLS through to standard 3SLS comply with formulas
+    (12) and (13), only with differing choices for Omega (s*I, diagonal or
+    full Omega) and X (original X vs \hat X from instruments). The exposition
+    could be streamlined considerably if this structure were exploited.
+
+    Terminology for the different estimators also varies between various
+    communities using systems of equations models. The paper should address
+    this. For example, in econometrics the GLS estimator would be an estimator
+    with known Omega while FGLS (feasible GLS) is the estimator based on
+    an estimated Omega (see Greene, 2003). The current discussion makes this
+    even more problematic because Omega is treated as known throughout
+    Section 2. The discussion of the estimators needs to be combined with
+    discussion of the estimators for Omega.
+
+    For the varying 3SLS estimators, it would help to point out why/when
+    these are needed at the beginning rather than at the end of the 3SLS
+    section. 
+
+  o imposing linear restrictions (2.2)
+
+    I found this section somewhat confusing. At first, it should be made
+    clear that this is about estimating the coefficients under linear
+    restrictions (and not inference or something else). Then, it needs
+    to be explained more concisely that all linear restrictions are of
+    type (33) and that the rest of the discussion is about different
+    computational algorithms for obtaining the estimates under restriction.
+    Again, the exposition on pages 7-9 can be improved (and shortened)
+    if the unifying structure is exploited. Also the notation can be
+    streamlined concerning beta, \hat beta, beta^0, beta^* etc.
+
+  o systemfitClassic (4.3)
+
+    First, this function deserves a better name: it is long, unintuitive
+    and does not reflect the underlying conceptual tools. If the requirement
+    of using the same formula for all equations would be relaxed (but
+    still supported) a conceivable name would be sur() for SUR type 
+    models. But it would also be conceivable to stick to the current
+    requirement of a single formula (then, still a better name would
+    be needed) and to set up a second wrapper sur() etc. In any case,
+    the function (its name, arguments and output) should reflect what
+    is conceptually intuitive for this kinds of models (for the communities
+    using it).
+    Second, the interface should also be re-designed: the standard in R is
+    that the formula/s is/are the first argument (which would also be more
+    convenient for systemfit()), e.g.,
+      function(formula, method = "FGLS", data = ..., ...)
+    Currently, the data argument seems to be mandatory (opposed to the
+    paper documentation). The specification of eqnVar and timeVar via
+    strings seems to be uncommon and suboptimal. Probably some kind of
+    formula would be preferable. Maybe a formula similar to those used in
+    nlme could be employed? If more than one formula is specified, one has
+    to pay attention that no problems are used by different patterns of
+    missingness in differing equations.
+
+  o testing linear restrictions (4.4)
+
+    The package introduces several functions that are somewhat orthogonal
+    to exisiting methodology. A single method (with "test" argument) for
+    the linear.hypothesis() function from "car" might seem more appropriate
+    here. The Wald test can already now be reproduced using the default
+    linear.hypothesis() method (except for formula formatting)
+      linear.hypothesis(fitsur, Rmat, qvec)    
+    If the coefficient naming would be modified (see below), the convenience
+    interface for specifying the restrictions in linear.hypothesis() could
+    also be re-used.    
+    Also two of the functions look like methods to the generics lrtest() and
+    waldtest() in package "lmtest", although this is not the case. Furthermore,
+    some more general method of comparing various fitted models would be nice,
+    e.g., an anova() method or methods to waldtest()/lrtest() although the 
+    latter two seem to be under development.
+    The output formatting of the current function is also not very elegant,
+    a new class along with its print method is introduced for each test. It
+    would be much easier to re-use "htest" or (probably better) "anova" as
+    classes for this.
+
+  o organize internals of systemfit
+
+    The internals of a fitted "systemfit" object could be re-organized. Currently,
+    there are a lot of single letter elements - more standard naming as in "lm"
+    objects etc. would be more desirable. Also, computing the partial t tests
+    should/could be done in the summary() method, avoiding that certain parameters
+    (not affecting the fit itself, such as degrees of freedom) necessarily have to
+    be specified for model fitting.
+
+    The technical control parameters could also be collected in a list of arguments, e.g.,
+      control = systemfit.control()
+    that sets suitable defaults but can also easily be changed. If possible `...'
+    arguments could be passed to systemfit.control() assuring backward compatibility
+    and facilitating interactive usage. The names of various
+    arguments should be re-thought, e.g. "tx", "R.restr" and "q.rests" seem rather
+    arbitrary. Similar comments hold for other arguments, see also below for some
+    more comments. As noted above, the standard in R seems to supply the formula(s)
+    as the first argument and to have then some `method' argument.
+
+    Some more standard elements of a model fit should also be kept, in particular
+    the call so that update() can work with "systemfit" objects, e.g.,
+      fitsur <- systemfit("SUR", list(demand = eqDemand, supply = eqSupply))
+      fitsur$call <- call("systemfit", "SUR", list(demand = eqDemand, supply = eqSupply))
+      fitsurRmat <- update(fm, R.restr = Rmat, q.restr = qvec)
+    The call can easily be captured via match.call(). Similarly, one could think 
+    about how the terms and formula can be preserved and possibly made available
+    in terms() and formula() calls. Other standard methods would also be nice to have,
+    e.g., df.residual() or logLik(). (By the way: The row/column naming in fitted()
+    and residuals() should match, probably re-using equation and observation names.)
+
+    The coefficient naming should be improved, e.g., "<eqname>_<varname>"
+    where <eqname> can be set by default to "eq1", "eq2" etc. but should use the
+    equation names (if supplied). Spaces in names should be avoided.
+    The coefficient naming in the systemfitClassic() interface could also be 
+    improved, see e.g. the output on p.27, l.546: "eq 2 capital.Chrysler" redundantly
+    codes the firm (both by eq and name) and "Chrysler_capital" or "Chryler.capital"
+    would be preferable.
+
+    It would also be nice to have some more control about the amount of output of
+    the summary() method. Currently, the output can become very long easily when the
+    number of equations increases. One could want to control the equations and
+    correlations used, e.g., by something like
+      summary(sfobject, equation = ..., cor = ...)
+
+
+  o computations in systemfit()
+
+    A few computations within the systemfit() functions can be further streamlined.
+    A simple modification is to use
+      method %in% c("OLS", "WLS", ...)
+    instead of
+      method == "OLS" | method == "WLS" | method == ...
+    Furthermore, various marix computations can be made even more stable. Currently,
+    the code still has    
+      solve(crossprod(X), crossprod(X,Y))    
+      solve(crossprod(X))
+    which looks very similar to the code presented in Bates (2004). However, Bates
+    (2004) uses the "Matrix" package, which has specialized solve() for certain
+    matrix types. To perform this `by hand' without Matrix, one way would be re-using
+    lm.fit() for the first command. Alternatively, the QR or Cholesky decomposition
+    could be carried out using qr() or chol(). The latter command could be replaced
+    by
+     chol2inv(qr.R(qr(X)))
+     chol2inv(chol(crossprod(X)))
+    where chol() should be faster but qr() might be more accurate.
+
+  o Replication of textbook results (5)
+
+    Having a section like this is excellent and should help teachers and students
+    for using systemfit in their lectures. Furthermore, it encourages reproducible
+    research which always deserves support. However, I would suggest to streamline
+    the section to make it more readable. The section should discuss its aims (where
+    I would add replication to reliability) and summarize the most important results
+    and experiences from the replication. Then, I would pick a `typical' example and
+    discuss it in some more detail with full R output. For the remaining examples,
+    the input suffices as long as there are no deviations of the systemfit results
+    from the published numbers.
+
+    In addition to Table 14.1 and 14.2, I tried to replicate Table 14.3 with
+    ML estimates (using iterated FGLS) in Greene (2003) via 
+      systemfitClassic("WSUR", invest ~ value + capital, "firm", "year",
+                       data = GrunfeldGreene, rcovformula = 0, pooled = TRUE, maxiter = 1000)    
+    for the pooled model which yielded rather similar results; and via
+      systemfitClassic("SUR", invest ~ value + capital, "firm", "year",
+                       data = GrunfeldGreene, rcovformula = 0, maxiter = 1000)    
+    for the full model which is not unsimilar to Greene's results but also not very
+    close either. Is this a problem of systemfit or of Greene or of me fitting the
+    wrong model?
+
+    Having two Grunfeld data sets is confusing as the data used by Theil is simply
+    a subset of the data used by Greene:
+      subset(GrunfeldGreene, firm %in% c("General Electric", "Westinghouse"))
+    Of course, there are different versions of this data set, but neither the paper
+    nor the manual pages of GrunfeldGreene and GrunfeldTheil appropriately discuss
+    the problem. From the manual and the paper, the reader is only able to feel
+    vaguely insecure about the appropriateness of the selected subsets. Also note
+    that a more complete (and slightly different) version of the data set is
+    available in package "Ecdat".
+
+
+MINOR POINTS & TYPOS
+
+  o p.1, l.3. Is a "theoretical model that is econometrically estimated"
+    a well-defined term?
+
+  o p.2, Eq.2. The \cdot between the regressor matrix and its coefficients
+    should be omitted (since this is not a scalar multiplication).
+
+  o p.2, l.42. For symmetry between the two index types, it might be
+    more convenient to denote the equation by i/j and the observation
+    by s/t rather than t/t*, in particular as * is also used later for 
+    other purposes.
+
+  o p.3, l.45. While it is possible to call u "residual" and \hat u an 
+    "estimated residual", the more standard (and less confusing) terminology
+    is to call u "disturbance" or "error term" and the estimated quantity
+    \hat u "residual".
+
+  o p.3, l.52. The equation $\sigma^2 = E(u'u)$ is wrong because the 
+    right-hand side is a sum over squared errors. This mistake is repeated
+    throughout the paper. Also (as noted above), no distinction between
+    population and sample covariances is made which leads to confusion.
+
+  o p.3, l.69. "the GLS is" -> "the GLS estimator is"
+               "called ... SUR" -> "called ... SUR estimator"
+
+  o p.4, l.72/3. The "E[u|X] = 0" type equations imply (but are not
+    equivalent to) the assumptions of uncorrelated disturbances.
+
+
+  o p.4, l.79. The formulation "estimated coefficients are biased" is somewhat
+    sloppy, bias is a property of the estimator.
+
+  o p.6, l.127 / p.10, l.198. The symbol T is used for different quantities
+    here.
+
+  o p.12, eq.63. One Sigma is lacking a hat. Now M is used for the number
+    of equations, before it was G.
+
+  o p.13, l.285. Rather than calling the methods by their full name, it
+    is preferred to refer to the predict or coef method for "systemfit"
+    objects.
+
+  o p. 13, l.289. The remarks about why not the full code is presented
+    sound very clumsy and should be avoided.
+
+  o p.13, l.299. "interest" -> "interested"
+
+  o p.13, l.321. "deviding" -> "dividing"
+
+  o p.14, l.334. values to arguments should also be set in verbatim,
+    e.g., "``OLS''" -> "\code{"OLS"}"
+
+  o p.14, l.340. "tilde" -> "\verb/~/"
+
+  o p.14, l.341. Are only "+" signs allowed or the full standard
+    formula language in R?
+
+  o p.14, eq.68/69/71. "*" -> "\cdot" (and not in verbatim)
+
+  o p.14, l.346. "dependant" -> "dependent"
+
+  o p.17, l.387. The creation of tx should be simplified, e.g., the
+    first six lines could be replaced by
+      tx <- cbind(rbind(diag(5), 0, 0), 0)
+
+  o p.17, l.405. "large" -> "larger", also say that maxiter = 1 is the
+    default.
+
+  o p.18, Tab.1. I find it a bit confusing that the argument ist called 
+    "rcovformula" but does not expect a formula (in the R sense). Also,
+    type 0 should have an alternative string specification. A similar
+    argument holds for "formula3sls".

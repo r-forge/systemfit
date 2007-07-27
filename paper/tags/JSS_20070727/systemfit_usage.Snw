@@ -1,0 +1,629 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Using systemfit}\label{sec:Usage}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In this section we demonstrate how to use the \pkg{systemfit} package.
+First, we show the standard usage of \code{systemfit} by a simple example.
+Second, several options that can be specified by the user are presented.
+Then, the usage of \code{systemfit}
+for a (classical) °Seemingly Unrelated Regression° analysis
+with panel-like data is described.
+Finally, we demonstrate how to apply some statistical tests.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[Standard usage of systemfit]{Standard usage of \code{systemfit}}
+\label{sec:standard-usage}
+
+As described in the previous section,
+systems of equations can be econometrically estimated
+with the function \code{systemfit}.
+It is generally called by
+<<eval=FALSE>>=
+systemfit( eqns )
+@
+
+The only mandatory argument is \code{eqns}.
+It is a list of the equations
+to be estimated.
+Each equation is a standard formula in \proglang{R} and
+starts with a dependent variable on the left hand side.
+The regressors are listed after a tilde (\verb/~/),
+separated by plus (\code{+}) signs.%
+\footnote{
+The full standard formula language in \proglang{R} is allowed;
+for details see the \proglang{R} help files to \code{formula}.
+}
+
+The following demonstration uses an example taken from
+\citet[p.\ 685]{kmenta86}.
+We want to estimate a small model of the US food market:
+\begin{align}
+\texttt{consump} & = \beta_1 + \beta_2 \cdot \texttt{price}
+   + \beta_3 \cdot \texttt{income} \\
+\texttt{consump} & = \beta_4 + \beta_5 \cdot \texttt{price}
+   + \beta_6 \cdot \texttt{farmPrice} + \beta_7 \cdot \texttt{trend}
+\end{align}
+The first equation represents the demand side of the food market.
+Variable \code{consump} (food consumption per capita) is the dependent variable.
+The regressors are \code{price} (ratio of food prices to general consumer prices)
+and \code{income} (disposable income) as well as a constant.
+The second equation specifies the supply side of the food market.
+Variable \code{consump} is the dependent variable of this equation as well.
+The regressors are again \code{price} (ratio of food prices to general 
+consumer prices) and a constant as well as 
+\code{farmPrice} (ratio of preceding year's prices received by farmers
+to general consumer prices) and 
+\code{trend} (a time trend in years).
+These equations can be estimated by OLS in \proglang{R} by
+<<>>=
+library( systemfit )
+data( Kmenta )
+attach( Kmenta )
+eqDemand <- consump ~ price + income
+eqSupply <- consump ~ price + farmPrice + trend
+eqSystem <- list( demand = eqDemand, supply = eqSupply )
+fitols <- systemfit( eqSystem )
+print( fitols )
+@
+
+The first line loads the \pkg{systemfit} package.
+The second line loads example data that are included with the package.
+They are attached to the \proglang{R} search path in line three.
+In the fourth and fifth line, the demand and supply equations are specified,
+respectively.%
+\footnote{
+A regression constant is always implied if not explicitly omitted.
+}
+In the sixth line, these equations are concatenated into a list and
+are labeled °demand° and °supply°, respectively.%
+\footnote{
+If no labels are provided, the equations are numbered consecutively
+( °eq1°, °eq2°, \ldots ).
+}
+Finally, in the last two lines, the regression is performed
+and the estimation results are printed.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[User options of systemfit]{User options of \code{systemfit}}
+\label{sec:user-options}
+
+The user can modify the default estimation method by providing
+additional optional arguments,
+e.g.\ to specify instrumental variables
+or to impose parameter restrictions.
+All optional arguments are described in the following:
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Estimation method}
+
+The optional argument \code{method} is a string
+that determines the estimation method.
+It must be either °\code{OLS}°, °\code{WLS}°, °\code{SUR}°,
+°\code{2SLS}°, °\code{W2SLS}°, or °\code{3SLS}°.
+These methods correspond to the estimation methods
+described in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions}.
+The following command estimates the model described above as
+°Seemingly Unrelated Regression°.
+<<>>=
+fitsur <- systemfit( eqSystem, "SUR" )
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Instrumental variables}
+The instruments for a 2SLS, W2SLS or 3SLS estimation can be specified
+by the argument \code{inst}.
+If the same instruments should be used for all equations,
+\code{inst} must be a one-sided formula.%
+\footnote{
+A one-sided formula is a standard formula in \proglang{R}
+without a dependent variable.}
+If different instruments should be used for each equation,
+\code{inst} must be a list that contains a one-sided formula
+for each equation.
+The following example uses instrumental variables
+to estimate the model described above
+by °Three-Stage Least Squares° (3SLS).
+While the first command specifies the same instruments for all equations,
+the second uses different instruments:
+<<>>=
+fit3sls  <- systemfit( eqSystem, "3SLS",
+   inst = ~ income + farmPrice + trend )
+fit3sls2 <- systemfit( eqSystem, "3SLS",
+   inst = list( ~ farmPrice + trend, ~ income + farmPrice + trend ) )
+@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Data}
+Having all data in the global environment or attached to the search path
+is often inconvenient.
+Therefore, \code{systemfit} has the argument \code{data}
+to specify a data frame
+that contains the variables of the model.
+In the following example, we use this argument to specify
+that the data for the estimation
+should be taken from the data frame \code{Kmenta}.
+Hence, we no longer need to attach this data frame before calling systemfit:
+<<>>=
+data( Kmenta )
+fitsur <- systemfit( eqSystem, "SUR", data = Kmenta )
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Parameter restrictions}
+As outlined in section~\ref{sec:Restrictions}, parameter restrictions
+can be imposed in two ways.
+The first way is to modify the regressor matrix
+by post-multiplying it with a matrix, say $M$.
+This kind of restriction can be specified
+by setting argument \code{restrict.regMat} equal to the matrix $M$.
+If we want to impose the restriction, say $\beta_2 = - \beta_6$,
+we could set $\beta_1 = \beta^M_1$, \ldots, $\beta_5 = \beta^M_5$,
+$\beta_6 = - \beta^M_2$, and $\beta_7 =  \beta^M_6$.
+We can do this in \proglang{R} by
+<<keep.source=TRUE>>=
+modRegMat <- matrix( 0, nrow = 7, ncol = 6 )
+modRegMat[ 1:5, 1:5 ] <- diag( 5 ) # beta_{1-5} =  beta^M_{1-5}
+modRegMat[ 6, 2 ] <- -1   # beta_6 = -beta^M_2
+modRegMat[ 7, 6 ] <-  1   # beta_7 =  beta^M_6
+fitsurRegMat <- systemfit( eqSystem, "SUR",
+   restrict.regMat = modRegMat )
+@
+The first line creates a $7 \times 6$ matrix of zeros,
+where 7 is the number of unrestricted coefficients and
+6 is the number of restricted coefficients.
+The following three lines specify the matrix °$M$° (\code{modRegMat})
+as described before.
+Finally the model is estimated with restriction
+$\beta^M_2 = \beta_2 = - \beta_6$ imposed.
+
+The second way to impose parameter restrictions is to use
+the matrix $R$ and the vector $q$
+(see section~\ref{sec:Restrictions}).
+Matrix $R$ can be specified with the argument \code{restrict.matrix}
+and vector $q$ with argument \code{restrict.rhs}.
+We convert the restriction specified above to $\beta_2 + \beta_6 = 0$
+and impose it in the second way:
+<<>>=
+Rmat <- matrix( 0, nrow = 1, ncol = 7 )
+Rmat[ 1, 2 ] <-  1   # beta_2
+Rmat[ 1, 6 ] <-  1   # beta_6
+qvec <- c( 0 )
+fitsurRmat <- systemfit( eqSystem, "SUR",
+   restrict.matrix = Rmat, restrict.rhs = qvec )
+@
+\label{code:Rmat}
+The first line creates a $1 \times 7$ matrix of zeros,
+where 1 is the number of restrictions and
+7 is the number of unrestricted coefficients.
+The following two lines specify this matrix in a way
+that the multiplication with the parameter vector
+results in $ \beta_2 + \beta_6 $.
+The fourth line creates a vector with a single element
+that contains the right hand side of the restriction, i.e.\ zero.
+Finally the model is estimated with restriction
+$\beta_2 + \beta_6 = 0$ imposed.
+
+Alternatively, the restrictions via matrix $R$ and vector $q$
+can be specified symbolically as in the generic function
+\code{linear.hypothesis} of the \pkg{car} package \citep{r-car-1.2-1}.
+In this case, argument \code{restrict.matrix} must be
+a vector of character strings,
+where each element represents one linear restriction.
+It must be either a linear combination of coefficients,
+or a linear equation in the coefficients
+(see documentation of function \code{linear.hypothesis}
+in the \pkg{car} package, \citealp{r-car-1.2-1}).
+Since the name of $\beta_2$
+(coefficient of variable \code{price} in equation \code{demand})
+is \code{demand_price}
+and the name of $\beta_6$
+(coefficient of variable \code{farmPrice} in equation \code{supply})
+is \code{supply_farmPrice},
+the restriction $\beta_2 + \beta_6 = 0$ can be imposed by
+<<>>=
+restrict <- "demand_price + supply_farmPrice = 0"
+fitsurSym <- systemfit( eqSystem, "SUR",
+   restrict.matrix = restrict )
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Iteration control}
+The estimation methods WLS, SUR, W2SLS and 3SLS need a
+covariance matrix of the residuals
+that can be calculated from a first-step OLS or 2SLS estimation
+(see section~\ref{sec:residcov}).
+This procedure can be iterated and at each iteration the covariance
+matrix is calculated from the previous step estimation.
+This iteration is repeated until the maximum number of iterations
+is reached or the parameter estimates have converged.
+The maximum number of iterations is specified by argument \code{maxiter}.
+Its default value is one, which means no iteration.
+The convergence criterion is
+\begin{equation}
+   \sqrt{ \frac{ \sum_i (\beta_{i,g} - \beta_{i,g-1})^2 }
+   { \sum_i \beta_{i,g-1}^2 }}
+      < \texttt{tol} ,
+\end{equation}
+where $\beta_{i,g}$ is the $i$th coefficient of the $g$th iteration.
+The default value of the convergence criterion (argument \code{tol})
+is $10^{-5}$.
+
+In the following example,
+we estimate the model described above by iterated SUR:
+<<>>=
+fitsurit <- systemfit( eqSystem, "SUR", maxiter = 500 )
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Residual covariance matrix}
+It was explained in section~\ref{sec:residcov} that several different
+methods have been proposed to calculate the residual
+covariance matrix.
+The user can specify, which method \code{systemfit} should use.
+Possible values of the argument \code{methodResidCov} are presented in
+table~\ref{tab:methodResidCov}.
+By default, \code{systemfit} uses equation (\ref{eq:rcovGeomean}).
+
+\begin{table}[H]
+\caption{Possible values of argument \code{methodResidCov}}
+\label{tab:methodResidCov}
+\centering
+\begin{tabular}{|c|c|}
+\hline
+argument & equation \\
+\code{methodResidCov} & \\
+\hline
+'noDfCor' & \ref{eq:rcovNoDfCor} \\
+\hline
+'geomean' & \ref{eq:rcovGeomean} \\
+\hline
+'max'     & \ref{eq:rcovMax} \\
+\hline
+'Theil'   & \ref{eq:rcovTheil} \\
+\hline
+\end{tabular}
+\end{table}
+
+Furthermore, the user can specify
+whether the means should be subtracted from the residuals
+before (\ref{eq:rcovNoDfCor}), (\ref{eq:rcovGeomean}), (\ref{eq:rcovMax}),
+or (\ref{eq:rcovTheil}) are applied
+to calculate the residual covariance matrix
+(see section~\ref{sec:residcov}).
+The corresponding argument is called \code{centerResiduals}.
+It must be either °\code{TRUE}° (subtract the means) or
+°\code{FALSE}° (take the unmodified residuals).
+The default value of \code{centerResiduals} is °\code{FALSE}°.
+
+Moreover, if the user imposes any restrictions on the parameters,
+she can use argument °\code{residCovRestricted}° to specify
+whether the residual covariance matrix
+for a WLS, SUR, W2SLS, or 3SLS estimation
+should be obtained from a restricted or from an unrestricted
+first-step estimation
+(see section~\ref{sec:residcov}).
+If this argument is °\code{TRUE}° (the default),
+the residual covariance matrix is obtained from a restricted
+OLS or 2SLS estimation.
+If it is °\code{FALSE}°,
+the residual covariance matrix is obtained from an unrestricted
+first-step estimation.
+
+Finally, argument °\code{residCovWeighted}° can be used to decide,
+whether the residual covariance matrix for a SUR (3SLS) estimation
+should be obtained from a WLS (W2SLS) estimation
+instead of from an OLS (2SLS) estimation
+(see section~\ref{sec:residcov}).
+By default, °\code{residCovWeighted}° is \code{FALSE},
+which means that the residuals of an OLS (2SLS) estimation are used
+to compute the residual covariance matrix.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{3SLS formula}
+As discussed in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions},
+there exist several different
+methods to perform a 3SLS estimation.
+The user can specify the method by argument \code{method3sls}.
+Possible values are presented in table~\ref{tab:method3sls}.
+The default value is 'GLS'.
+
+\begin{table}[H]
+\caption{Possible values of argument \code{method3sls}}
+\label{tab:method3sls}
+\centering
+\begin{tabular}{|c|c|c|}
+\hline
+argument           & equation       & equation \\
+\code{method3sls} & (unrestricted) & (restricted) \\
+\hline
+'GLS'     & \ref{eq:3slsGls}     & \ref{eq:3slsGlsR} \\
+\hline
+'IV'      & \ref{eq:3slsIv}      & \ref{eq:3slsIvR} \\
+\hline
+'GMM'     & \ref{eq:3slsGmm}     & \ref{eq:3slsGmmR} \\
+\hline
+'Schmidt' & \ref{eq:3slsSchmidt} & \ref{eq:3slsSchmidtR} \\
+\hline
+'EViews'  & \ref{eq:3slsEViews}  & \ref{eq:3slsEViewsR} \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Sigma squared}
+In case of OLS or 2SLS estimations, argument \code{single.eq.sigma}
+can be used to specify,
+whether different $\sigma^2$s for each single equation
+or the same $\sigma^2$ for all equations should be used.
+If argument \code{single.eq.sigma} is \code{TRUE},
+equations (\ref{eq:olsCovSingleSigma})
+and (\ref{eq:2slsCovSingleSigma}) are applied.
+In contrast, if argument \code{single.eq.sigma} is \code{FALSE},
+equations (\ref{eq:olsCovSameSigma})
+and (\ref{eq:2slsCovSameSigma}) are applied.
+In case of an unrestricted regression,
+argument \code{single.eq.sigma} is \code{TRUE} by default.
+However, if parameter restrictions are imposed,
+this argument is \code{FALSE} by default.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{System options}
+Finally, two options regarding some internal calculations are available.
+First, argument \code{solvetol} specifies the tolerance level
+for detecting linear dependencies when inverting a matrix or
+calculating a determinant (using functions \code{solve} and \code{det}).
+The default value depends on the used computer system and is equal to the
+default tolerance level of \code{solve} and \code{det}.
+
+Second, argument \code{useMatrix} specifies
+whether the \pkg{Matrix} package \citep{r-matrix-07}
+should be used for all computations where matrices are involved
+(see section~\ref{sec:code-efficiency}).
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Returned data objects}
+
+Finally, the user can decide
+whether \code{systemfit} should return some data objects.
+Argument \code{returnModelFrame} indicates
+whether a data frame with the data of the model
+should be returned.
+Its default value is \code{TRUE},
+i.e.\ the model frame is returned.
+Arguments \code{returnModelMatrix}, \code{returnInstMatrix},
+and \code{returnResponse} specify
+whether the model matrices ($X_i$),
+the matrices of instrumental variables ($H_i$),
+and the responses ($y_i$), respectively, should be returned.
+These three arguments are \code{FALSE} by default,
+i.e.\ these data objects are not returned.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Panel-like data}
+
+The \code{systemfit} function can also be used
+for a (classical) °Seemingly Unrelated Regression° analysis
+with panel-like data.
+For this type of analysis,
+the data must be provided in an object of class \code{pdata.frame}
+(°panel data frame°),%
+\footnote{
+Generally, panel data can be either in °long format°
+(different individuals are arranged below each other)
+or in °wide format°
+(different individuals are arranged next to each other).
+For this analysis, the data must be in °long format°.
+}
+which can be created with the function \code{pdata.frame}
+from the \proglang{R} package \pkg{plm}
+\citep{r-plm-0.1-2}.
+In opposite to the previously described usage of \code{systemfit},
+argument \code{eqns} must be a single equation (object of class \code{formula}).
+This formula is estimated for all individuals.
+
+We demonstrate the application of \code{systemfit}
+to panel-like data
+using an example taken from \citet[p.~340]{greene03}
+that is based on \citet{grunfeld58}.
+We want to estimate a model for gross investment of 5 US firms
+in the years 1935--1954:
+\begin{equation}
+\texttt{invest}_{it} = \beta_1 + \beta_2 \cdot \texttt{value}_{it} +
+   \beta_3 \cdot \texttt{capital}_{it}
+\end{equation}
+where \code{invest} is the gross investment of firm $i$ in year $t$,
+\code{value} is the market value of the firm at the end of the
+previous year, and
+\code{capital} is the capital stock of the firm at the end of the
+previous year.
+
+This model can be estimated by
+<<>>=
+data( "GrunfeldGreene" )
+library( plm )
+pdata.frame( GrunfeldGreene, "firm", "year" )
+greeneSur <- systemfit( invest ~ value + capital, "SUR",
+   data = GrunfeldGreene )
+@
+The first line loads the example data set \code{GrunfeldGreene}
+that is included in the \pkg{systemfit} package.
+The second line loads the \pkg{plm} package
+and the following line specifies a \code{pdata.frame},
+where the variables \code{firm} and \code{year} indicate
+the individual (cross-section) and time identifier, respectively.
+Finally, a seemingly unrelated regression is performed.
+
+The optional argument \code{pooled} is a logical variable indicating
+whether the coefficients are restricted to be equal for all
+individuals.
+By default, this argument is set to °\code{FALSE}°.
+The following command does a seemingly unrelated regression
+of the same model as before,
+but with coefficients restricted to be equal for all individuals.
+<<>>=
+greeneSurPooled <- systemfit( invest ~ value + capital, "SUR",
+   data = GrunfeldGreene, pooled = TRUE )
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[Summary results with summary.systemfit]
+   {Summary results with \code{summary.systemfit}}
+
+The \code{summary} method can be used
+to compute and print summary results of objects
+returned by \code{systemfit}.
+<<>>=
+summary( fitsur )
+@
+First, the estimation method is reported
+and a few summary statistics for each equation are given.
+Then, some results regarding the whole equation system are printed:
+the covariance matrix used for estimation,
+the covariance matrix and correlation matrix of the (final) residuals,
+the log of the determinant of the residual covariance matrix,
+the $R^2$ value of the whole system,
+and McElroy's $R^2$ value.
+Finally, the estimation results of each equation are reported:
+the formula of the estimated equation,
+the estimated parameters, their standard errors, $t$ values, $P$ values
+and codes indicating their statistical significance,
+as well as some other statistics like
+the standard error of the residuals and
+the $R^2$ value of the equation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection[Degrees of freedom for t tests]
+   {Degrees of freedom for $t$ tests}
+
+Function \code{summary.systemfit} has an optional argument \code{probdfsys}.
+It selects the approach
+that is applied by \code{systemfit}
+to determine the degrees of freedom of $t$ tests on the estimated parameters
+(section~\ref{sec:degreesOfFreedom}).
+If argument \code{probdfsys} is \code{TRUE},
+the degrees of freedom of the whole system are taken.
+In contrast, if \code{probdfsys} is \code{FALSE},
+the degrees of freedom of the single equation are taken.
+If the estimation was not restricted by any parameter restrictions,
+argument \code{probdfsys} is \code{FALSE} by default.
+However, if parameter restrictions were imposed,
+the default value of \code{probdfsys} is \code{TRUE}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Reduce amount of printed output}
+
+The optional arguments \code{printResidCov} and \code{printEquations}
+can be used reduce the amount of the printed output.
+Argument \code{printResidCov} specifies
+whether the residual covariance matrix,
+the residual correlation matrix,
+and the determinant of the residual covariance matrix are printed.
+Argument \code{printEquations} specifies
+whether summary results of each equation are printed.
+By default, both arguments are \code{TRUE}.
+The following command returns a sparse summary output:
+<<>>=
+summary( fitsur, printResidCov = FALSE, printEquations = FALSE )
+@
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Testing linear restrictions}
+
+As described in section~\ref{sec:testingRestrictions},
+linear restrictions can be tested by an $F$ test, Wald test or
+LR test.
+The \pkg{systemfit} package provides
+the method \code{linear.hypothesis} for $F$ tests and Wald tests
+as well as the method \code{lrtest} for LR tests.
+
+We will now test the restriction $\beta_2 = -\beta_6$
+that was specified by the matrix \code{Rmat} and the vector \code{qvec}
+in the example above (p.~\pageref{code:Rmat}).
+<<>>=
+linear.hypothesis( fitsur, Rmat, qvec, test = "F" )
+
+linear.hypothesis( fitsur, Rmat, qvec, test = "Chisq" )
+
+lrtest( fitsurRmat, fitsur )
+@
+The linear restrictions are tested by an $F$ test first,
+then by a Wald test, and finally by an LR test.
+The first argument of function \code{linear.hypothesis.systemfit}
+must be an unrestricted regression
+returned by \code{systemfit}.
+The second and third argument are the restriction matrix $R$ and
+optionally the vector $q$ as described in section~\ref{sec:Restrictions}.
+Analogously to the argument \code{restrict.matrix}
+of the \code{systemfit} function,
+the restrictions can be specified either in matrix form or symbolically.
+The optional argument \code{test} must be
+a character string, °\code{F}° or °\code{Chisq}°,
+specifying whether to compute
+the finite-sample $F$ statistic (with approximate $F$ distribution)
+or the large-sample Wald statistic (with asymptotic $\chi^2$ distribution).
+
+All arguments of the function \code{lrtest.systemfit}
+must be fitted model objects returned by \code{systemfit}.
+It consecutively compares all provided fitted model objects.
+
+All tests print a short description of the test
+and the tested model objects first.
+Then, a small table is printed,
+where each row belongs to one (unrestricted or restricted) model.
+The second row reports (amongst others)
+the degree(s) of freedom of the test,
+the empirical test statistic,
+and the marginal level of significance ($P$ value).
+Although all tests check the same hypothesis,
+there is some variation of the $P$ values.
+However, all tests suggest the same decision:
+The null hypothesis $\beta_2 = -\beta_6$ cannot be rejected at any
+reasonable level of significance.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Hausman test}
+A Hausman test, which is described in section~\ref{sec:hausman},
+can be carried out with following commands:
+<<>>=
+fit2sls  <- systemfit( eqSystem, "2SLS",
+   inst = ~ income + farmPrice + trend, data = Kmenta )
+fit3sls <- systemfit( eqSystem, "3SLS",
+   inst = ~ income + farmPrice + trend, data = Kmenta )
+hausman.systemfit( fit2sls, fit3sls )
+@
+<<echo=FALSE>>=
+hausmantest <- hausman.systemfit( fit2sls, fit3sls )
+@
+First of all, the model is estimated by 2SLS and then by 3SLS.
+Finally, in the last line
+the test is carried out by the command \code{hausman.systemfit}.
+This function requires two arguments:
+the result of a 2SLS estimation and
+the result of a 3SLS estimation.
+The Hausman test statistic is
+\Sexpr{round( hausmantest$statistic, digits = 3)},
+which has a $\chi^2$ distribution
+with \Sexpr{hausmantest$parameter} degrees of freedom
+under the null hypothesis.
+The corresponding $P$ value is
+\Sexpr{round( hausmantest$p.value, digits = 3 )}.
+This shows that the null hypothesis is not rejected
+at any reasonable level of significance.
+Hence, we can assume that the 3SLS estimator is consistent.

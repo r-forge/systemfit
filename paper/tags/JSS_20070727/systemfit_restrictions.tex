@@ -1,0 +1,466 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Imposing linear restrictions}\label{sec:Restrictions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In many empirical applications,
+it is desirable to impose restrictions on the parameters
+that are derived from the underlying theoretical model.%
+\footnote{%
+For instance in econometric demand and production analysis,
+it is common to impose (and test) homogeneity and symmetry properties.
+}
+There are two methods to impose linear parameter restrictions.
+First, a matrix $M$ can be specified that
+\begin{equation}
+   \beta = M \cdot \beta^M \label{eq:T-restr} ,
+\end{equation}
+where $\beta^M$ is a vector of restricted (linear independent) coefficients,
+and $M$ is a matrix with the number of rows equal to the number of
+unrestricted coefficients ($\beta$) and
+the number of columns equal to the number of restricted coefficients
+($\beta^M$).
+$M$ can be used to map each unrestricted coefficient to one or more
+restricted coefficients.
+
+The second method to impose linear parameter restrictions
+can be formulated by
+\begin{equation}
+   R \beta^R = q ,
+   \label{eq:restr-R}
+\end{equation}
+where $\beta^R$ is the vector of the restricted coefficients,
+and $R$ and $q$ are a matrix and vector, respectively,
+to impose the restrictions \citep[see][p.\ 100]{greene03}.
+Each linear independent restriction is represented by one row of $R$
+and the corresponding element of~$q$.
+
+The first method is less flexible than the second%
+\footnote{
+While restrictions like $\beta_1 = 2 \beta_2$ can be imposed by
+both methods,
+restrictions like $\beta_1 + \beta_2 = 4$ can be imposed only
+by the second method.
+}, 
+but is preferable if equality constraints for coefficients
+across many equations of the system are imposed. 
+Of course, these restrictions can be also imposed using
+the latter method.
+However, while the latter method increases the dimension of the 
+matrices to be inverted during estimation, the first reduces it. 
+Thus, in some cases the latter way leads to estimation problems
+(e.g.\ (near) singularity of the matrices to be inverted),
+while the first does not.
+
+These two methods can be combined.
+In this case, the restrictions imposed using the latter method are
+imposed on the linear independent parameters
+that are restricted by the first method, so that
+\begin{equation}
+   R \beta^{MR} = q ,
+\end{equation}
+where $\beta^{MR}$ is the vector of the restricted $\beta^M$ coefficients.
+
+
+\subsubsection{Calculation of restricted estimators}
+
+If the first method (equation~\ref{eq:T-restr}) is chosen
+to impose these restrictions,
+the matrix of regressors $X$ is (post-)\hspace{0pt}multiplied
+by the $M$ matrix,
+so that
+\begin{equation}
+    X^M = X \cdot M .
+\end{equation}
+Then, $X^M$ is substituted for $X$ and a standard estimation as described
+in the previous section is done
+(equations~\ref{eq:ols}--\ref{eq:3slsEViews}).
+This results in the linear independent parameter estimates $\bHat^M$ and
+their covariance matrix.
+The original parameters can be obtained by equation (\ref{eq:T-restr})
+and the estimated covariance matrix of the original parameters
+can be obtained by
+\begin{equation}
+   \COVHat \left[ \bHat \right]
+   = M \cdot \COVHat \left[ \bHat^M \right] \cdot M' .
+\end{equation}
+
+The implementation of the second method to impose linear restrictions
+(equation~\ref{eq:restr-R})
+is described for each estimation method in the following sections.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Restricted OLS estimation}
+
+The OLS estimator restricted by $R \beta^R = q$ can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^R_{OLS} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      X' X & R' \\ 
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      X' y \\ q 
+   \end{array} \right] ,
+\end{equation}
+where $\lambda$ is a vector of the Lagrangean multipliers of the restrictions.
+If the whole system is treated as one single equation,
+an estimator of the covariance matrix of the estimated parameters is
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{OLS} \\[0.2em] \lHat
+   \end{array} \right] 
+   = \sHat^2 
+   \left[ \begin{array}{cc}
+      X' X & R' \\ 
+      R & 0
+   \end{array} \right]^{-1} ,
+\end{equation}
+where $\sHat$ is the estimated variance of the disturbance terms.
+If the disturbance terms of the individual equations
+are allowed to have different variances, 
+an estimator of the covariance matrix of the estimated parameters is
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{OLS} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      X' \OHat^{-1} X & R' \\
+      R & 0
+   \end{array} \right]^{-1} ,
+\end{equation}
+where $\OHat = \SHat \otimes I$,
+$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
+$\sHat_{ii} = \sHat_i^2$ is the estimated variance
+of the disturbance term in the $i$th equation.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Restricted WLS estimation}
+
+The WLS estimator restricted by $R \beta^R = q$ can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^R_{WLS} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      X' \OHat^{-1} X & R' \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      X' \OHat^{-1} y \\ q
+   \end{array} \right] ,
+\end{equation}
+where $\OHat = \SHat \otimes I$,
+$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
+$\sHat_{ii} = \sHat_i^2$ is the estimated variance
+of the disturbance term in the $i$th equation.
+An estimator of the covariance matrix of the estimated parameters is
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{WLS} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      X' \OHat^{-1} X & R' \\
+      R & 0
+   \end{array} \right]^{-1} .
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Restricted SUR estimation}
+
+The SUR estimator restricted by $R \beta^R = q$ can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^R_{SUR} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      X' \OHat^{-1} X & R' \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      X' \OHat^{-1} y \\ q
+   \end{array} \right] ,
+\end{equation}
+where $\OHat = \SHat \otimes I$ and
+$\SHat$ is the estimated covariance matrix of the disturbance terms.
+An estimator of the covariance matrix of the estimated parameters is
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{SUR} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      X' \OHat^{-1} X & R' \\
+      R & 0
+   \end{array} \right]^{-1} .
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Restricted 2SLS estimation}
+
+The 2SLS estimator restricted by $R \beta^R = q$ can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^R_{2SLS} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      \XHat' \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      \XHat' y \\ q
+   \end{array} \right] .
+   \label{eq:beta2SLSr}
+\end{equation}
+If the whole system is treated as one single equation,
+an estimator of the covariance matrix of the estimated parameters is
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{2SLS} \\[0.2em] \lHat
+   \end{array} \right] 
+   = \sHat^2 
+   \left[ \begin{array}{cc}
+      \XHat' \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1} ,
+\end{equation}
+where $\sHat^2$ is the estimated variance of the disturbance terms.
+If the disturbance terms of the individual equations
+are allowed to have different variances, 
+an estimator of the covariance matrix of the estimated parameters is
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{2SLS} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1} ,
+\end{equation}
+where $\OHat = \SHat \otimes I$,
+$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
+$\sHat_{ii} = \sHat_i^2$ is the estimated variance
+of the disturbance term in the $i$th equation.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Restricted W2SLS estimation}
+
+The W2SLS estimator restricted by $R \beta^R = q$ can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^R_{W2SLS} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      \XHat' \OHat^{-1} y \\ q
+   \end{array} \right] ,
+\end{equation}
+where $\OHat = \SHat \otimes I$,
+$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
+$\sHat_{ii} = \sHat_i^2$ is the estimated variance
+of the disturbance term in the $i$th equation.
+An estimator of the covariance matrix of the estimated parameters is
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{W2SLS} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1} .
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Restricted 3SLS estimation}
+
+The standard 3SLS estimator restricted by $R \beta^R = q$ can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^R_{3SLS} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      \XHat' \OHat^{-1} y \\ q
+   \end{array} \right] ,
+   \label{eq:3slsGlsR}
+\end{equation}
+where $\OHat = \SHat \otimes I$ and
+$\SHat$ is the estimated covariance matrix of the disturbance terms.
+An estimator of the covariance matrix of the estimated parameters is
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{3SLS} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1} .
+   \label{eq:cov3slsr}
+\end{equation}
+The 3SLS-IV estimator restricted by $R \beta^R = q$ can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^R_{3SLS-IV} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} X & R' \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      \XHat' \OHat^{-1} y \\ q
+   \end{array} \right] ,
+   \label{eq:3slsIvR}
+\end{equation}
+where
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{3SLS-IV} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1} .
+\end{equation}
+The restricted 3SLS-GMM estimator can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^R_{3SLS-GMM} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      X' H \left( H' \OHat H \right)^{-1} H' X & R' \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      X' H \left( H \OHat H \right)^{-1} H' y \\ q
+   \end{array} \right] ,
+   \label{eq:3slsGmmR}
+\end{equation}
+where
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{3SLS-GMM} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      X' H \left( H' \OHat H \right)^{-1} H' X & R' \\
+      R & 0
+   \end{array} \right]^{-1} .
+\end{equation}
+The restricted 3SLS estimator based on the suggestion of
+\cite{schmidt90} is
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^R_{3SLS-Schmidt} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      \XHat' \OHat^{-1} H \left( H' H \right)^{-1} H' y \\ q
+   \end{array} \right] ,
+   \label{eq:3slsSchmidtR}
+\end{equation}
+where
+\begin{eqnarray}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^R_{3SLS-Schmidt} \\[0.2em] \lHat
+   \end{array} \right] 
+   & = & 
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1}
+   \\
+   & & \cdot
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} H \left( H' H \right)^{-1} H' \OHat
+      H \left( H' H \right)^{-1} H' \OHat^{-1} \XHat & 0' \\
+      0 & 0
+   \end{array} \right]^{-1}
+   \nonumber \\
+   & & \cdot
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1} .
+   \nonumber
+\end{eqnarray}
+The econometrics software \proglang{EViews} calculates the restricted 3SLS estimator by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^R_{3SLS-EViews} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      \XHat' \OHat^{-1} \XHat & R' \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      \XHat' \OHat^{-1} \left( y - X \bHat^R_{2SLS} \right)
+      \\ q 
+   \end{array} \right] ,
+   \label{eq:3slsEViewsR}
+\end{equation}
+where $\bHat^R_{2SLS}$ is the restricted 2SLS estimator calculated
+by equation (\ref{eq:beta2SLSr}). 
+\proglang{EViews} uses the standard formula of the restricted 3SLS
+estimator~(\ref{eq:cov3slsr}) to calculate an estimator
+for the covariance matrix of the estimated parameters.
+
+
+If the same instrumental variables are used in all equations 
+($H_1 = H_2 = \ldots = H_G$), 
+all the above mentioned approaches lead to identical parameter estimates
+and identical covariance matrices of the estimated parameters.
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "systemfit"
+%%% End: 
