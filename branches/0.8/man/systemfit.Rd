@@ -241,7 +241,7 @@ systemfitClassic( method, formula, eqnVar, timeVar, data,
   Greene, W. H. (2003)
   \emph{Econometric Analysis, Fifth Edition}, Prentice Hall.
 
-  Judge, George G.; W. E. Griffiths; R. Carter Hill; Helmut Lütkepohl and Tsoung-Chao Lee (1985)
+  Judge, George G.; W. E. Griffiths; R. Carter Hill; Helmut Luetkepohl and Tsoung-Chao Lee (1985)
   \emph{The Theory and Practice of Econometrics, Second Edition}, Wiley.
 
   Kmenta, J. (1997)
