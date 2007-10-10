@@ -4,6 +4,7 @@
 
 \name{ppine}
 \alias{ppine}
+\docType{data}
 \title{Tree Growth Data for Ponderosa Pine}
 \usage{data(ppine)}
 \description{

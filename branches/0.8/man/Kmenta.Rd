@@ -3,6 +3,7 @@
 
 \name{Kmenta}
 \alias{Kmenta}
+\docType{data}
 \title{Partly Artificial Data on the U. S. Economy}
 \description{
    These are partly contrived data from Kmenta (1986), constructed
