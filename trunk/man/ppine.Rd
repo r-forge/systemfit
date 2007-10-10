@@ -2,10 +2,8 @@
 % 	$Id$	
 
 
-\keyword{datasets}
 \name{ppine}
 \alias{ppine}
-\non_function{}
 \title{Tree Growth Data for Ponderosa Pine}
 \usage{data(ppine)}
 \description{
