@@ -12,5 +12,5 @@ Description: This package contains functions for fitting simultaneous
  Squares (OLS), Weighted Least Squares (WLS), Seemingly Unrelated
  Regressions (SUR), Two-Stage Least Squares (2SLS), Weighted
  Two-Stage Least Squares (W2SLS), and Three-Stage Least Squares (3SLS).
-License: GPL version 2 or newer
+License: GPL (>= 2)
 URL: http://www.r-project.org, http://www.systemfit.org
