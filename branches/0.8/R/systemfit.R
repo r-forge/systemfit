@@ -474,7 +474,8 @@ systemfit <- function( method,
               # std. errors of est. param. of equation i
     ti     <- c(t[(1+sum(k[1:i])-k[i]):(sum(k[1:i]))])
               # t-values of estim. param. of equation i
-    bcovi  <- bcov[(1+sum(k[1:i])-k[i]):(sum(k[1:i])),(1+sum(k[1:i])-k[i]):(sum(k[1:i]))]
+    bcovi  <- matrix( bcov[(1+sum(k[1:i])-k[i]):(sum(k[1:i])),
+                  (1+sum(k[1:i])-k[i]):(sum(k[1:i]))], ncol = k[ i ] )
               # covariance matrix of estimated coefficients of equation i
     if(probdfsys) {
       probi <- c(prob[(1+sum(k[1:i])-k[i]):(sum(k[1:i]))])
