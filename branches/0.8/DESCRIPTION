@@ -12,6 +12,6 @@ Description: This package contains functions for fitting simultaneous
  Regressions (SUR), Two-Stage Least Squares (2SLS), Weighted
  Two-Stage Least Squares (W2SLS), Three-Stage Least Squares (3SLS),
  and Weighted Three-Stage Least Squares (W3SLS).
-License: GPL version 2 or newer
+License: GPL (>= 2)
 URL: http://www.systemfit.org, http://www.r-project.org, http://www.forestinformatics.com, http://www.arne-henningsen.de
 
