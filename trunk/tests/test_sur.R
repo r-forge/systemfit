@@ -314,6 +314,29 @@ fitsuri5wr2 <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "Theil
 summary( fitsuri5wr2 )
 
 
+## *********** estimations with a single regressor ************
+fitsurS1 <- systemfit(
+   list( price ~ consump - 1, farmPrice ~ consump + trend ), "SUR",
+   data = Kmenta )
+print( summary( fitsurS1 ) )
+fitsurS2 <- systemfit(
+   list( consump ~ price - 1, consump ~ trend - 1 ), "SUR",
+   data = Kmenta )
+print( summary( fitsurS2 ) )
+fitsurS3 <- systemfit(
+   list( consump ~ trend - 1, price ~ trend - 1 ), "SUR",
+   data = Kmenta )
+print( summary( fitsurS3 ) )
+fitsurS4 <- systemfit(
+   list( consump ~ trend - 1, price ~ trend - 1 ), "SUR",
+   data = Kmenta, restrict.matrix = matrix( c( 1, -1 ), nrow = 1 ) )
+print( summary( fitsurS4 ) )
+fitsurS5 <- systemfit(
+   list( consump ~ 1, price ~ 1 ), "SUR",
+   data = Kmenta )
+print( summary( fitsurS5 ) )
+
+
 ## **************** shorter summaries **********************
 print( summary( fitsur1e2, useDfSys = TRUE, printEquations = FALSE ) )
 

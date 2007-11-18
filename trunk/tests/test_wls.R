@@ -153,6 +153,29 @@ fitwlsi5e <- systemfit( system, "WLS", data = Kmenta, methodResidCov = "noDfCor"
 print( summary( fitwlsi5e ) )
 
 
+## *********** estimations with a single regressor ************
+fitwlsS1 <- systemfit(
+   list( consump ~ price - 1, consump ~ price + trend ), "WLS",
+   data = Kmenta )
+print( summary( fitwlsS1 ) )
+fitwlsS2 <- systemfit(
+   list( consump ~ price - 1, consump ~ trend - 1 ), "WLS",
+   data = Kmenta )
+print( summary( fitwlsS2 ) )
+fitwlsS3 <- systemfit(
+   list( consump ~ trend - 1, price ~ trend - 1 ), "WLS",
+   data = Kmenta )
+print( summary( fitwlsS3 ) )
+fitwlsS4 <- systemfit(
+   list( consump ~ trend - 1, price ~ trend - 1 ), "WLS",
+   data = Kmenta, restrict.matrix = matrix( c( 1, -1 ), nrow = 1 ) )
+print( summary( fitwlsS4 ) )
+fitwlsS5 <- systemfit(
+   list( consump ~ 1, price ~ 1 ), "WLS",
+   data = Kmenta )
+print( summary( fitwlsS5) )
+
+
 ## **************** shorter summaries **********************
 print( summary( fitwls1 ), residCov = FALSE, equations = FALSE )
 

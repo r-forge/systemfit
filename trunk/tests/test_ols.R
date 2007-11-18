@@ -200,6 +200,29 @@ fitols5rs <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
 print( summary( fitols5rs ) )
 
 
+## *********** estimations with a single regressor ************
+fitolsS1 <- systemfit(
+   list( consump ~ price - 1, consump ~ price + trend ), "OLS",
+   data = Kmenta )
+print( summary( fitolsS1 ) )
+fitolsS2 <- systemfit(
+   list( consump ~ price - 1, consump ~ trend - 1 ), "OLS",
+   data = Kmenta )
+print( summary( fitolsS2 ) )
+fitolsS3 <- systemfit(
+   list( consump ~ trend - 1, price ~ trend - 1 ), "OLS",
+   data = Kmenta )
+print( summary( fitolsS3 ) )
+fitolsS4 <- systemfit(
+   list( consump ~ trend - 1, price ~ trend - 1 ), "OLS",
+   data = Kmenta, restrict.matrix = matrix( c( 1, -1 ), nrow = 1 ) )
+print( summary( fitolsS4 ) )
+fitolsS5 <- systemfit(
+   list( consump ~ 1, farmPrice ~ 1 ), "OLS",
+   data = Kmenta )
+print( summary( fitolsS5 ) )
+
+
 ## **************** shorter summaries **********************
 print( summary( fitols1, useDfSys = TRUE, printEquations = FALSE ) )
 
