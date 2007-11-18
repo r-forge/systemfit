@@ -1,5 +1,5 @@
 
-R version 2.5.1 (2007-06-27)
+R version 2.6.0 (2007-10-03)
 Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -22,14 +22,6 @@ Loading required package: lattice
 Loading required package: car
 Loading required package: lmtest
 Loading required package: zoo
-
-Attaching package: 'zoo'
-
-
-	The following object(s) are masked from package:base :
-
-	 rapply 
-
 > data( "Kmenta" )
 > useMatrix <- FALSE
 > 
@@ -4829,7 +4821,7 @@ income        -0.015167 -0.001697  0.001896
 > 
 > print( round( vcov( fitsurio5wr2 ), digits = 6 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)          51.319595    -0.579747      0.070528
+demand_(Intercept)          51.319596    -0.579747      0.070528
 demand_price                -0.579747     0.006646     -0.000872
 demand_income                0.070528    -0.000872      0.000171
 supply_(Intercept)          51.551829    -0.583025      0.072036
@@ -4854,7 +4846,7 @@ supply_farmPrice       0.000138
 supply_trend           0.000171
 > print( round( vcov( fitsurio5wr2, modified.regMat = TRUE ), digits = 6 ) )
           C1        C2        C3        C4        C5        C6
-C1 51.319595 -0.579747  0.070528 51.551829 -0.579747  0.061658
+C1 51.319596 -0.579747  0.070528 51.551829 -0.579747  0.061658
 C2 -0.579747  0.006646 -0.000872 -0.583025  0.006646 -0.000751
 C3  0.070528 -0.000872  0.000171  0.072036 -0.000872  0.000138
 C4 51.551829 -0.583025  0.072036 52.210946 -0.583025  0.058794
@@ -6978,7 +6970,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio4, fitsuri2) 
+In lrtest.systemfit(fitsurio4, fitsuri2) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 > print( lrtest( fitsurio4, fitsuri3 ) )
 Likelihood ratio test
 
@@ -6990,7 +6983,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio4, fitsuri3) 
+In lrtest.systemfit(fitsurio4, fitsuri3) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 > print( lrtest( fitsurio5, fitsuri2 ) )
 Likelihood ratio test
 
@@ -7002,7 +6996,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio5, fitsuri2) 
+In lrtest.systemfit(fitsurio5, fitsuri2) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 > print( lrtest( fitsurio5, fitsuri3 ) )
 Likelihood ratio test
 
@@ -7014,7 +7009,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio5, fitsuri3) 
+In lrtest.systemfit(fitsurio5, fitsuri3) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 >    # corrected
 > print( lrtest( fitsuri2, fitsuri4 ) )
 Likelihood ratio test
@@ -7061,7 +7057,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio4e, fitsuri2e) 
+In lrtest.systemfit(fitsurio4e, fitsuri2e) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 > print( lrtest( fitsurio4e, fitsuri3e ) )
 Likelihood ratio test
 
@@ -7073,7 +7070,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio4e, fitsuri3e) 
+In lrtest.systemfit(fitsurio4e, fitsuri3e) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 > print( lrtest( fitsurio5e, fitsuri2e ) )
 Likelihood ratio test
 
@@ -7085,7 +7083,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio5e, fitsuri2e) 
+In lrtest.systemfit(fitsurio5e, fitsuri2e) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 > print( lrtest( fitsurio5e, fitsuri3e ) )
 Likelihood ratio test
 
@@ -7097,7 +7096,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio5e, fitsuri3e) 
+In lrtest.systemfit(fitsurio5e, fitsuri3e) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 >    # corrected
 > print( lrtest( fitsuri2e, fitsuri4e ) )
 Likelihood ratio test
@@ -7209,7 +7209,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio4, fitsuri1) 
+In lrtest.systemfit(fitsurio4, fitsuri1) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 > print( lrtest( fitsurio5, fitsuri1 ) )
 Likelihood ratio test
 
@@ -7221,7 +7222,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio5, fitsuri1) 
+In lrtest.systemfit(fitsurio5, fitsuri1) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 >    # corrected
 > print( lrtest( fitsuri1, fitsuri4 ) )
 Likelihood ratio test
@@ -7255,7 +7257,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio4e, fitsuri1e) 
+In lrtest.systemfit(fitsurio4e, fitsuri1e) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 > print( lrtest( fitsurio5e, fitsuri1e ) )
 Likelihood ratio test
 
@@ -7267,7 +7270,8 @@ Model 2: object_2
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Warning message:
-model '2' has a smaller log-likelihood value than the more restricted model '1' in: lrtest.systemfit(fitsurio5e, fitsuri1e) 
+In lrtest.systemfit(fitsurio5e, fitsuri1e) :
+  model '2' has a smaller log-likelihood value than the more restricted model '1'
 >    # corrected
 > print( lrtest( fitsuri1e, fitsuri4e ) )
 Likelihood ratio test

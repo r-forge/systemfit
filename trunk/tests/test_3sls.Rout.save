@@ -1,5 +1,5 @@
 
-R version 2.5.1 (2007-06-27)
+R version 2.6.0 (2007-10-03)
 Copyright (C) 2007 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -22,14 +22,6 @@ Loading required package: lattice
 Loading required package: car
 Loading required package: lmtest
 Loading required package: zoo
-
-Attaching package: 'zoo'
-
-
-	The following object(s) are masked from package:base :
-
-	 rapply 
-
 > data( "Kmenta" )
 > useMatrix <- FALSE
 > 
@@ -8834,7 +8826,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.416812 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
-SSR: 99.29669 MSE: 5.840982 Root MSE: 2.416812 
+SSR: 99.296691 MSE: 5.840982 Root MSE: 2.416812 
 Multiple R-Squared: 0.629648 Adjusted R-Squared: 0.586077 
 
 
