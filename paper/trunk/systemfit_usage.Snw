@@ -345,7 +345,7 @@ The default value is 'GLS'.
 argument           & equation       & equation \\
 \code{method3sls} & (unrestricted) & (restricted) \\
 \hline
-'GLS'     & \ref{eq:2sls-w2sls-3sls} & \ref{eq:3slsGlsR} \\
+'GLS'     & \ref{eq:2sls-w2sls-3sls} & \ref{eq:2sls-w2sls-3sls-r} \\
 \hline
 'IV'      & \ref{eq:3slsIv}      & \ref{eq:3slsIvR} \\
 \hline

@@ -90,96 +90,9 @@ is described for each estimation method in the following sections.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Restricted OLS estimation}
+\subsubsection{Restricted OLS, WLS, and SUR estimation}
 
-The OLS estimator restricted by $R \beta^R = q$ can be obtained by
-\begin{equation}
-   \left[ \begin{array}{c}
-      \bHat^R_{OLS} \\[0.2em] \lHat
-   \end{array} \right]
-   =
-   \left[ \begin{array}{cc}
-      X' X & R' \\ 
-      R & 0
-   \end{array} \right]^{-1}
-   \cdot
-   \left[ \begin{array}{c}
-      X' y \\ q 
-   \end{array} \right] ,
-\end{equation}
-where $\lambda$ is a vector of the Lagrangean multipliers of the restrictions.
-If the whole system is treated as one single equation,
-an estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat
-   \left[ \begin{array}{c}
-      \bHat^R_{OLS} \\[0.2em] \lHat
-   \end{array} \right] 
-   = \sHat^2 
-   \left[ \begin{array}{cc}
-      X' X & R' \\ 
-      R & 0
-   \end{array} \right]^{-1} ,
-\end{equation}
-where $\sHat$ is the estimated variance of the disturbance terms.
-If the disturbance terms of the individual equations
-are allowed to have different variances, 
-an estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat
-   \left[ \begin{array}{c}
-      \bHat^R_{OLS} \\[0.2em] \lHat
-   \end{array} \right] 
-   = 
-   \left[ \begin{array}{cc}
-      X' \OHat^{-1} X & R' \\
-      R & 0
-   \end{array} \right]^{-1} ,
-\end{equation}
-where $\OHat = \SHat \otimes I$,
-$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
-$\sHat_{ii} = \sHat_i^2$ is the estimated variance
-of the disturbance term in the $i$th equation.
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Restricted WLS estimation}
-
-The WLS estimator restricted by $R \beta^R = q$ can be obtained by
-\begin{equation}
-   \left[ \begin{array}{c}
-      \bHat^R_{WLS} \\[0.2em] \lHat
-   \end{array} \right]
-   =
-   \left[ \begin{array}{cc}
-      X' \OHat^{-1} X & R' \\
-      R & 0
-   \end{array} \right]^{-1}
-   \cdot
-   \left[ \begin{array}{c}
-      X' \OHat^{-1} y \\ q
-   \end{array} \right] ,
-\end{equation}
-where $\OHat = \SHat \otimes I$,
-$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
-$\sHat_{ii} = \sHat_i^2$ is the estimated variance
-of the disturbance term in the $i$th equation.
-An estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat
-   \left[ \begin{array}{c}
-      \bHat^R_{WLS} \\[0.2em] \lHat
-   \end{array} \right] 
-   = 
-   \left[ \begin{array}{cc}
-      X' \OHat^{-1} X & R' \\
-      R & 0
-   \end{array} \right]^{-1} .
-\end{equation}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Restricted SUR estimation}
-
-The SUR estimator restricted by $R \beta^R = q$ can be obtained by
+The OLS, WLS, and SUR estimators restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
       \bHat^R_{SUR} \\[0.2em] \lHat
@@ -193,9 +106,10 @@ The SUR estimator restricted by $R \beta^R = q$ can be obtained by
    \left[ \begin{array}{c}
       X' \OHat^{-1} y \\ q
    \end{array} \right] ,
+   \label{eq:ols-wls-sur-r}
 \end{equation}
-where $\OHat = \SHat \otimes I$ and
-$\SHat$ is the estimated covariance matrix of the disturbance terms.
+where $\lambda$ is a vector of the Lagrangean multipliers of the restrictions
+and $\OHat$ is defined as in section~\ref{sec:Estimation-ols-wls-sur}.
 An estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
    \COVHat
@@ -207,101 +121,14 @@ An estimator of the covariance matrix of the estimated parameters is
       X' \OHat^{-1} X & R' \\
       R & 0
    \end{array} \right]^{-1} .
+   \label{eq:cov-ols-wls-sur-r}
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Restricted 2SLS estimation}
+\subsubsection{Restricted 2SLS, W2SLS, and 3SLS estimation}
 
-The 2SLS estimator restricted by $R \beta^R = q$ can be obtained by
-\begin{equation}
-   \left[ \begin{array}{c}
-      \bHat^R_{2SLS} \\[0.2em] \lHat
-   \end{array} \right]
-   =
-   \left[ \begin{array}{cc}
-      \XHat' \XHat & R' \\
-      R & 0
-   \end{array} \right]^{-1}
-   \cdot
-   \left[ \begin{array}{c}
-      \XHat' y \\ q
-   \end{array} \right] .
-   \label{eq:beta2SLSr}
-\end{equation}
-If the whole system is treated as one single equation,
-an estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat
-   \left[ \begin{array}{c}
-      \bHat^R_{2SLS} \\[0.2em] \lHat
-   \end{array} \right] 
-   = \sHat^2 
-   \left[ \begin{array}{cc}
-      \XHat' \XHat & R' \\
-      R & 0
-   \end{array} \right]^{-1} ,
-\end{equation}
-where $\sHat^2$ is the estimated variance of the disturbance terms.
-If the disturbance terms of the individual equations
-are allowed to have different variances, 
-an estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat
-   \left[ \begin{array}{c}
-      \bHat^R_{2SLS} \\[0.2em] \lHat
-   \end{array} \right] 
-   = 
-   \left[ \begin{array}{cc}
-      \XHat' \OHat^{-1} \XHat & R' \\
-      R & 0
-   \end{array} \right]^{-1} ,
-\end{equation}
-where $\OHat = \SHat \otimes I$,
-$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
-$\sHat_{ii} = \sHat_i^2$ is the estimated variance
-of the disturbance term in the $i$th equation.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Restricted W2SLS estimation}
-
-The W2SLS estimator restricted by $R \beta^R = q$ can be obtained by
-\begin{equation}
-   \left[ \begin{array}{c}
-      \bHat^R_{W2SLS} \\[0.2em] \lHat
-   \end{array} \right]
-   =
-   \left[ \begin{array}{cc}
-      \XHat' \OHat^{-1} \XHat & R' \\
-      R & 0
-   \end{array} \right]^{-1}
-   \cdot
-   \left[ \begin{array}{c}
-      \XHat' \OHat^{-1} y \\ q
-   \end{array} \right] ,
-\end{equation}
-where $\OHat = \SHat \otimes I$,
-$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
-$\sHat_{ii} = \sHat_i^2$ is the estimated variance
-of the disturbance term in the $i$th equation.
-An estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat
-   \left[ \begin{array}{c}
-      \bHat^R_{W2SLS} \\[0.2em] \lHat
-   \end{array} \right] 
-   = 
-   \left[ \begin{array}{cc}
-      \XHat' \OHat^{-1} \XHat & R' \\
-      R & 0
-   \end{array} \right]^{-1} .
-\end{equation}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Restricted 3SLS estimation}
-
-The standard 3SLS estimator restricted by $R \beta^R = q$ can be obtained by
+The 2SLS, W2SLS, and standard 3SLS estimators
+restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
       \bHat^R_{3SLS} \\[0.2em] \lHat
@@ -315,10 +142,9 @@ The standard 3SLS estimator restricted by $R \beta^R = q$ can be obtained by
    \left[ \begin{array}{c}
       \XHat' \OHat^{-1} y \\ q
    \end{array} \right] ,
-   \label{eq:3slsGlsR}
+   \label{eq:2sls-w2sls-3sls-r}
 \end{equation}
-where $\OHat = \SHat \otimes I$ and
-$\SHat$ is the estimated covariance matrix of the disturbance terms.
+where $\OHat$ is defined as in section~\ref{sec:Estimation-2sls-w2sls-3sls}.
 An estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
    \COVHat
@@ -330,8 +156,9 @@ An estimator of the covariance matrix of the estimated parameters is
       \XHat' \OHat^{-1} \XHat & R' \\
       R & 0
    \end{array} \right]^{-1} .
-   \label{eq:cov3slsr}
+   \label{eq:cov-2sls-w2sls-3sls-r}
 \end{equation}
+
 The 3SLS-IV estimator restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
@@ -449,9 +276,9 @@ The econometrics software \proglang{EViews} calculates the restricted 3SLS estim
    \label{eq:3slsEViewsR}
 \end{equation}
 where $\bHat^R_{2SLS}$ is the restricted 2SLS estimator calculated
-by equation (\ref{eq:beta2SLSr}). 
+by equation (\ref{eq:2sls-w2sls-3sls-r}).
 \proglang{EViews} uses the standard formula of the restricted 3SLS
-estimator~(\ref{eq:cov3slsr}) to calculate an estimator
+estimator~(\ref{eq:cov-2sls-w2sls-3sls-r}) to calculate an estimator
 for the covariance matrix of the estimated parameters.
 
 
