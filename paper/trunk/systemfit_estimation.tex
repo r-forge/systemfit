@@ -1,39 +1,47 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Estimation}\label{sec:Estimation}
+\subsection{Estimation with only exogenous regressors}
+\label{sec:Estimation-ols-wls-sur}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+If all regressors are exogenous,
+the system of equations~(\ref{eq:model})
+can be consistently estimated by Ordinary Least Squares (OLS),
+Weighted Least Squares (WLS), and Seemingly Unrelated Regression (SUR).
+These estimators can be obtained by
+\begin{equation}
+   \bHat = \left( X' \OHat^{-1} X \right)^{-1} X' \OHat^{-1} y .
+   \label{eq:ols-wls-sur}
+\end{equation}
+The covariance matrix of these estimators
+can be estimated by
+\begin{equation}
+   \COVHat \left[ \bHat \right] = \left( X' \OHat^{-1} X \right)^{-1} .
+   \label{eq:cov-ols-wls-sur}
+\end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Ordinary least squares (OLS)}
 
-The Ordinary Least Squares (OLS) estimator of the system 
-is obtained by
-\begin{equation}
-   \bHat_{OLS} = \left( X'X \right)^{-1} X'y .
-   \label{eq:ols}
-\end{equation}
-These estimates are efficient only if the disturbance terms are not
-contemporaneously correlated, which means
-$\sigma_{ij} = 0 \; \forall \; i \neq j$.
+The Ordinary Least Squares (OLS) estimator is based on the assumption
+that the disturbance terms are not contemporaneously correlated
+$(\sigma_{ij} = 0 \; \forall \; i \neq j)$
+and have the same variance in each equation
+$( \sigma_i^2 = \sigma_j^2 \, \forall \, i, j$,
+where $\sigma_i^2 = \E [ u_{it}^2 ])$.
+In this case, $\OHat$ in equation~(\ref{eq:ols-wls-sur})
+is equal to $I_{G \cdot T}$ and thus, cancels out.
+The OLS estimator is efficient,
+as long as the disturbances are not contemporaneously correlated.
+
 If the whole system is treated as one single equation,
-an estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat \left[ \bHat_{OLS} \right] = \sHat^2 \left( X'X \right)^{-1} ,
-   \label{eq:olsCovSameSigma}
-\end{equation}
+$\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) is $\sHat^2 I_{G \cdot T}$,
 where $\sHat^2$ is the estimated variance of the disturbances.
 This assumes that the disturbances of all equations have the
 same variance $(\E [ u_{it}^2 ] = \sigma^2 \, \forall \, i)$.
-
 If the disturbance terms of the individual equations
 are allowed to have different variances,
-an estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat \left[ \bHat_{OLS} \right] = \left( X' \OHat^{-1} X \right)^{-1} ,
-   \label{eq:olsCovSingleSigma}
-\end{equation}
-where $\OHat = \SHat \otimes I$,
-$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
+$\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) is $\SHat \otimes I_T$,
+where $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
 $\sHat_{ii} = \sHat_i^2$ is the estimated variance
 of the disturbance term in the $i$th equation.
 
@@ -42,24 +50,21 @@ OLS estimation of the system leads to the same parameter estimates
 as an equation-wise OLS estimation.
 The covariance matrix of the parameters from an equation-wise
 OLS estimation is equal to the covariance matrix obtained
-by equation (\ref{eq:olsCovSingleSigma}).
-
+by equation~(\ref{eq:cov-ols-wls-sur})
+with $\OHat$ equal to $\SHat \otimes I_T$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Weighted least squares (WLS)}
 
 The Weighted Least Squares (WLS) estimator allows for different variances
 of the disturbance terms in the different equations
-$( \sigma_i^2 \neq \sigma_j^2 \, \forall \, i \neq j$,
-where $\sigma_i^2 = \E [ u_{it}^2 ])$.
-The WLS estimator can be obtained by
-\begin{equation}
-   \bHat_{WLS} = \left( X' \OHat^{-1} X \right)^{-1} X' \OHat^{-1} y ,
-\end{equation}
-where $\OHat = \SHat \otimes I$,
-$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
-$\sHat_{ii} = \sHat_i^2$ is the variance
-of the (estimated) residuals in the $i$th equation.
+$( \sigma_i^2 \neq \sigma_j^2 \, \forall \, i \neq j)$.
+In this case, $\OHat$ in equations~(\ref{eq:ols-wls-sur})
+and~(\ref{eq:cov-ols-wls-sur})
+is $\SHat \otimes I_T$,
+where $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
+$\sHat_{ii} = \sHat_i^2$ is the estimated variance
+of the disturbance terms in the $i$th equation.
 Theoretically, $\sHat_{ii}$ should be the variance of
 the (true) disturbances $( \sigma_{ii} )$.
 However, they are not known in most empirical applications.
@@ -68,19 +73,15 @@ $( \sHat_{ii} )$
 that are calculated from the residuals of a first-step OLS estimation
 (see section~\ref{sec:residcov}).
 
-These estimates are (asymptotically) efficient
+The WLS estimator is (asymptotically) efficient only
 if the disturbance terms are not contemporaneously correlated.
-An estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat \left[ \bHat_{WLS} \right] = \left( X' \OHat^{-1} X \right)^{-1} .
-\end{equation}
 If no cross-equation parameter restrictions are imposed,
-the parameter estimates are equal to the OLS estimates.
+the parameter estimates are equal to OLS estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Seemingly unrelated regression (SUR)}
 
-When the disturbances are contemporaneously correlated, a Generalized 
+If the disturbances are contemporaneously correlated, a Generalized
 Least Squares (GLS) estimation leads to efficient parameter estimates.
 In this case, the GLS estimator is generally called °Seemingly Unrelated Regression°
 (SUR) estimator \citep{zellner62}.
@@ -91,6 +92,11 @@ a Feasible Generalized Least Squares (FGLS) estimation.
 As the FGLS estimator is based on
 an estimated covariance matrix of the disturbance terms,
 it is only asymptotically efficient.
+In case of an SUR estimator, $\OHat$ in equations~(\ref{eq:ols-wls-sur})
+and~(\ref{eq:cov-ols-wls-sur})
+is $\SHat \otimes I_T$,
+where $\SHat$ is the estimated covariance matrix of the disturbance terms.
+
 It should be noted that while an unbiased OLS or WLS estimation requires only that
 the regressors and the disturbance terms of each single 
 equation are uncorrelated
@@ -99,28 +105,20 @@ a consistent SUR estimation requires that all disturbance terms and all
 regressors are uncorrelated
 $( \E \left[ u_i ' X_j \right] = 0 \; \forall \; i, j )$.
 
-The SUR estimator can be obtained by
-\begin{equation}
-   \bHat_{SUR} = \left( X' \OHat^{-1} X \right)^{-1} X' \OHat^{-1} y ,
-   \label{eq:sur}
-\end{equation}
-where $\OHat = \SHat \otimes I$ and
-$\SHat$ is the estimated covariance matrix of the disturbance terms.
-An estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat \left[ \bHat_{SUR} \right] = \left( X' \OHat^{-1} X \right)^{-1} .
-   \label{eq:surCov}
-\end{equation}
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Estimation with endogenous regressors}
+\label{sec:Estimation-2sls-w2sls-3sls}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Two-stage least squares (2SLS)}
-
-If the regressors of one or more equations are correlated 
+If the regressors of one or more equations are correlated
 with the disturbances ($\E \left[ u_i' X_i \right] \neq 0$),
-OLS estimates are biased.
-This can be circumvented by an instrumental variable (IV)
-two-stage least squares (2SLS) estimation.
+OLS, WLS, and SUR estimates are biased.
+This can be circumvented by a
+two-stage least squares (2SLS),
+weighted two-stage least squares (W2SLS),
+or a three-stage least squares (3SLS) estimation
+with instrumental variables (IV).
 The instrumental variables for each equation $H_i$ 
 can be either different or identical for all equations.
 They must not be correlated with
@@ -131,80 +129,64 @@ At the first stage new ('fitted') regressors are obtained by
 \begin{equation}
    \XHat_i = H_i \left( H_i' H_i \right)^{-1} H_i' X .
 \end{equation}
-At the second stage, the unbiased two-stage least squares estimates
-of $\beta$ are obtained by
+Then, these 'fitted' regressors are used
+to obtain unbiased 2SLS, W2SLS, or 3SLS estimates of $\beta$ by
 \begin{equation}
-   \bHat_{2SLS} = \left( \XHat' \XHat \right)^{-1}
-   \XHat' y .
-   \label{eq:beta2sls}
+   \bHat
+   = \left( \XHat' \OHat^{-1} \XHat \right)^{-1} \XHat' \OHat^{-1} y .
+   \label{eq:2sls-w2sls-3sls}
 \end{equation}
-If the whole system is treated as one single equation,
-an estimator of the covariance matrix of the estimated parameters is
+An estimator of the covariance matrix of the estimated parameters is
 \begin{equation}
-   \COVHat \left[ \bHat_{2SLS} \right] = \sHat^2 \left( \XHat'
-   \XHat \right)^{-1} ,
-   \label{eq:2slsCovSameSigma}
+   \COVHat \left[ \bHat \right]
+   = \left( \XHat' \OHat^{-1} \XHat \right)^{-1} .
+   \label{eq:cov-2sls-w2sls-3sls}
 \end{equation}
-where $\sHat^2$ is the estimated variance of the disturbance terms.
-If the disturbance terms of the individual equations
-are allowed to have different variances, 
-an estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat \left[ \bHat_{2SLS} \right] = \left( \XHat' \OHat^{-1}
-   \XHat \right)^{-1} ,
-   \label{eq:2slsCovSingleSigma}
-\end{equation}
-where $\OHat = \SHat \otimes I$,
-$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
-$\sHat_{ii} = \sHat_i^2$ is the estimated variance
-of the disturbance term in the $i$th equation.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Two-stage least squares (2SLS)}
+
+The Two-Stage Least Squares (2SLS) estimator
+is based on the same assumptions as the OLS estimator.
+Accordingly, $\OHat$ in equation~(\ref{eq:2sls-w2sls-3sls})
+is equal to $I_{G \cdot T}$ and thus, cancels out.
+Like for the OLS estimator,
+the whole system can be treated either as one single equation
+with $\OHat$ in equation~(\ref{eq:cov-2sls-w2sls-3sls})
+equal to $\sHat^2 I_{G \cdot T}$,
+or the disturbance terms of the individual equations
+are allowed to have different variances
+with $\OHat$ in equation~(\ref{eq:cov-2sls-w2sls-3sls})
+equal to $\SHat \otimes I_T$,
+where $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
+$\sHat_{ii} = \sHat_i^2$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Weighted two-stage least squares (W2SLS)}
 
-The Weighted Two-Stage Least Squares (W2SLS) estimator of the system 
-is obtained by
-\begin{equation}
-   \bHat_{W2SLS} = \left( \XHat' \OHat^{-1} \XHat
-   \right)^{-1} \XHat' \OHat^{-1} y ,
-\end{equation}
-where $\OHat = \SHat \otimes I$,
-$\sHat_{ij} = 0 \; \forall \; i \neq j$ and
-$\sHat_{ii} = \sHat_i^2$ is the estimated variance
-of the disturbance term in the $i$th equation.
-An estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat \left[ \bHat_{W2SLS} \right] = \left( \XHat' \OHat^{-1}
-   \XHat \right)^{-1} .
-\end{equation}
-
+The Weighted Two-Stage Least Squares (W2SLS) estimator allows
+for different variances of the disturbance terms in the different equations.
+Hence, $\OHat$ in equations~(\ref{eq:2sls-w2sls-3sls})
+and~(\ref{eq:cov-2sls-w2sls-3sls})
+is $\SHat \otimes I_T$,
+where $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
+$\sHat_{ii} = \sHat_i^2$.
+If no cross-equation parameter restrictions are imposed,
+the parameter estimates are equal to the 2SLS estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Three-stage least squares (3SLS)}
 
-If the regressors are correlated with the disturbances 
-($\E \left[ u_i' X_i \right] \neq 0$) and
-the disturbances are contemporaneously correlated, 
+If the disturbances are contemporaneously correlated,
 a Feasible Generalized Least Squares (FGLS) version of the two-stage least squares
 estimation leads to consistent and asymptotically more efficient estimates.
 This estimation procedure is generally called °Three-stage Least
 Squares° (3SLS) \citep{zellner62b}.
+The standard 3SLS estimator and its covariance matrix are obtained by
+equations~(\ref{eq:2sls-w2sls-3sls}) and~(\ref{eq:cov-2sls-w2sls-3sls})
+with $\OHat$ equal to $\SHat \otimes I_T$,
+where $\SHat$ is the estimated covariance matrix of the disturbance terms.
 
-The standard 3SLS estimator can be obtained by
-\begin{equation}
-   \bHat_{3SLS} = \left( \XHat' \OHat^{-1} \XHat
-   \right)^{-1} \XHat' \OHat^{-1} y ,
-   \label{eq:3slsGls}
-\end{equation}
-where $\OHat = \SHat \otimes I$ and
-$\SHat$ is the estimated covariance matrix of the disturbance terms.
-An estimator of the covariance matrix of the estimated parameters is
-\begin{equation}
-   \COVHat \left[ \bHat_{3SLS} \right] = \left( \XHat' \OHat^{-1}
-   \XHat \right)^{-1} .
-   \label{eq:cov3sls}
-\end{equation}
 While an unbiased 2SLS or W2SLS estimation requires only that
 the instrumental variables and the disturbance terms of each single 
 equation are uncorrelated
@@ -273,8 +255,8 @@ The econometrics software \proglang{EViews} uses
    \label{eq:3slsEViews}
 \end{equation}
 where $\bHat_{2SLS}$ is the two-stage least squares estimator
-as defined by (\ref{eq:beta2sls}).
-\proglang{EViews} uses the standard 3SLS formula (\ref{eq:cov3sls}) to
+as defined above.
+\proglang{EViews} uses the standard 3SLS formula~(\ref{eq:cov-2sls-w2sls-3sls}) to
 calculate an estimator of the covariance matrix of the estimated parameters.
 
 

@@ -145,7 +145,8 @@ therefore, it matters.
 
 If a system of equations is estimated by an unrestricted OLS and
 the covariance matrix of the parameters is calculated
-by~(\ref{eq:olsCovSingleSigma}),
+with $\OHat$ in equation~(\ref{eq:cov-ols-wls-sur})
+equal to $\SHat \otimes I_T$,
 the estimated parameters and their standard errors are identical
 to an equation-wise OLS estimation.
 In this case, it is reasonable to use the degrees of freedom of
@@ -156,7 +157,8 @@ OLS estimation.
 In contrast, if a system of equations is estimated with many
 cross-equation restrictions and
 the covariance matrix of an OLS estimation is calculated
-by~(\ref{eq:olsCovSameSigma}),
+with $\OHat$ in equation~(\ref{eq:cov-ols-wls-sur})
+equal to $\sHat^2 I_{G \cdot T}$,
 the system estimation is similar to a single equation estimation.
 Therefore, in this case, it seems to be reasonable to use the degrees
 of freedom of the entire system.

@@ -80,7 +80,8 @@ for calculating the $F$ statistic.
 The basic functionality of this package is provided by the
 function \code{systemfit}.
 This function estimates the system of equations by applying
-the formulas in section~\ref{sec:Estimation}
+the formulas in sections~\ref{sec:Estimation-ols-wls-sur}
+and~\ref{sec:Estimation-2sls-w2sls-3sls}
 or --- if parameter restrictions are imposed ---
 by the formulas in section~\ref{sec:Restrictions}.
 If the parameter restrictions are specified symbolically,
@@ -121,7 +122,8 @@ respectively.
 The matrix $\Omega^{-1}$ that is used to compute the estimated
 coefficients and their covariance matrix is of size
 $( G \cdot T ) \times ( G \cdot T )$
-(see sections~\ref{sec:Estimation} and~\ref{sec:Restrictions}).
+(see sections~\ref{sec:Estimation-ols-wls-sur},
+\ref{sec:Estimation-2sls-w2sls-3sls}, and~\ref{sec:Restrictions}).
 In case of large data sets, $\Omega^{-1}$ becomes computationally infeasible.
 Therefore, we use the following transformation and compute $X' \Omega^{-1}$
 by dividing the $X$ matrix into submatrices,
@@ -164,7 +166,7 @@ because it is a sparse matrix
 that can be stored in a compressed format (class \code{dgCMatrix}).
 Hence, we no longer need the algorithm in equation~(\ref{eq:omegaInv}).
 We have tested different ways to calculate a GLS estimator
-like in (\ref{eq:sur})
+like in (\ref{eq:ols-wls-sur})
 and we found
 that the following code is the fastest:
 <<eval=FALSE>>=
@@ -176,7 +178,7 @@ In this code snippet,
 \code{residCov} is the residual covariance matrix $\SHat$,
 \code{nObs} is the number of observations in each equation $T$,
 \code{xMat} is the matrix $X$ and
-\code{yVec} is the vector $y$ in~(\ref{eq:sur}).
+\code{yVec} is the vector $y$ in~(\ref{eq:ols-wls-sur}).
 
 Theoretically, one would expect
 that the calculations with the \pkg{Matrix} package are

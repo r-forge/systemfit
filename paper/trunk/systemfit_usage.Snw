@@ -104,7 +104,8 @@ that determines the estimation method.
 It must be either °\code{OLS}°, °\code{WLS}°, °\code{SUR}°,
 °\code{2SLS}°, °\code{W2SLS}°, or °\code{3SLS}°.
 These methods correspond to the estimation methods
-described in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions}.
+described in sections~\ref{sec:Estimation-ols-wls-sur},
+\ref{sec:Estimation-2sls-w2sls-3sls}, and~\ref{sec:Restrictions}.
 The following command estimates the model described above as
 °Seemingly Unrelated Regression°.
 <<>>=
@@ -328,7 +329,7 @@ to compute the residual covariance matrix.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{3SLS formula}
-As discussed in sections~\ref{sec:Estimation} and~\ref{sec:Restrictions},
+As discussed in sections~\ref{sec:Estimation-2sls-w2sls-3sls} and~\ref{sec:Restrictions},
 there exist several different
 methods to perform a 3SLS estimation.
 The user can specify the method by argument \code{method3sls}.
@@ -344,7 +345,7 @@ The default value is 'GLS'.
 argument           & equation       & equation \\
 \code{method3sls} & (unrestricted) & (restricted) \\
 \hline
-'GLS'     & \ref{eq:3slsGls}     & \ref{eq:3slsGlsR} \\
+'GLS'     & \ref{eq:2sls-w2sls-3sls} & \ref{eq:3slsGlsR} \\
 \hline
 'IV'      & \ref{eq:3slsIv}      & \ref{eq:3slsIvR} \\
 \hline
@@ -366,11 +367,11 @@ can be used to specify,
 whether different $\sigma^2$s for each single equation
 or the same $\sigma^2$ for all equations should be used.
 If argument \code{single.eq.sigma} is \code{TRUE},
-equations (\ref{eq:olsCovSingleSigma})
-and (\ref{eq:2slsCovSingleSigma}) are applied.
+$\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) or~(\ref{eq:cov-2sls-w2sls-3sls})
+is set to $\SHat \otimes I_T$.
 In contrast, if argument \code{single.eq.sigma} is \code{FALSE},
-equations (\ref{eq:olsCovSameSigma})
-and (\ref{eq:2slsCovSameSigma}) are applied.
+$\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) or~(\ref{eq:cov-2sls-w2sls-3sls})
+is set to $\sHat^2 I_{G \cdot T}$.
 In case of an unrestricted regression,
 argument \code{single.eq.sigma} is \code{TRUE} by default.
 However, if parameter restrictions are imposed,
