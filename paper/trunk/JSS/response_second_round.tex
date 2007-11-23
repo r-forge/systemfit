@@ -1,0 +1,270 @@
+\documentclass[12pt,english]{scrartcl}
+\input{response_commands}
+
+\begin{document}
+\begin{center}
+{\Large\textbf{\textsf{
+systemfit: A Package for Estimating\\[0.3em]
+Systems of Simultaneous Equations in \proglang{R} (JSS~224)
+}}}
+
+\bigskip
+
+{\Large\textbf{\textsf{Responses to the Reviewers}}}
+\end{center}
+
+% -------------------------
+
+\section{First reviewer}
+
+% -------------------------
+
+% It seems that the authors have dealt with my concerns adequately.
+% Especially, section 2 has become easier to read. However, the sentence
+% starting line 3 and ending line 6 should be changed: the disturbance
+% terms are not correlated BECAUSE the models are econometrically
+% estimated.
+
+
+% -------------------------
+
+\section{Second reviewer}
+
+% -------------------------
+
+% The paper and software improves significantly on the initial version
+% submitted to JSS. The software looks much better now, I've got only
+% a few remaining suggestions for improvement. The paper, however, needs
+% some more work and should be streamlined to be more accessible, especially
+% for typical JSS readers. More detailed comments are included below.
+
+
+\subsection{Major points}
+
+\subsubsection{Description of the estimation methods}
+%   o I already included this point in my first review:
+%       The description of the estimation methods can be shortened considerably
+%       and should focus on the unifying properties of the different estimators.
+%       All methods from OLS through to standard 3SLS comply with formulas
+%       (12) and (13), only with differing choices for Omega (s*I, diagonal or
+%       full Omega) and X (original X vs \hat X from instruments). The exposition
+%       could be streamlined considerably if this structure were exploited.
+%     This has not been changed by the authors, their reply says:
+%       A major purpose of this section is that a user of the systemfit package
+%       can take a look at the theory (e.g. formulas) of a specific estimation
+%       method. Therefore, we fully describe each estimation method in a single
+%       (subsub)sectionD
+% 
+%     I heartily disagree with this. Currently, the unifying properties of the
+%     models are not stated explicitely but are brought out by repitition,
+%     e.g., formulas 9, 11, and 13 just differ in the subscript of the beta.
+%     Also the distinctive properties are not stated explicitely but are always
+%     obscured inline in the text. Therefore I would like to re-emphasize my
+%     original suggestion. State the general formulas for beta and its covariance
+%     once (e.g., in the form of Equations 10 and 11). This gives you explicitely
+%     the unifying properties and you just have to state the distinctive properties
+%     subsequently, i.e., describe which Omega is used and whether the original X
+%     and y are used or projected on the instruments. This could also be done in
+%     tabular form giving a quick overview of the different models.
+%     Such an exposition would be particularly appropriate in a paper about software
+%     because it reveals which structures can be re-used. It would also facilitate
+%     the use of the paper for reference purposes.
+% 
+%     The same comments hold for Section 2.2 which repeats the same formulas over
+%     and over again, often just changing the name of the estimator.
+
+\subsubsection{Estimation under linear restrictions}
+%   o In my first review I had a comment about Section 2.2 (Imposing linear
+%     restrictions) which has only slighly been changed by the authors.
+%     Hence, I rephrase my comment:
+% 
+%     It is still not very clear that this is about estimation: "imposing"
+%     does not necessarily imply "estimation" (or "testing"). E.g., in footnore 3,
+%     you use "impose (and test)" which is just the wrong terminology: the
+%     fundamental concepts in statistics are *estimation* and *testing*!
+% 
+%     Hence, please say something like
+%       "In many empiricaly applications, it is desriable to estimate
+%       the coefficients under linear restrictions of the form
+%         <Equation 31>
+%       For instance, in econometric demand and production analysis, ..."
+%     and so on. Thus, also include the footnote within the text.
+
+\subsubsection{Methods for classes ``ystemfit'' and ``systemfit.equation''}
+%   o Section 3 starts with a discussion of methods for two classes that
+%     haven't been introduced, yet. For readers that have used "systemfit"
+%     before this should not be a huge problem (even though still confusing)
+%     but for new users this will be very hard. Therefore, please start
+%     in Section 3 with a brief description of the core function systemfit()
+%     and its usage, e.g.,
+%       systemfit(formula, method, data, ...)
+%     Briefly indicate what these most important arguments mean and what
+%     the classes "systemfit" and "systemfit.equation" are. Then you can
+%     go on to explain that all the usual model methods exist from print()
+%     over summary() to predict() etc.
+% 
+%     Note that you should not refer to the methods by their full name
+%     (as already indicated in the first review), but as the print() or
+%     coef() method for "systemfit" objects etc.
+% 
+%     Above, I used "formula" as the first argument of systemfit(). The
+%     terminology "equations" is non-standard in the S world, so it should
+%     be "formulas" or "formula". As there are cases it is indeed a single
+%     formula, I would recommend to call it "formula" and just indicate
+%     verbally that it is typically a list of several formulas.
+
+
+\subsection{Minor points}
+
+\subsubsection{Panel-like data}
+%   o What is "panel-like data"?
+%     I've got no idea what this is and why this term is used. Please use
+%     "panel data" and (if necessary) explain what other types of data would
+%     also be covered by this.
+%     Also Section 4.3 interrupts the flow of Section 4.2 and 4.3
+%     and should be postponed.
+
+\subsubsection{Names of arguments of the functions}
+%   o Some arguments of the functions in "systemfit" have non-standard
+%     names. For example, "returnModelFrame", "returnModelMatrix", etc.
+%     Albeit being more verbose, they are much longer and many R users
+%     will probably be used to using "model", "x" and "y" instead
+%     (which are also much shorter to type). Similarly, "printResidCov"
+%     and "printEquations" are extremely long.
+
+\subsubsection{Testing linear restrictions}
+%     The new methods for linear.hypothesis() and lrtest() are very useful.
+%     But I've got a methodological and a technical question/suggestion:
+%       - methodological
+%         linear.hypothesis() usually computes Wald tests, this can be
+%         done using a finite sample (F) or large sample (Chisq) test.
+%         However, the exposition in this paper conveys that the F test
+%         is not a Wald test, but something different. What is it?
+%         Also the code for test = "F" does something different than in
+%         the default linear.hypothesis(). It is not clear to me what
+%         this difference should be.
+%         Similarly, the residual degrees of freedom for the t test
+%         in the summary() are different from df.residual(), is this
+%         intended? If so, why? This results in linear.hypothesis.default()
+%         and coeftest.default() use different (or wrong?) degrees of
+%         freedm than summary().
+%       - technical
+%         The code for obtaining the object names in systemfit's
+%         linear.hypothesis() and lrtest() methods looks quite strange
+%         and yields only sub-optimal results. For many of these cases
+%         you could simply use the usual deparse(substitute(...)).
+%     These points are illustrated by some R code attached at the end
+%     of this review.
+
+
+\subsection{More minor points}
+
+\subsubsection{p.2, l.41, background}
+%   o p.2, l.41 "background on that" -> "background that"
+
+\subsubsection{p.3, l.59-60, Kronecker product}
+%   o p.3, l.59-60 also introduce the Kronecker product symbol
+
+\subsubsection{p.3-5, notation of Omegas}
+%   o p.3-5, the notation for the different Omegas could be more streamlined,
+%     e.g., compare p.3, l.68 with p.4, l.71 and p.4, l.79.
+
+\subsubsection{p.4, l.89, parameter/coefficient estimates}
+%   o p.4, l.89 with "parameter estimates" you mean "coefficient estimates"?
+%     "parameter estimates" is somewhat confusing because you include the
+%     comment immediately after the covariance (rather than coefficient)
+%     estimator.
+
+\subsubsection{p.5, eq.15, $y$ vs.\ $\hat{y}$}
+%   o p.5, eq.15 "y" should be the projected "\textbackslash hat y", right?
+%     This would also apply to the other instrument-based formulas below.
+
+\subsubsection{p.15, l.371, book ``car''}
+%   o p.15, l.371 I would also include a reference to the book "car",
+%     not only the package.
+
+\subsubsection{p. 16, l.414, different computations times}
+%   o p. 16, ll.414 The R examples illustrating the different computations
+%     times are nice but I would defer them to an appendix. In the main
+%     text, I would just verbally explain which option is preferred for
+%     which size of data.
+
+\subsubsection{p.18, l.464, regression formulas}
+%   o p.18, l.464 (+footnote 7) This description of the formulas is even
+%     more confusing than the original version! Please just say that this
+%     these are standard regression formulas. JSS readers should know what
+%     this is.
+
+\subsubsection{p.20, l.495+3, error checking for ``inst''}
+%   o p.20, l.495+3 When playing around with different "inst", I noticed
+%     that the error checking could be improved. If "inst" is a named
+%     list (as your "eqSystem"), the names could be checked and matched
+%     against the main regression formulas. Furthermore, you could catch
+%     if the list is too short.
+
+\subsubsection{p.20, l.502, start section with example from p.21, l.528}
+%   o p.20, l.502 You should really start this section with the example
+%     from p.21, l.528. This is clearly the most intelligible and very
+%     easy to use. The other methods should be included below pointing
+%     out the differences to the first most convenient interface.
+
+\subsubsection{p. 22, Table 1, markup for code}
+%   o p. 22, Table 1 and paragraphs above and below.
+%     The markup for code changes several times here. Table 1 has single
+%     directed quotes (although the authors probably wanted undirected
+%     quotes). The paragraph above has no quotes by a typewriter font.
+%     The paragraph below has typewriter plus directed double quotes.
+%     I would suggest to do away with all the quotes and always use
+%     typewriter fonts.
+%     This also applies to the whole paper...it just became moste apparent
+%     here.
+
+\subsubsection{p.23, l.591, opposite/contrast}
+%   o p.23, l.591. "In opposite" -> "In contrast"
+
+\subsubsection{p.24, code below l.600, example ``GrunfeldGreene''}
+%   o p.24, code below l.600
+%     The quotation of the arguments of data() and library() changes.
+%     The code could be made even more readable by using named arguments.
+%       data("GrunfeldGreene")
+%       library("plm")
+%       gr <- pdata.frame(GrunfeldGreene, id = "firm", time = "year")
+%       greeneSur <- systemfit(invest ~ value + capital, method = "SUR",
+%         data = gr)
+%     Both comments apply more generally to the whole paper.
+%     (Note that using pdata.frame() without assignment is possible
+%     but really bizarre. I wouldn't use this kind of syntax.)
+
+\subsubsection{p.26, l.622, test}
+%   o p.26, l.622 "tests on the" -> "tests of the"
+
+\subsubsection{p.26, l.626, doubling}
+%   o p.26, l.626 "restricted by ... restrictions": avoid doubling
+
+\subsubsection{p.26, l.634, printCoefmat}
+%   o p.26, l.634 and code below
+%     The coefficients should be printed by printCoefmat() to obtain
+%     the usual formatting.
+
+\subsubsection{p.27, l.640, hyphenation}
+%   o p.27, l.640 and code below
+%     omit hyphenation in "F-test" and "Wald-test"
+
+\subsubsection{p.28, l.646, directed quotes vs.\ double quotes}
+%   o p.28, l.646 don't use directed quotes around "F" and "Chisq".
+%     For character strings, include the double quotes within the
+%     typewriter font, e.g.,
+%       \code{"F"} and \code{"Chisq"}
+
+\subsubsection{p.29, l.673, references for the errata to Greene (2003)}
+%   o p.29, l.673 Please add an item in the references for the
+%     errata to Greene (2003). Instead of repeating the URL, use
+%     the correct citation then. Also note that the URL
+%       http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm
+%     now points to the 6th edition of Greene's book!
+
+\subsubsection{p.37, Table 3, typewriter markup}
+%   o p.37, Table 3. Use typewriter markup for the code elements in
+%     the table.
+
+\end{document}
