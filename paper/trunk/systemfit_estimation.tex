@@ -129,14 +129,17 @@ At the first stage new ('fitted') regressors are obtained by
 \begin{equation}
    \XHat_i = H_i \left( H_i' H_i \right)^{-1} H_i' X .
 \end{equation}
-Then, these 'fitted' regressors are used
+Then, these 'fitted' regressors are substituted for the original regressors
+in equation~(\ref{eq:ols-wls-sur})
 to obtain unbiased 2SLS, W2SLS, or 3SLS estimates of $\beta$ by
 \begin{equation}
    \bHat
    = \left( \XHat' \OHat^{-1} \XHat \right)^{-1} \XHat' \OHat^{-1} y .
    \label{eq:2sls-w2sls-3sls}
 \end{equation}
-An estimator of the covariance matrix of the estimated parameters is
+An estimator of the covariance matrix of the estimated parameters
+can be obtained from equation~(\ref{eq:cov-ols-wls-sur}) analogously.
+Hence, we get
 \begin{equation}
    \COVHat \left[ \bHat \right]
    = \left( \XHat' \OHat^{-1} \XHat \right)^{-1} .
