@@ -574,7 +574,7 @@ Analogously to the argument \code{restrict.matrix}
 of the \code{systemfit} function,
 the restrictions can be specified either in matrix form or symbolically.
 The optional argument \code{test} must be
-a character string, °\code{F}° or °\code{Chisq}°,
+a character string, \code{"F"} or \code{"Chisq"},
 specifying whether to compute
 the finite-sample $F$ statistic (with approximate $F$ distribution)
 or the large-sample Wald statistic (with asymptotic $\chi^2$ distribution).
