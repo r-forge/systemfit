@@ -520,7 +520,7 @@ If argument \code{probdfsys} is \code{TRUE},
 the degrees of freedom of the whole system are taken.
 In contrast, if \code{probdfsys} is \code{FALSE},
 the degrees of freedom of the single equation are taken.
-If the estimation was not restricted by any parameter restrictions,
+If any parameter restrictions are imposed in the estimation,
 argument \code{probdfsys} is \code{FALSE} by default.
 However, if parameter restrictions were imposed,
 the default value of \code{probdfsys} is \code{TRUE}.
