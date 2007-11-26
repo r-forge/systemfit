@@ -93,10 +93,10 @@ OLS R-squared value of the system: 0.697214
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.633304   7.920838 11.947385        0 ***
-price       -0.243557   0.096484 -2.524313 0.021832   *
-income       0.313992   0.046944  6.688695    4e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.6333039  7.9208383 11.94738 1.0762e-09 ***
+price       -0.2435565  0.0964843 -2.52431   0.021832 *  
+income       0.3139918  0.0469437  6.68869 3.8109e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -110,11 +110,11 @@ Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  12.010526 4.124086 0.000795 ***
-price        0.240076   0.099934 2.402347 0.028785   *
-farmPrice    0.255606    0.04725 5.409637  5.8e-05 ***
-trend        0.252924   0.099655 2.537996 0.021929   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 12.0105264 4.12409 0.00079536 ***
+price        0.2400758  0.0999339 2.40235 0.02878451 *  
+farmPrice    0.2556057  0.0472501 5.40964 5.7854e-05 ***
+trend        0.2529242  0.0996551 2.53800 0.02192877 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -153,10 +153,10 @@ OLS R-squared value of the system: 0.697214
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.633304   8.935163 10.591111        0 ***
-price       -0.243557    0.10884 -2.237751 0.038916   *
-income       0.313992   0.052955   5.92939  1.6e-05 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.6333039  8.9351629 10.59111 6.6293e-09 ***
+price       -0.2435565  0.1088399 -2.23775   0.038916 *  
+income       0.3139918  0.0529552  5.92939 1.6486e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -170,11 +170,11 @@ Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  10.840378 4.569254 0.000315 ***
-price        0.240076   0.090198 2.661665 0.017058   *
-farmPrice    0.255606   0.042647 5.993572  1.9e-05 ***
-trend        0.252924   0.089946 2.811956 0.012528   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 10.8403780 4.56925 0.00031510 ***
+price        0.2400758  0.0901976 2.66166 0.01705823 *  
+farmPrice    0.2556057  0.0426466 5.99357 1.8749e-05 ***
+trend        0.2529242  0.0899460 2.81196 0.01252841 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -211,10 +211,10 @@ OLS R-squared value of the system: 0.697214
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.633304   7.920838 11.947385        0 ***
-price       -0.243557   0.096484 -2.524313 0.016584   *
-income       0.313992   0.046944  6.688695        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+price       -0.2435565  0.0964843 -2.52431   0.016584 *  
+income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -228,11 +228,11 @@ Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  12.010526 4.124086 0.000236 ***
-price        0.240076   0.099934 2.402347 0.022076   *
-farmPrice    0.255606    0.04725 5.409637    6e-06 ***
-trend        0.252924   0.099655 2.537996 0.016053   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 12.0105264 4.12409 0.00023625 ***
+price        0.2400758  0.0999339 2.40235 0.02207594 *  
+farmPrice    0.2556057  0.0472501 5.40964 5.5059e-06 ***
+trend        0.2529242  0.0996551 2.53800 0.01605307 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -271,10 +271,10 @@ OLS R-squared value of the system: 0.697214
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.633304   7.302652 12.958758        0 ***
-price       -0.243557   0.088954 -2.738002 0.014016   *
-income       0.313992    0.04328  7.254908    1e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.6333039  7.3026521 12.95876 3.0779e-10 ***
+price       -0.2435565  0.0889541 -2.73800   0.014016 *  
+income       0.3139918  0.0432799  7.25491 1.3454e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -288,11 +288,11 @@ Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  10.742541 4.610868 0.000289 ***
-price        0.240076   0.089384 2.685905 0.016234   *
-farmPrice    0.255606   0.042262 6.048158  1.7e-05 ***
-trend        0.252924   0.089134 2.837565 0.011883   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 10.7425414 4.61087 0.00028922 ***
+price        0.2400758  0.0893836 2.68591 0.01623367 *  
+farmPrice    0.2556057  0.0422617 6.04816 1.6913e-05 ***
+trend        0.2529242  0.0891342 2.83757 0.01188273 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -331,10 +331,10 @@ OLS R-squared value of the system: 0.697214
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.633304   8.115765  11.66043        0 ***
-price       -0.243557   0.098859 -2.463683 0.024715   *
-income       0.313992   0.048099  6.528044    5e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.6333039  8.1157648 11.66043 1.5591e-09 ***
+price       -0.2435565  0.0988587 -2.46368   0.024715 *  
+income       0.3139918  0.0480989  6.52804 5.1615e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -348,11 +348,11 @@ Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442   9.846262 5.030583 0.000123 ***
-price        0.240076   0.081926 2.930396 0.009802  **
-farmPrice    0.255606   0.038736 6.598706    6e-06 ***
-trend        0.252924   0.081698 3.095861  0.00694  **
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417  9.8462622 5.03058 0.00012305 ***
+price        0.2400758  0.0819260 2.93040 0.00980216 ** 
+farmPrice    0.2556057  0.0387357 6.59871 6.1218e-06 ***
+trend        0.2529242  0.0816975 3.09586 0.00693978 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -392,10 +392,10 @@ OLS R-squared value of the system: 0.691227
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.281641   8.869261 10.630157        0 ***
-price       -0.224712   0.103432 -2.172551 0.036878   *
-income       0.298273     0.0454  6.569893        0 ***
+             Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.281641   8.869261 10.63016 2.3839e-12 ***
+price       -0.224712   0.103432 -2.17255   0.036878 *  
+income       0.298273   0.045400  6.56989 1.5821e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -409,11 +409,11 @@ Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-            Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.18433  10.538406  4.57226  6.1e-05 ***
-price        0.24272   0.089623 2.708237 0.010511   *
-farmPrice   0.261893   0.041059 6.378406        0 ***
-trend       0.298273     0.0454 6.569893        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.1843300 10.5384060 4.57226 6.1162e-05 ***
+price        0.2427200  0.0896229 2.70824   0.010511 *  
+farmPrice    0.2618927  0.0410593 6.37841 2.7899e-07 ***
+trend        0.2982730  0.0454000 6.56989 1.5821e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -458,10 +458,10 @@ OLS R-squared value of the system: 0.691227
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.281641   8.009046 11.771894        0 ***
-price       -0.224712   0.094624 -2.374782 0.023344   *
-income       0.298273   0.042972  6.941143        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.2816413  8.0090459 11.77189 1.5277e-13 ***
+price       -0.2247122  0.0946243 -2.37478   0.023344 *  
+income       0.2982730  0.0429717  6.94114 5.3085e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -475,11 +475,11 @@ Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-            Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.18433  11.800069 4.083394 0.000255 ***
-price        0.24272   0.100578  2.41324 0.021349   *
-farmPrice   0.261893   0.045928 5.702302    2e-06 ***
-trend       0.298273   0.042972 6.941143        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.1843300 11.8000692 4.08339 0.00025481 ***
+price        0.2427200  0.1005785 2.41324 0.02134917 *  
+farmPrice    0.2618927  0.0459275 5.70230 2.0987e-06 ***
+trend        0.2982730  0.0429717 6.94114 5.3085e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -516,10 +516,10 @@ OLS R-squared value of the system: 0.691227
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.281641   8.869261 10.630157        0 ***
-price       -0.224712   0.103432 -2.172551 0.036878   *
-income       0.298273     0.0454  6.569893        0 ***
+             Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.281641   8.869261 10.63016 2.3839e-12 ***
+price       -0.224712   0.103432 -2.17255   0.036878 *  
+income       0.298273   0.045400  6.56989 1.5821e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -533,11 +533,11 @@ Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-            Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.18433  10.538406  4.57226  6.1e-05 ***
-price        0.24272   0.089623 2.708237 0.010511   *
-farmPrice   0.261893   0.041059 6.378406        0 ***
-trend       0.298273     0.0454 6.569893        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.1843300 10.5384060 4.57226 6.1162e-05 ***
+price        0.2427200  0.0896229 2.70824   0.010511 *  
+farmPrice    0.2618927  0.0410593 6.37841 2.7899e-07 ***
+trend        0.2982730  0.0454000 6.56989 1.5821e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -576,10 +576,10 @@ OLS R-squared value of the system: 0.691227
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.281641   8.177055 11.530024        0 ***
-price       -0.224712    0.09536 -2.356462 0.024352   *
-income       0.298273   0.041857   7.12605        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.2816413  8.1770548 11.53002 2.6978e-13 ***
+price       -0.2247122  0.0953600 -2.35646   0.024352 *  
+income       0.2982730  0.0418567  7.12605 3.0950e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -593,11 +593,11 @@ Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-            Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.18433    9.71593 4.959312  1.9e-05 ***
-price        0.24272   0.082628 2.937495 0.005903  **
-farmPrice   0.261893   0.037855 6.918353        0 ***
-trend       0.298273   0.041857  7.12605        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.1843300  9.7159303 4.95931 1.9394e-05 ***
+price        0.2427200  0.0826282 2.93750  0.0059029 ** 
+farmPrice    0.2618927  0.0378548 6.91835 5.6747e-08 ***
+trend        0.2982730  0.0418567 7.12605 3.0950e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -637,10 +637,10 @@ OLS R-squared value of the system: 0.691227
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.281641   7.383374 12.769453        0 ***
-price       -0.224712   0.087093 -2.580142 0.014369   *
-income       0.298273   0.039393  7.571672        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.2816413  7.3833738 12.76945 1.5765e-14 ***
+price       -0.2247122  0.0870930 -2.58014   0.014369 *  
+income       0.2982730  0.0393933  7.57167 8.5491e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -654,11 +654,11 @@ Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-            Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.18433  10.557424 4.564023  6.3e-05 ***
-price        0.24272   0.089962 2.698043 0.010779   *
-farmPrice   0.261893   0.041096 6.372662        0 ***
-trend       0.298273   0.039393 7.571672        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.1843300 10.5574244 4.56402 6.2666e-05 ***
+price        0.2427200  0.0899615 2.69804   0.010779 *  
+farmPrice    0.2618927  0.0410963 6.37266 2.8379e-07 ***
+trend        0.2982730  0.0393933 7.57167 8.5491e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -698,10 +698,10 @@ OLS R-squared value of the system: 0.691227
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.281641   8.177055 11.530024        0 ***
-price       -0.224712    0.09536 -2.356462 0.024352   *
-income       0.298273   0.041857   7.12605        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.2816413  8.1770548 11.53002 2.6978e-13 ***
+price       -0.2247122  0.0953600 -2.35646   0.024352 *  
+income       0.2982730  0.0418567  7.12605 3.0950e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -715,11 +715,11 @@ Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-            Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.18433    9.71593 4.959312  1.9e-05 ***
-price        0.24272   0.082628 2.937495 0.005903  **
-farmPrice   0.261893   0.037855 6.918353        0 ***
-trend       0.298273   0.041857  7.12605        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.1843300  9.7159303 4.95931 1.9394e-05 ***
+price        0.2427200  0.0826282 2.93750  0.0059029 ** 
+farmPrice    0.2618927  0.0378548 6.91835 5.6747e-08 ***
+trend        0.2982730  0.0418567 7.12605 3.0950e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -760,10 +760,10 @@ OLS R-squared value of the system: 0.690334
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  95.70587   6.418923 14.909958        0 ***
-price       -0.243279   0.066338 -3.667237 0.000808 ***
-income        0.30271   0.040794  7.420533        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.7058701  6.4189230 14.90996 < 2.22e-16 ***
+price       -0.2432787  0.0663384 -3.66724  0.0008077 ***
+income       0.3027102  0.0407936  7.42053 1.1040e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -777,11 +777,11 @@ Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.563713   7.894064 5.898573    1e-06 ***
-price        0.256721   0.066338 3.869873 0.000454 ***
-farmPrice     0.26369   0.039825 6.621231        0 ***
-trend         0.30271   0.040794 7.420533        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.5637132  7.8940642 5.89857 1.0503e-06 ***
+price        0.2567213  0.0663384 3.86987 0.00045412 ***
+farmPrice    0.2636897  0.0398249 6.62123 1.1840e-07 ***
+trend        0.3027102  0.0407936 7.42053 1.1040e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -826,10 +826,10 @@ OLS R-squared value of the system: 0.690334
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  95.70587   6.305629 15.177848        0 ***
-price       -0.243279   0.068419 -3.555705 0.001104  **
-income        0.30271   0.039386   7.68576        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.7058701  6.3056286 15.17785 < 2.22e-16 ***
+price       -0.2432787  0.0684193 -3.55571   0.001104 ** 
+income       0.3027102  0.0393859  7.68576 5.0916e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -843,11 +843,11 @@ Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.563713   8.329568 5.590172    3e-06 ***
-price        0.256721   0.068419 3.752178 0.000635 ***
-farmPrice     0.26369   0.045524  5.79232    1e-06 ***
-trend         0.30271   0.039386  7.68576        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.5637132  8.3295677 5.59017 2.6797e-06 ***
+price        0.2567213  0.0684193 3.75218 0.00063525 ***
+farmPrice    0.2636897  0.0455240 5.79232 1.4501e-06 ***
+trend        0.3027102  0.0393859 7.68576 5.0916e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -884,10 +884,10 @@ OLS R-squared value of the system: 0.690334
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  95.70587   6.418923 14.909958        0 ***
-price       -0.243279   0.066338 -3.667237 0.000808 ***
-income        0.30271   0.040794  7.420533        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.7058701  6.4189230 14.90996 < 2.22e-16 ***
+price       -0.2432787  0.0663384 -3.66724  0.0008077 ***
+income       0.3027102  0.0407936  7.42053 1.1040e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -901,11 +901,11 @@ Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.563713   7.894064 5.898573    1e-06 ***
-price        0.256721   0.066338 3.869873 0.000454 ***
-farmPrice     0.26369   0.039825 6.621231        0 ***
-trend         0.30271   0.040794 7.420533        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.5637132  7.8940642 5.89857 1.0503e-06 ***
+price        0.2567213  0.0663384 3.86987 0.00045412 ***
+farmPrice    0.2636897  0.0398249 6.62123 1.1840e-07 ***
+trend        0.3027102  0.0407936 7.42053 1.1040e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -945,10 +945,10 @@ OLS R-squared value of the system: 0.690334
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  95.70587   6.004353 15.939415        0 ***
-price       -0.243279   0.062054 -3.920441 0.000393 ***
-income        0.30271   0.038159  7.932884        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.7058701  6.0043527 15.93942 < 2.22e-16 ***
+price       -0.2432787  0.0620539 -3.92044 0.00039275 ***
+income       0.3027102  0.0381589  7.93288 2.4925e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -962,11 +962,11 @@ Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.563713   7.384221  6.30584        0 ***
-price        0.256721   0.062054 4.137068  0.00021 ***
-farmPrice     0.26369   0.037253 7.078394        0 ***
-trend         0.30271   0.038159 7.932884        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.5637132  7.3842209 6.30584 3.0599e-07 ***
+price        0.2567213  0.0620539 4.13707 0.00020962 ***
+farmPrice    0.2636897  0.0372528 7.07839 3.0274e-08 ***
+trend        0.3027102  0.0381589 7.93288 2.4925e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1006,10 +1006,10 @@ OLS R-squared value of the system: 0.690334
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  95.70587   5.757891 16.621689        0 ***
-price       -0.243279   0.062128  -3.91575 0.000398 ***
-income        0.30271   0.036041  8.399158        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.7058701  5.7578907 16.62169 < 2.22e-16 ***
+price       -0.2432787  0.0621283 -3.91575 0.00039808 ***
+income       0.3027102  0.0360405  8.39916  6.601e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1023,11 +1023,11 @@ Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.563713    7.53598 6.178853        0 ***
-price        0.256721   0.062128 4.132117 0.000213 ***
-farmPrice     0.26369   0.040736 6.473175        0 ***
-trend         0.30271   0.036041 8.399158        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.5637132  7.5359804 6.17885 4.4916e-07 ***
+price        0.2567213  0.0621283 4.13212 0.00021267 ***
+farmPrice    0.2636897  0.0407358 6.47317 1.8476e-07 ***
+trend        0.3027102  0.0360405 8.39916 6.6010e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1068,10 +1068,10 @@ OLS R-squared value of the system: 0.690334
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  95.70587   6.418923 14.909958        0 ***
-price       -0.243279   0.066338 -3.667237 0.000808 ***
-income        0.30271   0.040794  7.420533        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.7058701  6.4189230 14.90996 < 2.22e-16 ***
+price       -0.2432787  0.0663384 -3.66724  0.0008077 ***
+income       0.3027102  0.0407936  7.42053 1.1040e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1085,11 +1085,11 @@ Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.563713   7.894064 5.898573    1e-06 ***
-price        0.256721   0.066338 3.869873 0.000454 ***
-farmPrice     0.26369   0.039825 6.621231        0 ***
-trend         0.30271   0.040794 7.420533        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.5637132  7.8940642 5.89857 1.0503e-06 ***
+price        0.2567213  0.0663384 3.86987 0.00045412 ***
+farmPrice    0.2636897  0.0398249 6.62123 1.1840e-07 ***
+trend        0.3027102  0.0407936 7.42053 1.1040e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1135,10 +1135,10 @@ OLS R-squared value of the system: 0.690334
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  95.70587   6.305629 15.177848        0 ***
-price       -0.243279   0.068419 -3.555705 0.001104  **
-income        0.30271   0.039386   7.68576        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.7058701  6.3056286 15.17785 < 2.22e-16 ***
+price       -0.2432787  0.0684193 -3.55571   0.001104 ** 
+income       0.3027102  0.0393859  7.68576 5.0916e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1152,11 +1152,11 @@ Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.563713   8.329568 5.590172    3e-06 ***
-price        0.256721   0.068419 3.752178 0.000635 ***
-farmPrice     0.26369   0.045524  5.79232    1e-06 ***
-trend         0.30271   0.039386  7.68576        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.5637132  8.3295677 5.59017 2.6797e-06 ***
+price        0.2567213  0.0684193 3.75218 0.00063525 ***
+farmPrice    0.2636897  0.0455240 5.79232 1.4501e-06 ***
+trend        0.3027102  0.0393859 7.68576 5.0916e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1193,10 +1193,10 @@ OLS R-squared value of the system: 0.690334
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  95.70587   6.418923 14.909958        0 ***
-price       -0.243279   0.066338 -3.667237 0.000808 ***
-income        0.30271   0.040794  7.420533        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.7058701  6.4189230 14.90996 < 2.22e-16 ***
+price       -0.2432787  0.0663384 -3.66724  0.0008077 ***
+income       0.3027102  0.0407936  7.42053 1.1040e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1210,11 +1210,11 @@ Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.563713   7.894064 5.898573    1e-06 ***
-price        0.256721   0.066338 3.869873 0.000454 ***
-farmPrice     0.26369   0.039825 6.621231        0 ***
-trend         0.30271   0.040794 7.420533        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.5637132  7.8940642 5.89857 1.0503e-06 ***
+price        0.2567213  0.0663384 3.86987 0.00045412 ***
+farmPrice    0.2636897  0.0398249 6.62123 1.1840e-07 ***
+trend        0.3027102  0.0407936 7.42053 1.1040e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1254,10 +1254,10 @@ OLS R-squared value of the system: 0.690334
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  95.70587   6.004353 15.939415        0 ***
-price       -0.243279   0.062054 -3.920441 0.000393 ***
-income        0.30271   0.038159  7.932884        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.7058701  6.0043527 15.93942 < 2.22e-16 ***
+price       -0.2432787  0.0620539 -3.92044 0.00039275 ***
+income       0.3027102  0.0381589  7.93288 2.4925e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1271,11 +1271,11 @@ Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.563713   7.384221  6.30584        0 ***
-price        0.256721   0.062054 4.137068  0.00021 ***
-farmPrice     0.26369   0.037253 7.078394        0 ***
-trend         0.30271   0.038159 7.932884        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.5637132  7.3842209 6.30584 3.0599e-07 ***
+price        0.2567213  0.0620539 4.13707 0.00020962 ***
+farmPrice    0.2636897  0.0372528 7.07839 3.0274e-08 ***
+trend        0.3027102  0.0381589 7.93288 2.4925e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1316,10 +1316,10 @@ OLS R-squared value of the system: 0.690334
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  95.70587   5.757891 16.621689        0 ***
-price       -0.243279   0.062128  -3.91575 0.000398 ***
-income        0.30271   0.036041  8.399158        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.7058701  5.7578907 16.62169 < 2.22e-16 ***
+price       -0.2432787  0.0621283 -3.91575 0.00039808 ***
+income       0.3027102  0.0360405  8.39916  6.601e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1333,11 +1333,11 @@ Multiple R-Squared: 0.753534 Adjusted R-Squared: 0.724538
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.563713    7.53598 6.178853        0 ***
-price        0.256721   0.062128 4.132117 0.000213 ***
-farmPrice     0.26369   0.040736 6.473175        0 ***
-trend         0.30271   0.036041 8.399158        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.5637132  7.5359804 6.17885 4.4916e-07 ***
+price        0.2567213  0.0621283 4.13212 0.00021267 ***
+farmPrice    0.2636897  0.0407358 6.47317 1.8476e-07 ***
+trend        0.3027102  0.0360405 8.39916 6.6010e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1377,10 +1377,10 @@ OLS R-squared value of the system: 0.694011
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 106.789358  11.143545 9.583069        0 ***
-price        -0.411599   0.144845 -2.84166 0.011271   *
-income        0.361681   0.056406 6.412096    6e-06 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 106.7893583  11.1435450  9.58307 2.8797e-08 ***
+price        -0.4115989   0.1448445 -2.84166   0.011271 *  
+income        0.3616812   0.0564061  6.41210 6.4389e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1394,11 +1394,11 @@ Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  12.010526 4.124086 0.000795 ***
-price        0.240076   0.099934 2.402347 0.028785   *
-farmPrice    0.255606    0.04725 5.409637  5.8e-05 ***
-trend        0.252924   0.099655 2.537996 0.021929   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 12.0105264 4.12409 0.00079536 ***
+price        0.2400758  0.0999339 2.40235 0.02878451 *  
+farmPrice    0.2556057  0.0472501 5.40964 5.7854e-05 ***
+trend        0.2529242  0.0996551 2.53800 0.02192877 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1437,10 +1437,10 @@ OLS R-squared value of the system: 0.694011
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 106.789358  12.474942  8.560309        0 ***
-price        -0.411599    0.16215 -2.538382 0.021211   *
-income        0.361681   0.063145  5.727761  2.5e-05 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 106.7893583  12.4749416  8.56031 1.4348e-07 ***
+price        -0.4115989   0.1621501 -2.53838   0.021211 *  
+income        0.3616812   0.0631453  5.72776 2.4639e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1454,11 +1454,11 @@ Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  10.897562 4.545277 0.000331 ***
-price        0.240076   0.090673 2.647698 0.017551   *
-farmPrice    0.255606   0.042872 5.962121    2e-05 ***
-trend        0.252924    0.09042   2.7972 0.012916   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 10.8975620 4.54528 0.00033108 ***
+price        0.2400758  0.0906734 2.64770 0.01755142 *  
+farmPrice    0.2556057  0.0428716 5.96212 1.9899e-05 ***
+trend        0.2529242  0.0904205 2.79720 0.01291574 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1495,10 +1495,10 @@ OLS R-squared value of the system: 0.694011
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 106.789358  11.143545 9.583069        0 ***
-price        -0.411599   0.144845 -2.84166 0.007636  **
-income        0.361681   0.056406 6.412096        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 106.7893583  11.1435450  9.58307 4.6518e-11 ***
+price        -0.4115989   0.1448445 -2.84166  0.0076363 ** 
+income        0.3616812   0.0564061  6.41210 2.8834e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1512,11 +1512,11 @@ Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  12.010526 4.124086 0.000236 ***
-price        0.240076   0.099934 2.402347 0.022076   *
-farmPrice    0.255606    0.04725 5.409637    6e-06 ***
-trend        0.252924   0.099655 2.537996 0.016053   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 12.0105264 4.12409 0.00023625 ***
+price        0.2400758  0.0999339 2.40235 0.02207594 *  
+farmPrice    0.2556057  0.0472501 5.40964 5.5059e-06 ***
+trend        0.2529242  0.0996551 2.53800 0.01605307 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1555,10 +1555,10 @@ OLS R-squared value of the system: 0.694011
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 106.789358  10.273841 10.394298        0 ***
-price        -0.411599    0.13354 -3.082213 0.006757  **
-income        0.361681   0.052004  6.954895    2e-06 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 106.7893583  10.2738409 10.39430 8.7577e-09 ***
+price        -0.4115989   0.1335401 -3.08221  0.0067571 ** 
+income        0.3616812   0.0520038  6.95489 2.3231e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1572,11 +1572,11 @@ Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  10.742541 4.610868 0.000289 ***
-price        0.240076   0.089384 2.685905 0.016234   *
-farmPrice    0.255606   0.042262 6.048158  1.7e-05 ***
-trend        0.252924   0.089134 2.837565 0.011883   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 10.7425414 4.61087 0.00028922 ***
+price        0.2400758  0.0893836 2.68591 0.01623367 *  
+farmPrice    0.2556057  0.0422617 6.04816 1.6913e-05 ***
+trend        0.2529242  0.0891342 2.83757 0.01188273 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1616,10 +1616,10 @@ OLS R-squared value of the system: 0.694011
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 106.789358  11.330928   9.42459        0 ***
-price        -0.411599    0.14728 -2.794666 0.012444   *
-income        0.361681   0.057355  6.306057    8e-06 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 106.7893583  11.3309284  9.42459 3.6641e-08 ***
+price        -0.4115989   0.1472802 -2.79467   0.012444 *  
+income        0.3616812   0.0573546  6.30606 7.8948e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1633,11 +1633,11 @@ Multiple R-Squared: 0.748441 Adjusted R-Squared: 0.718846
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442   9.898202 5.004186  0.00013 ***
-price        0.240076   0.082358 2.915019  0.01012   *
-farmPrice    0.255606    0.03894 6.564079    7e-06 ***
-trend        0.252924   0.082128 3.079616  0.00718  **
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417  9.8982023 5.00419 0.00012977 ***
+price        0.2400758  0.0823582 2.91502 0.01012043 *  
+farmPrice    0.2556057  0.0389401 6.56408 6.5179e-06 ***
+trend        0.2529242  0.0821285 3.07962 0.00717988 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1677,10 +1677,10 @@ OLS R-squared value of the system: 0.692732
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 103.593605  11.892958  8.710499        0 ***
-price         -0.34488   0.145481 -2.370628 0.023569   *
-income        0.326029    0.05111  6.378936        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 103.5936052  11.8929582  8.71050 3.5331e-10 ***
+price        -0.3448803   0.1454805 -2.37063   0.023569 *  
+income        0.3260285   0.0511102  6.37894 2.7855e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1694,11 +1694,11 @@ Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.359225  10.536236  4.49489  7.7e-05 ***
-price        0.244338   0.089415 2.732641 0.009895  **
-farmPrice    0.265741    0.04109 6.467208        0 ***
-trend        0.326029    0.05111 6.378936        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.3592252 10.5362362 4.49489 7.6819e-05 ***
+price        0.2443384  0.0894148 2.73264  0.0098953 ** 
+farmPrice    0.2657406  0.0410905 6.46721 2.1440e-07 ***
+trend        0.3260285  0.0511102 6.37894 2.7855e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1737,10 +1737,10 @@ OLS R-squared value of the system: 0.692732
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 103.593605   10.63439  9.741377        0 ***
-price         -0.34488   0.132748 -2.598011 0.013762   *
-income        0.326029   0.048454   6.72863        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 103.5936052  10.6343901  9.74138 2.2722e-11 ***
+price        -0.3448803   0.1327478 -2.59801   0.013762 *  
+income        0.3260285   0.0484539  6.72863 9.9054e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1754,11 +1754,11 @@ Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.359225  11.946576 3.964251 0.000359 ***
-price        0.244338    0.10169 2.402785 0.021876   *
-farmPrice    0.265741   0.046527  5.71158    2e-06 ***
-trend        0.326029   0.048454  6.72863        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.3592252 11.9465757 3.96425 0.00035872 ***
+price        0.2443384  0.1016896 2.40279 0.02187554 *  
+farmPrice    0.2657406  0.0465266 5.71158 2.0411e-06 ***
+trend        0.3260285  0.0484539 6.72863 9.9054e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1795,10 +1795,10 @@ OLS R-squared value of the system: 0.692732
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 103.593605  11.892958  8.710499        0 ***
-price         -0.34488   0.145481 -2.370628 0.029845   *
-income        0.326029    0.05111  6.378936    7e-06 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 103.5936052  11.8929582  8.71050 1.1246e-07 ***
+price        -0.3448803   0.1454805 -2.37063   0.029845 *  
+income        0.3260285   0.0511102  6.37894 6.8616e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1812,11 +1812,11 @@ Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.359225  10.536236  4.49489 0.000367 ***
-price        0.244338   0.089415 2.732641 0.014751   *
-farmPrice    0.265741    0.04109 6.467208    8e-06 ***
-trend        0.326029    0.05111 6.378936    9e-06 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.3592252 10.5362362 4.49489  0.0003674 ***
+price        0.2443384  0.0894148 2.73264  0.0147509 *  
+farmPrice    0.2657406  0.0410905 6.46721 7.7742e-06 ***
+trend        0.3260285  0.0511102 6.37894 9.1390e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1855,10 +1855,10 @@ OLS R-squared value of the system: 0.692732
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 103.593605  10.964766  9.447863        0 ***
-price         -0.34488   0.134126 -2.571307 0.014678   *
-income        0.326029   0.047121  6.918928        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 103.5936052  10.9647657  9.44786 4.8937e-11 ***
+price        -0.3448803   0.1341264 -2.57131   0.014678 *  
+income        0.3260285   0.0471212  6.91893 5.6652e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1872,11 +1872,11 @@ Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.359225    9.71393 4.875393  2.5e-05 ***
-price        0.244338   0.082436 2.963965 0.005515  **
-farmPrice    0.265741   0.037884 7.014671        0 ***
-trend        0.326029   0.047121 6.918928        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.3592252  9.7139298 4.87539 2.4902e-05 ***
+price        0.2443384  0.0824363 2.96396   0.005515 ** 
+farmPrice    0.2657406  0.0378835 7.01467 4.2819e-08 ***
+trend        0.3260285  0.0471212 6.91893 5.6652e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1916,10 +1916,10 @@ OLS R-squared value of the system: 0.692732
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 103.593605   9.792942 10.578394        0 ***
-price         -0.34488   0.121986 -2.827209 0.007812  **
-income        0.326029   0.044358  7.349976        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 103.5936052   9.7929422 10.57839 2.7107e-12 ***
+price        -0.3448803   0.1219861 -2.82721  0.0078123 ** 
+income        0.3260285   0.0443578  7.34998 1.6173e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1933,11 +1933,11 @@ Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.359225  10.689038 4.430635  9.3e-05 ***
-price        0.244338   0.090956 2.686346 0.011094   *
-farmPrice    0.265741   0.041635 6.382576        0 ***
-trend        0.326029   0.044358 7.349976        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.3592252 10.6890378 4.43064 9.2780e-05 ***
+price        0.2443384  0.0909557 2.68635   0.011094 *  
+farmPrice    0.2657406  0.0416353 6.38258 2.7556e-07 ***
+trend        0.3260285  0.0443578 7.34998 1.6173e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1977,10 +1977,10 @@ OLS R-squared value of the system: 0.692732
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 103.593605  11.892958  8.710499        0 ***
-price         -0.34488   0.145481 -2.370628 0.023569   *
-income        0.326029    0.05111  6.378936        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 103.5936052  11.8929582  8.71050 3.5331e-10 ***
+price        -0.3448803   0.1454805 -2.37063   0.023569 *  
+income        0.3260285   0.0511102  6.37894 2.7855e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1994,11 +1994,11 @@ Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.359225  10.536236  4.49489  7.7e-05 ***
-price        0.244338   0.089415 2.732641 0.009895  **
-farmPrice    0.265741    0.04109 6.467208        0 ***
-trend        0.326029    0.05111 6.378936        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.3592252 10.5362362 4.49489 7.6819e-05 ***
+price        0.2443384  0.0894148 2.73264  0.0098953 ** 
+farmPrice    0.2657406  0.0410905 6.46721 2.1440e-07 ***
+trend        0.3260285  0.0511102 6.37894 2.7855e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2037,10 +2037,10 @@ OLS R-squared value of the system: 0.692732
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 103.593605  10.964766  9.447863        0 ***
-price         -0.34488   0.134126 -2.571307 0.014678   *
-income        0.326029   0.047121  6.918928        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 103.5936052  10.9647657  9.44786 4.8937e-11 ***
+price        -0.3448803   0.1341264 -2.57131   0.014678 *  
+income        0.3260285   0.0471212  6.91893 5.6652e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2054,11 +2054,11 @@ Multiple R-Squared: 0.759636 Adjusted R-Squared: 0.731358
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.359225    9.71393 4.875393  2.5e-05 ***
-price        0.244338   0.082436 2.963965 0.005515  **
-farmPrice    0.265741   0.037884 7.014671        0 ***
-trend        0.326029   0.047121 6.918928        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.3592252  9.7139298 4.87539 2.4902e-05 ***
+price        0.2443384  0.0824363 2.96396   0.005515 ** 
+farmPrice    0.2657406  0.0378835 7.01467 4.2819e-08 ***
+trend        0.3260285  0.0471212 6.91893 5.6652e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2099,8 +2099,8 @@ OLS R-squared value of the system: -0.650411
 Model Formula: consump ~ price - 1
 Instruments: ~farmPrice + trend + income
 
-      Estimate Std. Error   t value Pr(>|t|)    
-price 1.006043    0.01503 66.934541        0 ***
+       Estimate Std. Error t value   Pr(>|t|)    
+price 1.0060425  0.0150302 66.9345 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2114,12 +2114,10 @@ Multiple R-Squared: -2.213109 Adjusted R-Squared: -2.213109
 Model Formula: price ~ consump + trend
 Instruments: ~farmPrice + trend + income
 
-             Estimate Std. Error   t value Pr(>|t|)  
-(Intercept) 55.536516  46.266768  1.200354 0.246462  
-consump      0.445299   0.462203  0.963427 0.348839  
-trend       -0.042602   0.249578 -0.170697 0.866477  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+              Estimate Std. Error  t value Pr(>|t|)
+(Intercept) 55.5365164 46.2667678  1.20035  0.24646
+consump      0.4452989  0.4622029  0.96343  0.34884
+trend       -0.0426021  0.2495778 -0.17070  0.86648
 
 Residual standard error: 6.335044 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2155,8 +2153,8 @@ OLS R-squared value of the system: -87.4996
 Model Formula: consump ~ price - 1
 Instruments: ~farmPrice + price + income
 
-      Estimate Std. Error   t value Pr(>|t|)    
-price 1.005643   0.015029 66.915518        0 ***
+       Estimate Std. Error t value   Pr(>|t|)    
+price 1.0056434  0.0150286 66.9155 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2170,8 +2168,8 @@ Multiple R-Squared: -2.21299 Adjusted R-Squared: -2.21299
 Model Formula: consump ~ trend - 1
 Instruments: ~farmPrice + price + income
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend 7.577599    0.93412 8.112016        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend  7.57760    0.93412 8.11202 1.3624e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2209,8 +2207,8 @@ OLS R-squared value of the system: -103.748
 Model Formula: consump ~ trend - 1
 Instruments: ~income + farmPrice
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend 8.648819   1.045436 8.272929        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend  8.64882    1.04544 8.27293 1.0147e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2224,8 +2222,8 @@ Multiple R-Squared: -189.030839 Adjusted R-Squared: -189.030839
 Model Formula: price ~ trend - 1
 Instruments: ~income + farmPrice + trend
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend 7.318426   0.928669 7.880553        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend 7.318426   0.928669 7.88055 2.0940e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2264,8 +2262,8 @@ OLS R-squared value of the system: -99.0119
 Model Formula: consump ~ trend - 1
 Instruments: ~farmPrice + trend + income
 
-      Estimate Std. Error   t value Pr(>|t|)    
-trend 7.361648    0.64644 11.387978        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend  7.36165    0.64644 11.3880 5.6843e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2279,8 +2277,8 @@ Multiple R-Squared: -172.486769 Adjusted R-Squared: -172.486769
 Model Formula: price ~ trend - 1
 Instruments: ~farmPrice + trend + income
 
-      Estimate Std. Error   t value Pr(>|t|)    
-trend 7.361648    0.64644 11.387978        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend  7.36165    0.64644 11.3880 5.6843e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2318,8 +2316,8 @@ OLS R-squared value of the system: -0.650411
 Model Formula: consump ~ price - 1
 Instruments: ~farmPrice + trend + income
 
-      Estimate Std. Error   t value Pr(>|t|)    
-price 1.006043    0.01503 66.934541        0 ***
+       Estimate Std. Error t value   Pr(>|t|)    
+price 1.0060425  0.0150302 66.9345 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2333,12 +2331,10 @@ Multiple R-Squared: -2.213109 Adjusted R-Squared: -2.213109
 Model Formula: price ~ consump + trend
 Instruments: ~farmPrice + trend + income
 
-             Estimate Std. Error   t value Pr(>|t|)  
-(Intercept) 55.536516  46.266768  1.200354 0.246462  
-consump      0.445299   0.462203  0.963427 0.348839  
-trend       -0.042602   0.249578 -0.170697 0.866477  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+              Estimate Std. Error  t value Pr(>|t|)
+(Intercept) 55.5365164 46.2667678  1.20035  0.24646
+consump      0.4452989  0.4622029  0.96343  0.34884
+trend       -0.0426021  0.2495778 -0.17070  0.86648
 
 Residual standard error: 6.335044 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2363,10 +2359,10 @@ OLS R-squared value of the system: 0.697214
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.633304   7.920838 11.947385        0 ***
-price       -0.243557   0.096484 -2.524313 0.016584   *
-income       0.313992   0.046944  6.688695        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+price       -0.2435565  0.0964843 -2.52431   0.016584 *  
+income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2380,11 +2376,11 @@ Multiple R-Squared: 0.754847 Adjusted R-Squared: 0.726005
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  12.010526 4.124086 0.000236 ***
-price        0.240076   0.099934 2.402347 0.022076   *
-farmPrice    0.255606    0.04725 5.409637    6e-06 ***
-trend        0.252924   0.099655 2.537996 0.016053   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 12.0105264 4.12409 0.00023625 ***
+price        0.2400758  0.0999339 2.40235 0.02207594 *  
+farmPrice    0.2556057  0.0472501 5.40964 5.5059e-06 ***
+trend        0.2529242  0.0996551 2.53800 0.01605307 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2417,14 +2413,16 @@ The determinant of the residual covariance matrix: 4.36424
 OLS R-squared value of the system: 0.697214
 
 Coefficients:
-                     Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 94.6333039  7.92083831 11.947385 1.076169e-09
-demand_price       -0.2435565  0.09648429 -2.524313 2.183240e-02
-demand_income       0.3139918  0.04694366  6.688695 3.810852e-06
-supply_(Intercept) 49.5324417 12.01052641  4.124086 7.953623e-04
-supply_price        0.2400758  0.09993385  2.402347 2.878451e-02
-supply_farmPrice    0.2556057  0.04725007  5.409637 5.785350e-05
-supply_trend        0.2529242  0.09965509  2.537996 2.192877e-02
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 94.6333039  7.9208383 11.94738 1.0762e-09 ***
+demand_price       -0.2435565  0.0964843 -2.52431 0.02183240 *  
+demand_income       0.3139918  0.0469437  6.68869 3.8109e-06 ***
+supply_(Intercept) 49.5324417 12.0105264  4.12409 0.00079536 ***
+supply_price        0.2400758  0.0999339  2.40235 0.02878451 *  
+supply_farmPrice    0.2556057  0.0472501  5.40964 5.7854e-05 ***
+supply_trend        0.2529242  0.0996551  2.53800 0.02192877 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fit2sls1rs, printResidCov = FALSE, printEquations = FALSE ) )
 
@@ -2438,14 +2436,16 @@ supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
 OLS R-squared value of the system: 0.697214
 
 Coefficients:
-                     Estimate Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 94.6333039 8.11576476 11.660430 1.559071e-09
-demand_price       -0.2435565 0.09885870 -2.463683 2.471472e-02
-demand_income       0.3139918 0.04809891  6.528044 5.161474e-06
-supply_(Intercept) 49.5324417 9.84626225  5.030583 1.230458e-04
-supply_price        0.2400758 0.08192604  2.930396 9.802157e-03
-supply_farmPrice    0.2556057 0.03873574  6.598706 6.121776e-06
-supply_trend        0.2529242 0.08169751  3.095861 6.939776e-03
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 94.6333039  8.1157648 11.66043 1.5591e-09 ***
+demand_price       -0.2435565  0.0988587 -2.46368 0.02471472 *  
+demand_income       0.3139918  0.0480989  6.52804 5.1615e-06 ***
+supply_(Intercept) 49.5324417  9.8462622  5.03058 0.00012305 ***
+supply_price        0.2400758  0.0819260  2.93040 0.00980216 ** 
+supply_farmPrice    0.2556057  0.0387357  6.59871 6.1218e-06 ***
+supply_trend        0.2529242  0.0816975  3.09586 0.00693978 ** 
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fit2sls2Sym, useDfSys = FALSE ), equations = FALSE )
 
@@ -2470,14 +2470,16 @@ The determinant of the residual covariance matrix: 3.60162
 OLS R-squared value of the system: 0.691227
 
 Coefficients:
-                     Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 94.2816413  8.86926119 10.630157 6.275887e-09
-demand_price       -0.2247122  0.10343242 -2.172551 4.424569e-02
-demand_income       0.2982730  0.04539998  6.569893 4.767662e-06
-supply_(Intercept) 48.1843300 10.53840600  4.572260 3.131572e-04
-supply_price        0.2427200  0.08962289  2.708237 1.550809e-02
-supply_farmPrice    0.2618927  0.04105926  6.378406 9.147889e-06
-supply_trend        0.2982730  0.04539998  6.569893 6.449533e-06
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 94.2816413  8.8692612 10.63016 6.2759e-09 ***
+demand_price       -0.2247122  0.1034324 -2.17255 0.04424569 *  
+demand_income       0.2982730  0.0454000  6.56989 4.7677e-06 ***
+supply_(Intercept) 48.1843300 10.5384060  4.57226 0.00031316 ***
+supply_price        0.2427200  0.0896229  2.70824 0.01550809 *  
+supply_farmPrice    0.2618927  0.0410593  6.37841 9.1479e-06 ***
+supply_trend        0.2982730  0.0454000  6.56989 6.4495e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fit2sls2 ), residCov = FALSE )
 
@@ -2494,10 +2496,10 @@ OLS R-squared value of the system: 0.691227
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.281641   8.869261 10.630157        0 ***
-price       -0.224712   0.103432 -2.172551 0.036878   *
-income       0.298273     0.0454  6.569893        0 ***
+             Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.281641   8.869261 10.63016 2.3839e-12 ***
+price       -0.224712   0.103432 -2.17255   0.036878 *  
+income       0.298273   0.045400  6.56989 1.5821e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2511,11 +2513,11 @@ Multiple R-Squared: 0.748547 Adjusted R-Squared: 0.718964
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-            Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.18433  10.538406  4.57226  6.1e-05 ***
-price        0.24272   0.089623 2.708237 0.010511   *
-farmPrice   0.261893   0.041059 6.378406        0 ***
-trend       0.298273     0.0454 6.569893        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.1843300 10.5384060 4.57226 6.1162e-05 ***
+price        0.2427200  0.0896229 2.70824   0.010511 *  
+farmPrice    0.2618927  0.0410593 6.37841 2.7899e-07 ***
+trend        0.2982730  0.0454000 6.56989 1.5821e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2538,14 +2540,16 @@ supply 20 16 98.1550 6.13469 2.47683 0.633906 0.565263
 OLS R-squared value of the system: 0.691227
 
 Coefficients:
-                     Estimate Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 94.2816413 8.17705479 11.530024 1.849540e-09
-demand_price       -0.2247122 0.09535998 -2.356462 3.070831e-02
-demand_income       0.2982730 0.04185671  7.126050 1.698574e-06
-supply_(Intercept) 48.1843300 9.71593026  4.959312 1.420734e-04
-supply_price        0.2427200 0.08262822  2.937495 9.658540e-03
-supply_farmPrice    0.2618927 0.03785477  6.918353 3.458573e-06
-supply_trend        0.2982730 0.04185671  7.126050 2.404391e-06
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 94.2816413  8.1770548 11.53002 1.8495e-09 ***
+demand_price       -0.2247122  0.0953600 -2.35646 0.03070831 *  
+demand_income       0.2982730  0.0418567  7.12605 1.6986e-06 ***
+supply_(Intercept) 48.1843300  9.7159303  4.95931 0.00014207 ***
+supply_price        0.2427200  0.0826282  2.93750 0.00965854 ** 
+supply_farmPrice    0.2618927  0.0378548  6.91835 3.4586e-06 ***
+supply_trend        0.2982730  0.0418567  7.12605 2.4044e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fit2sls4s ), equations = FALSE, residCov = FALSE )
 
@@ -2559,14 +2563,16 @@ supply 20 16 99.9706 6.24816 2.49963 0.627134 0.557222
 OLS R-squared value of the system: 0.690334
 
 Coefficients:
-                     Estimate Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 95.7058701 6.30562856 15.177848 0.000000e+00
-demand_price       -0.2432787 0.06841926 -3.555705 1.104001e-03
-demand_income       0.3027102 0.03938585  7.685760 5.091640e-09
-supply_(Intercept) 46.5637132 8.32956765  5.590172 2.679721e-06
-supply_price        0.2567213 0.06841926  3.752178 6.352502e-04
-supply_farmPrice    0.2636897 0.04552401  5.792320 1.450074e-06
-supply_trend        0.3027102 0.03938585  7.685760 5.091640e-09
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 95.7058701  6.3056286 15.17785 < 2.22e-16 ***
+demand_price       -0.2432787  0.0684193 -3.55571 0.00110400 ** 
+demand_income       0.3027102  0.0393859  7.68576 5.0916e-09 ***
+supply_(Intercept) 46.5637132  8.3295677  5.59017 2.6797e-06 ***
+supply_price        0.2567213  0.0684193  3.75218 0.00063525 ***
+supply_farmPrice    0.2636897  0.0455240  5.79232 1.4501e-06 ***
+supply_trend        0.3027102  0.0393859  7.68576 5.0916e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fit2sls5r, printEquations = FALSE, printResidCov = FALSE ) )
 
@@ -2580,14 +2586,16 @@ supply 20 16 99.9706 6.24816 2.49963 0.627134 0.557222
 OLS R-squared value of the system: 0.690334
 
 Coefficients:
-                     Estimate Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 95.7058701 6.00435271 15.939415 0.000000e+00
-demand_price       -0.2432787 0.06205392 -3.920441 3.927489e-04
-demand_income       0.3027102 0.03815891  7.932884 2.492504e-09
-supply_(Intercept) 46.5637132 7.38422087  6.305840 3.059916e-07
-supply_price        0.2567213 0.06205392  4.137068 2.096158e-04
-supply_farmPrice    0.2636897 0.03725275  7.078394 3.027449e-08
-supply_trend        0.3027102 0.03815891  7.932884 2.492504e-09
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 95.7058701  6.0043527 15.93942 < 2.22e-16 ***
+demand_price       -0.2432787  0.0620539 -3.92044 0.00039275 ***
+demand_income       0.3027102  0.0381589  7.93288 2.4925e-09 ***
+supply_(Intercept) 46.5637132  7.3842209  6.30584 3.0599e-07 ***
+supply_price        0.2567213  0.0620539  4.13707 0.00020962 ***
+supply_farmPrice    0.2636897  0.0372528  7.07839 3.0274e-08 ***
+supply_trend        0.3027102  0.0381589  7.93288 2.4925e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fit2slsd1s ), residCov = FALSE, equations = FALSE )
 
@@ -2601,14 +2609,16 @@ supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
 OLS R-squared value of the system: 0.694011
 
 Coefficients:
-                      Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 106.7893583 12.47494163  8.560309 1.434839e-07
-demand_price        -0.4115989  0.16215012 -2.538382 2.121061e-02
-demand_income        0.3616812  0.06314530  5.727761 2.463918e-05
-supply_(Intercept)  49.5324417 10.89756204  4.545277 3.310790e-04
-supply_price         0.2400758  0.09067341  2.647698 1.755142e-02
-supply_farmPrice     0.2556057  0.04287161  5.962121 1.989869e-05
-supply_trend         0.2529242  0.09042047  2.797200 1.291574e-02
+                      Estimate  Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 106.7893583  12.4749416  8.56031 1.4348e-07 ***
+demand_price        -0.4115989   0.1621501 -2.53838 0.02121061 *  
+demand_income        0.3616812   0.0631453  5.72776 2.4639e-05 ***
+supply_(Intercept)  49.5324417  10.8975620  4.54528 0.00033108 ***
+supply_price         0.2400758   0.0906734  2.64770 0.01755142 *  
+supply_farmPrice     0.2556057   0.0428716  5.96212 1.9899e-05 ***
+supply_trend         0.2529242   0.0904205  2.79720 0.01291574 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fit2slsd2, printResidCov = FALSE, printEquations = FALSE ) )
 
@@ -2622,14 +2632,16 @@ supply 20 16 100.321 6.27004 2.50400 0.625829 0.555672
 OLS R-squared value of the system: 0.692732
 
 Coefficients:
-                      Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 103.5936052 11.89295822  8.710499 3.533147e-10
-demand_price        -0.3448803  0.14548054 -2.370628 2.356925e-02
-demand_income        0.3260285  0.05111017  6.378936 2.785542e-07
-supply_(Intercept)  47.3592252 10.53623615  4.494890 7.681930e-05
-supply_price         0.2443384  0.08941475  2.732641 9.895309e-03
-supply_farmPrice     0.2657406  0.04109047  6.467208 2.143954e-07
-supply_trend         0.3260285  0.05111017  6.378936 2.785542e-07
+                      Estimate  Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 103.5936052  11.8929582  8.71050 3.5331e-10 ***
+demand_price        -0.3448803   0.1454805 -2.37063  0.0235692 *  
+demand_income        0.3260285   0.0511102  6.37894 2.7855e-07 ***
+supply_(Intercept)  47.3592252  10.5362362  4.49489 7.6819e-05 ***
+supply_price         0.2443384   0.0894148  2.73264  0.0098953 ** 
+supply_farmPrice     0.2657406   0.0410905  6.46721 2.1440e-07 ***
+supply_trend         0.3260285   0.0511102  6.37894 2.7855e-07 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fit2slsd3r ), residCov = FALSE, equations = FALSE )
 
@@ -2643,14 +2655,16 @@ supply 20 16 100.321 6.27004 2.50400 0.625829 0.555672
 OLS R-squared value of the system: 0.692732
 
 Coefficients:
-                      Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 103.5936052 10.96476570  9.447863 4.893730e-11
-demand_price        -0.3448803  0.13412643 -2.571307 1.467796e-02
-demand_income        0.3260285  0.04712125  6.918928 5.665153e-08
-supply_(Intercept)  47.3592252  9.71392976  4.875393 2.490234e-05
-supply_price         0.2443384  0.08243633  2.963965 5.514957e-03
-supply_farmPrice     0.2657406  0.03788354  7.014671 4.281876e-08
-supply_trend         0.3260285  0.04712125  6.918928 5.665153e-08
+                      Estimate  Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 103.5936052  10.9647657  9.44786 4.8937e-11 ***
+demand_price        -0.3448803   0.1341264 -2.57131   0.014678 *  
+demand_income        0.3260285   0.0471212  6.91893 5.6652e-08 ***
+supply_(Intercept)  47.3592252   9.7139298  4.87539 2.4902e-05 ***
+supply_price         0.2443384   0.0824363  2.96396   0.005515 ** 
+supply_farmPrice     0.2657406   0.0378835  7.01467 4.2819e-08 ***
+supply_trend         0.3260285   0.0471212  6.91893 5.6652e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > 
 > ## ****************** residuals **************************

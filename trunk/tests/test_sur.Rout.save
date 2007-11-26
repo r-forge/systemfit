@@ -95,10 +95,10 @@ McElroy's R-squared value for the system: 0.788722
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 99.332894   7.514452 13.218913        0 ***
-price       -0.275486   0.088509 -3.112513 0.006332  **
-income        0.29855   0.041945  7.117605    2e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 99.3328942  7.5144525 13.21891 2.2597e-10 ***
+price       -0.2754857  0.0885091 -3.11251  0.0063324 ** 
+income       0.2985505  0.0419454  7.11760 1.7249e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -111,11 +111,11 @@ Multiple R-Squared: 0.755019 Adjusted R-Squared: 0.726198
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 61.966166   11.08079 5.592215    4e-05 ***
-price        0.146884   0.094435 1.555397 0.139408    
-farmPrice    0.214004   0.039868 5.367761  6.3e-05 ***
-trend        0.339304   0.067911 4.996283 0.000132 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 61.9661660 11.0807901 5.59222 4.0480e-05 ***
+price        0.1468841  0.0944351 1.55540 0.13940780    
+farmPrice    0.2140040  0.0398684 5.36776 6.2829e-05 ***
+trend        0.3393039  0.0679113 4.99628 0.00013185 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -159,10 +159,10 @@ McElroy's R-squared value for the system: 0.747844
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 99.275662   6.927983 14.329663        0 ***
-price       -0.271333   0.081601 -3.325108 0.002175  **
-income       0.294879   0.038672   7.62519        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 99.2756619  6.9279829 14.32966 1.1102e-15 ***
+price       -0.2713333  0.0816013 -3.32511  0.0021748 ** 
+income       0.2948791  0.0386717  7.62519 8.9170e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -175,11 +175,11 @@ Multiple R-Squared: 0.753144 Adjusted R-Squared: 0.724102
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 62.294214    9.91096 6.285387        0 ***
-price        0.146147   0.084465 1.730257 0.092928   .
-farmPrice    0.212143   0.035659 5.949148    1e-06 ***
-trend        0.332212   0.060742 5.469253    5e-06 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 62.2942138  9.9109599 6.28539 4.1755e-07 ***
+price        0.1461467  0.0844653 1.73026   0.092928 .  
+farmPrice    0.2121429  0.0356594 5.94915 1.1204e-06 ***
+trend        0.3322117  0.0607417 5.46925 4.6167e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -225,10 +225,10 @@ McElroy's R-squared value for the system: 1.00928
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 99.211993   7.512677 13.205945        0 ***
-price       -0.266714   0.087712 -3.040792 0.007383  **
-income       0.290795   0.040615  7.159724    2e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 99.2119925  7.5126768 13.20594 2.2945e-10 ***
+price       -0.2667139  0.0877120 -3.04079  0.0073831 ** 
+income       0.2907949  0.0406154  7.15972 1.5978e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -241,11 +241,11 @@ Multiple R-Squared: 0.750844 Adjusted R-Squared: 0.721532
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 63.076817   10.97351 5.748099    3e-05 ***
-price        0.143864   0.094341 1.524947 0.146794    
-farmPrice    0.206372   0.038413 5.372498  6.2e-05 ***
-trend         0.33252   0.064028 5.193358  8.9e-05 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 63.0768165 10.9735097 5.74810 2.9944e-05 ***
+price        0.1438645  0.0943406 1.52495    0.14679    
+farmPrice    0.2063724  0.0384127 5.37250 6.2245e-05 ***
+trend        0.3325200  0.0640279 5.19336 8.8799e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -291,10 +291,10 @@ McElroy's R-squared value for the system: 1.00928
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 99.211993   7.512677 13.205945        0 ***
-price       -0.266714   0.087712 -3.040792 0.004597  **
-income       0.290795   0.040615  7.159724        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 99.2119925  7.5126768 13.20594 9.9920e-15 ***
+price       -0.2667139  0.0877120 -3.04079  0.0045974 ** 
+income       0.2907949  0.0406154  7.15972 3.3283e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -307,11 +307,11 @@ Multiple R-Squared: 0.750844 Adjusted R-Squared: 0.721532
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 63.076817   10.97351 5.748099    2e-06 ***
-price        0.143864   0.094341 1.524947   0.1368    
-farmPrice    0.206372   0.038413 5.372498    6e-06 ***
-trend         0.33252   0.064028 5.193358    1e-05 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 63.0768165 10.9735097 5.74810 2.0263e-06 ***
+price        0.1438645  0.0943406 1.52495     0.1368    
+farmPrice    0.2063724  0.0384127 5.37250 6.1445e-06 ***
+trend        0.3325200  0.0640279 5.19336 1.0430e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -357,10 +357,10 @@ McElroy's R-squared value for the system: 0.957309
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 99.225003   7.512869 13.207338        0 ***
-price       -0.267658   0.087799 -3.048537 0.007262  **
-income       0.291629   0.040762  7.154496    2e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 99.2250030  7.5128693 13.20734 2.2908e-10 ***
+price       -0.2676578  0.0877988 -3.04854  0.0072619 ** 
+income       0.2916295  0.0407617  7.15450 1.6131e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -373,11 +373,11 @@ Multiple R-Squared: 0.751332 Adjusted R-Squared: 0.722077
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 62.957541  10.985025 5.731215  3.1e-05 ***
-price        0.144186   0.094351 1.528194 0.145991    
-farmPrice    0.207185   0.038568 5.371945  6.2e-05 ***
-trend        0.333341   0.064412  5.17516  9.2e-05 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 62.9575409 10.9850253 5.73121 3.0933e-05 ***
+price        0.1441860  0.0943505 1.52819    0.14599    
+farmPrice    0.2071848  0.0385679 5.37195 6.2313e-05 ***
+trend        0.3333413  0.0644118 5.17516 9.2082e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -421,10 +421,10 @@ McElroy's R-squared value for the system: 0.788722
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 99.332894   7.514452 13.218913        0 ***
-price       -0.275486   0.088509 -3.112513 0.006332  **
-income        0.29855   0.041945  7.117605    2e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 99.3328942  7.5144525 13.21891 2.2597e-10 ***
+price       -0.2754857  0.0885091 -3.11251  0.0063324 ** 
+income       0.2985505  0.0419454  7.11760 1.7249e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -437,11 +437,11 @@ Multiple R-Squared: 0.755019 Adjusted R-Squared: 0.726198
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 61.966166   11.08079 5.592215    4e-05 ***
-price        0.146884   0.094435 1.555397 0.139408    
-farmPrice    0.214004   0.039868 5.367761  6.3e-05 ***
-trend        0.339304   0.067911 4.996283 0.000132 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 61.9661660 11.0807901 5.59222 4.0480e-05 ***
+price        0.1468841  0.0944351 1.55540 0.13940780    
+farmPrice    0.2140040  0.0398684 5.36776 6.2829e-05 ***
+trend        0.3393039  0.0679113 4.99628 0.00013185 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -487,10 +487,10 @@ McElroy's R-squared value for the system: 1.00928
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 99.211993   7.512677 13.205945        0 ***
-price       -0.266714   0.087712 -3.040792 0.004597  **
-income       0.290795   0.040615  7.159724        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 99.2119925  7.5126768 13.20594 9.9920e-15 ***
+price       -0.2667139  0.0877120 -3.04079  0.0045974 ** 
+income       0.2907949  0.0406154  7.15972 3.3283e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -503,11 +503,11 @@ Multiple R-Squared: 0.750844 Adjusted R-Squared: 0.721532
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 63.076817   10.97351 5.748099    2e-06 ***
-price        0.143864   0.094341 1.524947   0.1368    
-farmPrice    0.206372   0.038413 5.372498    6e-06 ***
-trend         0.33252   0.064028 5.193358    1e-05 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 63.0768165 10.9735097 5.74810 2.0263e-06 ***
+price        0.1438645  0.0943406 1.52495     0.1368    
+farmPrice    0.2063724  0.0384127 5.37250 6.1445e-06 ***
+trend        0.3325200  0.0640279 5.19336 1.0430e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -552,10 +552,10 @@ McElroy's R-squared value for the system: 0.753405
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.840761   7.558137 13.077398        0 ***
-price        -0.23978   0.085993  -2.78835 0.008613  **
-income       0.266981   0.036842   7.24657        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.8407612  7.5581367 13.07740 7.9936e-15 ***
+price       -0.2397799  0.0859935 -2.78835   0.008613 ** 
+income       0.2669811  0.0368424  7.24657 2.1812e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -568,11 +568,11 @@ Multiple R-Squared: 0.732963 Adjusted R-Squared: 0.701547
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 67.428338  10.664717 6.322562        0 ***
-price        0.133217    0.09531 1.397721  0.17125    
-farmPrice    0.179481   0.033654 5.333128    6e-06 ***
-trend        0.266981   0.036842  7.24657        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 67.4283376 10.6647167 6.32256 3.2933e-07 ***
+price        0.1332168  0.0953100 1.39772    0.17125    
+farmPrice    0.1794809  0.0336540 5.33313 6.3436e-06 ***
+trend        0.2669811  0.0368424 7.24657 2.1812e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -622,10 +622,10 @@ McElroy's R-squared value for the system: 0.707287
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.779936   6.968721 14.174758        0 ***
-price       -0.235367   0.079496 -2.960727 0.005561  **
-income       0.263079   0.034356  7.657404        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.7799361  6.9687214 14.17476 8.8818e-16 ***
+price       -0.2353669  0.0794963 -2.96073  0.0055611 ** 
+income       0.2630793  0.0343562  7.65740 6.6906e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -638,11 +638,11 @@ Multiple R-Squared: 0.729305 Adjusted R-Squared: 0.697458
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 67.603913   9.571168 7.063288        0 ***
-price        0.132825    0.08527 1.557696 0.128566    
-farmPrice    0.178493   0.030506  5.85111    1e-06 ***
-trend        0.263079   0.034356 7.657404        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 67.6039131  9.5711678 7.06329 3.7157e-08 ***
+price        0.1328254  0.0852704 1.55770    0.12857    
+farmPrice    0.1784930  0.0305058 5.85111 1.3442e-06 ***
+trend        0.2630793  0.0343562 7.65740 6.6906e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -687,10 +687,10 @@ McElroy's R-squared value for the system: 0.710796
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.754217   6.946822 14.215739        0 ***
-price       -0.233501   0.078997 -2.955819 0.005632  **
-income       0.261429   0.033786  7.737836        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.7542167  6.9468224 14.21574 6.6613e-16 ***
+price       -0.2335009  0.0789970 -2.95582  0.0056317 ** 
+income       0.2614294  0.0337859  7.73784 5.3200e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -703,11 +703,11 @@ Multiple R-Squared: 0.727696 Adjusted R-Squared: 0.69566
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 67.888244   9.564006 7.098306        0 ***
-price         0.13205   0.085457 1.545215 0.131552    
-farmPrice    0.176533   0.030134 5.858301    1e-06 ***
-trend        0.261429   0.033786 7.737836        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 67.8882440  9.5640064 7.09831 3.3553e-08 ***
+price        0.1320497  0.0854572 1.54522    0.13155    
+farmPrice    0.1765325  0.0301337 5.85830 1.3156e-06 ***
+trend        0.2614294  0.0337859 7.73784 5.3200e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -752,10 +752,10 @@ McElroy's R-squared value for the system: 0.753405
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.840761   7.558137 13.077398        0 ***
-price        -0.23978   0.085993  -2.78835 0.008613  **
-income       0.266981   0.036842   7.24657        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.8407612  7.5581367 13.07740 7.9936e-15 ***
+price       -0.2397799  0.0859935 -2.78835   0.008613 ** 
+income       0.2669811  0.0368424  7.24657 2.1812e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -768,11 +768,11 @@ Multiple R-Squared: 0.732963 Adjusted R-Squared: 0.701547
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 67.428338  10.664717 6.322562        0 ***
-price        0.133217    0.09531 1.397721  0.17125    
-farmPrice    0.179481   0.033654 5.333128    6e-06 ***
-trend        0.266981   0.036842  7.24657        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 67.4283376 10.6647167 6.32256 3.2933e-07 ***
+price        0.1332168  0.0953100 1.39772    0.17125    
+farmPrice    0.1794809  0.0336540 5.33313 6.3436e-06 ***
+trend        0.2669811  0.0368424 7.24657 2.1812e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -817,10 +817,10 @@ McElroy's R-squared value for the system: 0.707287
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.779936   6.968721 14.174758        0 ***
-price       -0.235367   0.079496 -2.960727 0.005561  **
-income       0.263079   0.034356  7.657404        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.7799361  6.9687214 14.17476 8.8818e-16 ***
+price       -0.2353669  0.0794963 -2.96073  0.0055611 ** 
+income       0.2630793  0.0343562  7.65740 6.6906e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -833,11 +833,11 @@ Multiple R-Squared: 0.729305 Adjusted R-Squared: 0.697458
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 67.603913   9.571168 7.063288        0 ***
-price        0.132825    0.08527 1.557696 0.128566    
-farmPrice    0.178493   0.030506  5.85111    1e-06 ***
-trend        0.263079   0.034356 7.657404        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 67.6039131  9.5711678 7.06329 3.7157e-08 ***
+price        0.1328254  0.0852704 1.55770    0.12857    
+farmPrice    0.1784930  0.0305058 5.85111 1.3442e-06 ***
+trend        0.2630793  0.0343562 7.65740 6.6906e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -881,10 +881,10 @@ McElroy's R-squared value for the system: 0.756941
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.813894   7.531715 13.119707        0 ***
-price       -0.237831   0.085381 -2.785537 0.008674  **
-income       0.265258   0.036129  7.341939        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.8138937  7.5317149 13.11971 7.3275e-15 ***
+price       -0.2378306  0.0853805 -2.78554  0.0086739 ** 
+income       0.2652576  0.0361291  7.34194 1.6553e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -897,11 +897,11 @@ Multiple R-Squared: 0.731372 Adjusted R-Squared: 0.699769
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-            Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 67.73662  10.655644 6.356877        0 ***
-price       0.132374   0.095548 1.385413 0.174948    
-farmPrice    0.17735   0.033171 5.346473    6e-06 ***
-trend       0.265258   0.036129 7.341939        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 67.7366196 10.6556440 6.35688 2.9741e-07 ***
+price        0.1323739  0.0955483 1.38541    0.17495    
+farmPrice    0.1773503  0.0331715 5.34647 6.0950e-06 ***
+trend        0.2652576  0.0361291 7.34194 1.6553e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -946,10 +946,10 @@ McElroy's R-squared value for the system: 0.689596
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 96.827525   7.466548 12.968179        0 ***
-price       -0.279771   0.083971 -3.331764 0.002046  **
-income       0.328631   0.020632 15.928109        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 96.8275248  7.4665476 12.96818 6.2172e-15 ***
+price       -0.2797707  0.0839707 -3.33176  0.0020456 ** 
+income       0.3286315  0.0206322 15.92811 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -962,11 +962,11 @@ Multiple R-Squared: 0.761345 Adjusted R-Squared: 0.733268
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 52.938648   7.665482  6.906108        0 ***
-price        0.220229   0.083971  2.622692 0.012832   *
-farmPrice    0.232671   0.021215 10.967325        0 ***
-trend        0.328631   0.020632 15.928109        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 52.9386482  7.6654823  6.90611 5.0516e-08 ***
+price        0.2202293  0.0839707  2.62269   0.012832 *  
+farmPrice    0.2326705  0.0212149 10.96732 7.1698e-13 ***
+trend        0.3286315  0.0206322 15.92811 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1015,10 +1015,10 @@ McElroy's R-squared value for the system: 0.652956
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  97.26781   6.920022 14.055997        0 ***
-price       -0.285096   0.076719  -3.71611 0.000704 ***
-income       0.329579    0.01845 17.863736        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 97.2678098  6.9200220 14.05600 6.6613e-16 ***
+price       -0.2850964  0.0767191 -3.71611 0.00070361 ***
+income       0.3295788  0.0184496 17.86374 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1031,11 +1031,11 @@ Multiple R-Squared: 0.762 Adjusted R-Squared: 0.734
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 53.303998   7.104496  7.502855        0 ***
-price        0.214904   0.076719  2.801176 0.008238  **
-farmPrice    0.234299   0.018653 12.561069        0 ***
-trend        0.329579    0.01845 17.863736        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 53.3039977  7.1044956  7.50285 8.6759e-09 ***
+price        0.2149036  0.0767191  2.80118  0.0082379 ** 
+farmPrice    0.2342994  0.0186528 12.56107 1.5765e-14 ***
+trend        0.3295788  0.0184496 17.86374 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1079,10 +1079,10 @@ McElroy's R-squared value for the system: 0.707639
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 92.526596   7.289606 12.692949        0 ***
-price       -0.230404   0.082692 -2.786302 0.008552  **
-income       0.322103   0.016626 19.373258        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 92.5265958  7.2896058 12.6929 1.1768e-14 ***
+price       -0.2304036  0.0826915 -2.7863  0.0085523 ** 
+income       0.3221034  0.0166262 19.3733 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1095,11 +1095,11 @@ Multiple R-Squared: 0.749929 Adjusted R-Squared: 0.720509
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 48.701089   7.403429   6.57818        0 ***
-price        0.269596   0.082692  3.260266 0.002483  **
-farmPrice    0.226135   0.016607 13.616644        0 ***
-trend        0.322103   0.016626 19.373258        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 48.7010886  7.4034288  6.57818 1.3474e-07 ***
+price        0.2695964  0.0826915  3.26027  0.0024826 ** 
+farmPrice    0.2261346  0.0166072 13.61664 1.5543e-15 ***
+trend        0.3221034  0.0166262 19.37326 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1144,10 +1144,10 @@ McElroy's R-squared value for the system: 0.701594
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 93.197751   7.316811 12.737482        0 ***
-price       -0.238111   0.082935 -2.871059   0.0069  **
-income       0.323126   0.017039 18.963348        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 93.1977506  7.3168110 12.73748 1.0658e-14 ***
+price       -0.2381107  0.0829348 -2.87106  0.0068996 ** 
+income       0.3231256  0.0170395 18.96335 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1160,11 +1160,11 @@ Multiple R-Squared: 0.752327 Adjusted R-Squared: 0.723189
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 49.367559   7.438141  6.637083        0 ***
-price        0.261889   0.082935  3.157772 0.003267  **
-farmPrice    0.227104   0.017083  13.29439        0 ***
-trend        0.323126   0.017039 18.963348        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 49.3675595  7.4381406  6.63708 1.1290e-07 ***
+price        0.2618893  0.0829348  3.15777   0.003267 ** 
+farmPrice    0.2271038  0.0170827 13.29439 3.1086e-15 ***
+trend        0.3231256  0.0170395 18.96335 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1209,10 +1209,10 @@ McElroy's R-squared value for the system: 0.654129
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 96.941374   6.889437 14.071015        0 ***
-price       -0.281365   0.076619  -3.67226 0.000796 ***
-income         0.3291   0.018107 18.175434        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 96.9413736  6.8894369 14.07102 6.6613e-16 ***
+price       -0.2813655  0.0766192 -3.67226 0.00079635 ***
+income       0.3290996  0.0181068 18.17543 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1225,11 +1225,11 @@ Multiple R-Squared: 0.761536 Adjusted R-Squared: 0.733482
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 52.996312   7.065215  7.501019        0 ***
-price        0.218635   0.076619  2.853523 0.007215  **
-farmPrice    0.233674   0.018314 12.759505        0 ***
-trend          0.3291   0.018107 18.175434        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 52.9963120  7.0652146  7.50102 8.7226e-09 ***
+price        0.2186345  0.0766192  2.85352  0.0072148 ** 
+farmPrice    0.2336737  0.0183137 12.75951 9.9920e-15 ***
+trend        0.3290996  0.0181068 18.17543 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1275,10 +1275,10 @@ McElroy's R-squared value for the system: 0.689596
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 96.827525   7.466548 12.968179        0 ***
-price       -0.279771   0.083971 -3.331764 0.002046  **
-income       0.328631   0.020632 15.928109        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 96.8275248  7.4665476 12.96818 6.2172e-15 ***
+price       -0.2797707  0.0839707 -3.33176  0.0020456 ** 
+income       0.3286315  0.0206322 15.92811 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1291,11 +1291,11 @@ Multiple R-Squared: 0.761345 Adjusted R-Squared: 0.733268
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 52.938648   7.665482  6.906108        0 ***
-price        0.220229   0.083971  2.622692 0.012832   *
-farmPrice    0.232671   0.021215 10.967325        0 ***
-trend        0.328631   0.020632 15.928109        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 52.9386482  7.6654823  6.90611 5.0516e-08 ***
+price        0.2202293  0.0839707  2.62269   0.012832 *  
+farmPrice    0.2326705  0.0212149 10.96732 7.1698e-13 ***
+trend        0.3286315  0.0206322 15.92811 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1346,10 +1346,10 @@ McElroy's R-squared value for the system: 0.652956
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  97.26781   6.920022 14.055997        0 ***
-price       -0.285096   0.076719  -3.71611 0.000704 ***
-income       0.329579    0.01845 17.863736        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 97.2678098  6.9200220 14.05600 6.6613e-16 ***
+price       -0.2850964  0.0767191 -3.71611 0.00070361 ***
+income       0.3295788  0.0184496 17.86374 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1362,11 +1362,11 @@ Multiple R-Squared: 0.762 Adjusted R-Squared: 0.734
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 53.303998   7.104496  7.502855        0 ***
-price        0.214904   0.076719  2.801176 0.008238  **
-farmPrice    0.234299   0.018653 12.561069        0 ***
-trend        0.329579    0.01845 17.863736        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 53.3039977  7.1044956  7.50285 8.6759e-09 ***
+price        0.2149036  0.0767191  2.80118  0.0082379 ** 
+farmPrice    0.2342994  0.0186528 12.56107 1.5765e-14 ***
+trend        0.3295788  0.0184496 17.86374 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1411,10 +1411,10 @@ McElroy's R-squared value for the system: 0.69107
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 96.442138   7.423367 12.991697        0 ***
-price       -0.275275    0.08378 -3.285708 0.002318  **
-income       0.327973   0.020233 16.209765        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 96.4421379  7.4233675 12.99170 5.9952e-15 ***
+price       -0.2752751  0.0837795 -3.28571  0.0023177 ** 
+income       0.3279727  0.0202330 16.20976 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1427,11 +1427,11 @@ Multiple R-Squared: 0.760699 Adjusted R-Squared: 0.732546
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 52.576104   7.609854   6.90895        0 ***
-price        0.224725    0.08378  2.682336 0.011083   *
-farmPrice    0.231841   0.020811 11.140336        0 ***
-trend        0.327973   0.020233 16.209765        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 52.5761036  7.6098541  6.90895 5.0090e-08 ***
+price        0.2247249  0.0837795  2.68234   0.011083 *  
+farmPrice    0.2318407  0.0208109 11.14034 4.6674e-13 ***
+trend        0.3279727  0.0202330 16.20976 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1478,10 +1478,10 @@ McElroy's R-squared value for the system: 0.958178
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.053729   7.405122 12.701172        0 ***
-price       -0.235545   0.088182 -2.671109 0.016117   *
-income       0.311718   0.045744   6.81435    3e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.0537289  7.4051218 12.70117 4.2008e-10 ***
+price       -0.2355446  0.0881823 -2.67111   0.016117 *  
+income       0.3117181  0.0457444  6.81435 3.0133e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1494,11 +1494,11 @@ Multiple R-Squared: 0.752769 Adjusted R-Squared: 0.723683
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error    t value Pr(>|t|)    
-(Intercept) 89.298175   3.382237  26.402106        0 ***
-income       0.665484   0.042298  15.733148        0 ***
-farmPrice   -0.474229    0.03724 -12.734343        0 ***
-trend       -0.796644    0.06557 -12.149612        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 89.2981749  3.3822368  26.4021 1.2657e-14 ***
+income       0.6654843  0.0422982  15.7332 3.7278e-11 ***
+farmPrice   -0.4742290  0.0372402 -12.7343 8.6614e-10 ***
+trend       -0.7966445  0.0655695 -12.1496 1.7190e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1544,10 +1544,10 @@ McElroy's R-squared value for the system: 0.959109
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 93.619279   6.849931 13.667186        0 ***
-price       -0.229539   0.081568 -2.814078 0.008182  **
-income       0.310014   0.042317  7.325931        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 93.6192791  6.8499307 13.66719 3.7748e-15 ***
+price       -0.2295389  0.0815681 -2.81408  0.0081824 ** 
+income       0.3100137  0.0423173  7.32593 2.0741e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1560,11 +1560,11 @@ Multiple R-Squared: 0.751068 Adjusted R-Squared: 0.721782
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error    t value Pr(>|t|)    
-(Intercept)    89.269   3.016465  29.593913        0 ***
-income       0.664062   0.037723  17.603683        0 ***
-farmPrice   -0.473003   0.033209 -14.243301        0 ***
-trend       -0.791932   0.058461 -13.546225        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 89.2690002  3.0164649  29.5939 < 2.22e-16 ***
+income       0.6640620  0.0377229  17.6037 < 2.22e-16 ***
+farmPrice   -0.4730034  0.0332088 -14.2433 1.1102e-15 ***
+trend       -0.7919324  0.0584615 -13.5462 4.8850e-15 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1610,10 +1610,10 @@ McElroy's R-squared value for the system: 0.960621
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 93.440458   7.382104 12.657699        0 ***
-price       -0.227067   0.087661 -2.590284 0.019059   *
-income       0.309312   0.045821  6.750372    3e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 93.4404576  7.3821044 12.65770 4.4294e-10 ***
+price       -0.2270669  0.0876610 -2.59028   0.019059 *  
+income       0.3093121  0.0458215  6.75037 3.3950e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1626,11 +1626,11 @@ Multiple R-Squared: 0.750333 Adjusted R-Squared: 0.720961
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error    t value Pr(>|t|)    
-(Intercept) 89.160176   3.386831  26.325546        0 ***
-income       0.663534   0.042265  15.699458        0 ***
-farmPrice   -0.470988   0.036942 -12.749498        0 ***
-trend       -0.795203   0.064253 -12.376104        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 89.1601757  3.3868311  26.3255 1.3323e-14 ***
+income       0.6635336  0.0422647  15.6995 3.8502e-11 ***
+farmPrice   -0.4709882  0.0369417 -12.7495 8.5119e-10 ***
+trend       -0.7952033  0.0642531 -12.3761 1.3140e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1676,10 +1676,10 @@ McElroy's R-squared value for the system: 0.960621
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 93.440458   7.382104 12.657699        0 ***
-price       -0.227067   0.087661 -2.590284 0.014166   *
-income       0.309312   0.045821  6.750372        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 93.4404576  7.3821044 12.65770 3.2641e-14 ***
+price       -0.2270669  0.0876610 -2.59028   0.014166 *  
+income       0.3093121  0.0458215  6.75037 1.0791e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1692,11 +1692,11 @@ Multiple R-Squared: 0.750333 Adjusted R-Squared: 0.720961
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error    t value Pr(>|t|)    
-(Intercept) 89.160176   3.386831  26.325546        0 ***
-income       0.663534   0.042265  15.699458        0 ***
-farmPrice   -0.470988   0.036942 -12.749498        0 ***
-trend       -0.795203   0.064253 -12.376104        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 89.1601757  3.3868311  26.3255 < 2.22e-16 ***
+income       0.6635336  0.0422647  15.6995 < 2.22e-16 ***
+farmPrice   -0.4709882  0.0369417 -12.7495 2.6645e-14 ***
+trend       -0.7952033  0.0642531 -12.3761 6.0396e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1742,10 +1742,10 @@ McElroy's R-squared value for the system: 0.960247
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 93.542723   7.385832 12.665157        0 ***
-price       -0.228481   0.087747 -2.603847 0.018532   *
-income       0.309713   0.045807  6.761201    3e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 93.5427232  7.3858318 12.66516 4.3893e-10 ***
+price       -0.2284806  0.0877473 -2.60385   0.018532 *  
+income       0.3097133  0.0458074  6.76120 3.3271e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1758,11 +1758,11 @@ Multiple R-Squared: 0.750756 Adjusted R-Squared: 0.721433
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error    t value Pr(>|t|)    
-(Intercept) 89.182975    3.38614  26.337655        0 ***
-income       0.663871   0.042272  15.704739        0 ***
-farmPrice   -0.471532   0.036993 -12.746565        0 ***
-trend       -0.795507   0.064465 -12.340106        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 89.1829747  3.3861395  26.3377 1.3323e-14 ***
+income       0.6638709  0.0422720  15.7047 3.8307e-11 ***
+farmPrice   -0.4715317  0.0369928 -12.7466 8.5406e-10 ***
+trend       -0.7955072  0.0644652 -12.3401 1.3710e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1808,10 +1808,10 @@ McElroy's R-squared value for the system: 0.960247
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 93.542723   7.385832 12.665157        0 ***
-price       -0.228481   0.087747 -2.603847 0.018532   *
-income       0.309713   0.045807  6.761201    3e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 93.5427232  7.3858318 12.66516 4.3893e-10 ***
+price       -0.2284806  0.0877473 -2.60385   0.018532 *  
+income       0.3097133  0.0458074  6.76120 3.3271e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1824,11 +1824,11 @@ Multiple R-Squared: 0.750756 Adjusted R-Squared: 0.721433
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error    t value Pr(>|t|)    
-(Intercept) 89.182975    3.38614  26.337655        0 ***
-income       0.663871   0.042272  15.704739        0 ***
-farmPrice   -0.471532   0.036993 -12.746565        0 ***
-trend       -0.795507   0.064465 -12.340106        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 89.1829747  3.3861395  26.3377 1.3323e-14 ***
+income       0.6638709  0.0422720  15.7047 3.8307e-11 ***
+farmPrice   -0.4715317  0.0369928 -12.7466 8.5406e-10 ***
+trend       -0.7955072  0.0644652 -12.3401 1.3710e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1875,10 +1875,10 @@ McElroy's R-squared value for the system: 0.66924
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 107.367833   7.498581 14.318419        0 ***
-price        -0.394459   0.091188 -4.325773 0.000126 ***
-income        0.338174   0.046617  7.254284        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 107.3678326   7.4985814 14.31842 6.6613e-16 ***
+price        -0.3944594   0.0911882 -4.32577 0.00012611 ***
+income        0.3381742   0.0466172  7.25428 2.1330e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1891,11 +1891,11 @@ Multiple R-Squared: 0.750018 Adjusted R-Squared: 0.720608
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 85.044826  12.106893  7.024496        0 ***
-income       0.312488   0.123346  2.533433 0.016074   *
-farmPrice   -0.197207   0.115708 -1.704352 0.097439   .
-trend        0.338174   0.046617  7.254284        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 85.0448264 12.1068933  7.02450 4.1608e-08 ***
+income       0.3124884  0.1233458  2.53343   0.016074 *  
+farmPrice   -0.1972074  0.1157081 -1.70435   0.097439 .  
+trend        0.3381742  0.0466172  7.25428 2.1330e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1942,10 +1942,10 @@ McElroy's R-squared value for the system: 0.664223
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 107.805111   6.927003 15.563024        0 ***
-price         -0.39858   0.084288 -4.728796  3.8e-05 ***
-income        0.337917   0.043115  7.837628        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 107.8051106   6.9270027 15.56302 < 2.22e-16 ***
+price        -0.3985801   0.0842879 -4.72880 3.8493e-05 ***
+income        0.3379166   0.0431146  7.83763 4.0071e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1958,11 +1958,11 @@ Multiple R-Squared: 0.748353 Adjusted R-Squared: 0.718747
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 85.107081  10.828732  7.859377        0 ***
-income        0.31064   0.110145  2.820283  0.00795  **
-farmPrice   -0.195958   0.103427 -1.894652 0.066669   .
-trend        0.337917   0.043115  7.837628        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 85.1070806 10.8287315  7.85938 3.7677e-09 ***
+income       0.3106398  0.1101449  2.82028  0.0079497 ** 
+farmPrice   -0.1959577  0.1034267 -1.89465  0.0666692 .  
+trend        0.3379166  0.0431146  7.83763 4.0071e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2008,10 +2008,10 @@ McElroy's R-squared value for the system: 0.669238
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 107.36724   7.498563 14.318374        0 ***
-price       -0.394451   0.091188 -4.325697 0.000126 ***
-income       0.338172   0.046617  7.254288        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 107.3672396   7.4985635 14.31837 6.6613e-16 ***
+price        -0.3944514   0.0911880 -4.32570 0.00012614 ***
+income        0.3381721   0.0466169  7.25429 2.1329e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2024,11 +2024,11 @@ Multiple R-Squared: 0.75002 Adjusted R-Squared: 0.720611
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 85.044807   12.10686  7.024514        0 ***
-income       0.312492   0.123346  2.533458 0.016073   *
-farmPrice    -0.19721   0.115708 -1.704373 0.097435   .
-trend        0.338172   0.046617  7.254288        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 85.0448073 12.1068605  7.02451 4.1606e-08 ***
+income       0.3124915  0.1233459  2.53346   0.016073 *  
+farmPrice   -0.1972101  0.1157083 -1.70437   0.097435 .  
+trend        0.3381721  0.0466169  7.25429 2.1329e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2075,10 +2075,10 @@ McElroy's R-squared value for the system: 0.66924
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 107.367833   7.498581 14.318419        0 ***
-price        -0.394459   0.091188 -4.325773 0.000126 ***
-income        0.338174   0.046617  7.254284        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 107.3678326   7.4985814 14.31842 6.6613e-16 ***
+price        -0.3944594   0.0911882 -4.32577 0.00012611 ***
+income        0.3381742   0.0466172  7.25428 2.1330e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2091,11 +2091,11 @@ Multiple R-Squared: 0.750018 Adjusted R-Squared: 0.720608
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 85.044826  12.106893  7.024496        0 ***
-income       0.312488   0.123346  2.533433 0.016074   *
-farmPrice   -0.197207   0.115708 -1.704352 0.097439   .
-trend        0.338174   0.046617  7.254284        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 85.0448264 12.1068933  7.02450 4.1608e-08 ***
+income       0.3124884  0.1233458  2.53343   0.016074 *  
+farmPrice   -0.1972074  0.1157081 -1.70435   0.097439 .  
+trend        0.3381742  0.0466172  7.25428 2.1330e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2142,10 +2142,10 @@ McElroy's R-squared value for the system: 0.664223
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 107.805111   6.927003 15.563024        0 ***
-price         -0.39858   0.084288 -4.728796  3.8e-05 ***
-income        0.337917   0.043115  7.837628        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 107.8051106   6.9270027 15.56302 < 2.22e-16 ***
+price        -0.3985801   0.0842879 -4.72880 3.8493e-05 ***
+income        0.3379166   0.0431146  7.83763 4.0071e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2158,11 +2158,11 @@ Multiple R-Squared: 0.748353 Adjusted R-Squared: 0.718747
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 85.107081  10.828732  7.859377        0 ***
-income        0.31064   0.110145  2.820283  0.00795  **
-farmPrice   -0.195958   0.103427 -1.894652 0.066669   .
-trend        0.337917   0.043115  7.837628        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 85.1070806 10.8287315  7.85938 3.7677e-09 ***
+income       0.3106398  0.1101449  2.82028  0.0079497 ** 
+farmPrice   -0.1959577  0.1034267 -1.89465  0.0666692 .  
+trend        0.3379166  0.0431146  7.83763 4.0071e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2209,10 +2209,10 @@ McElroy's R-squared value for the system: 0.664224
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 107.805519   6.927015 15.563056        0 ***
-price        -0.398586   0.084288 -4.728852  3.8e-05 ***
-income        0.337918   0.043115  7.837624        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 107.8055187   6.9270148 15.56306 < 2.22e-16 ***
+price        -0.3985856   0.0842880 -4.72885 3.8487e-05 ***
+income        0.3379180   0.0431149  7.83762 4.0072e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2225,11 +2225,11 @@ Multiple R-Squared: 0.748351 Adjusted R-Squared: 0.718745
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 85.107093  10.828751  7.859364        0 ***
-income       0.310638   0.110145  2.820265  0.00795  **
-farmPrice   -0.195956   0.103427 -1.894636 0.066671   .
-trend        0.337918   0.043115  7.837624        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 85.1070932 10.8287507  7.85936 3.7678e-09 ***
+income       0.3106377  0.1101449  2.82026  0.0079501 ** 
+farmPrice   -0.1959558  0.1034266 -1.89464  0.0666714 .  
+trend        0.3379180  0.0431149  7.83762 4.0072e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2276,10 +2276,10 @@ McElroy's R-squared value for the system: 0.704623
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 92.426174   7.354296 12.567644        0 ***
-price       -0.227612   0.085013 -2.677361  0.01122   *
-income        0.32027   0.018494 17.317867        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 92.4261738  7.3542961 12.56764 1.5543e-14 ***
+price       -0.2276118  0.0850135 -2.67736    0.01122 *  
+income       0.3202701  0.0184936 17.31787 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2292,11 +2292,11 @@ Multiple R-Squared: 0.74934 Adjusted R-Squared: 0.71985
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 48.729451    7.45869  6.533246        0 ***
-price        0.272388   0.085013  3.204058 0.002887  **
-farmPrice     0.22315   0.018976 11.759398        0 ***
-trend         0.32027   0.018494 17.317867        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 48.7294507  7.4586896  6.53325 1.5422e-07 ***
+price        0.2723882  0.0850135  3.20406  0.0028873 ** 
+farmPrice    0.2231504  0.0189763 11.75940 1.0369e-13 ***
+trend        0.3202701  0.0184936 17.31787 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2340,10 +2340,10 @@ McElroy's R-squared value for the system: 0.636563
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.035578   6.743699 14.537359        0 ***
-price       -0.264591    0.07773 -3.403959  0.00168  **
-income        0.30068   0.043628  6.891872        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.0355776  6.7436994 14.53736 2.2204e-16 ***
+price       -0.2645914  0.0777305 -3.40396  0.0016795 ** 
+income       0.3006798  0.0436282  6.89187 5.2705e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2356,11 +2356,11 @@ Multiple R-Squared: 0.755583 Adjusted R-Squared: 0.726828
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 90.004648  10.436748  8.623821        0 ***
-income       0.235409    0.07773  3.028524 0.004594  **
-farmPrice   -0.166658   0.110832 -1.503703 0.141629    
-trend         0.30068   0.043628  6.891872        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 90.0046481 10.4367479  8.62382 3.5127e-10 ***
+income       0.2354086  0.0777305  3.02852   0.004594 ** 
+farmPrice   -0.1666579  0.1108316 -1.50370   0.141629    
+trend        0.3006798  0.0436282  6.89187 5.2705e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2407,10 +2407,10 @@ McElroy's R-squared value for the system: 0.664522
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  93.35957    6.85761  13.61401        0 ***
-price       -0.239757   0.077937 -3.076298 0.004053  **
-income       0.323155   0.016311 19.811891        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 93.3595698  6.8576101 13.6140 1.5543e-15 ***
+price       -0.2397572  0.0779369 -3.0763  0.0040530 ** 
+income       0.3231549  0.0163112 19.8119 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2423,11 +2423,11 @@ Multiple R-Squared: 0.752848 Adjusted R-Squared: 0.723771
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 49.545591   6.972681  7.105673        0 ***
-price        0.260243   0.077937  3.339147 0.002005  **
-farmPrice    0.226962   0.016434 13.810256        0 ***
-trend        0.323155   0.016311 19.811891        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 49.5455908  6.9726812  7.10567 2.7924e-08 ***
+price        0.2602428  0.0779369  3.33915  0.0020049 ** 
+farmPrice    0.2269624  0.0164343 13.81026 8.8818e-16 ***
+trend        0.3231549  0.0163112 19.81189 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2472,10 +2472,10 @@ McElroy's R-squared value for the system: 0.629112
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 97.629728   6.155972 15.859351        0 ***
-price       -0.257559    0.07091 -3.632214 0.000891 ***
-income       0.297629   0.040327  7.380428        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 97.6297282  6.1559725 15.85935 < 2.22e-16 ***
+price       -0.2575588  0.0709096 -3.63221  0.0008913 ***
+income       0.2976292  0.0403268  7.38043 1.2419e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2488,11 +2488,11 @@ Multiple R-Squared: 0.753856 Adjusted R-Squared: 0.724898
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 89.543697   9.337169  9.590027        0 ***
-income       0.242441    0.07091  3.419018 0.001612  **
-farmPrice   -0.168655   0.098793 -1.707147 0.096653   .
-trend        0.297629   0.040327  7.380428        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 89.5436973  9.3371685  9.59003 2.5060e-11 ***
+income       0.2424412  0.0709096  3.41902  0.0016115 ** 
+farmPrice   -0.1686546  0.0987933 -1.70715  0.0966530 .  
+trend        0.2976292  0.0403268  7.38043 1.2419e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2539,10 +2539,10 @@ McElroy's R-squared value for the system: 0.704623
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 92.426163   7.354297 12.567641        0 ***
-price       -0.227612   0.085014 -2.677359  0.01122   *
-income        0.32027   0.018494 17.317864        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 92.4261626  7.3542971 12.56764 1.5543e-14 ***
+price       -0.2276117  0.0850135 -2.67736    0.01122 *  
+income       0.3202701  0.0184936 17.31786 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2555,11 +2555,11 @@ Multiple R-Squared: 0.74934 Adjusted R-Squared: 0.71985
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-            Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 48.72944    7.45869  6.533243        0 ***
-price       0.272388   0.085014  3.204059 0.002887  **
-farmPrice    0.22315   0.018976 11.759396        0 ***
-trend        0.32027   0.018494 17.317864        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 48.7294400  7.4586904  6.53324 1.5422e-07 ***
+price        0.2723883  0.0850135  3.20406  0.0028873 ** 
+farmPrice    0.2231504  0.0189763 11.75940 1.0369e-13 ***
+trend        0.3202701  0.0184936 17.31786 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2604,10 +2604,10 @@ McElroy's R-squared value for the system: 0.636565
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.036064   6.743736 14.537352        0 ***
-price       -0.264598   0.077731 -3.404031 0.001679  **
-income       0.300681   0.043628  6.891948        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.0360635  6.7437361 14.53735 2.2204e-16 ***
+price       -0.2645977  0.0777307 -3.40403  0.0016792 ** 
+income       0.3006812  0.0436279  6.89195 5.2693e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2620,11 +2620,11 @@ Multiple R-Squared: 0.755584 Adjusted R-Squared: 0.726829
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  90.00521  10.436769  8.623858        0 ***
-income       0.235402   0.077731  3.028435 0.004595  **
-farmPrice   -0.166657   0.110833 -1.503687 0.141633    
-trend        0.300681   0.043628  6.891948        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 90.0052098 10.4367686  8.62386 3.5123e-10 ***
+income       0.2354023  0.0777307  3.02843  0.0045951 ** 
+farmPrice   -0.1666575  0.1108326 -1.50369  0.1416329    
+trend        0.3006812  0.0436279  6.89195 5.2693e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2672,10 +2672,10 @@ McElroy's R-squared value for the system: 0.704623
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 92.426174   7.354296 12.567644        0 ***
-price       -0.227612   0.085013 -2.677361  0.01122   *
-income        0.32027   0.018494 17.317867        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 92.4261738  7.3542961 12.56764 1.5543e-14 ***
+price       -0.2276118  0.0850135 -2.67736    0.01122 *  
+income       0.3202701  0.0184936 17.31787 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2688,11 +2688,11 @@ Multiple R-Squared: 0.74934 Adjusted R-Squared: 0.71985
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 48.729451    7.45869  6.533246        0 ***
-price        0.272388   0.085013  3.204058 0.002887  **
-farmPrice     0.22315   0.018976 11.759398        0 ***
-trend         0.32027   0.018494 17.317867        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 48.7294507  7.4586896  6.53325 1.5422e-07 ***
+price        0.2723882  0.0850135  3.20406  0.0028873 ** 
+farmPrice    0.2231504  0.0189763 11.75940 1.0369e-13 ***
+trend        0.3202701  0.0184936 17.31787 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2737,10 +2737,10 @@ McElroy's R-squared value for the system: 0.636563
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.035578   6.743699 14.537359        0 ***
-price       -0.264591    0.07773 -3.403959  0.00168  **
-income        0.30068   0.043628  6.891872        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.0355776  6.7436994 14.53736 2.2204e-16 ***
+price       -0.2645914  0.0777305 -3.40396  0.0016795 ** 
+income       0.3006798  0.0436282  6.89187 5.2705e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2753,11 +2753,11 @@ Multiple R-Squared: 0.755583 Adjusted R-Squared: 0.726828
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 90.004648  10.436748  8.623821        0 ***
-income       0.235409    0.07773  3.028524 0.004594  **
-farmPrice   -0.166658   0.110832 -1.503703 0.141629    
-trend         0.30068   0.043628  6.891872        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 90.0046481 10.4367479  8.62382 3.5127e-10 ***
+income       0.2354086  0.0777305  3.02852   0.004594 ** 
+farmPrice   -0.1666579  0.1108316 -1.50370   0.141629    
+trend        0.3006798  0.0436282  6.89187 5.2705e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2804,10 +2804,10 @@ McElroy's R-squared value for the system: 0.664522
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  93.35957    6.85761  13.61401        0 ***
-price       -0.239757   0.077937 -3.076298 0.004053  **
-income       0.323155   0.016311 19.811891        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 93.3595698  6.8576101 13.6140 1.5543e-15 ***
+price       -0.2397572  0.0779369 -3.0763  0.0040530 ** 
+income       0.3231549  0.0163112 19.8119 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2820,11 +2820,11 @@ Multiple R-Squared: 0.752848 Adjusted R-Squared: 0.723771
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 49.545591   6.972681  7.105673        0 ***
-price        0.260243   0.077937  3.339147 0.002005  **
-farmPrice    0.226962   0.016434 13.810256        0 ***
-trend        0.323155   0.016311 19.811891        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 49.5455908  6.9726812  7.10567 2.7924e-08 ***
+price        0.2602428  0.0779369  3.33915  0.0020049 ** 
+farmPrice    0.2269624  0.0164343 13.81026 8.8818e-16 ***
+trend        0.3231549  0.0163112 19.81189 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2869,10 +2869,10 @@ McElroy's R-squared value for the system: 0.629112
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 97.629728   6.155972 15.859351        0 ***
-price       -0.257559    0.07091 -3.632214 0.000891 ***
-income       0.297629   0.040327  7.380428        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 97.6297282  6.1559725 15.85935 < 2.22e-16 ***
+price       -0.2575588  0.0709096 -3.63221  0.0008913 ***
+income       0.2976292  0.0403268  7.38043 1.2419e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2885,11 +2885,11 @@ Multiple R-Squared: 0.753856 Adjusted R-Squared: 0.724898
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 89.543697   9.337169  9.590027        0 ***
-income       0.242441    0.07091  3.419018 0.001612  **
-farmPrice   -0.168655   0.098793 -1.707147 0.096653   .
-trend        0.297629   0.040327  7.380428        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 89.5436973  9.3371685  9.59003 2.5060e-11 ***
+income       0.2424412  0.0709096  3.41902  0.0016115 ** 
+farmPrice   -0.1686546  0.0987933 -1.70715  0.0966530 .  
+trend        0.2976292  0.0403268  7.38043 1.2419e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2938,10 +2938,10 @@ McElroy's R-squared value for the system: 0.926927
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  78.03416    7.16377 10.892891        0 ***
-price       -0.064681   0.081525 -0.793381 0.432902    
-income       0.300747   0.013068 23.013486        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 78.0341602  7.1637696 10.89289 8.6331e-13 ***
+price       -0.0646807  0.0815254 -0.79338     0.4329    
+income       0.3007469  0.0130683 23.01349 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2954,11 +2954,11 @@ Multiple R-Squared: 0.642838 Adjusted R-Squared: 0.600819
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 34.195763   7.225714   4.73251  3.6e-05 ***
-price        0.435319   0.081525  5.339674    6e-06 ***
-farmPrice    0.207031   0.012415 16.675571        0 ***
-trend        0.300747   0.013068 23.013486        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 34.1957633  7.2257142  4.73251 3.5895e-05 ***
+price        0.4353193  0.0815254  5.33967 5.7345e-06 ***
+farmPrice    0.2070310  0.0124152 16.67557 < 2.22e-16 ***
+trend        0.3007469  0.0130683 23.01349 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3003,10 +3003,10 @@ McElroy's R-squared value for the system: 0.637054
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.219953   6.759299 14.531086        0 ***
-price       -0.266878   0.077815 -3.429648 0.001565  **
-income       0.301134   0.043544  6.915575        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.2199533  6.7592991 14.53109 2.2204e-16 ***
+price       -0.2668782  0.0778150 -3.42965  0.0015651 ** 
+income       0.3011344  0.0435444  6.91558 4.9112e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3019,11 +3019,11 @@ Multiple R-Squared: 0.755899 Adjusted R-Squared: 0.727181
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 90.216748  10.434182  8.646269        0 ***
-income       0.233122   0.077815  2.995846 0.005003  **
-farmPrice   -0.166594   0.111097 -1.499543   0.1427    
-trend        0.301134   0.043544  6.915575        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 90.2167480 10.4341822  8.64627 3.2992e-10 ***
+income       0.2331218  0.0778150  2.99585  0.0050026 ** 
+farmPrice   -0.1665940  0.1110965 -1.49954  0.1426998    
+trend        0.3011344  0.0435444  6.91558 4.9112e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3080,10 +3080,10 @@ McElroy's R-squared value for the system: 0.926927
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept)  78.03416    7.16377 10.892891        0 ***
-price       -0.064681   0.081525 -0.793381 0.432902    
-income       0.300747   0.013068 23.013486        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 78.0341602  7.1637696 10.89289 8.6331e-13 ***
+price       -0.0646807  0.0815254 -0.79338     0.4329    
+income       0.3007469  0.0130683 23.01349 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3096,11 +3096,11 @@ Multiple R-Squared: 0.642838 Adjusted R-Squared: 0.600819
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 34.195763   7.225714   4.73251  3.6e-05 ***
-price        0.435319   0.081525  5.339674    6e-06 ***
-farmPrice    0.207031   0.012415 16.675571        0 ***
-trend        0.300747   0.013068 23.013486        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 34.1957632  7.2257142  4.73251 3.5895e-05 ***
+price        0.4353193  0.0815254  5.33967 5.7345e-06 ***
+farmPrice    0.2070310  0.0124152 16.67557 < 2.22e-16 ***
+trend        0.3007469  0.0130683 23.01349 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3145,10 +3145,10 @@ McElroy's R-squared value for the system: 0.637054
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.219956   6.759299 14.531086        0 ***
-price       -0.266878   0.077815 -3.429648 0.001565  **
-income       0.301134   0.043544  6.915576        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.2199559  6.7592993 14.53109 2.2204e-16 ***
+price       -0.2668782  0.0778150 -3.42965  0.0015651 ** 
+income       0.3011344  0.0435444  6.91558 4.9111e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3161,11 +3161,11 @@ Multiple R-Squared: 0.755899 Adjusted R-Squared: 0.727181
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 90.216751  10.434182  8.646269        0 ***
-income       0.233122   0.077815  2.995846 0.005003  **
-farmPrice   -0.166594   0.111097 -1.499543   0.1427    
-trend        0.301134   0.043544  6.915576        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 90.2167509 10.4341823  8.64627 3.2992e-10 ***
+income       0.2331218  0.0778150  2.99585  0.0050026 ** 
+farmPrice   -0.1665940  0.1110965 -1.49954  0.1426998    
+trend        0.3011344  0.0435444  6.91558 4.9111e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3211,8 +3211,8 @@ McElroy's R-squared value for the system: 0.46504
 SUR estimates for 'eq1' (equation 1)
 Model Formula: price ~ consump - 1
 
-        Estimate Std. Error   t value Pr(>|t|)    
-consump 0.990187   0.014798 66.915518        0 ***
+         Estimate Std. Error t value   Pr(>|t|)    
+consump 0.9901867  0.0147976 66.9155 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3225,10 +3225,10 @@ Multiple R-Squared: -0.271197 Adjusted R-Squared: -0.271197
 SUR estimates for 'eq2' (equation 2)
 Model Formula: farmPrice ~ consump + trend
 
-               Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) -108.487034  47.754167 -2.271782 0.036376   *
-consump        2.123094   0.476729  4.453456 0.000349 ***
-trend         -0.862227   0.302675 -2.848684 0.011105   *
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) -108.487034   47.754167 -2.27178 0.03637563 *  
+consump        2.123094    0.476729  4.45346 0.00034883 ***
+trend         -0.862227    0.302675 -2.84868 0.01110505 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3271,8 +3271,8 @@ McElroy's R-squared value for the system: -5.2751
 SUR estimates for 'eq1' (equation 1)
 Model Formula: consump ~ price - 1
 
-      Estimate Std. Error   t value Pr(>|t|)    
-price 1.006129   0.015028 66.949676        0 ***
+       Estimate Std. Error t value   Pr(>|t|)    
+price 1.0061285  0.0150281 66.9497 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3285,8 +3285,8 @@ Multiple R-Squared: -2.213166 Adjusted R-Squared: -2.213166
 SUR estimates for 'eq2' (equation 2)
 Model Formula: consump ~ trend - 1
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend 7.409599   0.923503 8.023364        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend 7.409599   0.923503 8.02336 1.6049e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3329,8 +3329,8 @@ McElroy's R-squared value for the system: -0.97698
 SUR estimates for 'eq1' (equation 1)
 Model Formula: consump ~ trend - 1
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend  7.40487   0.923529 8.018018        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend 7.404870   0.923529 8.01802 1.6209e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3343,8 +3343,8 @@ Multiple R-Squared: -172.466772 Adjusted R-Squared: -172.466772
 SUR estimates for 'eq2' (equation 2)
 Model Formula: price ~ trend - 1
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend 7.318426   0.928669 7.880553        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend 7.318426   0.928669 7.88055 2.0940e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3387,8 +3387,8 @@ McElroy's R-squared value for the system: -1.02684
 SUR estimates for 'eq1' (equation 1)
 Model Formula: consump ~ trend - 1
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend 7.387505   0.923234 8.001768        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend 7.387505   0.923234 8.00177 9.4142e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3401,8 +3401,8 @@ Multiple R-Squared: -172.469999 Adjusted R-Squared: -172.469999
 SUR estimates for 'eq2' (equation 2)
 Model Formula: price ~ trend - 1
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend 7.387505   0.923234 8.001768        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend 7.387505   0.923234 8.00177 9.4142e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3445,8 +3445,8 @@ McElroy's R-squared value for the system: -2.22045e-16
 SUR estimates for 'eq1' (equation 1)
 Model Formula: consump ~ 1
 
-            Estimate Std. Error    t value Pr(>|t|)    
-(Intercept) 100.8982   0.839979 120.119974        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 100.898200   0.839979  120.12 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3459,8 +3459,8 @@ Multiple R-Squared: 0 Adjusted R-Squared: 0
 SUR estimates for 'eq2' (equation 2)
 Model Formula: price ~ 1
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 100.01905   1.325113 75.479627        0 ***
+             Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 100.01905    1.32511 75.4796 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3503,14 +3503,16 @@ OLS R-squared value of the system: 0.67901
 McElroy's R-squared value for the system: 1.00928
 
 Coefficients:
-                     Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 99.2119925  7.51267675 13.205945 9.992007e-15
-demand_price       -0.2667139  0.08771199 -3.040792 4.597392e-03
-demand_income       0.2907949  0.04061537  7.159724 3.328346e-08
-supply_(Intercept) 63.0768165 10.97350968  5.748099 2.026349e-06
-supply_price        0.1438645  0.09434062  1.524947 1.367998e-01
-supply_farmPrice    0.2063724  0.03841275  5.372498 6.144486e-06
-supply_trend        0.3325200  0.06402794  5.193358 1.042964e-05
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 99.2119925  7.5126768 13.20594 9.9920e-15 ***
+demand_price       -0.2667139  0.0877120 -3.04079  0.0045974 ** 
+demand_income       0.2907949  0.0406154  7.15972 3.3283e-08 ***
+supply_(Intercept) 63.0768165 10.9735097  5.74810 2.0263e-06 ***
+supply_price        0.1438645  0.0943406  1.52495  0.1367998    
+supply_farmPrice    0.2063724  0.0384127  5.37250 6.1445e-06 ***
+supply_trend        0.3325200  0.0640279  5.19336 1.0430e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitsur2e, useDfSys = FALSE, printResidCov = FALSE ) )
 
@@ -3527,10 +3529,10 @@ McElroy's R-squared value for the system: 0.707287
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.779936   6.968721 14.174758        0 ***
-price       -0.235367   0.079496 -2.960727 0.008757  **
-income       0.263079   0.034356  7.657404    1e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.7799361  6.9687214 14.17476 7.5732e-11 ***
+price       -0.2353669  0.0794963 -2.96073  0.0087573 ** 
+income       0.2630793  0.0343562  7.65740 6.5892e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3543,11 +3545,11 @@ Multiple R-Squared: 0.729305 Adjusted R-Squared: 0.697458
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 67.603913   9.571168 7.063288    3e-06 ***
-price        0.132825    0.08527 1.557696 0.138863    
-farmPrice    0.178493   0.030506  5.85111  2.5e-05 ***
-trend        0.263079   0.034356 7.657404    1e-06 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 67.6039131  9.5711678 7.06329 2.6819e-06 ***
+price        0.1328254  0.0852704 1.55770    0.13886    
+farmPrice    0.1784930  0.0305058 5.85111 2.4578e-05 ***
+trend        0.2630793  0.0343562 7.65740 9.7386e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3586,14 +3588,16 @@ OLS R-squared value of the system: 0.665436
 McElroy's R-squared value for the system: 0.753405
 
 Coefficients:
-                     Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 98.8407612  7.55813673 13.077398 7.993606e-15
-demand_price       -0.2397799  0.08599350 -2.788350 8.613043e-03
-demand_income       0.2669811  0.03684240  7.246570 2.181157e-08
-supply_(Intercept) 67.4283376 10.66471667  6.322562 3.293285e-07
-supply_price        0.1332168  0.09531001  1.397721 1.712504e-01
-supply_farmPrice    0.1794809  0.03365396  5.333128 6.343571e-06
-supply_trend        0.2669811  0.03684240  7.246570 2.181157e-08
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 98.8407612  7.5581367 13.07740 7.9936e-15 ***
+demand_price       -0.2397799  0.0859935 -2.78835   0.008613 ** 
+demand_income       0.2669811  0.0368424  7.24657 2.1812e-08 ***
+supply_(Intercept) 67.4283376 10.6647167  6.32256 3.2933e-07 ***
+supply_price        0.1332168  0.0953100  1.39772   0.171250    
+supply_farmPrice    0.1794809  0.0336540  5.33313 6.3436e-06 ***
+supply_trend        0.2669811  0.0368424  7.24657 2.1812e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitsur4r3 ), residCov = FALSE, equations = FALSE )
 
@@ -3608,14 +3612,16 @@ OLS R-squared value of the system: 0.676763
 McElroy's R-squared value for the system: 0.701594
 
 Coefficients:
-                     Estimate Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 93.1977506 7.31681101 12.737482 1.065814e-14
-demand_price       -0.2381107 0.08293483 -2.871059 6.899602e-03
-demand_income       0.3231256 0.01703948 18.963348 0.000000e+00
-supply_(Intercept) 49.3675595 7.43814061  6.637083 1.129038e-07
-supply_price        0.2618893 0.08293483  3.157772 3.266969e-03
-supply_farmPrice    0.2271038 0.01708268 13.294390 3.108624e-15
-supply_trend        0.3231256 0.01703948 18.963348 0.000000e+00
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 93.1977506  7.3168110 12.73748 1.0658e-14 ***
+demand_price       -0.2381107  0.0829348 -2.87106  0.0068996 ** 
+demand_income       0.3231256  0.0170395 18.96335 < 2.22e-16 ***
+supply_(Intercept) 49.3675595  7.4381406  6.63708 1.1290e-07 ***
+supply_price        0.2618893  0.0829348  3.15777  0.0032670 ** 
+supply_farmPrice    0.2271038  0.0170827 13.29439 3.1086e-15 ***
+supply_trend        0.3231256  0.0170395 18.96335 < 2.22e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitsur5, printResidCov = FALSE ), equations = FALSE )
 
@@ -3630,14 +3636,16 @@ OLS R-squared value of the system: 0.691438
 McElroy's R-squared value for the system: 0.689596
 
 Coefficients:
-                     Estimate Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 96.8275248 7.46654759 12.968179 6.217249e-15
-demand_price       -0.2797707 0.08397074 -3.331764 2.045580e-03
-demand_income       0.3286315 0.02063217 15.928109 0.000000e+00
-supply_(Intercept) 52.9386482 7.66548231  6.906108 5.051618e-08
-supply_price        0.2202293 0.08397074  2.622692 1.283186e-02
-supply_farmPrice    0.2326705 0.02121489 10.967325 7.169820e-13
-supply_trend        0.3286315 0.02063217 15.928109 0.000000e+00
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 96.8275248  7.4665476 12.96818 6.2172e-15 ***
+demand_price       -0.2797707  0.0839707 -3.33176  0.0020456 ** 
+demand_income       0.3286315  0.0206322 15.92811 < 2.22e-16 ***
+supply_(Intercept) 52.9386482  7.6654823  6.90611 5.0516e-08 ***
+supply_price        0.2202293  0.0839707  2.62269  0.0128319 *  
+supply_farmPrice    0.2326705  0.0212149 10.96732 7.1698e-13 ***
+supply_trend        0.3286315  0.0206322 15.92811 < 2.22e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitsur5w, printEquations = FALSE, printResidCov = FALSE ),
 +    equations = TRUE )
@@ -3655,10 +3663,10 @@ McElroy's R-squared value for the system: 0.69107
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 96.442138   7.423367 12.991697        0 ***
-price       -0.275275    0.08378 -3.285708 0.002318  **
-income       0.327973   0.020233 16.209765        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 96.4421379  7.4233675 12.99170 5.9952e-15 ***
+price       -0.2752751  0.0837795 -3.28571  0.0023177 ** 
+income       0.3279727  0.0202330 16.20976 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3671,11 +3679,11 @@ Multiple R-Squared: 0.760699 Adjusted R-Squared: 0.732546
 SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 52.576104   7.609854   6.90895        0 ***
-price        0.224725    0.08378  2.682336 0.011083   *
-farmPrice    0.231841   0.020811 11.140336        0 ***
-trend        0.327973   0.020233 16.209765        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 52.5761036  7.6098541  6.90895 5.0090e-08 ***
+price        0.2247249  0.0837795  2.68234   0.011083 *  
+farmPrice    0.2318407  0.0208109 11.14034 4.6674e-13 ***
+trend        0.3279727  0.0202330 16.20976 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3702,10 +3710,10 @@ McElroy's R-squared value for the system: 0.960247
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 93.542723   7.385832 12.665157        0 ***
-price       -0.228481   0.087747 -2.603847 0.018532   *
-income       0.309713   0.045807  6.761201    3e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 93.5427232  7.3858318 12.66516 4.3893e-10 ***
+price       -0.2284806  0.0877473 -2.60385   0.018532 *  
+income       0.3097133  0.0458074  6.76120 3.3271e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3718,11 +3726,11 @@ Multiple R-Squared: 0.750756 Adjusted R-Squared: 0.721433
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error    t value Pr(>|t|)    
-(Intercept) 89.182975    3.38614  26.337655        0 ***
-income       0.663871   0.042272  15.704739        0 ***
-farmPrice   -0.471532   0.036993 -12.746565        0 ***
-trend       -0.795507   0.064465 -12.340106        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 89.1829747  3.3861395  26.3377 1.3323e-14 ***
+income       0.6638709  0.0422720  15.7047 3.8307e-11 ***
+farmPrice   -0.4715317  0.0369928 -12.7466 8.5406e-10 ***
+trend       -0.7955072  0.0644652 -12.3401 1.3710e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3749,10 +3757,10 @@ McElroy's R-squared value for the system: 0.66924
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 107.367833   7.498581 14.318419        0 ***
-price        -0.394459   0.091188 -4.325773 0.000126 ***
-income        0.338174   0.046617  7.254284        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 107.3678326   7.4985814 14.31842 6.6613e-16 ***
+price        -0.3944594   0.0911882 -4.32577 0.00012611 ***
+income        0.3381742   0.0466172  7.25428 2.1330e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3765,11 +3773,11 @@ Multiple R-Squared: 0.750018 Adjusted R-Squared: 0.720608
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 85.044826  12.106893  7.024496        0 ***
-income       0.312488   0.123346  2.533433 0.016074   *
-farmPrice   -0.197207   0.115708 -1.704352 0.097439   .
-trend        0.338174   0.046617  7.254284        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 85.0448264 12.1068933  7.02450 4.1608e-08 ***
+income       0.3124884  0.1233458  2.53343   0.016074 *  
+farmPrice   -0.1972074  0.1157081 -1.70435   0.097439 .  
+trend        0.3381742  0.0466172  7.25428 2.1330e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3794,14 +3802,16 @@ OLS R-squared value of the system: 0.371716
 McElroy's R-squared value for the system: 0.664223
 
 Coefficients:
-                      Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 107.8051106  6.92700274 15.563024 0.000000e+00
-demand_price        -0.3985801  0.08428786 -4.728796 3.849345e-05
-demand_income        0.3379166  0.04311465  7.837628 4.007103e-09
-supply_(Intercept)  85.1070806 10.82873155  7.859377 3.767666e-09
-supply_income        0.3106398  0.11014490  2.820283 7.949721e-03
-supply_farmPrice    -0.1959577  0.10342673 -1.894652 6.666921e-02
-supply_trend         0.3379166  0.04311465  7.837628 4.007103e-09
+                      Estimate  Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 107.8051106   6.9270027 15.56302 < 2.22e-16 ***
+demand_price        -0.3985801   0.0842879 -4.72880 3.8493e-05 ***
+demand_income        0.3379166   0.0431146  7.83763 4.0071e-09 ***
+supply_(Intercept)  85.1070806  10.8287315  7.85938 3.7677e-09 ***
+supply_income        0.3106398   0.1101449  2.82028  0.0079497 ** 
+supply_farmPrice    -0.1959577   0.1034267 -1.89465  0.0666692 .  
+supply_trend         0.3379166   0.0431146  7.83763 4.0071e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitsurio4, printResidCov = FALSE ), equations = FALSE )
 
@@ -3818,14 +3828,16 @@ OLS R-squared value of the system: 0.670962
 McElroy's R-squared value for the system: 0.704623
 
 Coefficients:
-                     Estimate Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 92.4261738 7.35429607 12.567644 1.554312e-14
-demand_price       -0.2276118 0.08501349 -2.677361 1.121989e-02
-demand_income       0.3202701 0.01849362 17.317867 0.000000e+00
-supply_(Intercept) 48.7294507 7.45868959  6.533246 1.542157e-07
-supply_price        0.2723882 0.08501349  3.204058 2.887293e-03
-supply_farmPrice    0.2231504 0.01897634 11.759398 1.036948e-13
-supply_trend        0.3202701 0.01849362 17.317867 0.000000e+00
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 92.4261738  7.3542961 12.56764 1.5543e-14 ***
+demand_price       -0.2276118  0.0850135 -2.67736  0.0112199 *  
+demand_income       0.3202701  0.0184936 17.31787 < 2.22e-16 ***
+supply_(Intercept) 48.7294507  7.4586896  6.53325 1.5422e-07 ***
+supply_price        0.2723882  0.0850135  3.20406  0.0028873 ** 
+supply_farmPrice    0.2231504  0.0189763 11.75940 1.0369e-13 ***
+supply_trend        0.3202701  0.0184936 17.31787 < 2.22e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > print( summary( fitsuri4, printEquations = FALSE ), residCov = FALSE )
 
 systemfit results 
@@ -3841,14 +3853,16 @@ OLS R-squared value of the system: 0.385399
 McElroy's R-squared value for the system: 0.636563
 
 Coefficients:
-                     Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 98.0355776  6.74369937 14.537359 2.220446e-16
-demand_price       -0.2645914  0.07773049 -3.403959 1.679523e-03
-demand_income       0.3006798  0.04362817  6.891872 5.270497e-08
-supply_(Intercept) 90.0046481 10.43674793  8.623821 3.512679e-10
-supply_income       0.2354086  0.07773049  3.028524 4.594037e-03
-supply_farmPrice   -0.1666579  0.11083164 -1.503703 1.416286e-01
-supply_trend        0.3006798  0.04362817  6.891872 5.270497e-08
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 98.0355776  6.7436994 14.53736 2.2204e-16 ***
+demand_price       -0.2645914  0.0777305 -3.40396  0.0016795 ** 
+demand_income       0.3006798  0.0436282  6.89187 5.2705e-08 ***
+supply_(Intercept) 90.0046481 10.4367479  8.62382 3.5127e-10 ***
+supply_income       0.2354086  0.0777305  3.02852  0.0045940 ** 
+supply_farmPrice   -0.1666579  0.1108316 -1.50370  0.1416286    
+supply_trend        0.3006798  0.0436282  6.89187 5.2705e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitsuri4w, useDfSys = FALSE, printEquations = FALSE ) )
 
@@ -3881,14 +3895,16 @@ OLS R-squared value of the system: 0.385395
 McElroy's R-squared value for the system: 0.636565
 
 Coefficients:
-                     Estimate Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 98.0360635  6.7437361 14.537352 5.084733e-11
-demand_price       -0.2645977  0.0777307 -3.404031 3.378181e-03
-demand_income       0.3006812  0.0436279  6.891948 2.609289e-06
-supply_(Intercept) 90.0052098 10.4367686  8.623858 2.065766e-07
-supply_income       0.2354023  0.0777307  3.028435 7.990853e-03
-supply_farmPrice   -0.1666575  0.1108326 -1.503687 1.521437e-01
-supply_trend        0.3006812  0.0436279  6.891948 3.623698e-06
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 98.0360635  6.7437361 14.53735 5.0847e-11 ***
+demand_price       -0.2645977  0.0777307 -3.40403  0.0033782 ** 
+demand_income       0.3006812  0.0436279  6.89195 2.6093e-06 ***
+supply_(Intercept) 90.0052098 10.4367686  8.62386 2.0658e-07 ***
+supply_income       0.2354023  0.0777307  3.02843  0.0079909 ** 
+supply_farmPrice   -0.1666575  0.1108326 -1.50369  0.1521437    
+supply_trend        0.3006812  0.0436279  6.89195 3.6237e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitsurio5r2, printEquations = FALSE ) )
 
@@ -3923,14 +3939,16 @@ OLS R-squared value of the system: 0.527259
 McElroy's R-squared value for the system: 0.926927
 
 Coefficients:
-                      Estimate Std. Error    t value     Pr(>|t|)
-demand_(Intercept) 78.03416024 7.16376964 10.8928908 8.633094e-13
-demand_price       -0.06468073 0.08152544 -0.7933809 4.329019e-01
-demand_income       0.30074686 0.01306829 23.0134860 0.000000e+00
-supply_(Intercept) 34.19576325 7.22571422  4.7325098 3.589516e-05
-supply_price        0.43531927 0.08152544  5.3396740 5.734479e-06
-supply_farmPrice    0.20703104 0.01241523 16.6755709 0.000000e+00
-supply_trend        0.30074686 0.01306829 23.0134860 0.000000e+00
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 78.0341602  7.1637696 10.89289 8.6331e-13 ***
+demand_price       -0.0646807  0.0815254 -0.79338     0.4329    
+demand_income       0.3007469  0.0130683 23.01349 < 2.22e-16 ***
+supply_(Intercept) 34.1957633  7.2257142  4.73251 3.5895e-05 ***
+supply_price        0.4353193  0.0815254  5.33967 5.7345e-06 ***
+supply_farmPrice    0.2070310  0.0124152 16.67557 < 2.22e-16 ***
+supply_trend        0.3007469  0.0130683 23.01349 < 2.22e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > print( summary( fitsuri5r2 ), residCov = FALSE )
 
 systemfit results 
@@ -3948,10 +3966,10 @@ McElroy's R-squared value for the system: 0.637054
 SUR estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 98.219953   6.759299 14.531086        0 ***
-price       -0.266878   0.077815 -3.429648 0.001565  **
-income       0.301134   0.043544  6.915575        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 98.2199533  6.7592991 14.53109 2.2204e-16 ***
+price       -0.2668782  0.0778150 -3.42965  0.0015651 ** 
+income       0.3011344  0.0435444  6.91558 4.9112e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3964,11 +3982,11 @@ Multiple R-Squared: 0.755899 Adjusted R-Squared: 0.727181
 SUR estimates for 'supply' (equation 2)
 Model Formula: price ~ income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 90.216748  10.434182  8.646269        0 ***
-income       0.233122   0.077815  2.995846 0.005003  **
-farmPrice   -0.166594   0.111097 -1.499543   0.1427    
-trend        0.301134   0.043544  6.915575        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 90.2167480 10.4341822  8.64627 3.2992e-10 ***
+income       0.2331218  0.0778150  2.99585  0.0050026 ** 
+farmPrice   -0.1665940  0.1110965 -1.49954  0.1426998    
+trend        0.3011344  0.0435444  6.91558 4.9112e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 

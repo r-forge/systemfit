@@ -206,7 +206,7 @@ print.summary.systemfit <- function( x,
       }
    } else {
       cat( "\nCoefficients:\n" )
-      print( coef( x ) ) 
+      printCoefmat( coef( x ), digits = digits )
    }
 
   invisible( x )
@@ -278,20 +278,7 @@ print.summary.systemfit.equation <- function( x,
   }
   cat("\n")
 
-  Signif <- symnum(x$coefficients[,4], corr = FALSE, na = FALSE,
-                   cutpoints = c( 0, 0.001, 0.01, 0.05, 0.1, 1 ),
-                   symbols   = c( "***", "**", "*", "." ," " ))
-
-  table <- cbind(round( x$coefficients,  digits ),
-                 Signif)
-
-  rownames(table) <- rownames(x$coefficients)
-  colnames(table) <- c("Estimate","Std. Error","t value","Pr(>|t|)","")
-
-  ##print.matrix(table, quote = FALSE, right = TRUE )
-  ##prmatrix(table, quote = FALSE, right = TRUE )
-  print(table, quote = FALSE, right = TRUE, digits = digits )
-  cat("---\nSignif. codes: ",attr(Signif,"legend"),"\n")
+  printCoefmat( x$coefficients, digits = digits )
 
   cat(paste("\nResidual standard error:", round( x$sigma, digits ),
             "on", x$df[ 2 ], "degrees of freedom\n" ))

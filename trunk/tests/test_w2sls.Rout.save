@@ -92,10 +92,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.633304   7.920838 11.947385        0 ***
-price       -0.243557   0.096484 -2.524313 0.021832   *
-income       0.313992   0.046944  6.688695    4e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.6333039  7.9208383 11.94738 1.0762e-09 ***
+price       -0.2435565  0.0964843 -2.52431   0.021832 *  
+income       0.3139918  0.0469437  6.68869 3.8109e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -109,11 +109,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  12.010526 4.124086 0.000795 ***
-price        0.240076   0.099934 2.402347 0.028785   *
-farmPrice    0.255606    0.04725 5.409637  5.8e-05 ***
-trend        0.252924   0.099655 2.537996 0.021929   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 12.0105264 4.12409 0.00079536 ***
+price        0.2400758  0.0999339 2.40235 0.02878451 *  
+farmPrice    0.2556057  0.0472501 5.40964 5.7854e-05 ***
+trend        0.2529242  0.0996551 2.53800 0.02192877 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -158,10 +158,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.633304   7.302652 12.958758        0 ***
-price       -0.243557   0.088954 -2.738002 0.009884  **
-income       0.313992    0.04328  7.254908        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
+income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -175,11 +175,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  10.742541 4.610868  5.8e-05 ***
-price        0.240076   0.089384 2.685905 0.011234   *
-farmPrice    0.255606   0.042262 6.048158    1e-06 ***
-trend        0.252924   0.089134 2.837565 0.007715  **
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 10.7425414 4.61087 5.7787e-05 ***
+price        0.2400758  0.0893836 2.68591  0.0112338 *  
+farmPrice    0.2556057  0.0422617 6.04816 8.3732e-07 ***
+trend        0.2529242  0.0891342 2.83757  0.0077151 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -223,10 +223,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.383212   8.009046 11.784576        0 ***
-price       -0.230155   0.094624 -2.432302 0.020419   *
-income       0.302813   0.042972  7.046795        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 94.3832121  8.0090459 11.7846 1.4833e-13 ***
+price       -0.2301550  0.0946243 -2.4323   0.020419 *  
+income       0.3028131  0.0429717  7.0468 3.8987e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -240,11 +240,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.049365  11.800069 4.071956 0.000263 ***
-price        0.242985   0.100578 2.415872 0.021218   *
-farmPrice    0.262522   0.045928 5.716007    2e-06 ***
-trend        0.302813   0.042972 7.046795        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.0493648 11.8000692 4.07196 0.00026334 ***
+price        0.2429847  0.1005785 2.41587 0.02121849 *  
+farmPrice    0.2625221  0.0459275 5.71601 2.0143e-06 ***
+trend        0.3028131  0.0429717 7.04680 3.8987e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -294,10 +294,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.370587   7.383374 12.781499        0 ***
-price       -0.229478   0.087093 -2.634868 0.012584   *
-income       0.302249   0.039393  7.672596        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.3705871  7.3833738 12.78150 1.5321e-14 ***
+price       -0.2294785  0.0870930 -2.63487   0.012584 *  
+income       0.3022488  0.0393933  7.67260 6.4067e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -311,11 +311,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.066141  10.557424 4.552828  6.5e-05 ***
-price        0.242952   0.089962 2.700619 0.010711   *
-farmPrice    0.262444   0.041096 6.386074        0 ***
-trend        0.302249   0.039393 7.672596        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.0661407 10.5574244 4.55283 6.4769e-05 ***
+price        0.2429518  0.0899615 2.70062   0.010711 *  
+farmPrice    0.2624439  0.0410963 6.38607 2.7271e-07 ***
+trend        0.3022488  0.0393933 7.67260 6.4067e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -359,10 +359,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.383212   8.009046 11.784576        0 ***
-price       -0.230155   0.094624 -2.432302 0.020419   *
-income       0.302813   0.042972  7.046795        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 94.3832121  8.0090459 11.7846 1.4833e-13 ***
+price       -0.2301550  0.0946243 -2.4323   0.020419 *  
+income       0.3028131  0.0429717  7.0468 3.8987e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -376,11 +376,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.049365  11.800069 4.071956 0.000263 ***
-price        0.242985   0.100578 2.415872 0.021218   *
-farmPrice    0.262522   0.045928 5.716007    2e-06 ***
-trend        0.302813   0.042972 7.046795        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.0493648 11.8000692 4.07196 0.00026334 ***
+price        0.2429847  0.1005785 2.41587 0.02121849 *  
+farmPrice    0.2625221  0.0459275 5.71601 2.0143e-06 ***
+trend        0.3028131  0.0429717 7.04680 3.8987e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -424,10 +424,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.370587   7.383374 12.781499        0 ***
-price       -0.229478   0.087093 -2.634868 0.012584   *
-income       0.302249   0.039393  7.672596        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.3705871  7.3833738 12.78150 1.5321e-14 ***
+price       -0.2294785  0.0870930 -2.63487   0.012584 *  
+income       0.3022488  0.0393933  7.67260 6.4067e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -441,11 +441,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 48.066141  10.557424 4.552828  6.5e-05 ***
-price        0.242952   0.089962 2.700619 0.010711   *
-farmPrice    0.262444   0.041096 6.386074        0 ***
-trend        0.302249   0.039393 7.672596        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 48.0661407 10.5574244 4.55283 6.4769e-05 ***
+price        0.2429518  0.0899615 2.70062   0.010711 *  
+farmPrice    0.2624439  0.0410963 6.38607 2.7271e-07 ***
+trend        0.3022488  0.0393933 7.67260 6.4067e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -490,10 +490,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 95.304293   6.305629 15.114162        0 ***
-price       -0.242752   0.068419 -3.548013 0.001128  **
-income       0.306288   0.039386  7.776593        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.3042928  6.3056286 15.11416 < 2.22e-16 ***
+price       -0.2427524  0.0684193 -3.54801  0.0011279 ** 
+income       0.3062877  0.0393859  7.77659 3.9128e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -507,11 +507,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.422943   8.329568 5.573272    3e-06 ***
-price        0.257248   0.068419 3.759871 0.000622 ***
-farmPrice    0.264213   0.045524 5.803815    1e-06 ***
-trend        0.306288   0.039386 7.776593        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.4229435  8.3295677 5.57327 2.8209e-06 ***
+price        0.2572476  0.0684193 3.75987 0.00062153 ***
+farmPrice    0.2642130  0.0455240 5.80382 1.4003e-06 ***
+trend        0.3062877  0.0393859 7.77659 3.9128e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -562,10 +562,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 95.347005   5.757891 16.559363        0 ***
-price       -0.242793   0.062128 -3.907938 0.000407 ***
-income       0.305892   0.036041  8.487437        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.3470055  5.7578907 16.55936 < 2.22e-16 ***
+price       -0.2427934  0.0621283 -3.90794 0.00040713 ***
+income       0.3058918  0.0360405  8.48744 5.1479e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -579,11 +579,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.436649    7.53598 6.161992        0 ***
-price        0.257207   0.062128  4.13993 0.000208 ***
-farmPrice    0.264157   0.040736 6.484636        0 ***
-trend        0.305892   0.036041 8.487437        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.4366489  7.5359804 6.16199 4.7267e-07 ***
+price        0.2572066  0.0621283 4.13993 0.00020787 ***
+farmPrice    0.2641565  0.0407358 6.48464 1.7850e-07 ***
+trend        0.3058918  0.0360405 8.48744 5.1479e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -628,10 +628,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 95.304293   6.305629 15.114162        0 ***
-price       -0.242752   0.068419 -3.548013 0.001128  **
-income       0.306288   0.039386  7.776593        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.3042928  6.3056286 15.11416 < 2.22e-16 ***
+price       -0.2427524  0.0684193 -3.54801  0.0011279 ** 
+income       0.3062877  0.0393859  7.77659 3.9128e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -645,11 +645,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.422943   8.329568 5.573272    3e-06 ***
-price        0.257248   0.068419 3.759871 0.000622 ***
-farmPrice    0.264213   0.045524 5.803815    1e-06 ***
-trend        0.306288   0.039386 7.776593        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.4229435  8.3295677 5.57327 2.8209e-06 ***
+price        0.2572476  0.0684193 3.75987 0.00062153 ***
+farmPrice    0.2642130  0.0455240 5.80382 1.4003e-06 ***
+trend        0.3062877  0.0393859 7.77659 3.9128e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -700,10 +700,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 95.347005   5.757891 16.559363        0 ***
-price       -0.242793   0.062128 -3.907938 0.000407 ***
-income       0.305892   0.036041  8.487437        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.3470055  5.7578907 16.55936 < 2.22e-16 ***
+price       -0.2427934  0.0621283 -3.90794 0.00040713 ***
+income       0.3058918  0.0360405  8.48744 5.1479e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -717,11 +717,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.436649    7.53598 6.161992        0 ***
-price        0.257207   0.062128  4.13993 0.000208 ***
-farmPrice    0.264157   0.040736 6.484636        0 ***
-trend        0.305892   0.036041 8.487437        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.4366489  7.5359804 6.16199 4.7267e-07 ***
+price        0.2572066  0.0621283 4.13993 0.00020787 ***
+farmPrice    0.2641565  0.0407358 6.48464 1.7850e-07 ***
+trend        0.3058918  0.0360405 8.48744 5.1479e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -765,10 +765,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 106.789358  11.143545 9.583069        0 ***
-price        -0.411599   0.144845 -2.84166 0.011271   *
-income        0.361681   0.056406 6.412096    6e-06 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 106.7893583  11.1435450  9.58307 2.8797e-08 ***
+price        -0.4115989   0.1448445 -2.84166   0.011271 *  
+income        0.3616812   0.0564061  6.41210 6.4389e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -782,11 +782,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  12.010526 4.124086 0.000795 ***
-price        0.240076   0.099934 2.402347 0.028785   *
-farmPrice    0.255606    0.04725 5.409637  5.8e-05 ***
-trend        0.252924   0.099655 2.537996 0.021929   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 12.0105264 4.12409 0.00079536 ***
+price        0.2400758  0.0999339 2.40235 0.02878451 *  
+farmPrice    0.2556057  0.0472501 5.40964 5.7854e-05 ***
+trend        0.2529242  0.0996551 2.53800 0.02192877 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -831,10 +831,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 106.789358  10.273841 10.394298        0 ***
-price        -0.411599    0.13354 -3.082213 0.004129  **
-income        0.361681   0.052004  6.954895        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 106.7893583  10.2738409 10.39430 6.0927e-12 ***
+price        -0.4115989   0.1335401 -3.08221  0.0041293 ** 
+income        0.3616812   0.0520038  6.95489 5.9841e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -848,11 +848,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  10.742541 4.610868  5.8e-05 ***
-price        0.240076   0.089384 2.685905 0.011234   *
-farmPrice    0.255606   0.042262 6.048158    1e-06 ***
-trend        0.252924   0.089134 2.837565 0.007715  **
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 10.7425414 4.61087 5.7787e-05 ***
+price        0.2400758  0.0893836 2.68591  0.0112338 *  
+farmPrice    0.2556057  0.0422617 6.04816 8.3732e-07 ***
+trend        0.2529242  0.0891342 2.83757  0.0077151 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -896,10 +896,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 104.569455   10.63439  9.833141        0 ***
-price        -0.365253   0.132748 -2.751483 0.009443  **
-income        0.336915   0.048454  6.953314        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 104.5694552  10.6343901  9.83314 1.7917e-11 ***
+price        -0.3652534   0.1327478 -2.75148   0.009443 ** 
+income        0.3369154   0.0484539  6.95331 5.1228e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -913,11 +913,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.035586  11.946576  3.93716 0.000388 ***
-price        0.244973    0.10169 2.409028  0.02156   *
-farmPrice     0.26725   0.046527  5.74402    2e-06 ***
-trend        0.336915   0.048454 6.953314        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.0355858 11.9465757 3.93716 0.00038759 ***
+price        0.2449732  0.1016896 2.40903 0.02155986 *  
+farmPrice    0.2672499  0.0465266 5.74402 1.8522e-06 ***
+trend        0.3369154  0.0484539 6.95331 5.1228e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -962,10 +962,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 104.463809   9.792942 10.667255        0 ***
-price        -0.363048   0.121986  -2.97614 0.005345  **
-income        0.335737   0.044358  7.568837        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 104.4638092   9.7929422 10.66725 2.1747e-12 ***
+price        -0.3630478   0.1219861 -2.97614  0.0053447 ** 
+income        0.3357367   0.0443578  7.56884 8.6188e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -979,11 +979,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.070623  10.689038 4.403635    1e-04 ***
-price        0.244904   0.090956  2.69257 0.010925   *
-farmPrice    0.267086   0.041635 6.414902        0 ***
-trend        0.335737   0.044358 7.568837        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.0706232 10.6890378 4.40364 0.00010042 ***
+price        0.2449045  0.0909557 2.69257 0.01092512 *  
+farmPrice    0.2670865  0.0416353 6.41490 2.5036e-07 ***
+trend        0.3357367  0.0443578 7.56884 8.6188e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1027,10 +1027,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 104.569455   10.63439  9.833141        0 ***
-price        -0.365253   0.132748 -2.751483 0.009443  **
-income        0.336915   0.048454  6.953314        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 104.5694552  10.6343901  9.83314 1.7917e-11 ***
+price        -0.3652534   0.1327478 -2.75148   0.009443 ** 
+income        0.3369154   0.0484539  6.95331 5.1228e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1044,11 +1044,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.035586  11.946576  3.93716 0.000388 ***
-price        0.244973    0.10169 2.409028  0.02156   *
-farmPrice     0.26725   0.046527  5.74402    2e-06 ***
-trend        0.336915   0.048454 6.953314        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.0355858 11.9465757 3.93716 0.00038759 ***
+price        0.2449732  0.1016896 2.40903 0.02155986 *  
+farmPrice    0.2672499  0.0465266 5.74402 1.8522e-06 ***
+trend        0.3369154  0.0484539 6.95331 5.1228e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1092,10 +1092,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
-              Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 104.463809   9.792942 10.667255        0 ***
-price        -0.363048   0.121986  -2.97614 0.005345  **
-income        0.335737   0.044358  7.568837        0 ***
+               Estimate  Std. Error  t value   Pr(>|t|)    
+(Intercept) 104.4638092   9.7929422 10.66725 2.1747e-12 ***
+price        -0.3630478   0.1219861 -2.97614  0.0053447 ** 
+income        0.3357367   0.0443578  7.56884 8.6188e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1109,11 +1109,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 47.070623  10.689038 4.403635    1e-04 ***
-price        0.244904   0.090956  2.69257 0.010925   *
-farmPrice    0.267086   0.041635 6.414902        0 ***
-trend        0.335737   0.044358 7.568837        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 47.0706232 10.6890378 4.40364 0.00010042 ***
+price        0.2449045  0.0909557 2.69257 0.01092512 *  
+farmPrice    0.2670865  0.0416353 6.41490 2.5036e-07 ***
+trend        0.3357367  0.0443578 7.56884 8.6188e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1159,8 +1159,8 @@ W2SLS estimates for 'eq1' (equation 1)
 Model Formula: consump ~ price - 1
 Instruments: ~farmPrice + trend + income
 
-      Estimate Std. Error   t value Pr(>|t|)    
-price 1.006043    0.01503 66.934541        0 ***
+       Estimate Std. Error t value   Pr(>|t|)    
+price 1.0060425  0.0150302 66.9345 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1174,12 +1174,10 @@ W2SLS estimates for 'eq2' (equation 2)
 Model Formula: price ~ consump + trend
 Instruments: ~farmPrice + trend + income
 
-             Estimate Std. Error   t value Pr(>|t|)  
-(Intercept) 55.536516  46.266768  1.200354 0.246462  
-consump      0.445299   0.462203  0.963427 0.348839  
-trend       -0.042602   0.249578 -0.170697 0.866477  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+              Estimate Std. Error  t value Pr(>|t|)
+(Intercept) 55.5365164 46.2667678  1.20035  0.24646
+consump      0.4452989  0.4622029  0.96343  0.34884
+trend       -0.0426021  0.2495778 -0.17070  0.86648
 
 Residual standard error: 6.335044 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1220,8 +1218,8 @@ W2SLS estimates for 'eq1' (equation 1)
 Model Formula: consump ~ price - 1
 Instruments: ~farmPrice + price + income
 
-      Estimate Std. Error   t value Pr(>|t|)    
-price 1.005643   0.015029 66.915518        0 ***
+       Estimate Std. Error t value   Pr(>|t|)    
+price 1.0056434  0.0150286 66.9155 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1235,8 +1233,8 @@ W2SLS estimates for 'eq2' (equation 2)
 Model Formula: consump ~ trend - 1
 Instruments: ~farmPrice + price + income
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend 7.577599    0.93412 8.112016        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend  7.57760    0.93412 8.11202 1.3624e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1279,8 +1277,8 @@ W2SLS estimates for 'eq1' (equation 1)
 Model Formula: consump ~ trend - 1
 Instruments: ~income + farmPrice
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend 8.648819   1.045436 8.272929        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend  8.64882    1.04544 8.27293 1.0147e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1294,8 +1292,8 @@ W2SLS estimates for 'eq2' (equation 2)
 Model Formula: price ~ trend - 1
 Instruments: ~income + farmPrice + trend
 
-      Estimate Std. Error  t value Pr(>|t|)    
-trend 7.318426   0.928669 7.880553        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend 7.318426   0.928669 7.88055 2.0940e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1339,8 +1337,8 @@ W2SLS estimates for 'eq1' (equation 1)
 Model Formula: consump ~ trend - 1
 Instruments: ~farmPrice + trend + income
 
-      Estimate Std. Error   t value Pr(>|t|)    
-trend 7.361888   0.654881 11.241569        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend 7.361888   0.654881 11.2416 8.4155e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1354,8 +1352,8 @@ W2SLS estimates for 'eq2' (equation 2)
 Model Formula: price ~ trend - 1
 Instruments: ~farmPrice + trend + income
 
-      Estimate Std. Error   t value Pr(>|t|)    
-trend 7.361888   0.654881 11.241569        0 ***
+      Estimate Std. Error t value   Pr(>|t|)    
+trend 7.361888   0.654881 11.2416 8.4155e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1398,8 +1396,8 @@ W2SLS estimates for 'eq1' (equation 1)
 Model Formula: consump ~ 1
 Instruments: ~income + farmPrice
 
-            Estimate Std. Error    t value Pr(>|t|)    
-(Intercept) 100.8982   0.839979 120.119974        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 100.898200   0.839979  120.12 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1413,8 +1411,8 @@ W2SLS estimates for 'eq2' (equation 2)
 Model Formula: price ~ 1
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 100.01905   1.325113 75.479627        0 ***
+             Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 100.01905    1.32511 75.4796 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1441,10 +1439,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 94.633304   7.302652 12.958758        0 ***
-price       -0.243557   0.088954 -2.738002 0.014016   *
-income       0.313992    0.04328  7.254908    1e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 94.6333039  7.3026521 12.95876 3.0779e-10 ***
+price       -0.2435565  0.0889541 -2.73800   0.014016 *  
+income       0.3139918  0.0432799  7.25491 1.3454e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1458,11 +1456,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 49.532442  10.742541 4.610868 0.000289 ***
-price        0.240076   0.089384 2.685905 0.016234   *
-farmPrice    0.255606   0.042262 6.048158  1.7e-05 ***
-trend        0.252924   0.089134 2.837565 0.011883   *
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 49.5324417 10.7425414 4.61087 0.00028922 ***
+price        0.2400758  0.0893836 2.68591 0.01623367 *  
+farmPrice    0.2556057  0.0422617 6.04816 1.6913e-05 ***
+trend        0.2529242  0.0891342 2.83757 0.01188273 *  
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1484,14 +1482,16 @@ supply 20 16 98.4451 6.15282 2.48049 0.632824 0.563979
 OLS R-squared value of the system: 0.691766
 
 Coefficients:
-                     Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 94.3832121  8.00904594 11.784576 1.483258e-13
-demand_price       -0.2301550  0.09462434 -2.432302 2.041903e-02
-demand_income       0.3028131  0.04297174  7.046795 3.898725e-08
-supply_(Intercept) 48.0493648 11.80006921  4.071956 2.633413e-04
-supply_price        0.2429847  0.10057846  2.415872 2.121849e-02
-supply_farmPrice    0.2625221  0.04592753  5.716007 2.014254e-06
-supply_trend        0.3028131  0.04297174  7.046795 3.898725e-08
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 94.3832121  8.0090459 11.78458 1.4833e-13 ***
+demand_price       -0.2301550  0.0946243 -2.43230 0.02041903 *  
+demand_income       0.3028131  0.0429717  7.04680 3.8987e-08 ***
+supply_(Intercept) 48.0493648 11.8000692  4.07196 0.00026334 ***
+supply_price        0.2429847  0.1005785  2.41587 0.02121849 *  
+supply_farmPrice    0.2625221  0.0459275  5.71601 2.0143e-06 ***
+supply_trend        0.3028131  0.0429717  7.04680 3.8987e-08 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitw2sls3, useDfSys = FALSE ), equations = FALSE )
 
@@ -1521,14 +1521,16 @@ The determinant of the residual covariance matrix: 3.40875
 OLS R-squared value of the system: 0.691766
 
 Coefficients:
-                     Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 94.3832121  8.00904594 11.784576 1.326893e-09
-demand_price       -0.2301550  0.09462434 -2.432302 2.634408e-02
-demand_income       0.3028131  0.04297174  7.046795 1.962638e-06
-supply_(Intercept) 48.0493648 11.80006921  4.071956 8.872503e-04
-supply_price        0.2429847  0.10057846  2.415872 2.801924e-02
-supply_farmPrice    0.2625221  0.04592753  5.716007 3.185283e-05
-supply_trend        0.3028131  0.04297174  7.046795 2.760294e-06
+                     Estimate Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 94.3832121  8.0090459 11.78458 1.3269e-09 ***
+demand_price       -0.2301550  0.0946243 -2.43230 0.02634408 *  
+demand_income       0.3028131  0.0429717  7.04680 1.9626e-06 ***
+supply_(Intercept) 48.0493648 11.8000692  4.07196 0.00088725 ***
+supply_price        0.2429847  0.1005785  2.41587 0.02801924 *  
+supply_farmPrice    0.2625221  0.0459275  5.71601 3.1853e-05 ***
+supply_trend        0.3028131  0.0429717  7.04680 2.7603e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitw2sls4e ), residCov = FALSE )
 
@@ -1545,10 +1547,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 95.347005   5.757891 16.559363        0 ***
-price       -0.242793   0.062128 -3.907938 0.000407 ***
-income       0.305892   0.036041  8.487437        0 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.3470055  5.7578907 16.55936 < 2.22e-16 ***
+price       -0.2427934  0.0621283 -3.90794 0.00040713 ***
+income       0.3058918  0.0360405  8.48744 5.1479e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1562,11 +1564,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.436649    7.53598 6.161992        0 ***
-price        0.257207   0.062128  4.13993 0.000208 ***
-farmPrice    0.264157   0.040736 6.484636        0 ***
-trend        0.305892   0.036041 8.487437        0 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.4366489  7.5359804 6.16199 4.7267e-07 ***
+price        0.2572066  0.0621283 4.13993 0.00020787 ***
+farmPrice    0.2641565  0.0407358 6.48464 1.7850e-07 ***
+trend        0.3058918  0.0360405 8.48744 5.1479e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1591,10 +1593,10 @@ W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error   t value Pr(>|t|)    
-(Intercept) 95.304293   6.305629 15.114162        0 ***
-price       -0.242752   0.068419 -3.548013 0.002473  **
-income       0.306288   0.039386  7.776593    1e-06 ***
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 95.3042928  6.3056286 15.11416 2.7450e-11 ***
+price       -0.2427524  0.0684193 -3.54801  0.0024727 ** 
+income       0.3062877  0.0393859  7.77659 5.3558e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1608,11 +1610,11 @@ W2SLS estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
-             Estimate Std. Error  t value Pr(>|t|)    
-(Intercept) 46.422943   8.329568 5.573272  4.2e-05 ***
-price        0.257248   0.068419 3.759871 0.001712  **
-farmPrice    0.264213   0.045524 5.803815  2.7e-05 ***
-trend        0.306288   0.039386 7.776593    1e-06 ***
+              Estimate Std. Error t value   Pr(>|t|)    
+(Intercept) 46.4229435  8.3295677 5.57327 4.1999e-05 ***
+price        0.2572476  0.0684193 3.75987  0.0017117 ** 
+farmPrice    0.2642130  0.0455240 5.80382 2.6906e-05 ***
+trend        0.3062877  0.0393859 7.77659 7.9922e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1635,14 +1637,16 @@ supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
 OLS R-squared value of the system: 0.694011
 
 Coefficients:
-                      Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 106.7893583 11.14354500  9.583069 4.651790e-11
-demand_price        -0.4115989  0.14484453 -2.841660 7.636262e-03
-demand_income        0.3616812  0.05640608  6.412096 2.883403e-07
-supply_(Intercept)  49.5324417 12.01052641  4.124086 2.362502e-04
-supply_price         0.2400758  0.09993385  2.402347 2.207594e-02
-supply_farmPrice     0.2556057  0.04725007  5.409637 5.505927e-06
-supply_trend         0.2529242  0.09965509  2.537996 1.605307e-02
+                      Estimate  Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 106.7893583  11.1435450  9.58307 4.6518e-11 ***
+demand_price        -0.4115989   0.1448445 -2.84166 0.00763626 ** 
+demand_income        0.3616812   0.0564061  6.41210 2.8834e-07 ***
+supply_(Intercept)  49.5324417  12.0105264  4.12409 0.00023625 ***
+supply_price         0.2400758   0.0999339  2.40235 0.02207594 *  
+supply_farmPrice     0.2556057   0.0472501  5.40964 5.5059e-06 ***
+supply_trend         0.2529242   0.0996551  2.53800 0.01605307 *  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitw2slsd2e, printEquations = TRUE ), equations = FALSE )
 
@@ -1672,14 +1676,16 @@ The determinant of the residual covariance matrix: 3.45234
 OLS R-squared value of the system: 0.690403
 
 Coefficients:
-                      Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 104.4638092  9.79294221 10.667255 2.174705e-12
-demand_price        -0.3630478  0.12198612 -2.976140 5.344710e-03
-demand_income        0.3357367  0.04435777  7.568837 8.618815e-09
-supply_(Intercept)  47.0706232 10.68903783  4.403635 1.004244e-04
-supply_price         0.2449045  0.09095565  2.692570 1.092512e-02
-supply_farmPrice     0.2670865  0.04163532  6.414902 2.503570e-07
-supply_trend         0.3357367  0.04435777  7.568837 8.618815e-09
+                      Estimate  Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 104.4638092   9.7929422 10.66725 2.1747e-12 ***
+demand_price        -0.3630478   0.1219861 -2.97614 0.00534471 ** 
+demand_income        0.3357367   0.0443578  7.56884 8.6188e-09 ***
+supply_(Intercept)  47.0706232  10.6890378  4.40364 0.00010042 ***
+supply_price         0.2449045   0.0909557  2.69257 0.01092512 *  
+supply_farmPrice     0.2670865   0.0416353  6.41490 2.5036e-07 ***
+supply_trend         0.3357367   0.0443578  7.56884 8.6188e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( summary( fitw2slsd3e, printEquations = FALSE ), residCov = FALSE )
 
@@ -1693,14 +1699,16 @@ supply 20 16 101.2993 6.33121 2.51619 0.622179 0.551337
 OLS R-squared value of the system: 0.690403
 
 Coefficients:
-                      Estimate  Std. Error   t value     Pr(>|t|)
-demand_(Intercept) 104.4638092  9.79294221 10.667255 2.174705e-12
-demand_price        -0.3630478  0.12198612 -2.976140 5.344710e-03
-demand_income        0.3357367  0.04435777  7.568837 8.618815e-09
-supply_(Intercept)  47.0706232 10.68903783  4.403635 1.004244e-04
-supply_price         0.2449045  0.09095565  2.692570 1.092512e-02
-supply_farmPrice     0.2670865  0.04163532  6.414902 2.503570e-07
-supply_trend         0.3357367  0.04435777  7.568837 8.618815e-09
+                      Estimate  Std. Error  t value   Pr(>|t|)    
+demand_(Intercept) 104.4638092   9.7929422 10.66725 2.1747e-12 ***
+demand_price        -0.3630478   0.1219861 -2.97614 0.00534471 ** 
+demand_income        0.3357367   0.0443578  7.56884 8.6188e-09 ***
+supply_(Intercept)  47.0706232  10.6890378  4.40364 0.00010042 ***
+supply_price         0.2449045   0.0909557  2.69257 0.01092512 *  
+supply_farmPrice     0.2670865   0.0416353  6.41490 2.5036e-07 ***
+supply_trend         0.3357367   0.0443578  7.56884 8.6188e-09 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > 
 > ## ****************** residuals **************************
