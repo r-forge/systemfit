@@ -20030,7 +20030,7 @@ trend        0.371   0.439
 > ## ************** F tests ****************
 > # testing first restriction
 > print( linear.hypothesis( fit3sls[[ 1 ]]$e1, restrm ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20042,7 +20042,7 @@ Model 2: restricted model
 1     33                
 2     34 -1 1.689 0.2027
 > linear.hypothesis( fit3sls[[ 1 ]]$e1, restrict )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20055,7 +20055,7 @@ Model 2: restricted model
 2     34 -1 1.689 0.2027
 > 
 > print( linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrm ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20067,7 +20067,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 1.5195 0.2264
 > linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrict )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20080,7 +20080,7 @@ Model 2: restricted model
 2     34 -1 1.5195 0.2264
 > 
 > print( linear.hypothesis( fit3sls[[ 3 ]]$e1c, restrm ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20092,7 +20092,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 2.4714 0.1255
 > linear.hypothesis( fit3sls[[ 3 ]]$e1c, restrict )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20105,7 +20105,7 @@ Model 2: restricted model
 2     34 -1 2.4714 0.1255
 > 
 > print( linear.hypothesis( fit3slsi[[ 4 ]]$e1, restrm ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20119,7 +20119,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linear.hypothesis( fit3slsi[[ 4 ]]$e1, restrict )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20134,7 +20134,7 @@ Model 2: restricted model
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( linear.hypothesis( fit3slsd[[ 5 ]]$e1e, restrm ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20146,7 +20146,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.1782 0.6757
 > linear.hypothesis( fit3slsd[[ 5 ]]$e1e, restrict )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20159,7 +20159,7 @@ Model 2: restricted model
 2     34 -1 0.1782 0.6757
 > 
 > print( linear.hypothesis( fit3slsd[[ 2 ]]$e1w, restrm ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20171,7 +20171,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.5059 0.4819
 > linear.hypothesis( fit3slsd[[ 2 ]]$e1w, restrict )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20191,7 +20191,7 @@ Model 2: restricted model
 > restrictOnly2 <- "- demand_price + supply_price = 0.5"
 > # first restriction not imposed
 > print( linear.hypothesis( fit3sls[[ 5 ]]$e1c, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20203,7 +20203,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.1671 0.6853
 > linear.hypothesis( fit3sls[[ 5 ]]$e1c, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20216,7 +20216,7 @@ Model 2: restricted model
 2     34 -1 0.1671 0.6853
 > 
 > print( linear.hypothesis( fit3slsi[[ 1 ]]$e1e, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20228,7 +20228,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.1297  0.721
 > linear.hypothesis( fit3slsi[[ 1 ]]$e1e, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20241,7 +20241,7 @@ Model 2: restricted model
 2     34 -1 0.1297  0.721
 > 
 > print( linear.hypothesis( fit3slsi[[ 3 ]]$e1we, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20253,7 +20253,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.1297  0.721
 > linear.hypothesis( fit3slsi[[ 3 ]]$e1we, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20266,7 +20266,7 @@ Model 2: restricted model
 2     34 -1 0.1297  0.721
 > 
 > print( linear.hypothesis( fit3slsd[[ 2 ]]$e1, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20278,7 +20278,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.2464 0.6229
 > linear.hypothesis( fit3slsd[[ 2 ]]$e1, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20292,7 +20292,7 @@ Model 2: restricted model
 > 
 > # first restriction imposed
 > print( linear.hypothesis( fit3sls[[ 4 ]]$e2, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20304,7 +20304,7 @@ Model 2: restricted model
 1     34                
 2     35 -1 0.807 0.3753
 > linear.hypothesis( fit3sls[[ 4 ]]$e2, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20317,7 +20317,7 @@ Model 2: restricted model
 2     35 -1 0.807 0.3753
 > 
 > print( linear.hypothesis( fit3sls[[ 4 ]]$e3, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20329,7 +20329,7 @@ Model 2: restricted model
 1     34                
 2     35 -1 0.807 0.3753
 > linear.hypothesis( fit3sls[[ 4 ]]$e3, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20342,7 +20342,7 @@ Model 2: restricted model
 2     35 -1 0.807 0.3753
 > 
 > print( linear.hypothesis( fit3sls[[ 1 ]]$e2w, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20354,7 +20354,7 @@ Model 2: restricted model
 1     34                 
 2     35 -1 0.8979 0.3500
 > linear.hypothesis( fit3sls[[ 1 ]]$e2w, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20367,7 +20367,7 @@ Model 2: restricted model
 2     35 -1 0.8979 0.3500
 > 
 > print( linear.hypothesis( fit3sls[[ 1 ]]$e3we, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20379,7 +20379,7 @@ Model 2: restricted model
 1     34                 
 2     35 -1 0.7475 0.3933
 > linear.hypothesis( fit3sls[[ 1 ]]$e3we, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20392,7 +20392,7 @@ Model 2: restricted model
 2     35 -1 0.7475 0.3933
 > 
 > print( linear.hypothesis( fit3slsi[[ 5 ]]$e2e, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20406,7 +20406,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linear.hypothesis( fit3slsi[[ 5 ]]$e2e, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20421,7 +20421,7 @@ Model 2: restricted model
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( linear.hypothesis( fit3slsi[[ 5 ]]$e3e, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20435,7 +20435,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linear.hypothesis( fit3slsi[[ 5 ]]$e3e, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20450,7 +20450,7 @@ Model 2: restricted model
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( linear.hypothesis( fit3slsd[[ 1 ]]$e2, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20462,7 +20462,7 @@ Model 2: restricted model
 1     34                 
 2     35 -1 0.1609 0.6908
 > linear.hypothesis( fit3slsd[[ 1 ]]$e2, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20475,7 +20475,7 @@ Model 2: restricted model
 2     35 -1 0.1609 0.6908
 > 
 > print( linear.hypothesis( fit3slsd[[ 1 ]]$e3, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20487,7 +20487,7 @@ Model 2: restricted model
 1     34                 
 2     35 -1 0.1609 0.6908
 > linear.hypothesis( fit3slsd[[ 1 ]]$e3, restrictOnly2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20501,7 +20501,7 @@ Model 2: restricted model
 > 
 > # testing both of the restrictions
 > print( linear.hypothesis( fit3sls[[ 2 ]]$e1e, restr2m, restr2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20514,7 +20514,7 @@ Model 2: restricted model
 1     33                 
 2     35 -2 1.0044 0.3772
 > linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrict2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20528,7 +20528,7 @@ Model 2: restricted model
 2     35 -2 1.0044 0.3772
 > 
 > print( linear.hypothesis( fit3slsi[[ 3 ]]$e1, restr2m, restr2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20543,7 +20543,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linear.hypothesis( fit3slsi[[ 3 ]]$e1, restrict2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20559,7 +20559,7 @@ Model 2: restricted model
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( linear.hypothesis( fit3slsd[[ 4 ]]$e1e, restr2m, restr2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20572,7 +20572,7 @@ Model 2: restricted model
 1     33                 
 2     35 -2 0.6379 0.5348
 > linear.hypothesis( fit3slsd[[ 4 ]]$e1e, restrict2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20586,7 +20586,7 @@ Model 2: restricted model
 2     35 -2 0.6379 0.5348
 > 
 > print( linear.hypothesis( fit3slsd[[ 5 ]]$e1w, restr2m, restr2q ) )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20599,7 +20599,7 @@ Model 2: restricted model
 1     33                 
 2     35 -2 0.4516 0.6405
 > linear.hypothesis( fit3slsd[[ 5 ]]$e1w, restrict2 )
-Linear hypothesis test (F-test)
+Linear hypothesis test (F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20616,7 +20616,7 @@ Model 2: restricted model
 > ## ************** Wald tests ****************
 > # testing first restriction
 > print( linear.hypothesis( fit3sls[[ 1 ]]$e1, restrm, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20628,7 +20628,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 1.1133     0.2914
 > linear.hypothesis( fit3sls[[ 1 ]]$e1, restrict, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20641,7 +20641,7 @@ Model 2: restricted model
 2     34 -1 1.1133     0.2914
 > 
 > print( linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrm, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20653,7 +20653,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 1.2272     0.2679
 > linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrict, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20666,7 +20666,7 @@ Model 2: restricted model
 2     34 -1 1.2272     0.2679
 > 
 > print( linear.hypothesis( fit3sls[[ 3 ]]$e1c, restrm, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20678,7 +20678,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 1.7261     0.1889
 > linear.hypothesis( fit3sls[[ 3 ]]$e1c, restrict, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20691,7 +20691,7 @@ Model 2: restricted model
 2     34 -1 1.7261     0.1889
 > 
 > print( linear.hypothesis( fit3slsi[[ 4 ]]$e1, restrm, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20705,7 +20705,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linear.hypothesis( fit3slsi[[ 4 ]]$e1, restrict, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20720,7 +20720,7 @@ Model 2: restricted model
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( linear.hypothesis( fit3slsi[[ 2 ]]$e1we, restrm, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20734,7 +20734,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linear.hypothesis( fit3slsi[[ 2 ]]$e1we, restrict, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20749,7 +20749,7 @@ Model 2: restricted model
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( linear.hypothesis( fit3slsd[[ 5 ]]$e1e, restrm, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20761,7 +20761,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 0.1471     0.7013
 > linear.hypothesis( fit3slsd[[ 5 ]]$e1e, restrict, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -20776,7 +20776,7 @@ Model 2: restricted model
 > # testing second restriction
 > # first restriction not imposed
 > print( linear.hypothesis( fit3sls[[ 5 ]]$e1c, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20788,7 +20788,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 0.1167     0.7326
 > linear.hypothesis( fit3sls[[ 5 ]]$e1c, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20801,7 +20801,7 @@ Model 2: restricted model
 2     34 -1 0.1167     0.7326
 > 
 > print( linear.hypothesis( fit3sls[[ 3 ]]$e1wc, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20813,7 +20813,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 0.1167     0.7326
 > linear.hypothesis( fit3sls[[ 3 ]]$e1wc, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20826,7 +20826,7 @@ Model 2: restricted model
 2     34 -1 0.1167     0.7326
 > 
 > print( linear.hypothesis( fit3slsi[[ 1 ]]$e1e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20838,7 +20838,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 0.1572     0.6917
 > linear.hypothesis( fit3slsi[[ 1 ]]$e1e, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20851,7 +20851,7 @@ Model 2: restricted model
 2     34 -1 0.1572     0.6917
 > 
 > print( linear.hypothesis( fit3slsd[[ 2 ]]$e1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20863,7 +20863,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 0.1666     0.6831
 > linear.hypothesis( fit3slsd[[ 2 ]]$e1, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20877,7 +20877,7 @@ Model 2: restricted model
 > 
 > # first restriction imposed
 > print( linear.hypothesis( fit3sls[[ 4 ]]$e2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20889,7 +20889,7 @@ Model 2: restricted model
 1     34                     
 2     35 -1 0.5459       0.46
 > linear.hypothesis( fit3sls[[ 4 ]]$e2, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20902,7 +20902,7 @@ Model 2: restricted model
 2     35 -1 0.5459       0.46
 > 
 > print( linear.hypothesis( fit3sls[[ 4 ]]$e3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20914,7 +20914,7 @@ Model 2: restricted model
 1     34                     
 2     35 -1 0.5459       0.46
 > linear.hypothesis( fit3sls[[ 4 ]]$e3, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20927,7 +20927,7 @@ Model 2: restricted model
 2     35 -1 0.5459       0.46
 > 
 > print( linear.hypothesis( fit3slsi[[ 5 ]]$e2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20941,7 +20941,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linear.hypothesis( fit3slsi[[ 5 ]]$e2e, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20956,7 +20956,7 @@ Model 2: restricted model
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( linear.hypothesis( fit3slsi[[ 5 ]]$e3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20970,7 +20970,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linear.hypothesis( fit3slsi[[ 5 ]]$e3e, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20985,7 +20985,7 @@ Model 2: restricted model
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( linear.hypothesis( fit3slsd[[ 1 ]]$e2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -20997,7 +20997,7 @@ Model 2: restricted model
 1     34                     
 2     35 -1 0.1324      0.716
 > linear.hypothesis( fit3slsd[[ 1 ]]$e2, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -21010,7 +21010,7 @@ Model 2: restricted model
 2     35 -1 0.1324      0.716
 > 
 > print( linear.hypothesis( fit3slsd[[ 1 ]]$e3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -21022,7 +21022,7 @@ Model 2: restricted model
 1     34                     
 2     35 -1 0.1324      0.716
 > linear.hypothesis( fit3slsd[[ 1 ]]$e3, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -21035,7 +21035,7 @@ Model 2: restricted model
 2     35 -1 0.1324      0.716
 > 
 > print( linear.hypothesis( fit3slsd[[ 2 ]]$e2we, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -21047,7 +21047,7 @@ Model 2: restricted model
 1     34                     
 2     35 -1 1.5152     0.2184
 > linear.hypothesis( fit3slsd[[ 2 ]]$e2we, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -21060,7 +21060,7 @@ Model 2: restricted model
 2     35 -1 1.5152     0.2184
 > 
 > print( linear.hypothesis( fit3slsd[[ 3 ]]$e3w, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -21072,7 +21072,7 @@ Model 2: restricted model
 1     34                     
 2     35 -1 0.2277     0.6332
 > linear.hypothesis( fit3slsd[[ 3 ]]$e3w, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -21086,7 +21086,7 @@ Model 2: restricted model
 > 
 > # testing both of the restrictions
 > print( linear.hypothesis( fit3sls[[ 2 ]]$e1e, restr2m, restr2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -21099,7 +21099,7 @@ Model 2: restricted model
 1     33                     
 2     35 -2 1.6224     0.4443
 > linear.hypothesis( fit3sls[[ 2 ]]$e1e, restrict2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -21113,7 +21113,7 @@ Model 2: restricted model
 2     35 -2 1.6224     0.4443
 > 
 > print( linear.hypothesis( fit3sls[[ 5 ]]$e1wc, restr2m, restr2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -21126,7 +21126,7 @@ Model 2: restricted model
 1     33                     
 2     35 -2 2.4303     0.2967
 > linear.hypothesis( fit3sls[[ 5 ]]$e1wc, restrict2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -21140,7 +21140,7 @@ Model 2: restricted model
 2     35 -2 2.4303     0.2967
 > 
 > print( linear.hypothesis( fit3slsi[[ 3 ]]$e1, restr2m, restr2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -21155,7 +21155,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linear.hypothesis( fit3slsi[[ 3 ]]$e1, restrict2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -21171,7 +21171,7 @@ Model 2: restricted model
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > print( linear.hypothesis( fit3slsd[[ 4 ]]$e1e, restr2m, restr2q, test = "Chisq" ) )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -21184,7 +21184,7 @@ Model 2: restricted model
 1     33                     
 2     35 -2 1.5465     0.4615
 > linear.hypothesis( fit3slsd[[ 4 ]]$e1e, restrict2, test = "Chisq" )
-Linear hypothesis test (Wald-test)
+Linear hypothesis test (Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
