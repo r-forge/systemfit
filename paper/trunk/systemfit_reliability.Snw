@@ -16,8 +16,7 @@ which should be a general goal in scientific analysis
 For instance, by preparing this section,
 the exact estimation methods of the replicated analyses have been discovered
 and a few errors in \citet{greene03} have been found
-(see errata on
-\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+\citep[see][]{greene06a}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -83,7 +82,7 @@ Second, we try to replicate Klein's °Model I° \citep{klein50}
 that is described in \citet[p.~381]{greene03}.
 The data are available from the online complements to \citet{greene03},
 Table~F15.1
-(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}),
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/tables/TableF15-1.txt}),
 and the estimation results are presented in Table~15.3 (p.~412).
 
 Initially, the data are loaded and three equations
@@ -129,7 +128,7 @@ as published in \citet{greene03}.%
 \footnote{
 There are two typos in Table~15.3 (p.~412).
 Please take a look at the errata
-(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+\citep{greene06a}.
 }
 There are only two minor deviations,
 where these values differ merely in the last digit.
@@ -143,7 +142,7 @@ Third, we reproduce Example~14.1 of \citet[p.~340]{greene03}
 that is based on \citet{grunfeld58}.
 The data are available from the online complements to \citet{greene03},
 Table~F13.1
-(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+(\url{http://pages.stern.nyu.edu/~wgreene/Text/tables/TableF13-1.txt}).
 Several different versions of the °Grunfeld° data set can be found,
 whereas the version of \citet{greene03}
 is considered incorrect \citep{cummins01}.
@@ -208,7 +207,7 @@ nearly the same results as published in \citet{greene03}.%
 \footnote{
 There are several typos and errors in Table~14.1 (p.~412).
 Please take a look at the errata of this book
-(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+\citep{greene06a}.
 }
 We present two different commands to print
 the residual covariance matrix of the pooled SUR estimation.
@@ -218,7 +217,7 @@ the returned values are equal to those published in \citet[p.~351]{greene03}.
 The second command calculates the residual covariance matrix
 after centering the residuals;
 these returned values are equal to those published in the errata
-(\url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}).
+\citep{greene06a}.
 
 
 
