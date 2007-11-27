@@ -158,12 +158,64 @@ fitsur <- systemfit( eqSystem, method = "SUR", data = Kmenta )
 \subsubsection{Parameter restrictions}
 As outlined in section~\ref{sec:Restrictions}, parameter restrictions
 can be imposed in two ways.
-The first way is to modify the regressor matrix
-by post-multiplying it with a matrix, say $M$.
+One way is to use the matrix $R$ and the vector $q$
+(see section~\ref{sec:Restrictions}).
+These restrictions can be specified symbolically
+by argument \code{restrict.matrix}
+as in the generic function
+\code{linear.hypothesis} of the \pkg{car} package \citep{r-car-1.2-1}.
+This argument must be a vector of character strings,
+where each element represents one linear restriction,
+and each element must be either a linear combination of coefficients,
+or a linear equation in the coefficients
+(see documentation of function \code{linear.hypothesis}
+in the \pkg{car} package, \citealp{r-car-1.2-1}).
+We illustrate this by estimating the model under
+the restriction $\beta_2 + \beta_6 = 0$.
+Since the name of $\beta_2$
+(coefficient of variable \code{price} in equation \code{demand})
+is \code{demand_price}
+and the name of $\beta_6$
+(coefficient of variable \code{farmPrice} in equation \code{supply})
+is \code{supply_farmPrice},
+this restriction can be specified by
+<<>>=
+restrict <- "demand_price + supply_farmPrice = 0"
+fitsurRmat <- systemfit( eqSystem, method = "SUR",
+   restrict.matrix = restrict )
+@
+\label{code:Rmat}
+
+Alternatively, the restrictions via matrix $R$ and vector $q$
+can be specified numerically.
+The matrix $R$ can be specified with argument \code{restrict.matrix}
+and the vector $q$ with argument \code{restrict.rhs}.
+<<>>=
+Rmat <- matrix( 0, nrow = 1, ncol = 7 )
+Rmat[ 1, 2 ] <-  1   # beta_2
+Rmat[ 1, 6 ] <-  1   # beta_6
+qvec <- c( 0 )
+fitsurRmatNum <- systemfit( eqSystem, method = "SUR",
+   restrict.matrix = Rmat, restrict.rhs = qvec )
+@
+The first line creates a $1 \times 7$ matrix of zeros,
+where 1 is the number of restrictions and
+7 is the number of unrestricted coefficients.
+The following two lines specify this matrix in a way
+that the multiplication with the parameter vector
+results in $ \beta_2 + \beta_6 $.
+The fourth line creates a vector with a single element
+that contains the right hand side of the restriction, i.e.\ zero.
+Finally the model is estimated with restriction
+$\beta_2 + \beta_6 = 0$ imposed.
+
+The other way to impose parameter restrictions is to modify the regressor matrix
+by post-multiplying it with a matrix, say $M$
+(see section~\ref{sec:Restrictions}).
 This kind of restriction can be specified
 by setting argument \code{restrict.regMat} equal to the matrix $M$.
-If we want to impose the restriction, say $\beta_2 = - \beta_6$,
-we could set $\beta_1 = \beta^M_1$, \ldots, $\beta_5 = \beta^M_5$,
+We convert the restriction specified above to $\beta_2 = - \beta_6$,
+and set $\beta_1 = \beta^M_1$, \ldots, $\beta_5 = \beta^M_5$,
 $\beta_6 = - \beta^M_2$, and $\beta_7 =  \beta^M_6$.
 We can do this in \proglang{R} by
 <<keep.source=TRUE>>=
@@ -182,54 +234,11 @@ as described before.
 Finally the model is estimated with restriction
 $\beta^M_2 = \beta_2 = - \beta_6$ imposed.
 
-The second way to impose parameter restrictions is to use
-the matrix $R$ and the vector $q$
-(see section~\ref{sec:Restrictions}).
-Matrix $R$ can be specified with the argument \code{restrict.matrix}
-and vector $q$ with argument \code{restrict.rhs}.
-We convert the restriction specified above to $\beta_2 + \beta_6 = 0$
-and impose it in the second way:
+Of course, the estimation results do not depend on the method
+that was used to specify this restriction:
 <<>>=
-Rmat <- matrix( 0, nrow = 1, ncol = 7 )
-Rmat[ 1, 2 ] <-  1   # beta_2
-Rmat[ 1, 6 ] <-  1   # beta_6
-qvec <- c( 0 )
-fitsurRmat <- systemfit( eqSystem, method = "SUR",
-   restrict.matrix = Rmat, restrict.rhs = qvec )
-@
-\label{code:Rmat}
-The first line creates a $1 \times 7$ matrix of zeros,
-where 1 is the number of restrictions and
-7 is the number of unrestricted coefficients.
-The following two lines specify this matrix in a way
-that the multiplication with the parameter vector
-results in $ \beta_2 + \beta_6 $.
-The fourth line creates a vector with a single element
-that contains the right hand side of the restriction, i.e.\ zero.
-Finally the model is estimated with restriction
-$\beta_2 + \beta_6 = 0$ imposed.
-
-Alternatively, the restrictions via matrix $R$ and vector $q$
-can be specified symbolically as in the generic function
-\code{linear.hypothesis} of the \pkg{car} package \citep{r-car-1.2-1}.
-In this case, argument \code{restrict.matrix} must be
-a vector of character strings,
-where each element represents one linear restriction.
-It must be either a linear combination of coefficients,
-or a linear equation in the coefficients
-(see documentation of function \code{linear.hypothesis}
-in the \pkg{car} package, \citealp{r-car-1.2-1}).
-Since the name of $\beta_2$
-(coefficient of variable \code{price} in equation \code{demand})
-is \code{demand_price}
-and the name of $\beta_6$
-(coefficient of variable \code{farmPrice} in equation \code{supply})
-is \code{supply_farmPrice},
-the restriction $\beta_2 + \beta_6 = 0$ can be imposed by
-<<>>=
-restrict <- "demand_price + supply_farmPrice = 0"
-fitsurSym <- systemfit( eqSystem, method = "SUR",
-   restrict.matrix = restrict )
+all.equal( coef( fitsurRmat ), coef( fitsurRmatNum ) )
+all.equal( coef( fitsurRmat ), coef( fitsurRegMat ) )
 @
 
 
