@@ -52,7 +52,7 @@ eqInvest   <- invest ~ corpProf + corpProfLag + capitalLag
 eqPrivWage <- privWage ~ gnp + gnpLag + trend
 system <- list( consump = eqConsump, invest = eqInvest, privWage = eqPrivWage )
 
-olsResult <- systemfit( system, "OLS", data = KleinI )
+olsResult <- systemfit( system, data = KleinI )
 print( olsResult )
 @
 As expected, the results are identical.
@@ -75,8 +75,8 @@ Theoretically, results of an iterated SUR estimation should
 coverge to FIML results.
 Therefore, we re-estimate this model by iterated SUR with \code{systemfit}.
 <<>>=
-surResult <- systemfit( system, "SUR", data = KleinI, methodResidCov = "noDfCor",
-   maxit = 500 )
+surResult <- systemfit( system, method = "SUR", data = KleinI,
+   methodResidCov = "noDfCor", maxit = 500 )
 print( surResult )
 @
 As expected, the results are rather similar.

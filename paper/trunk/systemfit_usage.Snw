@@ -109,7 +109,7 @@ described in sections~\ref{sec:Estimation-ols-wls-sur},
 The following command estimates the model described above as
 °Seemingly Unrelated Regression°.
 <<>>=
-fitsur <- systemfit( eqSystem, "SUR" )
+fitsur <- systemfit( eqSystem, method = "SUR" )
 @
 
 
@@ -131,9 +131,9 @@ by °Three-Stage Least Squares° (3SLS).
 While the first command specifies the same instruments for all equations,
 the second uses different instruments:
 <<>>=
-fit3sls  <- systemfit( eqSystem, "3SLS",
+fit3sls  <- systemfit( eqSystem, method = "3SLS",
    inst = ~ income + farmPrice + trend )
-fit3sls2 <- systemfit( eqSystem, "3SLS",
+fit3sls2 <- systemfit( eqSystem, method = "3SLS",
    inst = list( ~ farmPrice + trend, ~ income + farmPrice + trend ) )
 @
 
@@ -150,7 +150,7 @@ should be taken from the data frame \code{Kmenta}.
 Hence, we no longer need to attach this data frame before calling systemfit:
 <<>>=
 data( "Kmenta" )
-fitsur <- systemfit( eqSystem, "SUR", data = Kmenta )
+fitsur <- systemfit( eqSystem, method = "SUR", data = Kmenta )
 @
 
 
@@ -171,7 +171,7 @@ modRegMat <- matrix( 0, nrow = 7, ncol = 6 )
 modRegMat[ 1:5, 1:5 ] <- diag( 5 ) # beta_{1-5} =  beta^M_{1-5}
 modRegMat[ 6, 2 ] <- -1   # beta_6 = -beta^M_2
 modRegMat[ 7, 6 ] <-  1   # beta_7 =  beta^M_6
-fitsurRegMat <- systemfit( eqSystem, "SUR",
+fitsurRegMat <- systemfit( eqSystem, method = "SUR",
    restrict.regMat = modRegMat )
 @
 The first line creates a $7 \times 6$ matrix of zeros,
@@ -194,7 +194,7 @@ Rmat <- matrix( 0, nrow = 1, ncol = 7 )
 Rmat[ 1, 2 ] <-  1   # beta_2
 Rmat[ 1, 6 ] <-  1   # beta_6
 qvec <- c( 0 )
-fitsurRmat <- systemfit( eqSystem, "SUR",
+fitsurRmat <- systemfit( eqSystem, method = "SUR",
    restrict.matrix = Rmat, restrict.rhs = qvec )
 @
 \label{code:Rmat}
@@ -228,7 +228,7 @@ is \code{supply_farmPrice},
 the restriction $\beta_2 + \beta_6 = 0$ can be imposed by
 <<>>=
 restrict <- "demand_price + supply_farmPrice = 0"
-fitsurSym <- systemfit( eqSystem, "SUR",
+fitsurSym <- systemfit( eqSystem, method = "SUR",
    restrict.matrix = restrict )
 @
 
@@ -258,7 +258,7 @@ is $10^{-5}$.
 In the following example,
 we estimate the model described above by iterated SUR:
 <<>>=
-fitsurit <- systemfit( eqSystem, "SUR", maxiter = 500 )
+fitsurit <- systemfit( eqSystem, method = "SUR", maxiter = 500 )
 @
 
 
@@ -457,7 +457,7 @@ This model can be estimated by
 data( "GrunfeldGreene" )
 library( "plm" )
 pdata.frame( GrunfeldGreene, "firm", "year" )
-greeneSur <- systemfit( invest ~ value + capital, "SUR",
+greeneSur <- systemfit( invest ~ value + capital, method = "SUR",
    data = GrunfeldGreene )
 @
 The first line loads the example data set \code{GrunfeldGreene}
@@ -476,7 +476,7 @@ The following command does a seemingly unrelated regression
 of the same model as before,
 but with coefficients restricted to be equal for all individuals.
 <<>>=
-greeneSurPooled <- systemfit( invest ~ value + capital, "SUR",
+greeneSurPooled <- systemfit( invest ~ value + capital, method = "SUR",
    data = GrunfeldGreene, pooled = TRUE )
 @
 
@@ -603,9 +603,9 @@ reasonable level of significance.
 A Hausman test, which is described in section~\ref{sec:hausman},
 can be carried out with following commands:
 <<>>=
-fit2sls  <- systemfit( eqSystem, "2SLS",
+fit2sls  <- systemfit( eqSystem, method = "2SLS",
    inst = ~ income + farmPrice + trend, data = Kmenta )
-fit3sls <- systemfit( eqSystem, "3SLS",
+fit3sls <- systemfit( eqSystem, method = "3SLS",
    inst = ~ income + farmPrice + trend, data = Kmenta )
 hausman.systemfit( fit2sls, fit3sls )
 @

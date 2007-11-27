@@ -50,17 +50,17 @@ round( coef( summary( fitOls ) ), digits = 4 )
 @
 2SLS estimation:
 <<results=hide>>=
-fit2sls <- systemfit( system, "2SLS", inst = inst, data = Kmenta )
+fit2sls <- systemfit( system, method = "2SLS", inst = inst, data = Kmenta )
 round( coef( summary( fit2sls ) ), digits = 4 )
 @
 3SLS estimation:
 <<results=hide>>=
-fit3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta )
+fit3sls <- systemfit( system, method = "3SLS", inst = inst, data = Kmenta )
 round( coef( summary( fit3sls ) ), digits = 4 )
 @
 Iterated 3SLS estimation:
 <<results=hide>>=
-fitI3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta,
+fitI3sls <- systemfit( system, method = "3SLS", inst = inst, data = Kmenta,
    maxit = 250 )
 round( coef( summary( fitI3sls ) ), digits = 4 )
 @
@@ -106,19 +106,19 @@ round( coef( summary( kleinOls ) ), digits = 3 )
 @
 2SLS estimation:
 <<results=hide>>=
-klein2sls <- systemfit( system, "2SLS", inst = inst, data = KleinI,
+klein2sls <- systemfit( system, method = "2SLS", inst = inst, data = KleinI,
    methodResidCov = "noDfCor" )
 round( coef( summary( klein2sls ) ), digits = 3 )
 @
 3SLS estimation:
 <<results=hide>>=
-klein3sls <- systemfit( system, "3SLS", inst = inst, data = KleinI,
+klein3sls <- systemfit( system, method = "3SLS", inst = inst, data = KleinI,
    methodResidCov = "noDfCor" )
 round( coef( summary( klein3sls ) ), digits = 3 )
 @
 iterated 3SLS estimation:
 <<results=hide>>=
-kleinI3sls <- systemfit( system, "3SLS", inst = inst, data = KleinI,
+kleinI3sls <- systemfit( system, method = "3SLS", inst = inst, data = KleinI,
    methodResidCov = "noDfCor", maxit = 500 )
 round( coef( summary( kleinI3sls ) ), digits = 3 )
 @
@@ -170,21 +170,21 @@ formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (Table 14.2):
 <<results=hide>>=
-greeneOls <- systemfit( formulaGrunfeld, "OLS",
+greeneOls <- systemfit( formulaGrunfeld,
    data = GrunfeldGreene )
 round( coef( summary( greeneOls ) ), digits = 4 )
 round( sapply( greeneOls$eq, function(x){return(summary(x)$ssr/20)} ), digits = 3 )
 @
 pooled OLS (Table 14.2):
 <<results=hide>>=
-greeneOlsPooled <- systemfit( formulaGrunfeld, "OLS",
+greeneOlsPooled <- systemfit( formulaGrunfeld,
    data = GrunfeldGreene, pooled = TRUE )
 round( coef( summary( greeneOlsPooled$eq[[1]] ) ), digits = 4 ) #$
 sum( sapply( greeneOlsPooled$eq, function(x){return(summary(x)$ssr)}) )/100
 @
 SUR estimation (Table~14.1):
 <<results=hide>>=
-greeneSur <- systemfit( formulaGrunfeld, "SUR",
+greeneSur <- systemfit( formulaGrunfeld, method = "SUR",
    data = GrunfeldGreene, methodResidCov = "noDfCor" )
 round( coef( summary( greeneSur ) ), digits = 4 )
 round( greeneSur$residCov, digits = 3 ) #$
@@ -192,7 +192,7 @@ round( summary( greeneSur )$residCor, digits = 3 ) #$
 @
 pooled SUR estimation (Table~14.1):
 <<results=hide>>=
-greeneSurPooled <- systemfit( formulaGrunfeld, "SUR",
+greeneSurPooled <- systemfit( formulaGrunfeld, method = "SUR",
    data = GrunfeldGreene, pooled = TRUE, methodResidCov = "noDfCor",
    residCovWeighted = TRUE )
 round( coef( summary( greeneSurPooled$eq[[1]] ) ), digits = 4 ) #$
@@ -244,13 +244,13 @@ formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (page 295)
 <<results=hide>>=
-theilOls <- systemfit( formulaGrunfeld, "OLS",
+theilOls <- systemfit( formulaGrunfeld,
    data = GrunfeldTheil )
 round( coef( summary( theilOls ) ), digits = 3 )
 @
 SUR estimation (page 300)
 <<results=hide>>=
-theilSur <- systemfit( formulaGrunfeld, "SUR",
+theilSur <- systemfit( formulaGrunfeld, method = "SUR",
    data = GrunfeldTheil, methodResidCov = "noDfCor" )
 round( coef( summary( theilSur ) ), digits = 3 )
 @
@@ -276,7 +276,7 @@ linear.hypothesis( theilSur, RMatrix )
 
 Restricted SUR estimation (page~316)
 <<results=hide>>=
-theilSurRestr <- systemfit( formulaGrunfeld, "SUR",
+theilSurRestr <- systemfit( formulaGrunfeld, method = "SUR",
    data = GrunfeldTheil, methodResidCov = "noDfCor", restrict.matrix = RMatrix,
    residCovRestricted = FALSE )
 round( coef( summary( theilSurRestr ) ), digits = 3 )
