@@ -34,7 +34,32 @@ systemfit <- function(  eqns,
                         ... )
 {
 
+   # determine whether we have panel date and thus a panel-like model
+   panelLike <- class( data )[1] == "pdata.frame"
+
    ## some tests
+   # argument 'eqns'
+   if( panelLike ){
+      if( class( eqns ) != "formula" ){
+         stop( "argument 'eqns' must be an object of class 'formula'",
+            " for panel-like models" )
+      }
+   } else {
+      # single-equation models
+      if( class( eqns ) == "formula" ){
+         eqns <- list( eqns )
+      }
+      if( class( eqns ) != "list" ){
+         stop( "argument 'eqns' must be an object of class 'formula'",
+            " or a list of objects of class 'formula'" )
+      }
+      if( !all( lapply( eqns, class ) == "formula" ) ){
+         stop( "the list of argument 'eqns' must",
+            " contain only objects of class 'formula'" )
+      }
+   }
+
+   # argument 'method'
    if(!( method %in% c( "OLS", "WLS", "SUR", "2SLS", "W2SLS", "3SLS",
          "LIML", "FIML" ) ) ){
       stop( "The method must be 'OLS', 'WLS', 'SUR',",
@@ -45,9 +70,8 @@ systemfit <- function(  eqns,
       stop( "The methods '2SLS', 'W2SLS', and '3SLS' need instruments!" )
    }
 
-   panelLike <- FALSE
-   if( class( data )[1] == "pdata.frame" ) {
-      panelLike <- TRUE
+   # prepare model and data for panel-like models
+   if( panelLike ) {
       if( !is.null( restrict.regMat ) && pooled ){
          stop( "argument 'restrict.regMat' cannot be used for pooled estimation",
             " of panel-like data" )

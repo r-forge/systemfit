@@ -22,11 +22,13 @@ systemfit( eqns, method = "OLS",
 }
 
 \arguments{
-   \item{eqns}{a list of structural equations
-      (objects of class \code{formula}) to be estimated or
-      (if argument \code{data} is of class \code{pdata.frame})
-      a single equation (object of class \code{formula})
-      that is estimated for all individuals.}
+   \item{eqns}{an object of class \code{formula}
+      (for single-equation models)
+      or (typically) a list of objects of class \code{formula}
+      (for multiple-equation models);
+      if argument \code{data} is of class \code{pdata.frame},
+      this argument must be a single object of class \code{formula}
+      that represents the formula to be estimated for all individuals.}
    \item{method}{the estimation method, one of "OLS", "WLS", "SUR",
       "2SLS", "W2SLS", or "3SLS" (see details);
       iterated estimation methods can be specified by setting control parameter
