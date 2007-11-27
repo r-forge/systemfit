@@ -190,7 +190,7 @@ and 750~observations.
 Then, we estimated this model with and without using the \pkg{Matrix} package.
 Finally, the results are compared.
 <<>>=
-library( systemfit )
+library( "systemfit" )
 set.seed( 1 )
 systemfitModel <- createSystemfitModel( nEq = 8, nReg = 10, nObs = 750 )
 system.time(

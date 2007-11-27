@@ -34,7 +34,7 @@ iterated 3SLS.
 After each estimation, we provide the commands
 to print the estimated coefficients.
 <<echo=FALSE>>=
-library( systemfit )
+library( "systemfit" )
 @
 <<results=hide>>=
 data( "Kmenta" )
@@ -164,7 +164,7 @@ the residual covariance matrix as well as the residual correlation matrix
 of the SUR estimations.
 <<>>=
 data( "GrunfeldGreene" )
-library( plm )
+library( "plm" )
 pdata.frame( GrunfeldGreene, "firm", "year" )
 formulaGrunfeld <- invest ~ value + capital
 @

@@ -11,8 +11,8 @@ Before starting the estimation,
 we load the \pkg{sem} and \pkg{systemfit} package
 as well as the required data set.
 <<>>=
-library( sem )
-library( systemfit )
+library( "sem" )
+library( "systemfit" )
 data( "KleinI" )
 @
 

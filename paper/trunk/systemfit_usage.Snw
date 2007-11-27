@@ -57,8 +57,8 @@ to general consumer prices) and
 \code{trend} (a time trend in years).
 These equations can be estimated by OLS in \proglang{R} by
 <<>>=
-library( systemfit )
-data( Kmenta )
+library( "systemfit" )
+data( "Kmenta" )
 attach( Kmenta )
 eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
@@ -149,7 +149,7 @@ that the data for the estimation
 should be taken from the data frame \code{Kmenta}.
 Hence, we no longer need to attach this data frame before calling systemfit:
 <<>>=
-data( Kmenta )
+data( "Kmenta" )
 fitsur <- systemfit( eqSystem, "SUR", data = Kmenta )
 @
 
@@ -455,7 +455,7 @@ previous year.
 This model can be estimated by
 <<>>=
 data( "GrunfeldGreene" )
-library( plm )
+library( "plm" )
 pdata.frame( GrunfeldGreene, "firm", "year" )
 greeneSur <- systemfit( invest ~ value + capital, "SUR",
    data = GrunfeldGreene )
