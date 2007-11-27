@@ -432,7 +432,7 @@ For this analysis, the data must be in °long format°.
 which can be created with the function \code{pdata.frame}
 from the \proglang{R} package \pkg{plm}
 \citep{r-plm-0.1-2}.
-In opposite to the previously described usage of \code{systemfit},
+In contrast to the previously described usage of \code{systemfit},
 argument \code{eqns} must be a single equation (object of class \code{formula}).
 This formula is estimated for all individuals.
 
