@@ -208,7 +208,7 @@ that using the \pkg{Matrix} package makes the estimation faster.
 The comparison of the estimation results shows
 that both methods return the same results.
 The only differences between the returned objects
-are the °call° and the stored control variable \code{useMatrix}.
+are the \code{call} and the stored control variable \code{useMatrix}.
 
 However, the estimation of rather small models is much slower
 with the \pkg{Matrix} package than without this package.
