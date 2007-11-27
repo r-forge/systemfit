@@ -514,7 +514,7 @@ the $R^2$ value of the equation.
 Function \code{summary.systemfit} has an optional argument \code{probdfsys}.
 It selects the approach
 that is applied by \code{systemfit}
-to determine the degrees of freedom of $t$ tests on the estimated parameters
+to determine the degrees of freedom of $t$ tests of the estimated parameters
 (section~\ref{sec:degreesOfFreedom}).
 If argument \code{probdfsys} is \code{TRUE},
 the degrees of freedom of the whole system are taken.
