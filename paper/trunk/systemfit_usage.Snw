@@ -456,9 +456,9 @@ This model can be estimated by
 <<>>=
 data( "GrunfeldGreene" )
 library( "plm" )
-pdata.frame( GrunfeldGreene, id = "firm", time = "year" )
+GGPanel <- pdata.frame( GrunfeldGreene, id = "firm", time = "year" )
 greeneSur <- systemfit( invest ~ value + capital, method = "SUR",
-   data = GrunfeldGreene )
+   data = GGPanel )
 @
 The first line loads the example data set \code{GrunfeldGreene}
 that is included in the \pkg{systemfit} package.
@@ -477,7 +477,7 @@ of the same model as before,
 but with coefficients restricted to be equal for all individuals.
 <<>>=
 greeneSurPooled <- systemfit( invest ~ value + capital, method = "SUR",
-   data = GrunfeldGreene, pooled = TRUE )
+   data = GGPanel, pooled = TRUE )
 @
 
 

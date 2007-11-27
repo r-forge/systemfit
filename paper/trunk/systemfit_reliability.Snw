@@ -165,27 +165,27 @@ of the SUR estimations.
 <<>>=
 data( "GrunfeldGreene" )
 library( "plm" )
-pdata.frame( GrunfeldGreene, id = "firm", time = "year" )
+GGPanel <- pdata.frame( GrunfeldGreene, id = "firm", time = "year" )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (Table 14.2):
 <<results=hide>>=
 greeneOls <- systemfit( formulaGrunfeld,
-   data = GrunfeldGreene )
+   data = GGPanel )
 round( coef( summary( greeneOls ) ), digits = 4 )
 round( sapply( greeneOls$eq, function(x){return(summary(x)$ssr/20)} ), digits = 3 )
 @
 pooled OLS (Table 14.2):
 <<results=hide>>=
 greeneOlsPooled <- systemfit( formulaGrunfeld,
-   data = GrunfeldGreene, pooled = TRUE )
+   data = GGPanel, pooled = TRUE )
 round( coef( summary( greeneOlsPooled$eq[[1]] ) ), digits = 4 ) #$
 sum( sapply( greeneOlsPooled$eq, function(x){return(summary(x)$ssr)}) )/100
 @
 SUR estimation (Table~14.1):
 <<results=hide>>=
 greeneSur <- systemfit( formulaGrunfeld, method = "SUR",
-   data = GrunfeldGreene, methodResidCov = "noDfCor" )
+   data = GGPanel, methodResidCov = "noDfCor" )
 round( coef( summary( greeneSur ) ), digits = 4 )
 round( greeneSur$residCov, digits = 3 ) #$
 round( summary( greeneSur )$residCor, digits = 3 ) #$
@@ -193,7 +193,7 @@ round( summary( greeneSur )$residCor, digits = 3 ) #$
 pooled SUR estimation (Table~14.1):
 <<results=hide>>=
 greeneSurPooled <- systemfit( formulaGrunfeld, method = "SUR",
-   data = GrunfeldGreene, pooled = TRUE, methodResidCov = "noDfCor",
+   data = GGPanel, pooled = TRUE, methodResidCov = "noDfCor",
    residCovWeighted = TRUE )
 round( coef( summary( greeneSurPooled$eq[[1]] ) ), digits = 4 ) #$
 
@@ -239,19 +239,19 @@ after each estimation.
 <<>>=
 GrunfeldTheil <- subset( GrunfeldGreene,
    firm %in% c( "General Electric", "Westinghouse" ) )
-pdata.frame( GrunfeldTheil, id = "firm", time = "year" )
+GTPanel <- pdata.frame( GrunfeldTheil, id = "firm", time = "year" )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (page 295)
 <<results=hide>>=
 theilOls <- systemfit( formulaGrunfeld,
-   data = GrunfeldTheil )
+   data = GTPanel )
 round( coef( summary( theilOls ) ), digits = 3 )
 @
 SUR estimation (page 300)
 <<results=hide>>=
 theilSur <- systemfit( formulaGrunfeld, method = "SUR",
-   data = GrunfeldTheil, methodResidCov = "noDfCor" )
+   data = GTPanel, methodResidCov = "noDfCor" )
 round( coef( summary( theilSur ) ), digits = 3 )
 @
 
@@ -277,7 +277,7 @@ linear.hypothesis( theilSur, RMatrix )
 Restricted SUR estimation (page~316)
 <<results=hide>>=
 theilSurRestr <- systemfit( formulaGrunfeld, method = "SUR",
-   data = GrunfeldTheil, methodResidCov = "noDfCor", restrict.matrix = RMatrix,
+   data = GTPanel, methodResidCov = "noDfCor", restrict.matrix = RMatrix,
    residCovRestricted = FALSE )
 round( coef( summary( theilSurRestr ) ), digits = 3 )
 @
