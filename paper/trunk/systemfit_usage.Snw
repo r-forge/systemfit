@@ -456,7 +456,7 @@ This model can be estimated by
 <<>>=
 data( "GrunfeldGreene" )
 library( "plm" )
-pdata.frame( GrunfeldGreene, "firm", "year" )
+pdata.frame( GrunfeldGreene, id = "firm", time = "year" )
 greeneSur <- systemfit( invest ~ value + capital, method = "SUR",
    data = GrunfeldGreene )
 @

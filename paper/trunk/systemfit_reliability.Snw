@@ -165,7 +165,7 @@ of the SUR estimations.
 <<>>=
 data( "GrunfeldGreene" )
 library( "plm" )
-pdata.frame( GrunfeldGreene, "firm", "year" )
+pdata.frame( GrunfeldGreene, id = "firm", time = "year" )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (Table 14.2):
@@ -239,7 +239,7 @@ after each estimation.
 <<>>=
 GrunfeldTheil <- subset( GrunfeldGreene,
    firm %in% c( "General Electric", "Westinghouse" ) )
-pdata.frame( GrunfeldTheil, "firm", "year" )
+pdata.frame( GrunfeldTheil, id = "firm", time = "year" )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (page 295)
