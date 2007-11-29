@@ -34,11 +34,10 @@ systemfit <- function(  formula,
                         ... )
 {
 
-   # determine whether we have panel date and thus a panel-like model
+   ## determine whether we have panel date and thus a panel-like model
    panelLike <- class( data )[1] == "pdata.frame"
 
-   ## some tests
-   # argument 'formula'
+   ## checking argument 'formula'
    if( panelLike ){
       if( class( formula ) != "formula" ){
          stop( "argument 'formula' must be an object of class 'formula'",
@@ -59,14 +58,29 @@ systemfit <- function(  formula,
       }
    }
 
-   # argument 'method'
+   ## checking argument 'method'
    if(!( method %in% c( "OLS", "WLS", "SUR", "2SLS", "W2SLS", "3SLS",
          "LIML", "FIML" ) ) ){
       stop( "The method must be 'OLS', 'WLS', 'SUR',",
          " '2SLS', 'W2SLS', or '3SLS'" )
    }
 
-   # argument 'inst'
+   ## prepare model and data for panel-like models
+   if( panelLike ) {
+      if( !is.null( restrict.regMat ) && pooled ){
+         stop( "argument 'restrict.regMat' cannot be used for pooled estimation",
+            " of panel-like data" )
+      }
+      result <- .systemfitPanel( formula = formula,
+         data = data, pooled = pooled )
+      data <- result$wideData
+      formula <- result$eqnSystem
+      if( pooled ){
+         restrict.regMat <- result$restrict.regMat
+      }
+   }
+
+   ## checking argument 'inst'
    if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ){
       if( is.null( inst ) ) {
          stop( "The methods '2SLS', 'W2SLS', and '3SLS' need instruments" )
@@ -95,22 +109,7 @@ systemfit <- function(  formula,
       }
    }
 
-   # prepare model and data for panel-like models
-   if( panelLike ) {
-      if( !is.null( restrict.regMat ) && pooled ){
-         stop( "argument 'restrict.regMat' cannot be used for pooled estimation",
-            " of panel-like data" )
-      }
-      result <- .systemfitPanel( formula = formula,
-         data = data, pooled = pooled )
-      data <- result$wideData
-      formula <- result$eqnSystem
-      if( pooled ){
-         restrict.regMat <- result$restrict.regMat
-      }
-   }
-
-   # default value of argument single.eq.sigma
+   ## default value of argument single.eq.sigma
    if( is.null( control$single.eq.sigma ) ) {
       control$single.eq.sigma <- ( is.null( restrict.matrix ) & is.null( restrict.regMat ) )
    }
