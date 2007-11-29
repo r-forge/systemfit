@@ -109,9 +109,14 @@ systemfit <- function(  formula,
       }
    }
 
-   ## default value of argument single.eq.sigma
+   ## default value of argument 'single.eq.sigma'
    if( is.null( control$single.eq.sigma ) ) {
       control$single.eq.sigma <- ( is.null( restrict.matrix ) & is.null( restrict.regMat ) )
+   }
+
+   ## checking argument 'pooled'
+   if( !is.logical( pooled ) || length( pooled ) != 1 ){
+      stop( "argument 'pooled' must be logical" )
    }
 
   results <- list()               # results to be returned
