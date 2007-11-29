@@ -88,6 +88,7 @@ systemfit <- function(  formula,
          if( length( inst ) != 2 ){
             stop( "argument 'inst' must be a one-sided formula" )
          }
+         inst <- lapply( c( 1:length( formula ) ), function(x) inst )
       } else if( class( inst ) == "list" ){
          if( !all( lapply( inst, class ) == "formula" ) ){
             stop( "the list of argument 'inst' must",
@@ -237,15 +238,6 @@ systemfit <- function(  formula,
 
    ## preparing instruments
    if( !is.null( inst ) ) {
-      # list of formulas for instruments of each equation
-      instEq  <- list()
-      for(i in 1:nEq) {
-         if(is.list(inst)) {
-            instEq[[i]] <- inst[[i]]
-         } else {
-            instEq[[i]] <- inst
-         }
-      }
       # list of terms objects of instruments of each equation
       termsInst <- list()
       # model frame of instruments
@@ -261,7 +253,7 @@ systemfit <- function(  formula,
          rowsEq <- c( (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) )
             # rows that belong to the ith equation
          modelFrameInst[[ i ]] <- modelFrame
-         modelFrameInst[[ i ]]$formula <- instEq[[ i ]]
+         modelFrameInst[[ i ]]$formula <- inst[[ i ]]
          evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]] )
          termsInst[[ i ]] <- attr( evalModelFrameInst[[ i ]], "terms" )
          hMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
@@ -735,7 +727,7 @@ systemfit <- function(  formula,
       rownames( results$eq[[ i ]]$modelFrame ) <- obsNamesEq[[ i ]]
     }
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
-      results$eq[[ i ]]$inst         <- instEq[[i]]
+      results$eq[[ i ]]$inst         <- inst[[i]]
       if(  control$returnInstMatrix ) {
          results$eq[[ i ]]$instMatrix <- hMatEq[[i]]  # matrix of instrumental variables
          rownames( results$eq[[ i ]]$instMatrix ) <- obsNamesEq[[ i ]]
