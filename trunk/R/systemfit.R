@@ -65,9 +65,34 @@ systemfit <- function(  formula,
       stop( "The method must be 'OLS', 'WLS', 'SUR',",
          " '2SLS', 'W2SLS', or '3SLS'" )
    }
-   if( method %in% c( "2SLS", "W2SLS", "3SLS" ) &
-         is.null(inst) ) {
-      stop( "The methods '2SLS', 'W2SLS', and '3SLS' need instruments!" )
+
+   # argument 'inst'
+   if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ){
+      if( is.null( inst ) ) {
+         stop( "The methods '2SLS', 'W2SLS', and '3SLS' need instruments" )
+      } else if( class( inst ) == "formula" ){
+         if( length( inst ) != 2 ){
+            stop( "argument 'inst' must be a one-sided formula" )
+         }
+      } else if( class( inst ) == "list" ){
+         if( !all( lapply( inst, class ) == "formula" ) ){
+            stop( "the list of argument 'inst' must",
+               " contain only objects of class 'formula'" )
+         }
+         if( !all( lapply( inst, length ) == 2 ) ){
+            stop( "the list of argument 'inst' must",
+               " contain only one-sided formulas" )
+         }
+      } else {
+         stop( "argument 'inst' must be an object of class 'formula'",
+            " or a list of objects of class 'formula'" )
+      }
+   } else {
+      if( !is.null( inst ) ) {
+         warning( "The methods 'OLS', 'WLS', and 'SUR' do not need instruments;",
+            " ignoring argument 'inst'" )
+         inst <- NULL
+      }
    }
 
    # prepare model and data for panel-like models
