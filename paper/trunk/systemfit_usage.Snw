@@ -26,14 +26,8 @@ systemfit( formula )
 The only mandatory argument is \code{formula}.
 Typically, it is a list of formulas to be estimated,
 but it may also be a single formula for estimating a single-equation model.
-Each formula is a standard formula in \proglang{R} and
-starts with a dependent variable on the left hand side.
-The regressors are listed after a tilde (\verb/~/),
-separated by plus (\code{+}) signs.%
-\footnote{
-The full standard formula language in \proglang{R} is allowed;
-for details see the \proglang{R} help files to \code{formula}.
-}
+Each formula is a standard regression formula in \proglang{R}
+(see documentation of \code{formula}).
 
 The following demonstration uses an example taken from
 \citet[p.\ 685]{kmenta86}.
