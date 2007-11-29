@@ -180,60 +180,19 @@ In this code snippet,
 \code{xMat} is the matrix $X$ and
 \code{yVec} is the vector $y$ in~(\ref{eq:ols-wls-sur}).
 
-Theoretically, one would expect
-that the calculations with the \pkg{Matrix} package are
-faster and more robust than calculations with the traditional method.
-To test this hypothesis, we use function \code{createSystemfitModel}
-to create a medium-sized multi-equation model with 8~equations,
-10~regressors in each equation (without constant),
-and 750~observations.
-Then, we estimated this model with and without using the \pkg{Matrix} package.
-Finally, the results are compared.
-<<>>=
-library( "systemfit" )
-set.seed( 1 )
-systemfitModel <- createSystemfitModel( nEq = 8, nReg = 10, nObs = 750 )
-system.time(
-   fitMatrix <- systemfit( systemfitModel$formula, method = "SUR",
-      data = systemfitModel$data )
-)
-system.time(
-   fitTrad <- systemfit( systemfitModel$formula, method = "SUR",
-      data = systemfitModel$data, useMatrix = FALSE )
-)
-all.equal( fitMatrix, fitTrad )
-@
-The returned computation times clearly show
-that using the \pkg{Matrix} package makes the estimation faster.
-The comparison of the estimation results shows
-that both methods return the same results.
-The only differences between the returned objects
-are the \code{call} and the stored control variable \code{useMatrix}.
-
-However, the estimation of rather small models is much slower
-with the \pkg{Matrix} package than without this package.
-Moreover, the differences in computation time accumulate,
-if the estimation is iterated.
-<<>>=
-smallModel <- createSystemfitModel( nEq = 3, nReg = 4, nObs = 50 )
-system.time(
-   fitSmallMatrix <- systemfit( smallModel$formula, method = "SUR",
-      data = smallModel$data, maxit = 500 )
-)
-system.time(
-   fitSmallTrad <- systemfit( smallModel$formula, method = "SUR",
-      data = smallModel$data, maxit = 500, useMatrix = FALSE )
-)
-all.equal( fitSmallMatrix, fitSmallTrad )
-@
-As mentioned above, the usage of the \pkg{Matrix} package
-clearly increases the computation times
-for iterated (SUR) estimations of small models with small data sets.
-
 By default, the \code{systemfit} function uses the \pkg{Matrix} package
-for the GLS estimations,
-but the user can opt for not using it to decrease the computation time
-of small models (e.g.\ in Monte Carlo studies).
+to perform GLS estimations,
+because using this package considerably decreases
+the computation time for many common models.
+However, the estimation of small models with small data sets
+gets slower by using the \pkg{Matrix} package
+(see appendix~\ref{sec:timings}).
+While this increase in computation time
+is often imperceptible to human beings,
+it might matter in some cases
+such as iterated estimations or Monte Carlo studies.
+Therefore, the user can opt for not using the \pkg{Matrix} package,
+but equation~(\ref{eq:omegaInv}) with standard \proglang{R} matrices.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
