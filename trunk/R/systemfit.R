@@ -48,14 +48,14 @@ systemfit <- function(  formula,
       # single-equation models
       if( class( formula ) == "formula" ){
          formula <- list( formula )
-      }
-      if( class( formula ) != "list" ){
+      } else if( class( formula ) == "list" ){
+         if( !all( lapply( formula, class ) == "formula" ) ){
+            stop( "the list of argument 'formula' must",
+               " contain only objects of class 'formula'" )
+         }
+      } else {
          stop( "argument 'formula' must be an object of class 'formula'",
             " or a list of objects of class 'formula'" )
-      }
-      if( !all( lapply( formula, class ) == "formula" ) ){
-         stop( "the list of argument 'formula' must",
-            " contain only objects of class 'formula'" )
       }
    }
 
