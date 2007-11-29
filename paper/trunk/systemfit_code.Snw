@@ -85,7 +85,7 @@ and~\ref{sec:Estimation-2sls-w2sls-3sls}
 or --- if parameter restrictions are imposed ---
 by the formulas in section~\ref{sec:Restrictions}.
 If the parameter restrictions are specified symbolically,
-function \code{makeHypothesis} of the \pkg{car} package \citep{r-car-1.2-1}
+function \code{makeHypothesis} of the \pkg{car} package \citep{r-car-1.2-1, fox02a}
 is used to create the restriction matrix.
 
 \code{systemfit} utilizes most of the internal helper functions
@@ -206,7 +206,7 @@ Internally, the $F$ statistic is computed by the hidden function
 \code{.ftest.systemfit}
 and the Wald/$\chi^2$ statistic is computed by the method
 \code{linear.hypothesis.default} of the \pkg{car} package
-\citep{r-car-1.2-1}.
+\citep{r-car-1.2-1, fox02a}.
 The method \code{lrtest.systemfit} is a wrapper function
 to \code{lrtest.default} of the \pkg{lmtest} package
 \citep{r-lmtest},

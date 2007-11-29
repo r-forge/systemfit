@@ -157,13 +157,13 @@ One way is to use the matrix $R$ and the vector $q$
 These restrictions can be specified symbolically
 by argument \code{restrict.matrix}
 as in the generic function
-\code{linear.hypothesis} of the \pkg{car} package \citep{r-car-1.2-1}.
+\code{linear.hypothesis} of the \pkg{car} package \citep{r-car-1.2-1, fox02a}.
 This argument must be a vector of character strings,
 where each element represents one linear restriction,
 and each element must be either a linear combination of coefficients,
 or a linear equation in the coefficients
 (see documentation of function \code{linear.hypothesis}
-in the \pkg{car} package, \citealp{r-car-1.2-1}).
+in the \pkg{car} package, \citealp{r-car-1.2-1, fox02a}).
 We illustrate this by estimating the model under
 the restriction $\beta_2 + \beta_6 = 0$.
 Since the name of $\beta_2$
