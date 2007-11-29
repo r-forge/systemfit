@@ -25,10 +25,10 @@ createSystemfitModel <- function( nEq, nRegEq, nObs, coef = NULL, sigma = NULL )
 
    disturbances <- mvrnorm( nObs, rep( 0, nEq ), sigma )
    result$data <- data.frame( obsNo = c( 1:nObs ) )
-   result$eqns <- list()
+   result$formula <- list()
 
    for( eqNo in 1:nEq ){
-      result$eqns[[ eqNo ]] <- as.formula( paste( "y.", eqNo, " ~ ",
+      result$formula[[ eqNo ]] <- as.formula( paste( "y.", eqNo, " ~ ",
          paste( paste( "x.", eqNo, ".", sep = "" ),
          c( 1:nRegEq ), sep = "", collapse = " + " ), sep = "" ) )
       for( regNo in 1:nRegEq ){
@@ -36,7 +36,7 @@ createSystemfitModel <- function( nEq, nRegEq, nObs, coef = NULL, sigma = NULL )
             rnorm( nObs )
       }
       result$data[[ paste( "y", eqNo, sep = "." ) ]] <- 0
-      xMatEq <- model.matrix( result$eqns[[ eqNo ]], result$data )
+      xMatEq <- model.matrix( result$formula[[ eqNo ]], result$data )
       result$data[[ paste( "y", eqNo, sep = "." ) ]] <-
          drop( xMatEq %*% coef[ ( ( eqNo - 1 ) * ( nRegEq + 1 ) + 1 ):
             ( eqNo * ( nRegEq + 1 ) ) ] ) + disturbances[ , eqNo ]

@@ -15,14 +15,14 @@
 }
 
 \usage{
-systemfit( eqns, method = "OLS",
+systemfit( formula, method = "OLS",
            inst=NULL, data=list(),
            restrict.matrix = NULL, restrict.rhs = NULL, restrict.regMat = NULL,
            pooled = FALSE, control = systemfit.control( ... ), ... )
 }
 
 \arguments{
-   \item{eqns}{an object of class \code{formula}
+   \item{formula}{an object of class \code{formula}
       (for single-equation models)
       or (typically) a list of objects of class \code{formula}
       (for multiple-equation models);
@@ -65,7 +65,7 @@ systemfit( eqns, method = "OLS",
 \details{
    If argument \code{data} is of class \code{pdata.frame}
    (i.e. contains panel-like data in long format),
-   argument \code{eqns} must be a single equation
+   argument \code{formula} must be a single equation
    that is applied to all individuals.
    In this case, argument \code{pooled} specifies
    whether the coefficients are restricted to be equal for all

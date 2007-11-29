@@ -25,7 +25,7 @@ createSystemfitModel( nEq, nRegEq, nObs, coef = NULL, sigma = NULL )
 \value{
    \code{createSystemfitModel} returns a list with following elements:
 
-   \item{eqns}{a list of the model equations
+   \item{formula}{a list of the model equations
       (objects of class \code{formula}).}
    \item{data}{a \code{data.frame} that contains the data.}
    \item{coef}{a vector of (true) coefficients.}
@@ -42,7 +42,7 @@ createSystemfitModel( nEq, nRegEq, nObs, coef = NULL, sigma = NULL )
 systemfitModel <- createSystemfitModel( 3, 4, 100 )
 
 ## estimate this model by "SUR"
-fitsur <- systemfit( systemfitModel$eqns, "SUR", data = systemfitModel$data )
+fitsur <- systemfit( systemfitModel$formula, "SUR", data = systemfitModel$data )
 
 ## compare the "true" and the estimated coefficients
 cbind( systemfitModel$coef, coef( fitsur ) )

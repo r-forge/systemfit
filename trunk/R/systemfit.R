@@ -22,7 +22,7 @@
 ### MA 02111-1307, USA
 
 
-systemfit <- function(  eqns,
+systemfit <- function(  formula,
                         method = "OLS",
                         inst=NULL,
                         data=list(),
@@ -38,23 +38,23 @@ systemfit <- function(  eqns,
    panelLike <- class( data )[1] == "pdata.frame"
 
    ## some tests
-   # argument 'eqns'
+   # argument 'formula'
    if( panelLike ){
-      if( class( eqns ) != "formula" ){
-         stop( "argument 'eqns' must be an object of class 'formula'",
+      if( class( formula ) != "formula" ){
+         stop( "argument 'formula' must be an object of class 'formula'",
             " for panel-like models" )
       }
    } else {
       # single-equation models
-      if( class( eqns ) == "formula" ){
-         eqns <- list( eqns )
+      if( class( formula ) == "formula" ){
+         formula <- list( formula )
       }
-      if( class( eqns ) != "list" ){
-         stop( "argument 'eqns' must be an object of class 'formula'",
+      if( class( formula ) != "list" ){
+         stop( "argument 'formula' must be an object of class 'formula'",
             " or a list of objects of class 'formula'" )
       }
-      if( !all( lapply( eqns, class ) == "formula" ) ){
-         stop( "the list of argument 'eqns' must",
+      if( !all( lapply( formula, class ) == "formula" ) ){
+         stop( "the list of argument 'formula' must",
             " contain only objects of class 'formula'" )
       }
    }
@@ -76,10 +76,10 @@ systemfit <- function(  eqns,
          stop( "argument 'restrict.regMat' cannot be used for pooled estimation",
             " of panel-like data" )
       }
-      result <- .systemfitPanel( formula = eqns,
+      result <- .systemfitPanel( formula = formula,
          data = data, pooled = pooled )
       data <- result$wideData
-      eqns <- result$eqnSystem
+      formula <- result$eqnSystem
       if( pooled ){
          restrict.regMat <- result$restrict.regMat
       }
@@ -93,14 +93,14 @@ systemfit <- function(  eqns,
   results <- list()               # results to be returned
   results$eq <- list()            # results for the individual equations
   iter    <- NULL                 # number of iterations
-  nEq     <- length( eqns )       # number of equations
+  nEq     <- length( formula )       # number of equations
   ssr     <- numeric( nEq ) # sum of squared residuals of each equation
   sigma   <- numeric( nEq ) # estimated sigma (std. dev. of residuals) of each equation
 
-   if( is.null( names( eqns ) ) ) {
+   if( is.null( names( formula ) ) ) {
       eqnLabels <- paste( "eq", c( 1:nEq ), sep = "" )
    } else {
-      eqnLabels <- names(eqns)
+      eqnLabels <- names( formula )
       if( sum( regexpr( " |_", eqnLabels ) != -1 ) > 0 ) {
          stop( "equation labels may not contain blanks (' ') or underscores ('_')" )
       }
@@ -139,7 +139,7 @@ systemfit <- function(  eqns,
    # prepare data for individual equations
    for(i in 1:nEq ) {
       modelFrameEq[[ i ]] <- modelFrame
-      modelFrameEq[[ i ]]$formula <- eqns[[ i ]]
+      modelFrameEq[[ i ]]$formula <- formula[[ i ]]
       evalModelFrameEq[[ i ]] <- eval( modelFrameEq[[ i ]] )
       termsEq[[ i ]] <- attr( evalModelFrameEq[[ i ]], "terms" )
       weights <- model.extract( evalModelFrameEq[[ i ]], "weights" )
