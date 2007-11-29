@@ -90,6 +90,17 @@ systemfit <- function(  formula,
          }
          inst <- lapply( c( 1:length( formula ) ), function(x) inst )
       } else if( class( inst ) == "list" ){
+         if( length( inst ) != length( formula ) ){
+            stop( "if different instruments are specified for each equation,",
+               " the length of argument 'inst' must be equal to the number",
+               " of equations" )
+         }
+         if( !is.null( names( inst ) ) && !is.null( names( formula ) ) ){
+            if( names( inst ) != names( formula ) ){
+               warning( "names of formulas for instruments (argument 'inst')",
+                  " are not equal to names of equations (argument 'formula')" )
+            }
+         }
          if( !all( lapply( inst, class ) == "formula" ) ){
             stop( "the list of argument 'inst' must",
                " contain only objects of class 'formula'" )
