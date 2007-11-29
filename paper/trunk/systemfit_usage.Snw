@@ -20,13 +20,13 @@ systems of equations can be econometrically estimated
 with the function \code{systemfit}.
 It is generally called by
 <<eval=FALSE>>=
-systemfit( eqns )
+systemfit( formula )
 @
 
-The only mandatory argument is \code{eqns}.
-It is a list of the equations
-to be estimated.
-Each equation is a standard formula in \proglang{R} and
+The only mandatory argument is \code{formula}.
+Typically, it is a list of formulas to be estimated,
+but it may also be a single formula for estimating a single-equation model.
+Each formula is a standard formula in \proglang{R} and
 starts with a dependent variable on the left hand side.
 The regressors are listed after a tilde (\verb/~/),
 separated by plus (\code{+}) signs.%
@@ -442,7 +442,7 @@ which can be created with the function \code{pdata.frame}
 from the \proglang{R} package \pkg{plm}
 \citep{r-plm-0.1-2}.
 In contrast to the previously described usage of \code{systemfit},
-argument \code{eqns} must be a single equation (object of class \code{formula}).
+argument \code{formula} must be a single equation (object of class \code{formula}).
 This formula is estimated for all individuals.
 
 We demonstrate the application of \code{systemfit}
