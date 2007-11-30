@@ -26,8 +26,7 @@ The Ordinary Least Squares (OLS) estimator is based on the assumption
 that the disturbance terms are not contemporaneously correlated
 $(\sigma_{ij} = 0 \; \forall \; i \neq j)$
 and have the same variance in each equation
-$( \sigma_i^2 = \sigma_j^2 \, \forall \, i, j$,
-where $\sigma_i^2 = \E [ u_{it}^2 ])$.
+$( \sigma_i^2 = \sigma_j^2 \, \forall \, i, j)$.
 In this case, $\OHat$ in equation~(\ref{eq:ols-wls-sur})
 is equal to $I_{G \cdot T}$ and thus, cancels out.
 The OLS estimator is efficient,
@@ -35,9 +34,8 @@ as long as the disturbances are not contemporaneously correlated.
 
 If the whole system is treated as one single equation,
 $\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) is $\sHat^2 I_{G \cdot T}$,
-where $\sHat^2$ is the estimated variance of the disturbances.
-This assumes that the disturbances of all equations have the
-same variance $(\E [ u_{it}^2 ] = \sigma^2 \, \forall \, i)$.
+where $\sHat^2$ is an estimator for the variance of all disturbances
+$(\sigma^2 = \E [ u_{it}^2 ])$.
 If the disturbance terms of the individual equations
 are allowed to have different variances,
 $\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) is $\SHat \otimes I_T$,
@@ -58,7 +56,9 @@ with $\OHat$ equal to $\SHat \otimes I_T$.
 
 The Weighted Least Squares (WLS) estimator allows for different variances
 of the disturbance terms in the different equations
-$( \sigma_i^2 \neq \sigma_j^2 \, \forall \, i \neq j)$.
+$( \sigma_i^2 \neq \sigma_j^2 \, \forall \, i \neq j)$,
+but assumes
+that the disturbance terms are not contemporaneously correlated.
 In this case, $\OHat$ in equations~(\ref{eq:ols-wls-sur})
 and~(\ref{eq:cov-ols-wls-sur})
 is $\SHat \otimes I_T$,
@@ -92,7 +92,7 @@ a Feasible Generalized Least Squares (FGLS) estimation.
 As the FGLS estimator is based on
 an estimated covariance matrix of the disturbance terms,
 it is only asymptotically efficient.
-In case of an SUR estimator, $\OHat$ in equations~(\ref{eq:ols-wls-sur})
+In case of a SUR estimator, $\OHat$ in equations~(\ref{eq:ols-wls-sur})
 and~(\ref{eq:cov-ols-wls-sur})
 is $\SHat \otimes I_T$,
 where $\SHat$ is the estimated covariance matrix of the disturbance terms.
@@ -150,7 +150,7 @@ Hence, we get
 \subsubsection{Two-stage least squares (2SLS)}
 
 The Two-Stage Least Squares (2SLS) estimator
-is based on the same assumptions as the OLS estimator.
+is based on the same assumptions about the disturbance terms as the OLS estimator.
 Accordingly, $\OHat$ in equation~(\ref{eq:2sls-w2sls-3sls})
 is equal to $I_{G \cdot T}$ and thus, cancels out.
 Like for the OLS estimator,
