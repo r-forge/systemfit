@@ -15,7 +15,7 @@ that influence the disturbance term in one equation
 probably influence the disturbance terms in other equations, too.
 Ignoring this contemporaneous correlation
 and estimating these equations separately
-leads to inefficient parameter estimates.
+leads to inefficient estimates of the coefficients.
 However, estimating all equations simultaneously
 with a °Generalized Least Squares° (GLS) estimator,
 which takes the covariance structure of the residuals into account,
@@ -23,10 +23,10 @@ leads to efficient estimates.
 This estimation procedure is generally called
 °Seemingly Unrelated Regression° (SUR) \citep{zellner62}.
 Another reason to estimate a system of equations simultaneously are
-cross-equation parameter restrictions.%
+cross-equation restrictions on the coefficients.%
 \footnote{
-Especially the economic theory suggests many cross-equation parameter
-restrictions (e.g.\ the symmetry restriction in demand models).
+Especially the economic theory suggests many cross-equation
+restrictions on the coefficients (e.g.\ the symmetry restriction in demand models).
 }
 These restrictions can be tested and/or imposed only in a simultaneous
 estimation approach.
@@ -35,7 +35,7 @@ Furthermore, these models can contain variables
 that appear on the left-hand side in one equation
 and on the right-hand side of another equation.
 Ignoring the endogeneity of these variables can lead to inconsistent
-parameter estimates.
+estimates.
 This simultaneity bias can be corrected for by
 applying a °Two-Stage Least Squares° (2SLS) estimation
 to each equation.
@@ -75,7 +75,7 @@ or these estimations can be iterated,
 where the (co)variances are calculated from the estimates of the previous step.
 Furthermore,
 the \pkg{systemfit} package
-provides statistical tests for parameter restrictions
+provides statistical tests for restrictions on the coefficients
 and for testing the consistency of the 3SLS estimation.
 
 Although systems of linear equations can be estimated

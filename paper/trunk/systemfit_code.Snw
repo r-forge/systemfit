@@ -82,9 +82,9 @@ function \code{systemfit}.
 This function estimates the system of equations by applying
 the formulas in sections~\ref{sec:Estimation-ols-wls-sur}
 and~\ref{sec:Estimation-2sls-w2sls-3sls}
-or --- if parameter restrictions are imposed ---
+or --- if restrictions on the coefficients are imposed ---
 by the formulas in section~\ref{sec:Restrictions}.
-If the parameter restrictions are specified symbolically,
+If the restrictions on the coefficients are specified symbolically,
 function \code{makeHypothesis} of the \pkg{car} package \citep{r-car-1.2-1, fox02a}
 is used to create the restriction matrix.
 
@@ -95,7 +95,7 @@ a (classical) °Seemingly Unrelated Regression° analysis with panel-like data,
 it calls the hidden internal function \code{.systemfitPanel},
 which reshapes the data, creates the formulas to be estimated,
 and --- if requested --- specifies restrictions
-to ensure that the parameters of all individuals are equal.
+to ensure that the coefficients of all individuals are equal.
 
 The \code{systemfit} function returns an object of class \code{systemfit}
 that contains many elements users might be interested in.
@@ -200,7 +200,7 @@ but equation~(\ref{eq:omegaInv}) with standard \proglang{R} matrices.
 This section explains the implementation of the statistical tests described in
 sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
 The method \code{linear.hypothesis.systemfit}
-can be used to test linear restrictions on the estimated parameters
+can be used to test linear restrictions on the estimated coefficients
 by an $F$ test or a Wald/$\chi^2$ test.
 Internally, the $F$ statistic is computed by the hidden function
 \code{.ftest.systemfit}

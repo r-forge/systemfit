@@ -3,13 +3,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In many empirical applications,
-it is desirable to impose restrictions on the parameters
+it is desirable to impose restrictions on the coefficients
 that are derived from the underlying theoretical model.%
 \footnote{%
 For instance in econometric demand and production analysis,
 it is common to impose (and test) homogeneity and symmetry properties.
 }
-There are two methods to impose linear parameter restrictions.
+There are two methods to impose linear restrictions on the coefficients.
 First, a matrix $M$ can be specified that
 \begin{equation}
    \beta = M \cdot \beta^M \label{eq:T-restr} ,
@@ -22,7 +22,7 @@ the number of columns equal to the number of restricted coefficients
 $M$ can be used to map each unrestricted coefficient to one or more
 restricted coefficients.
 
-The second method to impose linear parameter restrictions
+The second method to impose linear restrictions on the coefficients
 can be formulated by
 \begin{equation}
    R \beta^R = q ,
@@ -53,7 +53,7 @@ while the first does not.
 
 These two methods can be combined.
 In this case, the restrictions imposed using the latter method are
-imposed on the linear independent parameters
+imposed on the linear independent coefficients
 that are restricted by the first method, so that
 \begin{equation}
    R \beta^{MR} = q ,
@@ -74,10 +74,10 @@ so that
 Then, $X^M$ is substituted for $X$ and a standard estimation as described
 in the previous section is done
 (equations~\ref{eq:ols-wls-sur}--\ref{eq:3slsEViews}).
-This results in the linear independent parameter estimates $\bHat^M$ and
+This results in the linear independent coefficient estimates $\bHat^M$ and
 their covariance matrix.
-The original parameters can be obtained by equation (\ref{eq:T-restr})
-and the estimated covariance matrix of the original parameters
+The original coefficients can be obtained by equation (\ref{eq:T-restr})
+and the estimated covariance matrix of the original coefficients
 can be obtained by
 \begin{equation}
    \COVHat \left[ \bHat \right]
@@ -110,7 +110,7 @@ The OLS, WLS, and SUR estimators restricted by $R \beta^R = q$ can be obtained b
 \end{equation}
 where $\lambda$ is a vector of the Lagrangean multipliers of the restrictions
 and $\OHat$ is defined as in section~\ref{sec:Estimation-ols-wls-sur}.
-An estimator of the covariance matrix of the estimated parameters is
+An estimator of the covariance matrix of the estimated coefficients is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
@@ -145,7 +145,7 @@ restricted by $R \beta^R = q$ can be obtained by
    \label{eq:2sls-w2sls-3sls-r}
 \end{equation}
 where $\OHat$ is defined as in section~\ref{sec:Estimation-2sls-w2sls-3sls}.
-An estimator of the covariance matrix of the estimated parameters is
+An estimator of the covariance matrix of the estimated coefficients is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
@@ -279,13 +279,13 @@ where $\bHat^R_{2SLS}$ is the restricted 2SLS estimator calculated
 by equation (\ref{eq:2sls-w2sls-3sls-r}).
 \proglang{EViews} uses the standard formula of the restricted 3SLS
 estimator~(\ref{eq:cov-2sls-w2sls-3sls-r}) to calculate an estimator
-for the covariance matrix of the estimated parameters.
+for the covariance matrix of the estimated coefficients.
 
 
 If the same instrumental variables are used in all equations 
 ($H_1 = H_2 = \ldots = H_G$), 
-all the above mentioned approaches lead to identical parameter estimates
-and identical covariance matrices of the estimated parameters.
+all the above mentioned approaches lead to identical coefficient estimates
+and identical covariance matrices of the estimated coefficients.
 
 %%% Local Variables: 
 %%% mode: latex

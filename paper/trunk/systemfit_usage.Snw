@@ -86,7 +86,7 @@ and the estimation results are printed.
 The user can modify the default estimation method by providing
 additional optional arguments,
 e.g.\ to specify instrumental variables
-or to impose parameter restrictions.
+or to impose restrictions on the coefficients.
 All optional arguments are described in the following:
 
 
@@ -149,8 +149,8 @@ fitsur <- systemfit( eqSystem, method = "SUR", data = Kmenta )
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{Parameter restrictions}
-As outlined in section~\ref{sec:Restrictions}, parameter restrictions
+\subsubsection{Restrictions on the coefficients}
+As outlined in section~\ref{sec:Restrictions}, restrictions on the coefficients
 can be imposed in two ways.
 One way is to use the matrix $R$ and the vector $q$
 (see section~\ref{sec:Restrictions}).
@@ -196,14 +196,14 @@ The first line creates a $1 \times 7$ matrix of zeros,
 where 1 is the number of restrictions and
 7 is the number of unrestricted coefficients.
 The following two lines specify this matrix in a way
-that the multiplication with the parameter vector
+that the multiplication with the coefficient vector
 results in $ \beta_2 + \beta_6 $.
 The fourth line creates a vector with a single element
 that contains the right hand side of the restriction, i.e.\ zero.
 Finally the model is estimated with restriction
 $\beta_2 + \beta_6 = 0$ imposed.
 
-The other way to impose parameter restrictions is to modify the regressor matrix
+The other way to impose restrictions on the coefficients is to modify the regressor matrix
 by post-multiplying it with a matrix, say $M$
 (see section~\ref{sec:Restrictions}).
 This kind of restriction can be specified
@@ -245,7 +245,7 @@ that can be calculated from a first-step OLS or 2SLS estimation
 This procedure can be iterated and at each iteration the covariance
 matrix is calculated from the previous step estimation.
 This iteration is repeated until the maximum number of iterations
-is reached or the parameter estimates have converged.
+is reached or the coefficient estimates have converged.
 The maximum number of iterations is specified by argument \code{maxiter}.
 Its default value is one, which means no iteration.
 The convergence criterion is
@@ -306,7 +306,7 @@ It must be either \code{TRUE} (subtract the means) or
 \code{FALSE} (take the unmodified residuals).
 The default value of \code{centerResiduals} is \code{FALSE}.
 
-Moreover, if the user imposes any restrictions on the parameters,
+Moreover, if the user imposes any restrictions on the coefficients,
 she can use argument \code{residCovRestricted} to specify
 whether the residual covariance matrix
 for a WLS, SUR, W2SLS, or 3SLS estimation
@@ -377,7 +377,7 @@ $\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) or~(\ref{eq:cov-2sls-w2sls-3sls})
 is set to $\sHat^2 I_{G \cdot T}$.
 In case of an unrestricted regression,
 argument \code{single.eq.sigma} is \code{TRUE} by default.
-However, if parameter restrictions are imposed,
+However, if restrictions on the coefficients are imposed,
 this argument is \code{FALSE} by default.
 
 
@@ -504,7 +504,7 @@ the $R^2$ value of the whole system,
 and McElroy's $R^2$ value.
 Finally, the estimation results of each equation are reported:
 the formula of the estimated equation,
-the estimated parameters, their standard errors, $t$ values, $P$ values
+the estimated coefficients, their standard errors, $t$ values, $P$ values
 and codes indicating their statistical significance,
 as well as some other statistics like
 the standard error of the residuals and
@@ -517,15 +517,15 @@ the $R^2$ value of the equation.
 Function \code{summary.systemfit} has an optional argument \code{probdfsys}.
 It selects the approach
 that is applied by \code{systemfit}
-to determine the degrees of freedom of $t$ tests of the estimated parameters
+to determine the degrees of freedom of $t$ tests of the estimated coefficients
 (section~\ref{sec:degreesOfFreedom}).
 If argument \code{probdfsys} is \code{TRUE},
 the degrees of freedom of the whole system are taken.
 In contrast, if \code{probdfsys} is \code{FALSE},
 the degrees of freedom of the single equation are taken.
-If any parameter restrictions are imposed in the estimation,
+If any restrictions on the coefficients are imposed in the estimation,
 argument \code{probdfsys} is \code{FALSE} by default.
-However, if parameter restrictions were imposed,
+However, if restrictions on the coefficient were imposed,
 the default value of \code{probdfsys} is \code{TRUE}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

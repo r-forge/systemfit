@@ -261,7 +261,7 @@ return exactly the same results as published in
 
 Now, we apply an F-test to check whether the slope prameters are equal
 for General Electric and Westinghouse (pages~313--315).
-Then we re-estimate the model under these parameter restrictions.
+Then we re-estimate the model under these restrictions on the coefficients.
 
 F-test (page 313--315)%
 \footnote{%
@@ -285,7 +285,7 @@ round( coef( summary( theilSurRestr ) ), digits = 3 )
 The method \code{linear.hypothesis} returns the same value of the F-statistic
 as published in \citet[p.~315]{theil71}.
 Hence, we arrive at the the same conclusion:
-we accept the null hypothesis (parameter restrictions are true)
+we accept the null hypothesis (restrictions on the coefficients are true)
 at the 5~percent significance level.
 
 Also the results of the restricted SUR estimation are identical

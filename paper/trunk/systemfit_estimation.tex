@@ -43,10 +43,10 @@ where $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
 $\sHat_{ii} = \sHat_i^2$ is the estimated variance
 of the disturbance term in the $i$th equation.
 
-If no cross-equation parameter restrictions are imposed, the simultaneous 
-OLS estimation of the system leads to the same parameter estimates 
+If no cross-equation restrictions on the coefficients are imposed, the simultaneous
+OLS estimation of the system leads to the same estimated coefficients
 as an equation-wise OLS estimation.
-The covariance matrix of the parameters from an equation-wise
+The covariance matrix of the coefficients from an equation-wise
 OLS estimation is equal to the covariance matrix obtained
 by equation~(\ref{eq:cov-ols-wls-sur})
 with $\OHat$ equal to $\SHat \otimes I_T$.
@@ -75,14 +75,14 @@ that are calculated from the residuals of a first-step OLS estimation
 
 The WLS estimator is (asymptotically) efficient only
 if the disturbance terms are not contemporaneously correlated.
-If no cross-equation parameter restrictions are imposed,
-the parameter estimates are equal to OLS estimates.
+If no cross-equation restrictions on the coefficients are imposed,
+the estimated coefficients are equal to OLS estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Seemingly unrelated regression (SUR)}
 
 If the disturbances are contemporaneously correlated, a Generalized
-Least Squares (GLS) estimation leads to efficient parameter estimates.
+Least Squares (GLS) estimation leads to an efficient estimator for the coefficients.
 In this case, the GLS estimator is generally called °Seemingly Unrelated Regression°
 (SUR) estimator \citep{zellner62}.
 However, the true covariance matrix of the disturbance terms
@@ -137,7 +137,7 @@ to obtain unbiased 2SLS, W2SLS, or 3SLS estimates of $\beta$ by
    = \left( \XHat' \OHat^{-1} \XHat \right)^{-1} \XHat' \OHat^{-1} y .
    \label{eq:2sls-w2sls-3sls}
 \end{equation}
-An estimator of the covariance matrix of the estimated parameters
+An estimator of the covariance matrix of the estimated coefficients
 can be obtained from equation~(\ref{eq:cov-ols-wls-sur}) analogously.
 Hence, we get
 \begin{equation}
@@ -174,8 +174,8 @@ and~(\ref{eq:cov-2sls-w2sls-3sls})
 is $\SHat \otimes I_T$,
 where $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
 $\sHat_{ii} = \sHat_i^2$.
-If no cross-equation parameter restrictions are imposed,
-the parameter estimates are equal to the 2SLS estimates.
+If no cross-equation restrictions on the coefficients are imposed,
+the estimated coefficients are equal to 2SLS estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Three-stage least squares (3SLS)}
@@ -207,7 +207,7 @@ One of these approaches based on instrumental variable estimation
    \right)^{-1} \XHat' \OHat^{-1} y .
    \label{eq:3slsIv}
 \end{equation}
-An estimator of the covariance matrix of the estimated 3SLS-IV parameters is
+An estimator of the covariance matrix of the estimated 3SLS-IV coefficients is
 \begin{equation}
    \COVHat \left[ \bHat_{3SLS-IV} \right] = \left( \XHat' \OHat^{-1}
    X \right)^{-1} .
@@ -229,7 +229,7 @@ with
       0 & 0 & \cdots & H_G
    \end{array}\right] .
 \end{equation}
-An estimator of the covariance matrix of the estimated 3SLS-GMM parameters is
+An estimator of the covariance matrix of the estimated 3SLS-GMM coefficients is
 \begin{equation}
    \COVHat \left[ \bHat_{3SLS-GMM} \right] =
    \left( X' H \left( H' \OHat H \right)^{-1} H' X \right)^{-1} .
@@ -241,7 +241,7 @@ A fourth approach developed by \cite{schmidt90} himself is
    H \left( H' H \right)^{-1} H' y .
    \label{eq:3slsSchmidt}
 \end{equation}
-An estimator of the covariance matrix of these estimated parameters is
+An estimator of the covariance matrix of these estimated coefficients is
 \begin{align}
    \COVHat \left[ \bHat_{3SLS-Schmidt} \right] = &
    \left( \XHat' \OHat^{-1}  \XHat \right)^{-1}
@@ -260,12 +260,12 @@ The econometrics software \proglang{EViews} uses
 where $\bHat_{2SLS}$ is the two-stage least squares estimator
 as defined above.
 \proglang{EViews} uses the standard 3SLS formula~(\ref{eq:cov-2sls-w2sls-3sls}) to
-calculate an estimator of the covariance matrix of the estimated parameters.
+calculate an estimator of the covariance matrix of the estimated coefficients.
 
 
 If the same instrumental variables are used in all equations 
 ($H_1 = H_2 = \ldots = H_G$), 
-all the above mentioned approaches lead to identical parameter estimates.
+all the above mentioned approaches lead to identical estimates.
 However, if this is not the case, the results depend on the 
 method used \citep{schmidt90}.
 The only reason to use different instruments for different equations
