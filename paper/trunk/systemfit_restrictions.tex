@@ -1,15 +1,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Imposing linear restrictions}\label{sec:Restrictions}
+\subsection{Estimation under linear restrictions on the coefficients}
+\label{sec:Restrictions}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In many empirical applications,
-it is desirable to impose restrictions on the coefficients
-that are derived from the underlying theoretical model.%
-\footnote{%
-For instance in econometric demand and production analysis,
-it is common to impose (and test) homogeneity and symmetry properties.
-}
-There are two methods to impose linear restrictions on the coefficients.
+it is desirable to estimate the coefficients under linear restrictions.
+For instance, in econometric demand and production analysis,
+it is common to estimate the coefficients
+under homogeneity and symmetry restrictions
+that are derived from the underlying theoretical model.
+
+There are two different methods to estimate the coefficients
+under linear restrictions.
 First, a matrix $M$ can be specified that
 \begin{equation}
    \beta = M \cdot \beta^M \label{eq:T-restr} ,
@@ -22,28 +24,28 @@ the number of columns equal to the number of restricted coefficients
 $M$ can be used to map each unrestricted coefficient to one or more
 restricted coefficients.
 
-The second method to impose linear restrictions on the coefficients
-can be formulated by
+The second method to estimate the coefficients under linear restrictions
+constrains the coefficients by
 \begin{equation}
    R \beta^R = q ,
    \label{eq:restr-R}
 \end{equation}
 where $\beta^R$ is the vector of the restricted coefficients,
 and $R$ and $q$ are a matrix and vector, respectively,
-to impose the restrictions \citep[see][p.\ 100]{greene03}.
+that specify the restrictions \citep[see][p.~100]{greene03}.
 Each linear independent restriction is represented by one row of $R$
 and the corresponding element of~$q$.
 
 The first method is less flexible than the second%
 \footnote{
-While restrictions like $\beta_1 = 2 \beta_2$ can be imposed by
+While restrictions like $\beta_1 = 2 \beta_2$ can be specified by
 both methods,
-restrictions like $\beta_1 + \beta_2 = 4$ can be imposed only
+restrictions like $\beta_1 + \beta_2 = 4$ can be specified only
 by the second method.
 }, 
-but is preferable if equality constraints for coefficients
-across many equations of the system are imposed. 
-Of course, these restrictions can be also imposed using
+but is preferable if the coefficients are estimated
+under many equality constraints across different equations of the system.
+Of course, these restrictions can be also specified using
 the latter method.
 However, while the latter method increases the dimension of the 
 matrices to be inverted during estimation, the first reduces it. 
@@ -52,7 +54,7 @@ Thus, in some cases the latter way leads to estimation problems
 while the first does not.
 
 These two methods can be combined.
-In this case, the restrictions imposed using the latter method are
+In this case, the restrictions specified using the latter method are
 imposed on the linear independent coefficients
 that are restricted by the first method, so that
 \begin{equation}
@@ -64,7 +66,7 @@ where $\beta^{MR}$ is the vector of the restricted $\beta^M$ coefficients.
 \subsubsection{Calculation of restricted estimators}
 
 If the first method (equation~\ref{eq:T-restr}) is chosen
-to impose these restrictions,
+to estimate the coefficients under these restrictions,
 the matrix of regressors $X$ is (post-)\hspace{0pt}multiplied
 by the $M$ matrix,
 so that
@@ -84,8 +86,8 @@ can be obtained by
    = M \cdot \COVHat \left[ \bHat^M \right] \cdot M' .
 \end{equation}
 
-The implementation of the second method to impose linear restrictions
-(equation~\ref{eq:restr-R})
+The implementation of the second method to estimate the coefficients
+under linear restrictions (equation~\ref{eq:restr-R})
 is described for each estimation method in the following sections.
 
 

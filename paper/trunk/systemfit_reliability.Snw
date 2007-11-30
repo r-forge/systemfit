@@ -265,7 +265,7 @@ Then we re-estimate the model under these restrictions on the coefficients.
 
 F-test (page 313--315)%
 \footnote{%
-The same restriction can be imposed also symbolically by
+The same restriction can be specified also symbolically by
 \code{RMatrix <- c( "General.Electric\_value = Westinghouse\_value",
 "General.Electric\_capital = Westinghouse\_capital" )}
 }

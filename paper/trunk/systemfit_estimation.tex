@@ -43,7 +43,8 @@ where $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
 $\sHat_{ii} = \sHat_i^2$ is the estimated variance
 of the disturbance term in the $i$th equation.
 
-If no cross-equation restrictions on the coefficients are imposed, the simultaneous
+If the estimated coefficients are not constrained by cross-equation restrictions,
+the simultaneous
 OLS estimation of the system leads to the same estimated coefficients
 as an equation-wise OLS estimation.
 The covariance matrix of the coefficients from an equation-wise
@@ -75,8 +76,8 @@ that are calculated from the residuals of a first-step OLS estimation
 
 The WLS estimator is (asymptotically) efficient only
 if the disturbance terms are not contemporaneously correlated.
-If no cross-equation restrictions on the coefficients are imposed,
-the estimated coefficients are equal to OLS estimates.
+If the estimated coefficients are not constrained by cross-equation restrictions,
+they are equal to OLS estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Seemingly unrelated regression (SUR)}
@@ -174,8 +175,8 @@ and~(\ref{eq:cov-2sls-w2sls-3sls})
 is $\SHat \otimes I_T$,
 where $\sHat_{ij} = 0 \; \forall \; i \neq j$ and
 $\sHat_{ii} = \sHat_i^2$.
-If no cross-equation restrictions on the coefficients are imposed,
-the estimated coefficients are equal to 2SLS estimates.
+If the estimated coefficients are not constrained by cross-equation restrictions,
+they are equal to 2SLS estimates.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Three-stage least squares (3SLS)}

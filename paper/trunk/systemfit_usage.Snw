@@ -86,7 +86,7 @@ and the estimation results are printed.
 The user can modify the default estimation method by providing
 additional optional arguments,
 e.g.\ to specify instrumental variables
-or to impose restrictions on the coefficients.
+or restrictions on the coefficients.
 All optional arguments are described in the following:
 
 
@@ -151,7 +151,7 @@ fitsur <- systemfit( eqSystem, method = "SUR", data = Kmenta )
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Restrictions on the coefficients}
 As outlined in section~\ref{sec:Restrictions}, restrictions on the coefficients
-can be imposed in two ways.
+can be specified in two ways.
 One way is to use the matrix $R$ and the vector $q$
 (see section~\ref{sec:Restrictions}).
 These restrictions can be specified symbolically
@@ -200,10 +200,10 @@ that the multiplication with the coefficient vector
 results in $ \beta_2 + \beta_6 $.
 The fourth line creates a vector with a single element
 that contains the right hand side of the restriction, i.e.\ zero.
-Finally the model is estimated with restriction
-$\beta_2 + \beta_6 = 0$ imposed.
+Finally the coefficients are estimated under the restriction
+$\beta_2 + \beta_6 = 0$.
 
-The other way to impose restrictions on the coefficients is to modify the regressor matrix
+The other way to specify restrictions on the coefficients is to modify the regressor matrix
 by post-multiplying it with a matrix, say $M$
 (see section~\ref{sec:Restrictions}).
 This kind of restriction can be specified
@@ -225,8 +225,8 @@ where 7 is the number of unrestricted coefficients and
 6 is the number of restricted coefficients.
 The following three lines specify the matrix $M$ (\code{modRegMat})
 as described before.
-Finally the model is estimated with restriction
-$\beta^M_2 = \beta_2 = - \beta_6$ imposed.
+Finally the coefficients are estimated under the restriction
+$\beta^M_2 = \beta_2 = - \beta_6$.
 
 Of course, the estimation results do not depend on the method
 that was used to specify this restriction:
@@ -306,8 +306,8 @@ It must be either \code{TRUE} (subtract the means) or
 \code{FALSE} (take the unmodified residuals).
 The default value of \code{centerResiduals} is \code{FALSE}.
 
-Moreover, if the user imposes any restrictions on the coefficients,
-she can use argument \code{residCovRestricted} to specify
+Moreover, if the coefficients are estimated under any restrictions,
+the user can use argument \code{residCovRestricted} to specify
 whether the residual covariance matrix
 for a WLS, SUR, W2SLS, or 3SLS estimation
 should be obtained from a restricted or from an unrestricted
@@ -377,7 +377,7 @@ $\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) or~(\ref{eq:cov-2sls-w2sls-3sls})
 is set to $\sHat^2 I_{G \cdot T}$.
 In case of an unrestricted regression,
 argument \code{single.eq.sigma} is \code{TRUE} by default.
-However, if restrictions on the coefficients are imposed,
+However, if the coefficients are estimated under any restrictions,
 this argument is \code{FALSE} by default.
 
 
@@ -523,10 +523,10 @@ If argument \code{probdfsys} is \code{TRUE},
 the degrees of freedom of the whole system are taken.
 In contrast, if \code{probdfsys} is \code{FALSE},
 the degrees of freedom of the single equation are taken.
-If any restrictions on the coefficients are imposed in the estimation,
-argument \code{probdfsys} is \code{FALSE} by default.
-However, if restrictions on the coefficient were imposed,
-the default value of \code{probdfsys} is \code{TRUE}.
+If the coefficients are estimated under any restrictions,
+argument \code{probdfsys} is \code{TRUE} by default.
+However, if no restrictions on the coefficient are specified,
+the default value of \code{probdfsys} is \code{FALSE}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Reduce amount of printed output}

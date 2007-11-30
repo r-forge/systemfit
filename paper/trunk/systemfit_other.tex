@@ -94,8 +94,8 @@ a (second-step) residual covariance matrix.
 Finally, in the third step,
 the second-step residual covariance matrix is used
 to estimate the model by SUR or 3SLS.
-If no cross-equation restrictions are imposed,
-the coefficient estimates of OLS and WLS as well as 2SLS and W2SLS are identical.
+If the estimated coefficients are not constrained by cross-equation restrictions,
+OLS and WLS estimates as well as 2SLS and W2SLS estimates are identical.
 Hence, in this case both approaches generate the same results.
 
 It is also possible to iterate WLS, SUR, W2SLS and 3SLS estimations.
@@ -117,7 +117,7 @@ by subtracting the means from the residuals
 and substituting $\uHat_i - \overline{ \uHat }_i$
 for $\uHat_i$ in (\ref{eq:rcovNoDfCor}--\ref{eq:rcovTheil}).
 
-If any restrictions are imposed on the coefficients,
+If the coefficients are estimated under any restrictions,
 the residual covariance matrix
 for a WLS, SUR, W2SLS, or 3SLS estimation
 can be obtained either from a restricted or from an unrestricted
