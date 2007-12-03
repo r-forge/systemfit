@@ -5,10 +5,84 @@
 The source code of the \pkg{systemfit} package is publicly available
 for download from °CRAN° (The Comprehensive R Archive Network,
 \url{http://cran.r-project.org/src/contrib/Descriptions/systemfit.html}).
-The most important function in this package
-is called \code{systemfit}.
-It can be used to estimate systems of linear equations
+The basic functionality of this package is provided by the
+function \code{systemfit}.
+Moreover, this package provides
+tools for statistical tests,
+functions (methods) to show, extract or calculate results,
+some convenience functions,
+and internal helper functions.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection[Basic function systemfit]{The basic function \code{systemfit}}
+
+The \code{systemfit} function estimates systems of linear equations
 by different estimation methods.
+Where possible,
+the user interface and the returned object of this function
+follow the function \code{lm}
+--- the basic tool for linear regressions in \proglang{R} ---
+to make the usage of \code{systemfit} as easy as possible
+for \proglang{R} users.
+
+The econometric estimation is done by applying
+the formulas in sections~\ref{sec:Estimation-ols-wls-sur}
+and~\ref{sec:Estimation-2sls-w2sls-3sls}
+or --- if the coefficients are estimate under linear restrictions ---
+by the formulas in section~\ref{sec:Restrictions}.
+If the restrictions on the coefficients are specified symbolically,
+function \code{makeHypothesis} of the \pkg{car} package \citep{r-car-1.2-1, fox02a}
+is used to create the restriction matrix.
+
+The \code{systemfit} function returns a list of class \code{systemfit}
+that contains the results that belong to the entire system of equations.
+One special element of this list is called \code{eq},
+which is a list that contains one object for each estimated equation.
+These objects are lists of class \code{systemfit.equation}
+and contain the results that belong only to the regarding equation.
+A complete description is available in the documentation of this function
+that is included in the package.
+A comparison of the elements returned by \code{lm} and by \code{systemfit}
+is available in appendix~\ref{sec:returned-object}.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Statistical tests}
+
+The functions \codeDD{linear}{hypothesis}{systemfit},
+\codeD{lrtest}{systemfit}, and \codeD{hausman}{systemfit}
+apply the statistical tests described in
+sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
+
+The method \code{linear.hypothesis.systemfit}
+can be used to test linear restrictions on the estimated coefficients
+by an $F$ test or a Wald/$\chi^2$ test.
+Internally, the $F$ statistic is computed by the hidden function
+\code{.ftest.systemfit}
+and the Wald/$\chi^2$ statistic is computed by the method
+\code{linear.hypothesis.default} of the \pkg{car} package
+\citep{r-car-1.2-1, fox02a}.
+The method \code{lrtest.systemfit} is a wrapper function
+to \code{lrtest.default} of the \pkg{lmtest} package
+\citep{r-lmtest},
+which computes the Likelihood-ratio (LR) test statistic.
+All these functions return an object of class \code{anova}
+that contains --- amongst others ---
+the empirical test statistic, the degrees of freedom,
+and the corresponding $P$ value.
+
+The function \code{hausman.systemfit}
+tests the consistency of the 3SLS estimator.
+It returns an object of class \code{htest},
+which contains --- amongst others ---
+the empirical test statistic,
+the degrees of freedom, and the $P$ value.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Other methods and functions}
+
 Furthermore, this package provides functions (methods)
 to print the results
 (\codeD{print}{systemfit}, \codeDD{print}{systemfit}{equation}),
@@ -55,16 +129,14 @@ because the default method of \code{df.residual}
 works for these objects.
 }
 
-The functions \codeDD{linear}{hypothesis}{systemfit},
-\codeD{lrtest}{systemfit}, and \codeD{hausman}{systemfit},
-test hypotheses;
+The convenience function
 \code{createSystemfitModel} creates a model for \code{systemfit}
 by random numbers;
 \codeD{systemfit}{control} sets suitable default values
 for the technical control parameters for \code{systemfit}.
 
 Finally, the package includes some internal (hidden) helper functions:
-\codeD{.prepareData}{systemfit}, \code{.systemfitPanel},
+\codeD{.prepareData}{systemfit},
 \code{.stackMatList}, and \code{.prepareWmatrix}
 for preparing the data matrices;
 \code{.calcXtOmegaInv} and \code{.calcGLS}
@@ -73,37 +145,12 @@ for calculating the GLS estimator;
 for calculating the (co)variances of the residuals;
 and \codeD{.ftest}{systemfit}
 for calculating the $F$ statistic.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Basic function systemfit]{The basic function \code{systemfit}}
-The basic functionality of this package is provided by the
-function \code{systemfit}.
-This function estimates the system of equations by applying
-the formulas in sections~\ref{sec:Estimation-ols-wls-sur}
-and~\ref{sec:Estimation-2sls-w2sls-3sls}
-or --- if the coefficients are estimate under linear restrictions ---
-by the formulas in section~\ref{sec:Restrictions}.
-If the restrictions on the coefficients are specified symbolically,
-function \code{makeHypothesis} of the \pkg{car} package \citep{r-car-1.2-1, fox02a}
-is used to create the restriction matrix.
-
-\code{systemfit} utilizes most of the internal helper functions
-described above.
-For instance, if it is applied to
+If \code{systemfit} is applied to
 a (classical) °Seemingly Unrelated Regression° analysis with panel-like data,
 it calls the hidden internal function \code{.systemfitPanel},
 which reshapes the data, creates the formulas to be estimated,
 and --- if requested --- specifies restrictions
 to ensure that the coefficients of all individuals are equal.
-
-The \code{systemfit} function returns an object of class \code{systemfit}
-that contains many elements users might be interested in.
-A complete description is available in the documentation of this function
-that is included in the package.
-A comparison with the elements returned by \code{lm}
---- the basic tool for linear regressions in \proglang{R} ---
-is available in appendix~\ref{sec:returned-object}.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,35 +240,6 @@ it might matter in some cases
 such as iterated estimations or Monte Carlo studies.
 Therefore, the user can opt for not using the \pkg{Matrix} package,
 but equation~(\ref{eq:omegaInv}) with standard \proglang{R} matrices.
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Statistical tests}
-This section explains the implementation of the statistical tests described in
-sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
-The method \code{linear.hypothesis.systemfit}
-can be used to test linear restrictions on the estimated coefficients
-by an $F$ test or a Wald/$\chi^2$ test.
-Internally, the $F$ statistic is computed by the hidden function
-\code{.ftest.systemfit}
-and the Wald/$\chi^2$ statistic is computed by the method
-\code{linear.hypothesis.default} of the \pkg{car} package
-\citep{r-car-1.2-1, fox02a}.
-The method \code{lrtest.systemfit} is a wrapper function
-to \code{lrtest.default} of the \pkg{lmtest} package
-\citep{r-lmtest},
-which computes the Likelihood-ratio (LR) test statistic.
-All these functions return an object of class \code{anova}
-that contains --- amongst others ---
-the empirical test statistic, the degrees of freedom,
-and the corresponding $P$ value.
-
-The function \code{hausman.systemfit}
-tests the consistency of the 3SLS estimator.
-It returns an object of class \code{htest},
-which contains --- amongst others ---
-the empirical test statistic,
-the degrees of freedom, and the $P$ value.
 
 
 \subsection[Overlap with other functions and packages in R]
