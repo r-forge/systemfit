@@ -148,7 +148,7 @@ systemfit( formula, method = "OLS",
   \item{modelMatrix*}{if requested, the model matrix of the ith equation.}
   \item{instMatrix*}{if requested, the matrix of instrumental variables
       of the ith equation (only 2SLS and 3SLS).}
-  \item{modelFrame*}{if requested (the default), the model frame of the ith equation.}
+  \item{model*}{if requested (the default), the model frame of the ith equation.}
   \item{fitted.values*}{vector of fitted values of the ith equation.}
   \item{residuals*}{vector of residuals of the ith equation.}
 }

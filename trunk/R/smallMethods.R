@@ -193,8 +193,8 @@ model.frame.systemfit <- function( formula, ... ){
 
 ## return model frame of a single equation
 model.frame.systemfit.equation <- function( formula, ... ){
-   if( !is.null( formula$modelFrame ) ) {
-      result <- formula$modelFrame
+   if( !is.null( formula$model ) ) {
+      result <- formula$model
    } else {
       stop( "returning model frame not possible. Please re-estimate",
          " the system with control variable 'model'",

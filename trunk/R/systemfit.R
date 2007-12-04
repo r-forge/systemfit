@@ -734,8 +734,8 @@ systemfit <- function(  formula,
       rownames( results$eq[[ i ]]$modelMatrix ) <- obsNamesEq[[ i ]]
     }
     if( control$model ){
-      results$eq[[ i ]]$modelFrame <- evalModelFrameEq[[ i ]] # model frame of this equation
-      rownames( results$eq[[ i ]]$modelFrame ) <- obsNamesEq[[ i ]]
+      results$eq[[ i ]]$model <- evalModelFrameEq[[ i ]] # model frame of this equation
+      rownames( results$eq[[ i ]]$model ) <- obsNamesEq[[ i ]]
     }
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
       results$eq[[ i ]]$inst         <- inst[[i]]
