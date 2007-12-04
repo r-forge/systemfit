@@ -83,45 +83,38 @@ the degrees of freedom, and the $P$ value.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Other methods and functions}
 
-Furthermore, this package provides functions (methods)
-to print the results
-(\codeD{print}{systemfit}, \codeDD{print}{systemfit}{equation}),
-to calculate and print summary results
-(\codeD{summary}{systemfit}, \codeDD{summary}{systemfit}{equation},
-\codeDD{print}{summary}{systemfit},
-\codeDDD{print}{summary}{systemfit}{equation}),
-to compute and print confidence intervals of the coefficients
-(\codeD{confint}{systemfit}, \codeDD{confint}{systemfit}{equation},
-\code{print.confint.systemfit}),
-to calculate predicted values
-(\codeD{predict}{systemfit}, \codeDD{predict}{systemfit}{equation}),
-to obtain the correlations between the predictions of two equations
-(\codeD{correlation}{systemfit}),
-and to compute the ratios of the standard errors of the predictions
-of two models
-(\codeD{se.ratio}{systemfit}).
-
-Moreover, there are several functions to extract
-the estimated coefficients
-(\codeD{coef}{systemfit}, \codeDD{coef}{systemfit}{equation},
-\codeDD{coef}{summary}{systemfit},
-\codeDDD{coef}{summary}{systemfit}{equation}),
-their covariance matrix
-(\codeD{vcov}{systemfit}, \codeDD{vcov}{systemfit}{equation}),
-the fitted values
-(\codeD{fitted}{systemfit}, \codeDD{fitted}{systemfit}{equation}),
-the residuals
-(\codeD{residuals}{systemfit}, \codeDD{residuals}{systemfit}{equation}),
-the formula(s)
-(\codeD{formula}{systemfit}, \codeDD{formula}{systemfit}{equation}),
-the model terms
-(\codeD{terms}{systemfit}, \codeDD{terms}{systemfit}{equation}),
-the model frame
-(\codeDD{model}{frame}{systemfit}, \codeDDD{model}{frame}{systemfit}{equation}),
-the model matrix
-(\codeDD{model}{matrix}{systemfit},
-\codeDDD{model}{matrix}{systemfit}{equation}),
-and the log likelihood value (\codeD{logLik}{systemfit}).%
+The \pkg{systemfit} package provides several methods
+for objects both of classes \code{systemfit}
+and \codeD{systemfit}{equation}:
+\code{print} methods print the estimation results,
+\code{summary} methods calculate summary results,
+\code{confint} methods compute confidence intervals for the coefficients,
+\code{predict} methods calculate predicted values,
+\code{coef} methods extract the estimated coefficients,
+\code{vcov} methods extract their covariance matrix,
+\code{fitted} methods extract the fitted values,
+\code{residuals} methods extract the residuals,
+\code{formula} methods extract the formula(s),
+\code{terms} methods extract the model terms,
+\codeD{model}{frame} methods extract the model frame,
+and \codeD{model}{matrix} methods extract the model matrix.
+Some methods can be applied to objects of class \code{systemfit} only:
+a \code{correlation} method calculates
+the correlations between the predictions of two equations,
+an \code{se.ratio} method computes the ratios of the standard errors
+of the predictions between two models,
+and a \code{logLik} method extracts the log likelihood value.
+The package provides \code{print} methods
+to print objects of classes
+\codeD{summary}{systemfit}, \codeDD{summary}{systemfit}{equation},
+and \codeD{confint}{systemfit}
+that are returned by the above mentioned \code{summary}
+and \code{confint} methods.
+There exist also two \code{coef} methods
+to extract the estimated coefficients,
+their standard errors, $t$ values, and $P$ values
+from objects of classes
+\codeD{summary}{systemfit} and \codeDD{summary}{systemfit}{equation}.%
 \footnote{%
 There does not exist a special method to extract
 the degrees of freedom of the residuals from \code{systemfit} objects,
