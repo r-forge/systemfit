@@ -139,7 +139,7 @@ for calculating the (co)variances of the residuals;
 and \codeD{.ftest}{systemfit}
 for calculating the $F$ statistic.
 If \code{systemfit} is applied to
-a (classical) °Seemingly Unrelated Regression° analysis with panel-like data,
+a (classical) °Seemingly Unrelated Regression° analysis with panel data,
 it calls the hidden internal function \code{.systemfitPanel},
 which reshapes the data, creates the formulas to be estimated,
 and --- if requested --- specifies restrictions

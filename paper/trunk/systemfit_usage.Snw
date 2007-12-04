@@ -7,7 +7,7 @@ First, we show the standard usage of \code{systemfit} by a simple example.
 Second, several options that can be specified by the user are presented.
 Then, the usage of \code{systemfit}
 for a (classical) °Seemingly Unrelated Regression° analysis
-with panel-like data is described.
+with panel data is described.
 Finally, we demonstrate how to apply some statistical tests.
 
 
@@ -417,11 +417,11 @@ i.e.\ these data objects are not returned.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Panel-like data}
+\subsection{Panel data}
 
 The \code{systemfit} function can also be used
 for a (classical) °Seemingly Unrelated Regression° analysis
-with panel-like data.
+with panel data.
 For this type of analysis,
 the data must be provided in an object of class \code{pdata.frame}
 (°panel data frame°),%
@@ -440,7 +440,7 @@ argument \code{formula} must be a single equation (object of class \code{formula
 This formula is estimated for all individuals.
 
 We demonstrate the application of \code{systemfit}
-to panel-like data
+to panel data
 using an example taken from \citet[p.~340]{greene03}
 that is based on \citet{grunfeld58}.
 We want to estimate a model for gross investment of 5 US firms
