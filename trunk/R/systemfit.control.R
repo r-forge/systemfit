@@ -9,7 +9,7 @@ systemfit.control <- function(
       single.eq.sigma = NULL,
       useMatrix = TRUE,
       solvetol = .Machine$double.eps,
-      returnModelFrame = TRUE,
+      model = TRUE,
       returnModelMatrix = FALSE,
       returnInstMatrix = FALSE,
       returnResponse = FALSE )
@@ -79,11 +79,11 @@ systemfit.control <- function(
    }
    result$residCovWeighted <- residCovWeighted
 
-   ## returnModelFrame
-   if( !is.logical( returnModelFrame ) || length( returnModelFrame ) != 1 ) {
-      stop( "control parameter 'returnModelFrame' must be logical" )
+   ## model (returnModelFrame)
+   if( !is.logical( model ) || length( model ) != 1 ) {
+      stop( "control parameter 'model' must be logical" )
    }
-   result$returnModelFrame <- returnModelFrame
+   result$model <- model
 
    ## returnModelMatrix
    if( !is.logical( returnModelMatrix ) || length( returnModelMatrix ) != 1 ) {
