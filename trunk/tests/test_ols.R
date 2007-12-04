@@ -53,7 +53,7 @@ print( summary( fitols1, useDfSys = TRUE ) )
 
 ## ****************  OLS (methodResidCov="noDfCor") ***********************
 fitols1r <- systemfit( system, "OLS", data = Kmenta,
-   methodResidCov = "noDfCor", returnModelMatrix = TRUE,
+   methodResidCov = "noDfCor", x = TRUE,
    useMatrix = useMatrix )
 print( summary( fitols1r ) )
 
@@ -65,13 +65,13 @@ print( summary( fitols1rs ) )
 
 ## ****************  OLS (methodResidCov="Theil" ) ***********************
 fitols1r <- systemfit( system, "OLS", data = Kmenta,
-   methodResidCov = "Theil", returnModelMatrix = TRUE,
+   methodResidCov = "Theil", x = TRUE,
    useMatrix = useMatrix )
 print( summary( fitols1r ) )
 
 ## ****************  OLS (methodResidCov="max") ***********************
 fitols1r <- systemfit( system, "OLS", data = Kmenta,
-   methodResidCov = "max", returnModelMatrix = TRUE,
+   methodResidCov = "max", x = TRUE,
    useMatrix = useMatrix )
 print( summary( fitols1r ) )
 
@@ -110,13 +110,13 @@ print( summary( fitols2r ) )
 ## ** OLS with cross-equation restriction (methodResidCov="noDfCor",single.eq.sigma=T) ***
 fitols2rs <- systemfit( system, "OLS", data = Kmenta,
    restrict.matrix = restrm, methodResidCov = "noDfCor",
-   returnModelMatrix = TRUE, useMatrix = useMatrix )
+   x = TRUE, useMatrix = useMatrix )
 print( summary( fitols2rs ) )
 
 ## *** OLS with cross-equation restriction via restrict.regMat ***
 ## *** OLS with cross-equation restriction via restrict.regMat (default) ***
 fitols3 <- systemfit( system, "OLS", data = Kmenta, restrict.regMat = tc,
-   returnModelMatrix = TRUE, useMatrix = useMatrix )
+   x = TRUE, useMatrix = useMatrix )
 print( summary( fitols3 ) )
 
 ## *** OLS with cross-equation restriction via restrict.regMat (single.eq.sigma=T) ***
@@ -151,7 +151,7 @@ all.equal( fitols4, fitols4Sym )
 
 ## ****** OLS with 2 cross-equation restrictions (single.eq.sigma=T) *******
 fitols4s <- systemfit( system, "OLS", data = Kmenta, restrict.matrix = restr2m,
-   restrict.rhs = restr2q, single.eq.sigma = TRUE, returnModelMatrix = TRUE,
+   restrict.rhs = restr2q, single.eq.sigma = TRUE, x = TRUE,
    useMatrix = useMatrix )
 print( summary( fitols4s ) )
 
@@ -185,7 +185,7 @@ all.equal( fitols5, fitols5Sym )
 ## ***** OLS with 2 cross-equation restrictions via R and restrict.regMat (single.eq.sigma=T) ****
 fitols5s <- systemfit( system, "OLS", data = Kmenta,restrict.matrix = restr3m,
    restrict.rhs = restr3q, restrict.regMat = tc, single.eq.sigma = T,
-   returnModelMatrix = TRUE, useMatrix = useMatrix )
+   x = TRUE, useMatrix = useMatrix )
 print( summary( fitols5s ) )
 
 ## ***** OLS with 2 cross-equation restrictions via R and restrict.regMat (useDfSys=F) ****
@@ -525,61 +525,61 @@ print( all.equal( mf2, model.frame( fitols5$eq[[ 2 ]] ) ) )
 
 
 ## **************** model matrix ************************
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fitols1r$eq[[ 1 ]]$modelMatrix ) )
 print( mm <- model.matrix( fitols1r ) )
 print( mm1 <- model.matrix( fitols1r$eq[[ 1 ]] ) )
 print( mm2 <- model.matrix( fitols1r$eq[[ 2 ]] ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fitols1rs ) ) )
 print( all.equal( mm1, model.matrix( fitols1rs$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols1rs$eq[[ 2 ]] ) ) )
 print( !is.null( fitols1rs$eq[[ 1 ]]$modelMatrix ) )
 
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fitols2rs$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitols2rs ) ) )
 print( all.equal( mm1, model.matrix( fitols2rs$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols2rs$eq[[ 2 ]] ) ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fitols2 ) ) )
 print( all.equal( mm1, model.matrix( fitols2$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols2$eq[[ 2 ]] ) ) )
 print( !is.null( fitols2$eq[[ 1 ]]$modelMatrix ) )
 
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fitols3$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitols3 ) ) )
 print( all.equal( mm1, model.matrix( fitols3$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols3$eq[[ 2 ]] ) ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fitols3r ) ) )
 print( all.equal( mm1, model.matrix( fitols3r$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols3r$eq[[ 2 ]] ) ) )
 print( !is.null( fitols3r$eq[[ 1 ]]$modelMatrix ) )
 
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fitols4s$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitols4s ) ) )
 print( all.equal( mm1, model.matrix( fitols4s$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols4s$eq[[ 2 ]] ) ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fitols4Sym ) ) )
 print( all.equal( mm1, model.matrix( fitols4Sym$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols4Sym$eq[[ 2 ]] ) ) )
 print( !is.null( fitols4Sym$eq[[ 1 ]]$modelMatrix ) )
 
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fitols5s$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fitols5s ) ) )
 print( all.equal( mm1, model.matrix( fitols5s$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols5s$eq[[ 2 ]] ) ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fitols5 ) ) )
 print( all.equal( mm1, model.matrix( fitols5$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols5$eq[[ 2 ]] ) ) )

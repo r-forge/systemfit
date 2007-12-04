@@ -58,7 +58,7 @@ for( i in seq( along = formulas ) ) {
    print( "********************* 3SLS with methodResidCov = Theil *****************" )
    fit3sls[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodResidCov = "Theil", method3sls = formulas[ i ],
-      returnModelMatrix = TRUE, useMatrix = useMatrix )
+      x = TRUE, useMatrix = useMatrix )
    print( summary( fit3sls[[ i ]]$e1c, useDfSys = TRUE ) )
 
    print( "*************** W3SLS with methodResidCov = Theil *****************" )
@@ -71,12 +71,12 @@ for( i in seq( along = formulas ) ) {
    print( "*************** 3SLS with restriction *****************" )
    fit3sls[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, restrict.matrix = restrm, method3sls = formulas[ i ],
-      returnModelMatrix = TRUE, useMatrix = useMatrix )
+      x = TRUE, useMatrix = useMatrix )
    print( summary( fit3sls[[ i ]]$e2 ) )
    # the same with symbolically specified restrictions
    fit3sls[[ i ]]$e2Sym <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, restrict.matrix = restrict, method3sls = formulas[ i ],
-      returnModelMatrix = TRUE, useMatrix = useMatrix )
+      x = TRUE, useMatrix = useMatrix )
    print( all.equal( fit3sls[[ i ]]$e2, fit3sls[[ i ]]$e2Sym ) )
 
    print( "************** 3SLS with restriction (EViews-like) *****************" )
@@ -101,7 +101,7 @@ for( i in seq( along = formulas ) ) {
    print( "*************** 3SLS with restriction via restrict.regMat (EViews-like) *******" )
    fit3sls[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodResidCov = "noDfCor", restrict.regMat = tc,
-      method3sls = formulas[ i ], returnModelMatrix = TRUE,
+      method3sls = formulas[ i ], x = TRUE,
       useMatrix = useMatrix )
    print( summary( fit3sls[[ i ]]$e3e, useDfSys = TRUE ) )
 
@@ -116,13 +116,13 @@ for( i in seq( along = formulas ) ) {
    print( "*************** 3SLS with 2 restrictions **********************" )
    fit3sls[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, restrict.matrix = restr2m, restrict.rhs = restr2q,
-      method3sls = formulas[ i ], returnModelMatrix = TRUE,
+      method3sls = formulas[ i ], x = TRUE,
       useMatrix = useMatrix )
    print( summary( fit3sls[[ i ]]$e4 ) )
    # the same with symbolically specified restrictions
    fit3sls[[ i ]]$e4Sym <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, restrict.matrix = restrict2, method3sls = formulas[ i ],
-      returnModelMatrix = TRUE, useMatrix = useMatrix )
+      x = TRUE, useMatrix = useMatrix )
    print( all.equal( fit3sls[[ i ]]$e4, fit3sls[[ i ]]$e4Sym ) )
 
    print( "*************** 3SLS with 2 restrictions (EViews-like) ************" )
@@ -155,7 +155,7 @@ for( i in seq( along = formulas ) ) {
    fit3sls[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, restrict.regMat = tc, methodResidCov = "noDfCor",
       restrict.matrix = restr3m, restrict.rhs = restr3q,
-      method3sls = formulas[ i ], returnModelMatrix = TRUE,
+      method3sls = formulas[ i ], x = TRUE,
       useMatrix = useMatrix )
    print( summary( fit3sls[[ i ]]$e5e, useDfSys = TRUE ) )
 
@@ -213,7 +213,7 @@ for( i in seq( along = formulas ) ) {
    print( "************** iterated 3SLS with methodResidCov = Theil **************" )
    fit3slsi[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodResidCov = "Theil", method3sls = formulas[ i ],
-      maxiter = 100, returnModelMatrix = TRUE, useMatrix = useMatrix )
+      maxiter = 100, x = TRUE, useMatrix = useMatrix )
    print( summary( fit3slsi[[ i ]]$e1c, useDfSys = TRUE ) )
 
    print( "**************** iterated W3SLS EViews-like ****************" )
@@ -226,7 +226,7 @@ for( i in seq( along = formulas ) ) {
    print( "******* iterated 3SLS with restriction *****************" )
    fit3slsi[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, restrict.matrix = restrm, method3sls = formulas[ i ],
-      maxiter = 100, returnModelMatrix = TRUE, useMatrix = useMatrix )
+      maxiter = 100, x = TRUE, useMatrix = useMatrix )
    print( summary( fit3slsi[[ i ]]$e2 ) )
 
    print( "********* iterated 3SLS with restriction (EViews-like) *********" )
@@ -252,21 +252,21 @@ for( i in seq( along = formulas ) ) {
    print( "********* iterated 3SLS with restriction via restrict.regMat (EViews-like) ***" )
    fit3slsi[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, methodResidCov = "noDfCor", restrict.regMat = tc,
-      method3sls = formulas[ i ], maxiter = 100, returnModelMatrix = TRUE,
+      method3sls = formulas[ i ], maxiter = 100, x = TRUE,
       useMatrix = useMatrix )
    print( summary( fit3slsi[[ i ]]$e3e, useDfSys = TRUE ) )
 
    print( "***** iterated W3SLS with restriction via restrict.regMat ********" )
    fit3slsi[[ i ]]$e3w <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, restrict.regMat = tc, method3sls = formulas[ i ], maxiter = 100,
-      residCovWeighted = TRUE, returnModelMatrix = TRUE, useMatrix = useMatrix )
+      residCovWeighted = TRUE, x = TRUE, useMatrix = useMatrix )
    print( summary( fit3slsi[[ i ]]$e3w ) )
 
 
    print( "******** iterated 3SLS with 2 restrictions *********************" )
    fit3slsi[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, restrict.matrix = restr2m, restrict.rhs = restr2q,
-      method3sls = formulas[ i ], maxiter = 100, returnModelMatrix = TRUE,
+      method3sls = formulas[ i ], maxiter = 100, x = TRUE,
       useMatrix = useMatrix )
    print( summary( fit3slsi[[ i ]]$e4 ) )
 
@@ -303,7 +303,7 @@ for( i in seq( along = formulas ) ) {
    fit3slsi[[ i ]]$e5w <- systemfit( system, "3SLS", data = Kmenta,
       inst = inst, restrict.regMat = tc, restrict.matrix = restr3m,
       restrict.rhs = restr3q, method3sls = formulas[ i ], maxiter = 100,
-      residCovWeighted = TRUE, returnModelMatrix = TRUE,
+      residCovWeighted = TRUE, x = TRUE,
       useMatrix = useMatrix )
    print( summary( fit3slsi[[ i ]]$e5w ) )
 }
@@ -330,7 +330,7 @@ for( i in seq( along = formulas ) ) {
    print( "**** 3SLS with different instruments and methodResidCov = Theil ***" )
    fit3slsd[[ i ]]$e1c <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, methodResidCov = "Theil", method3sls = formulas[ i ],
-      returnModelMatrix = TRUE, useMatrix = useMatrix )
+      x = TRUE, useMatrix = useMatrix )
    print( summary( fit3slsd[[ i ]]$e1c, useDfSys = TRUE ) )
 
    print( "************* W3SLS with different instruments **************" )
@@ -343,7 +343,7 @@ for( i in seq( along = formulas ) ) {
    print( "******* 3SLS with different instruments and restriction ********" )
    fit3slsd[[ i ]]$e2 <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, restrict.matrix = restrm, method3sls = formulas[ i ],
-      returnModelMatrix = TRUE, useMatrix = useMatrix )
+      x = TRUE, useMatrix = useMatrix )
    print( summary( fit3slsd[[ i ]]$e2 ) )
 
    print( "** 3SLS with different instruments and restriction (EViews-like) *" )
@@ -369,14 +369,14 @@ for( i in seq( along = formulas ) ) {
    print( "3SLS with different instruments with restriction via restrict.regMat (EViews-like)" )
    fit3slsd[[ i ]]$e3e <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, methodResidCov = "noDfCor", restrict.regMat = tc,
-      method3sls = formulas[ i ], returnModelMatrix = TRUE,
+      method3sls = formulas[ i ], x = TRUE,
       useMatrix = useMatrix )
    print( summary( fit3slsd[[ i ]]$e3e, useDfSys = TRUE ) )
 
    print( "** W3SLS with different instr. and restr. via restrict.regMat ****" )
    fit3slsd[[ i ]]$e3w <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, restrict.regMat = tc, method3sls = formulas[ i ],
-      residCovWeighted = TRUE, returnModelMatrix = TRUE,
+      residCovWeighted = TRUE, x = TRUE,
       useMatrix = useMatrix )
    print( summary( fit3slsd[[ i ]]$e3w ) )
 
@@ -384,7 +384,7 @@ for( i in seq( along = formulas ) ) {
    print( "****** 3SLS with different instruments and 2 restrictions *********" )
    fit3slsd[[ i ]]$e4 <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, restrict.matrix = restr2m, restrict.rhs = restr2q,
-      method3sls = formulas[ i ], returnModelMatrix = TRUE,
+      method3sls = formulas[ i ], x = TRUE,
       useMatrix = useMatrix )
    print( summary( fit3slsd[[ i ]]$e4 ) )
 
@@ -414,7 +414,7 @@ for( i in seq( along = formulas ) ) {
    fit3slsd[[ i ]]$e5e <- systemfit( system, "3SLS", data = Kmenta,
       inst = instlist, restrict.regMat = tc, methodResidCov = "noDfCor",
       restrict.matrix = restr3m, restrict.rhs = restr3q,
-      method3sls = formulas[ i ], returnModelMatrix = TRUE,
+      method3sls = formulas[ i ], x = TRUE,
       useMatrix = useMatrix )
    print( summary( fit3slsd[[ i ]]$e5e, useDfSys = TRUE ) )
 
@@ -1005,85 +1005,85 @@ print( all.equal( mf2, model.frame( fit3slsd[[ 5 ]]$e4$eq[[ 2 ]] ) ) )
 
 
 ## **************** model matrix ************************
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fit3sls[[ 4 ]]$e1c$eq[[ 1 ]]$modelMatrix ) )
 print( mm <- model.matrix( fit3sls[[ 4 ]]$e1c ) )
 print( mm1 <- model.matrix( fit3sls[[ 4 ]]$e1c$eq[[ 1 ]] ) )
 print( mm2 <- model.matrix( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]] ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fit3sls[[ 4 ]]$e1wc ) ) )
 print( all.equal( mm1, model.matrix( fit3sls[[ 4 ]]$e1wc$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3sls[[ 4 ]]$e1wc$eq[[ 2 ]] ) ) )
 print( !is.null( fit3sls[[ 4 ]]$e1wc$eq[[ 1 ]]$modelMatrix ) )
 
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fit3sls[[ 5 ]]$e2$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fit3sls[[ 5 ]]$e2 ) ) )
 print( all.equal( mm1, model.matrix( fit3sls[[ 5 ]]$e2$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3sls[[ 5 ]]$e2$eq[[ 2 ]] ) ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fit3sls[[ 5 ]]$e2e ) ) )
 print( all.equal( mm1, model.matrix( fit3sls[[ 5 ]]$e2e$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3sls[[ 5 ]]$e2e$eq[[ 2 ]] ) ) )
 print( !is.null( fit3sls[[ 5 ]]$e1wc$e2e[[ 1 ]]$modelMatrix ) )
 
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fit3sls[[ 1 ]]$e3e$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fit3sls[[ 1 ]]$e3e ) ) )
 print( all.equal( mm1, model.matrix( fit3sls[[ 1 ]]$e3e$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3sls[[ 1 ]]$e3e$eq[[ 2 ]] ) ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fit3sls[[ 1 ]]$e3 ) ) )
 print( all.equal( mm1, model.matrix( fit3sls[[ 1 ]]$e3$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3sls[[ 1 ]]$e3$eq[[ 2 ]] ) ) )
 print( !is.null( fit3sls[[ 1 ]]$e3$eq[[ 1 ]]$modelMatrix ) )
 
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fit3slsi[[ 2 ]]$e4$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fit3slsi[[ 2 ]]$e4 ) ) )
 print( all.equal( mm1, model.matrix( fit3slsi[[ 2 ]]$e4$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3slsi[[ 2 ]]$e4$eq[[ 2 ]] ) ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fit3slsi[[ 2 ]]$e4we ) ) )
 print( all.equal( mm1, model.matrix( fit3slsi[[ 2 ]]$e4we$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3slsi[[ 2 ]]$e4we$eq[[ 2 ]] ) ) )
 print( !is.null( fit3slsi[[ 2 ]]$e1wc$e4we[[ 1 ]]$modelMatrix ) )
 
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fit3slsi[[ 5 ]]$e5w$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fit3slsi[[ 5 ]]$e5w ) ) )
 print( all.equal( mm1, model.matrix( fit3slsi[[ 5 ]]$e5w$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3slsi[[ 5 ]]$e5w$eq[[ 2 ]] ) ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fit3slsi[[ 5 ]]$e5 ) ) )
 print( all.equal( mm1, model.matrix( fit3slsi[[ 5 ]]$e5$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3slsi[[ 5 ]]$e5$eq[[ 2 ]] ) ) )
 print( !is.null( fit3slsi[[ 5 ]]$e5$eq[[ 1 ]]$modelMatrix ) )
 
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fit3slsd[[ 3 ]]$e5e$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fit3slsd[[ 3 ]]$e5e ) ) )
 print( all.equal( mm1, model.matrix( fit3slsd[[ 3 ]]$e5e$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3slsd[[ 3 ]]$e5e$eq[[ 2 ]] ) ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fit3slsd[[ 3 ]]$e5we ) ) )
 print( all.equal( mm1, model.matrix( fit3slsd[[ 3 ]]$e5we$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3slsd[[ 3 ]]$e5we$eq[[ 2 ]] ) ) )
 print( !is.null( fit3sls[[ 3 ]]$e5we$eq[[ 1 ]]$modelMatrix ) )
 
-# with returnModelMatrix = TRUE
+# with x (returnModelMatrix) = TRUE
 print( !is.null( fit3slsd[[ 2 ]]$e3w$eq[[ 1 ]]$modelMatrix ) )
 print( all.equal( mm, model.matrix( fit3slsd[[ 2 ]]$e3w ) ) )
 print( all.equal( mm1, model.matrix( fit3slsd[[ 2 ]]$e3w$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3slsd[[ 2 ]]$e3w$eq[[ 2 ]] ) ) )
 
-# with returnModelMatrix = FALSE
+# with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fit3slsd[[ 2 ]]$e3 ) ) )
 print( all.equal( mm1, model.matrix( fit3slsd[[ 2 ]]$e3$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3slsd[[ 2 ]]$e3$eq[[ 2 ]] ) ) )

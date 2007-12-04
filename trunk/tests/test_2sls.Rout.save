@@ -66,7 +66,7 @@ Loading required package: zoo
 > ## *************** 2SLS estimation ************************
 > ## ************ 2SLS estimation (default)*********************
 > fit2sls1 <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
-+    returnModelMatrix = TRUE, useMatrix = useMatrix )
++    x = TRUE, useMatrix = useMatrix )
 > print( summary( fit2sls1 ) )
 
 systemfit results 
@@ -430,7 +430,7 @@ Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263
 > 
 > ## ************* 2SLS with restriction (single.eq.sigma=T) *****************
 > fit2sls2s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = inst, single.eq.sigma = TRUE, returnModelMatrix = TRUE,
++    inst = inst, single.eq.sigma = TRUE, x = TRUE,
 +    useMatrix = useMatrix )
 > print( summary( fit2sls2s ) )
 
@@ -918,7 +918,7 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 > ## ***************** 2SLS with 2 restrictions (methodResidCov="noDfCor") **************
 > fit2sls4r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
 +    restrict.rhs = restr2q, inst = inst, methodResidCov = "noDfCor",
-+    returnModelMatrix = TRUE, useMatrix = useMatrix )
++    x = TRUE, useMatrix = useMatrix )
 > print( summary( fit2sls4r ) )
 
 systemfit results 
@@ -1289,7 +1289,7 @@ Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222
 > fit2sls5rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
 +    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
 +    methodResidCov = "noDfCor", single.eq.sigma = TRUE,
-+    returnModelMatrix = TRUE, useMatrix = useMatrix )
++    x = TRUE, useMatrix = useMatrix )
 > print( summary( fit2sls5rs ) )
 
 systemfit results 
@@ -5010,7 +5010,7 @@ attr(,"dataClasses")
 > 
 > 
 > ## **************** model matrix ************************
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fit2sls1$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( mm <- model.matrix( fit2sls1 ) )
@@ -5145,7 +5145,7 @@ attr(,"assign")
 attr(,"assign")
 [1] 0 1 2 3
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fit2sls1s ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fit2sls1s$eq[[ 1 ]] ) ) )
@@ -5155,7 +5155,7 @@ attr(,"assign")
 > print( !is.null( fit2sls1s$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fit2sls2s$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fit2sls2s ) ) )
@@ -5165,7 +5165,7 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fit2sls2s$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fit2sls2Sym ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fit2sls2Sym$eq[[ 1 ]] ) ) )
@@ -5175,7 +5175,7 @@ attr(,"assign")
 > print( !is.null( fit2sls2Sym$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fit2sls3 ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fit2sls3$eq[[ 1 ]] ) ) )
@@ -5185,7 +5185,7 @@ attr(,"assign")
 > print( !is.null( fit2sls3$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fit2sls4r$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fit2sls4r ) ) )
@@ -5195,7 +5195,7 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fit2sls4r$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fit2sls4s ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fit2sls4s$eq[[ 1 ]] ) ) )
@@ -5205,7 +5205,7 @@ attr(,"assign")
 > print( !is.null( fit2sls4s$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fit2sls5rs$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fit2sls5rs ) ) )
@@ -5215,7 +5215,7 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fit2sls5rs$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fit2sls5r ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fit2sls5r$eq[[ 1 ]] ) ) )

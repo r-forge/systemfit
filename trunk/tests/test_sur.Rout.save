@@ -257,7 +257,7 @@ Multiple R-Squared: 0.607175 Adjusted R-Squared: 0.53352
 > 
 > ## *************** SUR (methodResidCov="Theil", useDfSys = TRUE ) ***************
 > fitsur1e2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
-+    returnModelMatrix = TRUE, useMatrix = useMatrix )
++    x = TRUE, useMatrix = useMatrix )
 > print( summary( fitsur1e2, useDfSys = TRUE ) )
 
 systemfit results 
@@ -589,7 +589,7 @@ Multiple R-Squared: 0.597909 Adjusted R-Squared: 0.522517
 > 
 > ## *************** SUR with cross-equation restriction (EViews-like) **
 > fitsur2e <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm,
-+    methodResidCov = "noDfCor", returnModelMatrix = TRUE,
++    methodResidCov = "noDfCor", x = TRUE,
 +    useMatrix = useMatrix )
 > print( summary( fitsur2e ) )
 
@@ -655,7 +655,7 @@ Multiple R-Squared: 0.597497 Adjusted R-Squared: 0.522027
 > ## *************** WSUR with cross-equation restriction (EViews-like) **
 > fitsur2we <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm,
 +    methodResidCov = "noDfCor", residCovWeighted = TRUE,
-+    returnModelMatrix = TRUE, useMatrix = useMatrix )
++    x = TRUE, useMatrix = useMatrix )
 > summary( fitsur2we )
 
 systemfit results 
@@ -784,7 +784,7 @@ Multiple R-Squared: 0.597909 Adjusted R-Squared: 0.522517
 > 
 > ## *************** SUR with restriction via restrict.regMat (EViews-like) **************
 > fitsur3e <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc,
-+    methodResidCov = "noDfCor", returnModelMatrix = TRUE,
++    methodResidCov = "noDfCor", x = TRUE,
 +    useMatrix = useMatrix )
 > print( summary( fitsur3e ) )
 
@@ -849,7 +849,7 @@ Multiple R-Squared: 0.597497 Adjusted R-Squared: 0.522027
 > 
 > ## *************** WSUR with restriction via restrict.regMat *******************
 > fitsur3w <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc,
-+    residCovWeighted = TRUE, returnModelMatrix = TRUE, useMatrix = useMatrix )
++    residCovWeighted = TRUE, x = TRUE, useMatrix = useMatrix )
 > summary( fitsur3w )
 
 systemfit results 
@@ -1112,7 +1112,7 @@ Multiple R-Squared: 0.596377 Adjusted R-Squared: 0.520698
 > ## *************** SUR with 2 restrictions (methodResidCov = "max") **************
 > fitsur4r3 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "max",
 +    restrict.matrix = restr2m, restrict.rhs = restr2q,
-+    returnModelMatrix = TRUE, useMatrix = useMatrix )
++    x = TRUE, useMatrix = useMatrix )
 > print( summary( fitsur4r3 ) )
 
 systemfit results 
@@ -1243,7 +1243,7 @@ Multiple R-Squared: 0.622545 Adjusted R-Squared: 0.551772
 > ## *************** SUR with 2 restrictions via R and restrict.regMat ****************
 > fitsur5 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restr3m,
 +    restrict.rhs = restr3q, restrict.regMat = tc,
-+    returnModelMatrix = TRUE, useMatrix = useMatrix )
++    x = TRUE, useMatrix = useMatrix )
 > print( summary( fitsur5 ) )
 
 systemfit results 
@@ -1307,7 +1307,7 @@ Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567
 > # the same with symbolically specified restrictions
 > fitsur5Sym <- systemfit( system, "SUR", data = Kmenta,
 +    restrict.matrix = restrict3, restrict.regMat = tc,
-+    returnModelMatrix = TRUE, useMatrix = useMatrix )
++    x = TRUE, useMatrix = useMatrix )
 > all.equal( fitsur5, fitsur5Sym )
 [1] "Component 2: target, current do not match when deparsed"
 > 
@@ -1642,7 +1642,7 @@ Multiple R-Squared: 0.937408 Adjusted R-Squared: 0.925672
 > 
 > ## ************** iterated SUR (methodResidCov="Theil", useDfSys=TRUE) *****************
 > fitsuri1e2 <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "Theil",
-+    maxit = 100, returnModelMatrix = TRUE, useMatrix = useMatrix )
++    maxit = 100, x = TRUE, useMatrix = useMatrix )
 > print( summary( fitsuri1e2, useDfSys = TRUE ) )
 
 systemfit results 
@@ -1907,7 +1907,7 @@ Multiple R-Squared: 0.220191 Adjusted R-Squared: 0.073977
 > 
 > ## *********** iterated SUR with restriction (EViews-like) ***************
 > fitsuri2e <- systemfit( system2, "SUR", data = Kmenta, restrict.matrix = restrm,
-+    methodResidCov = "noDfCor", maxit = 100, returnModelMatrix = TRUE,
++    methodResidCov = "noDfCor", maxit = 100, x = TRUE,
 +    useMatrix = useMatrix )
 > print( summary( fitsuri2e ) )
 
@@ -2107,7 +2107,7 @@ Multiple R-Squared: 0.220191 Adjusted R-Squared: 0.073977
 > 
 > ## *********** iterated SUR with restriction via restrict.regMat (EViews-like) ***************
 > fitsuri3e <- systemfit( system2, "SUR", data = Kmenta, restrict.regMat = tc,
-+    methodResidCov = "noDfCor", maxit = 100, returnModelMatrix = TRUE,
++    methodResidCov = "noDfCor", maxit = 100, x = TRUE,
 +    useMatrix = useMatrix )
 > print( summary( fitsuri3e ) )
 
@@ -2902,7 +2902,7 @@ Multiple R-Squared: 0.244563 Adjusted R-Squared: 0.102919
 > ## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodResidCov="Theil") **********
 > fitsurio5r2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
 +    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc,
-+    maxit = 100, returnModelMatrix = TRUE, useMatrix = useMatrix )
++    maxit = 100, x = TRUE, useMatrix = useMatrix )
 > print( summary( fitsurio5r2 ) )
 
 systemfit results 
@@ -2969,7 +2969,7 @@ Multiple R-Squared: 0.411679 Adjusted R-Squared: 0.301369
 
 > fitsuri5r2 <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "Theil",
 +    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc,
-+    maxit = 100, returnModelMatrix = TRUE, useMatrix = useMatrix )
++    maxit = 100, x = TRUE, useMatrix = useMatrix )
 > print( summary( fitsuri5r2 ) )
 
 systemfit results 
@@ -8798,7 +8798,7 @@ attr(,"dataClasses")
 > 
 > 
 > ## **************** model matrix ************************
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fitsur1e2$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( mm <- model.matrix( fitsur1e2 ) )
@@ -8933,7 +8933,7 @@ attr(,"assign")
 attr(,"assign")
 [1] 0 1 2 3
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fitsur1r2 ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitsur1r2$eq[[ 1 ]] ) ) )
@@ -8943,7 +8943,7 @@ attr(,"assign")
 > print( !is.null( fitsur1r2$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fitsur2e$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsur2e ) ) )
@@ -8953,7 +8953,7 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fitsur2e$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fitsur2 ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitsur2$eq[[ 1 ]] ) ) )
@@ -8963,7 +8963,7 @@ attr(,"assign")
 > print( !is.null( fitsur2$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fitsur2we$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsur2we ) ) )
@@ -8973,7 +8973,7 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fitsur2we$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fitsur2 ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitsur2$eq[[ 1 ]] ) ) )
@@ -8983,7 +8983,7 @@ attr(,"assign")
 > print( !is.null( fitsuri2$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fitsur3e$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsur3e ) ) )
@@ -8993,7 +8993,7 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fitsur3e$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fitsur3 ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitsur3$eq[[ 1 ]] ) ) )
@@ -9003,7 +9003,7 @@ attr(,"assign")
 > print( !is.null( fitsur3$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fitsur3w$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsur3w ) ) )
@@ -9013,7 +9013,7 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fitsur3w$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fitsur3 ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitsur3$eq[[ 1 ]] ) ) )
@@ -9023,7 +9023,7 @@ attr(,"assign")
 > print( !is.null( fitsuri3$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fitsur4r3$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsur4r3 ) ) )
@@ -9033,7 +9033,7 @@ attr(,"assign")
 > print( all.equal( mm2, model.matrix( fitsur4r3$eq[[ 2 ]] ) ) )
 [1] TRUE
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fitsur4we ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitsur4we$eq[[ 1 ]] ) ) )
@@ -9043,7 +9043,7 @@ attr(,"assign")
 > print( !is.null( fitsur4we$eq[[ 1 ]]$modelMatrix ) )
 [1] FALSE
 > 
-> # with returnModelMatrix = TRUE
+> # with x (returnModelMatrix) = TRUE
 > print( !is.null( fitsurio5r2$eq[[ 1 ]]$modelMatrix ) )
 [1] TRUE
 > print( !is.null( fitsur5$eq[[ 1 ]]$modelMatrix ) )
@@ -9058,13 +9058,13 @@ attr(,"assign")
 [1] TRUE
 > #print( all.equal( mm2, model.matrix( fitsuri5r2$eq[[ 2 ]] ) ) )
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fitsurio5 ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitsurio5$eq[[ 1 ]] ) ) )
 [1] TRUE
 > 
-> # with returnModelMatrix = FALSE
+> # with x (returnModelMatrix) = FALSE
 > print( all.equal( mm, model.matrix( fitsur5w ) ) )
 [1] TRUE
 > print( all.equal( mm1, model.matrix( fitsur5w$eq[[ 1 ]] ) ) )

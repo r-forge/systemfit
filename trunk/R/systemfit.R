@@ -726,7 +726,7 @@ systemfit <- function(  formula,
       results$eq[[ i ]]$response   <- yVecEq[[i]]     # vector of endogenous variables
       names( results$eq[[ i ]]$response ) <- obsNamesEq[[ i ]]
     }
-    if( control$returnModelMatrix ){
+    if( control$x ){
       results$eq[[ i ]]$modelMatrix  <- as.matrix( xMatEq[[i]] )
       if( control$useMatrix ){
          attributes( results$eq[[ i ]]$modelMatrix ) <- xMatEqAttr[[ i ]]

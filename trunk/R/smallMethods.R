@@ -172,7 +172,7 @@ model.matrix.systemfit.equation <- function( object, ... ){
    } else {
       stop( "returning model matrix not possible. Please re-estimate",
          " the system with either control variable",
-         "  'returnModelMatrix' or 'model' set to TRUE" )
+         "  'x' or 'model' set to TRUE" )
    }
    return( result )
 }
