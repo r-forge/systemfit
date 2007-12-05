@@ -169,7 +169,20 @@ now section~4.3).
 %     names. For example, "returnModelFrame", "returnModelMatrix", etc.
 %     Albeit being more verbose, they are much longer and many R users
 %     will probably be used to using "model", "x" and "y" instead
-%     (which are also much shorter to type). Similarly, "printResidCov"
+%     (which are also much shorter to type).
+The arguments \code{returnModelFrame}, \code{returnModelMatrix},
+\code{returnResponse}, and \code{returnInstMatrix} of \code{systemfit()}
+have been renamed as \code{model}, \code{x}, \code{y}, and \code{z},
+respectively, to be consistent with standard regression tools in
+\proglang{R}, such as \code{lm()}.
+Analogously, the elements \code{modelFrame}, \code{modelMatrix},
+\code{response}, and \code{instMatrix}
+returned by \code{systemfit()}
+have been renamed as \code{model}, \code{x}, \code{y}, and \code{z},
+respectively.
+% revision 506--513 of the systemfit package
+
+%     Similarly, "printResidCov"
 %     and "printEquations" are extremely long.
 
 \subsubsection{Testing linear restrictions}
