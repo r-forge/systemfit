@@ -35,7 +35,7 @@ systemfit( formula, method = "OLS",
       \code{maxiter} larger than 1 (e.g. 500).}
    \item{inst}{one-sided model formula specifying instrumental variables
       or a list of one-sided model formulas if different instruments should
-      be used for the different equations (only needed for 2SLS, W2SLS and
+      be used for the different equations (only needed for 2SLS, W2SLS, and
       3SLS estimations).}
    \item{data}{an optional data frame (or pdata.frame for panel-like data)
       containing the variables in the model.
@@ -132,7 +132,7 @@ systemfit( formula, method = "OLS",
   \item{eqnLabel*}{the label of this equation.}
   \item{eqnNo*}{the number of this equation.}
   \item{terms*}{the 'terms' object used for the ith equation.}
-  \item{inst*}{instruments of the ith equation (only 2SLS and 3SLS).}
+  \item{inst*}{instruments of the ith equation (only 2SLS, W2SLS, and 3SLS).}
   \item{rank*}{number of linear independent coefficients in the ith equation
      (differs from the number of coefficients only if there are
      restrictions that are not cross-equation).}
@@ -147,7 +147,7 @@ systemfit( formula, method = "OLS",
   \item{x*}{if requested, the model matrix of the ith equation.}
   \item{y*}{if requested, the response of the ith equation.}
   \item{z*}{if requested, the matrix of instrumental variables
-      of the ith equation (only 2SLS and 3SLS).}
+      of the ith equation (only 2SLS, W2SLS, and 3SLS).}
   \item{fitted.values*}{vector of fitted values of the ith equation.}
   \item{residuals*}{vector of residuals of the ith equation.}
 }
