@@ -4265,7 +4265,7 @@ attr(,"dataClasses")
 > 
 > ## **************** model matrix ************************
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitw2sls1e$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitw2sls1e$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( mm <- model.matrix( fitw2sls1e ) )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -4406,11 +4406,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitw2sls1$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitw2sls1$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitw2sls1$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitw2sls2e$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitw2sls2e$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitw2sls2e ) ) )
 [1] TRUE
@@ -4426,11 +4426,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitw2sls2Sym$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitw2sls2Sym$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitw2sls2Sym$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitw2slsd3$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitw2slsd3$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitw2slsd3 ) ) )
 [1] TRUE
@@ -4446,11 +4446,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitw2slsd3e$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitw2slsd3e$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitw2slsd3e$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitw2sls4$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitw2sls4$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitw2sls4 ) ) )
 [1] TRUE
@@ -4466,11 +4466,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitw2sls4e$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitw2sls4e$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitw2sls4e$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitw2sls5$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitw2sls5$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitw2sls5 ) ) )
 [1] TRUE
@@ -4486,7 +4486,7 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitw2sls5e$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitw2sls5e$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitw2sls5e$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > 

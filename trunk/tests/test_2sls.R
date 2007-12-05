@@ -618,7 +618,7 @@ print( all.equal( mf1, model.frame( fit2sls5rs$eq[[ 1 ]] ) ) )
 
 ## **************** model matrix ************************
 # with x (returnModelMatrix) = TRUE
-print( !is.null( fit2sls1$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fit2sls1$eq[[ 1 ]]$x ) )
 print( mm <- model.matrix( fit2sls1 ) )
 print( mm1 <- model.matrix( fit2sls1$eq[[ 1 ]] ) )
 print( mm2 <- model.matrix( fit2sls1$eq[[ 2 ]] ) )
@@ -627,10 +627,10 @@ print( mm2 <- model.matrix( fit2sls1$eq[[ 2 ]] ) )
 print( all.equal( mm, model.matrix( fit2sls1s ) ) )
 print( all.equal( mm1, model.matrix( fit2sls1s$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls1s$eq[[ 2 ]] ) ) )
-print( !is.null( fit2sls1s$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fit2sls1s$eq[[ 1 ]]$x ) )
 
 # with x (returnModelMatrix) = TRUE
-print( !is.null( fit2sls2s$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fit2sls2s$eq[[ 1 ]]$x ) )
 print( all.equal( mm, model.matrix( fit2sls2s ) ) )
 print( all.equal( mm1, model.matrix( fit2sls2s$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls2s$eq[[ 2 ]] ) ) )
@@ -639,16 +639,16 @@ print( all.equal( mm2, model.matrix( fit2sls2s$eq[[ 2 ]] ) ) )
 print( all.equal( mm, model.matrix( fit2sls2Sym ) ) )
 print( all.equal( mm1, model.matrix( fit2sls2Sym$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls2Sym$eq[[ 2 ]] ) ) )
-print( !is.null( fit2sls2Sym$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fit2sls2Sym$eq[[ 1 ]]$x ) )
 
 # with x (returnModelMatrix) = FALSE
 print( all.equal( mm, model.matrix( fit2sls3 ) ) )
 print( all.equal( mm1, model.matrix( fit2sls3$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls3$eq[[ 2 ]] ) ) )
-print( !is.null( fit2sls3$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fit2sls3$eq[[ 1 ]]$x ) )
 
 # with x (returnModelMatrix) = TRUE
-print( !is.null( fit2sls4r$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fit2sls4r$eq[[ 1 ]]$x ) )
 print( all.equal( mm, model.matrix( fit2sls4r ) ) )
 print( all.equal( mm1, model.matrix( fit2sls4r$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls4r$eq[[ 2 ]] ) ) )
@@ -657,10 +657,10 @@ print( all.equal( mm2, model.matrix( fit2sls4r$eq[[ 2 ]] ) ) )
 print( all.equal( mm, model.matrix( fit2sls4s ) ) )
 print( all.equal( mm1, model.matrix( fit2sls4s$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls4s$eq[[ 2 ]] ) ) )
-print( !is.null( fit2sls4s$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fit2sls4s$eq[[ 1 ]]$x ) )
 
 # with x (returnModelMatrix) = TRUE
-print( !is.null( fit2sls5rs$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fit2sls5rs$eq[[ 1 ]]$x ) )
 print( all.equal( mm, model.matrix( fit2sls5rs ) ) )
 print( all.equal( mm1, model.matrix( fit2sls5rs$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls5rs$eq[[ 2 ]] ) ) )
@@ -669,7 +669,7 @@ print( all.equal( mm2, model.matrix( fit2sls5rs$eq[[ 2 ]] ) ) )
 print( all.equal( mm, model.matrix( fit2sls5r ) ) )
 print( all.equal( mm1, model.matrix( fit2sls5r$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls5r$eq[[ 2 ]] ) ) )
-print( !is.null( fit2sls5r$eq[[ 1 ]]$modelMatrix ) )
+print( !is.null( fit2sls5r$eq[[ 1 ]]$x ) )
 
 
 ## **************** formulas ************************

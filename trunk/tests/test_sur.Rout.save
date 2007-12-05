@@ -8799,7 +8799,7 @@ attr(,"dataClasses")
 > 
 > ## **************** model matrix ************************
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitsur1e2$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur1e2$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( mm <- model.matrix( fitsur1e2 ) )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -8940,11 +8940,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitsur1r2$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitsur1r2$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur1r2$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitsur2e$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur2e$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsur2e ) ) )
 [1] TRUE
@@ -8960,11 +8960,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitsur2$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitsur2$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur2$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitsur2we$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur2we$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsur2we ) ) )
 [1] TRUE
@@ -8980,11 +8980,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitsur2$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitsuri2$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsuri2$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitsur3e$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur3e$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsur3e ) ) )
 [1] TRUE
@@ -9000,11 +9000,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitsur3$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitsur3$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur3$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitsur3w$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur3w$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsur3w ) ) )
 [1] TRUE
@@ -9020,11 +9020,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitsur3$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitsuri3$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsuri3$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitsur4r3$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur4r3$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsur4r3 ) ) )
 [1] TRUE
@@ -9040,13 +9040,13 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitsur4we$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitsur4we$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur4we$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitsurio5r2$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsurio5r2$eq[[ 1 ]]$x ) )
 [1] TRUE
-> print( !is.null( fitsur5$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur5$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitsurio5r2 ) ) )
 [1] TRUE
@@ -9070,9 +9070,9 @@ attr(,"assign")
 > print( all.equal( mm1, model.matrix( fitsur5w$eq[[ 1 ]] ) ) )
 [1] TRUE
 > #print( all.equal( mm2, model.matrix( fitsuri5r2$eq[[ 1 ]] ) ) )
-> print( !is.null( fitsurio5$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsurio5$eq[[ 1 ]]$x ) )
 [1] FALSE
-> print( !is.null( fitsur5w$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitsur5w$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > 

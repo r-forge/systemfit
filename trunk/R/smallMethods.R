@@ -165,8 +165,8 @@ model.matrix.systemfit <- function( object, ... ){
 
 ## return model matrix of a single equation
 model.matrix.systemfit.equation <- function( object, ... ){
-   if( !is.null( object$modelMatrix ) ) {
-      result <- object$modelMatrix
+   if( !is.null( object$x ) ) {
+      result <- object$x
    } else if( !is.null( model.frame( object ) ) ) {
       result <- model.matrix( object$terms, data = model.frame( object ) )
    } else {

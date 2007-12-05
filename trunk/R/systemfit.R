@@ -727,11 +727,11 @@ systemfit <- function(  formula,
       names( results$eq[[ i ]]$response ) <- obsNamesEq[[ i ]]
     }
     if( control$x ){
-      results$eq[[ i ]]$modelMatrix  <- as.matrix( xMatEq[[i]] )
+      results$eq[[ i ]]$x  <- as.matrix( xMatEq[[i]] )
       if( control$useMatrix ){
-         attributes( results$eq[[ i ]]$modelMatrix ) <- xMatEqAttr[[ i ]]
+         attributes( results$eq[[ i ]]$x ) <- xMatEqAttr[[ i ]]
       }
-      rownames( results$eq[[ i ]]$modelMatrix ) <- obsNamesEq[[ i ]]
+      rownames( results$eq[[ i ]]$x ) <- obsNamesEq[[ i ]]
     }
     if( control$model ){
       results$eq[[ i ]]$model <- evalModelFrameEq[[ i ]] # model frame of this equation

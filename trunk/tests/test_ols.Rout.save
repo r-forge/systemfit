@@ -3916,7 +3916,7 @@ attr(,"dataClasses")
 > 
 > ## **************** model matrix ************************
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitols1r$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitols1r$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( mm <- model.matrix( fitols1r ) )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -4057,11 +4057,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitols1rs$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitols1rs$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitols1rs$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitols2rs$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitols2rs$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitols2rs ) ) )
 [1] TRUE
@@ -4077,11 +4077,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitols2$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitols2$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitols2$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitols3$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitols3$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitols3 ) ) )
 [1] TRUE
@@ -4097,11 +4097,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitols3r$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitols3r$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitols3r$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitols4s$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitols4s$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitols4s ) ) )
 [1] TRUE
@@ -4117,11 +4117,11 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitols4Sym$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitols4Sym$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitols4Sym$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > # with x (returnModelMatrix) = TRUE
-> print( !is.null( fitols5s$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitols5s$eq[[ 1 ]]$x ) )
 [1] TRUE
 > print( all.equal( mm, model.matrix( fitols5s ) ) )
 [1] TRUE
@@ -4137,7 +4137,7 @@ attr(,"assign")
 [1] TRUE
 > print( all.equal( mm2, model.matrix( fitols5$eq[[ 2 ]] ) ) )
 [1] TRUE
-> print( !is.null( fitols5$eq[[ 1 ]]$modelMatrix ) )
+> print( !is.null( fitols5$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
 > 
