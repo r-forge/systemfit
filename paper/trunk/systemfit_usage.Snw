@@ -463,18 +463,18 @@ the default value of \code{useDfSys} is \code{FALSE}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Reduce amount of printed output}
 
-The optional arguments \code{printResidCov} and \code{printEquations}
+The optional arguments \code{residCov} and \code{equations}
 can be used reduce the amount of the printed output.
-Argument \code{printResidCov} specifies
+Argument \code{residCov} specifies
 whether the residual covariance matrix,
 the residual correlation matrix,
 and the determinant of the residual covariance matrix are printed.
-Argument \code{printEquations} specifies
+Argument \code{equations} specifies
 whether summary results of each equation are printed.
 By default, both arguments are \code{TRUE}.
 The following command returns a sparse summary output:
 <<>>=
-summary( fitsur, printResidCov = FALSE, printEquations = FALSE )
+summary( fitsur, residCov = FALSE, equations = FALSE )
 @
 
 
