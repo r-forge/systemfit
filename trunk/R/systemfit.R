@@ -723,8 +723,8 @@ systemfit <- function(  formula,
     results$eq[[ i ]]$df.residual.sys  <- nObsAll- nCoefLiAll
        # degrees of freedom of residuals of the whole system
     if( control$y ){
-      results$eq[[ i ]]$response   <- yVecEq[[i]]     # vector of endogenous variables
-      names( results$eq[[ i ]]$response ) <- obsNamesEq[[ i ]]
+      results$eq[[ i ]]$y   <- yVecEq[[i]]     # vector of endogenous variables
+      names( results$eq[[ i ]]$y ) <- obsNamesEq[[ i ]]
     }
     if( control$x ){
       results$eq[[ i ]]$x  <- as.matrix( xMatEq[[i]] )

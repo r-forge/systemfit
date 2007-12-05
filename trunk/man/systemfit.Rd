@@ -144,7 +144,7 @@ systemfit( formula, method = "OLS",
   \item{coefficients*}{estimated coefficients of the ith equation.}
   \item{covb*}{estimated covariance matrix of \code{coefficients}.}
 
-  \item{response*}{if requested, the response of the ith equation.}
+  \item{y*}{if requested, the response of the ith equation.}
   \item{x*}{if requested, the model matrix of the ith equation.}
   \item{instMatrix*}{if requested, the matrix of instrumental variables
       of the ith equation (only 2SLS and 3SLS).}
