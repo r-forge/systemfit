@@ -143,12 +143,11 @@ systemfit( formula, method = "OLS",
   \item{df.residual.sys*}{degrees of freedom of the whole system.}
   \item{coefficients*}{estimated coefficients of the ith equation.}
   \item{covb*}{estimated covariance matrix of \code{coefficients}.}
-
-  \item{y*}{if requested, the response of the ith equation.}
+  \item{model*}{if requested (the default), the model frame of the ith equation.}
   \item{x*}{if requested, the model matrix of the ith equation.}
+  \item{y*}{if requested, the response of the ith equation.}
   \item{z*}{if requested, the matrix of instrumental variables
       of the ith equation (only 2SLS and 3SLS).}
-  \item{model*}{if requested (the default), the model frame of the ith equation.}
   \item{fitted.values*}{vector of fitted values of the ith equation.}
   \item{residuals*}{vector of residuals of the ith equation.}
 }
