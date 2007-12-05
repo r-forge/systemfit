@@ -256,7 +256,7 @@ systemfit <- function(  formula,
       # evaluated model frame of instruments
       evalModelFrameInst <- list()
       # list for matrices of instruments in each equation
-      hMatEq  <- list()
+      zMatEq  <- list()
       # fitted values of regressors
       xMatHatEq <- list()
       # prepare data for individual equations
@@ -267,11 +267,11 @@ systemfit <- function(  formula,
          modelFrameInst[[ i ]]$formula <- inst[[ i ]]
          evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]] )
          termsInst[[ i ]] <- attr( evalModelFrameInst[[ i ]], "terms" )
-         hMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
+         zMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
          if( control$useMatrix ){
-            hMatEq[[ i ]] <- as( hMatEq[[ i ]], "dgeMatrix" )
+            zMatEq[[ i ]] <- as( zMatEq[[ i ]], "dgeMatrix" )
          }
-         if( nrow( hMatEq[[ i ]] ) != nrow( xMatAll[ rowsEq, ] ) ) {
+         if( nrow( zMatEq[[ i ]] ) != nrow( xMatAll[ rowsEq, ] ) ) {
             stop( paste( "The instruments and the regressors of equation",
                as.character( i ), "have different numbers of observations." ) )
          }
@@ -280,12 +280,12 @@ systemfit <- function(  formula,
          if( control$useMatrix ){
             xMatAllThisEq <- as( xMatAllThisEq, "dgeMatrix" )
          }
-         xMatHatEq[[ i ]] <- hMatEq[[i]] %*% 
-            solve( crossprod( hMatEq[[i]] ),
-            crossprod( hMatEq[[i]], xMatAllThisEq ), tol=control$solvetol )
+         xMatHatEq[[ i ]] <- zMatEq[[i]] %*%
+            solve( crossprod( zMatEq[[i]] ),
+            crossprod( zMatEq[[i]], xMatAllThisEq ), tol=control$solvetol )
       }
       # stacked matrices of all instruments
-      hMatAll <- .stackMatList( hMatEq, way = "diag",
+      zMatAll <- .stackMatList( zMatEq, way = "diag",
          useMatrix = control$useMatrix )
       # fitted values of all regressors
       xMatHatAll <- .stackMatList( xMatHatEq, way = "below",
@@ -562,22 +562,22 @@ systemfit <- function(  formula,
             solvetol = control$solvetol )   # (unrestr.) coeffic.
       }
       if(control$method3sls=="GMM") {
-        HtOmega <- .calcXtOmegaInv( xMat = hMatAll, sigma = rcov,
+        ZtOmega <- .calcXtOmegaInv( xMat = zMatAll, sigma = rcov,
            nObsEq = nObsEq, invertSigma = FALSE, useMatrix = control$useMatrix,
            solvetol = control$solvetol )
         if(is.null(R.restr)) {
-          coef <- as.numeric( solve( crossprod( xMatAll, hMatAll ) %*% 
-            solve( HtOmega %*% hMatAll, crossprod( hMatAll, xMatAll ),
-            tol=control$solvetol ), crossprod( xMatAll, hMatAll ) %*%
-            solve( HtOmega %*% hMatAll, crossprod( hMatAll, yVecAll ),
+          coef <- as.numeric( solve( crossprod( xMatAll, zMatAll ) %*%
+            solve( ZtOmega %*% zMatAll, crossprod( zMatAll, xMatAll ),
+            tol=control$solvetol ), crossprod( xMatAll, zMatAll ) %*%
+            solve( ZtOmega %*% zMatAll, crossprod( zMatAll, yVecAll ),
             tol=control$solvetol ), tol=control$solvetol ) )
         } else {
-          W <- .prepareWmatrix( crossprod( xMatAll, hMatAll ) %*%
-               solve( HtOmega %*% hMatAll, crossprod( hMatAll, xMatAll ),
+          W <- .prepareWmatrix( crossprod( xMatAll, zMatAll ) %*%
+               solve( ZtOmega %*% zMatAll, crossprod( zMatAll, xMatAll ),
                tol=control$solvetol ), R.restr,
                useMatrix = control$useMatrix )
-          V <- c( as.numeric( crossprod( xMatAll, hMatAll ) %*%
-            solve( HtOmega  %*% hMatAll, crossprod( hMatAll, yVecAll ),
+          V <- c( as.numeric( crossprod( xMatAll, zMatAll ) %*%
+            solve( ZtOmega  %*% zMatAll, crossprod( zMatAll, yVecAll ),
             tol = control$solvetol ) ), q.restr )
           Winv <- solve( W, tol=control$solvetol )
           coef <- ( Winv %*% V )[1:ncol(xMatAll),]     # restricted coefficients
@@ -589,15 +589,15 @@ systemfit <- function(  formula,
            solvetol = control$solvetol )
         if(is.null(R.restr)) {
           coef <- as.numeric( solve( crossprod( xMatHatAll, t( xMatHatOmegaInv ) ), 
-            xMatHatOmegaInv %*% hMatAll %*%
-            solve( crossprod( hMatAll ), crossprod( hMatAll, yVecAll),
+            xMatHatOmegaInv %*% zMatAll %*%
+            solve( crossprod( zMatAll ), crossprod( zMatAll, yVecAll),
             tol=control$solvetol ), tol=control$solvetol ) )
                            # (unrestr.) coeffic.
         } else {
           W <- .prepareWmatrix( crossprod( xMatHatAll, t( xMatHatOmegaInv ) ),
              R.restr, useMatrix = control$useMatrix )
-          V <- c( as.numeric( xMatHatOmegaInv %*% hMatAll %*%
-            solve( crossprod( hMatAll ), crossprod( hMatAll, yVecAll ),
+          V <- c( as.numeric( xMatHatOmegaInv %*% zMatAll %*%
+            solve( crossprod( zMatAll ), crossprod( zMatAll, yVecAll ),
             tol = control$solvetol ) ), q.restr )
           Winv <- solve( W, tol=control$solvetol )
           coef <- ( Winv %*% V )[1:ncol(xMatAll),]     # restricted coefficients
@@ -624,8 +624,8 @@ systemfit <- function(  formula,
     }
     if(control$method3sls=="GMM") {
       if(is.null(R.restr)) {
-        coefCov <- solve( crossprod( xMatAll, hMatAll ) %*% 
-           solve( HtOmega %*% hMatAll, crossprod( hMatAll, xMatAll ),
+        coefCov <- solve( crossprod( xMatAll, zMatAll ) %*%
+           solve( ZtOmega %*% zMatAll, crossprod( zMatAll, xMatAll ),
            tol=control$solvetol ), tol=control$solvetol )
                 # final step coefficient covariance matrix
       } else {
@@ -636,7 +636,7 @@ systemfit <- function(  formula,
       xMatHatOmegaInv <- .calcXtOmegaInv( xMat = xMatHatAll, sigma = rcov,
          nObsEq = nObsEq, useMatrix = control$useMatrix,
          solvetol = control$solvetol )
-      PH <- hMatAll %*%  solve( crossprod( hMatAll ), t( hMatAll ), 
+      PH <- zMatAll %*%  solve( crossprod( zMatAll ), t( zMatAll ),
          tol=control$solvetol )
       PHOmega <- .calcXtOmegaInv( xMat = t( PH ), sigma = rcov,
          nObsEq = nObsEq, invertSigma = FALSE, useMatrix = control$useMatrix,
@@ -740,7 +740,7 @@ systemfit <- function(  formula,
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
       results$eq[[ i ]]$inst         <- inst[[i]]
       if(  control$z ) {
-         results$eq[[ i ]]$z <- hMatEq[[i]]  # matrix of instrumental variables
+         results$eq[[ i ]]$z <- zMatEq[[i]]  # matrix of instrumental variables
          rownames( results$eq[[ i ]]$z ) <- obsNamesEq[[ i ]]
       }
     }
