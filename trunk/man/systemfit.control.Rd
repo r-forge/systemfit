@@ -18,7 +18,7 @@ systemfit.control(
       residCovRestricted = TRUE,
       residCovWeighted = FALSE,
       method3sls = "GLS",
-      single.eq.sigma = NULL,
+      singleEqSigma = NULL,
       useMatrix = TRUE,
       solvetol = .Machine$double.eps,
       model = TRUE,
@@ -44,10 +44,10 @@ systemfit.control(
       is obtained from a WLS or W2SLS estimation.}
    \item{method3sls}{method for calculating the 3SLS estimator,
       one of "GLS", "IV", "GMM", "Schmidt", or "EViews" (see details).}
-   \item{single.eq.sigma}{logical. use different \eqn{\sigma^2}s for each
+   \item{singleEqSigma}{logical. use different \eqn{\sigma^2}s for each
       single equation to calculate the covariance matrix and the
       standard errors of the coefficients (only OLS and 2SLS)?
-      If \code{single.eq.sigma} is \code{NULL}, it is automatically determined:
+      If \code{singleEqSigma} is \code{NULL}, it is automatically determined:
       It is set to \code{TRUE}, if there are any parameter restrictions imposed,
       and it is set to \code{FALSE} otherwise.}
    \item{useMatrix}{logical. Use package \code{Matrix} for matrix calculations?}

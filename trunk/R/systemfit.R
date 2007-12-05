@@ -121,9 +121,9 @@ systemfit <- function(  formula,
       }
    }
 
-   ## default value of argument 'single.eq.sigma'
-   if( is.null( control$single.eq.sigma ) ) {
-      control$single.eq.sigma <- ( is.null( restrict.matrix ) & is.null( restrict.regMat ) )
+   ## default value of argument 'singleEqSigma'
+   if( is.null( control$singleEqSigma ) ) {
+      control$singleEqSigma <- ( is.null( restrict.matrix ) & is.null( restrict.regMat ) )
    }
 
    ## checking argument 'pooled'
@@ -395,7 +395,7 @@ systemfit <- function(  formula,
   ## only for OLS estimation
   if(method=="OLS") {
     resids <- yVecAll - xMatAll %*% coef                                        # residuals
-    if(control$single.eq.sigma) {
+    if(control$singleEqSigma) {
       rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
          nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE,
          centered = control$centerResiduals, useMatrix = control$useMatrix,
@@ -490,7 +490,7 @@ systemfit <- function(  formula,
   ## only for 2SLS estimation
   if(method=="2SLS") {
     resids <- yVecAll - xMatAll %*% coef                        # residuals
-    if(control$single.eq.sigma) {
+    if(control$singleEqSigma) {
       rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
          nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE,
          centered = control$centerResiduals, useMatrix = control$useMatrix,

@@ -66,9 +66,9 @@ data:  Kmenta
 Hausman = 2.5357, df = 7, p-value = 0.9244
 
 > 
-> ## ************** 2SLS estimation with single.eq.sigma = FALSE *****************
+> ## ************** 2SLS estimation with singleEqSigma = FALSE *****************
 > fit2sls1s <- systemfit( eqSystem, "2SLS", data = Kmenta, inst = inst,
-+    single.eq.sigma = FALSE, useMatrix = useMatrix )
++    singleEqSigma = FALSE, useMatrix = useMatrix )
 > print( hausman.systemfit( fit2sls1s, fit3sls1 ) )
 
 	Hausman specification test for consistency of the 3SLS estimation
@@ -99,9 +99,9 @@ Hausman = 2.9831, df = 7, p-value = 0.8866
 +    inst = inst, useMatrix = useMatrix )
 > # print( hausman.systemfit( fit2sls2, fit3sls2 ) )
 > 
-> ## ************* 2SLS estimation with single.eq.sigma = TRUE *****************
+> ## ************* 2SLS estimation with singleEqSigma = TRUE *****************
 > fit2sls2s <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.matrix = restrm,
-+    inst = inst, single.eq.sigma = TRUE, useMatrix = useMatrix )
++    inst = inst, singleEqSigma = TRUE, useMatrix = useMatrix )
 > # print( hausman.systemfit( fit2sls2s, fit3sls2 ) )
 > 
 > ## ********************* estimations with methodResidCov = 0 **************

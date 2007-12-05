@@ -38,9 +38,9 @@ fit3sls1 <- systemfit( eqSystem, "3SLS", data = Kmenta, inst = inst,
    useMatrix = useMatrix )
 print( hausman.systemfit( fit2sls1, fit3sls1 ) )
 
-## ************** 2SLS estimation with single.eq.sigma = FALSE *****************
+## ************** 2SLS estimation with singleEqSigma = FALSE *****************
 fit2sls1s <- systemfit( eqSystem, "2SLS", data = Kmenta, inst = inst,
-   single.eq.sigma = FALSE, useMatrix = useMatrix )
+   singleEqSigma = FALSE, useMatrix = useMatrix )
 print( hausman.systemfit( fit2sls1s, fit3sls1 ) )
 
 ## ******************* estimations with methodResidCov = 0 *****************
@@ -59,9 +59,9 @@ fit3sls2 <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.matrix = restrm
    inst = inst, useMatrix = useMatrix )
 # print( hausman.systemfit( fit2sls2, fit3sls2 ) )
 
-## ************* 2SLS estimation with single.eq.sigma = TRUE *****************
+## ************* 2SLS estimation with singleEqSigma = TRUE *****************
 fit2sls2s <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.matrix = restrm,
-   inst = inst, single.eq.sigma = TRUE, useMatrix = useMatrix )
+   inst = inst, singleEqSigma = TRUE, useMatrix = useMatrix )
 # print( hausman.systemfit( fit2sls2s, fit3sls2 ) )
 
 ## ********************* estimations with methodResidCov = 0 **************

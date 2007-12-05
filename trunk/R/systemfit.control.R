@@ -6,7 +6,7 @@ systemfit.control <- function(
       residCovRestricted = TRUE,
       residCovWeighted = FALSE,
       method3sls = "GLS",
-      single.eq.sigma = NULL,
+      singleEqSigma = NULL,
       useMatrix = TRUE,
       solvetol = .Machine$double.eps,
       model = TRUE,
@@ -48,12 +48,12 @@ systemfit.control <- function(
    }
    result$method3sls <- method3sls
 
-   ## single.eq.sigma
-   if( ( !is.logical( single.eq.sigma ) || length( single.eq.sigma ) != 1 )
-         && !is.null( single.eq.sigma ) ) {
-      stop( "control parameter 'single.eq.sigma' must be logical or NULL" )
+   ## singleEqSigma
+   if( ( !is.logical( singleEqSigma ) || length( singleEqSigma ) != 1 )
+         && !is.null( singleEqSigma ) ) {
+      stop( "control parameter 'singleEqSigma' must be logical or NULL" )
    }
-   result$single.eq.sigma <- single.eq.sigma
+   result$singleEqSigma <- singleEqSigma
 
    ## useMatrix
    if( !is.logical( useMatrix ) || length( useMatrix ) != 1 ) {
