@@ -407,11 +407,11 @@ whether a data frame with the data of the model
 should be returned.
 Its default value is \code{TRUE},
 i.e.\ the model frame is returned.
-Arguments \code{x}, \code{z},
-and \code{y} specify
+Arguments \code{x}, \code{y},
+and \code{z} specify
 whether the model matrices ($X_i$),
-the matrices of instrumental variables ($H_i$),
-and the responses ($y_i$), respectively, should be returned.
+the responses ($y_i$), and the matrices of instrumental variables ($H_i$),
+respectively, should be returned.
 These three arguments are \code{FALSE} by default,
 i.e.\ these data objects are not returned.
 
