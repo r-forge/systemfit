@@ -365,18 +365,18 @@ argument           & equation       & equation \\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Sigma squared}
-In case of OLS or 2SLS estimations, argument \code{single.eq.sigma}
+In case of OLS or 2SLS estimations, argument \code{singleEqSigma}
 can be used to specify,
 whether different $\sigma^2$s for each single equation
 or the same $\sigma^2$ for all equations should be used.
-If argument \code{single.eq.sigma} is \code{TRUE},
+If argument \code{singleEqSigma} is \code{TRUE},
 $\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) or~(\ref{eq:cov-2sls-w2sls-3sls})
 is set to $\SHat \otimes I_T$.
-In contrast, if argument \code{single.eq.sigma} is \code{FALSE},
+In contrast, if argument \code{singleEqSigma} is \code{FALSE},
 $\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) or~(\ref{eq:cov-2sls-w2sls-3sls})
 is set to $\sHat^2 I_{G \cdot T}$.
 In case of an unrestricted regression,
-argument \code{single.eq.sigma} is \code{TRUE} by default.
+argument \code{singleEqSigma} is \code{TRUE} by default.
 However, if the coefficients are estimated under any restrictions,
 this argument is \code{FALSE} by default.
 
