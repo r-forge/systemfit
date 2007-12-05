@@ -12,7 +12,7 @@ systemfit.control <- function(
       model = TRUE,
       x = FALSE,
       returnInstMatrix = FALSE,
-      returnResponse = FALSE )
+      y = FALSE )
 {
    result <- list()
 
@@ -97,11 +97,11 @@ systemfit.control <- function(
    }
    result$returnInstMatrix <- returnInstMatrix
 
-   ## returnResponse
-   if( !is.logical( returnResponse ) || length( returnResponse ) != 1 ) {
-      stop( "control parameter 'returnResponse' must be logical" )
+   ## y (returnResponse)
+   if( !is.logical( y ) || length( y ) != 1 ) {
+      stop( "control parameter 'y' must be logical" )
    }
-   result$returnResponse <- returnResponse
+   result$y <- y
 
    return( result )
 }

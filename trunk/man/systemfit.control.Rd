@@ -24,7 +24,7 @@ systemfit.control(
       model = TRUE,
       x = FALSE,
       returnInstMatrix = FALSE,
-      returnResponse = FALSE )
+      y = FALSE )
 }
 
 \arguments{
@@ -54,7 +54,7 @@ systemfit.control(
    \item{solvetol}{tolerance level for detecting linear dependencies
       when inverting a matrix or calculating a determinant (see
       \code{\link{solve}} and \code{\link{det}}).}
-   \item{model, x, returnInstMatrix, returnResponse}{
+   \item{model, x, returnInstMatrix, y}{
       logical. If 'TRUE' the corresponding components of the fit
       (the model frame, the model matrix, the matrix of instruments,
       the response) are returned.}
