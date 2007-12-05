@@ -740,8 +740,8 @@ systemfit <- function(  formula,
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
       results$eq[[ i ]]$inst         <- inst[[i]]
       if(  control$z ) {
-         results$eq[[ i ]]$instMatrix <- hMatEq[[i]]  # matrix of instrumental variables
-         rownames( results$eq[[ i ]]$instMatrix ) <- obsNamesEq[[ i ]]
+         results$eq[[ i ]]$z <- hMatEq[[i]]  # matrix of instrumental variables
+         rownames( results$eq[[ i ]]$z ) <- obsNamesEq[[ i ]]
       }
     }
     class( results$eq[[ i ]] ) <- "systemfit.equation"

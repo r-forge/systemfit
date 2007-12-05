@@ -146,7 +146,7 @@ systemfit( formula, method = "OLS",
 
   \item{y*}{if requested, the response of the ith equation.}
   \item{x*}{if requested, the model matrix of the ith equation.}
-  \item{instMatrix*}{if requested, the matrix of instrumental variables
+  \item{z*}{if requested, the matrix of instrumental variables
       of the ith equation (only 2SLS and 3SLS).}
   \item{model*}{if requested (the default), the model frame of the ith equation.}
   \item{fitted.values*}{vector of fitted values of the ith equation.}
