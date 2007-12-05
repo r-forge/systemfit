@@ -410,7 +410,7 @@ i.e.\ the model frame is returned.
 Arguments \code{x}, \code{y},
 and \code{z} specify
 whether the model matrices ($X_i$),
-the responses ($y_i$), and the matrices of instrumental variables ($H_i$),
+the responses ($y_i$), and the matrices of instrumental variables ($Z_i$),
 respectively, should be returned.
 These three arguments are \code{FALSE} by default,
 i.e.\ these data objects are not returned.

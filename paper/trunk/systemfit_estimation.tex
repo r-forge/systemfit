@@ -120,15 +120,15 @@ two-stage least squares (2SLS),
 weighted two-stage least squares (W2SLS),
 or a three-stage least squares (3SLS) estimation
 with instrumental variables (IV).
-The instrumental variables for each equation $H_i$ 
+The instrumental variables for each equation $Z_i$ 
 can be either different or identical for all equations.
 They must not be correlated with
 the disturbance terms of the corresponding equation 
-($\E \left[ u_i' H_i \right] = 0$).
+($\E \left[ u_i' Z_i \right] = 0$).
 
 At the first stage new ('fitted') regressors are obtained by
 \begin{equation}
-   \XHat_i = H_i \left( H_i' H_i \right)^{-1} H_i' X .
+   \XHat_i = Z_i \left( Z_i' Z_i \right)^{-1} Z_i' X .
 \end{equation}
 Then, these 'fitted' regressors are substituted for the original regressors
 in equation~(\ref{eq:ols-wls-sur})
@@ -194,10 +194,10 @@ where $\SHat$ is the estimated covariance matrix of the disturbance terms.
 While an unbiased 2SLS or W2SLS estimation requires only that
 the instrumental variables and the disturbance terms of each single 
 equation are uncorrelated
-$( \E \left[ u_i' H_i \right]) = 0 \; \forall \; i )$,
+$( \E \left[ u_i' Z_i \right]) = 0 \; \forall \; i )$,
 \cite{schmidt90} points out that this estimator is only consistent 
 if all disturbance terms and all instrumental variables are uncorrelated
-$( \E \left[ u_i' H_j \right]) = 0 \; \forall \; i, j )$.
+$( \E \left[ u_i' Z_j \right]) = 0 \; \forall \; i, j )$.
 
 Since there might be occasions where this cannot be avoided,
 \cite{schmidt90} analyses other approaches to obtain 3SLS estimators.
@@ -216,38 +216,38 @@ An estimator of the covariance matrix of the estimated 3SLS-IV coefficients is
 Another approach based on the Generalized Method of Moments (GMM)
 estimator (3SLS-GMM) is
 \begin{equation}
-   \bHat_{3SLS-GMM} = \left( X' H \left( H' \OHat H \right)^{-1}
-   H' X \right)^{-1} X' H \left( H' \OHat H \right)^{-1} H' y
+   \bHat_{3SLS-GMM} = \left( X' Z \left( Z' \OHat Z \right)^{-1}
+   Z' X \right)^{-1} X' Z \left( Z' \OHat Z \right)^{-1} Z' y
    \label{eq:3slsGmm}
 \end{equation}
 with
 \begin{equation}
-   H =
+   Z =
    \left[ \begin{array}{cccc}
-      H_1 & 0 & \cdots & 0\\
-      0 & H_2 & \cdots & 0\\
+      Z_1 & 0 & \cdots & 0\\
+      0 & Z_2 & \cdots & 0\\
       \vdots & \vdots & \ddots & \vdots\\
-      0 & 0 & \cdots & H_G
+      0 & 0 & \cdots & Z_G
    \end{array}\right] .
 \end{equation}
 An estimator of the covariance matrix of the estimated 3SLS-GMM coefficients is
 \begin{equation}
    \COVHat \left[ \bHat_{3SLS-GMM} \right] =
-   \left( X' H \left( H' \OHat H \right)^{-1} H' X \right)^{-1} .
+   \left( X' Z \left( Z' \OHat Z \right)^{-1} Z' X \right)^{-1} .
 \end{equation}
 A fourth approach developed by \cite{schmidt90} himself is
 \begin{equation}
    \bHat_{3SLS-Schmidt} = \left( \XHat' \OHat^{-1} \XHat
    \right)^{-1} \XHat' \OHat^{-1}
-   H \left( H' H \right)^{-1} H' y .
+   Z \left( Z' Z \right)^{-1} Z' y .
    \label{eq:3slsSchmidt}
 \end{equation}
 An estimator of the covariance matrix of these estimated coefficients is
 \begin{align}
    \COVHat \left[ \bHat_{3SLS-Schmidt} \right] = &
    \left( \XHat' \OHat^{-1}  \XHat \right)^{-1}
-   \XHat' \OHat^{-1} H \left( H' H \right)^{-1} H' \OHat H \\
-   & \left( H' H \right)^{-1} H' \OHat^{-1} \XHat
+   \XHat' \OHat^{-1} Z \left( Z' Z \right)^{-1} Z' \OHat Z \\
+   & \left( Z' Z \right)^{-1} Z' \OHat^{-1} \XHat
    \left( \XHat' \OHat^{-1}  \XHat \right)^{-1} .
    \nonumber
 \end{align}
@@ -265,7 +265,7 @@ calculate an estimator of the covariance matrix of the estimated coefficients.
 
 
 If the same instrumental variables are used in all equations 
-($H_1 = H_2 = \ldots = H_G$), 
+($Z_1 = Z_2 = \ldots = Z_G$),
 all the above mentioned approaches lead to identical estimates.
 However, if this is not the case, the results depend on the 
 method used \citep{schmidt90}.

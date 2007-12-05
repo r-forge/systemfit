@@ -196,12 +196,12 @@ The restricted 3SLS-GMM estimator can be obtained by
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
-      X' H \left( H' \OHat H \right)^{-1} H' X & R' \\
+      X' Z \left( Z' \OHat Z \right)^{-1} Z' X & R' \\
       R & 0
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      X' H \left( H \OHat H \right)^{-1} H' y \\ q
+      X' Z \left( Z \OHat Z \right)^{-1} Z' y \\ q
    \end{array} \right] ,
    \label{eq:3slsGmmR}
 \end{equation}
@@ -213,7 +213,7 @@ where
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
-      X' H \left( H' \OHat H \right)^{-1} H' X & R' \\
+      X' Z \left( Z' \OHat Z \right)^{-1} Z' X & R' \\
       R & 0
    \end{array} \right]^{-1} .
 \end{equation}
@@ -230,7 +230,7 @@ The restricted 3SLS estimator based on the suggestion of
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      \XHat' \OHat^{-1} H \left( H' H \right)^{-1} H' y \\ q
+      \XHat' \OHat^{-1} Z \left( Z' Z \right)^{-1} Z' y \\ q
    \end{array} \right] ,
    \label{eq:3slsSchmidtR}
 \end{equation}
@@ -248,8 +248,8 @@ where
    \\
    & & \cdot
    \left[ \begin{array}{cc}
-      \XHat' \OHat^{-1} H \left( H' H \right)^{-1} H' \OHat
-      H \left( H' H \right)^{-1} H' \OHat^{-1} \XHat & 0' \\
+      \XHat' \OHat^{-1} Z \left( Z' Z \right)^{-1} Z' \OHat
+      Z \left( Z' Z \right)^{-1} Z' \OHat^{-1} \XHat & 0' \\
       0 & 0
    \end{array} \right]^{-1}
    \nonumber \\
@@ -285,7 +285,7 @@ for the covariance matrix of the estimated coefficients.
 
 
 If the same instrumental variables are used in all equations 
-($H_1 = H_2 = \ldots = H_G$), 
+($Z_1 = Z_2 = \ldots = Z_G$),
 all the above mentioned approaches lead to identical coefficient estimates
 and identical covariance matrices of the estimated coefficients.
 

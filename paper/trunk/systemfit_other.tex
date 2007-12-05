@@ -258,17 +258,17 @@ under the null hypothesis
 The null hypothesis of the test is
 that the instrumental variables of each equation are
 uncorrelated with the disturbance terms of all other equations
-($\E \left[ u_i' H_j \right] = 0 \, \forall \, i \neq j$).
+($\E \left[ u_i' Z_j \right] = 0 \, \forall \, i \neq j$).
 Under this null hypothesis, both the 2SLS and the 3SLS estimator are consistent,
 but the 3SLS estimator is (asymptotically) more efficient.
 Under the alternative hypothesis, the 2SLS estimator is consistent
 but the 3SLS estimator is inconsistent,
 i.e.\ the instrumental variables of each equation are
 uncorrelated with the disturbances of the same equation
-($\E \left[ u_i' H_i \right] = 0 \, \forall \, i$),
+($\E \left[ u_i' Z_i \right] = 0 \, \forall \, i$),
 but the instrumental variables of at least one equation
 are correlated with the disturbances of another equation
-($\E \left[ u_i' H_j \right] \neq 0 \, \exists \, i \neq j$).
+($\E \left[ u_i' Z_j \right] \neq 0 \, \exists \, i \neq j$).
 The Hausman test statistic is
 \begin{equation}
   m = \left( \bHat_{2SLS} - \bHat_{3SLS} \right)^{'}
