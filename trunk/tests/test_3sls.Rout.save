@@ -16975,7 +16975,7 @@ Multiple R-Squared: 0.179151 Adjusted R-Squared: 0.025242
 > 
 > 
 > ## **************** shorter summaries **********************
-> print( summary( fit3sls[[ 2 ]]$e1c, printEquations = FALSE ) )
+> print( summary( fit3sls[[ 2 ]]$e1c, equations = FALSE ) )
 
 systemfit results 
 method: 3SLS 
@@ -17111,7 +17111,7 @@ SSR: 104.753099 MSE: 6.547069 Root MSE: 2.558724
 Multiple R-Squared: 0.609297 Adjusted R-Squared: 0.53604 
 
 > 
-> print( summary( fit3sls[[ 5 ]]$e4e, printEquations = FALSE ),
+> print( summary( fit3sls[[ 5 ]]$e4e, equations = FALSE ),
 +    equations = FALSE )
 
 systemfit results 
@@ -17152,7 +17152,7 @@ supply_trend        0.5682534  0.0208625 27.23799 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fit3sls[[ 1 ]]$e4wSym, printResidCov = FALSE ),
+> print( summary( fit3sls[[ 1 ]]$e4wSym, residCov = FALSE ),
 +    equations = FALSE )
 
 systemfit results 
@@ -17177,7 +17177,7 @@ supply_trend        0.3234076  0.0228697 14.14131 4.4409e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fit3sls[[ 2 ]]$e5, printResidCov = FALSE ), residCov = TRUE )
+> print( summary( fit3sls[[ 2 ]]$e5, residCov = FALSE ), residCov = TRUE )
 
 systemfit results 
 method: 3SLS 
@@ -17240,8 +17240,8 @@ SSR: 105.389143 MSE: 6.586821 Root MSE: 2.56648
 Multiple R-Squared: 0.606925 Adjusted R-Squared: 0.533223 
 
 > 
-> print( summary( fit3slsi[[ 3 ]]$e3e, printResidCov = FALSE,
-+    printEquations = FALSE ) )
+> print( summary( fit3slsi[[ 3 ]]$e3e, residCov = FALSE,
++    equations = FALSE ) )
 
 systemfit results 
 method: iterated 3SLS 
@@ -17293,7 +17293,7 @@ supply_trend        0.3755736  0.0640947  5.85967 2.4180e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fit3slsd[[ 5 ]]$e4, printResidCov = FALSE ) )
+> print( summary( fit3slsd[[ 5 ]]$e4, residCov = FALSE ) )
 
 systemfit results 
 method: 3SLS 
@@ -17340,7 +17340,7 @@ SSR: 216.400494 MSE: 13.525031 Root MSE: 3.677639
 Multiple R-Squared: 0.19288 Adjusted R-Squared: 0.041545 
 
 > 
-> print( summary( fit3slsd[[ 1 ]]$e2we, printEquations = FALSE ) )
+> print( summary( fit3slsd[[ 1 ]]$e2we, equations = FALSE ) )
 
 systemfit results 
 method: 3SLS 

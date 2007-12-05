@@ -224,15 +224,15 @@ print( summary( fitolsS5 ) )
 
 
 ## **************** shorter summaries **********************
-print( summary( fitols1, useDfSys = TRUE, printEquations = FALSE ) )
+print( summary( fitols1, useDfSys = TRUE, equations = FALSE ) )
 
 print( summary( fitols2r ), residCov = FALSE, equations = FALSE )
 
 print( summary( fitols3s, useDfSys = FALSE ), residCov = TRUE )
 
-print( summary( fitols4rs, printResidCov = FALSE, printEquations = FALSE ) )
+print( summary( fitols4rs, residCov = FALSE, equations = FALSE ) )
 
-print( summary( fitols5, printEquations = FALSE ), residCov = FALSE )
+print( summary( fitols5, equations = FALSE ), residCov = FALSE )
 
 
 ## ****************** residuals **************************

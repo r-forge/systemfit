@@ -1,6 +1,6 @@
 ## prepare summary results that belong to the whole system
 summary.systemfit <- function( object, useDfSys = NULL,
-      printResidCov = TRUE, printEquations = TRUE, ... ) {
+      residCov = TRUE, equations = TRUE, ... ) {
 
    if( is.null( useDfSys ) ) {
       useDfSys <- length( coef( object ) ) != object$rank
@@ -114,8 +114,8 @@ summary.systemfit <- function( object, useDfSys = NULL,
       result$mcelroy.r.squared <- drop( 1 - ( rtOmega %*% resid ) / denominator )
    }
 
-   result$printEquations <- printEquations
-   result$printResidCov  <- printResidCov
+   result$printEquations <- equations
+   result$printResidCov  <- residCov
 
    class( result ) <- "summary.systemfit"
    return( result )

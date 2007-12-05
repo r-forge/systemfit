@@ -254,26 +254,26 @@ print( summary( fit2slsS1 ) )
 
 
 ## **************** shorter summaries **********************
-print( summary( fit2sls1, useDfSys = TRUE, printResidCov = FALSE ) )
+print( summary( fit2sls1, useDfSys = TRUE, residCov = FALSE ) )
 
-print( summary( fit2sls1, printEquations = FALSE ) )
+print( summary( fit2sls1, equations = FALSE ) )
 
-print( summary( fit2sls1rs, printResidCov = FALSE, printEquations = FALSE ) )
+print( summary( fit2sls1rs, residCov = FALSE, equations = FALSE ) )
 
 print( summary( fit2sls2Sym, useDfSys = FALSE ), equations = FALSE )
 
 print( summary( fit2sls2 ), residCov = FALSE )
 
-print( summary( fit2sls3, useDfSys = FALSE, printResidCov = FALSE,
-   printEquations = FALSE ) )
+print( summary( fit2sls3, useDfSys = FALSE, residCov = FALSE,
+   equations = FALSE ) )
 
 print( summary( fit2sls4s ), equations = FALSE, residCov = FALSE )
 
-print( summary( fit2sls5r, printEquations = FALSE, printResidCov = FALSE ) )
+print( summary( fit2sls5r, equations = FALSE, residCov = FALSE ) )
 
 print( summary( fit2slsd1s ), residCov = FALSE, equations = FALSE )
 
-print( summary( fit2slsd2, printResidCov = FALSE, printEquations = FALSE ) )
+print( summary( fit2slsd2, residCov = FALSE, equations = FALSE ) )
 
 print( summary( fit2slsd3r ), residCov = FALSE, equations = FALSE )
 

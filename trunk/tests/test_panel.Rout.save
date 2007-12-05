@@ -111,8 +111,8 @@ Number of observations: 20 Degrees of Freedom: 17
 SSR: 1773.23393 MSE: 104.307878 Root MSE: 10.213123 
 Multiple R-Squared: 0.744446 Adjusted R-Squared: 0.714381 
 
-> summary( theilOls, useDfSys = TRUE, printResidCov = FALSE,
-+    printEquations = FALSE )
+> summary( theilOls, useDfSys = TRUE, residCov = FALSE,
++    equations = FALSE )
 
 systemfit results 
 method: OLS 
@@ -133,7 +133,7 @@ Westinghouse_value            0.0528941  0.0157065  3.36766  0.0018960 **
 Westinghouse_capital          0.0924065  0.0560990  1.64720  0.1087290    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> summary( theilOls, printEquations = FALSE )
+> summary( theilOls, equations = FALSE )
 
 systemfit results 
 method: OLS 
@@ -589,7 +589,7 @@ Number of observations: 20 Degrees of Freedom: 17
 SSR: 1801.300878 MSE: 105.958875 Root MSE: 10.293633 
 Multiple R-Squared: 0.740401 Adjusted R-Squared: 0.70986 
 
-> summary( theilSur, useDfSys = TRUE, printEquations = FALSE )
+> summary( theilSur, useDfSys = TRUE, equations = FALSE )
 
 systemfit results 
 method: SUR 
@@ -627,7 +627,7 @@ Westinghouse_value             0.0576298   0.0134110  4.29720 0.00013708 ***
 Westinghouse_capital           0.0639781   0.0489010  1.30832 0.19954136    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> summary( theilSur, printResidCov = FALSE, printEquations = FALSE )
+> summary( theilSur, residCov = FALSE, equations = FALSE )
 
 systemfit results 
 method: SUR 
@@ -1151,7 +1151,7 @@ Number of observations: 20 Degrees of Freedom: 17
 SSR: 1773.23393 MSE: 104.307878 Root MSE: 10.213123 
 Multiple R-Squared: 0.744446 Adjusted R-Squared: 0.714381 
 
-> summary( greeneOls, useDfSys = TRUE, printEquations = FALSE )
+> summary( greeneOls, useDfSys = TRUE, equations = FALSE )
 
 systemfit results 
 method: OLS 
@@ -1213,7 +1213,7 @@ Westinghouse_value              0.0528941    0.0157065  3.36766 0.00114073 **
 Westinghouse_capital            0.0924065    0.0560990  1.64720 0.10320824    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> summary( greeneOls, printResidCov = FALSE )
+> summary( greeneOls, residCov = FALSE )
 
 systemfit results 
 method: OLS 
@@ -2680,7 +2680,7 @@ Number of observations: 20 Degrees of Freedom: 17
 SSR: 12668.473129 MSE: 745.204302 Root MSE: 27.29843 
 Multiple R-Squared: -0.825748 Adjusted R-Squared: -1.040541 
 
-> summary( greeneOlsPooled, useDfSys = FALSE, printResidCov = FALSE )
+> summary( greeneOlsPooled, useDfSys = FALSE, residCov = FALSE )
 
 systemfit results 
 method: OLS 
@@ -2773,7 +2773,7 @@ Number of observations: 20 Degrees of Freedom: 17
 SSR: 12668.473129 MSE: 745.204302 Root MSE: 27.29843 
 Multiple R-Squared: -0.825748 Adjusted R-Squared: -1.040541 
 
-> summary( greeneOlsPooled, printResidCov = FALSE, printEquations = FALSE )
+> summary( greeneOlsPooled, residCov = FALSE, equations = FALSE )
 
 systemfit results 
 method: OLS 
@@ -4192,7 +4192,7 @@ Number of observations: 20 Degrees of Freedom: 17
 SSR: 1898.249072 MSE: 111.66171 Root MSE: 10.56701 
 Multiple R-Squared: 0.726429 Adjusted R-Squared: 0.694244 
 
-> summary( greeneSur, useDfSys = TRUE, printResidCov = FALSE )
+> summary( greeneSur, useDfSys = TRUE, residCov = FALSE )
 
 systemfit results 
 method: SUR 
@@ -4286,7 +4286,7 @@ Number of observations: 20 Degrees of Freedom: 17
 SSR: 1898.249072 MSE: 111.66171 Root MSE: 10.56701 
 Multiple R-Squared: 0.726429 Adjusted R-Squared: 0.694244 
 
-> summary( greeneSur, printEquations = FALSE )
+> summary( greeneSur, equations = FALSE )
 
 systemfit results 
 method: SUR 
@@ -5751,7 +5751,7 @@ Number of observations: 20 Degrees of Freedom: 17
 SSR: 16667.148552 MSE: 980.420503 Root MSE: 31.311667 
 Multiple R-Squared: -1.402026 Adjusted R-Squared: -1.684618 
 
-> summary( greeneSurPooled, useDfSys = FALSE, printEquations = FALSE )
+> summary( greeneSurPooled, useDfSys = FALSE, equations = FALSE )
 
 systemfit results 
 method: SUR 
@@ -5828,7 +5828,7 @@ Westinghouse_value             0.08910091   0.00507226 17.5663 2.4660e-12 ***
 Westinghouse_capital           0.33401503   0.01671254 19.9859 3.0265e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> summary( greeneSurPooled, printResidCov = FALSE, printEquations = FALSE )
+> summary( greeneSurPooled, residCov = FALSE, equations = FALSE )
 
 systemfit results 
 method: SUR 

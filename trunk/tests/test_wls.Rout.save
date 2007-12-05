@@ -1668,7 +1668,7 @@ supply_trend        0.2483023  0.0975178  2.54623 0.02156713 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fitwls2e, useDfSys = FALSE, printResidCov = FALSE ),
+> print( summary( fitwls2e, useDfSys = FALSE, residCov = FALSE ),
 +    equations = FALSE )
 
 systemfit results 
@@ -1736,7 +1736,7 @@ SSR: 95.627182 MSE: 5.976699 Root MSE: 2.444729
 Multiple R-Squared: 0.643334 Adjusted R-Squared: 0.576459 
 
 > 
-> print( summary( fitwls4e, printResidCov = FALSE, printEquations = FALSE ) )
+> print( summary( fitwls4e, residCov = FALSE, equations = FALSE ) )
 
 systemfit results 
 method: WLS 
@@ -1803,7 +1803,7 @@ SSR: 96.267574 MSE: 6.016723 Root MSE: 2.452901
 Multiple R-Squared: 0.640946 Adjusted R-Squared: 0.573623 
 
 > 
-> print( summary( fitwlsi1e, useDfSys = TRUE, printEquations = FALSE ) )
+> print( summary( fitwlsi1e, useDfSys = TRUE, equations = FALSE ) )
 
 systemfit results 
 method: WLS 
@@ -1842,7 +1842,7 @@ supply_trend        0.2483023  0.0872225  2.84677 0.00753894 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fitwlsi2, printEquations = FALSE, printResidCov = FALSE ),
+> print( summary( fitwlsi2, equations = FALSE, residCov = FALSE ),
 +    residCov = TRUE )
 
 systemfit results 
@@ -1909,7 +1909,7 @@ supply_trend        0.3187888  0.0379741  8.39490 8.4107e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fitwlsi4, printEquations = FALSE ), equations = TRUE )
+> print( summary( fitwlsi4, equations = FALSE ), equations = TRUE )
 
 systemfit results 
 method: iterated WLS 
@@ -1971,7 +1971,7 @@ SSR: 96.276614 MSE: 6.017288 Root MSE: 2.453016
 Multiple R-Squared: 0.640912 Adjusted R-Squared: 0.573583 
 
 > 
-> print( summary( fitwlsi5e, useDfSys = FALSE, printResidCov = FALSE ) )
+> print( summary( fitwlsi5e, useDfSys = FALSE, residCov = FALSE ) )
 
 systemfit results 
 method: iterated WLS 

@@ -3472,7 +3472,7 @@ Multiple R-Squared: 0 Adjusted R-Squared: 0
 > 
 > 
 > ## **************** shorter summaries **********************
-> print( summary( fitsur1e2, useDfSys = TRUE, printEquations = FALSE ) )
+> print( summary( fitsur1e2, useDfSys = TRUE, equations = FALSE ) )
 
 systemfit results 
 method: SUR 
@@ -3514,7 +3514,7 @@ supply_trend        0.3325200  0.0640279  5.19336 1.0430e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fitsur2e, useDfSys = FALSE, printResidCov = FALSE ) )
+> print( summary( fitsur2e, useDfSys = FALSE, residCov = FALSE ) )
 
 systemfit results 
 method: SUR 
@@ -3623,7 +3623,7 @@ supply_trend        0.3231256  0.0170395 18.96335 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fitsur5, printResidCov = FALSE ), equations = FALSE )
+> print( summary( fitsur5, residCov = FALSE ), equations = FALSE )
 
 systemfit results 
 method: SUR 
@@ -3647,7 +3647,7 @@ supply_trend        0.3286315  0.0206322 15.92811 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fitsur5w, printEquations = FALSE, printResidCov = FALSE ),
+> print( summary( fitsur5w, equations = FALSE, residCov = FALSE ),
 +    equations = TRUE )
 
 systemfit results 
@@ -3787,7 +3787,7 @@ SSR: 520.328675 MSE: 32.520542 Root MSE: 5.702679
 Multiple R-Squared: 0.220191 Adjusted R-Squared: 0.073977 
 
 > 
-> print( summary( fitsuri3e, printResidCov = FALSE, printEquations = FALSE ) )
+> print( summary( fitsuri3e, residCov = FALSE, equations = FALSE ) )
 
 systemfit results 
 method: iterated SUR 
@@ -3813,7 +3813,7 @@ supply_trend         0.3379166   0.0431146  7.83763 4.0071e-09 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fitsurio4, printResidCov = FALSE ), equations = FALSE )
+> print( summary( fitsurio4, residCov = FALSE ), equations = FALSE )
 
 systemfit results 
 method: iterated SUR 
@@ -3838,7 +3838,7 @@ supply_farmPrice    0.2231504  0.0189763 11.75940 1.0369e-13 ***
 supply_trend        0.3202701  0.0184936 17.31787 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> print( summary( fitsuri4, printEquations = FALSE ), residCov = FALSE )
+> print( summary( fitsuri4, equations = FALSE ), residCov = FALSE )
 
 systemfit results 
 method: iterated SUR 
@@ -3864,7 +3864,7 @@ supply_trend        0.3006798  0.0436282  6.89187 5.2705e-08 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fitsuri4w, useDfSys = FALSE, printEquations = FALSE ) )
+> print( summary( fitsuri4w, useDfSys = FALSE, equations = FALSE ) )
 
 systemfit results 
 method: iterated SUR 
@@ -3906,7 +3906,7 @@ supply_trend        0.3006812  0.0436279  6.89195 3.6237e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fitsurio5r2, printEquations = FALSE ) )
+> print( summary( fitsurio5r2, equations = FALSE ) )
 
 systemfit results 
 method: iterated SUR 

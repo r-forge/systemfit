@@ -1922,7 +1922,7 @@ Multiple R-Squared: 0 Adjusted R-Squared: 0
 > 
 > 
 > ## **************** shorter summaries **********************
-> print( summary( fitols1, useDfSys = TRUE, printEquations = FALSE ) )
+> print( summary( fitols1, useDfSys = TRUE, equations = FALSE ) )
 
 systemfit results 
 method: OLS 
@@ -2034,7 +2034,7 @@ SSR: 95.087806 MSE: 5.942988 Root MSE: 2.437824
 Multiple R-Squared: 0.645346 Adjusted R-Squared: 0.578848 
 
 > 
-> print( summary( fitols4rs, printResidCov = FALSE, printEquations = FALSE ) )
+> print( summary( fitols4rs, residCov = FALSE, equations = FALSE ) )
 
 systemfit results 
 method: OLS 
@@ -2057,7 +2057,7 @@ supply_trend         0.3188850   0.0352186  9.05446 1.0670e-10 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( summary( fitols5, printEquations = FALSE ), residCov = FALSE )
+> print( summary( fitols5, equations = FALSE ), residCov = FALSE )
 
 systemfit results 
 method: OLS 

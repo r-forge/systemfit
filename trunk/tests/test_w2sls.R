@@ -164,22 +164,22 @@ print( summary( fitw2slsS5 ) )
 
 
 ## **************** shorter summaries **********************
-print( summary( fitw2sls1e, printResidCov = FALSE ) )
+print( summary( fitw2sls1e, residCov = FALSE ) )
 
-print( summary( fitw2sls2, printResidCov = FALSE, printEquations = FALSE ) )
+print( summary( fitw2sls2, residCov = FALSE, equations = FALSE ) )
 
 print( summary( fitw2sls3, useDfSys = FALSE ), equations = FALSE )
 
 print( summary( fitw2sls4e ), residCov = FALSE )
 
-print( summary( fitw2sls5, useDfSys = FALSE, printResidCov = FALSE ) )
+print( summary( fitw2sls5, useDfSys = FALSE, residCov = FALSE ) )
 
 print( summary( fitw2slsd1, useDfSys = TRUE ), residCov = FALSE,
    equations = FALSE )
 
-print( summary( fitw2slsd2e, printEquations = TRUE ), equations = FALSE )
+print( summary( fitw2slsd2e, equations = TRUE ), equations = FALSE )
 
-print( summary( fitw2slsd3e, printEquations = FALSE ), residCov = FALSE )
+print( summary( fitw2slsd3e, equations = FALSE ), residCov = FALSE )
 
 
 ## ****************** residuals **************************
