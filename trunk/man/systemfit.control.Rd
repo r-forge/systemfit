@@ -23,8 +23,8 @@ systemfit.control(
       solvetol = .Machine$double.eps,
       model = TRUE,
       x = FALSE,
-      z = FALSE,
-      y = FALSE )
+      y = FALSE,
+      z = FALSE )
 }
 
 \arguments{
@@ -54,7 +54,7 @@ systemfit.control(
    \item{solvetol}{tolerance level for detecting linear dependencies
       when inverting a matrix or calculating a determinant (see
       \code{\link{solve}} and \code{\link{det}}).}
-   \item{model, x, z, y}{
+   \item{model, x, y, z}{
       logical. If 'TRUE' the corresponding components of the fit
       (the model frame, the model matrix, the matrix of instruments,
       the response) are returned.}

@@ -11,8 +11,8 @@ systemfit.control <- function(
       solvetol = .Machine$double.eps,
       model = TRUE,
       x = FALSE,
-      z = FALSE,
-      y = FALSE )
+      y = FALSE,
+      z = FALSE )
 {
    result <- list()
 
@@ -91,17 +91,17 @@ systemfit.control <- function(
    }
    result$x <- x
 
-   ## z (returnInstMatrix)
-   if( !is.logical( z ) || length( z ) != 1 ) {
-      stop( "control parameter 'z' must be logical" )
-   }
-   result$z <- z
-
    ## y (returnResponse)
    if( !is.logical( y ) || length( y ) != 1 ) {
       stop( "control parameter 'y' must be logical" )
    }
    result$y <- y
+
+   ## z (returnInstMatrix)
+   if( !is.logical( z ) || length( z ) != 1 ) {
+      stop( "control parameter 'z' must be logical" )
+   }
+   result$z <- z
 
    return( result )
 }
