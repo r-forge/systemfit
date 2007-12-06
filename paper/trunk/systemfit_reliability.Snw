@@ -256,11 +256,11 @@ These commands
 return exactly the same results as published in
 \citet[pp.~295, 300]{theil71}.
 
-Now, we apply an F-test to check whether the slope prameters are equal
+Now, we apply an F test to check whether the slope prameters are equal
 for General Electric and Westinghouse (pages~313--315).
 Then we re-estimate the model under these restrictions on the coefficients.
 
-F-test (page 313--315)%
+F test (page 313--315)%
 \footnote{%
 The same restriction can be specified also symbolically by
 \code{RMatrix <- c( "General.Electric\_value = Westinghouse\_value",
