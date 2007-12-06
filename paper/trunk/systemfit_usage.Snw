@@ -168,10 +168,10 @@ We illustrate this by estimating the model under
 the restriction $\beta_2 + \beta_6 = 0$.
 Since the name of $\beta_2$
 (coefficient of variable \code{price} in equation \code{demand})
-is \code{demand_price}
+is \code{demand\_price}
 and the name of $\beta_6$
 (coefficient of variable \code{farmPrice} in equation \code{supply})
-is \code{supply_farmPrice},
+is \code{supply\_farmPrice},
 this restriction can be specified by
 <<>>=
 restrict <- "demand_price + supply_farmPrice = 0"
