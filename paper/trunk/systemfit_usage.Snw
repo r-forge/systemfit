@@ -272,7 +272,7 @@ methods have been proposed to calculate the residual
 covariance matrix.
 The user can specify, which method \code{systemfit} should use.
 Possible values of the argument \code{methodResidCov} are presented in
-table~\ref{tab:methodResidCov}.
+Table~\ref{tab:methodResidCov}.
 By default, \code{systemfit} uses equation (\ref{eq:rcovGeomean}).
 
 \begin{table}[H]
@@ -336,7 +336,7 @@ As discussed in Sections~\ref{sec:Estimation-2sls-w2sls-3sls} and~\ref{sec:Restr
 there exist several different
 methods to perform a 3SLS estimation.
 The user can specify the method by argument \code{method3sls}.
-Possible values are presented in table~\ref{tab:method3sls}.
+Possible values are presented in Table~\ref{tab:method3sls}.
 The default value is \code{"GLS"}.
 
 \begin{table}[H]
