@@ -209,7 +209,7 @@ Please take a look at the errata of this book
 We present two different commands to print
 the residual covariance matrix of the pooled SUR estimation.
 The first calculates the covariance matrix without centering the residuals
-(see section~\ref{sec:residcov});
+(see Section~\ref{sec:residcov});
 the returned values are equal to those published in \citet[p.~351]{greene03}.
 The second command calculates the residual covariance matrix
 after centering the residuals;
@@ -225,7 +225,7 @@ Finally, we estimate an example taken from \citet[p.~295ff]{theil71}
 that is also based on \citet{grunfeld58}.
 The data are available in Table~7.1 of \citet[p.~296]{theil71}.
 They are a subset of the data set published by \citet{greene03}
-(see section~\ref{sec:grunfeld-greene}).
+(see Section~\ref{sec:grunfeld-greene}).
 
 After extracting the data from the \code{GrunfeldGreene} data set,
 the individual (cross-section) and time identifiers are indicated.
