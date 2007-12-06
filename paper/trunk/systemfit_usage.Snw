@@ -550,24 +550,33 @@ greeneSurPooled <- systemfit( invest ~ value + capital, method = "SUR",
 \subsection{Testing linear restrictions}
 
 As described in Section~\ref{sec:testingRestrictions},
-linear restrictions can be tested by an $F$ test, Wald test or
-LR test.
+linear restrictions can be tested by an $F$ test, two Wald tests and
+an LR test.
 The \pkg{systemfit} package provides
-the method \code{linear.hypothesis} for $F$ tests and Wald tests
+the method \code{linear.hypothesis} for the $F$ and Wald tests
 as well as the method \code{lrtest} for LR tests.
 
 We will now test the restriction $\beta_2 = -\beta_6$
 that was specified by the matrix \code{Rmat} and the vector \code{qvec}
 in the example above (p.~\pageref{code:Rmat}).
 <<>>=
+linear.hypothesis( fitsur, Rmat, qvec, test = "FT" )
+
 linear.hypothesis( fitsur, Rmat, qvec, test = "F" )
 
 linear.hypothesis( fitsur, Rmat, qvec, test = "Chisq" )
 
 lrtest( fitsurRmat, fitsur )
 @
-The linear restrictions are tested by an $F$ test first,
-then by a Wald test, and finally by an LR test.
+The linear restrictions are tested by \citeauthor{theil71}'s $F$ test
+(equation~\ref{eq:f-test-theil}) first,
+second by the $F$ statistic of a Wald test
+(equation~\ref{eq:f-test-wald}),
+third by the $\chi^2$ statistic of a Wald test
+(equation~\ref{eq:chi2-test-wald}),
+and finally by an LR test
+(equation~\ref{eq:lr-test}).
+
 The first argument of function \code{linear.hypothesis.systemfit}
 must be an unrestricted regression
 returned by \code{systemfit}.
@@ -577,10 +586,12 @@ Analogously to the argument \code{restrict.matrix}
 of the \code{systemfit} function,
 the restrictions can be specified either in matrix form or symbolically.
 The optional argument \code{test} must be
-a character string, \code{"F"} or \code{"Chisq"},
+a character string, \code{"FT"}, \code{"F"}, or \code{"Chisq"},
 specifying whether to compute
-the finite-sample $F$ statistic (with approximate $F$ distribution)
-or the large-sample Wald statistic (with asymptotic $\chi^2$ distribution).
+\citeauthor{theil71}'s finite-sample $F$ test
+(with approximate $F$ distribution)
+the finite-sample Wald test (with approximate $F$ distribution)
+or the large-sample Wald test (with asymptotic $\chi^2$ distribution).
 
 All arguments of the function \code{lrtest.systemfit}
 must be fitted model objects returned by \code{systemfit}.
