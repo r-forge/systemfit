@@ -4,15 +4,18 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In this section, we reproduce results from several textbook examples
-using the \pkg{systemfit} package for several reasons.  First, a
-comparison of \pkg{systemfit}'s results with results published in the
-literature confirms the reliability of the \pkg{systemfit} package.
-Second, this section helps teachers and students become familiar with
-using the \pkg{systemfit} package.  Third, the section encourages
-reproducible research, which should be a general goal in scientific
-analysis \citep{buckheit95,schwab00}.  For instance, by preparing this
-section, the exact estimation methods of the replicated analyses have
-been discovered and a few errors in \citet{greene03} have been found
+using the \pkg{systemfit} package for several reasons.
+First, a comparison of \pkg{systemfit}'s results
+with results published in the literature
+confirms the reliability of the \pkg{systemfit} package.
+Second, this section helps teachers and students
+become familiar with using the \pkg{systemfit} package.
+Third, the section encourages reproducible research,
+which should be a general goal in scientific analysis
+\citep{buckheit95,schwab00}.
+For instance, by preparing this section,
+the exact estimation methods of the replicated analyses have been discovered
+and a few errors in \citet{greene03} have been found
 \citep[see][]{greene06a}.
 
 
