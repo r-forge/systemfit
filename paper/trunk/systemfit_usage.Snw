@@ -581,7 +581,7 @@ The first argument of function \code{linear.hypothesis.systemfit}
 must be an unrestricted regression
 returned by \code{systemfit}.
 The second and third arguments are the restriction matrix $R$ and
-optionally the vector $q$ as described in Section~\ref{sec:Restrictions}.
+the optional vector $q$, as described in Section~\ref{sec:Restrictions}.
 Analogously to the argument \code{restrict.matrix}
 of the \code{systemfit} function,
 the restrictions can be specified either in matrix form or symbolically.
