@@ -3587,7 +3587,7 @@ trend        0.246  0.426
 > ## ************** F tests ****************
 > # testing first restriction
 > print( linear.hypothesis( fitw2sls1, restrm ) )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3599,7 +3599,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.3073 0.5831
 > linear.hypothesis( fitw2sls1, restrict )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3612,7 +3612,7 @@ Model 2: restricted model
 2     34 -1 0.3073 0.5831
 > 
 > print( linear.hypothesis( fitw2slsd1e, restrm ) )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3624,7 +3624,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.9163 0.3454
 > linear.hypothesis( fitw2slsd1e, restrict )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3644,7 +3644,7 @@ Model 2: restricted model
 > restrictOnly2 <- "- demand_price + supply_price = 0.5"
 > # first restriction not imposed 
 > print( linear.hypothesis( fitw2sls1e, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3656,7 +3656,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.0139 0.9069
 > linear.hypothesis( fitw2sls1e, restrictOnly2 )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3669,7 +3669,7 @@ Model 2: restricted model
 2     34 -1 0.0139 0.9069
 > 
 > print( linear.hypothesis( fitw2slsd1, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3681,7 +3681,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 0.7429 0.3950
 > linear.hypothesis( fitw2slsd1, restrictOnly2 )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3695,7 +3695,7 @@ Model 2: restricted model
 > 
 > # first restriction imposed
 > print( linear.hypothesis( fitw2sls2, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3707,7 +3707,7 @@ Model 2: restricted model
 1     34                 
 2     35 -1 0.0386 0.8455
 > linear.hypothesis( fitw2sls2, restrictOnly2 )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3720,7 +3720,7 @@ Model 2: restricted model
 2     35 -1 0.0386 0.8455
 > 
 > print( linear.hypothesis( fitw2sls3, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3732,7 +3732,7 @@ Model 2: restricted model
 1     34                 
 2     35 -1 0.0386 0.8455
 > linear.hypothesis( fitw2sls3, restrictOnly2 )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3745,7 +3745,7 @@ Model 2: restricted model
 2     35 -1 0.0386 0.8455
 > 
 > print( linear.hypothesis( fitw2slsd2e, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3757,7 +3757,7 @@ Model 2: restricted model
 1     34                 
 2     35 -1 0.4171 0.5227
 > linear.hypothesis( fitw2slsd2e, restrictOnly2 )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3770,7 +3770,7 @@ Model 2: restricted model
 2     35 -1 0.4171 0.5227
 > 
 > print( linear.hypothesis( fitw2slsd3e, restrOnly2m, restrOnly2q ) )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3782,7 +3782,7 @@ Model 2: restricted model
 1     34                 
 2     35 -1 0.4171 0.5227
 > linear.hypothesis( fitw2slsd3e, restrictOnly2 )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3796,7 +3796,7 @@ Model 2: restricted model
 > 
 > # testing both of the restrictions
 > print( linear.hypothesis( fitw2sls1e, restr2m, restr2q ) )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3809,7 +3809,7 @@ Model 2: restricted model
 1     33                 
 2     35 -2 0.1766 0.8389
 > linear.hypothesis( fitw2sls1e, restrict2 )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3823,7 +3823,7 @@ Model 2: restricted model
 2     35 -2 0.1766 0.8389
 > 
 > print( linear.hypothesis( fitw2slsd1, restr2m, restr2q ) )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3836,7 +3836,7 @@ Model 2: restricted model
 1     33                 
 2     35 -2 0.6504 0.5284
 > linear.hypothesis( fitw2slsd1, restrict2 )
-Linear hypothesis test (F test)
+Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3853,7 +3853,7 @@ Model 2: restricted model
 > ## ************** Wald tests ****************
 > # testing first restriction
 > print( linear.hypothesis( fitw2sls1, restrm, test = "Chisq" ) )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3865,7 +3865,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 0.3073     0.5793
 > linear.hypothesis( fitw2sls1, restrict, test = "Chisq" )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3878,7 +3878,7 @@ Model 2: restricted model
 2     34 -1 0.3073     0.5793
 > 
 > print( linear.hypothesis( fitw2slsd1e, restrm, test = "Chisq" ) )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3890,7 +3890,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 1.1107     0.2919
 > linear.hypothesis( fitw2slsd1e, restrict, test = "Chisq" )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -3905,7 +3905,7 @@ Model 2: restricted model
 > # testing second restriction
 > # first restriction not imposed
 > print( linear.hypothesis( fitw2sls1e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3917,7 +3917,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 0.0168     0.8967
 > linear.hypothesis( fitw2sls1e, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3930,7 +3930,7 @@ Model 2: restricted model
 2     34 -1 0.0168     0.8967
 > 
 > print( linear.hypothesis( fitw2slsd1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3942,7 +3942,7 @@ Model 2: restricted model
 1     33                     
 2     34 -1 0.7429     0.3887
 > linear.hypothesis( fitw2slsd1, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3955,7 +3955,7 @@ Model 2: restricted model
 2     34 -1 0.7429     0.3887
 > # first restriction imposed
 > print( linear.hypothesis( fitw2sls2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3967,7 +3967,7 @@ Model 2: restricted model
 1     34                     
 2     35 -1 0.0373     0.8468
 > linear.hypothesis( fitw2sls2, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3980,7 +3980,7 @@ Model 2: restricted model
 2     35 -1 0.0373     0.8468
 > 
 > print( linear.hypothesis( fitw2sls3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -3992,7 +3992,7 @@ Model 2: restricted model
 1     34                     
 2     35 -1 0.0373     0.8468
 > linear.hypothesis( fitw2sls3, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -4005,7 +4005,7 @@ Model 2: restricted model
 2     35 -1 0.0373     0.8468
 > 
 > print( linear.hypothesis( fitw2slsd2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -4017,7 +4017,7 @@ Model 2: restricted model
 1     34                     
 2     35 -1 0.4942     0.4821
 > linear.hypothesis( fitw2slsd2e, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -4030,7 +4030,7 @@ Model 2: restricted model
 2     35 -1 0.4942     0.4821
 > 
 > print( linear.hypothesis( fitw2slsd3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -4042,7 +4042,7 @@ Model 2: restricted model
 1     34                     
 2     35 -1 0.4942     0.4821
 > linear.hypothesis( fitw2slsd3e, restrictOnly2, test = "Chisq" )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
@@ -4056,7 +4056,7 @@ Model 2: restricted model
 > 
 > # testing both of the restrictions
 > print( linear.hypothesis( fitw2sls1e, restr2m, restr2q, test = "Chisq" ) )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -4069,7 +4069,7 @@ Model 2: restricted model
 1     33                     
 2     35 -2 0.4282     0.8073
 > linear.hypothesis( fitw2sls1e, restrict2, test = "Chisq" )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -4083,7 +4083,7 @@ Model 2: restricted model
 2     35 -2 0.4282     0.8073
 > 
 > print( linear.hypothesis( fitw2slsd1, restr2m, restr2q, test = "Chisq" ) )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
@@ -4096,7 +4096,7 @@ Model 2: restricted model
 1     33                     
 2     35 -2 1.3008     0.5218
 > linear.hypothesis( fitw2slsd1, restrict2, test = "Chisq" )
-Linear hypothesis test (Wald test)
+Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0

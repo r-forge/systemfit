@@ -1,5 +1,5 @@
 linear.hypothesis.systemfit <- function( model,
-      hypothesis.matrix, rhs = NULL, test = c( "F", "Chisq" ),
+      hypothesis.matrix, rhs = NULL, test = c( "FT", "F", "Chisq" ),
       vcov. = NULL, ... ){
 
    thisCall <- match.call()
@@ -20,7 +20,7 @@ linear.hypothesis.systemfit <- function( model,
          vcov. = vcov., ... )
 
       attributes( result )$heading[ 1 ] <-
-         "Linear hypothesis test (Wald test)\n\nHypothesis:"
+         "Linear hypothesis test (Chi^2 statistic of a Wald test)\n\nHypothesis:"
 
       modelPos <- grep( "^Model 1: .*Model 2:", attributes( result )$heading )
       attributes( result )$heading[ modelPos[ 1 ] ] <-
@@ -29,6 +29,20 @@ linear.hypothesis.systemfit <- function( model,
             attributes( result )$heading[ modelPos[ 1 ] ] )
 
    } else if ( test == "F" ) {
+      result <- car:::linear.hypothesis.default( model,
+         hypothesis.matrix = hypothesis.matrix, rhs = rhs, test = test,
+         vcov. = vcov., ... )
+
+      attributes( result )$heading[ 1 ] <-
+         "Linear hypothesis test (F statistic of a Wald test)\n\nHypothesis:"
+
+      modelPos <- grep( "^Model 1: .*Model 2:", attributes( result )$heading )
+      attributes( result )$heading[ modelPos[ 1 ] ] <-
+         sub( "^Model 1: .*Model 2:",
+            paste( "Model 1: ", modelName, "\nModel 2:", sep = "" ),
+            attributes( result )$heading[ modelPos[ 1 ] ] )
+
+   } else if ( test == "FT" ) {
       if( is.character( hypothesis.matrix ) ) {
          R.restr <- car:::makeHypothesis( names( coef( model ) ),
             hypothesis.matrix, rhs )
@@ -60,7 +74,7 @@ linear.hypothesis.systemfit <- function( model,
       result[ 2, 3 ] <- ftest$statistic
       result[ 2, 4 ] <- ftest$p.value
 
-      title <- "Linear hypothesis test (F test)\n\nHypothesis:"
+      title <- "Linear hypothesis test (Theil's F test)\n\nHypothesis:"
       topnote <- paste( "Model 1: ", modelName,
          "\nModel 2: restricted model", sep = "" )
       if( is.null( vcov. ) ){
@@ -73,7 +87,7 @@ linear.hypothesis.systemfit <- function( model,
          "", topnote, note )
       class( result ) <- c( "anova", "data.frame" )
    } else {
-      stop( "unknown test statistic '", test, "'. Please use 'F' or 'Chisq'" )
+      stop( "unknown test statistic '", test, "'. Please use 'F', 'FT', or 'Chisq'" )
    }
 
    return( result )
