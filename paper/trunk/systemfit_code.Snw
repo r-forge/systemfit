@@ -27,10 +27,10 @@ to make the usage of \code{systemfit} as easy as possible
 for \proglang{R} users.
 
 The econometric estimation is done by applying
-the formulas in sections~\ref{sec:Estimation-ols-wls-sur}
+the formulas in Sections~\ref{sec:Estimation-ols-wls-sur}
 and~\ref{sec:Estimation-2sls-w2sls-3sls}
 or --- if the coefficients are estimate under linear restrictions ---
-by the formulas in section~\ref{sec:Restrictions}.
+by the formulas in Section~\ref{sec:Restrictions}.
 If the restrictions on the coefficients are specified symbolically,
 function \code{makeHypothesis} of the \pkg{car} package \citep{r-car-1.2-1, fox02a}
 is used to create the restriction matrix.
@@ -53,7 +53,7 @@ is available in appendix~\ref{sec:returned-object}.
 The functions \codeDD{linear}{hypothesis}{systemfit},
 \codeD{lrtest}{systemfit}, and \codeD{hausman}{systemfit}
 apply the statistical tests described in
-sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
+Sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
 
 The method \code{linear.hypothesis.systemfit}
 can be used to test linear restrictions on the estimated coefficients
@@ -162,7 +162,7 @@ respectively.
 The matrix $\Omega^{-1}$ that is used to compute the estimated
 coefficients and their covariance matrix is of size
 $( G \cdot T ) \times ( G \cdot T )$
-(see sections~\ref{sec:Estimation-ols-wls-sur},
+(see Sections~\ref{sec:Estimation-ols-wls-sur},
 \ref{sec:Estimation-2sls-w2sls-3sls}, and~\ref{sec:Restrictions}).
 In case of large data sets, $\Omega^{-1}$ becomes computationally infeasible.
 Therefore, we use the following transformation and compute $X' \Omega^{-1}$
