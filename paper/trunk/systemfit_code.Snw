@@ -57,10 +57,10 @@ Sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
 
 The method \code{linear.hypothesis.systemfit}
 can be used to test linear restrictions on the estimated coefficients
-by an $F$ test or a Wald/$\chi^2$ test.
-Internally, the $F$ statistic is computed by the hidden function
-\code{.ftest.systemfit}
-and the Wald/$\chi^2$ statistic is computed by the method
+by \citeauthor{theil71}'s $F$ test or by usual Wald tests.
+Internally, \citeauthor{theil71}'s $F$ statistic is computed
+by the hidden function \code{.ftest.systemfit}
+and the Wald tests are computed by the method
 \code{linear.hypothesis.default} of the \pkg{car} package
 \citep{r-car-1.2-1, fox02a}.
 The method \code{lrtest.systemfit} is a wrapper function
