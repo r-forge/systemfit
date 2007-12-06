@@ -98,7 +98,7 @@ that determines the estimation method.
 It must be either \code{"OLS"}, \code{"WLS"}, \code{"SUR"},
 \code{"2SLS"}, \code{"W2SLS"}, or \code{"3SLS"}.
 These methods correspond to the estimation methods
-described in sections~\ref{sec:Estimation-ols-wls-sur},
+described in Sections~\ref{sec:Estimation-ols-wls-sur},
 \ref{sec:Estimation-2sls-w2sls-3sls}, and~\ref{sec:Restrictions}.
 The following command estimates the model described above as
 °Seemingly Unrelated Regression°.
@@ -150,10 +150,10 @@ fitsur <- systemfit( eqSystem, method = "SUR", data = Kmenta )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Restrictions on the coefficients}
-As outlined in section~\ref{sec:Restrictions}, restrictions on the coefficients
+As outlined in Section~\ref{sec:Restrictions}, restrictions on the coefficients
 can be specified in two ways.
 One way is to use the matrix $R$ and the vector $q$
-(see section~\ref{sec:Restrictions}).
+(see Section~\ref{sec:Restrictions}).
 These restrictions can be specified symbolically
 by argument \code{restrict.matrix}
 as in the generic function
@@ -205,7 +205,7 @@ $\beta_2 + \beta_6 = 0$.
 
 The other way to specify restrictions on the coefficients is to modify the regressor matrix
 by post-multiplying it with a matrix, say $M$
-(see section~\ref{sec:Restrictions}).
+(see Section~\ref{sec:Restrictions}).
 This kind of restriction can be specified
 by setting argument \code{restrict.regMat} equal to the matrix $M$.
 We convert the restriction specified above to $\beta_2 = - \beta_6$,
@@ -241,7 +241,7 @@ all.equal( coef( fitsurRmat ), coef( fitsurRegMat ) )
 The estimation methods WLS, SUR, W2SLS and 3SLS need a
 covariance matrix of the residuals
 that can be calculated from a first-step OLS or 2SLS estimation
-(see section~\ref{sec:residcov}).
+(see Section~\ref{sec:residcov}).
 This procedure can be iterated and at each iteration the covariance
 matrix is calculated from the previous step estimation.
 This iteration is repeated until the maximum number of iterations
@@ -267,7 +267,7 @@ fitsurit <- systemfit( eqSystem, method = "SUR", maxiter = 500 )
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Residual covariance matrix}
-It was explained in section~\ref{sec:residcov} that several different
+It was explained in Section~\ref{sec:residcov} that several different
 methods have been proposed to calculate the residual
 covariance matrix.
 The user can specify, which method \code{systemfit} should use.
@@ -300,7 +300,7 @@ whether the means should be subtracted from the residuals
 before (\ref{eq:rcovNoDfCor}), (\ref{eq:rcovGeomean}), (\ref{eq:rcovMax}),
 or (\ref{eq:rcovTheil}) are applied
 to calculate the residual covariance matrix
-(see section~\ref{sec:residcov}).
+(see Section~\ref{sec:residcov}).
 The corresponding argument is called \code{centerResiduals}.
 It must be either \code{TRUE} (subtract the means) or
 \code{FALSE} (take the unmodified residuals).
@@ -312,7 +312,7 @@ whether the residual covariance matrix
 for a WLS, SUR, W2SLS, or 3SLS estimation
 should be obtained from a restricted or from an unrestricted
 first-step estimation
-(see section~\ref{sec:residcov}).
+(see Section~\ref{sec:residcov}).
 If this argument is \code{TRUE} (the default),
 the residual covariance matrix is obtained from a restricted
 OLS or 2SLS estimation.
@@ -324,7 +324,7 @@ Finally, argument \code{residCovWeighted} can be used to decide,
 whether the residual covariance matrix for a SUR (3SLS) estimation
 should be obtained from a WLS (W2SLS) estimation
 instead of from an OLS (2SLS) estimation
-(see section~\ref{sec:residcov}).
+(see Section~\ref{sec:residcov}).
 By default, \code{residCovWeighted} is \code{FALSE},
 which means that the residuals of an OLS (2SLS) estimation are used
 to compute the residual covariance matrix.
@@ -332,7 +332,7 @@ to compute the residual covariance matrix.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{3SLS formula}
-As discussed in sections~\ref{sec:Estimation-2sls-w2sls-3sls} and~\ref{sec:Restrictions},
+As discussed in Sections~\ref{sec:Estimation-2sls-w2sls-3sls} and~\ref{sec:Restrictions},
 there exist several different
 methods to perform a 3SLS estimation.
 The user can specify the method by argument \code{method3sls}.
@@ -394,7 +394,7 @@ default tolerance level of \code{solve} and \code{det}.
 Second, argument \code{useMatrix} specifies
 whether the \pkg{Matrix} package \citep{r-matrix-07}
 should be used for all computations where matrices are involved
-(see section~\ref{sec:code-efficiency}).
+(see Section~\ref{sec:code-efficiency}).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -450,7 +450,7 @@ Function \code{summary.systemfit} has an optional argument \code{useDfSys}.
 It selects the approach
 that is applied by \code{systemfit}
 to determine the degrees of freedom of $t$ tests of the estimated coefficients
-(section~\ref{sec:degreesOfFreedom}).
+(Section~\ref{sec:degreesOfFreedom}).
 If argument \code{useDfSys} is \code{TRUE},
 the degrees of freedom of the whole system are taken.
 In contrast, if \code{useDfSys} is \code{FALSE},
@@ -549,7 +549,7 @@ greeneSurPooled <- systemfit( invest ~ value + capital, method = "SUR",
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Testing linear restrictions}
 
-As described in section~\ref{sec:testingRestrictions},
+As described in Section~\ref{sec:testingRestrictions},
 linear restrictions can be tested by an $F$ test, Wald test or
 LR test.
 The \pkg{systemfit} package provides
@@ -571,8 +571,8 @@ then by a Wald test, and finally by an LR test.
 The first argument of function \code{linear.hypothesis.systemfit}
 must be an unrestricted regression
 returned by \code{systemfit}.
-The second and third argument are the restriction matrix $R$ and
-optionally the vector $q$ as described in section~\ref{sec:Restrictions}.
+The second and third arguments are the restriction matrix $R$ and
+optionally the vector $q$ as described in Section~\ref{sec:Restrictions}.
 Analogously to the argument \code{restrict.matrix}
 of the \code{systemfit} function,
 the restrictions can be specified either in matrix form or symbolically.
@@ -603,7 +603,7 @@ reasonable level of significance.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Hausman test}
-A Hausman test, which is described in section~\ref{sec:hausman},
+A Hausman test, which is described in Section~\ref{sec:hausman},
 can be carried out with following commands:
 <<>>=
 fit2sls  <- systemfit( eqSystem, method = "2SLS",
