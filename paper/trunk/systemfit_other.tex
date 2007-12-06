@@ -195,12 +195,36 @@ $i$ is a column vector of $T$ ones.
 \subsection{Testing linear restrictions}
 \label{sec:testingRestrictions}
 
-Linear restrictions can be tested by an $F$ test, Wald test or
-likelihood ratio (LR) test.
+Linear restrictions can be tested by an $F$ test, two Wald tests and
+a likelihood ratio (LR) test.
 
 The $F$ statistic for systems of equations is
 \begin{equation}
 F = \frac{
+   ( R \bHat - q )'
+   ( R ( X' ( \Sigma \otimes I )^{-1} X )^{-1} R' )^{-1}
+   ( R \bHat - q ) /
+   j
+}{
+   \uHat' ( \Sigma \otimes I )^{-1} \uHat /
+   ( G \cdot T - K )
+} \; ,
+\label{eq:f-test}
+\end{equation}
+where $j$ is the number of restrictions,
+$K$ is the total number of estimated coefficients,
+and all other variables are as defined before
+\citep[p.~314]{theil71}.
+Under the null hypothesis, $F$ is $F$ distributed
+with $j$ and $G \cdot T - K$ degrees of freedom.
+
+However, $F$ in equation~(\ref{eq:f-test}) cannot be computed,
+because $\Sigma$ is generally unknown.
+As a solution, \citet[p.~314]{theil71} proposes
+to replace the unknown $\Sigma$ in~(\ref{eq:f-test})
+by the estimated covariance matrix $\SHat$.
+\begin{equation}
+\hat{F} = \frac{
    ( R \bHat - q )'
    ( R ( X' ( \SHat \otimes I )^{-1} X )^{-1} R' )^{-1}
    ( R \bHat - q ) /
@@ -208,19 +232,37 @@ F = \frac{
 }{
    \uHat' ( \SHat \otimes I )^{-1} \uHat /
    ( G \cdot T - K )
-} \; ,
+}
+\label{eq:f-test-theil}
 \end{equation}
-where $j$ is the number of restrictions,
-$G$ is the number of equations,
-$T$ is the number of observations per equation,
-$K$ is the total number of estimated coefficients, and
-$\SHat$ is the (estimated) residual covariance matrix
-used in the estimation.
-Under the null hypothesis, $F$ has an approximate $F$ distribution
-with $j$ and $G \cdot T - K$ degrees of freedom
-\citep[p.~314]{theil71}.
+Asymptotically, $\hat{F}$ has the same distribution as $F$
+in equation~(\ref{eq:f-test}),
+because the numerator of~(\ref{eq:f-test-theil})
+converges in probability to the numerator of~(\ref{eq:f-test})
+and the denominator of~(\ref{eq:f-test-theil})
+converges in probability to the denominator of~(\ref{eq:f-test})
+\citep[p.~402]{theil71}.
 
-The Wald statistic for systems of equations is
+Furthermore, the denominators of both~(\ref{eq:f-test})
+and~(\ref{eq:f-test-theil}) converge in probability to~$1$.
+Taking this into account and applying equation~(\ref{eq:cov-ols-wls-sur}),
+we obtain the usual $F$~statistic of the Wald test.
+\begin{equation}
+\hat{\hat{F}} = \frac{
+   ( R \bHat - q )'
+   ( R \, \COVHat \left[ \bHat \right] R' )^{-1}
+   ( R \bHat - q )
+}{
+   j
+}
+\label{eq:f-test-wald}
+\end{equation}
+Under the null hypotheses, also $\hat{\hat{F}}$ is
+asymptotically $F$ distributed
+with $j$ and $G \cdot T - K$ degrees of freedom.
+
+Multiplying equation~(\ref{eq:f-test-wald}) with $j$,
+we obtain the usual $\chi^2$ statistic for the Wald test
 \begin{equation}
 W =
    ( R \bHat - q )'
