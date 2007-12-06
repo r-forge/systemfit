@@ -67,7 +67,7 @@
 }
 
 \author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com},\cr
-  Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de} }
+  Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}
 }
 
 \seealso{\code{\link{systemfit}}}
