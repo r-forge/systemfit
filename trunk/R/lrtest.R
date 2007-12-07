@@ -3,15 +3,7 @@ lrtest.systemfit <- function( object, ... ) {
 
    thisCall <- match.call()
 
-   if( "object" %in% names( thisCall ) ) {
-      if( class( thisCall$object ) == "name" ) {
-         object$name <- as.character( thisCall$object )
-      } else if( class( thisCall$object ) == "call" ) {
-         object$name <- format( thisCall$object )
-      } else {
-         object$name <- thisCall$object
-      }
-   }
+   object$name <- deparse( substitute( object ) )
 
    extractName <- function( object ){
       if( !exists( ".lrtestSystemfitNameNumber" ) ) {

@@ -5,15 +5,8 @@ linear.hypothesis.systemfit <- function( model,
    thisCall <- match.call()
    test <- match.arg( test )
 
-   if( "model" %in% names( thisCall ) ) {
-      if( class( thisCall$model ) == "name" ) {
-         modelName <- as.character( thisCall$model )
-      } else if( class( thisCall$model ) == "call" ) {
-         modelName <- format( thisCall$model )
-      } else {
-         modelName <- thisCall$model
-      }
-   }
+   modelName <- deparse( substitute( model ) )
+
    if( test == "Chisq" ){
       result <- car:::linear.hypothesis.default( model,
          hypothesis.matrix = hypothesis.matrix, rhs = rhs, test = test,
