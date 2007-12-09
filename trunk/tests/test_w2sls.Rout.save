@@ -66,6 +66,9 @@ Loading required package: zoo
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 162.362 4.36424 0.697214         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 65.7291 3.86642 1.96632 0.754847 0.726005
 supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
@@ -85,8 +88,6 @@ The correlations of the residuals
 demand 1.000000 0.901724
 supply 0.901724 1.000000
 
-The determinant of the residual covariance matrix: 4.36424
-OLS R-squared value of the system: 0.697214
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -132,6 +133,9 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 162.362 2.96768 0.697214         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 65.7291 3.86642 1.96632 0.754847 0.726005
 supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
@@ -151,8 +155,6 @@ The correlations of the residuals
 demand 1.000000 0.901724
 supply 0.901724 1.000000
 
-The determinant of the residual covariance matrix: 2.96768
-OLS R-squared value of the system: 0.697214
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -197,6 +199,9 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 165.284 3.40875 0.691766         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 66.8385 3.93168 1.98284 0.750709 0.721381
 supply 20 16 98.4451 6.15282 2.48049 0.632824 0.563979
@@ -216,8 +221,6 @@ The correlations of the residuals
 demand 1.00000 0.92687
 supply 0.92687 1.00000
 
-The determinant of the residual covariance matrix: 3.40875
-OLS R-squared value of the system: 0.691766
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -268,6 +271,9 @@ Multiple R-Squared: 0.632824 Adjusted R-Squared: 0.563979
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 165.314 2.33364 0.691709         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 66.9065 3.93567 1.98385 0.750455 0.721097
 supply 20 16 98.4077 6.15048 2.48002 0.632964 0.564144
@@ -287,8 +293,6 @@ The correlations of the residuals
 demand 1.000000 0.926405
 supply 0.926405 1.000000
 
-The determinant of the residual covariance matrix: 2.33364
-OLS R-squared value of the system: 0.691709
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -333,6 +337,9 @@ Multiple R-Squared: 0.632964 Adjusted R-Squared: 0.564144
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 165.284 3.40875 0.691766         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 66.8385 3.93168 1.98284 0.750709 0.721381
 supply 20 16 98.4451 6.15282 2.48049 0.632824 0.563979
@@ -352,8 +359,6 @@ The correlations of the residuals
 demand 1.00000 0.92687
 supply 0.92687 1.00000
 
-The determinant of the residual covariance matrix: 3.40875
-OLS R-squared value of the system: 0.691766
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -398,6 +403,9 @@ Multiple R-Squared: 0.632824 Adjusted R-Squared: 0.563979
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 165.314 2.33364 0.691709         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 66.9065 3.93567 1.98385 0.750455 0.721097
 supply 20 16 98.4077 6.15048 2.48002 0.632964 0.564144
@@ -417,8 +425,6 @@ The correlations of the residuals
 demand 1.000000 0.926405
 supply 0.926405 1.000000
 
-The determinant of the residual covariance matrix: 2.33364
-OLS R-squared value of the system: 0.691709
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -464,6 +470,9 @@ Multiple R-Squared: 0.632964 Adjusted R-Squared: 0.564144
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.186 3.57247 0.690084         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.931 3.87829 1.96934 0.754094 0.725164
 supply 20 16 100.255 6.26594 2.50319 0.626074 0.555963
@@ -483,8 +492,6 @@ The correlations of the residuals
 demand 1.000000 0.923575
 supply 0.923575 1.000000
 
-The determinant of the residual covariance matrix: 3.57247
-OLS R-squared value of the system: 0.690084
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -536,6 +543,9 @@ Multiple R-Squared: 0.626074 Adjusted R-Squared: 0.555963
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.170 2.44418 0.690114         NA
+
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.9449 3.87911 1.96955 0.754042 0.725105
 supply 20 16 100.2248 6.26405 2.50281 0.626186 0.556096
@@ -555,8 +565,6 @@ The correlations of the residuals
 demand 1.00000 0.92308
 supply 0.92308 1.00000
 
-The determinant of the residual covariance matrix: 2.44418
-OLS R-squared value of the system: 0.690114
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -602,6 +610,9 @@ Multiple R-Squared: 0.626186 Adjusted R-Squared: 0.556096
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.186 3.57247 0.690084         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.931 3.87829 1.96934 0.754094 0.725164
 supply 20 16 100.255 6.26594 2.50319 0.626074 0.555963
@@ -621,8 +632,6 @@ The correlations of the residuals
 demand 1.000000 0.923575
 supply 0.923575 1.000000
 
-The determinant of the residual covariance matrix: 3.57247
-OLS R-squared value of the system: 0.690084
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -674,6 +683,9 @@ Multiple R-Squared: 0.626074 Adjusted R-Squared: 0.555963
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.170 2.44418 0.690114         NA
+
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.9449 3.87911 1.96955 0.754042 0.725105
 supply 20 16 100.2248 6.26405 2.50281 0.626186 0.556096
@@ -693,8 +705,6 @@ The correlations of the residuals
 demand 1.00000 0.92308
 supply 0.92308 1.00000
 
-The determinant of the residual covariance matrix: 2.44418
-OLS R-squared value of the system: 0.690114
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -739,6 +749,9 @@ Multiple R-Squared: 0.626186 Adjusted R-Squared: 0.556096
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.080 9.24969 0.694011         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
 supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
@@ -758,8 +771,6 @@ The correlations of the residuals
 demand 1.000000 0.783569
 supply 0.783569 1.000000
 
-The determinant of the residual covariance matrix: 9.24969
-OLS R-squared value of the system: 0.694011
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -805,6 +816,9 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.080 6.28979 0.694011         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
 supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
@@ -824,8 +838,6 @@ The correlations of the residuals
 demand 1.000000 0.783569
 supply 0.783569 1.000000
 
-The determinant of the residual covariance matrix: 6.28979
-OLS R-squared value of the system: 0.694011
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -870,6 +882,9 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.202  5.1077 0.690054         NA
+
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  64.7761 3.81036 1.95201 0.758401 0.729978
 supply 20 16 101.4260 6.33912 2.51776 0.621706 0.550776
@@ -889,8 +904,6 @@ The correlations of the residuals
 demand 1.000000 0.887997
 supply 0.887997 1.000000
 
-The determinant of the residual covariance matrix: 5.1077
-OLS R-squared value of the system: 0.690054
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -936,6 +949,9 @@ Multiple R-Squared: 0.621706 Adjusted R-Squared: 0.550776
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.015 3.45234 0.690403         NA
+
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  64.7154 3.80679 1.95110 0.758627 0.730231
 supply 20 16 101.2993 6.33121 2.51619 0.622179 0.551337
@@ -955,8 +971,6 @@ The correlations of the residuals
 demand 1.000000 0.888454
 supply 0.888454 1.000000
 
-The determinant of the residual covariance matrix: 3.45234
-OLS R-squared value of the system: 0.690403
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -1001,6 +1015,9 @@ Multiple R-Squared: 0.622179 Adjusted R-Squared: 0.551337
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.202  5.1077 0.690054         NA
+
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  64.7761 3.81036 1.95201 0.758401 0.729978
 supply 20 16 101.4260 6.33912 2.51776 0.621706 0.550776
@@ -1020,8 +1037,6 @@ The correlations of the residuals
 demand 1.000000 0.887997
 supply 0.887997 1.000000
 
-The determinant of the residual covariance matrix: 5.1077
-OLS R-squared value of the system: 0.690054
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -1066,6 +1081,9 @@ Multiple R-Squared: 0.621706 Adjusted R-Squared: 0.550776
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.015 3.45234 0.690403         NA
+
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  64.7154 3.80679 1.95110 0.758627 0.730231
 supply 20 16 101.2993 6.33121 2.51619 0.622179 0.551337
@@ -1085,8 +1103,6 @@ The correlations of the residuals
 demand 1.000000 0.888454
 supply 0.888454 1.000000
 
-The determinant of the residual covariance matrix: 3.45234
-OLS R-squared value of the system: 0.690403
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -1133,6 +1149,9 @@ Multiple R-Squared: 0.622179 Adjusted R-Squared: 0.551337
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov    OLS-R2 McElroy-R2
+system 40 36 1543.74 179.335 -0.650411         NA
+
      N DF     SSR     MSE    RMSE        R2    Adj R2
 eq1 20 19 861.480 45.3411 6.73358 -2.213109 -2.213109
 eq2 20 17 682.257 40.1328 6.33504 -0.022489 -0.142782
@@ -1152,8 +1171,6 @@ The correlations of the residuals
 eq1  1.000000 -0.950278
 eq2 -0.950278  1.000000
 
-The determinant of the residual covariance matrix: 179.335
-OLS R-squared value of the system: -0.650411
 
 W2SLS estimates for 'eq1' (equation 1)
 Model Formula: consump ~ price - 1
@@ -1192,6 +1209,9 @@ Multiple R-Squared: -0.022489 Adjusted R-Squared: -0.142782
 systemfit results 
 method: W2SLS 
 
+        N DF   SSR detRCov   OLS-R2 McElroy-R2
+system 40 38 47456  111148 -87.4996         NA
+
      N DF       SSR       MSE     RMSE         R2     Adj R2
 eq1 20 19   861.449   45.3394  6.73345   -2.21299   -2.21299
 eq2 20 19 46594.549 2452.3447 49.52115 -172.78614 -172.78614
@@ -1211,8 +1231,6 @@ The correlations of the residuals
 eq1  1.0000000 -0.0448498
 eq2 -0.0448498  1.0000000
 
-The determinant of the residual covariance matrix: 111148
-OLS R-squared value of the system: -87.4996
 
 W2SLS estimates for 'eq1' (equation 1)
 Model Formula: consump ~ price - 1
@@ -1251,6 +1269,9 @@ Multiple R-Squared: -172.78614 Adjusted R-Squared: -172.78614
 systemfit results 
 method: W2SLS 
 
+        N DF   SSR detRCov   OLS-R2 McElroy-R2
+system 40 38 97978  687515 -103.748         NA
+
      N DF     SSR     MSE   RMSE        R2    Adj R2
 eq1 20 19 50950.0 2681.58 51.784 -189.0308 -189.0308
 eq2 20 19 47028.1 2475.16 49.751  -69.4803  -69.4803
@@ -1270,8 +1291,6 @@ The correlations of the residuals
 eq1 1.00000 0.98909
 eq2 0.98909 1.00000
 
-The determinant of the residual covariance matrix: 687515
-OLS R-squared value of the system: -103.748
 
 W2SLS estimates for 'eq1' (equation 1)
 Model Formula: consump ~ trend - 1
@@ -1311,6 +1330,9 @@ Multiple R-Squared: -69.480332 Adjusted R-Squared: -69.480332
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov  OLS-R2 McElroy-R2
+system 40 38 93547.8  111736 -99.012         NA
+
      N DF     SSR     MSE    RMSE        R2    Adj R2
 eq1 20 19 46514.2 2448.12 49.4785 -172.4865 -172.4865
 eq2 20 19 47033.5 2475.45 49.7539  -69.4885  -69.4885
@@ -1330,8 +1352,6 @@ The correlations of the residuals
 eq1 1.000000 0.988345
 eq2 0.988345 1.000000
 
-The determinant of the residual covariance matrix: 111736
-OLS R-squared value of the system: -99.0119
 
 W2SLS estimates for 'eq1' (equation 1)
 Model Formula: consump ~ trend - 1
@@ -1370,6 +1390,9 @@ Multiple R-Squared: -69.488457 Adjusted R-Squared: -69.488457
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov OLS-R2 McElroy-R2
+system 40 38 935.366 490.798      0         NA
+
      N DF     SSR     MSE    RMSE R2 Adj R2
 eq1 20 19 268.114 14.1113 3.75650  0      0
 eq2 20 19 667.251 35.1185 5.92609  0      0
@@ -1389,8 +1412,6 @@ The correlations of the residuals
 eq1 1.0000000 0.0980957
 eq2 0.0980957 1.0000000
 
-The determinant of the residual covariance matrix: 490.798
-OLS R-squared value of the system: 0
 
 W2SLS estimates for 'eq1' (equation 1)
 Model Formula: consump ~ 1
@@ -1429,11 +1450,13 @@ Multiple R-Squared: 0 Adjusted R-Squared: 0
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 162.362 2.96768 0.697214         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 65.7291 3.86642 1.96632 0.754847 0.726005
 supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
 
-OLS R-squared value of the system: 0.697214
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -1475,11 +1498,13 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 165.284 3.40875 0.691766         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 66.8385 3.93168 1.98284 0.750709 0.721381
 supply 20 16 98.4451 6.15282 2.48049 0.632824 0.563979
 
-OLS R-squared value of the system: 0.691766
 
 Coefficients:
                      Estimate Std. Error  t value   Pr(>|t|)    
@@ -1497,6 +1522,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 systemfit results 
 method: W2SLS 
+
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 165.284 3.40875 0.691766         NA
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 66.8385 3.93168 1.98284 0.750709 0.721381
@@ -1517,8 +1545,6 @@ The correlations of the residuals
 demand 1.00000 0.92687
 supply 0.92687 1.00000
 
-The determinant of the residual covariance matrix: 3.40875
-OLS R-squared value of the system: 0.691766
 
 Coefficients:
                      Estimate Std. Error  t value   Pr(>|t|)    
@@ -1537,11 +1563,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.170 2.44418 0.690114         NA
+
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.9449 3.87911 1.96955 0.754042 0.725105
 supply 20 16 100.2248 6.26405 2.50281 0.626186 0.556096
 
-OLS R-squared value of the system: 0.690114
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -1583,11 +1611,13 @@ Multiple R-Squared: 0.626186 Adjusted R-Squared: 0.556096
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.186 3.57247 0.690084         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.931 3.87829 1.96934 0.754094 0.725164
 supply 20 16 100.255 6.26594 2.50319 0.626074 0.555963
 
-OLS R-squared value of the system: 0.690084
 
 W2SLS estimates for 'demand' (equation 1)
 Model Formula: consump ~ price + income
@@ -1630,11 +1660,13 @@ Multiple R-Squared: 0.626074 Adjusted R-Squared: 0.555963
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.080 9.24969 0.694011         NA
+
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
 supply 20 16 96.6332 6.03958 2.45756 0.639582 0.572004
 
-OLS R-squared value of the system: 0.694011
 
 Coefficients:
                       Estimate  Std. Error  t value   Pr(>|t|)    
@@ -1652,6 +1684,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 systemfit results 
 method: W2SLS 
+
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.015 3.45234 0.690403         NA
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  64.7154 3.80679 1.95110 0.758627 0.730231
@@ -1672,8 +1707,6 @@ The correlations of the residuals
 demand 1.000000 0.888454
 supply 0.888454 1.000000
 
-The determinant of the residual covariance matrix: 3.45234
-OLS R-squared value of the system: 0.690403
 
 Coefficients:
                       Estimate  Std. Error  t value   Pr(>|t|)    
@@ -1692,11 +1725,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 systemfit results 
 method: W2SLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 166.015 3.45234 0.690403         NA
+
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  64.7154 3.80679 1.95110 0.758627 0.730231
 supply 20 16 101.2993 6.33121 2.51619 0.622179 0.551337
 
-OLS R-squared value of the system: 0.690403
 
 Coefficients:
                       Estimate  Std. Error  t value   Pr(>|t|)    

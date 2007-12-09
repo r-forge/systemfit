@@ -63,6 +63,9 @@ General.Electric_(Intercept)       General.Electric_value
 systemfit results 
 method: OLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 34 14989.8 38001.4 0.710551         NA
+
                   N DF      SSR     MSE    RMSE       R2   Adj R2
 General.Electric 20 17 13216.59 777.446 27.8827 0.705307 0.670637
 Westinghouse     20 17  1773.23 104.308 10.2131 0.744446 0.714381
@@ -77,8 +80,6 @@ The correlations of the residuals
 General.Electric         1.000000     0.728965
 Westinghouse             0.728965     1.000000
 
-The determinant of the residual covariance matrix: 38001.4
-OLS R-squared value of the system: 0.710551
 
 OLS estimates for 'General.Electric' (equation 1)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
@@ -117,11 +118,13 @@ Multiple R-Squared: 0.744446 Adjusted R-Squared: 0.714381
 systemfit results 
 method: OLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 34 14989.8 38001.4 0.710551         NA
+
                   N DF      SSR     MSE    RMSE       R2   Adj R2
 General.Electric 20 17 13216.59 777.446 27.8827 0.705307 0.670637
 Westinghouse     20 17  1773.23 104.308 10.2131 0.744446 0.714381
 
-OLS R-squared value of the system: 0.710551
 
 Coefficients:
                                Estimate Std. Error  t value   Pr(>|t|)    
@@ -138,6 +141,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 systemfit results 
 method: OLS 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 34 14989.8 38001.4 0.710551         NA
+
                   N DF      SSR     MSE    RMSE       R2   Adj R2
 General.Electric 20 17 13216.59 777.446 27.8827 0.705307 0.670637
 Westinghouse     20 17  1773.23 104.308 10.2131 0.744446 0.714381
@@ -152,8 +158,6 @@ The correlations of the residuals
 General.Electric         1.000000     0.728965
 Westinghouse             0.728965     1.000000
 
-The determinant of the residual covariance matrix: 38001.4
-OLS R-squared value of the system: 0.710551
 
 Coefficients:
                                Estimate Std. Error  t value   Pr(>|t|)    
@@ -458,7 +462,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x91e26a4>
+<environment: 0x91e1694>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -483,7 +487,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x91e26a4>
+<environment: 0x91e1694>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -508,7 +512,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x91e26a4>
+<environment: 0x91e1694>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -535,6 +539,9 @@ General.Electric_(Intercept)       General.Electric_value
 systemfit results 
 method: SUR 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 34 15589.7 25750.4 0.698968   0.615103
+
                   N DF     SSR     MSE    RMSE       R2   Adj R2
 General.Electric 20 17 13788.4 811.081 28.4795 0.692557 0.656388
 Westinghouse     20 17  1801.3 105.959 10.2936 0.740401 0.709860
@@ -554,9 +561,6 @@ The correlations of the residuals
 General.Electric         1.000000     0.765043
 Westinghouse             0.765043     1.000000
 
-The determinant of the residual covariance matrix: 25750.4
-OLS R-squared value of the system: 0.698968
-McElroy's R-squared value for the system: 0.615103
 
 SUR estimates for 'General.Electric' (equation 1)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
@@ -594,6 +598,9 @@ Multiple R-Squared: 0.740401 Adjusted R-Squared: 0.70986
 systemfit results 
 method: SUR 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 34 15589.7 25750.4 0.698968   0.615103
+
                   N DF     SSR     MSE    RMSE       R2   Adj R2
 General.Electric 20 17 13788.4 811.081 28.4795 0.692557 0.656388
 Westinghouse     20 17  1801.3 105.959 10.2936 0.740401 0.709860
@@ -613,9 +620,6 @@ The correlations of the residuals
 General.Electric         1.000000     0.765043
 Westinghouse             0.765043     1.000000
 
-The determinant of the residual covariance matrix: 25750.4
-OLS R-squared value of the system: 0.698968
-McElroy's R-squared value for the system: 0.615103
 
 Coefficients:
                                 Estimate  Std. Error  t value   Pr(>|t|)    
@@ -632,12 +636,13 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 systemfit results 
 method: SUR 
 
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 34 15589.7 25750.4 0.698968   0.615103
+
                   N DF     SSR     MSE    RMSE       R2   Adj R2
 General.Electric 20 17 13788.4 811.081 28.4795 0.692557 0.656388
 Westinghouse     20 17  1801.3 105.959 10.2936 0.740401 0.709860
 
-OLS R-squared value of the system: 0.698968
-McElroy's R-squared value for the system: 0.615103
 
 Coefficients:
                                 Estimate  Std. Error  t value   Pr(>|t|)    
@@ -942,7 +947,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9303834>
+<environment: 0x82ed998>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -967,7 +972,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9303834>
+<environment: 0x82ed998>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -992,7 +997,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9303834>
+<environment: 0x82ed998>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -1034,6 +1039,9 @@ Coefficients:
 systemfit results 
 method: OLS 
 
+         N DF    SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 339121 2.09423e+14 0.847604         NA
+
                   N DF       SSR       MSE     RMSE       R2   Adj R2
 Chrysler         20 17   2997.44   176.320  13.2786 0.913578 0.903411
 General.Electric 20 17  13216.59   777.446  27.8827 0.705307 0.670637
@@ -1069,8 +1077,6 @@ General.Motors       0.158359
 US.Steel             0.614985
 Westinghouse         1.000000
 
-The determinant of the residual covariance matrix: 2.09423e+14
-OLS R-squared value of the system: 0.847604
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -1156,6 +1162,9 @@ Multiple R-Squared: 0.744446 Adjusted R-Squared: 0.714381
 systemfit results 
 method: OLS 
 
+         N DF    SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 339121 2.09423e+14 0.847604         NA
+
                   N DF       SSR       MSE     RMSE       R2   Adj R2
 Chrysler         20 17   2997.44   176.320  13.2786 0.913578 0.903411
 General.Electric 20 17  13216.59   777.446  27.8827 0.705307 0.670637
@@ -1191,8 +1200,6 @@ General.Motors       0.158359
 US.Steel             0.614985
 Westinghouse         1.000000
 
-The determinant of the residual covariance matrix: 2.09423e+14
-OLS R-squared value of the system: 0.847604
 
 Coefficients:
                                  Estimate   Std. Error  t value   Pr(>|t|)    
@@ -1218,6 +1225,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 systemfit results 
 method: OLS 
 
+         N DF    SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 339121 2.09423e+14 0.847604         NA
+
                   N DF       SSR       MSE     RMSE       R2   Adj R2
 Chrysler         20 17   2997.44   176.320  13.2786 0.913578 0.903411
 General.Electric 20 17  13216.59   777.446  27.8827 0.705307 0.670637
@@ -1225,7 +1235,6 @@ General.Motors   20 17 143205.88  8423.875  91.7817 0.921354 0.912102
 US.Steel         20 17 177928.31 10466.371 102.3053 0.440312 0.374467
 Westinghouse     20 17   1773.23   104.308  10.2131 0.744446 0.714381
 
-OLS R-squared value of the system: 0.847604
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -2401,7 +2410,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x83482cc>
+<environment: 0x8d6315c>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -2426,7 +2435,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x83482cc>
+<environment: 0x8d6315c>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -2451,7 +2460,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x83482cc>
+<environment: 0x8d6315c>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -2476,7 +2485,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x83482cc>
+<environment: 0x8d6315c>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -2501,7 +2510,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x83482cc>
+<environment: 0x8d6315c>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -2526,7 +2535,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x83482cc>
+<environment: 0x8d6315c>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -2563,6 +2572,9 @@ Coefficients:
 systemfit results 
 method: OLS 
 
+         N DF     SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 1570884 4.20396e+17 0.294071         NA
+
                   N DF      SSR       MSE     RMSE         R2     Adj R2
 Chrysler         20 17  15117.0   889.236  29.8201   0.564150   0.512874
 General.Electric 20 17 685769.8 40339.401 200.8467 -14.290768 -16.089682
@@ -2598,8 +2610,6 @@ General.Motors      -0.468883
 US.Steel            -0.118649
 Westinghouse         1.000000
 
-The determinant of the residual covariance matrix: 4.20396e+17
-OLS R-squared value of the system: 0.294071
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -2685,6 +2695,9 @@ Multiple R-Squared: -0.825748 Adjusted R-Squared: -1.040541
 systemfit results 
 method: OLS 
 
+         N DF     SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 1570884 4.20396e+17 0.294071         NA
+
                   N DF      SSR       MSE     RMSE         R2     Adj R2
 Chrysler         20 17  15117.0   889.236  29.8201   0.564150   0.512874
 General.Electric 20 17 685769.8 40339.401 200.8467 -14.290768 -16.089682
@@ -2692,7 +2705,6 @@ General.Motors   20 17 188218.2 11071.656 105.2219   0.896634   0.884473
 US.Steel         20 17 669110.2 39359.425 198.3921  -1.104740  -1.352356
 Westinghouse     20 17  12668.5   745.204  27.2984  -0.825748  -1.040541
 
-OLS R-squared value of the system: 0.294071
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -2778,6 +2790,9 @@ Multiple R-Squared: -0.825748 Adjusted R-Squared: -1.040541
 systemfit results 
 method: OLS 
 
+         N DF     SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 1570884 4.20396e+17 0.294071         NA
+
                   N DF      SSR       MSE     RMSE         R2     Adj R2
 Chrysler         20 17  15117.0   889.236  29.8201   0.564150   0.512874
 General.Electric 20 17 685769.8 40339.401 200.8467 -14.290768 -16.089682
@@ -2785,7 +2800,6 @@ General.Motors   20 17 188218.2 11071.656 105.2219   0.896634   0.884473
 US.Steel         20 17 669110.2 39359.425 198.3921  -1.104740  -1.352356
 Westinghouse     20 17  12668.5   745.204  27.2984  -0.825748  -1.040541
 
-OLS R-squared value of the system: 0.294071
 
 Coefficients:
                                 Estimate  Std. Error  t value   Pr(>|t|)    
@@ -3898,7 +3912,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dc5c80>
+<environment: 0x8d20cc0>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -3923,7 +3937,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dc5c80>
+<environment: 0x8d20cc0>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -3948,7 +3962,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dc5c80>
+<environment: 0x8d20cc0>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -3973,7 +3987,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dc5c80>
+<environment: 0x8d20cc0>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -3998,7 +4012,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dc5c80>
+<environment: 0x8d20cc0>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -4023,7 +4037,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x8dc5c80>
+<environment: 0x8d20cc0>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -4059,6 +4073,9 @@ Coefficients:
 
 systemfit results 
 method: SUR 
+
+         N DF    SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 347048 6.17788e+13 0.844042   0.868682
 
                   N DF       SSR       MSE     RMSE       R2   Adj R2
 Chrysler         20 17   3056.98   179.823  13.4098 0.911862 0.901493
@@ -4109,9 +4126,6 @@ General.Motors       0.156947
 US.Steel             0.698954
 Westinghouse         1.000000
 
-The determinant of the residual covariance matrix: 6.17788e+13
-OLS R-squared value of the system: 0.844042
-McElroy's R-squared value for the system: 0.868682
 
 SUR estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -4197,6 +4211,9 @@ Multiple R-Squared: 0.726429 Adjusted R-Squared: 0.694244
 systemfit results 
 method: SUR 
 
+         N DF    SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 347048 6.17788e+13 0.844042   0.868682
+
                   N DF       SSR       MSE     RMSE       R2   Adj R2
 Chrysler         20 17   3056.98   179.823  13.4098 0.911862 0.901493
 General.Electric 20 17  14009.12   824.066  28.7065 0.687636 0.650887
@@ -4204,8 +4221,6 @@ General.Motors   20 17 144320.88  8489.463  92.1383 0.920742 0.911417
 US.Steel         20 17 183763.01 10809.589 103.9692 0.421959 0.353954
 Westinghouse     20 17   1898.25   111.662  10.5670 0.726429 0.694244
 
-OLS R-squared value of the system: 0.844042
-McElroy's R-squared value for the system: 0.868682
 
 SUR estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -4291,6 +4306,9 @@ Multiple R-Squared: 0.726429 Adjusted R-Squared: 0.694244
 systemfit results 
 method: SUR 
 
+         N DF    SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 347048 6.17788e+13 0.844042   0.868682
+
                   N DF       SSR       MSE     RMSE       R2   Adj R2
 Chrysler         20 17   3056.98   179.823  13.4098 0.911862 0.901493
 General.Electric 20 17  14009.12   824.066  28.7065 0.687636 0.650887
@@ -4340,9 +4358,6 @@ General.Motors       0.156947
 US.Steel             0.698954
 Westinghouse         1.000000
 
-The determinant of the residual covariance matrix: 6.17788e+13
-OLS R-squared value of the system: 0.844042
-McElroy's R-squared value for the system: 0.868682
 
 Coefficients:
                                  Estimate   Std. Error  t value   Pr(>|t|)    
@@ -5456,7 +5471,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x957dccc>
+<environment: 0x94ec720>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -5481,7 +5496,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x957dccc>
+<environment: 0x94ec720>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -5506,7 +5521,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x957dccc>
+<environment: 0x94ec720>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -5531,7 +5546,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x957dccc>
+<environment: 0x94ec720>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -5556,7 +5571,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x957dccc>
+<environment: 0x94ec720>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -5581,7 +5596,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x957dccc>
+<environment: 0x94ec720>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -5618,6 +5633,9 @@ Coefficients:
 
 systemfit results 
 method: SUR 
+
+         N DF     SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 1604301 9.94613e+16 0.279053   0.843852
 
                   N DF      SSR       MSE     RMSE         R2     Adj R2
 Chrysler         20 17   6112.2   359.541  18.9616   0.823775   0.803042
@@ -5668,9 +5686,6 @@ General.Motors     -0.3760456
 US.Steel           -0.0757482
 Westinghouse        1.0000000
 
-The determinant of the residual covariance matrix: 9.94613e+16
-OLS R-squared value of the system: 0.279053
-McElroy's R-squared value for the system: 0.843852
 
 SUR estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -5756,6 +5771,9 @@ Multiple R-Squared: -1.402026 Adjusted R-Squared: -1.684618
 systemfit results 
 method: SUR 
 
+         N DF     SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 1604301 9.94613e+16 0.279053   0.843852
+
                   N DF      SSR       MSE     RMSE         R2     Adj R2
 Chrysler         20 17   6112.2   359.541  18.9616   0.823775   0.803042
 General.Electric 20 17 691132.1 40654.827 201.6304 -14.410331 -16.223311
@@ -5805,9 +5823,6 @@ General.Motors     -0.3760456
 US.Steel           -0.0757482
 Westinghouse        1.0000000
 
-The determinant of the residual covariance matrix: 9.94613e+16
-OLS R-squared value of the system: 0.279053
-McElroy's R-squared value for the system: 0.843852
 
 Coefficients:
                                  Estimate   Std. Error t value   Pr(>|t|)    
@@ -5833,6 +5848,9 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 systemfit results 
 method: SUR 
 
+         N DF     SSR     detRCov   OLS-R2 McElroy-R2
+system 100 85 1604301 9.94613e+16 0.279053   0.843852
+
                   N DF      SSR       MSE     RMSE         R2     Adj R2
 Chrysler         20 17   6112.2   359.541  18.9616   0.823775   0.803042
 General.Electric 20 17 691132.1 40654.827 201.6304 -14.410331 -16.223311
@@ -5840,8 +5858,6 @@ General.Motors   20 17 201010.5 11824.147 108.7389   0.889609   0.876622
 US.Steel         20 17 689379.5 40551.736 201.3746  -1.168498  -1.423616
 Westinghouse     20 17  16667.1   980.421  31.3117  -1.402026  -1.684618
 
-OLS R-squared value of the system: 0.279053
-McElroy's R-squared value for the system: 0.843852
 
 Coefficients:
                                  Estimate   Std. Error t value   Pr(>|t|)    
@@ -6952,7 +6968,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x89bf404>
+<environment: 0x8d2da04>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -6977,7 +6993,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x89bf404>
+<environment: 0x8d2da04>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -7002,7 +7018,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x89bf404>
+<environment: 0x8d2da04>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -7027,7 +7043,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x89bf404>
+<environment: 0x8d2da04>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -7052,7 +7068,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x89bf404>
+<environment: 0x8d2da04>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -7077,7 +7093,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x89bf404>
+<environment: 0x8d2da04>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")

@@ -144,6 +144,20 @@ print.summary.systemfit <- function( x,
       }
     }
   }
+
+   if( is.null( x$mcelroy.r.squared ) ) x$mcelroy.r.squared <- NA
+   table.sys <- cbind( round( sum( x$df ),         digits ),
+                       round( x$df[2],             digits ),
+                       round( sum( sapply( x$eq, function( x ) x$ssr ) ), digits ),
+                       round( x$detResidCov,       digits ),
+                       round( x$ols.r.squared,     digits ),
+                       round( x$mcelroy.r.squared, digits ) )
+   rownames( table.sys ) <- c( "system" )
+   colnames( table.sys ) <- c( "N", "DF", "SSR", "detRCov", "OLS-R2", "McElroy-R2" )
+   print( table.sys, quote = FALSE, right = TRUE, digits = digits )
+
+   cat("\n")
+
   for(i in 1:length( x$eq ) ) {
     row <- NULL
     row <- cbind( round( sum( x$eq[[i]]$df ),  digits ),
@@ -158,9 +172,6 @@ print.summary.systemfit <- function( x,
   }
   rownames(table) <- c( labels )
   colnames(table) <- c("N","DF", "SSR", "MSE", "RMSE", "R2", "Adj R2" )
-
-  ##print.matrix(table, quote = FALSE, right = TRUE )
-  ##prmatrix(table, quote = FALSE, right = TRUE )
   print(table, quote = FALSE, right = TRUE, digits = digits )
 
   cat("\n")
@@ -183,21 +194,7 @@ print.summary.systemfit <- function( x,
       cat("The correlations of the residuals\n")
       print( x$residCor, digits = digits )
       cat("\n")
-
-      cat("The determinant of the residual covariance matrix: ")
-      cat( formatC( x$detResidCov, digits = digits, width = -1 ) )
-      cat("\n")
    }
-
-  cat("OLS R-squared value of the system: ")
-  cat( formatC( x$ols.r.squared, digits = digits, width = -1 ) )
-  cat("\n")
-
-  if(!is.null(x$mcelroy.r.squared)) {
-    cat("McElroy's R-squared value for the system: ")
-    cat( formatC( x$mcelroy.r.squared, digits = digits, width = -1 ) )
-    cat("\n")
-  }
 
    if( equations ){
       ## now print the individual equations
