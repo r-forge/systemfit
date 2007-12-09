@@ -7107,7 +7107,7 @@ income       0.213   0.390
 Likelihood ratio test
 
 Model 1: fitsur2
-Model 2: object_2
+Model 2: fitsur1
   #Df  LogLik Df  Chisq Pr(>Chisq)
 1   9 -52.210                     
 2  10 -51.614  1 1.1906     0.2752
@@ -7115,7 +7115,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsur3
-Model 2: object_2
+Model 2: fitsur1
   #Df  LogLik Df  Chisq Pr(>Chisq)
 1   9 -52.210                     
 2  10 -51.614  1 1.1906     0.2752
@@ -7124,7 +7124,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsur2e
-Model 2: object_2
+Model 2: fitsur1e
   #Df  LogLik Df  Chisq Pr(>Chisq)
 1   9 -51.972                     
 2  10 -51.622  1 0.7003     0.4027
@@ -7132,7 +7132,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsur3e
-Model 2: object_2
+Model 2: fitsur1e
   #Df  LogLik Df  Chisq Pr(>Chisq)
 1   9 -51.972                     
 2  10 -51.622  1 0.7003     0.4027
@@ -7141,7 +7141,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsuri2
-Model 2: object_2
+Model 2: fitsuri1
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   9 -99.926                         
 2  10 -67.772  1 64.307  1.064e-15 ***
@@ -7151,7 +7151,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsuri3
-Model 2: object_2
+Model 2: fitsuri1
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   9 -99.926                         
 2  10 -67.772  1 64.307  1.064e-15 ***
@@ -7162,7 +7162,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsuri2e
-Model 2: object_2
+Model 2: fitsuri1e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   9 -99.925                         
 2  10 -67.768  1 64.314  1.061e-15 ***
@@ -7172,7 +7172,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsuri3e
-Model 2: object_2
+Model 2: fitsuri1e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   9 -99.925                         
 2  10 -67.768  1 64.314  1.061e-15 ***
@@ -7183,7 +7183,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur3w
-Model 2: object_2
+Model 2: fitsur1w
   #Df  LogLik Df  Chisq Pr(>Chisq)
 1   9 -52.051                     
 2  10 -51.614  1 0.8728     0.3502
@@ -7194,7 +7194,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsur4
-Model 2: object_2
+Model 2: fitsur2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.542                         
 2   9 -52.210  1 12.664  0.0003727 ***
@@ -7204,7 +7204,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur4
-Model 2: object_2
+Model 2: fitsur3
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.542                         
 2   9 -52.210  1 12.664  0.0003727 ***
@@ -7214,7 +7214,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur5
-Model 2: object_2
+Model 2: fitsur2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.542                         
 2   9 -52.210  1 12.664  0.0003727 ***
@@ -7224,7 +7224,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur5
-Model 2: object_2
+Model 2: fitsur3
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.542                         
 2   9 -52.210  1 12.664  0.0003727 ***
@@ -7235,7 +7235,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur4e
-Model 2: object_2
+Model 2: fitsur2e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.579                         
 2   9 -51.972  1 13.215  0.0002778 ***
@@ -7245,7 +7245,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur4e
-Model 2: object_2
+Model 2: fitsur3e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.579                         
 2   9 -51.972  1 13.215  0.0002778 ***
@@ -7255,7 +7255,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur5e
-Model 2: object_2
+Model 2: fitsur2e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.579                         
 2   9 -51.972  1 13.215  0.0002778 ***
@@ -7265,7 +7265,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur5e
-Model 2: object_2
+Model 2: fitsur3e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.579                         
 2   9 -51.972  1 13.215  0.0002778 ***
@@ -7276,7 +7276,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsurio4
-Model 2: object_2
+Model 2: fitsuri2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
 2   9 -99.926  1 82.934  < 2.2e-16 ***
@@ -7289,7 +7289,7 @@ In lrtest.systemfit(fitsurio4, fitsuri2) :
 Likelihood ratio test
 
 Model 1: fitsurio4
-Model 2: object_2
+Model 2: fitsuri3
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
 2   9 -99.926  1 82.934  < 2.2e-16 ***
@@ -7302,7 +7302,7 @@ In lrtest.systemfit(fitsurio4, fitsuri3) :
 Likelihood ratio test
 
 Model 1: fitsurio5
-Model 2: object_2
+Model 2: fitsuri2
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
 2   9 -99.926  1 82.934  < 2.2e-16 ***
@@ -7315,7 +7315,7 @@ In lrtest.systemfit(fitsurio5, fitsuri2) :
 Likelihood ratio test
 
 Model 1: fitsurio5
-Model 2: object_2
+Model 2: fitsuri3
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
 2   9 -99.926  1 82.934  < 2.2e-16 ***
@@ -7329,7 +7329,7 @@ In lrtest.systemfit(fitsurio5, fitsuri3) :
 Likelihood ratio test
 
 Model 1: fitsuri2
-Model 2: object_2
+Model 2: fitsuri4
   #Df   LogLik Df Chisq Pr(>Chisq)
 1   9  -99.926                    
 2   8 -100.876 -1 1.899     0.1682
@@ -7337,7 +7337,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsuri3
-Model 2: object_2
+Model 2: fitsuri4
   #Df   LogLik Df Chisq Pr(>Chisq)
 1   9  -99.926                    
 2   8 -100.876 -1 1.899     0.1682
@@ -7345,7 +7345,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsuri2
-Model 2: object_2
+Model 2: fitsuri5
   #Df   LogLik Df Chisq Pr(>Chisq)
 1   9  -99.926                    
 2   8 -100.876 -1 1.899     0.1682
@@ -7353,7 +7353,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsuri3
-Model 2: object_2
+Model 2: fitsuri5
   #Df   LogLik Df Chisq Pr(>Chisq)
 1   9  -99.926                    
 2   8 -100.876 -1 1.899     0.1682
@@ -7363,7 +7363,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsurio4e
-Model 2: object_2
+Model 2: fitsuri2e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
 2   9 -99.925  1 82.973  < 2.2e-16 ***
@@ -7376,7 +7376,7 @@ In lrtest.systemfit(fitsurio4e, fitsuri2e) :
 Likelihood ratio test
 
 Model 1: fitsurio4e
-Model 2: object_2
+Model 2: fitsuri3e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
 2   9 -99.925  1 82.973  < 2.2e-16 ***
@@ -7389,7 +7389,7 @@ In lrtest.systemfit(fitsurio4e, fitsuri3e) :
 Likelihood ratio test
 
 Model 1: fitsurio5e
-Model 2: object_2
+Model 2: fitsuri2e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
 2   9 -99.925  1 82.973  < 2.2e-16 ***
@@ -7402,7 +7402,7 @@ In lrtest.systemfit(fitsurio5e, fitsuri2e) :
 Likelihood ratio test
 
 Model 1: fitsurio5e
-Model 2: object_2
+Model 2: fitsuri3e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
 2   9 -99.925  1 82.973  < 2.2e-16 ***
@@ -7416,7 +7416,7 @@ In lrtest.systemfit(fitsurio5e, fitsuri3e) :
 Likelihood ratio test
 
 Model 1: fitsuri2e
-Model 2: object_2
+Model 2: fitsuri4e
   #Df   LogLik Df  Chisq Pr(>Chisq)
 1   9  -99.925                     
 2   8 -100.873 -1 1.8962     0.1685
@@ -7424,7 +7424,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsuri3e
-Model 2: object_2
+Model 2: fitsuri4e
   #Df   LogLik Df  Chisq Pr(>Chisq)
 1   9  -99.925                     
 2   8 -100.873 -1 1.8962     0.1685
@@ -7432,7 +7432,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsuri2e
-Model 2: object_2
+Model 2: fitsuri5e
   #Df   LogLik Df  Chisq Pr(>Chisq)
 1   9  -99.925                     
 2   8 -100.873 -1 1.8962     0.1685
@@ -7440,7 +7440,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsuri3e
-Model 2: object_2
+Model 2: fitsuri5e
   #Df   LogLik Df  Chisq Pr(>Chisq)
 1   9  -99.925                     
 2   8 -100.873 -1 1.8962     0.1685
@@ -7450,7 +7450,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsur4we
-Model 2: object_2
+Model 2: fitsur2we
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.556                         
 2   9 -51.802  1 13.508  0.0002375 ***
@@ -7462,7 +7462,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsuri2w
-Model 2: object_2
+Model 2: fitsuri4w
   #Df   LogLik Df Chisq Pr(>Chisq)
 1   9  -99.926                    
 2   8 -100.876 -1 1.899     0.1682
@@ -7473,7 +7473,7 @@ Model 2: object_2
 Likelihood ratio test
 
 Model 1: fitsur4
-Model 2: object_2
+Model 2: fitsur1
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.542                         
 2  10 -51.614  2 13.855  0.0009805 ***
@@ -7483,7 +7483,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur5
-Model 2: object_2
+Model 2: fitsur1
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.542                         
 2  10 -51.614  2 13.855  0.0009805 ***
@@ -7494,7 +7494,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur4e
-Model 2: object_2
+Model 2: fitsur1e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.579                         
 2  10 -51.622  2 13.915  0.0009515 ***
@@ -7504,7 +7504,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur5e
-Model 2: object_2
+Model 2: fitsur1e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.579                         
 2  10 -51.622  2 13.915  0.0009515 ***
@@ -7515,7 +7515,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsurio4
-Model 2: object_2
+Model 2: fitsuri1
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
 2  10 -67.772  2 18.626  9.023e-05 ***
@@ -7528,7 +7528,7 @@ In lrtest.systemfit(fitsurio4, fitsuri1) :
 Likelihood ratio test
 
 Model 1: fitsurio5
-Model 2: object_2
+Model 2: fitsuri1
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.459                         
 2  10 -67.772  2 18.626  9.023e-05 ***
@@ -7542,7 +7542,7 @@ In lrtest.systemfit(fitsurio5, fitsuri1) :
 Likelihood ratio test
 
 Model 1: fitsuri1
-Model 2: object_2
+Model 2: fitsuri4
   #Df   LogLik Df  Chisq Pr(>Chisq)    
 1  10  -67.772                         
 2   8 -100.876 -2 66.206  4.202e-15 ***
@@ -7552,7 +7552,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsuri1
-Model 2: object_2
+Model 2: fitsuri5
   #Df   LogLik Df  Chisq Pr(>Chisq)    
 1  10  -67.772                         
 2   8 -100.876 -2 66.206  4.202e-15 ***
@@ -7563,7 +7563,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsurio4e
-Model 2: object_2
+Model 2: fitsuri1e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
 2  10 -67.768  2 18.660  8.874e-05 ***
@@ -7576,7 +7576,7 @@ In lrtest.systemfit(fitsurio4e, fitsuri1e) :
 Likelihood ratio test
 
 Model 1: fitsurio5e
-Model 2: object_2
+Model 2: fitsuri1e
   #Df  LogLik Df  Chisq Pr(>Chisq)    
 1   8 -58.438                         
 2  10 -67.768  2 18.660  8.874e-05 ***
@@ -7590,7 +7590,7 @@ In lrtest.systemfit(fitsurio5e, fitsuri1e) :
 Likelihood ratio test
 
 Model 1: fitsuri1e
-Model 2: object_2
+Model 2: fitsuri4e
   #Df   LogLik Df Chisq Pr(>Chisq)    
 1  10  -67.768                        
 2   8 -100.873 -2 66.21  4.195e-15 ***
@@ -7600,7 +7600,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsuri1e
-Model 2: object_2
+Model 2: fitsuri5e
   #Df   LogLik Df Chisq Pr(>Chisq)    
 1  10  -67.768                        
 2   8 -100.873 -2 66.21  4.195e-15 ***
@@ -7611,7 +7611,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Likelihood ratio test
 
 Model 1: fitsur5w
-Model 2: object_2
+Model 2: fitsur1w
   #Df  LogLik Df  Chisq Pr(>Chisq)   
 1   8 -58.519                        
 2  10 -51.614  2 13.809   0.001003 **

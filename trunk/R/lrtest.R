@@ -14,9 +14,14 @@ lrtest.systemfit <- function( object, ... ) {
    if( !all( lapply( objectList, class ) == "systemfit" ) ){
       stop( "all further arguments ('...') must be of class 'systemfit'" )
    }
+   dotsName <- deparse( substitute( ... ) )
    for( i in length( objectList ) ){
-      objectList[[ i ]]$lrtest.systemfit.name <-
-         paste( "object", i + 1, sep = "_" )
+      if( i == 1 && !is.null( dotsName ) ){
+         objectList[[ i ]]$lrtest.systemfit.name <- dotsName
+      } else {
+         objectList[[ i ]]$lrtest.systemfit.name <-
+            paste( "object", i + 1, sep = "_" )
+      }
    }
    extractName <- function( object ){
       return( object$lrtest.systemfit.name )
