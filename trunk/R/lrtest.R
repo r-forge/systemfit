@@ -3,8 +3,17 @@ lrtest.systemfit <- function( object, ... ) {
 
    thisCall <- match.call()
 
+   if( class( object ) != "systemfit" ){
+      stop( "argument 'object' must be of class 'systemfit'" )
+   }
    object$lrtest.systemfit.name <- deparse( substitute( object ) )
    objectList <- list( ... )
+   if( length( objectList ) < 1 ){
+      stop( "at least one further argument ('...') must be provided" )
+   }
+   if( !all( lapply( objectList, class ) == "systemfit" ) ){
+      stop( "all further arguments ('...') must be of class 'systemfit'" )
+   }
    for( i in length( objectList ) ){
       objectList[[ i ]]$lrtest.systemfit.name <-
          paste( "object", i + 1, sep = "_" )
