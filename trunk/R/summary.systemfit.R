@@ -52,7 +52,7 @@ summary.systemfit <- function( object, useDfSys = NULL,
    result$coefficients <- cbind( coef, stdEr, tStat, pVal )
    colnames( result$coefficients ) <- c( "Estimate", "Std. Error",
       "t value", "Pr(>|t|)" )
-   result$df <- c( length( coef( object ) ), nObs - length( coef( object ) ) )
+   result$df <- c( object$rank, object$df.residual )
 
    # coefficients of the modified regressor matrix
    if( !is.null( object$restrict.regMat ) ) {
