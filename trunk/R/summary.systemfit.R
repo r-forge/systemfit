@@ -90,29 +90,27 @@ summary.systemfit <- function( object, useDfSys = NULL,
    # System R^2 value of McElroy (1977)
    # formula from Greene (2003, p. 345 )
    # (first formula, numerator modified to save memory)
-   if( object$method %in% c( "SUR", "3SLS" ) ){
-      xMat <- matrix( resid, ncol = 1 )
-      if( object$control$useMatrix ){
-         object$residCov <- as( object$residCov, "dspMatrix" )
-         xMat <- as( xMat, "dgCMatrix" )
-      }
-      rtOmega <- .calcXtOmegaInv( xMat = xMat,
-         sigma = object$residCov, nObsEq = nObsEq,
-         solvetol = object$control$solvetol,
-         useMatrix = object$control$useMatrix )
-      yCov <- .calcResidCov( response, methodResidCov = "noDfCor",
-         nObsEq = nObsEq, centered = TRUE,
-         solvetol = object$control$solvetol )
-      residCovInv <- solve( object$residCov, tol = object$control$solvetol )
-      denominator <- 0
-      for( i in 1:length( object$eq ) ) {
-         for( j in 1:length( object$eq ) ) {
-            denominator <- denominator + residCovInv[ i, j ] * yCov[ i, j ] *
-               nObsPerEq
-         }
-      }
-      result$mcelroy.r.squared <- drop( 1 - ( rtOmega %*% resid ) / denominator )
+   xMat <- matrix( resid, ncol = 1 )
+   if( object$control$useMatrix ){
+      object$residCov <- as( object$residCov, "dspMatrix" )
+      xMat <- as( xMat, "dgCMatrix" )
    }
+   rtOmega <- .calcXtOmegaInv( xMat = xMat,
+      sigma = object$residCov, nObsEq = nObsEq,
+      solvetol = object$control$solvetol,
+      useMatrix = object$control$useMatrix )
+   yCov <- .calcResidCov( response, methodResidCov = "noDfCor",
+      nObsEq = nObsEq, centered = TRUE,
+      solvetol = object$control$solvetol )
+   residCovInv <- solve( object$residCov, tol = object$control$solvetol )
+   denominator <- 0
+   for( i in 1:length( object$eq ) ) {
+      for( j in 1:length( object$eq ) ) {
+         denominator <- denominator + residCovInv[ i, j ] * yCov[ i, j ] *
+            nObsPerEq
+      }
+   }
+   result$mcelroy.r.squared <- drop( 1 - ( rtOmega %*% resid ) / denominator )
 
    result$printEquations <- equations
    result$printResidCov  <- residCov
@@ -145,7 +143,6 @@ print.summary.systemfit <- function( x,
     }
   }
 
-   if( is.null( x$mcelroy.r.squared ) ) x$mcelroy.r.squared <- NA
    table.sys <- cbind( round( sum( x$df ),         digits ),
                        round( x$df[2],             digits ),
                        round( sum( sapply( x$eq, function( x ) x$ssr ) ), digits ),

@@ -63,7 +63,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 155.883 4.43485 0.709298         NA
+system 40 33 155.883 4.43485 0.709298   0.557559
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
@@ -127,7 +127,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 155.883 3.01570 0.709298         NA
+system 40 33 155.883 3.01570 0.709298   0.536785
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
@@ -191,7 +191,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.377 2.34660 0.702781         NA
+system 40 33 159.377 2.34660 0.702781   0.622292
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7499 3.74999 1.93649 0.762229 0.734256
@@ -261,7 +261,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.354 1.60653 0.702824         NA
+system 40 33 159.354 1.60653 0.702824   0.588817
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7936 3.75256 1.93715 0.762066 0.734073
@@ -325,7 +325,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.377 2.34660 0.702781         NA
+system 40 33 159.377 2.34660 0.702781   0.622292
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7499 3.74999 1.93649 0.762229 0.734256
@@ -389,7 +389,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.354 1.60653 0.702824         NA
+system 40 33 159.354 1.60653 0.702824   0.588817
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7936 3.75256 1.93715 0.762066 0.734073
@@ -453,7 +453,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.904 2.51108 0.701799         NA
+system 40 33 159.904 2.51108 0.701799   0.618554
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6361 3.74330 1.93476 0.762653 0.734730
@@ -523,7 +523,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.885 1.72025 0.701834         NA
+system 40 33 159.885 1.72025 0.701834   0.586077
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6702 3.74531 1.93528 0.762526 0.734588
@@ -588,7 +588,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.904 2.51108 0.701799         NA
+system 40 33 159.904 2.51108 0.701799   0.618554
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6361 3.74330 1.93476 0.762653 0.734730
@@ -659,7 +659,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.885 1.72025 0.701834         NA
+system 40 33 159.885 1.72025 0.701834   0.586077
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6702 3.74531 1.93528 0.762526 0.734588
@@ -723,7 +723,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 155.883 4.43485 0.709298         NA
+system 40 33 155.883 4.43485 0.709298   0.557559
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
@@ -787,7 +787,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 155.883 3.01570 0.709298         NA
+system 40 33 155.883 3.01570 0.709298   0.536785
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
@@ -853,7 +853,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.382 2.34339 0.702772         NA
+system 40 33 159.382 2.34339 0.702772   0.622608
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7412 3.74948 1.93636 0.762261 0.734292
@@ -919,7 +919,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.358 1.60444 0.702817         NA
+system 40 33 159.358 1.60444 0.702817   0.589101
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7851 3.75206 1.93702 0.762097 0.734109
@@ -985,7 +985,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.382 2.34339 0.702772         NA
+system 40 33 159.382 2.34339 0.702772   0.622608
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7412 3.74948 1.93636 0.762261 0.734292
@@ -1051,7 +1051,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.358 1.60444 0.702817         NA
+system 40 33 159.358 1.60444 0.702817   0.589101
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7851 3.75206 1.93702 0.762097 0.734109
@@ -1117,7 +1117,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.907 2.50792 0.701793         NA
+system 40 33 159.907 2.50792 0.701793   0.618798
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6305 3.74297 1.93467 0.762674 0.734753
@@ -1184,7 +1184,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.888 1.71819 0.701829         NA
+system 40 33 159.888 1.71819 0.701829   0.586296
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6646 3.74498 1.93519 0.762547 0.734611
@@ -1251,7 +1251,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.907 2.50792 0.701793         NA
+system 40 33 159.907 2.50792 0.701793   0.618798
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6305 3.74297 1.93467 0.762674 0.734753
@@ -1318,7 +1318,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.888 1.71819 0.701829         NA
+system 40 33 159.888 1.71819 0.701829   0.586296
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6646 3.74498 1.93519 0.762547 0.734611
@@ -1384,7 +1384,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 36 1120.95 483.606 -1.09042         NA
+system 40 36 1120.95 483.606 -1.09042   -1.04806
 
      N DF     SSR     MSE    RMSE       R2    Adj R2
 eq1 20 19 861.449 45.3394 6.73345 -2.21299 -2.212990
@@ -1444,7 +1444,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 38 47370.4  110957 -87.3399         NA
+system 40 38 47370.4  110957 -87.3399   -5.28163
 
      N DF       SSR       MSE     RMSE         R2     Adj R2
 eq1 20 19   861.449   45.3394  6.73345   -2.21299   -2.21299
@@ -1502,7 +1502,7 @@ systemfit results
 method: WLS 
 
         N DF   SSR detRCov   OLS-R2 McElroy-R2
-system 40 38 93537  108970 -99.0005         NA
+system 40 38 93537  108970 -99.0005   -0.97698
 
      N DF     SSR     MSE    RMSE        R2    Adj R2
 eq1 20 19 46508.9 2447.84 49.4756 -172.4668 -172.4668
@@ -1560,7 +1560,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov  OLS-R2 McElroy-R2
-system 40 38 93547.8  111736 -99.012         NA
+system 40 38 93547.8  111736 -99.012   -1.02688
 
      N DF     SSR     MSE    RMSE        R2    Adj R2
 eq1 20 19 46514.2 2448.12 49.4785 -172.4865 -172.4865
@@ -1618,7 +1618,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov OLS-R2 McElroy-R2
-system 40 38 935.366 490.798      0         NA
+system 40 38 935.366 490.798      0          0
 
      N DF     SSR     MSE    RMSE R2 Adj R2
 eq1 20 19 268.114 14.1113 3.75650  0      0
@@ -1676,7 +1676,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 155.883 4.43485 0.709298         NA
+system 40 33 155.883 4.43485 0.709298   0.557559
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
@@ -1702,7 +1702,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.354 1.60653 0.702824         NA
+system 40 33 159.354 1.60653 0.702824   0.588817
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7936 3.75256 1.93715 0.762066 0.734073
@@ -1727,7 +1727,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.377 2.34660 0.702781         NA
+system 40 33 159.377 2.34660 0.702781   0.622292
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7499 3.74999 1.93649 0.762229 0.734256
@@ -1773,7 +1773,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.885 1.72025 0.701834         NA
+system 40 33 159.885 1.72025 0.701834   0.586077
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6702 3.74531 1.93528 0.762526 0.734588
@@ -1798,7 +1798,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.904 2.51108 0.701799         NA
+system 40 33 159.904 2.51108 0.701799   0.618554
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6361 3.74330 1.93476 0.762653 0.734730
@@ -1844,7 +1844,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 155.883 3.01570 0.709298         NA
+system 40 33 155.883 3.01570 0.709298   0.536785
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
@@ -1887,7 +1887,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.382 2.34339 0.702772         NA
+system 40 33 159.382 2.34339 0.702772   0.622608
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7412 3.74948 1.93636 0.762261 0.734292
@@ -1929,7 +1929,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.358 1.60444 0.702817         NA
+system 40 33 159.358 1.60444 0.702817   0.589101
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7851 3.75206 1.93702 0.762097 0.734109
@@ -1956,7 +1956,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.907 2.50792 0.701793         NA
+system 40 33 159.907 2.50792 0.701793   0.618798
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6305 3.74297 1.93467 0.762674 0.734753
@@ -2019,7 +2019,7 @@ method: iterated WLS
 convergence achieved after 3 iterations
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 159.888 1.71819 0.701829         NA
+system 40 33 159.888 1.71819 0.701829   0.586296
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.6646 3.74498 1.93519 0.762547 0.734611
