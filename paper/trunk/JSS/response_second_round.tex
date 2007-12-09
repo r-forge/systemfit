@@ -212,6 +212,26 @@ so that it can calculate all three test statistics now
 %         intended? If so, why? This results in linear.hypothesis.default()
 %         and coeftest.default() use different (or wrong?) degrees of
 %         freedm than summary().
+Statistical tests on the coefficients can use either
+the degrees of freedom of a single equation
+or the degrees of freedom of the entire system.
+If \code{df.residual} is applied to an object of class \code{systemfit},
+it returns the degrees of freedom of the entire system.
+Similarly,
+if \code{linear.hypothesis} is applied to an object of class \code{systemfit},
+it uses the degrees of freedom of the entire system.
+The argument \code{useDfSys} of \code{summary.systemfit} determines,
+whether the degrees of freedom of a single equation
+or the degrees of freedom of the entire system
+are used to calculate the $P$ values for the $t$~tests on the coefficients.
+Section~4.3.1 (°Degrees of freedom for $t$ tests°) of the paper
+explains how the default value for argument \code{useDfSys} is determined.
+In the example provided by this referee,
+the \code{summary} method uses the degrees of freedom of each single equation
+(unlike \code{linear.hypothesis}).
+One can obtain the same results as with \code{linear.hypothesis}
+by adding the argument \code{useDfSys = TRUE} to the \code{summary} call.
+
 %       - technical
 %         The code for obtaining the object names in systemfit's
 %         linear.hypothesis() and lrtest() methods looks quite strange
