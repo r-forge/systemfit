@@ -7628,6 +7628,105 @@ Model 2: fitsur1w
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
+> # testing the two restrictions with one call
+> # non-iterating, methodResidCov = 1
+> print( lrtest( fitsur4, fitsur2, fitsur1 ) )
+Likelihood ratio test
+
+Model 1: fitsur4
+Model 2: fitsur2
+Model 3: fitsur1
+  #Df  LogLik Df   Chisq Pr(>Chisq)    
+1   8 -58.542                          
+2   9 -52.210  1 12.6642  0.0003727 ***
+3  10 -51.614  1  1.1906  0.2752006    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> print( lrtest( fitsur5, fitsur3, fitsur1 ) )
+Likelihood ratio test
+
+Model 1: fitsur5
+Model 2: fitsur3
+Model 3: fitsur1
+  #Df  LogLik Df   Chisq Pr(>Chisq)    
+1   8 -58.542                          
+2   9 -52.210  1 12.6642  0.0003727 ***
+3  10 -51.614  1  1.1906  0.2752006    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> print( lrtest( fitsur1, fitsur3, fitsur5 ) )
+Likelihood ratio test
+
+Model 1: fitsur1
+Model 2: fitsur3
+Model 3: fitsur5
+  #Df  LogLik Df   Chisq Pr(>Chisq)    
+1  10 -51.614                          
+2   9 -52.210 -1  1.1906  0.2752006    
+3   8 -58.542 -1 12.6642  0.0003727 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> print( lrtest( object = fitsur5, fitsur3, fitsur1 ) )
+Likelihood ratio test
+
+Model 1: fitsur5
+Model 2: fitsur3
+Model 3: fitsur1
+  #Df  LogLik Df   Chisq Pr(>Chisq)    
+1   8 -58.542                          
+2   9 -52.210  1 12.6642  0.0003727 ***
+3  10 -51.614  1  1.1906  0.2752006    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> print( lrtest( fitsur3, object = fitsur5, fitsur1 ) )
+Likelihood ratio test
+
+Model 1: fitsur5
+Model 2: fitsur3
+Model 3: fitsur1
+  #Df  LogLik Df   Chisq Pr(>Chisq)    
+1   8 -58.542                          
+2   9 -52.210  1 12.6642  0.0003727 ***
+3  10 -51.614  1  1.1906  0.2752006    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> print( lrtest( fitsur3, fitsur1, object = fitsur5 ) )
+Likelihood ratio test
+
+Model 1: fitsur5
+Model 2: fitsur3
+Model 3: fitsur1
+  #Df  LogLik Df   Chisq Pr(>Chisq)    
+1   8 -58.542                          
+2   9 -52.210  1 12.6642  0.0003727 ***
+3  10 -51.614  1  1.1906  0.2752006    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> # iterating, methodResidCov = 0
+> print( lrtest( fitsuri4e, fitsuri2e, fitsuri1e ) )
+Likelihood ratio test
+
+Model 1: fitsuri4e
+Model 2: fitsuri2e
+Model 3: fitsuri1e
+  #Df   LogLik Df   Chisq Pr(>Chisq)    
+1   8 -100.873                          
+2   9  -99.925  1  1.8962     0.1685    
+3  10  -67.768  1 64.3136  1.061e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> print( lrtest( fitsuri5e, fitsuri3e, fitsuri1e ) )
+Likelihood ratio test
+
+Model 1: fitsuri5e
+Model 2: fitsuri3e
+Model 3: fitsuri1e
+  #Df   LogLik Df   Chisq Pr(>Chisq)    
+1   8 -100.873                          
+2   9  -99.925  1  1.8962     0.1685    
+3  10  -67.768  1 64.3136  1.061e-15 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > ## ************** F tests ****************
 > # testing first restriction

@@ -841,6 +841,17 @@ print( lrtest( fitsuri1e, fitsuri5e ) )
 # non-iterating, methodResidCov = 1, WSUR
 print( lrtest( fitsur5w, fitsur1w ) )
 
+# testing the two restrictions with one call
+# non-iterating, methodResidCov = 1
+print( lrtest( fitsur4, fitsur2, fitsur1 ) )
+print( lrtest( fitsur5, fitsur3, fitsur1 ) )
+print( lrtest( fitsur1, fitsur3, fitsur5 ) )
+print( lrtest( object = fitsur5, fitsur3, fitsur1 ) )
+print( lrtest( fitsur3, object = fitsur5, fitsur1 ) )
+print( lrtest( fitsur3, fitsur1, object = fitsur5 ) )
+# iterating, methodResidCov = 0
+print( lrtest( fitsuri4e, fitsuri2e, fitsuri1e ) )
+print( lrtest( fitsuri5e, fitsuri3e, fitsuri1e ) )
 
 ## ************** F tests ****************
 # testing first restriction
