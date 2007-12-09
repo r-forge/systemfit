@@ -3,22 +3,18 @@ lrtest.systemfit <- function( object, ... ) {
 
    thisCall <- match.call()
 
-   object$name <- deparse( substitute( object ) )
-
+   object$lrtest.systemfit.name <- deparse( substitute( object ) )
+   objectList <- list( ... )
+   for( i in length( objectList ) ){
+      objectList[[ i ]]$lrtest.systemfit.name <-
+         paste( "object", i + 1, sep = "_" )
+   }
    extractName <- function( object ){
-      if( !exists( ".lrtestSystemfitNameNumber" ) ) {
-         .lrtestSystemfitNameNumber <<- 1
-      } else {
-         .lrtestSystemfitNameNumber <<- .lrtestSystemfitNameNumber + 1
-      }
-      objectName <- object$name
-      if( is.null( objectName ) ) {
-         objectName <- paste( "object", .lrtestSystemfitNameNumber, sep = "_" )
-      }
-      return( objectName )
+      return( object$lrtest.systemfit.name )
    }
 
-   result <- lrtest.default( object = object, ..., name = extractName )
+   result <- do.call( lrtest.default,
+      c( list( object = object ), objectList, list( name = extractName ) ) )
 
    for( i in 2:nrow( result ) ){
       if( ( result[ i, "#Df" ] - result[ i - 1, "#Df" ] ) *
@@ -35,8 +31,6 @@ lrtest.systemfit <- function( object, ... ) {
             " restricted model '", i - 1, "'" )
       }
    }
-
-   rm( .lrtestSystemfitNameNumber, inherits = TRUE )
 
    return( result )
 }
