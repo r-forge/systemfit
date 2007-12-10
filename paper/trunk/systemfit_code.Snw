@@ -60,7 +60,7 @@ can be used to test linear restrictions on the estimated coefficients
 by \citeauthor{theil71}'s $F$ test or by usual Wald tests.
 Internally, \citeauthor{theil71}'s $F$ statistic is computed
 by the hidden function \code{.ftest.systemfit}
-and the Wald tests are computed by the method
+and the Wald tests are computed by
 \code{linear.hypothesis.default} of the \pkg{car} package
 \citep{r-car-1.2-1, fox02a}.
 The method \code{lrtest.systemfit} is a wrapper function
@@ -137,7 +137,7 @@ for calculating the GLS estimator;
 \code{.calcResidCov} and \code{.calcSigma2}
 for calculating the (co)variances of the residuals;
 and \codeD{.ftest}{systemfit}
-for calculating the $F$ statistic.
+for calculating \citeauthor{theil71}'s $F$ statistic.
 If \code{systemfit} is applied to
 a (classical) °Seemingly Unrelated Regression° analysis with panel data,
 it calls the hidden internal function \code{.systemfitPanel},

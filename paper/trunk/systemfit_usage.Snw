@@ -143,7 +143,6 @@ that the data for the estimation
 should be taken from the data frame \code{Kmenta}.
 Hence, we no longer need to attach this data frame before calling systemfit:
 <<>>=
-data( "Kmenta" )
 fitsur <- systemfit( eqSystem, method = "SUR", data = Kmenta )
 @
 
@@ -306,7 +305,7 @@ It must be either \code{TRUE} (subtract the means) or
 \code{FALSE} (take the unmodified residuals).
 The default value of \code{centerResiduals} is \code{FALSE}.
 
-Moreover, if the coefficients are estimated under any restrictions,
+Moreover, if the coefficients are estimated under restrictions,
 the user can use argument \code{residCovRestricted} to specify
 whether the residual covariance matrix
 for a WLS, SUR, W2SLS, or 3SLS estimation
@@ -377,14 +376,14 @@ $\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) or~(\ref{eq:cov-2sls-w2sls-3sls})
 is set to $\sHat^2 I_{G \cdot T}$.
 In case of an unrestricted regression,
 argument \code{singleEqSigma} is \code{TRUE} by default.
-However, if the coefficients are estimated under any restrictions,
+However, if the coefficients are estimated under restrictions,
 this argument is \code{FALSE} by default.
 
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{System options}
-Finally, two options regarding some internal calculations are available.
+Furthermore, two options regarding some internal calculations are available.
 First, argument \code{solvetol} specifies the tolerance level
 for detecting linear dependencies when inverting a matrix or
 calculating a determinant (using functions \code{solve} and \code{det}).
@@ -427,13 +426,11 @@ returned by \code{systemfit}.
 summary( fitsur )
 @
 First, the estimation method is reported
-and a few summary statistics for each equation are given.
-Then, some results regarding the whole equation system are printed:
-the covariance matrix used for estimation,
-the covariance matrix and correlation matrix of the (final) residuals,
-the log of the determinant of the residual covariance matrix,
-the $R^2$ value of the whole system,
-and McElroy's $R^2$ value.
+and a few summary statistics for the entire system
+and for each equation are given.
+Then, the covariance matrix used for estimation
+and the covariance matrix as well as the correlation matrix
+of the (final) residuals are printed.
 Finally, the estimation results of each equation are reported:
 the formula of the estimated equation,
 the estimated coefficients, their standard errors, $t$ values, $P$ values
@@ -455,7 +452,7 @@ If argument \code{useDfSys} is \code{TRUE},
 the degrees of freedom of the whole system are taken.
 In contrast, if \code{useDfSys} is \code{FALSE},
 the degrees of freedom of the single equation are taken.
-If the coefficients are estimated under any restrictions,
+If the coefficients are estimated under restrictions,
 argument \code{useDfSys} is \code{TRUE} by default.
 However, if no restrictions on the coefficient are specified,
 the default value of \code{useDfSys} is \code{FALSE}.
@@ -466,9 +463,9 @@ the default value of \code{useDfSys} is \code{FALSE}.
 The optional arguments \code{residCov} and \code{equations}
 can be used reduce the amount of the printed output.
 Argument \code{residCov} specifies
-whether the residual covariance matrix,
-the residual correlation matrix,
-and the determinant of the residual covariance matrix are printed.
+whether the covariance matrix and
+the correlation matrix
+of the residuals are printed.
 Argument \code{equations} specifies
 whether summary results of each equation are printed.
 By default, both arguments are \code{TRUE}.

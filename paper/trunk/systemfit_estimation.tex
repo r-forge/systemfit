@@ -72,7 +72,15 @@ However, they are not known in most empirical applications.
 Therefore, true variances are generally replaced by estimated variances
 $( \sHat_{ii} )$
 that are calculated from the residuals of a first-step OLS estimation
-(see section~\ref{sec:residcov}).
+(see section~\ref{sec:residcov}).%
+\footnote{%
+Note that $\OHat$ in equation~(\ref{eq:ols-wls-sur})
+is not the same $\OHat$ as in equation~(\ref{eq:cov-ols-wls-sur}).
+The first is calculated from the residuals of a first-step OLS estimation;
+the second is calculated from the residuals of this WLS estimation.
+The same applies to the SUR, W2SLS, and 3SLS estimations
+described in the following sections.
+}
 
 The WLS estimator is (asymptotically) efficient only
 if the disturbance terms are not contemporaneously correlated.
@@ -128,15 +136,25 @@ the disturbance terms of the corresponding equation
 
 At the first stage new ('fitted') regressors are obtained by
 \begin{equation}
-   \XHat_i = Z_i \left( Z_i' Z_i \right)^{-1} Z_i' X .
+   \XHat_i = Z_i \left( Z_i' Z_i \right)^{-1} Z_i' X_i .
 \end{equation}
 Then, these 'fitted' regressors are substituted for the original regressors
 in equation~(\ref{eq:ols-wls-sur})
 to obtain unbiased 2SLS, W2SLS, or 3SLS estimates of $\beta$ by
 \begin{equation}
    \bHat
-   = \left( \XHat' \OHat^{-1} \XHat \right)^{-1} \XHat' \OHat^{-1} y .
+   = \left( \XHat' \OHat^{-1} \XHat \right)^{-1} \XHat' \OHat^{-1} y ,
    \label{eq:2sls-w2sls-3sls}
+\end{equation}
+where
+\begin{equation}
+   \XHat =
+   \left[ \begin{array}{cccc}
+      \XHat_1 & 0       & \cdots & 0\\
+      0       & \XHat_2 & \cdots & 0\\
+      \vdots  & \vdots  & \ddots & \vdots\\
+      0       & 0       & \cdots & \XHat_G
+   \end{array}\right] .
 \end{equation}
 An estimator of the covariance matrix of the estimated coefficients
 can be obtained from equation~(\ref{eq:cov-ols-wls-sur}) analogously.
@@ -195,12 +213,12 @@ While an unbiased 2SLS or W2SLS estimation requires only that
 the instrumental variables and the disturbance terms of each single 
 equation are uncorrelated
 $( \E \left[ u_i' Z_i \right]) = 0 \; \forall \; i )$,
-\cite{schmidt90} points out that this estimator is only consistent 
+\cite{schmidt90} points out that the 3SLS estimator is only consistent
 if all disturbance terms and all instrumental variables are uncorrelated
 $( \E \left[ u_i' Z_j \right]) = 0 \; \forall \; i, j )$.
-
 Since there might be occasions where this cannot be avoided,
 \cite{schmidt90} analyses other approaches to obtain 3SLS estimators.
+
 One of these approaches based on instrumental variable estimation
 (3SLS-IV) is
 \begin{equation}

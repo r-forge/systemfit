@@ -97,7 +97,7 @@ is described for each estimation method in the following sections.
 The OLS, WLS, and SUR estimators restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \bHat^R_{SUR} \\[0.2em] \lHat
+      \bHat^R \\[0.2em] \lHat
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -116,7 +116,7 @@ An estimator of the covariance matrix of the estimated coefficients is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \bHat^R_{SUR} \\[0.2em] \lHat
+      \bHat^R \\[0.2em] \lHat
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -133,7 +133,7 @@ The 2SLS, W2SLS, and standard 3SLS estimators
 restricted by $R \beta^R = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \bHat^R_{3SLS} \\[0.2em] \lHat
+      \bHat^R \\[0.2em] \lHat
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -151,7 +151,7 @@ An estimator of the covariance matrix of the estimated coefficients is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \bHat^R_{3SLS} \\[0.2em] \lHat
+      \bHat^R \\[0.2em] \lHat
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -185,7 +185,7 @@ where
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
-      \XHat' \OHat^{-1} \XHat & R' \\
+      \XHat' \OHat^{-1} X & R' \\
       R & 0
    \end{array} \right]^{-1} .
 \end{equation}

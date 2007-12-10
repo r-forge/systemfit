@@ -72,7 +72,7 @@ print( fimlResult )
 @
 
 Theoretically, results of an iterated SUR estimation should
-coverge to FIML results.
+converge to FIML results.
 Therefore, we re-estimate this model by iterated SUR with \code{systemfit}.
 <<>>=
 surResult <- systemfit( system, method = "SUR", data = KleinI,
