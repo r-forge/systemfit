@@ -281,11 +281,11 @@ linear.hypothesis( theilSur, RMatrix )
 @
 
 Restricted SUR estimation (page~316)
-<<results=hide>>=
-theilSurRestr <- systemfit( formulaGrunfeld, method = "SUR",
+<<results=hide,keep.source=TRUE>>=
+theilSurRestr <- systemfit(formulaGrunfeld, method = "SUR",
    data = GTPanel, methodResidCov = "noDfCor", restrict.matrix = RMatrix,
-   residCovRestricted = FALSE )
-round( coef( summary( theilSurRestr ) ), digits = 3 )
+   residCovRestricted = FALSE)
+round(coef(summary(theilSurRestr)), digits = 3)
 @
 
 The method \codeD{linear}{hypothesis} returns the same value of the $F$ statistic

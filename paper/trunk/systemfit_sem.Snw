@@ -6,6 +6,7 @@
 
 <<echo=FALSE>>=
 options( prompt = "R> " )
+options( width = 75 )
 @
 
 This section compares the commands to estimate a system of equations
@@ -50,14 +51,14 @@ print( limlResult )
 
 Theoretically, the LIML results should be identical to OLS results.
 Therefore, we re-estimate this model by OLS with \code{systemfit}.
-<<>>=
-eqConsump  <- consump ~ corpProf + corpProfLag + wages
-eqInvest   <- invest ~ corpProf + corpProfLag + capitalLag
+<<keep.source=TRUE>>=
+eqConsump <- consump ~ corpProf + corpProfLag + wages
+eqInvest <- invest ~ corpProf + corpProfLag + capitalLag
 eqPrivWage <- privWage ~ gnp + gnpLag + trend
-system <- list( consump = eqConsump, invest = eqInvest, privWage = eqPrivWage )
-
-olsResult <- systemfit( system, data = KleinI )
-print( olsResult )
+system <- list(consump = eqConsump, invest = eqInvest,
+   privWage = eqPrivWage)
+olsResult <- systemfit(system, data = KleinI)
+print(olsResult)
 @
 As expected, the results are identical.
 
