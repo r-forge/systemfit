@@ -22,11 +22,6 @@ Finally, we demonstrate how to apply some statistical tests.
 As described in the previous section,
 systems of equations can be econometrically estimated
 with the function \code{systemfit}.
-It is generally called by
-<<eval=FALSE>>=
-systemfit( formula )
-@
-
 The only mandatory argument is \code{formula}.
 Typically, it is a list of formulas to be estimated,
 but it may also be a single formula for estimating a single-equation model.
