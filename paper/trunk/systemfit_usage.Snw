@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Using systemfit}\label{sec:Usage}
+\section[Using systemfit]{Using \pkg{systemfit}}\label{sec:Usage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 In this section we demonstrate how to use the \pkg{systemfit} package.
@@ -141,7 +141,7 @@ that contains the variables of the model.
 In the following example, we use this argument to specify
 that the data for the estimation
 should be taken from the data frame \code{Kmenta}.
-Hence, we no longer need to attach this data frame before calling systemfit:
+Hence, we no longer need to attach this data frame before calling \code{systemfit}:
 <<>>=
 fitsur <- systemfit( eqSystem, method = "SUR", data = Kmenta )
 @
