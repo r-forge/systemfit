@@ -148,7 +148,7 @@ Several different versions of the °Grunfeld° data set can be found,
 whereas the version of \citet{greene03}
 is considered incorrect \citep{cummins01}.
 However, we use this incorrect version to replicate the results
-in \citet{greene03}, tables~14.1 and~14.2 (p.~351).%
+in \citet{greene03}, Tables~14.1 and~14.2 (p.~351).%
 \footnote{
 A correct version of this data set with five additional firms
 is available as data set \code{Grunfeld} in the \pkg{Ecdat} package
