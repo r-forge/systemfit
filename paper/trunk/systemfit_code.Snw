@@ -15,7 +15,7 @@ and internal helper functions.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection[Basic function systemfit]{The basic function \code{systemfit}}
+\subsection[The basic function systemfit]{The basic function \code{systemfit}}
 
 The \code{systemfit} function estimates systems of linear equations
 by different estimation methods.
