@@ -9,13 +9,13 @@ can be consistently estimated by ordinary least squares (OLS),
 weighted least squares (WLS), and seemingly unrelated regression (SUR).
 These estimators can be obtained by
 \begin{equation}
-   \bHat = \left( X' \OHat^{-1} X \right)^{-1} X' \OHat^{-1} y .
+   \bHat = \left( X^\top \OHat^{-1} X \right)^{-1} X^\top \OHat^{-1} y .
    \label{eq:ols-wls-sur}
 \end{equation}
 The covariance matrix of these estimators
 can be estimated by
 \begin{equation}
-   \COVHat \left[ \bHat \right] = \left( X' \OHat^{-1} X \right)^{-1} .
+   \COVHat \left[ \bHat \right] = \left( X^\top \OHat^{-1} X \right)^{-1} .
    \label{eq:cov-ols-wls-sur}
 \end{equation}
 
@@ -109,10 +109,10 @@ where $\SHat$ is the estimated covariance matrix of the disturbance terms.
 It should be noted that while an unbiased OLS or WLS estimation requires only that
 the regressors and the disturbance terms of each single 
 equation are uncorrelated
-$( \E \left[ u_i ' X_i \right] = 0 \; \forall \; i )$,
+$( \E \left[ u_i^\top X_i \right] = 0 \; \forall \; i )$,
 a consistent SUR estimation requires that all disturbance terms and all 
 regressors are uncorrelated
-$( \E \left[ u_i ' X_j \right] = 0 \; \forall \; i, j )$.
+$( \E \left[ u_i^\top X_j \right] = 0 \; \forall \; i, j )$.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,7 +121,7 @@ $( \E \left[ u_i ' X_j \right] = 0 \; \forall \; i, j )$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 If the regressors of one or more equations are correlated
-with the disturbances ($\E \left[ u_i' X_i \right] \neq 0$),
+with the disturbances ($\E \left[ u_i^\top X_i \right] \neq 0$),
 OLS, WLS, and SUR estimates are biased.
 This can be circumvented by a
 two-stage least squares (2SLS),
@@ -132,18 +132,18 @@ The instrumental variables for each equation $Z_i$
 can be either different or identical for all equations.
 They must not be correlated with
 the disturbance terms of the corresponding equation 
-($\E \left[ u_i' Z_i \right] = 0$).
+($\E \left[ u_i^\top Z_i \right] = 0$).
 
 At the first stage new ('fitted') regressors are obtained by
 \begin{equation}
-   \XHat_i = Z_i \left( Z_i' Z_i \right)^{-1} Z_i' X_i .
+   \XHat_i = Z_i \left( Z_i^\top Z_i \right)^{-1} Z_i^\top X_i .
 \end{equation}
 Then, these 'fitted' regressors are substituted for the original regressors
 in equation~(\ref{eq:ols-wls-sur})
 to obtain unbiased 2SLS, W2SLS, or 3SLS estimates of $\beta$ by
 \begin{equation}
    \bHat
-   = \left( \XHat' \OHat^{-1} \XHat \right)^{-1} \XHat' \OHat^{-1} y ,
+   = \left( \XHat^\top \OHat^{-1} \XHat \right)^{-1} \XHat^\top \OHat^{-1} y ,
    \label{eq:2sls-w2sls-3sls}
 \end{equation}
 where
@@ -161,7 +161,7 @@ can be obtained from equation~(\ref{eq:cov-ols-wls-sur}) analogously.
 Hence, we get
 \begin{equation}
    \COVHat \left[ \bHat \right]
-   = \left( \XHat' \OHat^{-1} \XHat \right)^{-1} .
+   = \left( \XHat^\top \OHat^{-1} \XHat \right)^{-1} .
    \label{eq:cov-2sls-w2sls-3sls}
 \end{equation}
 
@@ -212,30 +212,30 @@ where $\SHat$ is the estimated covariance matrix of the disturbance terms.
 While an unbiased 2SLS or W2SLS estimation requires only that
 the instrumental variables and the disturbance terms of each single 
 equation are uncorrelated
-$( \E \left[ u_i' Z_i \right]) = 0 \; \forall \; i )$,
+$( \E \left[ u_i^\top Z_i \right]) = 0 \; \forall \; i )$,
 \cite{schmidt90} points out that the 3SLS estimator is only consistent
 if all disturbance terms and all instrumental variables are uncorrelated
-$( \E \left[ u_i' Z_j \right]) = 0 \; \forall \; i, j )$.
+$( \E \left[ u_i^\top Z_j \right]) = 0 \; \forall \; i, j )$.
 Since there might be occasions where this cannot be avoided,
 \cite{schmidt90} analyses other approaches to obtain 3SLS estimators.
 
 One of these approaches based on instrumental variable estimation
 (3SLS-IV) is
 \begin{equation}
-   \bHat_{3SLS-IV} = \left( \XHat' \OHat^{-1} X
-   \right)^{-1} \XHat' \OHat^{-1} y .
+   \bHat_{3SLS-IV} = \left( \XHat^\top \OHat^{-1} X
+   \right)^{-1} \XHat^\top \OHat^{-1} y .
    \label{eq:3slsIv}
 \end{equation}
 An estimator of the covariance matrix of the estimated 3SLS-IV coefficients is
 \begin{equation}
-   \COVHat \left[ \bHat_{3SLS-IV} \right] = \left( \XHat' \OHat^{-1}
+   \COVHat \left[ \bHat_{3SLS-IV} \right] = \left( \XHat^\top \OHat^{-1}
    X \right)^{-1} .
 \end{equation}
 Another approach based on the generalized method of moments (GMM)
 estimator (3SLS-GMM) is
 \begin{equation}
-   \bHat_{3SLS-GMM} = \left( X' Z \left( Z' \OHat Z \right)^{-1}
-   Z' X \right)^{-1} X' Z \left( Z' \OHat Z \right)^{-1} Z' y
+   \bHat_{3SLS-GMM} = \left( X^\top Z \left( Z^\top \OHat Z \right)^{-1}
+   Z^\top X \right)^{-1} X^\top Z \left( Z^\top \OHat Z \right)^{-1} Z^\top y
    \label{eq:3slsGmm}
 \end{equation}
 with
@@ -251,29 +251,29 @@ with
 An estimator of the covariance matrix of the estimated 3SLS-GMM coefficients is
 \begin{equation}
    \COVHat \left[ \bHat_{3SLS-GMM} \right] =
-   \left( X' Z \left( Z' \OHat Z \right)^{-1} Z' X \right)^{-1} .
+   \left( X^\top Z \left( Z^\top \OHat Z \right)^{-1} Z^\top X \right)^{-1} .
 \end{equation}
 A fourth approach developed by \cite{schmidt90} himself is
 \begin{equation}
-   \bHat_{3SLS-Schmidt} = \left( \XHat' \OHat^{-1} \XHat
-   \right)^{-1} \XHat' \OHat^{-1}
-   Z \left( Z' Z \right)^{-1} Z' y .
+   \bHat_{3SLS-Schmidt} = \left( \XHat^\top \OHat^{-1} \XHat
+   \right)^{-1} \XHat^\top \OHat^{-1}
+   Z \left( Z^\top Z \right)^{-1} Z^\top y .
    \label{eq:3slsSchmidt}
 \end{equation}
 An estimator of the covariance matrix of these estimated coefficients is
 \begin{align}
    \COVHat \left[ \bHat_{3SLS-Schmidt} \right] = &
-   \left( \XHat' \OHat^{-1}  \XHat \right)^{-1}
-   \XHat' \OHat^{-1} Z \left( Z' Z \right)^{-1} Z' \OHat Z \\
-   & \left( Z' Z \right)^{-1} Z' \OHat^{-1} \XHat
-   \left( \XHat' \OHat^{-1}  \XHat \right)^{-1} .
+   \left( \XHat^\top \OHat^{-1}  \XHat \right)^{-1}
+   \XHat^\top \OHat^{-1} Z \left( Z^\top Z \right)^{-1} Z^\top \OHat Z \\
+   & \left( Z^\top Z \right)^{-1} Z^\top \OHat^{-1} \XHat
+   \left( \XHat^\top \OHat^{-1}  \XHat \right)^{-1} .
    \nonumber
 \end{align}
 The econometrics software \proglang{EViews} uses
 \begin{equation}
    \bHat_{3SLS-EViews} = \bHat_{2SLS} +
-   \left( \XHat' \OHat^{-1} \XHat \right)^{-1}
-   \XHat' \OHat^{-1} \left( y - X \bHat_{2SLS} \right) ,
+   \left( \XHat^\top \OHat^{-1} \XHat \right)^{-1}
+   \XHat^\top \OHat^{-1} \left( y - X \bHat_{2SLS} \right) ,
    \label{eq:3slsEViews}
 \end{equation}
 where $\bHat_{2SLS}$ is the two-stage least squares estimator

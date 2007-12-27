@@ -18,7 +18,7 @@ Then, in a second step, the estimated residual covariance matrix
 can be employed for a WLS, SUR, W2SLS, or 3SLS estimation.
 In many cases, the residual covariance matrix is calculated by
 \begin{equation}
-   \sHat_{ij} = \frac{ \uHat_i' \uHat_j }{ T },
+   \sHat_{ij} = \frac{ \uHat_i^\top \uHat_j }{ T },
    \label{eq:rcovNoDfCor}
 \end{equation}
 where $T$ is the number of observations in each equation.
@@ -30,13 +30,13 @@ might differ.
 Two alternative approaches to calculate the residual covariance
 matrix are
 \begin{equation}
-   \sHat_{ij} = \frac{ \uHat_i' \uHat_j }
+   \sHat_{ij} = \frac{ \uHat_i^\top \uHat_j }
    { \sqrt{ \left( T - K_i \right) \cdot \left( T - K_j \right) } }
    \label{eq:rcovGeomean}
 \end{equation}
 and
 \begin{equation}
-   \sHat_{ij} = \frac{ \uHat_i' \uHat_j }
+   \sHat_{ij} = \frac{ \uHat_i^\top \uHat_j }
    { T - \max \left( K_i , K_j \right) } \; ,
    \label{eq:rcovMax}
 \end{equation}
@@ -54,14 +54,14 @@ A further approach to obtain a residual covariance
 matrix is
 \begin{eqnarray}
    \sHat_{ij} & = &
-   \frac{ \uHat_i' \uHat_j }
-   { T - K_i - K_j + tr \left[ X_i \left( X_i' X_i \right)^{-1}
-   X_i' X_j \left( X_j' X_j \right)^{-1} X_j' \right] }
+   \frac{ \uHat_i^\top \uHat_j }
+   { T - K_i - K_j + tr \left[ X_i \left( X_i^\top X_i \right)^{-1}
+   X_i^\top X_j \left( X_j^\top X_j \right)^{-1} X_j^\top \right] }
    \label{eq:rcovTheil} \\
    & = &
-   \frac{ \uHat_i' \uHat_j }
-   { T - K_i - K_j + tr \left[ \left( X_i' X_i \right)^{-1}
-   X_i' X_j \left( X_j' X_j \right)^{-1} X_j' X_i \right] }
+   \frac{ \uHat_i^\top \uHat_j }
+   { T - K_i - K_j + tr \left[ \left( X_i^\top X_i \right)^{-1}
+   X_i^\top X_j \left( X_j^\top X_j \right)^{-1} X_j^\top X_i \right] }
 \end{eqnarray} 
 \citep[p.\ 309]{zellner62c}.
 This yields an unbiased estimator for all elements of $\Sigma$,
@@ -171,8 +171,8 @@ of freedom of the entire system.
 The goodness of fit of each single equation can be measured by the
 traditional $R^2$ values
 \begin{equation}
-   R_i^2 = 1 - \frac{ \uHat_i' \uHat_i }
-   { ( y_i - \overline{y_i} )' ( y_i - \overline{y_i} ) } \; ,
+   R_i^2 = 1 - \frac{ \uHat_i^\top \uHat_i }
+   { ( y_i - \overline{y_i} )^\top ( y_i - \overline{y_i} ) } \; ,
 \end{equation}
 where $R_i^2$ is the $R^2$ value of the $i$th equation
 and $\overline{y_i}$ is the mean value of $y_i$.
@@ -181,9 +181,9 @@ The goodness of fit of the whole system can be measured by the
 McElroy's $R^2$ value 
 % also: \citep[p.\ 345]{greene03}
 \begin{equation}
-   R_*^2 = 1 - \frac{ \uHat' \OHat^{-1} \uHat }
-   { y' \left( \SHat^{-1} \otimes
-   \left( I_T - \frac{\iota \iota'}{T} \right) \right) y } ,
+   R_*^2 = 1 - \frac{ \uHat^\top \OHat^{-1} \uHat }
+   { y^\top \left( \SHat^{-1} \otimes
+   \left( I_T - \frac{\iota \iota^\top}{T} \right) \right) y } ,
 \end{equation}
 where $\iota$ is a column vector of $T$ ones \citep{mcelroy77}.
 
@@ -198,12 +198,12 @@ a likelihood ratio (LR) test.
 The $F$ statistic for systems of equations is
 \begin{equation}
 F = \frac{
-   ( R \bHat - q )'
-   ( R ( X' ( \Sigma \otimes I )^{-1} X )^{-1} R' )^{-1}
+   ( R \bHat - q )^\top
+   ( R ( X^\top ( \Sigma \otimes I )^{-1} X )^{-1} R^\top )^{-1}
    ( R \bHat - q ) /
    j
 }{
-   \uHat' ( \Sigma \otimes I )^{-1} \uHat /
+   \uHat^\top ( \Sigma \otimes I )^{-1} \uHat /
    ( G \cdot T - K )
 } \; ,
 \label{eq:f-test}
@@ -222,12 +222,12 @@ to replace the unknown $\Sigma$ in~(\ref{eq:f-test})
 by the estimated covariance matrix $\SHat$.
 \begin{equation}
 \hat{F} = \frac{
-   ( R \bHat - q )'
-   ( R ( X' ( \SHat \otimes I )^{-1} X )^{-1} R' )^{-1}
+   ( R \bHat - q )^\top
+   ( R ( X^\top ( \SHat \otimes I )^{-1} X )^{-1} R^\top )^{-1}
    ( R \bHat - q ) /
    j
 }{
-   \uHat' ( \SHat \otimes I )^{-1} \uHat /
+   \uHat^\top ( \SHat \otimes I )^{-1} \uHat /
    ( G \cdot T - K )
 }
 \label{eq:f-test-theil}
@@ -246,8 +246,8 @@ Taking this into account and applying equation~(\ref{eq:cov-ols-wls-sur}),
 we obtain the usual $F$~statistic of the Wald test.
 \begin{equation}
 \hat{\hat{F}} = \frac{
-   ( R \bHat - q )'
-   ( R \, \COVHat \left[ \bHat \right] R' )^{-1}
+   ( R \bHat - q )^\top
+   ( R \, \COVHat \left[ \bHat \right] R^\top )^{-1}
    ( R \bHat - q )
 }{
    j
@@ -262,8 +262,8 @@ Multiplying equation~(\ref{eq:f-test-wald}) with $j$,
 we obtain the usual $\chi^2$ statistic for the Wald test
 \begin{equation}
 W =
-   ( R \bHat - q )'
-   ( R \, \COVHat [ \bHat ] \, R' )^{-1}
+   ( R \bHat - q )^\top
+   ( R \, \COVHat [ \bHat ] \, R^\top )^{-1}
    ( R \bHat - q ) .
 \label{eq:chi2-test-wald}
 \end{equation}
@@ -299,20 +299,20 @@ under the null hypothesis
 The null hypothesis of the test is
 that the instrumental variables of each equation are
 uncorrelated with the disturbance terms of all other equations
-($\E \left[ u_i' Z_j \right] = 0 \, \forall \, i \neq j$).
+($\E \left[ u_i^\top Z_j \right] = 0 \, \forall \, i \neq j$).
 Under this null hypothesis, both the 2SLS and the 3SLS estimator are consistent,
 but the 3SLS estimator is (asymptotically) more efficient.
 Under the alternative hypothesis, the 2SLS estimator is consistent
 but the 3SLS estimator is inconsistent,
 i.e.\ the instrumental variables of each equation are
 uncorrelated with the disturbances of the same equation
-($\E \left[ u_i' Z_i \right] = 0 \, \forall \, i$),
+($\E \left[ u_i^\top Z_i \right] = 0 \, \forall \, i$),
 but the instrumental variables of at least one equation
 are correlated with the disturbances of another equation
-($\E \left[ u_i' Z_j \right] \neq 0 \, \exists \, i \neq j$).
+($\E \left[ u_i^\top Z_j \right] \neq 0 \, \exists \, i \neq j$).
 The Hausman test statistic is
 \begin{equation}
-  m = \left( \bHat_{2SLS} - \bHat_{3SLS} \right)^{'}
+  m = \left( \bHat_{2SLS} - \bHat_{3SLS} \right)^\top
       \left( \COVHat \left[ \bHat_{2SLS} \right] -
              \COVHat \left[ \bHat_{3SLS} \right] \right)
       \left( \bHat_{2SLS} - \bHat_{3SLS} \right) ,
