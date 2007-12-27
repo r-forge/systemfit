@@ -20,7 +20,8 @@ and a few errors in \citet{greene03} have been found
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Kmenta (1986): Example on p. 685 (food market)}
+\subsection[Kmenta (1986): Example on p. 685 (food market)]
+   {Kmenta (1986): Example on p.~685 (food market)}
 
 First, we reproduce an example taken from \citet[p.~685]{kmenta86}.
 The data are available from Table~13-1 (p.~687),
@@ -222,7 +223,8 @@ these returned values are equal to those published in the errata
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsection{Theil (1971): Example on p. 295ff (Grunfeld's investment data)}
+\subsection[Theil (1971): Example on p. 295ff (Grunfeld's investment data)]
+   {Theil (1971): Example on p.~295ff (Grunfeld's investment data)}
 
 Finally, we estimate an example taken from \citet[p.~295ff]{theil71}
 that is also based on \citet{grunfeld58}.
