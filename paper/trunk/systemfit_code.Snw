@@ -3,7 +3,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 The source code of the \pkg{systemfit} package is publicly available
-for download from °CRAN° (The Comprehensive \proglang{R} Archive Network,
+for download from the comprehensive \proglang{R} archive network (CRAN,
 \url{http://cran.r-project.org/src/contrib/Descriptions/systemfit.html}).
 The basic functionality of this package is provided by the
 function \code{systemfit}.
@@ -66,7 +66,7 @@ and the Wald tests are computed by
 The method \code{lrtest.systemfit} is a wrapper function
 to \code{lrtest.default} of the \pkg{lmtest} package
 \citep{r-lmtest},
-which computes the Likelihood-ratio (LR) test statistic.
+which computes the likelihood-ratio (LR) test statistic.
 All these functions return an object of class \code{anova}
 that contains --- amongst others ---
 the empirical test statistic, the degrees of freedom,
@@ -139,7 +139,7 @@ for calculating the (co)variances of the residuals;
 and \codeD{.ftest}{systemfit}
 for calculating \citeauthor{theil71}'s $F$ statistic.
 If \code{systemfit} is applied to
-a (classical) °Seemingly Unrelated Regression° analysis with panel data,
+a (classical) °seemingly unrelated regression° analysis with panel data,
 it calls the hidden internal function \code{.systemfitPanel},
 which reshapes the data, creates the formulas to be estimated,
 and --- if requested --- specifies restrictions
@@ -249,7 +249,7 @@ Its capability to estimate single-equation models is just a side-effect.
 
 Function \code{sem} (package \pkg{sem}, \citealp{r-sem-0.9-8})
 can be used to estimate structural equation models in \proglang{R}
-by Full Information Maximum Likelihood (FIML)
+by full information maximum likelihood (FIML)
 assuming multinormal errors.
 A special feature of this function is the estimation
 of models with unobserved (°latent°) variables,

@@ -16,7 +16,7 @@ library( "systemfit" )
 data( "KleinI" )
 @
 
-First, we estimate the system by Limited Information Maximum Likelihood
+First, we estimate the system by limited information maximum likelihood
 (LIML) with \code{sem}:
 <<keep.source = TRUE>>=
 limlRam <- matrix( c(
@@ -57,7 +57,7 @@ print( olsResult )
 @
 As expected, the results are identical.
 
-Now, we estimate the system by Full Information Maximum Likelihood
+Now, we estimate the system by full information maximum likelihood
 (FIML) with \code{sem}:
 <<keep.source = TRUE>>=
 fimlRam <- rbind( limlRam,

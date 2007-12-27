@@ -6,7 +6,7 @@ In this section we demonstrate how to use the \pkg{systemfit} package.
 First, we show the standard usage of \code{systemfit} by a simple example.
 Second, several options that can be specified by the user are presented.
 Then, the usage of \code{systemfit}
-for a (classical) °Seemingly Unrelated Regression° analysis
+for a (classical) °seemingly unrelated regression° analysis
 with panel data is described.
 Finally, we demonstrate how to apply some statistical tests.
 
@@ -101,7 +101,7 @@ These methods correspond to the estimation methods
 described in Sections~\ref{sec:Estimation-ols-wls-sur},
 \ref{sec:Estimation-2sls-w2sls-3sls}, and~\ref{sec:Restrictions}.
 The following command estimates the model described above as
-°Seemingly Unrelated Regression°.
+°seemingly unrelated regression°.
 <<>>=
 fitsur <- systemfit( eqSystem, method = "SUR" )
 @
@@ -121,7 +121,7 @@ If different instruments should be used for each equation,
 for each equation.
 The following example uses instrumental variables
 to estimate the model described above
-by °Three-Stage Least Squares° (3SLS).
+by °three-stage least squares° (3SLS).
 While the first command specifies the same instruments for all equations,
 the second uses different instruments:
 <<>>=
@@ -479,7 +479,7 @@ summary( fitsur, residCov = FALSE, equations = FALSE )
 \subsection{Panel data}
 
 The \code{systemfit} function can also be used
-for a (classical) °Seemingly Unrelated Regression° analysis
+for a (classical) °seemingly unrelated regression° analysis
 with panel data.
 For this type of analysis,
 the data must be provided in an object of class \code{pdata.frame}

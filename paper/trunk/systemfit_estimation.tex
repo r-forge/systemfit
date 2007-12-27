@@ -5,8 +5,8 @@
 
 If all regressors are exogenous,
 the system of equations~(\ref{eq:model})
-can be consistently estimated by Ordinary Least Squares (OLS),
-Weighted Least Squares (WLS), and Seemingly Unrelated Regression (SUR).
+can be consistently estimated by ordinary least squares (OLS),
+weighted least squares (WLS), and seemingly unrelated regression (SUR).
 These estimators can be obtained by
 \begin{equation}
    \bHat = \left( X' \OHat^{-1} X \right)^{-1} X' \OHat^{-1} y .
@@ -22,7 +22,7 @@ can be estimated by
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Ordinary least squares (OLS)}
 
-The Ordinary Least Squares (OLS) estimator is based on the assumption
+The ordinary least squares (OLS) estimator is based on the assumption
 that the disturbance terms are not contemporaneously correlated
 $(\sigma_{ij} = 0 \; \forall \; i \neq j)$
 and have the same variance in each equation
@@ -55,7 +55,7 @@ with $\OHat$ equal to $\SHat \otimes I_T$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Weighted least squares (WLS)}
 
-The Weighted Least Squares (WLS) estimator allows for different variances
+The weighted least squares (WLS) estimator allows for different variances
 of the disturbance terms in the different equations
 $( \sigma_i^2 \neq \sigma_j^2 \, \forall \, i \neq j)$,
 but assumes
@@ -90,14 +90,14 @@ they are equal to OLS estimates.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Seemingly unrelated regression (SUR)}
 
-If the disturbances are contemporaneously correlated, a Generalized
-Least Squares (GLS) estimation leads to an efficient estimator for the coefficients.
-In this case, the GLS estimator is generally called °Seemingly Unrelated Regression°
+If the disturbances are contemporaneously correlated, a generalized
+least squares (GLS) estimation leads to an efficient estimator for the coefficients.
+In this case, the GLS estimator is generally called °seemingly unrelated regression°
 (SUR) estimator \citep{zellner62}.
 However, the true covariance matrix of the disturbance terms
 is generally unknown.
 The textbook solution for this problem is
-a Feasible Generalized Least Squares (FGLS) estimation.
+a feasible generalized least squares (FGLS) estimation.
 As the FGLS estimator is based on
 an estimated covariance matrix of the disturbance terms,
 it is only asymptotically efficient.
@@ -168,7 +168,7 @@ Hence, we get
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Two-stage least squares (2SLS)}
 
-The Two-Stage Least Squares (2SLS) estimator
+The two-stage least squares (2SLS) estimator
 is based on the same assumptions about the disturbance terms as the OLS estimator.
 Accordingly, $\OHat$ in equation~(\ref{eq:2sls-w2sls-3sls})
 is equal to $I_{G \cdot T}$ and thus, cancels out.
@@ -186,7 +186,7 @@ $\sHat_{ii} = \sHat_i^2$.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Weighted two-stage least squares (W2SLS)}
 
-The Weighted Two-Stage Least Squares (W2SLS) estimator allows
+The weighted two-stage least squares (W2SLS) estimator allows
 for different variances of the disturbance terms in the different equations.
 Hence, $\OHat$ in equations~(\ref{eq:2sls-w2sls-3sls})
 and~(\ref{eq:cov-2sls-w2sls-3sls})
@@ -200,10 +200,10 @@ they are equal to 2SLS estimates.
 \subsubsection{Three-stage least squares (3SLS)}
 
 If the disturbances are contemporaneously correlated,
-a Feasible Generalized Least Squares (FGLS) version of the two-stage least squares
+a feasible generalized least squares (FGLS) version of the two-stage least squares
 estimation leads to consistent and asymptotically more efficient estimates.
-This estimation procedure is generally called °Three-stage Least
-Squares° (3SLS) \citep{zellner62b}.
+This estimation procedure is generally called °three-stage least
+squares° (3SLS) \citep{zellner62b}.
 The standard 3SLS estimator and its covariance matrix are obtained by
 equations~(\ref{eq:2sls-w2sls-3sls}) and~(\ref{eq:cov-2sls-w2sls-3sls})
 with $\OHat$ equal to $\SHat \otimes I_T$,
@@ -231,7 +231,7 @@ An estimator of the covariance matrix of the estimated 3SLS-IV coefficients is
    \COVHat \left[ \bHat_{3SLS-IV} \right] = \left( \XHat' \OHat^{-1}
    X \right)^{-1} .
 \end{equation}
-Another approach based on the Generalized Method of Moments (GMM)
+Another approach based on the generalized method of moments (GMM)
 estimator (3SLS-GMM) is
 \begin{equation}
    \bHat_{3SLS-GMM} = \left( X' Z \left( Z' \OHat Z \right)^{-1}
