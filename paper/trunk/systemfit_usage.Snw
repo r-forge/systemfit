@@ -272,7 +272,7 @@ covariance matrix.
 The user can specify, which method \code{systemfit} should use.
 Possible values of the argument \code{methodResidCov} are presented in
 Table~\ref{tab:methodResidCov}.
-By default, \code{systemfit} uses equation (\ref{eq:rcovGeomean}).
+By default, \code{systemfit} uses Equation~\ref{eq:rcovGeomean}.
 
 \begin{table}[H]
 \caption{Possible values of argument \code{methodResidCov}}
@@ -296,8 +296,8 @@ argument & equation \\
 
 Furthermore, the user can specify
 whether the means should be subtracted from the residuals
-before (\ref{eq:rcovNoDfCor}), (\ref{eq:rcovGeomean}), (\ref{eq:rcovMax}),
-or (\ref{eq:rcovTheil}) are applied
+before Equations~\ref{eq:rcovNoDfCor}, \ref{eq:rcovGeomean}, \ref{eq:rcovMax},
+or~\ref{eq:rcovTheil} are applied
 to calculate the residual covariance matrix
 (see Section~\ref{sec:residcov}).
 The corresponding argument is called \code{centerResiduals}.
@@ -369,10 +369,10 @@ can be used to specify,
 whether different $\sigma^2$s for each single equation
 or the same $\sigma^2$ for all equations should be used.
 If argument \code{singleEqSigma} is \code{TRUE},
-$\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) or~(\ref{eq:cov-2sls-w2sls-3sls})
+$\OHat$ in Equation~\ref{eq:cov-ols-wls-sur} or~\ref{eq:cov-2sls-w2sls-3sls}
 is set to $\SHat \otimes I_T$.
 In contrast, if argument \code{singleEqSigma} is \code{FALSE},
-$\OHat$ in equation~(\ref{eq:cov-ols-wls-sur}) or~(\ref{eq:cov-2sls-w2sls-3sls})
+$\OHat$ in Equation~\ref{eq:cov-ols-wls-sur} or~\ref{eq:cov-2sls-w2sls-3sls}
 is set to $\sHat^2 I_{G \cdot T}$.
 In case of an unrestricted regression,
 argument \code{singleEqSigma} is \code{TRUE} by default.
@@ -566,13 +566,13 @@ linear.hypothesis( fitsur, Rmat, qvec, test = "Chisq" )
 lrtest( fitsurRmat, fitsur )
 @
 The linear restrictions are tested by \citeauthor{theil71}'s $F$ test
-(equation~\ref{eq:f-test-theil}) first,
+(Equation~\ref{eq:f-test-theil}) first,
 second by the $F$ statistic of a Wald test
-(equation~\ref{eq:f-test-wald}),
+(Equation~\ref{eq:f-test-wald}),
 third by the $\chi^2$ statistic of a Wald test
-(equation~\ref{eq:chi2-test-wald}),
+(Equation~\ref{eq:chi2-test-wald}),
 and finally by an LR test
-(equation~\ref{eq:lr-test}).
+(Equation~\ref{eq:lr-test}).
 
 The first argument of function \code{linear.hypothesis.systemfit}
 must be an unrestricted regression

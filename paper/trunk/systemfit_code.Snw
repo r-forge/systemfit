@@ -193,10 +193,10 @@ for all computations where matrices are involved.
 The \pkg{Matrix} package provides classes for different types of matrices.
 For instance, we choose class \code{dgeMatrix}
 (°real matrices in general storage mode°),
-for matrices $X_i$ in~(\ref{eq:model-array}),
+for matrices $X_i$ in Equation~\ref{eq:model-array},
 class \code{dgCMatrix} (°general, numeric, sparse matrices
 in the (sorted) compressed sparse column format°)
-for matrix $X$ in~(\ref{eq:model-matrices}),
+for matrix $X$ in Equation~\ref{eq:model-matrices},
 and class \code{dspMatrix}
 (°symmetric real matrices in packed storage (one triangle only)°)
 for the residual covariance matrix $\SHat$.
@@ -204,9 +204,9 @@ If the \pkg{Matrix} package is used,
 the possibly huge matrix $\Omega^{-1}$ is no longer a problem,
 because it is a sparse matrix
 that can be stored in a compressed format (class \code{dgCMatrix}).
-Hence, we no longer need the algorithm in equation~(\ref{eq:omegaInv}).
+Hence, we no longer need the algorithm in Equation~\ref{eq:omegaInv}.
 We have tested different ways to calculate a GLS estimator
-like in (\ref{eq:ols-wls-sur})
+like in Equation~\ref{eq:ols-wls-sur}
 and we found
 that the following code is the fastest:
 <<eval=FALSE>>=
@@ -218,7 +218,7 @@ In this code snippet,
 \code{residCov} is the residual covariance matrix $\SHat$,
 \code{nObs} is the number of observations in each equation $T$,
 \code{xMat} is the matrix $X$ and
-\code{yVec} is the vector $y$ in~(\ref{eq:ols-wls-sur}).
+\code{yVec} is the vector $y$ in Equation~\ref{eq:ols-wls-sur}.
 
 By default, the \code{systemfit} function uses the \pkg{Matrix} package
 to perform GLS estimations,
@@ -232,7 +232,7 @@ is often imperceptible to human beings,
 it might matter in some cases
 such as iterated estimations or Monte Carlo studies.
 Therefore, the user can opt for not using the \pkg{Matrix} package,
-but equation~(\ref{eq:omegaInv}) with standard \proglang{R} matrices.
+but Equation~\ref{eq:omegaInv} with standard \proglang{R} matrices.
 
 
 \subsection[Overlap with other functions and packages in R]

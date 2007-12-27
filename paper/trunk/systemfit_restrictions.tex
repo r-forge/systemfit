@@ -65,7 +65,7 @@ where $\beta^{MR}$ is the vector of the restricted $\beta^M$ coefficients.
 
 \subsubsection{Calculation of restricted estimators}
 
-If the first method (equation~\ref{eq:T-restr}) is chosen
+If the first method (Equation~\ref{eq:T-restr}) is chosen
 to estimate the coefficients under these restrictions,
 the matrix of regressors $X$ is (post-)\hspace{0pt}multiplied
 by the $M$ matrix,
@@ -75,10 +75,10 @@ so that
 \end{equation}
 Then, $X^M$ is substituted for $X$ and a standard estimation as described
 in the previous section is done
-(equations~\ref{eq:ols-wls-sur}--\ref{eq:3slsEViews}).
+(Equations~\ref{eq:ols-wls-sur}--\ref{eq:3slsEViews}).
 This results in the linear independent coefficient estimates $\bHat^M$ and
 their covariance matrix.
-The original coefficients can be obtained by equation (\ref{eq:T-restr})
+The original coefficients can be obtained by Equation~\ref{eq:T-restr}
 and the estimated covariance matrix of the original coefficients
 can be obtained by
 \begin{equation}
@@ -87,7 +87,7 @@ can be obtained by
 \end{equation}
 
 The implementation of the second method to estimate the coefficients
-under linear restrictions (equation~\ref{eq:restr-R})
+under linear restrictions (Equation~\ref{eq:restr-R})
 is described for each estimation method in the following sections.
 
 
@@ -278,9 +278,9 @@ The econometrics software \proglang{EViews} calculates the restricted 3SLS estim
    \label{eq:3slsEViewsR}
 \end{equation}
 where $\bHat^R_{2SLS}$ is the restricted 2SLS estimator calculated
-by equation (\ref{eq:2sls-w2sls-3sls-r}).
+by Equation~\ref{eq:2sls-w2sls-3sls-r}.
 \proglang{EViews} uses the standard formula of the restricted 3SLS
-estimator~(\ref{eq:cov-2sls-w2sls-3sls-r}) to calculate an estimator
+estimator (Equation~\ref{eq:cov-2sls-w2sls-3sls-r}) to calculate an estimator
 for the covariance matrix of the estimated coefficients.
 
 
