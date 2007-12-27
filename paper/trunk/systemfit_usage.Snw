@@ -210,7 +210,7 @@ We convert the restriction specified above to $\beta_2 = - \beta_6$,
 and set $\beta_1 = \beta^\text{M}_1$, \ldots, $\beta_5 = \beta^\text{M}_5$,
 $\beta_6 = - \beta^\text{M}_2$, and $\beta_7 =  \beta^\text{M}_6$.
 We can do this in \proglang{R} by
-<<keep.source=TRUE>>=
+<<>>=
 modRegMat <- matrix( 0, nrow = 7, ncol = 6 )
 modRegMat[ 1:5, 1:5 ] <- diag( 5 ) # beta_{1-5} =  beta^M_{1-5}
 modRegMat[ 6, 2 ] <- -1   # beta_6 = -beta^M_2
