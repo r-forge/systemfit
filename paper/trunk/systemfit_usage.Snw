@@ -447,7 +447,7 @@ the $R^2$ value of the equation.
 \subsubsection[Degrees of freedom for t tests]
    {Degrees of freedom for $t$ tests}
 
-Function \codeD{summary}{systemfit} has an optional argument \code{useDfSys}.
+The \code{summary} method for \code{systemfit} objects has an optional argument \code{useDfSys}.
 It selects the approach
 that is applied by \code{systemfit}
 to determine the degrees of freedom of $t$ tests of the estimated coefficients
@@ -578,7 +578,7 @@ third by the $\chi^2$ statistic of a Wald test
 and finally by an LR test
 (Equation~\ref{eq:lr-test}).
 
-The first argument of function \codeDD{linear}{hypothesis}{systemfit}
+The first argument of the \codeD{linear}{hypothesis} method for \code{systemfit} objects
 must be an unrestricted regression
 returned by \code{systemfit}.
 The second and third arguments are the restriction matrix $R$ and
@@ -594,7 +594,7 @@ specifying whether to compute
 the finite-sample Wald test (with approximate $F$ distribution)
 or the large-sample Wald test (with asymptotic $\chi^2$ distribution).
 
-All arguments of the function \codeD{lrtest}{systemfit}
+All arguments of the \code{lrtest} method for \code{systemfit} objects
 must be fitted model objects returned by \code{systemfit}.
 It consecutively compares all provided fitted model objects.
 

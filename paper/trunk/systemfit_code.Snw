@@ -54,21 +54,22 @@ is available in appendix~\ref{sec:returned-object}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Statistical tests}
 
-The functions \codeDD{linear}{hypothesis}{systemfit},
-\codeD{lrtest}{systemfit}, and \codeD{hausman}{systemfit}
+The \codeD{linear}{hypothesis} and
+\code{lrtest} methods for \code{systemfit} objects
+as well as the function \codeD{hausman}{systemfit}
 apply the statistical tests described in
 Sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
 
-The method \codeDD{linear}{hypothesis}{systemfit}
+The \codeD{linear}{hypothesis} method for {systemfit} objects
 can be used to test linear restrictions on the estimated coefficients
 by \citeauthor{theil71}'s $F$ test or by usual Wald tests.
 Internally, \citeauthor{theil71}'s $F$ statistic is computed
 by the hidden function \codeD{.ftest}{systemfit}
 and the Wald tests are computed by
-\codeDD{linear}{hypothesis}{default} of the \pkg{car} package
+the default \codeD{linear}{hypothesis} method of the \pkg{car} package
 \citep{r-car-1.2-1, fox02a}.
-The method \codeD{lrtest}{systemfit} is a wrapper function
-to \codeD{lrtest}{default} of the \pkg{lmtest} package
+The \code{lrtest} method for \code{systemfit} objects is a wrapper function
+to the default \code{lrtest} method of the \pkg{lmtest} package
 \citep{r-lmtest},
 which computes the likelihood-ratio (LR) test statistic.
 All these functions return an object of class \code{anova}
