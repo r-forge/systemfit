@@ -154,14 +154,14 @@ can be specified in two ways.
 One way is to use the matrix $R$ and the vector $q$
 (see Section~\ref{sec:Restrictions}).
 These restrictions can be specified symbolically
-by argument \code{restrict.matrix}
+by argument \codeD{restrict}{matrix}
 as in the generic function
-\code{linear.hypothesis} of the \pkg{car} package \citep{r-car-1.2-1, fox02a}.
+\codeD{linear}{hypothesis} of the \pkg{car} package \citep{r-car-1.2-1, fox02a}.
 This argument must be a vector of character strings,
 where each element represents one linear restriction,
 and each element must be either a linear combination of coefficients,
 or a linear equation in the coefficients
-(see documentation of function \code{linear.hypothesis}
+(see documentation of function \codeD{linear}{hypothesis}
 in the \pkg{car} package, \citealp{r-car-1.2-1, fox02a}).
 We illustrate this by estimating the model under
 the restriction $\beta_2 + \beta_6 = 0$.
@@ -181,8 +181,8 @@ fitsurRmat <- systemfit( eqSystem, method = "SUR",
 
 Alternatively, the restrictions via matrix $R$ and vector $q$
 can be specified numerically.
-The matrix $R$ can be specified with argument \code{restrict.matrix}
-and the vector $q$ with argument \code{restrict.rhs}.
+The matrix $R$ can be specified with argument \codeD{restrict}{matrix}
+and the vector $q$ with argument \codeD{restrict}{rhs}.
 <<>>=
 Rmat <- matrix( 0, nrow = 1, ncol = 7 )
 Rmat[ 1, 2 ] <-  1   # beta_2
@@ -206,7 +206,7 @@ The other way to specify restrictions on the coefficients is to modify the regre
 by post-multiplying it with a matrix, say $M$
 (see Section~\ref{sec:Restrictions}).
 This kind of restriction can be specified
-by setting argument \code{restrict.regMat} equal to the matrix $M$.
+by setting argument \codeD{restrict}{regMat} equal to the matrix $M$.
 We convert the restriction specified above to $\beta_2 = - \beta_6$,
 and set $\beta_1 = \beta^M_1$, \ldots, $\beta_5 = \beta^M_5$,
 $\beta_6 = - \beta^M_2$, and $\beta_7 =  \beta^M_6$.
@@ -443,7 +443,7 @@ the $R^2$ value of the equation.
 \subsubsection[Degrees of freedom for t tests]
    {Degrees of freedom for $t$ tests}
 
-Function \code{summary.systemfit} has an optional argument \code{useDfSys}.
+Function \codeD{summary}{systemfit} has an optional argument \code{useDfSys}.
 It selects the approach
 that is applied by \code{systemfit}
 to determine the degrees of freedom of $t$ tests of the estimated coefficients
@@ -482,7 +482,7 @@ The \code{systemfit} function can also be used
 for a (classical) °seemingly unrelated regression° analysis
 with panel data.
 For this type of analysis,
-the data must be provided in an object of class \code{pdata.frame}
+the data must be provided in an object of class \codeD{pdata}{frame}
 (°panel data frame°),%
 \footnote{
 Generally, panel data can be either in °long format°
@@ -491,7 +491,7 @@ or in °wide format°
 (different individuals are arranged next to each other).
 For this analysis, the data must be in °long format°.
 }
-which can be created with the function \code{pdata.frame}
+which can be created with the function \codeD{pdata}{frame}
 from the \proglang{R} package \pkg{plm}
 \citep{r-plm-0.1-2}.
 In contrast to the previously described usage of \code{systemfit},
@@ -525,7 +525,7 @@ greeneSur <- systemfit( invest ~ value + capital, method = "SUR",
 The first line loads the example data set \code{GrunfeldGreene}
 that is included in the \pkg{systemfit} package.
 The second line loads the \pkg{plm} package
-and the following line specifies a \code{pdata.frame},
+and the following line specifies a \codeD{pdata}{frame},
 where the variables \code{firm} and \code{year} indicate
 the individual (cross-section) and time identifier, respectively.
 Finally, a seemingly unrelated regression is performed.
@@ -550,7 +550,7 @@ As described in Section~\ref{sec:testingRestrictions},
 linear restrictions can be tested by an $F$ test, two Wald tests and
 an LR test.
 The \pkg{systemfit} package provides
-the method \code{linear.hypothesis} for the $F$ and Wald tests
+the method \codeD{linear}{hypothesis} for the $F$ and Wald tests
 as well as the method \code{lrtest} for LR tests.
 
 We will now test the restriction $\beta_2 = -\beta_6$
@@ -574,12 +574,12 @@ third by the $\chi^2$ statistic of a Wald test
 and finally by an LR test
 (Equation~\ref{eq:lr-test}).
 
-The first argument of function \code{linear.hypothesis.systemfit}
+The first argument of function \codeDD{linear}{hypothesis}{systemfit}
 must be an unrestricted regression
 returned by \code{systemfit}.
 The second and third arguments are the restriction matrix $R$ and
 the optional vector $q$, as described in Section~\ref{sec:Restrictions}.
-Analogously to the argument \code{restrict.matrix}
+Analogously to the argument \codeD{restrict}{matrix}
 of the \code{systemfit} function,
 the restrictions can be specified either in matrix form or symbolically.
 The optional argument \code{test} must be
@@ -590,7 +590,7 @@ specifying whether to compute
 the finite-sample Wald test (with approximate $F$ distribution)
 or the large-sample Wald test (with asymptotic $\chi^2$ distribution).
 
-All arguments of the function \code{lrtest.systemfit}
+All arguments of the function \codeD{lrtest}{systemfit}
 must be fitted model objects returned by \code{systemfit}.
 It consecutively compares all provided fitted model objects.
 
@@ -625,7 +625,7 @@ hausmantest <- hausman.systemfit( fit2sls, fit3sls )
 @
 First of all, the model is estimated by 2SLS and then by 3SLS.
 Finally, in the last line
-the test is carried out by the command \code{hausman.systemfit}.
+the test is carried out by the command \codeD{hausman}{systemfit}.
 This function requires two arguments:
 the result of a 2SLS estimation and
 the result of a 3SLS estimation.

@@ -39,7 +39,7 @@ The \code{systemfit} function returns a list of class \code{systemfit}
 that contains the results that belong to the entire system of equations.
 One special element of this list is called \code{eq},
 which is a list that contains one object for each estimated equation.
-These objects are lists of class \code{systemfit.equation}
+These objects are lists of class \codeD{systemfit}{equation}
 and contain the results that belong only to the regarding equation.
 A complete description is available in the documentation of this function
 that is included in the package.
@@ -55,16 +55,16 @@ The functions \codeDD{linear}{hypothesis}{systemfit},
 apply the statistical tests described in
 Sections~\ref{sec:testingRestrictions} and~\ref{sec:hausman}.
 
-The method \code{linear.hypothesis.systemfit}
+The method \codeDD{linear}{hypothesis}{systemfit}
 can be used to test linear restrictions on the estimated coefficients
 by \citeauthor{theil71}'s $F$ test or by usual Wald tests.
 Internally, \citeauthor{theil71}'s $F$ statistic is computed
-by the hidden function \code{.ftest.systemfit}
+by the hidden function \codeD{.ftest}{systemfit}
 and the Wald tests are computed by
-\code{linear.hypothesis.default} of the \pkg{car} package
+\codeDD{linear}{hypothesis}{default} of the \pkg{car} package
 \citep{r-car-1.2-1, fox02a}.
-The method \code{lrtest.systemfit} is a wrapper function
-to \code{lrtest.default} of the \pkg{lmtest} package
+The method \codeD{lrtest}{systemfit} is a wrapper function
+to \codeD{lrtest}{default} of the \pkg{lmtest} package
 \citep{r-lmtest},
 which computes the likelihood-ratio (LR) test statistic.
 All these functions return an object of class \code{anova}
@@ -72,7 +72,7 @@ that contains --- amongst others ---
 the empirical test statistic, the degrees of freedom,
 and the corresponding $P$ value.
 
-The function \code{hausman.systemfit}
+The function \codeD{hausman}{systemfit}
 tests the consistency of the 3SLS estimator.
 It returns an object of class \code{htest},
 which contains --- amongst others ---
