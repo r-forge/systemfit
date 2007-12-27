@@ -1,7 +1,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Using systemfit]{Using \pkg{systemfit}}\label{sec:Usage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\SweaveOpts{prefix.string=trash/usage}
 <<echo=FALSE>>=
 options( prompt = "R> " )
 @
@@ -49,7 +49,7 @@ consumer prices) and a constant as well as
 to general consumer prices) and 
 \code{trend} (a time trend in years).
 These equations can be estimated by OLS in \proglang{R} by
-<<>>=
+<<systemfit_usage>>=
 library( "systemfit" )
 data( "Kmenta" )
 attach( Kmenta )
@@ -101,7 +101,7 @@ described in Sections~\ref{sec:Estimation-ols-wls-sur},
 \ref{sec:Estimation-2sls-w2sls-3sls}, and~\ref{sec:Restrictions}.
 The following command estimates the model described above as
 °seemingly unrelated regression°.
-<<>>=
+<<systemfit_usage>>=
 fitsur <- systemfit( eqSystem, method = "SUR" )
 @
 
@@ -123,7 +123,7 @@ to estimate the model described above
 by °three-stage least squares° (3SLS).
 While the first command specifies the same instruments for all equations,
 the second uses different instruments:
-<<>>=
+<<systemfit_usage>>=
 fit3sls  <- systemfit( eqSystem, method = "3SLS",
    inst = ~ income + farmPrice + trend )
 fit3sls2 <- systemfit( eqSystem, method = "3SLS",
@@ -141,7 +141,7 @@ In the following example, we use this argument to specify
 that the data for the estimation
 should be taken from the data frame \code{Kmenta}.
 Hence, we no longer need to attach this data frame before calling \code{systemfit}:
-<<>>=
+<<systemfit_usage>>=
 fitsur <- systemfit( eqSystem, method = "SUR", data = Kmenta )
 @
 
@@ -171,7 +171,7 @@ and the name of $\beta_6$
 (coefficient of variable \code{farmPrice} in equation \code{supply})
 is \code{supply\_farmPrice},
 this restriction can be specified by
-<<keep.source=TRUE>>=
+<<systemfit_usage,keep.source=TRUE>>=
 restrict <- "demand_price + supply_farmPrice = 0"
 fitsurRmat <- systemfit(eqSystem, method = "SUR",
    restrict.matrix = restrict)
@@ -182,7 +182,7 @@ Alternatively, the restrictions via matrix $R$ and vector $q$
 can be specified numerically.
 The matrix $R$ can be specified with argument \codeD{restrict}{matrix}
 and the vector $q$ with argument \codeD{restrict}{rhs}.
-<<keep.source=TRUE>>=
+<<systemfit_usage,keep.source=TRUE>>=
 Rmat <- matrix(0, nrow = 1, ncol = 7)
 Rmat[1, 2] <- 1
 Rmat[1, 6] <- 1
@@ -210,7 +210,7 @@ We convert the restriction specified above to $\beta_2 = - \beta_6$,
 and set $\beta_1 = \beta^\text{M}_1$, \ldots, $\beta_5 = \beta^\text{M}_5$,
 $\beta_6 = - \beta^\text{M}_2$, and $\beta_7 =  \beta^\text{M}_6$.
 We can do this in \proglang{R} by
-<<keep.source=TRUE>>=
+<<systemfit_usage,keep.source=TRUE>>=
 modRegMat <- matrix(0, nrow = 7, ncol = 6)
 modRegMat[1:5, 1:5] <- diag(5)
 modRegMat[6, 2] <- -1
@@ -228,7 +228,7 @@ $\beta^\text{M}_2 = \beta_2 = - \beta_6$.
 
 Of course, the estimation results do not depend on the method
 that was used to specify this restriction:
-<<>>=
+<<systemfit_usage>>=
 all.equal( coef( fitsurRmat ), coef( fitsurRmatNum ) )
 all.equal( coef( fitsurRmat ), coef( fitsurRegMat ) )
 @
@@ -258,7 +258,7 @@ is $10^{-5}$.
 
 In the following example,
 we estimate the model described above by iterated SUR:
-<<>>=
+<<systemfit_usage>>=
 fitsurit <- systemfit( eqSystem, method = "SUR", maxiter = 500 )
 @
 
@@ -421,7 +421,7 @@ i.e.\ these data objects are not returned.
 The \code{summary} method can be used
 to compute and print summary results of objects
 returned by \code{systemfit}.
-<<>>=
+<<systemfit_usage>>=
 summary( fitsur )
 @
 First, the estimation method is reported
@@ -469,7 +469,7 @@ Argument \code{equations} specifies
 whether summary results of each equation are printed.
 By default, both arguments are \code{TRUE}.
 The following command returns a sparse summary output:
-<<>>=
+<<systemfit_usage>>=
 summary( fitsur, residCov = FALSE, equations = FALSE )
 @
 
@@ -514,7 +514,7 @@ previous year, and
 previous year.
 
 This model can be estimated by
-<<>>=
+<<systemfit_usage>>=
 data( "GrunfeldGreene" )
 library( "plm" )
 GGPanel <- pdata.frame( GrunfeldGreene, id = "firm", time = "year" )
@@ -536,7 +536,7 @@ By default, this argument is set to \code{FALSE}.
 The following command does a seemingly unrelated regression
 of the same model as before,
 but with coefficients restricted to be equal for all individuals.
-<<>>=
+<<systemfit_usage>>=
 greeneSurPooled <- systemfit( invest ~ value + capital, method = "SUR",
    data = GGPanel, pooled = TRUE )
 @
@@ -555,7 +555,7 @@ as well as the method \code{lrtest} for LR tests.
 We will now test the restriction $\beta_2 = -\beta_6$
 that was specified by the matrix \code{Rmat} and the vector \code{qvec}
 in the example above (p.~\pageref{code:Rmat}).
-<<>>=
+<<systemfit_usage>>=
 linear.hypothesis( fitsur, Rmat, qvec, test = "FT" )
 
 linear.hypothesis( fitsur, Rmat, qvec, test = "F" )
@@ -612,7 +612,7 @@ reasonable level of significance.
 \subsection{Hausman test}
 A Hausman test, which is described in Section~\ref{sec:hausman},
 can be carried out with following commands:
-<<>>=
+<<systemfit_usage>>=
 fit2sls  <- systemfit( eqSystem, method = "2SLS",
    inst = ~ income + farmPrice + trend, data = Kmenta )
 fit3sls <- systemfit( eqSystem, method = "3SLS",

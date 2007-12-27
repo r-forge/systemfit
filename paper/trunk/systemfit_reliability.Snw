@@ -2,7 +2,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Replication of textbook results}\label{sec:reliability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+\SweaveOpts{prefix.string=trash/replication}
 <<echo=FALSE>>=
 options( prompt = "R> " )
 @
@@ -38,10 +38,10 @@ Then the equation system is estimated by OLS, 2SLS, 3SLS, and
 iterated 3SLS.
 After each estimation, we provide the commands
 to print the estimated coefficients.
-<<echo=FALSE>>=
+<<systemfit_replication,echo=FALSE>>=
 library( "systemfit" )
 @
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 data( "Kmenta" )
 eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
@@ -49,22 +49,22 @@ inst <- ~ income + farmPrice + trend
 system <- list( demand = eqDemand, supply = eqSupply )
 @
 OLS estimation:
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 fitOls <- systemfit( system, data = Kmenta )
 round( coef( summary( fitOls ) ), digits = 4 )
 @
 2SLS estimation:
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 fit2sls <- systemfit( system, method = "2SLS", inst = inst, data = Kmenta )
 round( coef( summary( fit2sls ) ), digits = 4 )
 @
 3SLS estimation:
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 fit3sls <- systemfit( system, method = "3SLS", inst = inst, data = Kmenta )
 round( coef( summary( fit3sls ) ), digits = 4 )
 @
 Iterated 3SLS estimation:
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 fitI3sls <- systemfit( system, method = "3SLS", inst = inst, data = Kmenta,
    maxit = 250 )
 round( coef( summary( fitI3sls ) ), digits = 4 )
@@ -95,7 +95,7 @@ as well as the instrumental variables are specified.
 As in the example before, the equation system is estimated by
 OLS, 2SLS, 3SLS, and iterated 3SLS, and
 commands to print the estimated coefficients are presented.
-<<>>=
+<<systemfit_replication>>=
 data( "KleinI" )
 eqConsump  <- consump ~ corpProf + corpProfLag + wages
 eqInvest   <- invest ~ corpProf + corpProfLag + capitalLag
@@ -105,24 +105,24 @@ system <- list( Consumption = eqConsump, Investment = eqInvest,
    PrivateWages = eqPrivWage )
 @
 OLS estimation:
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 kleinOls <- systemfit( system, data = KleinI )
 round( coef( summary( kleinOls ) ), digits = 3 )
 @
 2SLS estimation:
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 klein2sls <- systemfit( system, method = "2SLS", inst = inst, data = KleinI,
    methodResidCov = "noDfCor" )
 round( coef( summary( klein2sls ) ), digits = 3 )
 @
 3SLS estimation:
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 klein3sls <- systemfit( system, method = "3SLS", inst = inst, data = KleinI,
    methodResidCov = "noDfCor" )
 round( coef( summary( klein3sls ) ), digits = 3 )
 @
 iterated 3SLS estimation:
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 kleinI3sls <- systemfit( system, method = "3SLS", inst = inst, data = KleinI,
    methodResidCov = "noDfCor", maxit = 500 )
 round( coef( summary( kleinI3sls ) ), digits = 3 )
@@ -167,28 +167,28 @@ After each estimation, we show the commands to print the estimated coefficients,
 the $\sigma^2$ values of the OLS estimations, and
 the residual covariance matrix as well as the residual correlation matrix
 of the SUR estimations.
-<<>>=
+<<systemfit_replication>>=
 data( "GrunfeldGreene" )
 library( "plm" )
 GGPanel <- pdata.frame( GrunfeldGreene, id = "firm", time = "year" )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (Table 14.2):
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 greeneOls <- systemfit( formulaGrunfeld,
    data = GGPanel )
 round( coef( summary( greeneOls ) ), digits = 4 )
 round( sapply( greeneOls$eq, function(x){return(summary(x)$ssr/20)} ), digits = 3 )
 @
 pooled OLS (Table 14.2):
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 greeneOlsPooled <- systemfit( formulaGrunfeld,
    data = GGPanel, pooled = TRUE )
 round( coef( summary( greeneOlsPooled$eq[[1]] ) ), digits = 4 ) #$
 sum( sapply( greeneOlsPooled$eq, function(x){return(summary(x)$ssr)}) )/100
 @
 SUR estimation (Table~14.1):
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 greeneSur <- systemfit( formulaGrunfeld, method = "SUR",
    data = GGPanel, methodResidCov = "noDfCor" )
 round( coef( summary( greeneSur ) ), digits = 4 )
@@ -196,7 +196,7 @@ round( greeneSur$residCov, digits = 3 ) #$
 round( summary( greeneSur )$residCor, digits = 3 ) #$
 @
 pooled SUR estimation (Table~14.1):
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 greeneSurPooled <- systemfit( formulaGrunfeld, method = "SUR",
    data = GGPanel, pooled = TRUE, methodResidCov = "noDfCor",
    residCovWeighted = TRUE )
@@ -242,20 +242,20 @@ Then, the formula is specified,
 and the model is estimated by OLS and SUR.
 Commands to print the estimated coefficients are reported
 after each estimation.
-<<>>=
+<<systemfit_replication>>=
 GrunfeldTheil <- subset( GrunfeldGreene,
    firm %in% c( "General Electric", "Westinghouse" ) )
 GTPanel <- pdata.frame( GrunfeldTheil, id = "firm", time = "year" )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (page 295)
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 theilOls <- systemfit( formulaGrunfeld,
    data = GTPanel )
 round( coef( summary( theilOls ) ), digits = 3 )
 @
 SUR estimation (page 300)
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 theilSur <- systemfit( formulaGrunfeld, method = "SUR",
    data = GTPanel, methodResidCov = "noDfCor" )
 round( coef( summary( theilSur ) ), digits = 3 )
@@ -275,13 +275,13 @@ The same restriction can be specified also symbolically by
 \code{RMatrix <- c( "General.Electric\_value = Westinghouse\_value",
 "General.Electric\_capital = Westinghouse\_capital" )}
 }
-<<results=hide>>=
+<<systemfit_replication,results=hide>>=
 RMatrix <- rbind( c( 0, 1, 0, 0, -1, 0 ), c( 0, 0, 1, 0, 0, -1 ) )
 linear.hypothesis( theilSur, RMatrix )
 @
 
 Restricted SUR estimation (page~316)
-<<results=hide,keep.source=TRUE>>=
+<<systemfit_replication,results=hide,keep.source=TRUE>>=
 theilSurRestr <- systemfit(formulaGrunfeld, method = "SUR",
    data = GTPanel, methodResidCov = "noDfCor", restrict.matrix = RMatrix,
    residCovRestricted = FALSE)
