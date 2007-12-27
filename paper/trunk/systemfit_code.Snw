@@ -2,6 +2,10 @@
 \section{Source code}\label{sec:code}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+<<echo=FALSE>>=
+options( prompt = "R> " )
+@
+
 The source code of the \pkg{systemfit} package is publicly available
 for download from the comprehensive \proglang{R} archive network (CRAN,
 \url{http://cran.r-project.org/src/contrib/Descriptions/systemfit.html}).

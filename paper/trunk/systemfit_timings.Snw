@@ -2,6 +2,10 @@
 \section{Computation times}\label{sec:timings}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+<<echo=FALSE>>=
+options( prompt = "R> " )
+@
+
 Theoretically, one would expect
 that the calculations with the \pkg{Matrix} package are
 faster and more robust than calculations with the traditional method.

@@ -3,6 +3,10 @@
 \section{Replication of textbook results}\label{sec:reliability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+<<echo=FALSE>>=
+options( prompt = "R> " )
+@
+
 In this section, we reproduce results from several textbook examples
 using the \pkg{systemfit} package for several reasons.
 First, a comparison of \pkg{systemfit}'s results

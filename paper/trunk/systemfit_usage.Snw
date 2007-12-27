@@ -2,6 +2,10 @@
 \section[Using systemfit]{Using \pkg{systemfit}}\label{sec:Usage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+<<echo=FALSE>>=
+options( prompt = "R> " )
+@
+
 In this section we demonstrate how to use the \pkg{systemfit} package.
 First, we show the standard usage of \code{systemfit} by a simple example.
 Second, several options that can be specified by the user are presented.
