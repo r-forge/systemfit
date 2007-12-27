@@ -34,7 +34,7 @@ Each formula is a standard regression formula in \proglang{R}
 (see documentation of \code{formula}).
 
 The following demonstration uses an example taken from
-\citet[p.\ 685]{kmenta86}.
+\citet[p.~685]{kmenta86}.
 We want to estimate a small model of the US food market:
 \begin{align}
 \texttt{consump} & = \beta_1 + \beta_2 \cdot \texttt{price}
