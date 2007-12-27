@@ -208,8 +208,8 @@ by post-multiplying it with a matrix, say $M$
 This kind of restriction can be specified
 by setting argument \codeD{restrict}{regMat} equal to the matrix $M$.
 We convert the restriction specified above to $\beta_2 = - \beta_6$,
-and set $\beta_1 = \beta^M_1$, \ldots, $\beta_5 = \beta^M_5$,
-$\beta_6 = - \beta^M_2$, and $\beta_7 =  \beta^M_6$.
+and set $\beta_1 = \beta^\text{M}_1$, \ldots, $\beta_5 = \beta^\text{M}_5$,
+$\beta_6 = - \beta^\text{M}_2$, and $\beta_7 =  \beta^\text{M}_6$.
 We can do this in \proglang{R} by
 <<keep.source=TRUE>>=
 modRegMat <- matrix( 0, nrow = 7, ncol = 6 )
@@ -225,7 +225,7 @@ where 7 is the number of unrestricted coefficients and
 The following three lines specify the matrix $M$ (\code{modRegMat})
 as described before.
 Finally the coefficients are estimated under the restriction
-$\beta^M_2 = \beta_2 = - \beta_6$.
+$\beta^\text{M}_2 = \beta_2 = - \beta_6$.
 
 Of course, the estimation results do not depend on the method
 that was used to specify this restriction:

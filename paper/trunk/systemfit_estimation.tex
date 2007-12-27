@@ -222,19 +222,19 @@ Since there might be occasions where this cannot be avoided,
 One of these approaches based on instrumental variable estimation
 (3SLS-IV) is
 \begin{equation}
-   \bHat_{3SLS-IV} = \left( \XHat^\top \OHat^{-1} X
+   \bHat_\text{3SLS-IV} = \left( \XHat^\top \OHat^{-1} X
    \right)^{-1} \XHat^\top \OHat^{-1} y .
    \label{eq:3slsIv}
 \end{equation}
 An estimator of the covariance matrix of the estimated 3SLS-IV coefficients is
 \begin{equation}
-   \COVHat \left[ \bHat_{3SLS-IV} \right] = \left( \XHat^\top \OHat^{-1}
+   \COVHat \left[ \bHat_\text{3SLS-IV} \right] = \left( \XHat^\top \OHat^{-1}
    X \right)^{-1} .
 \end{equation}
 Another approach based on the generalized method of moments (GMM)
 estimator (3SLS-GMM) is
 \begin{equation}
-   \bHat_{3SLS-GMM} = \left( X^\top Z \left( Z^\top \OHat Z \right)^{-1}
+   \bHat_\text{3SLS-GMM} = \left( X^\top Z \left( Z^\top \OHat Z \right)^{-1}
    Z^\top X \right)^{-1} X^\top Z \left( Z^\top \OHat Z \right)^{-1} Z^\top y
    \label{eq:3slsGmm}
 \end{equation}
@@ -250,19 +250,19 @@ with
 \end{equation}
 An estimator of the covariance matrix of the estimated 3SLS-GMM coefficients is
 \begin{equation}
-   \COVHat \left[ \bHat_{3SLS-GMM} \right] =
+   \COVHat \left[ \bHat_\text{3SLS-GMM} \right] =
    \left( X^\top Z \left( Z^\top \OHat Z \right)^{-1} Z^\top X \right)^{-1} .
 \end{equation}
 A fourth approach developed by \cite{schmidt90} himself is
 \begin{equation}
-   \bHat_{3SLS-Schmidt} = \left( \XHat^\top \OHat^{-1} \XHat
+   \bHat_\text{3SLS-Schmidt} = \left( \XHat^\top \OHat^{-1} \XHat
    \right)^{-1} \XHat^\top \OHat^{-1}
    Z \left( Z^\top Z \right)^{-1} Z^\top y .
    \label{eq:3slsSchmidt}
 \end{equation}
 An estimator of the covariance matrix of these estimated coefficients is
 \begin{align}
-   \COVHat \left[ \bHat_{3SLS-Schmidt} \right] = &
+   \COVHat \left[ \bHat_\text{3SLS-Schmidt} \right] = &
    \left( \XHat^\top \OHat^{-1}  \XHat \right)^{-1}
    \XHat^\top \OHat^{-1} Z \left( Z^\top Z \right)^{-1} Z^\top \OHat Z \\
    & \left( Z^\top Z \right)^{-1} Z^\top \OHat^{-1} \XHat
@@ -271,12 +271,12 @@ An estimator of the covariance matrix of these estimated coefficients is
 \end{align}
 The econometrics software \proglang{EViews} uses
 \begin{equation}
-   \bHat_{3SLS-EViews} = \bHat_{2SLS} +
+   \bHat_\text{3SLS-EViews} = \bHat_\text{2SLS} +
    \left( \XHat^\top \OHat^{-1} \XHat \right)^{-1}
-   \XHat^\top \OHat^{-1} \left( y - X \bHat_{2SLS} \right) ,
+   \XHat^\top \OHat^{-1} \left( y - X \bHat_\text{2SLS} \right) ,
    \label{eq:3slsEViews}
 \end{equation}
-where $\bHat_{2SLS}$ is the two-stage least squares estimator
+where $\bHat_\text{2SLS}$ is the two-stage least squares estimator
 as defined above.
 \proglang{EViews} uses the standard 3SLS formula
 (Equation~\ref{eq:cov-2sls-w2sls-3sls}) to

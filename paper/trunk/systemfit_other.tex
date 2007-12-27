@@ -55,12 +55,12 @@ matrix is
 \begin{eqnarray}
    \sHat_{ij} & = &
    \frac{ \uHat_i^\top \uHat_j }
-   { T - K_i - K_j + tr \left[ X_i \left( X_i^\top X_i \right)^{-1}
+   { T - K_i - K_j + \tr \left[ X_i \left( X_i^\top X_i \right)^{-1}
    X_i^\top X_j \left( X_j^\top X_j \right)^{-1} X_j^\top \right] }
    \label{eq:rcovTheil} \\
    & = &
    \frac{ \uHat_i^\top \uHat_j }
-   { T - K_i - K_j + tr \left[ \left( X_i^\top X_i \right)^{-1}
+   { T - K_i - K_j + \tr \left[ \left( X_i^\top X_i \right)^{-1}
    X_i^\top X_j \left( X_j^\top X_j \right)^{-1} X_j^\top X_i \right] }
 \end{eqnarray} 
 \citep[p.\ 309]{zellner62c}.
@@ -274,9 +274,9 @@ under the null hypothesis
 
 The likelihood-ratio (LR) statistic for systems of equations is
 \begin{equation}
-LR = T \cdot \left(
-   log \left| \SHat_r \right|
-   - log \left| \SHat_u \right|
+\LR = T \cdot \left(
+   \log \left| \SHat_r \right|
+   - \log \left| \SHat_u \right|
    \right) ,
 \label{eq:lr-test}
 \end{equation}
@@ -284,7 +284,7 @@ where $T$ is the number of observations per equation, and
 $\SHat_r$ and $\SHat_u$ are
 the residual covariance matrices calculated by Equation~\ref{eq:rcovNoDfCor}
 of the restricted and unrestricted estimation, respectively.
-Asymptotically, $LR$ has a $\chi^2$
+Asymptotically, $\LR$ has a $\chi^2$
 distribution with $j$ degrees of freedom
 under the null hypothesis
 \citep[p.\ 349]{greene03}.
@@ -312,15 +312,15 @@ are correlated with the disturbances of another equation
 ($\E \left[ u_i^\top Z_j \right] \neq 0 \, \exists \, i \neq j$).
 The Hausman test statistic is
 \begin{equation}
-  m = \left( \bHat_{2SLS} - \bHat_{3SLS} \right)^\top
-      \left( \COVHat \left[ \bHat_{2SLS} \right] -
-             \COVHat \left[ \bHat_{3SLS} \right] \right)
-      \left( \bHat_{2SLS} - \bHat_{3SLS} \right) ,
+  m = \left( \bHat_\text{2SLS} - \bHat_\text{3SLS} \right)^\top
+      \left( \COVHat \left[ \bHat_\text{2SLS} \right] -
+             \COVHat \left[ \bHat_\text{3SLS} \right] \right)
+      \left( \bHat_\text{2SLS} - \bHat_\text{3SLS} \right) ,
 \label{eq:hausman}
 \end{equation}
-where $\bHat_{2SLS}$ and $\COVHat \left[ \bHat_{2SLS} \right]$ are the estimated
+where $\bHat_\text{2SLS}$ and $\COVHat \left[ \bHat_\text{2SLS} \right]$ are the estimated
 coefficient and covariance matrix from a 2SLS estimation, and
-$\bHat_{3SLS}$ and $\COVHat \left[ \bHat_{3SLS} \right]$ are the estimated
+$\bHat_\text{3SLS}$ and $\COVHat \left[ \bHat_\text{3SLS} \right]$ are the estimated
 coefficients and covariance matrix from a 3SLS estimation.
 Under the null hypothesis, this test statistic has a
 $\chi^2$ distribution with degrees of freedom equal to the number of

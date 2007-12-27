@@ -14,23 +14,23 @@ There are two different methods to estimate the coefficients
 under linear restrictions.
 First, a matrix $M$ can be specified that
 \begin{equation}
-   \beta = M \cdot \beta^M \label{eq:T-restr} ,
+   \beta = M \cdot \beta^\text{M} \label{eq:T-restr} ,
 \end{equation}
-where $\beta^M$ is a vector of restricted (linear independent) coefficients,
+where $\beta^\text{M}$ is a vector of restricted (linear independent) coefficients,
 and $M$ is a matrix with the number of rows equal to the number of
 unrestricted coefficients ($\beta$) and
 the number of columns equal to the number of restricted coefficients
-($\beta^M$).
+($\beta^\text{M}$).
 $M$ can be used to map each unrestricted coefficient to one or more
 restricted coefficients.
 
 The second method to estimate the coefficients under linear restrictions
 constrains the coefficients by
 \begin{equation}
-   R \beta^R = q ,
+   R \beta^\text{R} = q ,
    \label{eq:restr-R}
 \end{equation}
-where $\beta^R$ is the vector of the restricted coefficients,
+where $\beta^\text{R}$ is the vector of the restricted coefficients,
 and $R$ and $q$ are a matrix and vector, respectively,
 that specify the restrictions \citep[see][p.~100]{greene03}.
 Each linear independent restriction is represented by one row of $R$
@@ -58,9 +58,9 @@ In this case, the restrictions specified using the latter method are
 imposed on the linear independent coefficients
 that are restricted by the first method, so that
 \begin{equation}
-   R \beta^{MR} = q ,
+   R \beta^\text{MR} = q ,
 \end{equation}
-where $\beta^{MR}$ is the vector of the restricted $\beta^M$ coefficients.
+where $\beta^\text{MR}$ is the vector of the restricted $\beta^\text{M}$ coefficients.
 
 
 \subsubsection{Calculation of restricted estimators}
@@ -71,19 +71,19 @@ the matrix of regressors $X$ is (post-)\hspace{0pt}multiplied
 by the $M$ matrix,
 so that
 \begin{equation}
-    X^M = X \cdot M .
+    X^\text{M} = X \cdot M .
 \end{equation}
-Then, $X^M$ is substituted for $X$ and a standard estimation as described
+Then, $X^\text{M}$ is substituted for $X$ and a standard estimation as described
 in the previous section is done
 (Equations~\ref{eq:ols-wls-sur}--\ref{eq:3slsEViews}).
-This results in the linear independent coefficient estimates $\bHat^M$ and
+This results in the linear independent coefficient estimates $\bHat^\text{M}$ and
 their covariance matrix.
 The original coefficients can be obtained by Equation~\ref{eq:T-restr}
 and the estimated covariance matrix of the original coefficients
 can be obtained by
 \begin{equation}
    \COVHat \left[ \bHat \right]
-   = M \cdot \COVHat \left[ \bHat^M \right] \cdot M^\top .
+   = M \cdot \COVHat \left[ \bHat^\text{M} \right] \cdot M^\top .
 \end{equation}
 
 The implementation of the second method to estimate the coefficients
@@ -94,10 +94,10 @@ is described for each estimation method in the following sections.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsubsection{Restricted OLS, WLS, and SUR estimation}
 
-The OLS, WLS, and SUR estimators restricted by $R \beta^R = q$ can be obtained by
+The OLS, WLS, and SUR estimators restricted by $R \beta^\text{R} = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \bHat^R \\[0.2em] \lHat
+      \bHat^\text{R} \\[0.2em] \lHat
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -116,7 +116,7 @@ An estimator of the covariance matrix of the estimated coefficients is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \bHat^R \\[0.2em] \lHat
+      \bHat^\text{R} \\[0.2em] \lHat
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -130,10 +130,10 @@ An estimator of the covariance matrix of the estimated coefficients is
 \subsubsection{Restricted 2SLS, W2SLS, and 3SLS estimation}
 
 The 2SLS, W2SLS, and standard 3SLS estimators
-restricted by $R \beta^R = q$ can be obtained by
+restricted by $R \beta^\text{R} = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \bHat^R \\[0.2em] \lHat
+      \bHat^\text{R} \\[0.2em] \lHat
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -151,7 +151,7 @@ An estimator of the covariance matrix of the estimated coefficients is
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \bHat^R \\[0.2em] \lHat
+      \bHat^\text{R} \\[0.2em] \lHat
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -161,10 +161,10 @@ An estimator of the covariance matrix of the estimated coefficients is
    \label{eq:cov-2sls-w2sls-3sls-r}
 \end{equation}
 
-The 3SLS-IV estimator restricted by $R \beta^R = q$ can be obtained by
+The 3SLS-IV estimator restricted by $R \beta^\text{R} = q$ can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \bHat^R_{3SLS-IV} \\[0.2em] \lHat
+      \bHat^\text{R}_\text{3SLS-IV} \\[0.2em] \lHat
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -181,7 +181,7 @@ where
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \bHat^R_{3SLS-IV} \\[0.2em] \lHat
+      \bHat^\text{R}_\text{3SLS-IV} \\[0.2em] \lHat
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -192,7 +192,7 @@ where
 The restricted 3SLS-GMM estimator can be obtained by
 \begin{equation}
    \left[ \begin{array}{c}
-      \bHat^R_{3SLS-GMM} \\[0.2em] \lHat
+      \bHat^\text{R}_\text{3SLS-GMM} \\[0.2em] \lHat
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -209,7 +209,7 @@ where
 \begin{equation}
    \COVHat
    \left[ \begin{array}{c}
-      \bHat^R_{3SLS-GMM} \\[0.2em] \lHat
+      \bHat^\text{R}_\text{3SLS-GMM} \\[0.2em] \lHat
    \end{array} \right] 
    = 
    \left[ \begin{array}{cc}
@@ -221,7 +221,7 @@ The restricted 3SLS estimator based on the suggestion of
 \cite{schmidt90} is
 \begin{equation}
    \left[ \begin{array}{c}
-      \bHat^R_{3SLS-Schmidt} \\[0.2em] \lHat
+      \bHat^\text{R}_\text{3SLS-Schmidt} \\[0.2em] \lHat
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -238,7 +238,7 @@ where
 \begin{eqnarray}
    \COVHat
    \left[ \begin{array}{c}
-      \bHat^R_{3SLS-Schmidt} \\[0.2em] \lHat
+      \bHat^\text{R}_\text{3SLS-Schmidt} \\[0.2em] \lHat
    \end{array} \right] 
    & = & 
    \left[ \begin{array}{cc}
@@ -263,7 +263,7 @@ where
 The econometrics software \proglang{EViews} calculates the restricted 3SLS estimator by
 \begin{equation}
    \left[ \begin{array}{c}
-      \bHat^R_{3SLS-EViews} \\[0.2em] \lHat
+      \bHat^\text{R}_\text{3SLS-EViews} \\[0.2em] \lHat
    \end{array} \right]
    =
    \left[ \begin{array}{cc}
@@ -272,12 +272,12 @@ The econometrics software \proglang{EViews} calculates the restricted 3SLS estim
    \end{array} \right]^{-1}
    \cdot
    \left[ \begin{array}{c}
-      \XHat^\top \OHat^{-1} \left( y - X \bHat^R_{2SLS} \right)
+      \XHat^\top \OHat^{-1} \left( y - X \bHat^\text{R}_\text{2SLS} \right)
       \\ q 
    \end{array} \right] ,
    \label{eq:3slsEViewsR}
 \end{equation}
-where $\bHat^R_{2SLS}$ is the restricted 2SLS estimator calculated
+where $\bHat^\text{R}_\text{2SLS}$ is the restricted 2SLS estimator calculated
 by Equation~\ref{eq:2sls-w2sls-3sls-r}.
 \proglang{EViews} uses the standard formula of the restricted 3SLS
 estimator (Equation~\ref{eq:cov-2sls-w2sls-3sls-r}) to calculate an estimator
