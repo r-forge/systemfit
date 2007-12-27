@@ -279,8 +279,6 @@ Table~\ref{tab:methodResidCov}.
 By default, \code{systemfit} uses Equation~\ref{eq:rcovGeomean}.
 
 \begin{table}[H]
-\caption{Possible values of argument \code{methodResidCov}}
-\label{tab:methodResidCov}
 \centering
 \begin{tabular}{|c|c|}
 \hline
@@ -296,6 +294,8 @@ argument & equation \\
 \code{"Theil"}   & \ref{eq:rcovTheil} \\
 \hline
 \end{tabular}
+\caption{Possible values of argument \code{methodResidCov}}
+\label{tab:methodResidCov}
 \end{table}
 
 Furthermore, the user can specify
@@ -343,8 +343,6 @@ Possible values are presented in Table~\ref{tab:method3sls}.
 The default value is \code{"GLS"}.
 
 \begin{table}[H]
-\caption{Possible values of argument \code{method3sls}}
-\label{tab:method3sls}
 \centering
 \begin{tabular}{|c|c|c|}
 \hline
@@ -362,6 +360,8 @@ argument           & equation       & equation \\
 \code{"EViews"}  & \ref{eq:3slsEViews}  & \ref{eq:3slsEViewsR} \\
 \hline
 \end{tabular}
+\caption{Possible values of argument \code{method3sls}}
+\label{tab:method3sls}
 \end{table}
 
 
