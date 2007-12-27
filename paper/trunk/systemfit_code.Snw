@@ -249,8 +249,9 @@ Its capability to estimate single-equation models is just a side-effect.
 
 Function \code{sem} (package \pkg{sem}, \citealp{r-sem-0.9-8})
 can be used to estimate structural equation models in \proglang{R}
-by full information maximum likelihood (FIML)
-assuming multinormal errors.
+by limited information maximum likelihood (LIML)
+and full information maximum likelihood (FIML)
+assuming normal or multinormal errors, respectively.
 A special feature of this function is the estimation
 of models with unobserved (°latent°) variables,
 which is not possible with \code{systemfit}.
