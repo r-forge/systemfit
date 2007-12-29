@@ -35,7 +35,7 @@ systemfit <- function(  formula,
 {
 
    ## determine whether we have panel date and thus a panel-like model
-   panelLike <- class( data )[1] == "pdata.frame"
+   panelLike <- class( data )[1] == "plm.dim"
 
    ## checking argument 'formula'
    if( panelLike ){

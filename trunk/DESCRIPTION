@@ -6,7 +6,7 @@ Author: Arne Henningsen <ahenningsen@agric-econ.uni-kiel.de> and
    Jeff D. Hamann <jeff.hamann@forestinformatics.com>
 Maintainer: Arne Henningsen <ahenningsen@agric-econ.uni-kiel.de>
 Depends: R (>= 1.8.0), Matrix, car, lmtest
-Suggests: plm, MASS
+Suggests: plm (>= 0.3-1), MASS
 Description: This package contains functions for fitting simultaneous
  systems of linear and nonlinear equations using Ordinary Least
  Squares (OLS), Weighted Least Squares (WLS), Seemingly Unrelated
