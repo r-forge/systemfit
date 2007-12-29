@@ -1,5 +1,9 @@
 \documentclass[12pt,DIV20,abstracton]{scrartcl}
 
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{textcomp}
+\usepackage{lmodern}
 \usepackage{Sweave}
 \usepackage{hyperref}
 \usepackage{csquotes}
@@ -29,7 +33,8 @@
       three-stage least squares}
 }
 
-
+\addtokomafont{title}{\rmfamily}
+\addtokomafont{sectioning}{\rmfamily}
 \let\Abstract=\abstract
 \newcommand{\Keywords}{\textbf{Keywords}: \textit }
 \newcommand{\Plainkeywords}{}
