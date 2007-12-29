@@ -24,7 +24,7 @@ data( "KleinI" )
 First, we estimate the system by limited information maximum likelihood
 (LIML) with \code{sem}:
 <<systemfit_sem,keep.source = TRUE>>=
-limlRam <- matrix( c(
+limlRam <- matrix(c(
    "consump  <-  corpProf",    "consump_corpProf",    NA,
    "consump  <-  corpProfLag", "consump_corpProfLag", NA,
    "consump  <-  wages",       "consump_wages",       NA,
@@ -36,17 +36,17 @@ limlRam <- matrix( c(
    "privWage <-  trend",       "privWage_trend",      NA,
    "consump  <-> consump",     "s11", NA,
    "privWage <-> privWage",    "s22", NA,
-   "invest   <-> invest",      "s33", NA ),
-   ncol = 3, byrow = TRUE )
-class( limlRam ) <- "mod"
-exogVar <- c( "corpProf", "corpProfLag", "wages", "capitalLag", "trend",
-   "gnp", "gnpLag" )
-endogVar <- c( "consump", "invest", "privWage" )
-allVar <- c( exogVar, endogVar )
+   "invest   <-> invest",      "s33", NA),
+   ncol = 3, byrow = TRUE)
+class(limlRam) <- "mod"
+exogVar <- c("corpProf", "corpProfLag", "wages", "capitalLag", "trend",
+   "gnp", "gnpLag")
+endogVar <- c("consump", "invest", "privWage")
+allVar <- c(exogVar, endogVar)
 
-limlResult <- sem( ram = limlRam, S = cov( KleinI[ -1, allVar ] ),
-   N = ( nrow( KleinI ) - 1 ), fixed.x = exogVar )
-print( limlResult )
+limlResult <- sem(ram = limlRam, S = cov(KleinI[ -1, allVar ]),
+   N = (nrow(KleinI) - 1), fixed.x = exogVar)
+print(limlResult)
 @
 
 Theoretically, the LIML results should be identical to OLS results.
@@ -65,15 +65,15 @@ As expected, the results are identical.
 Now, we estimate the system by full information maximum likelihood
 (FIML) with \code{sem}:
 <<systemfit_sem,keep.source = TRUE>>=
-fimlRam <- rbind( limlRam,
-   c( "consump  <-> invest",   "s12", NA ),
-   c( "consump  <-> privWage", "s13", NA ),
-   c( "privWage <-> invest",   "s23", NA ) )
-class( fimlRam ) <- "mod"
+fimlRam <- rbind(limlRam,
+   c("consump  <-> invest",   "s12", NA),
+   c("consump  <-> privWage", "s13", NA),
+   c("privWage <-> invest",   "s23", NA))
+class(fimlRam) <- "mod"
 
-fimlResult <- sem( ram = fimlRam, S = cov( KleinI[ -1, allVar ] ),
-   N = ( nrow( KleinI ) - 1 ), fixed.x = exogVar )
-print( fimlResult )
+fimlResult <- sem(ram = fimlRam, S = cov(KleinI[ -1, allVar ]),
+   N = (nrow(KleinI) - 1), fixed.x = exogVar)
+print(fimlResult)
 @
 
 Theoretically, results of an iterated SUR estimation should

@@ -32,21 +32,15 @@
 \newcommand{\codeDDD}[4]{\code{#1}\hspace{0pt}\code{.#2}\hspace{0pt}%
 \code{.#3}\hspace{0pt}\code{.#4}}
 
-\hyphenation{sys-tem-fit}
+\hyphenation{systemfit}
 
-\author{Arne Henningsen\\University of Kiel\And
-        Jeff D. Hamann\\ Forest Informatics, Inc. }
+\author{Arne Henningsen\\University of Kiel
+   \And Jeff D.\ Hamann\\ Forest Informatics, Inc.}
+\Plainauthor{Arne Henningsen, Jeff D. Hamann}
         
-\title{\pkg{systemfit}: A Package for Estimating\\
-       Systems of Simultaneous Equations in \proglang{R}}
-
-%% for pretty printing and a nice hypersummary also set:
-\Plainauthor{Arne Henningsen, Jeff D.\ Hamann} %% comma-separated
-\Plaintitle{systemfit: A Package for Estimating Systems of Simultaneous Equations
-            in R} %% without formatting
-\Shorttitle{\pkg{systemfit}: A Package for Estimating
-   Systems of Simultaneous Equations in \proglang{R}}
-   %% a short title (if necessary)
+\title{\pkg{systemfit}: A Package for Estimating Systems of Simultaneous Equations in \proglang{R}}
+\Plaintitle{systemfit: A Package for Estimating Systems of Simultaneous Equations in R}
+\Shorttitle{\pkg{systemfit}: Estimating Systems of Simultaneous Equations in \proglang{R}}
 
 %% an abstract and keywords
 \input{systemfit_abstract.tex}
@@ -55,12 +49,12 @@
 %% publication information
 %% NOTE: This needs to filled out ONLY IF THE PAPER WAS ACCEPTED.
 %% If it was not (yet) accepted, leave them commented.
-%% \Volume{13}
-%% \Issue{9}
-%% \Month{September}
-%% \Year{2006}
-%% \Submitdate{2006-02-28}
-%% \Acceptdate{2006-09-29}
+\Volume{23}
+\Issue{4}
+\Month{December}
+\Year{2007}
+\Submitdate{2006-03-15}
+\Acceptdate{2007-10-24}
 
 %% The address of (at least) one author should be given
 %% in the following format:
@@ -75,9 +69,9 @@
    Jeff D.\ Hamann\\
    Forest Informatics, Inc.\\
    PO Box 1421\\
-   Corvallis, Oregon 97339-1421\\
-   e-mail: \email{jeff.hamann@forestinformatics.com}\\
-   URL: \url{http://www.forestinformatics.com}\\
+   Corvallis, Oregon 97339-1421, United States of America\\
+   E-mail: \email{jeff.hamann@forestinformatics.com}\\
+   URL: \url{http://www.forestinformatics.com/}\\
 }
 %% It is also possible to add a telephone and fax number
 %% before the e-mail in the following format:
@@ -114,12 +108,17 @@ Of course, any remaining errors are the authors'.
 %\bibliography{agrarpol}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\appendix
+\clearpage
+
+\begin{appendix}
+
 \input{systemfit_compare_lm.tex}
 
 \input{systemfit_timings.tex}
 
 \input{systemfit_sem.tex}
+
+\end{appendix}
 
 \end{document}
 

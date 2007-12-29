@@ -84,7 +84,7 @@ and the estimation results are printed.
 
 The user can modify the default estimation method by providing
 additional optional arguments,
-e.g.\ to specify instrumental variables
+e.g., to specify instrumental variables
 or restrictions on the coefficients.
 All optional arguments are described in the following:
 
@@ -197,7 +197,7 @@ The following two lines specify this matrix in a way
 that the multiplication with the coefficient vector
 results in $ \beta_2 + \beta_6 $.
 The fourth line creates a vector with a single element
-that contains the right hand side of the restriction, i.e.\ zero.
+that contains the right hand side of the restriction, i.e., zero.
 Finally the coefficients are estimated under the restriction
 $\beta_2 + \beta_6 = 0$.
 
@@ -404,14 +404,14 @@ Argument \code{model} indicates
 whether a data frame with the data of the model
 should be returned.
 Its default value is \code{TRUE},
-i.e.\ the model frame is returned.
+i.e., the model frame is returned.
 Arguments \code{x}, \code{y},
 and \code{z} specify
 whether the model matrices ($X_i$),
 the responses ($y_i$), and the matrices of instrumental variables ($Z_i$),
 respectively, should be returned.
 These three arguments are \code{FALSE} by default,
-i.e.\ these data objects are not returned.
+i.e., these data objects are not returned.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

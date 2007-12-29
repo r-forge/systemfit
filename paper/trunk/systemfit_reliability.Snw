@@ -272,8 +272,8 @@ Then we re-estimate the model under these restrictions on the coefficients.
 $F$ test (page 313--315)%
 \footnote{%
 The same restriction can be specified also symbolically by
-\code{RMatrix <- c( "General.Electric\_value = Westinghouse\_value",
-"General.Electric\_capital = Westinghouse\_capital" )}
+\code{RMatrix <- c("General.Electric\_value = Westinghouse\_value",
+"General.Electric\_capital = Westinghouse\_capital")}
 }
 <<systemfit_replication,results=hide>>=
 RMatrix <- rbind( c( 0, 1, 0, 0, -1, 0 ), c( 0, 0, 1, 0, 0, -1 ) )

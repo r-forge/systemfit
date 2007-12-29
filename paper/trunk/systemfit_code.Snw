@@ -7,8 +7,8 @@ options( prompt = "R> " )
 @
 
 The source code of the \pkg{systemfit} package is publicly available
-for download from the comprehensive \proglang{R} archive network (CRAN,
-\url{http://cran.r-project.org/}).
+for download from the Comprehensive \proglang{R} Archive Network (CRAN,
+\url{http://CRAN.R-project.org/}).
 The basic functionality of this package is provided by the
 function \code{systemfit}.
 Moreover, this package provides
@@ -249,7 +249,7 @@ and by 2SLS with function \code{tsls}
 (package \pkg{sem}, \citealp{r-sem-0.9-8}).
 This is also possible with the \code{systemfit} function,
 but \code{systemfit} is specialized in estimating systems of equation,
-i.e.\ more than one equation.
+i.e., more than one equation.
 Its capability to estimate single-equation models is just a side-effect.
 
 Function \code{sem} (package \pkg{sem}, \citealp{r-sem-0.9-8})
