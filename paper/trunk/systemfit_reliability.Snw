@@ -170,7 +170,7 @@ of the SUR estimations.
 <<systemfit_replication>>=
 data( "GrunfeldGreene" )
 library( "plm" )
-GGPanel <- pdata.frame( GrunfeldGreene, id = "firm", time = "year" )
+GGPanel <- plm.data( GrunfeldGreene, c( "firm", "year" ) )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (Table 14.2):
@@ -245,7 +245,7 @@ after each estimation.
 <<systemfit_replication>>=
 GrunfeldTheil <- subset( GrunfeldGreene,
    firm %in% c( "General Electric", "Westinghouse" ) )
-GTPanel <- pdata.frame( GrunfeldTheil, id = "firm", time = "year" )
+GTPanel <- plm.data( GrunfeldTheil, c( "firm", "year" ) )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (page 295)
