@@ -32,6 +32,7 @@
 
 \let\Abstract=\abstract
 \newcommand{\Keywords}{\textbf{Keywords}: \textit }
+\newcommand{\Plainkeywords}{}
 \let\code=\texttt
 \let\proglang=\textsf
 \newcommand{\pkg}[1]{{\normalfont\fontseries{b}\selectfont #1}}
@@ -63,12 +64,12 @@
 \newcommand{\codeDDD}[4]{\code{#1}\hspace{0pt}\code{.#2}\hspace{0pt}%
 \code{.#3}\hspace{0pt}\code{.#4}}
 
-\hyphenation{sys-tem-fit}
+\hyphenation{systemfit}
 
 \author{Arne Henningsen, University of Kiel \\
         Jeff D. Hamann, Forest Informatics, Inc.} 
         
-\title{systemfit: A Package for Estimating\\
+\title{\pkg{systemfit}: A Package for Estimating\\
        Systems of Simultaneous Equations in \proglang{R}}
 
 \date{\normalsize{
@@ -103,12 +104,17 @@ Of course, any remaining errors are the authors'.
 \bibliography{systemfit}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\appendix
+\clearpage
+
+\begin{appendix}
+
 \input{systemfit_compare_lm.tex}
 
 \input{systemfit_timings.tex}
 
 \input{systemfit_sem.tex}
+
+\end{appendix}
 
 \end{document}
 
