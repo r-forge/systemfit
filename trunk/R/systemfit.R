@@ -30,6 +30,7 @@ systemfit <- function(  formula,
                         restrict.rhs = NULL,
                         restrict.regMat = NULL,
                         pooled = FALSE,
+                        ar = FALSE,
                         control = systemfit.control( ... ),
                         ... )
 {
@@ -391,6 +392,27 @@ systemfit <- function(  formula,
       }
     }
   }
+
+   ## with autoregressive (serially correlated) disturbances
+   if( ar ) {
+      resids <- yVecAll - xMatAll %*% coef
+      rho <- numeric( nEq )
+      rhoMatEq <- list()
+      for( i in 1:nEq ) {
+         residsEq <- resids[
+            ( 1 + sum( nObsEq[1:i] ) - nObsEq[i] ):( sum( nObsEq[1:i] ) ) ]
+         rho[ i ] <- sum( residsEq[ -1 ] %*% residsEq[ -length( residsEq ) ] ) /
+            sum( residsEq[ -length( residsEq ) ]^2 )
+
+         rhoMatEq[[ i ]] <- diag( nObsEq[i] )
+         rhoMatEq[[ i ]][ 1, 1 ] <- sqrt( 1 - rho[ i ]^2 )
+         rhoMatEq[[ i ]] <- rhoMatEq[[ i ]] +
+            cbind( -rho[ i ] * diag( nObsEq[i] )[ , -1 ], rep( 0, nObsEq[i] ) )
+         if( control$useMatrix ){
+            rhoMatEq[[ i ]] <- as( rhoMatEq[[ i ]], "dgCMatrix" )
+         }
+      }
+   }
 
   ## only for OLS estimation
   if(method=="OLS") {

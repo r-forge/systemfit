@@ -18,7 +18,7 @@
 systemfit( formula, method = "OLS",
            inst=NULL, data=list(),
            restrict.matrix = NULL, restrict.rhs = NULL, restrict.regMat = NULL,
-           pooled = FALSE, control = systemfit.control( ... ), ... )
+           pooled = FALSE, ar = FALSE, control = systemfit.control( ... ), ... )
 }
 
 \arguments{
@@ -60,6 +60,8 @@ systemfit( formula, method = "OLS",
       See the documentation of \code{\link{systemfit.control}} for details.}
    \item{pooled}{logical, restrict coefficients to be equal in all equations
       (only for panel-like data).}
+   \item{ar}{logical, account for autoregressive (serially correlated)
+      disturbances (see Parks 1967).}
    \item{...}{arguments passed to \code{\link{systemfit.control}}.}
 }
 
@@ -164,6 +166,11 @@ systemfit( formula, method = "OLS",
   Kmenta, J. (1997)
   \emph{Elements of Econometrics, Second Edition}, University of
   Michigan Publishing.
+
+  Parks, R. W. (1967)
+  \emph{Efficient Estimation of a System of Regression Equations
+  when Disturbances are both Serially and Contemporaneously Correlated},
+  Journal of the American Statistical Association 62, p. 500-509.
 
   Schmidt, P. (1990)
   \emph{Three-Stage Least Squares with different Instruments for different equations},
