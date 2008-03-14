@@ -1,6 +1,6 @@
 ## Calculate the residual covariance matrix
 .calcResidCov <- function( resids, methodResidCov, nObsEq = NULL,
-      nCoefEq = NULL, xEq = NULL, diag = FALSE, centered = FALSE,
+      nCoefEq = NULL, xEq = NULL, rhoMatEq = NULL, diag = FALSE, centered = FALSE,
       useMatrix = FALSE, solvetol = .Machine$double.eps ) {
 
    eqNames <- NULL
@@ -16,6 +16,11 @@
       residi[[i]] <- resids[ ( 1 + sum(nObsEq[1:i]) - nObsEq[i] ):( sum(nObsEq[1:i]) ) ]
       if( centered ) {
          residi[[i]] <- residi[[i]] - mean( residi[[i]] )
+      }
+   }
+   if( !is.null( rhoMatEq ) && methodResidCov == "Theil" ) {
+      for( i in 1:nEq ) {
+         xEq[[ i ]] <- rhoMatEq[[ i ]] %*% xEq[[ i ]]
       }
    }
    for( i in 1:nEq ) {

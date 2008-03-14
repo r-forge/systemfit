@@ -38,6 +38,18 @@ systemfit <- function(  formula,
    ## determine whether we have panel date and thus a panel-like model
    panelLike <- class( data )[1] == "plm.dim"
 
+   ## The estimator for models with autoregressive residuals
+   ## is not implemented for all estimation methods yet
+   if( ar & !is.null( restrict.matrix ) ) {
+      stop( "Estimation of models with autoregressive disturbances",
+         " is not yet possible for estimations with restrictions",
+         " by argument 'restrict.matrix'" )
+   }
+   if( ar & ! method %in% c( "OLS", "SUR" ) ) {
+      stop( "Estimation of models with autoregressive disturbances",
+         " is currently only possible for OLS and SUR estimations" )
+   }
+
    ## checking argument 'formula'
    if( panelLike ){
       if( class( formula ) != "formula" ){
@@ -222,6 +234,10 @@ systemfit <- function(  formula,
       }
    }
 
+   # These variables need to exist even if argument 'ar' is FALSE
+   rhoMatEq <- NULL
+   rhoMatAll <- NULL
+
    if( !is.null( restrict.regMat ) ) {
       # checking matrix to modify (post-multiply) the regressor matrix (restrict.regMat)
       if( !is.matrix( restrict.regMat ) ) {
@@ -391,10 +407,8 @@ systemfit <- function(  formula,
             tol = control$solvetol )
       }
     }
-  }
-
-   ## with autoregressive (serially correlated) disturbances
-   if( ar ) {
+    ## with autoregressive (serially correlated) disturbances
+    if( ar ) {
       resids <- yVecAll - xMatAll %*% coef
       rho <- numeric( nEq )
       rhoMatEq <- list()
@@ -412,16 +426,31 @@ systemfit <- function(  formula,
             rhoMatEq[[ i ]] <- as( rhoMatEq[[ i ]], "dgCMatrix" )
          }
       }
-   }
+      rhoMatAll <- .stackMatList( rhoMatEq, way = "diag",
+         useMatrix = control$useMatrix )
+      if(is.null(R.restr)) {
+         coef <- solve( crossprod( rhoMatAll %*% xMatAll ),
+            crossprod( rhoMatAll %*% xMatAll, rhoMatAll %*% yVecAll ),
+            tol = control$solvetol )
+      } else {
+         stop( "systemfit does not yet support parameter restrictions",
+            " in models with autoregressive disturbances" )
+      }
+    }
+  }
 
   ## only for OLS estimation
   if(method=="OLS") {
-    resids <- yVecAll - xMatAll %*% coef                                        # residuals
+    if( ar ) {
+      resids <- rhoMatAll %*% yVecAll - rhoMatAll %*% xMatAll %*% coef
+    } else {  
+      resids <- yVecAll - xMatAll %*% coef
+    }
     if(control$singleEqSigma) {
       rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
          nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE,
          centered = control$centerResiduals, useMatrix = control$useMatrix,
-         solvetol = control$solvetol )    # residual covariance matrix
+         solvetol = control$solvetol, rhoMatEq = rhoMatEq )    # residual covariance matrix
       coefCov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
          sigma = rcov, nObsEq = nObsEq, useMatrix = control$useMatrix,
          solvetol = control$solvetol )
@@ -452,7 +481,7 @@ systemfit <- function(  formula,
       rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
          nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq, diag = TRUE,
          centered = control$centerResiduals, useMatrix = control$useMatrix,
-         solvetol = control$solvetol )
+         solvetol = control$solvetol, rhoMatEq = rhoMatEq )
       coef  <- .calcGLS( xMat = xMatAll, yVec = yVecAll, R.restr = R.restr,
          q.restr = q.restr, sigma = rcov, nObsEq = nObsEq,
          useMatrix = control$useMatrix, solvetol = control$solvetol )
@@ -470,24 +499,32 @@ systemfit <- function(  formula,
     coefDiff <- coef # difference of coefficients between this and previous step
     iter  <- 0
     while((sum(coefDiff^2)/sum(coefOld^2))^0.5>control$tol & iter < control$maxiter) {
-      iter  <- iter+1
+      iter  <- iter + 1
       coefOld <- coef                           # coefficients of previous step
-      resids <- yVecAll-xMatAll%*%coef                     # residuals
+      if( ar ) {
+         resids <- rhoMatAll %*% yVecAll - rhoMatAll %*% xMatAll %*% coef
+      } else {
+         resids <- yVecAll - xMatAll %*% coef
+      }
       rcov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
          nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq,
          centered = control$centerResiduals, useMatrix = control$useMatrix,
-         solvetol = control$solvetol )
+         solvetol = control$solvetol, rhoMatEq = rhoMatEq )
       coef <- .calcGLS( xMat = xMatAll, yVec = yVecAll,
          R.restr = R.restr, q.restr = q.restr,
          sigma = rcov, nObsEq = nObsEq, useMatrix = control$useMatrix,
-         solvetol = control$solvetol )     # coefficients
+         solvetol = control$solvetol, rhoMat = rhoMatAll )     # coefficients
       coefDiff <- coef - coefOld # difference of coefficients between this and previous step
     }
     coefCov <- .calcGLS( xMat = xMatAll, R.restr = R.restr, q.restr = q.restr,
        sigma = rcov, nObsEq = nObsEq, useMatrix = control$useMatrix,
-       solvetol = control$solvetol )
+       solvetol = control$solvetol, rhoMat = rhoMatAll )
             # final step coefficient covariance matrix
-    resids <- yVecAll - xMatAll %*% coef                        # residuals
+    if( ar ) {
+      resids <- rhoMatAll %*% yVecAll - rhoMatAll %*% xMatAll %*% coef
+    } else {
+      resids <- yVecAll - xMatAll %*% coef
+    }
   }
 
   ## only for 2SLS, W2SLS and 3SLS estimation
@@ -789,9 +826,14 @@ systemfit <- function(  formula,
   # residual covarance matrix
   results$residCov <- .calcResidCov( resids, methodResidCov = control$methodResidCov,
       nObsEq = nObsEq, nCoefEq = nCoefLiEq, xEq = xMatEq,
-      centered = control$centerResiduals, solvetol = control$solvetol )
+      centered = control$centerResiduals, solvetol = control$solvetol,
+      rhoMatEq = rhoMatEq )
   colnames( results$residCov ) <- eqnLabels
   rownames( results$residCov ) <- eqnLabels
+
+  if( exists( "rho" ) ) {
+      results$rho <- rho
+  }
 
   results$method  <- method
   results$rank    <- nCoefLiAll

@@ -1,5 +1,6 @@
-.calcXtOmegaInv <- function( xMat, sigma, nObsEq, invertSigma = TRUE,
-      useMatrix = FALSE, warnMatrix = TRUE, solvetol = 1e-5 ){
+.calcXtOmegaInv <- function( xMat, sigma, nObsEq, rhoMat = NULL,
+      invertSigma = TRUE, useMatrix = FALSE, warnMatrix = TRUE,
+      solvetol = 1e-5 ){
 
    nEq <- length( nObsEq )
 
@@ -21,9 +22,18 @@
    }
 
    if( useMatrix ){
-      result <- crossprod( xMat, suppressWarnings(
-         kronecker( sigmaInv, Diagonal( nObsEq[ 1 ] ) ) ) )
+      if( is.null( rhoMat ) ) {
+         result <- crossprod( xMat, suppressWarnings(
+            kronecker( sigmaInv, Diagonal( nObsEq[ 1 ] ) ) ) )
+      } else {
+         result <- crossprod( xMat, t( rhoMat ) %*% suppressWarnings(
+            kronecker( sigmaInv, Diagonal( nObsEq[ 1 ] ) ) ) %*% rhoMat )
+      }
    } else {
+      if( !is.null( rhoMat ) ) {
+         stop( "if argument 'rhoMat' is specified, argument 'useMatrix'",
+            " may not be FALSE" )
+      }
       eqSelect <- rep( 0, nrow( xMat ) )
       for( i in 1:nEq ) {
          eqSelect[ ( sum( nObsEq[ 0:( i - 1 ) ] ) + 1 ):sum( nObsEq[ 1:i ] ) ] <- i
@@ -41,8 +51,8 @@
 }
 
 .calcGLS <- function( xMat, yVec = NULL, xMat2 = xMat, R.restr = NULL,
-      q.restr = NULL, sigma, nObsEq, useMatrix = TRUE, warnMatrix = TRUE,
-      solvetol = 1e-5 ){
+      q.restr = NULL, sigma, nObsEq, rhoMat = NULL, useMatrix = TRUE,
+      warnMatrix = TRUE, solvetol = 1e-5 ){
 
    if( useMatrix && warnMatrix ){
       if( class( xMat ) != "dgCMatrix" ){
@@ -60,7 +70,7 @@
    }
 
    xtOmegaInv <- .calcXtOmegaInv( xMat = xMat, sigma = sigma, nObsEq = nObsEq,
-      useMatrix = useMatrix, solvetol = solvetol )
+      rhoMat = rhoMat, useMatrix = useMatrix, solvetol = solvetol )
    if( is.null( R.restr ) ) {
       if( is.null( yVec ) ) {
          result <- solve( xtOmegaInv %*% xMat2, tol = solvetol )
