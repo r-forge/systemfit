@@ -1,0 +1,108 @@
+\documentclass[12pt]{scrartcl}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage{lmodern}
+
+\usepackage{geometry}
+\geometry{verbose, a4paper, tmargin=25mm, bmargin=30mm, lmargin=25mm,
+   rmargin=25mm, headheight=0mm, headsep=0mm, footskip=13mm}
+\setlength{\emergencystretch}{2em}
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{csquotes}
+\MakeOuterQuote{°}
+
+\usepackage{natbib}
+\bibliographystyle{jss}
+
+\newcommand{\code}[1]{\texttt{#1}}
+\newcommand{\pkg}[1]{\mbox{\textbf{#1}}}
+\newcommand{\proglang}[1]{\mbox{\textsf{#1}}}
+\newcommand{\hz}{\hspace{0pt}}
+
+\author{Arne Henningsen and Jeff D.\ Hamann\\
+   \normalsize University of Kiel and Forest Informatics, Inc.}
+
+\title{\pkg{systemfit}: A Package for Estimating Systems
+of Simultaneous Equations in \proglang{R}}
+
+\date{March 31, 2008}
+
+\begin{document}
+\maketitle
+
+Many theoretical models that are econometrically estimated
+consist of more than one equation.
+The disturbance terms of these equations are likely
+to be contemporaneously correlated,
+because unconsidered factors
+that influence the disturbance term in one equation
+probably influence the disturbance terms in other equations, too.
+Ignoring this contemporaneous correlation
+and estimating these equations separately
+leads to inefficient estimates of the coefficients.
+However, estimating all equations simultaneously
+with a °generalized least squares° (GLS) estimator,
+which takes the covariance structure of the residuals into account,
+leads to efficient estimates.
+This estimation procedure is generally called
+°seemingly unrelated regression° \citep[SUR,][]{zellner62}.
+Another reason to estimate a system of equations simultaneously are
+cross-equation restrictions on the coefficients.
+Estimating the coefficients under cross-equation restrictions
+and testing these restrictions
+requires a simultaneous estimation approach.
+
+Furthermore, these models can contain variables
+that appear on the left-hand side in one equation
+and on the right-hand side of another equation.
+Ignoring the endogeneity of these variables can lead to inconsistent
+estimates.
+This simultaneity bias can be corrected for by
+applying a °two-stage least squares° (2SLS) estimation
+to each equation.
+Combining this estimation method with the SUR method results
+in a simultaneous estimation of the system of equations
+by the °three-stage least squares° (3SLS) method
+\citep{zellner62b}.
+
+The \pkg{systemfit} package provides the capability to estimate
+systems of linear equations in \proglang{R}
+\citep{r-project}.
+Currently, the estimation methods
+°ordinary least squares° (OLS),
+°weighted least squares° (WLS),
+°seemingly unrelated regression° (SUR),
+°two-stage least squares° (2SLS),
+°weighted two-stage least squares° (W2SLS), and
+°three-stage least squares° (3SLS)
+are implemented.
+The WLS, SUR, W2SLS, and 3SLS estimates can be based
+either on one-step (OLS or 2SLS) (co)variances
+or these estimations can be iterated,
+where the (co)variances are calculated from the estimates of the previous step.
+Furthermore,
+the \pkg{systemfit} package
+provides statistical tests for restrictions on the coefficients
+and for testing the consistency of the 3SLS estimation.
+
+Although systems of linear equations can be estimated
+with several other statistical and econometric software packages
+(e.g., \proglang{SAS}, \proglang{EViews}, \proglang{TSP}),
+\pkg{systemfit} has several advantages.
+First, all estimation procedures are publicly available in the source code.
+Second, the estimation algorithms can be easily modified to meet specific
+requirements.
+Third, the (advanced) user can control estimation details generally
+not available in other software packages by overriding reasonable defaults.
+
+A special focus of our presentation at the useR! conference
+should be the changes and improvements of the \pkg{systemfit} package
+that were introduced in version~1.0
+(published in the very end of December 2007).
+
+\bibliography{systemfit}
+
+\end{document}
