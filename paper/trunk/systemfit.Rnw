@@ -597,7 +597,298 @@ and the 3SLS estimator developed by \cite{schmidt90}
 (Equation~\ref{eq:3slsSchmidt}) are consistent.
 
 
-\input{systemfit_restrictions.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Estimation under linear restrictions on the coefficients}
+\label{sec:Restrictions}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In many empirical applications,
+it is desirable to estimate the coefficients under linear restrictions.
+For instance, in econometric demand and production analysis,
+it is common to estimate the coefficients
+under homogeneity and symmetry restrictions
+that are derived from the underlying theoretical model.
+
+There are two different methods to estimate the coefficients
+under linear restrictions.
+First, a matrix $M$ can be specified that
+\begin{equation}
+   \beta = M \cdot \beta^\text{M} \label{eq:T-restr} ,
+\end{equation}
+where $\beta^\text{M}$ is a vector of restricted (linear independent) coefficients,
+and $M$ is a matrix with the number of rows equal to the number of
+unrestricted coefficients ($\beta$) and
+the number of columns equal to the number of restricted coefficients
+($\beta^\text{M}$).
+$M$ can be used to map each unrestricted coefficient to one or more
+restricted coefficients.
+
+The second method to estimate the coefficients under linear restrictions
+constrains the coefficients by
+\begin{equation}
+   R \beta^\text{R} = q ,
+   \label{eq:restr-R}
+\end{equation}
+where $\beta^\text{R}$ is the vector of the restricted coefficients,
+and $R$ and $q$ are a matrix and vector, respectively,
+that specify the restrictions \citep[see][p.~100]{greene03}.
+Each linear independent restriction is represented by one row of $R$
+and the corresponding element of~$q$.
+
+The first method is less flexible than the second%
+\footnote{
+While restrictions like $\beta_1 = 2 \beta_2$ can be specified by
+both methods,
+restrictions like $\beta_1 + \beta_2 = 4$ can be specified only
+by the second method.
+}, 
+but is preferable if the coefficients are estimated
+under many equality constraints across different equations of the system.
+Of course, these restrictions can be also specified using
+the latter method.
+However, while the latter method increases the dimension of the 
+matrices to be inverted during estimation, the first reduces it. 
+Thus, in some cases the latter way leads to estimation problems
+(e.g., (near) singularity of the matrices to be inverted),
+while the first does not.
+
+These two methods can be combined.
+In this case, the restrictions specified using the latter method are
+imposed on the linear independent coefficients
+that are restricted by the first method, so that
+\begin{equation}
+   R \beta^\text{MR} = q ,
+\end{equation}
+where $\beta^\text{MR}$ is the vector of the restricted $\beta^\text{M}$ coefficients.
+
+
+\subsubsection{Calculation of restricted estimators}
+
+If the first method (Equation~\ref{eq:T-restr}) is chosen
+to estimate the coefficients under these restrictions,
+the matrix of regressors $X$ is (post-)\hspace{0pt}multiplied
+by the $M$ matrix,
+so that
+\begin{equation}
+    X^\text{M} = X \cdot M .
+\end{equation}
+Then, $X^\text{M}$ is substituted for $X$ and a standard estimation as described
+in the previous section is done
+(Equations~\ref{eq:ols-wls-sur}--\ref{eq:3slsEViews}).
+This results in the linear independent coefficient estimates $\bHat^\text{M}$ and
+their covariance matrix.
+The original coefficients can be obtained by Equation~\ref{eq:T-restr}
+and the estimated covariance matrix of the original coefficients
+can be obtained by
+\begin{equation}
+   \COVHat \left[ \bHat \right]
+   = M \cdot \COVHat \left[ \bHat^\text{M} \right] \cdot M^\top .
+\end{equation}
+
+The implementation of the second method to estimate the coefficients
+under linear restrictions (Equation~\ref{eq:restr-R})
+is described for each estimation method in the following sections.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Restricted OLS, WLS, and SUR estimation}
+
+The OLS, WLS, and SUR estimators restricted by $R \beta^\text{R} = q$ can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^\text{R} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      X^\top \OHat^{-1} X & R^\top \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      X^\top \OHat^{-1} y \\ q
+   \end{array} \right] ,
+   \label{eq:ols-wls-sur-r}
+\end{equation}
+where $\lambda$ is a vector of the Lagrangean multipliers of the restrictions
+and $\OHat$ is defined as in Section~\ref{sec:Estimation-ols-wls-sur}.
+An estimator of the covariance matrix of the estimated coefficients is
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^\text{R} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      X^\top \OHat^{-1} X & R^\top \\
+      R & 0
+   \end{array} \right]^{-1} .
+   \label{eq:cov-ols-wls-sur-r}
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Restricted 2SLS, W2SLS, and 3SLS estimation}
+
+The 2SLS, W2SLS, and standard 3SLS estimators
+restricted by $R \beta^\text{R} = q$ can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^\text{R} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      \XHat^\top \OHat^{-1} \XHat & R^\top \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      \XHat^\top \OHat^{-1} y \\ q
+   \end{array} \right] ,
+   \label{eq:2sls-w2sls-3sls-r}
+\end{equation}
+where $\OHat$ is defined as in Section~\ref{sec:Estimation-2sls-w2sls-3sls}.
+An estimator of the covariance matrix of the estimated coefficients is
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^\text{R} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      \XHat^\top \OHat^{-1} \XHat & R^\top \\
+      R & 0
+   \end{array} \right]^{-1} .
+   \label{eq:cov-2sls-w2sls-3sls-r}
+\end{equation}
+
+The 3SLS-IV estimator restricted by $R \beta^\text{R} = q$ can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^\text{R}_\text{3SLS-IV} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      \XHat^\top \OHat^{-1} X & R^\top \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      \XHat^\top \OHat^{-1} y \\ q
+   \end{array} \right] ,
+   \label{eq:3slsIvR}
+\end{equation}
+where
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^\text{R}_\text{3SLS-IV} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      \XHat^\top \OHat^{-1} X & R^\top \\
+      R & 0
+   \end{array} \right]^{-1} .
+\end{equation}
+The restricted 3SLS-GMM estimator can be obtained by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^\text{R}_\text{3SLS-GMM} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      X^\top Z \left( Z^\top \OHat Z \right)^{-1} Z^\top X & R^\top \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      X^\top Z \left( Z \OHat Z \right)^{-1} Z^\top y \\ q
+   \end{array} \right] ,
+   \label{eq:3slsGmmR}
+\end{equation}
+where
+\begin{equation}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^\text{R}_\text{3SLS-GMM} \\[0.2em] \lHat
+   \end{array} \right] 
+   = 
+   \left[ \begin{array}{cc}
+      X^\top Z \left( Z^\top \OHat Z \right)^{-1} Z^\top X & R^\top \\
+      R & 0
+   \end{array} \right]^{-1} .
+\end{equation}
+The restricted 3SLS estimator based on the suggestion of
+\cite{schmidt90} is
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^\text{R}_\text{3SLS-Schmidt} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      \XHat^\top \OHat^{-1} \XHat & R^\top \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      \XHat^\top \OHat^{-1} Z \left( Z^\top Z \right)^{-1} Z^\top y \\ q
+   \end{array} \right] ,
+   \label{eq:3slsSchmidtR}
+\end{equation}
+where
+\begin{eqnarray}
+   \COVHat
+   \left[ \begin{array}{c}
+      \bHat^\text{R}_\text{3SLS-Schmidt} \\[0.2em] \lHat
+   \end{array} \right] 
+   & = & 
+   \left[ \begin{array}{cc}
+      \XHat^\top \OHat^{-1} \XHat & R^\top \\
+      R & 0
+   \end{array} \right]^{-1}
+   \\
+   & & \cdot
+   \left[ \begin{array}{cc}
+      \XHat^\top \OHat^{-1} Z \left( Z^\top Z \right)^{-1} Z^\top \OHat
+      Z \left( Z^\top Z \right)^{-1} Z^\top \OHat^{-1} \XHat & 0^\top \\
+      0 & 0
+   \end{array} \right]^{-1}
+   \nonumber \\
+   & & \cdot
+   \left[ \begin{array}{cc}
+      \XHat^\top \OHat^{-1} \XHat & R^\top \\
+      R & 0
+   \end{array} \right]^{-1} .
+   \nonumber
+\end{eqnarray}
+The econometrics software \proglang{EViews} calculates the restricted 3SLS estimator by
+\begin{equation}
+   \left[ \begin{array}{c}
+      \bHat^\text{R}_\text{3SLS-EViews} \\[0.2em] \lHat
+   \end{array} \right]
+   =
+   \left[ \begin{array}{cc}
+      \XHat^\top \OHat^{-1} \XHat & R^\top \\
+      R & 0
+   \end{array} \right]^{-1}
+   \cdot
+   \left[ \begin{array}{c}
+      \XHat^\top \OHat^{-1} \left( y - X \bHat^\text{R}_\text{2SLS} \right)
+      \\ q 
+   \end{array} \right] ,
+   \label{eq:3slsEViewsR}
+\end{equation}
+where $\bHat^\text{R}_\text{2SLS}$ is the restricted 2SLS estimator calculated
+by Equation~\ref{eq:2sls-w2sls-3sls-r}.
+\proglang{EViews} uses the standard formula of the restricted 3SLS
+estimator (Equation~\ref{eq:cov-2sls-w2sls-3sls-r}) to calculate an estimator
+for the covariance matrix of the estimated coefficients.
+
+
+If the same instrumental variables are used in all equations 
+($Z_1 = Z_2 = \ldots = Z_G$),
+all the above mentioned approaches lead to identical coefficient estimates
+and identical covariance matrices of the estimated coefficients.
+
+
 \input{systemfit_other.tex}
 
 
