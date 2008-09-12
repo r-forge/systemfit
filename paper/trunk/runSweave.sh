@@ -1,4 +1,6 @@
 #!/bin/sh
+echo "Sweave(\"systemfit.Rnw\")" | LC_ALL="C" R --no-save --no-restore
+
 echo "Sweave(\"systemfit_code.Snw\")" | LC_ALL="C" R --no-save --no-restore
 
 echo "Sweave(\"systemfit_usage.Snw\")" | LC_ALL="C" R --no-save --no-restore
