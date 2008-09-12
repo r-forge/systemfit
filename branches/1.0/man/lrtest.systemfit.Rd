@@ -7,7 +7,7 @@
 \title{Likelihood Ratio test for Equation Systems}
 
 \description{
-   Testing linear hypothesis on parameters of a system of equations
+   Testing linear hypothesis on the coefficients of a system of equations
    by a Likelihood Ratio test.
 }
 
