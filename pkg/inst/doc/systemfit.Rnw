@@ -172,7 +172,7 @@ by the °three-stage least squares° (3SLS) method
 
 The \pkg{systemfit} package provides the capability to estimate
 systems of linear equations in \proglang{R}
-\citep{r-project}.
+\citep{r-project-07}.
 Currently, the estimation methods
 °ordinary least squares° (OLS),
 °weighted least squares° (WLS),
