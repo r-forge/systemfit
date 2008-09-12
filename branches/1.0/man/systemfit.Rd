@@ -48,7 +48,10 @@ systemfit( formula, method = "OLS",
       \eqn{b} = vector of all coefficients)
       or a character vector giving the restrictions in symbolic form
       (see documentation of \code{\link[car]{linear.hypothesis}}
-      in package "car" for details).}
+      in package "car" for details).
+      The number and the names of the coefficients can be obtained
+      by estimating the system without restrictions and applying
+      the \code{coef} method to the returned object.}
    \item{restrict.rhs}{an optional vector with j elements to impose linear
       restrictions (see \code{restrict.matrix}); default is a vector
       that contains j zeros.}
