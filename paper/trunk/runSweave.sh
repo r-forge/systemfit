@@ -1,8 +1,7 @@
 #!/bin/sh
 echo "Sweave(\"systemfit.Rnw\")" | LC_ALL="C" R --no-save --no-restore
 
-echo "Sweave(\"systemfit_usage.Snw\")" | LC_ALL="C" R --no-save --no-restore
-echo "Stangle(\"systemfit_usage.Snw\", annotate=FALSE, split=TRUE,
+echo "Stangle(\"systemfit.Rnw\", annotate=FALSE, split=TRUE,
    prefix=FALSE)" | LC_ALL="C" R --no-save --no-restore
 
 echo "Sweave(\"systemfit_reliability.Snw\")" | LC_ALL="C" R --no-save --no-restore
