@@ -1,4 +1,4 @@
-\documentclass[article]{jss}
+\documentclass[article,nojss]{jss}
 \usepackage{csquotes}
 \MakeOuterQuote{°}
 \usepackage{amsmath}
@@ -40,6 +40,10 @@
 
 %% an abstract and keywords
 \Abstract{
+This introduction to the \proglang{R} package \pkg{systemfit}
+is a slightly modified version of \cite{henningsen07a},
+published in the \emph{Journal of Statistical Software}.
+
 Many statistical analyses (e.g., in econometrics, biostatistics and
 experimental design) are based on models containing systems of
 structurally related equations.
