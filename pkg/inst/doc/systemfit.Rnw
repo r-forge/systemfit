@@ -1504,7 +1504,6 @@ systems of equations with purely exogenous regressors.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section[Using systemfit]{Using \pkg{systemfit}}\label{sec:Usage}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveOpts{prefix.string=trash/usage}
 <<echo=FALSE>>=
 options( prompt = "R> " )
 @
@@ -2145,7 +2144,6 @@ Hence, we can assume that the 3SLS estimator is consistent.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Replication of textbook results}\label{sec:reliability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveOpts{prefix.string=trash/replication}
 <<echo=FALSE>>=
 options( prompt = "R> " )
 @
@@ -2594,7 +2592,6 @@ This is demonstrated in Table~\ref{tab:compare-lm}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Computation times}\label{sec:timings}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveOpts{prefix.string=trash/timings}
 <<echo=FALSE>>=
 options( prompt = "R> " )
 @
@@ -2656,7 +2653,6 @@ for iterated (SUR) estimations of small models with small data sets.
    {Estimating systems of equations with \code{sem}}
 \label{sec:sem}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveOpts{prefix.string=trash/sem}
 <<echo=FALSE>>=
 options( prompt = "R> " )
 options( width = 75 )
