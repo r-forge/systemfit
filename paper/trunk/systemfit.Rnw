@@ -2639,7 +2639,94 @@ clearly increases the computation times
 for iterated (SUR) estimations of small models with small data sets.
 
 
-\input{systemfit_sem.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[Estimating systems of equations with sem]
+   {Estimating systems of equations with \code{sem}}
+\label{sec:sem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SweaveOpts{prefix.string=trash/sem}
+<<echo=FALSE>>=
+options( prompt = "R> " )
+options( width = 75 )
+@
+
+This section compares the commands to estimate a system of equations
+by \code{sem} and \code{systemfit}.
+This comparison uses Klein's °Model I° (see Section~\ref{sec:KleinsModel}).
+Before starting the estimation,
+we load the \pkg{sem} and \pkg{systemfit} package
+as well as the required data set.
+<<systemfit_sem>>=
+library( "sem" )
+library( "systemfit" )
+data( "KleinI" )
+@
+
+First, we estimate the system by limited information maximum likelihood
+(LIML) with \code{sem}:
+<<systemfit_sem,keep.source = TRUE>>=
+limlRam <- matrix(c(
+   "consump  <-  corpProf",    "consump_corpProf",    NA,
+   "consump  <-  corpProfLag", "consump_corpProfLag", NA,
+   "consump  <-  wages",       "consump_wages",       NA,
+   "invest   <-  corpProf",    "invest_corpProf",     NA,
+   "invest   <-  corpProfLag", "invest_corpProfLag",  NA,
+   "invest   <-  capitalLag",  "invest_capitalLag",   NA,
+   "privWage <-  gnp",         "privWage_gnp",        NA,
+   "privWage <-  gnpLag",      "privWage_gnpLag",     NA,
+   "privWage <-  trend",       "privWage_trend",      NA,
+   "consump  <-> consump",     "s11", NA,
+   "privWage <-> privWage",    "s22", NA,
+   "invest   <-> invest",      "s33", NA),
+   ncol = 3, byrow = TRUE)
+class(limlRam) <- "mod"
+exogVar <- c("corpProf", "corpProfLag", "wages", "capitalLag", "trend",
+   "gnp", "gnpLag")
+endogVar <- c("consump", "invest", "privWage")
+allVar <- c(exogVar, endogVar)
+
+limlResult <- sem(ram = limlRam, S = cov(KleinI[ -1, allVar ]),
+   N = (nrow(KleinI) - 1), fixed.x = exogVar)
+print(limlResult)
+@
+
+Theoretically, the LIML results should be identical to OLS results.
+Therefore, we re-estimate this model by OLS with \code{systemfit}.
+<<systemfit_sem,keep.source=TRUE>>=
+eqConsump <- consump ~ corpProf + corpProfLag + wages
+eqInvest <- invest ~ corpProf + corpProfLag + capitalLag
+eqPrivWage <- privWage ~ gnp + gnpLag + trend
+system <- list(consump = eqConsump, invest = eqInvest,
+   privWage = eqPrivWage)
+olsResult <- systemfit(system, data = KleinI)
+print(olsResult)
+@
+As expected, the results are identical.
+
+Now, we estimate the system by full information maximum likelihood
+(FIML) with \code{sem}:
+<<systemfit_sem,keep.source = TRUE>>=
+fimlRam <- rbind(limlRam,
+   c("consump  <-> invest",   "s12", NA),
+   c("consump  <-> privWage", "s13", NA),
+   c("privWage <-> invest",   "s23", NA))
+class(fimlRam) <- "mod"
+
+fimlResult <- sem(ram = fimlRam, S = cov(KleinI[ -1, allVar ]),
+   N = (nrow(KleinI) - 1), fixed.x = exogVar)
+print(fimlResult)
+@
+
+Theoretically, results of an iterated SUR estimation should
+converge to FIML results.
+Therefore, we re-estimate this model by iterated SUR with \code{systemfit}.
+<<systemfit_sem>>=
+surResult <- systemfit( system, method = "SUR", data = KleinI,
+   methodResidCov = "noDfCor", maxit = 500 )
+print( surResult )
+@
+As expected, the results are rather similar.
+
 
 \end{appendix}
 
