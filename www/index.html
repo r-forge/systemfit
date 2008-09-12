@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" 
+>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <title>systemfit - Simultaneous Equation Systems in R</title>
+    <meta name="GENERATOR" content="Quanta Plus" />
+    <meta name="AUTHOR" content="Arne Henningsen" />
+    <meta name="KEYWORDS" content="systemfit, Seemingly Unrelated Regressions, SUR, 2SLS, 3SLS" />
+  </head>
+  <body background="RLogoLight.jpg">
+    <div align="center">
+      <h1>
+         systemfit 
+      </h1>
+      <h2>
+         A Package for Estimating Systems of Simultaneous Equations in <a href="http://www.r-project.org">R</a>
+      </h2>
+    </div>
+    <h3>
+       What is systemfit? 
+    </h3>
+    <ul>
+      <li>
+        <strong>systemfit</strong> is an extension package for the &quot;language and environment for statistical computing and graphics&quot; called <a href="http://www.r-project.org">R</a>. 
+      </li>
+      <li>
+        <strong>systemfit</strong> provides functions for estimating systems of simultaneous equations, e.g. by Ordinary Least Squares (OLS), Seemingly Unrelated Regressions (SUR), Two-Stage Least Squares (2SLS), and Three-Stage Least Squares (3SLS). 
+      </li>
+      <li>
+        <strong>systemfit</strong> allows the user to specify either the same instrumental variables for all equations or different instrumental variables for each equation. 
+      </li>
+      <li>
+        <strong>systemfit</strong> allows the user to control many details of the estimation (in contrast to most other statistical and econometric software packages), e.g. the method to calculate the residual covariance and the method for the 3SLS estimation. 
+      </li>
+      <li>
+        <strong>systemfit</strong> provides statistical tests for parameter restrictions and consistency of the 3SLS estimation. 
+      </li>
+      <li>
+        <strong>systemfit</strong> has been tested on a variety of datasets and has produced satisfactory for a few years. 
+      </li>
+    </ul>
+    <h3>
+       Who has written systemfit? 
+    </h3>
+    <ul>
+      <li>
+        <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/index.html">Arne Henningsen</a>
+      </li>
+      <li>
+        <a href="http://www.forestinformatics.com/">Jeff D. Hamann</a>
+      </li>
+    </ul>
+    <h3>
+       Where can I get systemfit?
+    </h3>
+    <ul>
+      <li>
+         If you have internet access, you can install the current version of
+          <strong>systemfit</strong> from a
+          <a href="http://cran.r-project.org/mirrors.html">CRAN mirror</a>
+          by typing at the R prompt:
+        <pre> install.packages( "systemfit" )</pre>
+      </li>
+      <li>Download previous version (0.8):
+        <ul>
+          <li>Package source:
+            <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/systemfit/systemfit_0.8-5.tar.gz">systemfit_0.8-5.tar.gz</a>
+          </li>
+          <li>MacOS X binary:
+            <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/systemfit/systemfit_0.8-5.tgz">systemfit_0.8-5.tgz</a>
+          </li>
+          <li>Windows binary:
+            <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/systemfit/systemfit_0.8-5.zip">systemfit_0.8-5.zip</a>
+          </li>
+          <li>Reference manual:
+            <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/systemfit/systemfit_0.8-5.pdf">systemfit_0.8-5.pdf</a>
+          </li>
+          <li>Paper describing systemfit 0.8:
+            <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/systemfit/systemfit_paper_0.8.pdf">systemfit_paper_0.8.pdf</a>
+          </li>
+        </ul>
+      </li>
+      <li>Download current version (1.0) (ATTENTION - not backward compatible!):
+        <ul>
+          <li>Package source:
+            <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/systemfit/systemfit_1.0-2.tar.gz">systemfit_1.0-2.tar.gz</a>
+          </li>
+          <li>Windows binary:
+            <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/systemfit/systemfit_1.0-2.zip">systemfit_1.0-2.zip</a>
+          </li>
+          <li>Reference manual:
+            <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/systemfit/systemfit_1.0-2.pdf">systemfit_1.0-2.pdf</a>
+          </li>
+          <li>Paper describing systemfit 1.0:
+            <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/systemfit/systemfit_paper_1.0.pdf">systemfit_paper_1.0.pdf</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        The current version is available also on
+        <a href="http://cran.r-project.org/mirrors.html">CRAN</a>
+        (The Comprehensive R Archive Network):
+        <a href="http://cran.r-project.org/src/contrib/Descriptions/systemfit.html">
+        http://cran.r-project.org/src/contrib/Descriptions/systemfit.html</a>
+      </li>
+    </ul>
+    <h3>
+       Under which license is systemfit released?
+    </h3>
+    <ul>
+      <li>
+         Under the  <a href="http://www.gnu.org/licenses/gpl.html">
+            GNU General Public License (GPL)</a>
+      </li>
+    </ul>
+    <h3>
+       How can I contact you? 
+    </h3>
+    <ul>
+      <li>
+         Send an email to <a href="mailto:info(at)systemfit.org">info(at)systemfit.org</a>
+      </li>
+      <li>
+         Take a look at <a href="http://www.uni-kiel.de/agrarpol/ahenningsen/index.html">http://www.uni-kiel.de/agrarpol/ahenningsen/index.html</a>
+      </li>
+    </ul>
+    <p>
+       &nbsp; 
+    </p>
+    <div align="center">
+      <a href="http://validator.w3.org/check/referer"> <img src="http://www.uni-kiel.de/agrarpol/ahenningsen/images/vxhtml10.png" alt="Valid XHTML 1.0!" height="31" width="88" border="0"/></a><a href="http://quanta.kdewebdev.org/"><img src="http://www.uni-kiel.de/agrarpol/ahenningsen/images/quanta.png" width="120" alt="created with Quanta+" height="73" border="0" /></a><a href="http://www.anybrowser.org/campaign/"><img src="http://www.uni-kiel.de/agrarpol/ahenningsen/images/anibrows.gif" width="88" alt="Viewable With Any Browser" height="31" border="0" /></a>
+    </div>
+    <p>
+       &nbsp; 
+    </p>
+    <div align="center">
+       Last Update: 12 September 2008
+    </div>
+  </body>
+</html>
