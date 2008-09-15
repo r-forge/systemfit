@@ -1,6 +1,7 @@
 \documentclass[article,nojss]{jss}
+\usepackage[utf8]{inputenc}
 \usepackage{csquotes}
-\MakeOuterQuote{°}
+\MakeOuterQuote{Â°}
 \usepackage{amsmath}
 \usepackage{float}
 
@@ -140,11 +141,11 @@ Ignoring this contemporaneous correlation
 and estimating these equations separately
 leads to inefficient estimates of the coefficients.
 However, estimating all equations simultaneously
-with a °generalized least squares° (GLS) estimator,
+with a Â°generalized least squaresÂ° (GLS) estimator,
 which takes the covariance structure of the residuals into account,
 leads to efficient estimates.
 This estimation procedure is generally called
-°seemingly unrelated regression° \citep[SUR,][]{zellner62}.
+Â°seemingly unrelated regressionÂ° \citep[SUR,][]{zellner62}.
 Another reason to estimate a system of equations simultaneously are
 cross-equation restrictions on the coefficients.%
 \footnote{
@@ -161,11 +162,11 @@ and on the right-hand side of another equation.
 Ignoring the endogeneity of these variables can lead to inconsistent
 estimates.
 This simultaneity bias can be corrected for by
-applying a °two-stage least squares° (2SLS) estimation
+applying a Â°two-stage least squaresÂ° (2SLS) estimation
 to each equation.
 Combining this estimation method with the SUR method results
 in a simultaneous estimation of the system of equations
-by the °three-stage least squares° (3SLS) method
+by the Â°three-stage least squaresÂ° (3SLS) method
 \citep{zellner62b}.
 
 % For all of the methods developed in the package, the disturbances of
@@ -178,17 +179,17 @@ The \pkg{systemfit} package provides the capability to estimate
 systems of linear equations in \proglang{R}
 \citep{r-project-07}.
 Currently, the estimation methods
-°ordinary least squares° (OLS),
-°weighted least squares° (WLS),
-°seemingly unrelated regression° (SUR),
-°two-stage least squares° (2SLS),
-°weighted two-stage least squares° (W2SLS), and
-°three-stage least squares° (3SLS)
+Â°ordinary least squaresÂ° (OLS),
+Â°weighted least squaresÂ° (WLS),
+Â°seemingly unrelated regressionÂ° (SUR),
+Â°two-stage least squaresÂ° (2SLS),
+Â°weighted two-stage least squaresÂ° (W2SLS), and
+Â°three-stage least squaresÂ° (3SLS)
 are implemented.%
 \footnote{
 In this context,
-the term °weighted° in °weighted least squares° (WLS) and
-°weighted two-stage least squares° (W2SLS) means
+the term Â°weightedÂ° in Â°weighted least squaresÂ° (WLS) and
+Â°weighted two-stage least squaresÂ° (W2SLS) means
 that the \emph{equations} might have different weights
 and \emph{not}
 that the \emph{observations} have different weights.
@@ -258,7 +259,7 @@ $X_i$ is a matrix of the exogenous variables,
 $\beta_i$ is the coefficient vector and
 $u_i$ is a vector of the disturbance terms of the $i$th equation.
 
-We can write the °stacked° system as
+We can write the Â°stackedÂ° system as
 \begin{equation}
    \left[ \begin{array}{c}
       y_1 \\ y_2\\ \vdots\\ y_G
@@ -404,7 +405,7 @@ they are equal to OLS estimates.
 
 If the disturbances are contemporaneously correlated, a generalized
 least squares (GLS) estimation leads to an efficient estimator for the coefficients.
-In this case, the GLS estimator is generally called °seemingly unrelated regression°
+In this case, the GLS estimator is generally called Â°seemingly unrelated regressionÂ°
 (SUR) estimator \citep{zellner62}.
 However, the true covariance matrix of the disturbance terms
 is generally unknown.
@@ -445,11 +446,11 @@ They must not be correlated with
 the disturbance terms of the corresponding equation 
 ($\E \left[ u_i^\top Z_i \right] = 0$).
 
-At the first stage new (°fitted°) regressors are obtained by
+At the first stage new (Â°fittedÂ°) regressors are obtained by
 \begin{equation}
    \XHat_i = Z_i \left( Z_i^\top Z_i \right)^{-1} Z_i^\top X_i .
 \end{equation}
-Then, these °fitted° regressors are substituted for the original regressors
+Then, these Â°fittedÂ° regressors are substituted for the original regressors
 in Equation~\ref{eq:ols-wls-sur}
 to obtain unbiased 2SLS, W2SLS, or 3SLS estimates of $\beta$ by
 \begin{equation}
@@ -513,8 +514,8 @@ they are equal to 2SLS estimates.
 If the disturbances are contemporaneously correlated,
 a feasible generalized least squares (FGLS) version of the two-stage least squares
 estimation leads to consistent and asymptotically more efficient estimates.
-This estimation procedure is generally called °three-stage least
-squares° \citep[3SLS,][]{zellner62b}.
+This estimation procedure is generally called Â°three-stage least
+squaresÂ° \citep[3SLS,][]{zellner62b}.
 The standard 3SLS estimator and its covariance matrix are obtained by
 Equations~\ref{eq:2sls-w2sls-3sls} and~\ref{eq:cov-2sls-w2sls-3sls}
 with $\OHat$ equal to $\SHat \otimes I_T$,
@@ -970,8 +971,8 @@ its inverse $\SHat^{-1}$ is not an unbiased estimator
 of $\Sigma^{-1}$ \citep[p.~322]{theil71}.
 Furthermore, the covariance matrix calculated by Equation~\ref{eq:rcovTheil}
 is not necessarily positive semidefinite \citep[p.~322]{theil71}.
-Hence, °it is doubtful whether [this formula] is really superior to 
-[Equation~\ref{eq:rcovNoDfCor}]° \citep[p.~322]{theil71}.
+Hence, Â°it is doubtful whether [this formula] is really superior to 
+[Equation~\ref{eq:rcovNoDfCor}]Â° \citep[p.~322]{theil71}.
 
 
 The WLS, SUR, W2SLS and 3SLS coefficient estimates are consistent
@@ -1369,7 +1370,7 @@ for calculating the (co)variances of the residuals;
 and \codeD{.ftest}{systemfit}
 for calculating \citeauthor{theil71}'s $F$ statistic.
 If \code{systemfit} is applied to
-a (classical) °seemingly unrelated regression° analysis with panel data,
+a (classical) Â°seemingly unrelated regressionÂ° analysis with panel data,
 it calls the hidden internal function \code{.systemfitPanel},
 which reshapes the data, creates the formulas to be estimated,
 and --- if requested --- specifies restrictions
@@ -1422,13 +1423,13 @@ uses the \pkg{Matrix} package \citep{r-matrix-07}
 for all computations where matrices are involved.
 The \pkg{Matrix} package provides classes for different types of matrices.
 For instance, we choose class \code{dgeMatrix}
-(°real matrices in general storage mode°),
+(Â°real matrices in general storage modeÂ°),
 for matrices $X_i$ in Equation~\ref{eq:model-array},
-class \code{dgCMatrix} (°general, numeric, sparse matrices
-in the (sorted) compressed sparse column format°)
+class \code{dgCMatrix} (Â°general, numeric, sparse matrices
+in the (sorted) compressed sparse column formatÂ°)
 for matrix $X$ in Equation~\ref{eq:model-matrices},
 and class \code{dspMatrix}
-(°symmetric real matrices in packed storage (one triangle only)°)
+(Â°symmetric real matrices in packed storage (one triangle only)Â°)
 for the residual covariance matrix $\SHat$.
 If the \pkg{Matrix} package is used,
 the possibly huge matrix $\Omega^{-1}$ is no longer a problem,
@@ -1483,7 +1484,7 @@ by limited information maximum likelihood (LIML)
 and full information maximum likelihood (FIML)
 assuming normal or multinormal errors, respectively.
 A special feature of this function is the estimation
-of models with unobserved (°latent°) variables,
+of models with unobserved (Â°latentÂ°) variables,
 which is not possible with \code{systemfit}.
 While \code{sem} cannot be used to consistently estimate
 systems of simultaneous equations with some endogenous regressors,
@@ -1505,7 +1506,7 @@ In this section we demonstrate how to use the \pkg{systemfit} package.
 First, we show the standard usage of \code{systemfit} by a simple example.
 Second, several options that can be specified by the user are presented.
 Then, the usage of \code{systemfit}
-for a (classical) °seemingly unrelated regression° analysis
+for a (classical) Â°seemingly unrelated regressionÂ° analysis
 with panel data is described.
 Finally, we demonstrate how to apply some statistical tests.
 
@@ -1595,7 +1596,7 @@ These methods correspond to the estimation methods
 described in Sections~\ref{sec:Estimation-ols-wls-sur},
 \ref{sec:Estimation-2sls-w2sls-3sls}, and~\ref{sec:Restrictions}.
 The following command estimates the model described above as
-°seemingly unrelated regression°.
+Â°seemingly unrelated regressionÂ°.
 <<systemfit_usage>>=
 fitsur <- systemfit( eqSystem, method = "SUR" )
 @
@@ -1615,7 +1616,7 @@ If different instruments should be used for each equation,
 for each equation.
 The following example uses instrumental variables
 to estimate the model described above
-by °three-stage least squares° (3SLS).
+by Â°three-stage least squaresÂ° (3SLS).
 While the first command specifies the same instruments for all equations,
 the second uses different instruments:
 <<systemfit_usage>>=
@@ -1973,16 +1974,16 @@ summary( fitsur, residCov = FALSE, equations = FALSE )
 \subsection{Panel data}
 
 The \code{systemfit} function can also be used
-for a (classical) °seemingly unrelated regression° analysis
+for a (classical) Â°seemingly unrelated regressionÂ° analysis
 with panel data.
 For this type of analysis,
 the data must be provided in a transformed data frame of class \codeD{plm}{dim}%
 \footnote{
-Generally, panel data can be either in °long format°
+Generally, panel data can be either in Â°long formatÂ°
 (different individuals are arranged below each other)
-or in °wide format°
+or in Â°wide formatÂ°
 (different individuals are arranged next to each other).
-For this analysis, the data must be in °long format°.
+For this analysis, the data must be in Â°long formatÂ°.
 }
 which can be created with the function \codeD{plm}{data}
 from the \proglang{R} package \pkg{plm}
@@ -2214,7 +2215,7 @@ is so small that it empirically does not matter.
 \subsection{Greene (2003): Example 15.1 (Klein's model I)}
 \label{sec:KleinsModel}
 
-Second, we try to replicate Klein's °Model I° \citep{klein50}
+Second, we try to replicate Klein's Â°Model IÂ° \citep{klein50}
 that is described in \citet[p.~381]{greene03}.
 The data are available from the online complements to \citet{greene03},
 Table~F15.1
@@ -2279,7 +2280,7 @@ that is based on \citet{grunfeld58}.
 The data are available from the online complements to \citet{greene03},
 Table~F13.1
 (\url{http://pages.stern.nyu.edu/~wgreene/Text/tables/TableF13-1.txt}).
-Several different versions of the °Grunfeld° data set can be found,
+Several different versions of the Â°GrunfeldÂ° data set can be found,
 whereas the version of \citet{greene03}
 is considered incorrect \citep{cummins01}.
 However, we use this incorrect version to replicate the results
@@ -2646,7 +2647,7 @@ options( width = 75 )
 
 This section compares the commands to estimate a system of equations
 by \code{sem} and \code{systemfit}.
-This comparison uses Klein's °Model I° (see Section~\ref{sec:KleinsModel}).
+This comparison uses Klein's Â°Model IÂ° (see Section~\ref{sec:KleinsModel}).
 Before starting the estimation,
 we load the \pkg{sem} and \pkg{systemfit} package
 as well as the required data set.
