@@ -32,7 +32,7 @@ createSystemfitModel( nEq, nRegEq, nObs, coef = NULL, sigma = NULL )
    \item{sigma}{the covariance matrix of the disturbance terms.}
 }
 
-\author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
+\author{Arne Henningsen \email{arne.henningsen@googlemail.com}}
 
 \seealso{\code{\link{systemfit}}}
 

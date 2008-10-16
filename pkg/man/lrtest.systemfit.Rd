@@ -57,7 +57,7 @@
   \emph{Econometric Analysis, Fifth Edition}, Prentice Hall.
 }
 
-\author{Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}}
+\author{Arne Henningsen \email{arne.henningsen@googlemail.com}}
 
 \seealso{\code{\link{systemfit}}, \code{\link[lmtest]{lrtest}}
    (package "lmtest"),

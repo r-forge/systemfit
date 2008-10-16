@@ -177,7 +177,7 @@ systemfit( formula, method = "OLS",
 }
 
 \author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com},\cr
-  Arne Henningsen \email{ahenningsen@agric-econ.uni-kiel.de}
+  Arne Henningsen \email{arne.henningsen@googlemail.com}
 }
 
 \seealso{\code{\link{lm}} and \code{\link{nlsystemfit}}}
