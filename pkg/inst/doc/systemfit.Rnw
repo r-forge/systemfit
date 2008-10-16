@@ -115,7 +115,7 @@ and its reliability is demonstrated.
 % initialisation stuff
 \SweaveOpts{engine=R}
 %\VignetteIndexEntry{Systemfit}
-%\VignetteDepends{systemfit,plm,sem}
+%\VignetteDepends{plm,sem}
 %\VignetteKeywords{R, system of simultaneous equations,
 % seemingly unrelated regression, two-stage least squares,
 % three-stage least squares, instrumental variables}
