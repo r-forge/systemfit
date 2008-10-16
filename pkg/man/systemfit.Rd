@@ -176,8 +176,8 @@ systemfit( formula, method = "OLS",
   \emph{Principles of Econometrics}, Wiley, New York.
 }
 
-\author{Jeff D. Hamann \email{jeff.hamann@forestinformatics.com},\cr
-  Arne Henningsen \email{arne.henningsen@googlemail.com}
+\author{Arne Henningsen \email{arne.henningsen@googlemail.com},\cr
+  Jeff D. Hamann \email{jeff.hamann@forestinformatics.com}
 }
 
 \seealso{\code{\link{lm}} and \code{\link{nlsystemfit}}}
