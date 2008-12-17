@@ -98,6 +98,13 @@ systemfit( formula, method = "OLS",
    which has to be inverted during the estimation,
    gets smaller by this procedure, while it gets larger
    if the restrictions are imposed by \code{restrict.matrix} and \code{restrict.rhs}.
+
+   In the context of multi-equation models, 
+   the term \dQuote{weighted} in \dQuote{weighted least squares} (WLS) and
+   \dQuote{weighted two-stage least squares} (W2SLS) means
+   that the \emph{equations} might have different weights
+   and \emph{not}
+   that the \emph{observations} have different weights.
 }
 
 \value{
