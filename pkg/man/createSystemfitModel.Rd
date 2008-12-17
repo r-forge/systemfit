@@ -17,7 +17,7 @@ createSystemfitModel( nEq, nRegEq, nObs, coef = NULL, sigma = NULL )
    \item{nEq}{the number of equations.}
    \item{nRegEq}{the number of regressors in each equation
       (without the intercept).}
-   \item{nObs}{the number of equations.}
+   \item{nObs}{the number of observations.}
    \item{coef}{an optional vector of coefficients.}
    \item{sigma}{an optional covariance matrix of the disturbance terms.}
 }
