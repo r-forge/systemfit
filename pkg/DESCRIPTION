@@ -2,8 +2,7 @@ Package: systemfit
 Version: 1.0-7
 Date: 2008/09/16
 Title: Estimating Systems of Simultaneous Equations
-Author: Arne Henningsen <arne.henningsen@googlemail.com> and
-   Jeff D. Hamann <jeff.hamann@forestinformatics.com>
+Author: Arne Henningsen and Jeff D. Hamann
 Maintainer: Arne Henningsen <arne.henningsen@googlemail.com>
 Depends: R (>= 1.8.0), Matrix, car, lmtest
 Suggests: plm (>= 0.3-1), MASS, sem
