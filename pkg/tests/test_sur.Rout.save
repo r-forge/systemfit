@@ -3201,15 +3201,6 @@ Multiple R-Squared: 0.234546 Adjusted R-Squared: 0.091024
 > fitsurS1 <- systemfit(
 +    list( price ~ consump - 1, farmPrice ~ consump + trend ), "SUR",
 +    data = Kmenta )
-Note: Method with signature "ANY#diagonalMatrix" chosen for function "kronecker",
- target signature "dspMatrix#ddiMatrix".
- "Matrix#ANY" would also be valid
-Note: Method with signature "ANY#sparseMatrix" chosen for function "kronecker",
- target signature "dspMatrix#dtTMatrix".
- "Matrix#ANY" would also be valid
-Note: Method with signature "ANY#TsparseMatrix" chosen for function "%*%",
- target signature "dgCMatrix#dgTMatrix".
- "Matrix#ANY" would also be valid
 > print( summary( fitsurS1 ) )
 
 systemfit results 
@@ -3386,9 +3377,6 @@ Multiple R-Squared: -69.480332 Adjusted R-Squared: -69.480332
 > fitsurS4 <- systemfit(
 +    list( consump ~ trend - 1, price ~ trend - 1 ), "SUR",
 +    data = Kmenta, restrict.matrix = matrix( c( 1, -1 ), nrow = 1 ) )
-Note: Method with signature "Matrix#numeric" chosen for function "solve",
- target signature "dgeMatrix#numeric".
- "ddenseMatrix#ANY" would also be valid
 > print( summary( fitsurS4 ) )
 
 systemfit results 

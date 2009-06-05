@@ -1233,15 +1233,6 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.794622 MSE: 6.549664 Root MSE: 2.559231 
 Multiple R-Squared: 0.609142 Adjusted R-Squared: 0.535856 
 
-Note: Method with signature "ANY#diagonalMatrix" chosen for function "kronecker",
- target signature "dspMatrix#ddiMatrix".
- "Matrix#ANY" would also be valid
-Note: Method with signature "ANY#sparseMatrix" chosen for function "kronecker",
- target signature "dspMatrix#dtTMatrix".
- "Matrix#ANY" would also be valid
-Note: Method with signature "ANY#TsparseMatrix" chosen for function "%*%",
- target signature "dgCMatrix#dgTMatrix".
- "Matrix#ANY" would also be valid
 
 systemfit results 
 method: 3SLS 
@@ -1412,9 +1403,6 @@ Number of observations: 20 Degrees of Freedom: 19
 SSR: 90377.49914 MSE: 4756.710481 Root MSE: 68.96891 
 Multiple R-Squared: -28.450844 Adjusted R-Squared: -28.450844 
 
-Note: Method with signature "Matrix#numeric" chosen for function "solve",
- target signature "dgeMatrix#numeric".
- "ddenseMatrix#ANY" would also be valid
 
 systemfit results 
 method: 3SLS 

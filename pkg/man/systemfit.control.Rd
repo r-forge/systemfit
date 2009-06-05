@@ -19,7 +19,7 @@ systemfit.control(
       residCovWeighted = FALSE,
       method3sls = "GLS",
       singleEqSigma = NULL,
-      useMatrix = TRUE,
+      useMatrix = FALSE,
       solvetol = .Machine$double.eps,
       model = TRUE,
       x = FALSE,
