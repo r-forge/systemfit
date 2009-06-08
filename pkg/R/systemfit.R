@@ -165,16 +165,12 @@ systemfit <- function(  formula,
    if( control$useMatrix ){
       xMatEqAttr <- list()
    }
-   # number of observations in each equation
-   nObsEq  <- numeric( nEq )
    # number of exogenous variables /(unrestricted) coefficients in each equation
    nCoefEq <- numeric( nEq )
    # names of coefficients
    coefNames  <- NULL
    # names of coefficients of each equation
    coefNamesEq <- list()
-   # names of observations of each equation
-   obsNamesEq <- list()
    # prepare data for individual equations
    for(i in 1:nEq ) {
       modelFrameEq[[ i ]] <- modelFrame
@@ -188,8 +184,6 @@ systemfit <- function(  formula,
          xMatEqAttr[[ i ]] <- attributes( xMatEq[[i]] )
          xMatEq[[ i ]] <- as( xMatEq[[ i ]], "dgeMatrix" )
       }
-      obsNamesEq[[ i ]] <- rownames( xMatEq[[ i ]] )
-      nObsEq[i] <- length( yVecEq[[i]] )
       nCoefEq[i] <- ncol(xMatEq[[i]])
       cNamesEq <- NULL
       for(j in 1:nCoefEq[i]) {
@@ -208,13 +202,6 @@ systemfit <- function(  formula,
    }
    rm( modelFrameEq, xjName, cNamesEq )
 
-   # test for unequal numbers of observations
-   if( nEq > 1 ) {
-      if( var ( nObsEq ) != 0 ) {
-         stop( "Systems with unequal numbers of observations are not supported yet." )
-      }
-   }
-
    ## prepare Z matrices of instruments for each equation
    if( !is.null( inst ) ) {
       # list of terms objects of instruments of each equation
@@ -227,8 +214,6 @@ systemfit <- function(  formula,
       zMatEq  <- list()
       # prepare data for individual equations
       for(i in 1:nEq) {
-         rowsEq <- c( (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) )
-            # rows that belong to the ith equation
          modelFrameInst[[ i ]] <- modelFrame
          modelFrameInst[[ i ]]$formula <- inst[[ i ]]
          evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]] )
@@ -241,6 +226,22 @@ systemfit <- function(  formula,
             stop( paste( "The instruments and the regressors of equation",
                as.character( i ), "have different numbers of observations." ) )
          }
+      }
+   }
+
+   # number of observations in each equation
+   nObsEq  <- numeric( nEq )
+   # names of observations of each equation
+   obsNamesEq <- list()
+   for( i in 1:nEq ){
+      obsNamesEq[[ i ]] <- rownames( xMatEq[[ i ]] )
+      nObsEq[i] <- length( yVecEq[[i]] )
+   }
+
+   # test for unequal numbers of observations
+   if( nEq > 1 ) {
+      if( var ( nObsEq ) != 0 ) {
+         stop( "Systems with unequal numbers of observations are not supported yet." )
       }
    }
 
