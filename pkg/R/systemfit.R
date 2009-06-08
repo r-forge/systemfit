@@ -161,10 +161,6 @@ systemfit <- function(  formula,
    yVecEq  <- list()
    # list for matrices of regressors in each equation
    xMatEq  <- list()
-   # attributes of the model matrices
-   if( control$useMatrix ){
-      xMatEqAttr <- list()
-   }
    # number of exogenous variables /(unrestricted) coefficients in each equation
    nCoefEq <- numeric( nEq )
    # names of coefficients
@@ -180,10 +176,6 @@ systemfit <- function(  formula,
       weights <- model.extract( evalModelFrameEq[[ i ]], "weights" )
       yVecEq[[i]] <- model.extract( evalModelFrameEq[[ i ]], "response" )
       xMatEq[[i]] <- model.matrix( termsEq[[ i ]], evalModelFrameEq[[ i ]] )
-      if( control$useMatrix ){
-         xMatEqAttr[[ i ]] <- attributes( xMatEq[[i]] )
-         xMatEq[[ i ]] <- as( xMatEq[[ i ]], "dgeMatrix" )
-      }
       nCoefEq[i] <- ncol(xMatEq[[i]])
       cNamesEq <- NULL
       for(j in 1:nCoefEq[i]) {
@@ -219,9 +211,6 @@ systemfit <- function(  formula,
          evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]] )
          termsInst[[ i ]] <- attr( evalModelFrameInst[[ i ]], "terms" )
          zMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
-         if( control$useMatrix ){
-            zMatEq[[ i ]] <- as( zMatEq[[ i ]], "dgeMatrix" )
-         }
       }
    }
 
@@ -253,6 +242,19 @@ systemfit <- function(  formula,
                nrow( zMatEq[[ i ]] ), " observations",
                " while the regressors of this equation have ",
                nrow( xMatEq[[ i ]] ), " observations" )
+         }
+      }
+   }
+
+   ## prepare matrices for using the Matrix package
+   if( control$useMatrix ){
+      # attributes of the model matrices
+      xMatEqAttr <- list()
+      for( i in 1:nEq ) {
+         xMatEqAttr[[ i ]] <- attributes( xMatEq[[i]] )
+         xMatEq[[ i ]] <- as( xMatEq[[ i ]], "dgeMatrix" )
+         if( !is.null( inst ) ) {
+            zMatEq[[ i ]] <- as( zMatEq[[ i ]], "dgeMatrix" )
          }
       }
    }
