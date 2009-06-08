@@ -222,9 +222,37 @@ systemfit <- function(  formula,
          if( control$useMatrix ){
             zMatEq[[ i ]] <- as( zMatEq[[ i ]], "dgeMatrix" )
          }
-         if( nrow( zMatEq[[ i ]] ) != nrow( xMatEq[[ i ]] ) ) {
-            stop( paste( "The instruments and the regressors of equation",
-               as.character( i ), "have different numbers of observations." ) )
+      }
+   }
+
+   ## check if all endogenous variables, regressors, and instruments
+   ## have the same number of observations
+   # total number of observations per equation (including NAs)
+   nObsPerEq <- length( yVecEq[[ 1 ]] )
+   for( i in 1:nEq ){
+      if( nObsPerEq != length( yVecEq[[ i ]] ) ) {
+         stop( "all equations must have the same number of observations",
+            " but the endogenous variable of equation 1 has ",
+            nObsPerEq, " observations",
+            " while the endogenous variable of equation ", i, " has ",
+            length( yVecEq[[ i ]] ), " observations" )
+      }
+      if( nObsPerEq != nrow( xMatEq[[ i ]] ) ) {
+         stop( "the regressors of each equation must have the same number",
+            " of observations as the corresponding endogenous variable",
+            " but the regressors of equation ", i, " have ",
+            nrow( xMatEq[[ i ]] ), " observations",
+            " while the endogenous variable of this equation has ",
+            length( yVecEq[[ i ]] ), " observations" )
+      }
+      if( !is.null( inst ) ) {
+         if( nObsPerEq != nrow( zMatEq[[ i ]] ) ) {
+            stop( "the instrumental variables of each equation must have",
+               " the same number of observations as the corresponding regressors",
+               " but the instrumental variables of equation ", i, " have ",
+               nrow( zMatEq[[ i ]] ), " observations",
+               " while the regressors of this equation have ",
+               nrow( xMatEq[[ i ]] ), " observations" )
          }
       }
    }
@@ -236,13 +264,6 @@ systemfit <- function(  formula,
    for( i in 1:nEq ){
       obsNamesEq[[ i ]] <- rownames( xMatEq[[ i ]] )
       nObsEq[i] <- length( yVecEq[[i]] )
-   }
-
-   # test for unequal numbers of observations
-   if( nEq > 1 ) {
-      if( var ( nObsEq ) != 0 ) {
-         stop( "Systems with unequal numbers of observations are not supported yet." )
-      }
    }
 
    # stacked vector of all endogenous variables
