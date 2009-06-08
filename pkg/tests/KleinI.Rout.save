@@ -1,0 +1,1549 @@
+
+R version 2.9.0 (2009-04-17)
+Copyright (C) 2009 The R Foundation for Statistical Computing
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library( "systemfit" )
+Loading required package: Matrix
+Loading required package: lattice
+
+Attaching package: 'Matrix'
+
+
+	The following object(s) are masked from package:stats :
+
+	 xtabs 
+
+
+	The following object(s) are masked from package:base :
+
+	 rcond 
+
+Loading required package: car
+Loading required package: lmtest
+Loading required package: zoo
+
+Attaching package: 'zoo'
+
+
+	The following object(s) are masked from package:base :
+
+	 as.Date.numeric 
+
+> 
+> data( "KleinI" )
+> eqConsump  <- consump ~ corpProf + corpProfLag + wages
+> eqInvest   <- invest ~ corpProf + corpProfLag + capitalLag
+> eqPrivWage <- privWage ~ gnp + gnpLag + trend
+> inst <- ~ govExp + taxes + govWage + trend + capitalLag + corpProfLag + gnpLag
+> system <- list( Consumption = eqConsump, Investment = eqInvest,
++    PrivateWages = eqPrivWage )
+> 
+> # OLS
+> kleinOls <- systemfit( system, data = KleinI )
+> summary( kleinOls )
+
+systemfit results 
+method: OLS 
+
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 63 51 45.2069 0.37084 0.977268   0.991302
+
+              N DF     SSR      MSE     RMSE       R2   Adj R2
+Consumption  21 17 17.8794 1.051732 1.025540 0.981008 0.977657
+Investment   21 17 17.3227 1.018982 1.009447 0.931348 0.919233
+PrivateWages 21 17 10.0047 0.588515 0.767147 0.987414 0.985193
+
+The covariance matrix of the residuals
+             Consumption Investment PrivateWages
+Consumption    1.0517323  0.0611432    -0.470419
+Investment     0.0611432  1.0189825     0.149681
+PrivateWages  -0.4704191  0.1496807     0.588515
+
+The correlations of the residuals
+             Consumption Investment PrivateWages
+Consumption    1.0000000  0.0590626    -0.597935
+Investment     0.0590626  1.0000000     0.193288
+PrivateWages  -0.5979346  0.1932875     1.000000
+
+
+OLS estimates for 'Consumption' (equation 1)
+Model Formula: consump ~ corpProf + corpProfLag + wages
+
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 16.2366003  1.3026983 12.46382 5.6208e-10 ***
+corpProf     0.1929344  0.0912102  2.11527   0.049474 *  
+corpProfLag  0.0898849  0.0906479  0.99158   0.335306    
+wages        0.7962187  0.0399439 19.93342 3.1597e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.02554 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 17.879449 MSE: 1.051732 Root MSE: 1.02554 
+Multiple R-Squared: 0.981008 Adjusted R-Squared: 0.977657 
+
+
+OLS estimates for 'Investment' (equation 2)
+Model Formula: invest ~ corpProf + corpProfLag + capitalLag
+
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 10.1257885  5.4655465  1.85266 0.08137418 .  
+corpProf     0.4796356  0.0971146  4.93886 0.00012456 ***
+corpProfLag  0.3330387  0.1008592  3.30202 0.00421173 ** 
+capitalLag  -0.1117947  0.0267276 -4.18275 0.00062445 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.009447 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 17.322702 MSE: 1.018982 Root MSE: 1.009447 
+Multiple R-Squared: 0.931348 Adjusted R-Squared: 0.919233 
+
+
+OLS estimates for 'PrivateWages' (equation 3)
+Model Formula: privWage ~ gnp + gnpLag + trend
+
+             Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 1.4970438  1.2700320  1.17874 0.25473559    
+gnp         0.4394770  0.0324076 13.56093 1.5169e-10 ***
+gnpLag      0.1460899  0.0374231  3.90373 0.00114240 ** 
+trend       0.1302452  0.0319103  4.08160 0.00077703 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 0.767147 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 10.00475 MSE: 0.588515 Root MSE: 0.767147 
+Multiple R-Squared: 0.987414 Adjusted R-Squared: 0.985193 
+
+> residuals( kleinOls )
+    Consumption  Investment PrivateWages
+1  -0.323893544 -0.06679402  -1.29417986
+2  -1.250007790 -0.04760175   0.29566560
+3  -1.565741401  1.24668048   1.18772914
+4  -0.493503129 -1.35118088  -0.13580702
+5   0.007607907  0.41541950  -0.46540343
+6   0.869096295  1.49226311  -0.48383035
+7   1.338476868  0.78890557  -0.72813621
+8   1.054978943 -0.63169084   0.33923489
+9  -0.588557053  1.08296149   1.19568824
+10  0.282311734  0.27906859  -0.15081544
+11 -0.229653489  0.03686913   0.59418136
+12 -0.322131892  0.36592664   0.10267812
+13  0.322281007  0.22370023   0.45026983
+14 -0.058010257 -0.17281446   0.28155859
+15 -0.034662717  0.01007831   0.01375786
+16  1.616497310  0.97189108  -0.85076895
+17 -0.435973632  0.05161124   0.99564224
+18  0.210054350 -2.56561648  -0.46875430
+19  0.989201310 -0.68660084  -0.37953267
+20  0.785077489 -0.78074585  -1.09090864
+21 -2.173448309 -0.66233024   0.59173098
+> fitted( kleinOls )
+   Consumption Investment PrivateWages
+1     42.22389 -0.1332060     26.79418
+2     46.25001  1.9476017     29.00433
+3     50.76574  3.9533195     32.91227
+4     51.09350  4.3511809     34.03581
+5     52.59239  4.6845805     35.86540
+6     54.23090  4.1077369     37.88383
+7     54.86152  3.4110944     38.62814
+8     56.24502  3.6316908     38.86077
+9     58.38856  4.0170385     40.10431
+10    54.71769  0.7209314     38.05082
+11    51.12965 -3.4368691     33.90582
+12    45.92213 -6.5659266     28.89732
+13    46.17772 -5.3237002     28.04973
+14    48.75801 -2.8271855     30.31844
+15    51.33466 -1.3100783     33.18624
+16    56.08350  1.1281089     37.65077
+17    59.13597  1.9483888     40.00436
+18    57.28995  0.6656165     38.66875
+19    60.61080  1.9866008     41.97953
+20    64.21492  4.0807458     46.09091
+21    71.87345  5.5623302     52.70827
+> predict( kleinOls, se.fit = TRUE, interval = "prediction",
++    useDfSys = TRUE )
+   Consumption.pred Consumption.se.fit Consumption.lwr Consumption.upr
+2          42.22389          0.4620182        39.96575        44.48204
+3          46.25001          0.5181988        43.94324        48.55678
+4          50.76574          0.3405700        48.59632        52.93516
+5          51.09350          0.3955568        48.88681        53.30020
+6          52.59239          0.3974139        50.38435        54.80043
+7          54.23090          0.3594519        52.04924        56.41256
+8          54.86152          0.3268161        52.70065        57.02240
+9          56.24502          0.3504842        54.06925        58.42079
+10         58.38856          0.3701427        56.19970        60.57741
+11         54.71769          0.6062556        52.32598        57.10939
+12         51.12965          0.4843868        48.85269        53.40661
+13         45.92213          0.6289245        43.50695        48.33731
+14         46.17772          0.6022449        43.79010        48.56534
+15         48.75801          0.3742812        46.56632        50.94970
+16         51.33466          0.3330961        49.16993        53.49940
+17         56.08350          0.3658096        53.89759        58.26942
+18         59.13597          0.3213684        56.97840        61.29355
+19         57.28995          0.3712745        55.10032        59.47957
+20         60.61080          0.4335685        58.37551        62.84609
+21         64.21492          0.4253040        61.98604        66.44381
+22         71.87345          0.6659002        69.41864        74.32825
+   Investment.pred Investment.se.fit Investment.lwr Investment.upr
+2       -0.1332060         0.6069321     -2.4978542      2.2314422
+3        1.9476017         0.4986799     -0.3127487      4.2079522
+4        3.9533195         0.4488886      1.7354314      6.1712076
+5        4.3511809         0.3707148      2.1922936      6.5100681
+6        4.6845805         0.3489998      2.5403313      6.8288297
+7        4.1077369         0.3287503      1.9764248      6.2390490
+8        3.4110944         0.2923546      1.3012646      5.5209243
+9        3.6316908         0.3891318      1.4597802      5.8036015
+10       4.0170385         0.4465181      1.8010799      6.2329971
+11       0.7209314         0.6013501     -1.6379619      3.0798247
+12      -3.4368691         0.5066672     -5.7043673     -1.1693710
+13      -6.5659266         0.6157143     -8.9397079     -4.1921453
+14      -5.3237002         0.6936164     -7.7825488     -2.8648517
+15      -2.8271855         0.3729359     -4.9876140     -0.6667570
+16      -1.3100783         0.3197128     -3.4358419      0.8156853
+17       1.1281089         0.3473893     -1.0150860      3.2713039
+18       1.9483888         0.2430723     -0.1360852      4.0328627
+19       0.6656165         0.3120939     -1.4555790      2.7868120
+20       1.9866008         0.3664565     -0.1693542      4.1425559
+21       4.0807458         0.3316569      1.9476196      6.2138721
+22       5.5623302         0.4609869      3.3344627      7.7901978
+   PrivateWages.pred PrivateWages.se.fit PrivateWages.lwr PrivateWages.upr
+2           26.79418           0.3536063         25.09833         28.49003
+3           29.00433           0.3554345         27.30695         30.70172
+4           32.91227           0.3540590         31.21604         34.60850
+5           34.03581           0.2686101         32.40402         35.66760
+6           35.86540           0.2658352         34.23544         37.49536
+7           37.88383           0.2659329         36.25381         39.51385
+8           38.62814           0.2729995         36.99341         40.26286
+9           38.86077           0.2606842         37.23416         40.48737
+10          40.10431           0.2468820         38.48641         41.72221
+11          38.05082           0.3540681         36.35458         39.74705
+12          33.90582           0.3626427         32.20230         35.60934
+13          28.89732           0.4294332         27.13233         30.66232
+14          28.04973           0.3760962         26.33449         29.76497
+15          30.31844           0.3711215         28.60758         32.02931
+16          33.18624           0.3103835         31.52485         34.84763
+17          37.65077           0.3047762         35.99357         39.30797
+18          40.00436           0.2384735         38.39155         41.61717
+19          38.66875           0.3567932         36.97022         40.36729
+20          41.97953           0.3207156         40.31025         43.64882
+21          46.09091           0.3347004         44.41060         47.77122
+22          52.70827           0.5016049         50.86815         54.54838
+> model.frame( kleinOls )
+   consump corpProf corpProfLag wages invest capitalLag privWage  gnp gnpLag
+2     41.9     12.4        12.7  28.2   -0.2      182.8     25.5 45.6   44.9
+3     45.0     16.9        12.4  32.2    1.9      182.6     29.3 50.1   45.6
+4     49.2     18.4        16.9  37.0    5.2      184.5     34.1 57.2   50.1
+5     50.6     19.4        18.4  37.0    3.0      189.7     33.9 57.1   57.2
+6     52.6     20.1        19.4  38.6    5.1      192.7     35.4 61.0   57.1
+7     55.1     19.6        20.1  40.7    5.6      197.8     37.4 64.0   61.0
+8     56.2     19.8        19.6  41.5    4.2      203.4     37.9 64.4   64.0
+9     57.3     21.1        19.8  42.9    3.0      207.6     39.2 64.5   64.4
+10    57.8     21.7        21.1  45.3    5.1      210.6     41.3 67.0   64.5
+11    55.0     15.6        21.7  42.1    1.0      215.7     37.9 61.2   67.0
+12    50.9     11.4        15.6  39.3   -3.4      216.7     34.5 53.4   61.2
+13    45.6      7.0        11.4  34.3   -6.2      213.3     29.0 44.3   53.4
+14    46.5     11.2         7.0  34.1   -5.1      207.1     28.5 45.1   44.3
+15    48.7     12.3        11.2  36.6   -3.0      202.0     30.6 49.7   45.1
+16    51.3     14.0        12.3  39.3   -1.3      199.0     33.2 54.4   49.7
+17    57.7     17.6        14.0  44.2    2.1      197.7     36.8 62.7   54.4
+18    58.7     17.3        17.6  47.7    2.0      199.8     41.0 65.0   62.7
+19    57.5     15.3        17.3  45.9   -1.9      201.8     38.2 60.9   65.0
+20    61.6     19.0        15.3  49.4    1.3      199.9     41.6 69.5   60.9
+21    65.0     21.1        19.0  53.0    3.3      201.2     45.0 75.7   69.5
+22    69.7     23.5        21.1  61.8    4.9      204.5     53.3 88.4   75.7
+   trend
+2    -10
+3     -9
+4     -8
+5     -7
+6     -6
+7     -5
+8     -4
+9     -3
+10    -2
+11    -1
+12     0
+13     1
+14     2
+15     3
+16     4
+17     5
+18     6
+19     7
+20     8
+21     9
+22    10
+> model.matrix( kleinOls )
+                Consumption_(Intercept) Consumption_corpProf
+Consumption_2                         1                 12.4
+Consumption_3                         1                 16.9
+Consumption_4                         1                 18.4
+Consumption_5                         1                 19.4
+Consumption_6                         1                 20.1
+Consumption_7                         1                 19.6
+Consumption_8                         1                 19.8
+Consumption_9                         1                 21.1
+Consumption_10                        1                 21.7
+Consumption_11                        1                 15.6
+Consumption_12                        1                 11.4
+Consumption_13                        1                  7.0
+Consumption_14                        1                 11.2
+Consumption_15                        1                 12.3
+Consumption_16                        1                 14.0
+Consumption_17                        1                 17.6
+Consumption_18                        1                 17.3
+Consumption_19                        1                 15.3
+Consumption_20                        1                 19.0
+Consumption_21                        1                 21.1
+Consumption_22                        1                 23.5
+Investment_2                          0                  0.0
+Investment_3                          0                  0.0
+Investment_4                          0                  0.0
+Investment_5                          0                  0.0
+Investment_6                          0                  0.0
+Investment_7                          0                  0.0
+Investment_8                          0                  0.0
+Investment_9                          0                  0.0
+Investment_10                         0                  0.0
+Investment_11                         0                  0.0
+Investment_12                         0                  0.0
+Investment_13                         0                  0.0
+Investment_14                         0                  0.0
+Investment_15                         0                  0.0
+Investment_16                         0                  0.0
+Investment_17                         0                  0.0
+Investment_18                         0                  0.0
+Investment_19                         0                  0.0
+Investment_20                         0                  0.0
+Investment_21                         0                  0.0
+Investment_22                         0                  0.0
+PrivateWages_2                        0                  0.0
+PrivateWages_3                        0                  0.0
+PrivateWages_4                        0                  0.0
+PrivateWages_5                        0                  0.0
+PrivateWages_6                        0                  0.0
+PrivateWages_7                        0                  0.0
+PrivateWages_8                        0                  0.0
+PrivateWages_9                        0                  0.0
+PrivateWages_10                       0                  0.0
+PrivateWages_11                       0                  0.0
+PrivateWages_12                       0                  0.0
+PrivateWages_13                       0                  0.0
+PrivateWages_14                       0                  0.0
+PrivateWages_15                       0                  0.0
+PrivateWages_16                       0                  0.0
+PrivateWages_17                       0                  0.0
+PrivateWages_18                       0                  0.0
+PrivateWages_19                       0                  0.0
+PrivateWages_20                       0                  0.0
+PrivateWages_21                       0                  0.0
+PrivateWages_22                       0                  0.0
+                Consumption_corpProfLag Consumption_wages
+Consumption_2                      12.7              28.2
+Consumption_3                      12.4              32.2
+Consumption_4                      16.9              37.0
+Consumption_5                      18.4              37.0
+Consumption_6                      19.4              38.6
+Consumption_7                      20.1              40.7
+Consumption_8                      19.6              41.5
+Consumption_9                      19.8              42.9
+Consumption_10                     21.1              45.3
+Consumption_11                     21.7              42.1
+Consumption_12                     15.6              39.3
+Consumption_13                     11.4              34.3
+Consumption_14                      7.0              34.1
+Consumption_15                     11.2              36.6
+Consumption_16                     12.3              39.3
+Consumption_17                     14.0              44.2
+Consumption_18                     17.6              47.7
+Consumption_19                     17.3              45.9
+Consumption_20                     15.3              49.4
+Consumption_21                     19.0              53.0
+Consumption_22                     21.1              61.8
+Investment_2                        0.0               0.0
+Investment_3                        0.0               0.0
+Investment_4                        0.0               0.0
+Investment_5                        0.0               0.0
+Investment_6                        0.0               0.0
+Investment_7                        0.0               0.0
+Investment_8                        0.0               0.0
+Investment_9                        0.0               0.0
+Investment_10                       0.0               0.0
+Investment_11                       0.0               0.0
+Investment_12                       0.0               0.0
+Investment_13                       0.0               0.0
+Investment_14                       0.0               0.0
+Investment_15                       0.0               0.0
+Investment_16                       0.0               0.0
+Investment_17                       0.0               0.0
+Investment_18                       0.0               0.0
+Investment_19                       0.0               0.0
+Investment_20                       0.0               0.0
+Investment_21                       0.0               0.0
+Investment_22                       0.0               0.0
+PrivateWages_2                      0.0               0.0
+PrivateWages_3                      0.0               0.0
+PrivateWages_4                      0.0               0.0
+PrivateWages_5                      0.0               0.0
+PrivateWages_6                      0.0               0.0
+PrivateWages_7                      0.0               0.0
+PrivateWages_8                      0.0               0.0
+PrivateWages_9                      0.0               0.0
+PrivateWages_10                     0.0               0.0
+PrivateWages_11                     0.0               0.0
+PrivateWages_12                     0.0               0.0
+PrivateWages_13                     0.0               0.0
+PrivateWages_14                     0.0               0.0
+PrivateWages_15                     0.0               0.0
+PrivateWages_16                     0.0               0.0
+PrivateWages_17                     0.0               0.0
+PrivateWages_18                     0.0               0.0
+PrivateWages_19                     0.0               0.0
+PrivateWages_20                     0.0               0.0
+PrivateWages_21                     0.0               0.0
+PrivateWages_22                     0.0               0.0
+                Investment_(Intercept) Investment_corpProf
+Consumption_2                        0                 0.0
+Consumption_3                        0                 0.0
+Consumption_4                        0                 0.0
+Consumption_5                        0                 0.0
+Consumption_6                        0                 0.0
+Consumption_7                        0                 0.0
+Consumption_8                        0                 0.0
+Consumption_9                        0                 0.0
+Consumption_10                       0                 0.0
+Consumption_11                       0                 0.0
+Consumption_12                       0                 0.0
+Consumption_13                       0                 0.0
+Consumption_14                       0                 0.0
+Consumption_15                       0                 0.0
+Consumption_16                       0                 0.0
+Consumption_17                       0                 0.0
+Consumption_18                       0                 0.0
+Consumption_19                       0                 0.0
+Consumption_20                       0                 0.0
+Consumption_21                       0                 0.0
+Consumption_22                       0                 0.0
+Investment_2                         1                12.4
+Investment_3                         1                16.9
+Investment_4                         1                18.4
+Investment_5                         1                19.4
+Investment_6                         1                20.1
+Investment_7                         1                19.6
+Investment_8                         1                19.8
+Investment_9                         1                21.1
+Investment_10                        1                21.7
+Investment_11                        1                15.6
+Investment_12                        1                11.4
+Investment_13                        1                 7.0
+Investment_14                        1                11.2
+Investment_15                        1                12.3
+Investment_16                        1                14.0
+Investment_17                        1                17.6
+Investment_18                        1                17.3
+Investment_19                        1                15.3
+Investment_20                        1                19.0
+Investment_21                        1                21.1
+Investment_22                        1                23.5
+PrivateWages_2                       0                 0.0
+PrivateWages_3                       0                 0.0
+PrivateWages_4                       0                 0.0
+PrivateWages_5                       0                 0.0
+PrivateWages_6                       0                 0.0
+PrivateWages_7                       0                 0.0
+PrivateWages_8                       0                 0.0
+PrivateWages_9                       0                 0.0
+PrivateWages_10                      0                 0.0
+PrivateWages_11                      0                 0.0
+PrivateWages_12                      0                 0.0
+PrivateWages_13                      0                 0.0
+PrivateWages_14                      0                 0.0
+PrivateWages_15                      0                 0.0
+PrivateWages_16                      0                 0.0
+PrivateWages_17                      0                 0.0
+PrivateWages_18                      0                 0.0
+PrivateWages_19                      0                 0.0
+PrivateWages_20                      0                 0.0
+PrivateWages_21                      0                 0.0
+PrivateWages_22                      0                 0.0
+                Investment_corpProfLag Investment_capitalLag
+Consumption_2                      0.0                   0.0
+Consumption_3                      0.0                   0.0
+Consumption_4                      0.0                   0.0
+Consumption_5                      0.0                   0.0
+Consumption_6                      0.0                   0.0
+Consumption_7                      0.0                   0.0
+Consumption_8                      0.0                   0.0
+Consumption_9                      0.0                   0.0
+Consumption_10                     0.0                   0.0
+Consumption_11                     0.0                   0.0
+Consumption_12                     0.0                   0.0
+Consumption_13                     0.0                   0.0
+Consumption_14                     0.0                   0.0
+Consumption_15                     0.0                   0.0
+Consumption_16                     0.0                   0.0
+Consumption_17                     0.0                   0.0
+Consumption_18                     0.0                   0.0
+Consumption_19                     0.0                   0.0
+Consumption_20                     0.0                   0.0
+Consumption_21                     0.0                   0.0
+Consumption_22                     0.0                   0.0
+Investment_2                      12.7                 182.8
+Investment_3                      12.4                 182.6
+Investment_4                      16.9                 184.5
+Investment_5                      18.4                 189.7
+Investment_6                      19.4                 192.7
+Investment_7                      20.1                 197.8
+Investment_8                      19.6                 203.4
+Investment_9                      19.8                 207.6
+Investment_10                     21.1                 210.6
+Investment_11                     21.7                 215.7
+Investment_12                     15.6                 216.7
+Investment_13                     11.4                 213.3
+Investment_14                      7.0                 207.1
+Investment_15                     11.2                 202.0
+Investment_16                     12.3                 199.0
+Investment_17                     14.0                 197.7
+Investment_18                     17.6                 199.8
+Investment_19                     17.3                 201.8
+Investment_20                     15.3                 199.9
+Investment_21                     19.0                 201.2
+Investment_22                     21.1                 204.5
+PrivateWages_2                     0.0                   0.0
+PrivateWages_3                     0.0                   0.0
+PrivateWages_4                     0.0                   0.0
+PrivateWages_5                     0.0                   0.0
+PrivateWages_6                     0.0                   0.0
+PrivateWages_7                     0.0                   0.0
+PrivateWages_8                     0.0                   0.0
+PrivateWages_9                     0.0                   0.0
+PrivateWages_10                    0.0                   0.0
+PrivateWages_11                    0.0                   0.0
+PrivateWages_12                    0.0                   0.0
+PrivateWages_13                    0.0                   0.0
+PrivateWages_14                    0.0                   0.0
+PrivateWages_15                    0.0                   0.0
+PrivateWages_16                    0.0                   0.0
+PrivateWages_17                    0.0                   0.0
+PrivateWages_18                    0.0                   0.0
+PrivateWages_19                    0.0                   0.0
+PrivateWages_20                    0.0                   0.0
+PrivateWages_21                    0.0                   0.0
+PrivateWages_22                    0.0                   0.0
+                PrivateWages_(Intercept) PrivateWages_gnp PrivateWages_gnpLag
+Consumption_2                          0              0.0                 0.0
+Consumption_3                          0              0.0                 0.0
+Consumption_4                          0              0.0                 0.0
+Consumption_5                          0              0.0                 0.0
+Consumption_6                          0              0.0                 0.0
+Consumption_7                          0              0.0                 0.0
+Consumption_8                          0              0.0                 0.0
+Consumption_9                          0              0.0                 0.0
+Consumption_10                         0              0.0                 0.0
+Consumption_11                         0              0.0                 0.0
+Consumption_12                         0              0.0                 0.0
+Consumption_13                         0              0.0                 0.0
+Consumption_14                         0              0.0                 0.0
+Consumption_15                         0              0.0                 0.0
+Consumption_16                         0              0.0                 0.0
+Consumption_17                         0              0.0                 0.0
+Consumption_18                         0              0.0                 0.0
+Consumption_19                         0              0.0                 0.0
+Consumption_20                         0              0.0                 0.0
+Consumption_21                         0              0.0                 0.0
+Consumption_22                         0              0.0                 0.0
+Investment_2                           0              0.0                 0.0
+Investment_3                           0              0.0                 0.0
+Investment_4                           0              0.0                 0.0
+Investment_5                           0              0.0                 0.0
+Investment_6                           0              0.0                 0.0
+Investment_7                           0              0.0                 0.0
+Investment_8                           0              0.0                 0.0
+Investment_9                           0              0.0                 0.0
+Investment_10                          0              0.0                 0.0
+Investment_11                          0              0.0                 0.0
+Investment_12                          0              0.0                 0.0
+Investment_13                          0              0.0                 0.0
+Investment_14                          0              0.0                 0.0
+Investment_15                          0              0.0                 0.0
+Investment_16                          0              0.0                 0.0
+Investment_17                          0              0.0                 0.0
+Investment_18                          0              0.0                 0.0
+Investment_19                          0              0.0                 0.0
+Investment_20                          0              0.0                 0.0
+Investment_21                          0              0.0                 0.0
+Investment_22                          0              0.0                 0.0
+PrivateWages_2                         1             45.6                44.9
+PrivateWages_3                         1             50.1                45.6
+PrivateWages_4                         1             57.2                50.1
+PrivateWages_5                         1             57.1                57.2
+PrivateWages_6                         1             61.0                57.1
+PrivateWages_7                         1             64.0                61.0
+PrivateWages_8                         1             64.4                64.0
+PrivateWages_9                         1             64.5                64.4
+PrivateWages_10                        1             67.0                64.5
+PrivateWages_11                        1             61.2                67.0
+PrivateWages_12                        1             53.4                61.2
+PrivateWages_13                        1             44.3                53.4
+PrivateWages_14                        1             45.1                44.3
+PrivateWages_15                        1             49.7                45.1
+PrivateWages_16                        1             54.4                49.7
+PrivateWages_17                        1             62.7                54.4
+PrivateWages_18                        1             65.0                62.7
+PrivateWages_19                        1             60.9                65.0
+PrivateWages_20                        1             69.5                60.9
+PrivateWages_21                        1             75.7                69.5
+PrivateWages_22                        1             88.4                75.7
+                PrivateWages_trend
+Consumption_2                    0
+Consumption_3                    0
+Consumption_4                    0
+Consumption_5                    0
+Consumption_6                    0
+Consumption_7                    0
+Consumption_8                    0
+Consumption_9                    0
+Consumption_10                   0
+Consumption_11                   0
+Consumption_12                   0
+Consumption_13                   0
+Consumption_14                   0
+Consumption_15                   0
+Consumption_16                   0
+Consumption_17                   0
+Consumption_18                   0
+Consumption_19                   0
+Consumption_20                   0
+Consumption_21                   0
+Consumption_22                   0
+Investment_2                     0
+Investment_3                     0
+Investment_4                     0
+Investment_5                     0
+Investment_6                     0
+Investment_7                     0
+Investment_8                     0
+Investment_9                     0
+Investment_10                    0
+Investment_11                    0
+Investment_12                    0
+Investment_13                    0
+Investment_14                    0
+Investment_15                    0
+Investment_16                    0
+Investment_17                    0
+Investment_18                    0
+Investment_19                    0
+Investment_20                    0
+Investment_21                    0
+Investment_22                    0
+PrivateWages_2                 -10
+PrivateWages_3                  -9
+PrivateWages_4                  -8
+PrivateWages_5                  -7
+PrivateWages_6                  -6
+PrivateWages_7                  -5
+PrivateWages_8                  -4
+PrivateWages_9                  -3
+PrivateWages_10                 -2
+PrivateWages_11                 -1
+PrivateWages_12                  0
+PrivateWages_13                  1
+PrivateWages_14                  2
+PrivateWages_15                  3
+PrivateWages_16                  4
+PrivateWages_17                  5
+PrivateWages_18                  6
+PrivateWages_19                  7
+PrivateWages_20                  8
+PrivateWages_21                  9
+PrivateWages_22                 10
+> 
+> # 2SLS
+> klein2sls <- systemfit( system, "2SLS", inst = inst, data = KleinI,
++    methodResidCov = "noDfCor" )
+> summary( klein2sls )
+
+systemfit results 
+method: 2SLS 
+
+        N DF     SSR  detRCov   OLS-R2 McElroy-R2
+system 63 51 60.9771 0.287714 0.969338   0.992418
+
+              N DF     SSR      MSE     RMSE       R2   Adj R2
+Consumption  21 17 21.9252 1.289720 1.135659 0.976711 0.972601
+Investment   21 17 29.0469 1.708639 1.307149 0.884884 0.864569
+PrivateWages 21 17 10.0050 0.588527 0.767155 0.987414 0.985193
+
+The covariance matrix of the residuals
+             Consumption Investment PrivateWages
+Consumption     1.044059   0.437848    -0.385228
+Investment      0.437848   1.383184     0.192606
+PrivateWages   -0.385228   0.192606     0.476427
+
+The correlations of the residuals
+             Consumption Investment PrivateWages
+Consumption     1.000000   0.364352    -0.546206
+Investment      0.364352   1.000000     0.237264
+PrivateWages   -0.546206   0.237264     1.000000
+
+
+2SLS estimates for 'Consumption' (equation 1)
+Model Formula: consump ~ corpProf + corpProfLag + wages
+Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag + 
+    gnpLag
+
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 16.5547558  1.3207924 12.53396 5.1550e-10 ***
+corpProf     0.0173022  0.1180494  0.14657   0.885197    
+corpProfLag  0.2162340  0.1072680  2.01583   0.059905 .  
+wages        0.8101827  0.0402497 20.12891 2.6934e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.135659 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 21.925247 MSE: 1.28972 Root MSE: 1.135659 
+Multiple R-Squared: 0.976711 Adjusted R-Squared: 0.972601 
+
+
+2SLS estimates for 'Investment' (equation 2)
+Model Formula: invest ~ corpProf + corpProfLag + capitalLag
+Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag + 
+    gnpLag
+
+              Estimate Std. Error  t value  Pr(>|t|)    
+(Intercept) 20.2782089  7.5427059  2.68845 0.0155451 *  
+corpProf     0.1502218  0.1732293  0.86718 0.3979163    
+corpProfLag  0.6159436  0.1627854  3.78378 0.0014821 ** 
+capitalLag  -0.1577876  0.0361262 -4.36767 0.0004193 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.307149 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 29.046858 MSE: 1.708639 Root MSE: 1.307149 
+Multiple R-Squared: 0.884884 Adjusted R-Squared: 0.864569 
+
+
+2SLS estimates for 'PrivateWages' (equation 3)
+Model Formula: privWage ~ gnp + gnpLag + trend
+Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag + 
+    gnpLag
+
+             Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 1.5002969  1.1477802  1.30713 0.20857384    
+gnp         0.4388591  0.0356319 12.31646 6.7501e-10 ***
+gnpLag      0.1466738  0.0388361  3.77674 0.00150497 ** 
+trend       0.1303957  0.0291410  4.47465 0.00033335 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 0.767155 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 10.004964 MSE: 0.588527 Root MSE: 0.767155 
+Multiple R-Squared: 0.987414 Adjusted R-Squared: 0.985193 
+
+> residuals( klein2sls )
+    Consumption Investment PrivateWages
+1  -0.462627578 -1.3198630  -1.29396797
+2  -0.616348110  0.2573643   0.29809887
+3  -1.304231558  0.8600820   1.19177163
+4  -0.245884830 -1.5935595  -0.13612228
+5   0.229477265  0.2587046  -0.46340094
+6   0.885380877  1.2073719  -0.48240173
+7   1.441891297  0.9689101  -0.72836251
+8   1.341895837  0.1131411   0.33868637
+9  -0.394028217  1.7956443   1.19647564
+10 -0.625640517 -0.9528518  -0.15522203
+11 -1.065432027 -0.8068767   0.58819116
+12 -1.330205837 -0.8954156   0.09546877
+13  0.610591191  1.3055211   0.44871761
+14 -0.142080956 -0.1514029   0.28223117
+15  0.003154556  0.1423192   0.01449829
+16  2.003373506  1.7492926  -0.84779460
+17 -0.605517818 -0.1916837   0.99504115
+18 -0.247714326 -3.2908817  -0.47338216
+19  1.385096130  0.2853882  -0.37660314
+20  1.032037824 -0.1039449  -1.08931990
+21 -1.893186709  0.3627404   0.59739660
+> fitted( klein2sls )
+   Consumption Investment PrivateWages
+1     42.36263  1.1198630     26.79397
+2     45.61635  1.6426357     29.00190
+3     50.50423  4.3399180     32.90823
+4     50.84588  4.5935595     34.03612
+5     52.37052  4.8412954     35.86340
+6     54.21462  4.3926281     37.88240
+7     54.75811  3.2310899     38.62836
+8     55.95810  2.8868589     38.86131
+9     58.19403  3.3043557     40.10352
+10    55.62564  1.9528518     38.05522
+11    51.96543 -2.5931233     33.91181
+12    46.93021 -5.3045844     28.90453
+13    45.88941 -6.4055211     28.05128
+14    48.84208 -2.8485971     30.31777
+15    51.29685 -1.4423192     33.18550
+16    55.69663  0.3507074     37.64779
+17    59.30552  2.1916837     40.00496
+18    57.74771  1.3908817     38.67338
+19    60.21490  1.0146118     41.97660
+20    63.96796  3.4039449     46.08932
+21    71.59319  4.5372596     52.70260
+> predict( klein2sls, se.fit = TRUE, interval = "confidence",
++    useDfSys = FALSE )
+   Consumption.pred Consumption.se.fit Consumption.lwr Consumption.upr
+2          42.36263          0.4713060        41.36826        43.35700
+3          45.61635          0.5770570        44.39886        46.83383
+4          50.50423          0.3537763        49.75783        51.25063
+5          50.84588          0.4048032        49.99182        51.69995
+6          52.37052          0.4044981        51.51711        53.22394
+7          54.21462          0.3591348        53.45691        54.97233
+8          54.75811          0.3278587        54.06639        55.44983
+9          55.95810          0.3681415        55.18139        56.73481
+10         58.19403          0.3772960        57.39800        58.99005
+11         55.62564          0.7280940        54.08950        57.16178
+12         51.96543          0.6037637        50.69160        53.23926
+13         46.93021          0.7645787        45.31709        48.54333
+14         45.88941          0.6146629        44.59258        47.18623
+15         48.84208          0.3744582        48.05204        49.63212
+16         51.29685          0.3329025        50.59448        51.99921
+17         55.69663          0.4085620        54.83464        56.55862
+18         59.30552          0.3263404        58.61700        59.99404
+19         57.74771          0.4143265        56.87356        58.62187
+20         60.21490          0.4776761        59.20710        61.22271
+21         63.96796          0.4464662        63.02600        64.90992
+22         71.59319          0.6889731        70.13958        73.04679
+   Investment.pred Investment.se.fit Investment.lwr Investment.upr
+2        1.1198630         0.8654480     -0.7060727      2.9457988
+3        1.6426357         0.5935585      0.3903367      2.8949346
+4        4.3399180         0.5451784      3.1896922      5.4901438
+5        4.5935595         0.4425655      3.6598278      5.5272912
+6        4.8412954         0.4113742      3.9733717      5.7092192
+7        4.3926281         0.3994680      3.5498243      5.2354318
+8        3.2310899         0.3480772      2.4967112      3.9654686
+9        2.8868589         0.5417674      1.7438297      4.0298881
+10       3.3043557         0.5926015      2.0540759      4.5546356
+11       1.9528518         0.8552847      0.1483589      3.7573448
+12      -2.5931233         0.6792253     -4.0261634     -1.1600832
+13      -5.3045844         0.8757135     -7.1521783     -3.4569905
+14      -6.4055211         0.9157678     -8.3376223     -4.4734199
+15      -2.8485971         0.4345847     -3.7654907     -1.9317036
+16      -1.4423192         0.3761954     -2.2360220     -0.6486164
+17       0.3507074         0.5095493     -0.7243476      1.4257624
+18       2.1916837         0.2993118      1.5601909      2.8231764
+19       1.3908817         0.4643510      0.4111868      2.3705766
+20       1.0146118         0.5762749     -0.2012220      2.2304456
+21       3.4039449         0.4711075      2.4099950      4.3978948
+22       4.5372596         0.6745938      3.1139911      5.9605281
+   PrivateWages.pred PrivateWages.se.fit PrivateWages.lwr PrivateWages.upr
+2           26.79397           0.3182331         26.12255         27.46538
+3           29.00190           0.3298126         28.30606         29.69774
+4           32.90823           0.3455918         32.17909         33.63736
+5           34.03612           0.2419063         33.52574         34.54650
+6           35.86340           0.2482214         35.33970         36.38710
+7           37.88240           0.2439119         37.36779         38.39701
+8           38.62836           0.2457444         38.10989         39.14684
+9           38.86131           0.2352528         38.36497         39.35765
+10          40.10352           0.2236586         39.63165         40.57540
+11          38.05522           0.3504543         37.31583         38.79462
+12          33.91181           0.3819419         33.10598         34.71764
+13          28.90453           0.4542952         27.94605         29.86301
+14          28.05128           0.3422791         27.32914         28.77343
+15          30.31777           0.3346579         29.61170         31.02384
+16          33.18550           0.2803422         32.59403         33.77697
+17          37.64779           0.2914023         37.03299         38.26260
+18          40.00496           0.2154883         39.55032         40.45960
+19          38.67338           0.3557843         37.92274         39.42402
+20          41.97660           0.3044597         41.33425         42.61896
+21          46.08932           0.3057140         45.44432         46.73432
+22          52.70260           0.4888227         51.67128         53.73393
+> model.frame( klein2sls )
+   consump corpProf corpProfLag wages invest capitalLag privWage  gnp gnpLag
+2     41.9     12.4        12.7  28.2   -0.2      182.8     25.5 45.6   44.9
+3     45.0     16.9        12.4  32.2    1.9      182.6     29.3 50.1   45.6
+4     49.2     18.4        16.9  37.0    5.2      184.5     34.1 57.2   50.1
+5     50.6     19.4        18.4  37.0    3.0      189.7     33.9 57.1   57.2
+6     52.6     20.1        19.4  38.6    5.1      192.7     35.4 61.0   57.1
+7     55.1     19.6        20.1  40.7    5.6      197.8     37.4 64.0   61.0
+8     56.2     19.8        19.6  41.5    4.2      203.4     37.9 64.4   64.0
+9     57.3     21.1        19.8  42.9    3.0      207.6     39.2 64.5   64.4
+10    57.8     21.7        21.1  45.3    5.1      210.6     41.3 67.0   64.5
+11    55.0     15.6        21.7  42.1    1.0      215.7     37.9 61.2   67.0
+12    50.9     11.4        15.6  39.3   -3.4      216.7     34.5 53.4   61.2
+13    45.6      7.0        11.4  34.3   -6.2      213.3     29.0 44.3   53.4
+14    46.5     11.2         7.0  34.1   -5.1      207.1     28.5 45.1   44.3
+15    48.7     12.3        11.2  36.6   -3.0      202.0     30.6 49.7   45.1
+16    51.3     14.0        12.3  39.3   -1.3      199.0     33.2 54.4   49.7
+17    57.7     17.6        14.0  44.2    2.1      197.7     36.8 62.7   54.4
+18    58.7     17.3        17.6  47.7    2.0      199.8     41.0 65.0   62.7
+19    57.5     15.3        17.3  45.9   -1.9      201.8     38.2 60.9   65.0
+20    61.6     19.0        15.3  49.4    1.3      199.9     41.6 69.5   60.9
+21    65.0     21.1        19.0  53.0    3.3      201.2     45.0 75.7   69.5
+22    69.7     23.5        21.1  61.8    4.9      204.5     53.3 88.4   75.7
+   trend
+2    -10
+3     -9
+4     -8
+5     -7
+6     -6
+7     -5
+8     -4
+9     -3
+10    -2
+11    -1
+12     0
+13     1
+14     2
+15     3
+16     4
+17     5
+18     6
+19     7
+20     8
+21     9
+22    10
+> all.equal( model.matrix( kleinOls ), model.matrix( klein2sls ) )
+[1] TRUE
+> 
+> # SUR
+> kleinSur <- systemfit( system, "SUR", data = KleinI,
++    methodResidCov = "noDfCor" )
+> summary( kleinSur )
+
+systemfit results 
+method: SUR 
+
+        N DF     SSR  detRCov   OLS-R2 McElroy-R2
+system 63 51 46.4675 0.158406 0.976634   0.993249
+
+              N DF     SSR      MSE     RMSE       R2   Adj R2
+Consumption  21 17 18.0979 1.064584 1.031787 0.980776 0.977384
+Investment   21 17 17.6061 1.035654 1.017671 0.930225 0.917912
+PrivateWages 21 17 10.7634 0.633144 0.795703 0.986460 0.984070
+
+The covariance matrix of the residuals used for estimation
+             Consumption Investment PrivateWages
+Consumption    0.8514023  0.0494969    -0.380815
+Investment     0.0494969  0.8248906     0.121170
+PrivateWages  -0.3808155  0.1211701     0.476417
+
+The covariance matrix of the residuals
+             Consumption Investment PrivateWages
+Consumption    0.8618058  0.0766269    -0.436767
+Investment     0.0766269  0.8383862     0.202699
+PrivateWages  -0.4367668  0.2026991     0.512545
+
+The correlations of the residuals
+             Consumption Investment PrivateWages
+Consumption    1.0000000  0.0901476    -0.657172
+Investment     0.0901476  1.0000000     0.309217
+PrivateWages  -0.6571717  0.3092172     1.000000
+
+
+SUR estimates for 'Consumption' (equation 1)
+Model Formula: consump ~ corpProf + corpProfLag + wages
+
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 15.9805197  1.1686949 13.67382 1.3323e-10 ***
+corpProf     0.2301589  0.0766927  3.00105  0.0080366 ** 
+corpProfLag  0.0672874  0.0769357  0.87459  0.3939837    
+wages        0.7961561  0.0352521 22.58467 4.0634e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.031787 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 18.097921 MSE: 1.064584 Root MSE: 1.031787 
+Multiple R-Squared: 0.980776 Adjusted R-Squared: 0.977384 
+
+
+SUR estimates for 'Investment' (equation 2)
+Model Formula: invest ~ corpProf + corpProfLag + capitalLag
+
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 12.9292680  4.8013662  2.69283  0.0154038 *  
+corpProf     0.4428597  0.0860750  5.14505 8.0987e-05 ***
+corpProfLag  0.3654797  0.0894313  4.08671  0.0007685 ***
+capitalLag  -0.1253291  0.0234593 -5.34241 5.3876e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.017671 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 17.606111 MSE: 1.035654 Root MSE: 1.017671 
+Multiple R-Squared: 0.930225 Adjusted R-Squared: 0.917912 
+
+
+SUR estimates for 'PrivateWages' (equation 3)
+Model Formula: privWage ~ gnp + gnpLag + trend
+
+             Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 1.6347247  1.1173204  1.46308    0.16169    
+gnp         0.4098279  0.0272550 15.03682 2.9780e-11 ***
+gnpLag      0.1744238  0.0311783  5.59439 3.2234e-05 ***
+trend       0.1558459  0.0275776  5.65117 2.8742e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 0.795703 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 10.763445 MSE: 0.633144 Root MSE: 0.795703 
+Multiple R-Squared: 0.98646 Adjusted R-Squared: 0.98407 
+
+> residuals( kleinSur )
+   Consumption  Investment PrivateWages
+1  -0.24064242 -0.35217010  -1.09604593
+2  -1.34079557 -0.16046071   0.58178613
+3  -1.61037667  1.06871630   1.53125525
+4  -0.54146672 -1.47065188  -0.02201687
+5  -0.04371515  0.32985378  -0.25874905
+6   0.85233528  1.43462601  -0.32433137
+7   1.30302235  0.83063659  -0.66737982
+8   0.97573978 -0.49179496   0.36602201
+9  -0.66060387  1.24335277   1.26816409
+10  0.45069239  0.26468736  -0.34673966
+11 -0.04294979  0.07945332   0.30572995
+12 -0.06686293  0.33693199  -0.26017660
+13  0.32176572  0.40799173   0.34337191
+14 -0.00440657 -0.15334682   0.26277880
+15 -0.01931433  0.01577686  -0.02160757
+16  1.53656014  1.03723865  -0.79881665
+17 -0.42317333  0.01756068   0.85501577
+18  0.29041165 -2.63641789  -0.82171060
+19  0.88685232 -0.58216464  -0.38693852
+20  0.68839316 -0.70151713  -1.18376193
+21 -2.31146545 -0.51830192   0.67415065
+> fitted( kleinSur )
+   Consumption Investment PrivateWages
+1     42.14064  0.1521701     26.59605
+2     46.34080  2.0604607     28.71821
+3     50.81038  4.1312837     32.56874
+4     51.14147  4.4706519     33.92202
+5     52.64372  4.7701462     35.65875
+6     54.24766  4.1653740     37.72433
+7     54.89698  3.3693634     38.56738
+8     56.32426  3.4917950     38.83398
+9     58.46060  3.8566472     40.03184
+10    54.54931  0.7353126     38.24674
+11    50.94295 -3.4794533     34.19427
+12    45.66686 -6.5369320     29.26018
+13    46.17823 -5.5079917     28.15663
+14    48.70441 -2.8466532     30.33722
+15    51.31931 -1.3157769     33.22161
+16    56.16344  1.0627613     37.59882
+17    59.12317  1.9824393     40.14498
+18    57.20959  0.7364179     39.02171
+19    60.71315  1.8821646     41.98694
+20    64.31161  4.0015171     46.18376
+21    72.01147  5.4183019     52.62585
+> predict( kleinSur, se.fit = TRUE, interval = "confidence",
++    useDfSys = TRUE )
+   Consumption.pred Consumption.se.fit Consumption.lwr Consumption.upr
+2          42.14064          0.4146371        41.30822        42.97306
+3          46.34080          0.4490580        45.43927        47.24232
+4          50.81038          0.3004173        50.20726        51.41349
+5          51.14147          0.3482316        50.44236        51.84057
+6          52.64372          0.3497398        51.94158        53.34585
+7          54.24766          0.3172096        53.61084        54.88449
+8          54.89698          0.2893031        54.31618        55.47778
+9          56.32426          0.3090764        55.70376        56.94476
+10         58.46060          0.3279103        57.80230        59.11891
+11         54.54931          0.5160724        53.51325        55.58537
+12         50.94295          0.4144130        50.11098        51.77492
+13         45.66686          0.5436098        44.57552        46.75821
+14         46.17823          0.5265117        45.12122        47.23525
+15         48.70441          0.3321423        48.03760        49.37121
+16         51.31931          0.2947592        50.72756        51.91107
+17         56.16344          0.3188155        55.52339        56.80349
+18         59.12317          0.2858685        58.54927        59.69708
+19         57.20959          0.3230983        56.56094        57.85824
+20         60.71315          0.3811594        59.94794        61.47836
+21         64.31161          0.3808238        63.54707        65.07614
+22         72.01147          0.5966033        70.81373        73.20920
+   Investment.pred Investment.se.fit Investment.lwr Investment.upr
+2        0.1521701         0.5361394     -0.9241746      1.2285148
+3        2.0604607         0.4455491      1.1659836      2.9549378
+4        4.1312837         0.3973116      3.3336475      4.9289199
+5        4.4706519         0.3294574      3.8092385      5.1320652
+6        4.7701462         0.3113310      4.1451232      5.3951693
+7        4.1653740         0.2941348      3.5748738      4.7558742
+8        3.3693634         0.2626607      2.8420500      3.8966768
+9        3.4917950         0.3467746      2.7956158      4.1879741
+10       3.8566472         0.3979761      3.0576769      4.6556176
+11       0.7353126         0.5385030     -0.3457772      1.8164025
+12      -3.4794533         0.4536225     -4.3901385     -2.5687681
+13      -6.5369320         0.5522591     -7.6456385     -5.4282255
+14      -5.5079917         0.6170804     -6.7468323     -4.2691511
+15      -2.8466532         0.3347384     -3.5186685     -2.1746378
+16      -1.3157769         0.2871677     -1.8922900     -0.7392637
+17       1.0627613         0.3105643      0.4392774      1.6862453
+18       1.9824393         0.2181086      1.5445680      2.4203106
+19       0.7364179         0.2789461      0.1764102      1.2964256
+20       1.8821646         0.3265746      1.2265387      2.5377905
+21       4.0015171         0.2970884      3.4050872      4.5979471
+22       5.4183019         0.4118614      4.5914557      6.2451482
+   PrivateWages.pred PrivateWages.se.fit PrivateWages.lwr PrivateWages.upr
+2           26.59605           0.3133403         25.96699         27.22510
+3           28.71821           0.3101646         28.09553         29.34090
+4           32.56874           0.3048074         31.95682         33.18067
+5           33.92202           0.2360903         33.44805         34.39599
+6           35.65875           0.2328180         35.19135         36.12615
+7           37.72433           0.2338110         37.25494         38.19373
+8           38.56738           0.2393760         38.08681         39.04795
+9           38.83398           0.2286681         38.37491         39.29305
+10          40.03184           0.2186748         39.59283         40.47084
+11          38.24674           0.3011872         37.64208         38.85140
+12          34.19427           0.3076769         33.57658         34.81196
+13          29.26018           0.3695878         28.51820         30.00215
+14          28.15663           0.3317408         27.49063         28.82263
+15          30.33722           0.3237075         29.68735         30.98709
+16          33.22161           0.2707357         32.67808         33.76513
+17          37.59882           0.2627937         37.07124         38.12640
+18          40.14498           0.2111810         39.72102         40.56895
+19          39.02171           0.3057095         38.40797         39.63545
+20          41.98694           0.2800974         41.42462         42.54926
+21          46.18376           0.2982228         45.58505         46.78247
+22          52.62585           0.4453591         51.73175         53.51995
+> all.equal( model.frame( kleinOls ), model.frame( kleinSur ) )
+[1] TRUE
+> all.equal( model.matrix( kleinOls ), model.matrix( kleinSur ) )
+[1] TRUE
+> 
+> # 3SLS
+> klein3sls <- systemfit( system, "3SLS", inst = inst, data = KleinI,
++    methodResidCov = "noDfCor" )
+> summary( klein3sls )
+
+systemfit results 
+method: 3SLS 
+
+        N DF     SSR  detRCov  OLS-R2 McElroy-R2
+system 63 51 73.6015 0.282997 0.96299   0.994951
+
+              N DF     SSR      MSE    RMSE       R2   Adj R2
+Consumption  21 17 18.7270 1.101586 1.04957 0.980108 0.976598
+Investment   21 17 43.9540 2.585528 1.60796 0.825805 0.795065
+PrivateWages 21 17 10.9206 0.642386 0.80149 0.986262 0.983838
+
+The covariance matrix of the residuals used for estimation
+             Consumption Investment PrivateWages
+Consumption     1.044059   0.437848    -0.385228
+Investment      0.437848   1.383184     0.192606
+PrivateWages   -0.385228   0.192606     0.476427
+
+The covariance matrix of the residuals
+             Consumption Investment PrivateWages
+Consumption     0.891760   0.411319    -0.393615
+Investment      0.411319   2.093047     0.403046
+PrivateWages   -0.393615   0.403046     0.520027
+
+The correlations of the residuals
+             Consumption Investment PrivateWages
+Consumption     1.000000   0.301068    -0.578009
+Investment      0.301068   1.000000     0.386324
+PrivateWages   -0.578009   0.386324     1.000000
+
+
+3SLS estimates for 'Consumption' (equation 1)
+Model Formula: consump ~ corpProf + corpProfLag + wages
+Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag + 
+    gnpLag
+
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 16.4407901  1.3045488 12.60266 4.7379e-10 ***
+corpProf     0.1248905  0.1081290  1.15501    0.26406    
+corpProfLag  0.1631441  0.1004382  1.62432    0.12270    
+wages        0.7900809  0.0379379 20.82563 1.5432e-13 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.049565 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 18.726956 MSE: 1.101586 Root MSE: 1.049565 
+Multiple R-Squared: 0.980108 Adjusted R-Squared: 0.976598 
+
+
+3SLS estimates for 'Investment' (equation 2)
+Model Formula: invest ~ corpProf + corpProfLag + capitalLag
+Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag + 
+    gnpLag
+
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 28.1778469  6.7937702  4.14760 0.00067370 ***
+corpProf    -0.0130792  0.1618962 -0.08079 0.93655448    
+corpProfLag  0.7557240  0.1529331  4.94153 0.00012386 ***
+capitalLag  -0.1948482  0.0325307 -5.98967 1.4635e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.607958 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 43.953979 MSE: 2.585528 Root MSE: 1.607958 
+Multiple R-Squared: 0.825805 Adjusted R-Squared: 0.795065 
+
+
+3SLS estimates for 'PrivateWages' (equation 3)
+Model Formula: privWage ~ gnp + gnpLag + trend
+Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag + 
+    gnpLag
+
+             Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 1.7972177  1.1158550  1.61062    0.12567    
+gnp         0.4004919  0.0318134 12.58877 4.8192e-10 ***
+gnpLag      0.1812910  0.0341588  5.30730 5.7908e-05 ***
+trend       0.1496741  0.0279352  5.35790 5.2190e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 0.80149 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 10.92056 MSE: 0.642386 Root MSE: 0.80149 
+Multiple R-Squared: 0.986262 Adjusted R-Squared: 0.983838 
+
+> residuals( klein3sls )
+   Consumption  Investment PrivateWages
+1  -0.44164434 -2.19509936 -1.202872868
+2  -1.01503199  0.15150450  0.518335848
+3  -1.52890462  0.44057712  1.509359819
+4  -0.49851123 -1.86671874 -0.087431314
+5  -0.01320815  0.07125747 -0.280894659
+6   0.77586625  1.02943718 -0.339079372
+7   1.30039545  1.10106519 -0.692823284
+8   1.09929571  0.58528598  0.344937007
+9  -0.58392015  2.29523709  1.275904091
+10 -0.19171571 -1.34425423 -0.404144659
+11 -0.55977013 -0.99442238  0.221505776
+12 -0.67464217 -1.34041419 -0.369622317
+13  0.57666804  1.93164467  0.310058301
+14 -0.02111902 -0.12173494  0.273088726
+15  0.05389015  0.18465856  0.007164107
+16  1.85554289  2.09371016 -0.718660380
+17 -0.45959198 -0.32163854  0.905818757
+18  0.06127788 -3.63138322 -0.818807985
+19  1.26018803  0.75824601 -0.269419105
+20  0.94999352  0.24283636 -1.061245604
+21 -1.94505845  0.93020530  0.878829115
+> fitted( klein3sls )
+   Consumption   Investment PrivateWages
+1     42.34164  1.995099355     26.70287
+2     46.01503  1.748495496     28.78166
+3     50.72890  4.759422878     32.59064
+4     51.09851  4.866718742     33.98743
+5     52.61321  5.028742529     35.68089
+6     54.32413  4.570562822     37.73908
+7     54.89960  3.098934809     38.59282
+8     56.20070  2.414714017     38.85506
+9     58.38392  2.804762910     40.02410
+10    55.19172  2.344254229     38.30414
+11    51.45977 -2.405577623     34.27849
+12    46.27464 -4.859585814     29.36962
+13    45.92333 -7.031644668     28.18994
+14    48.72112 -2.878265056     30.32691
+15    51.24611 -1.484658560     33.19284
+16    55.84446  0.006289843     37.51866
+17    59.15959  2.321638538     40.09418
+18    57.43872  1.731383216     39.01881
+19    60.33981  0.541753990     41.86942
+20    64.05001  3.057163643     46.06125
+21    71.64506  3.969794703     52.42117
+> predict( klein3sls, se.fit = TRUE, interval = "prediction",
++    useDfSys = FALSE )
+   Consumption.pred Consumption.se.fit Consumption.lwr Consumption.upr
+2          42.34164          0.4636080        39.92085        44.76244
+3          46.01503          0.5406354        43.52413        48.50593
+4          50.72890          0.3372484        48.40301        53.05480
+5          51.09851          0.3849688        48.73987        53.45716
+6          52.61321          0.3863975        50.25352        54.97289
+7          54.32413          0.3490750        51.99048        56.65778
+8          54.89960          0.3195152        52.58488        57.21433
+9          56.20070          0.3552450        53.86291        58.53849
+10         58.38392          0.3696000        56.03624        60.73160
+11         55.19172          0.6816022        52.55135        57.83208
+12         51.45977          0.5625668        48.94735        53.97219
+13         46.27464          0.7193565        43.59006        48.95922
+14         45.92333          0.5973788        43.37539        48.47128
+15         48.72112          0.3695983        46.37344        51.06879
+16         51.24611          0.3272530        48.92658        53.56564
+17         55.84446          0.3913863        53.48112        58.20780
+18         59.15959          0.3159384        56.84705        61.47213
+19         57.43872          0.3892443        55.07696        59.80049
+20         60.33981          0.4592291        57.92274        62.75689
+21         64.05001          0.4378874        61.65062        66.44939
+22         71.64506          0.6738158        69.01361        74.27651
+   Investment.pred Investment.se.fit Investment.lwr Investment.upr
+2      1.995099355         0.7922917     -1.7868616      5.7770603
+3      1.748495496         0.5848874     -1.8614609      5.3584519
+4      4.759422878         0.5104176      1.2001107      8.3187351
+5      4.866718742         0.4229368      1.3588347      8.3746028
+6      5.028742529         0.4001479      1.5327797      8.5247053
+7      4.570562822         0.3907442      1.0793381      8.0617875
+8      3.098934809         0.3446891     -0.3706303      6.5684999
+9      2.414714017         0.5111561     -1.1450699      5.9744980
+10     2.804762910         0.5603540     -0.7878291      6.3973550
+11     2.344254229         0.8385753     -1.4818698      6.1703782
+12    -2.405577623         0.6725145     -6.0828378      1.2716826
+13    -4.859585814         0.8616625     -8.7084761     -1.0106955
+14    -7.031644668         0.8737308    -10.8926266     -3.1706627
+15    -2.878265056         0.4330011     -6.3916105      0.6350803
+16    -1.484658560         0.3747110     -4.9680506      1.9987335
+17     0.006289843         0.4912741     -3.5410113      3.5535910
+18     2.321638538         0.2944810     -1.1272790      5.7705561
+19     1.731383216         0.4457505     -1.7890524      5.2518188
+20     0.541753990         0.5471054     -3.0417368      4.1252448
+21     3.057163643         0.4542724     -0.4681176      6.5824449
+22     3.969794703         0.6420954      0.3168182      7.6227712
+   PrivateWages.pred PrivateWages.se.fit PrivateWages.lwr PrivateWages.upr
+2           26.70287           0.3137731         24.88691         28.51883
+3           28.78166           0.3175863         26.96275         30.60057
+4           32.59064           0.3252436         30.76572         34.41556
+5           33.98743           0.2347498         32.22540         35.74947
+6           35.68089           0.2405250         33.91540         37.44639
+7           37.73908           0.2376708         35.97530         39.50286
+8           38.59282           0.2371355         36.82937         40.35628
+9           38.85506           0.2265413         37.09782         40.61231
+10          40.02410           0.2194637         38.27085         41.77734
+11          38.30414           0.3171002         36.48561         40.12268
+12          34.27849           0.3444143         32.43798         36.11901
+13          29.36962           0.4194751         27.46103         31.27821
+14          28.18994           0.3340743         26.35793         30.02195
+15          30.32691           0.3198378         28.50625         32.14758
+16          33.19284           0.2676601         31.41004         34.97563
+17          37.51866           0.2688404         35.73507         39.30225
+18          40.09418           0.2121754         38.34494         41.84343
+19          39.01881           0.3314730         37.18890         40.84871
+20          41.86942           0.2867545         40.07345         43.66538
+21          46.06125           0.3009599         44.25496         47.86753
+22          52.42117           0.4709381         50.45987         54.38247
+> all.equal( model.frame( klein2sls ), model.frame( klein3sls ) )
+[1] TRUE
+> all.equal( model.matrix( kleinOls ), model.matrix( klein3sls ) )
+[1] TRUE
+> 
+> # I3SLS
+> kleinI3sls <- systemfit( system, "3SLS", inst = inst, data = KleinI,
++    methodResidCov = "noDfCor", maxit = 500 )
+> summary( kleinI3sls )
+
+systemfit results 
+method: iterated 3SLS 
+
+convergence achieved after 20 iterations
+
+        N DF     SSR detRCov  OLS-R2 McElroy-R2
+system 63 51 127.592 0.50918 0.93584   0.996225
+
+              N DF     SSR      MSE     RMSE       R2   Adj R2
+Consumption  21 17 19.2131 1.130180 1.063099 0.979592 0.975990
+Investment   21 17 95.6608 5.627107 2.372152 0.620885 0.553982
+PrivateWages 21 17 12.7186 0.748151 0.864957 0.984000 0.981176
+
+The covariance matrix of the residuals used for estimation
+             Consumption Investment PrivateWages
+Consumption     0.914907   0.641729    -0.434981
+Investment      0.641729   4.555218     0.734482
+PrivateWages   -0.434981   0.734482     0.605644
+
+The covariance matrix of the residuals
+             Consumption Investment PrivateWages
+Consumption     0.914908   0.641733    -0.434983
+Investment      0.641733   4.555277     0.734489
+PrivateWages   -0.434983   0.734489     0.605646
+
+The correlations of the residuals
+             Consumption Investment PrivateWages
+Consumption     1.000000   0.314346    -0.584351
+Investment      0.314346   1.000000     0.442200
+PrivateWages   -0.584351   0.442200     1.000000
+
+
+3SLS estimates for 'Consumption' (equation 1)
+Model Formula: consump ~ corpProf + corpProfLag + wages
+Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag + 
+    gnpLag
+
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 16.5589839  1.2243999 13.52416 1.5826e-10 ***
+corpProf     0.1645088  0.0961979  1.71011   0.105433    
+corpProfLag  0.1765637  0.0901001  1.95964   0.066644 .  
+wages        0.7658016  0.0347599 22.03117 6.1284e-14 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 1.063099 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 19.213063 MSE: 1.13018 Root MSE: 1.063099 
+Multiple R-Squared: 0.979592 Adjusted R-Squared: 0.97599 
+
+
+3SLS estimates for 'Investment' (equation 2)
+Model Formula: invest ~ corpProf + corpProfLag + capitalLag
+Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag + 
+    gnpLag
+
+              Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 42.8959233 10.5937380  4.04918 0.00083353 ***
+corpProf    -0.3565237  0.2601536 -1.37044 0.18837714    
+corpProfLag  1.0112935  0.2487714  4.06515 0.00080520 ***
+capitalLag  -0.2601984  0.0508688 -5.11509  8.619e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 2.372152 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 95.660817 MSE: 5.627107 Root MSE: 2.372152 
+Multiple R-Squared: 0.620885 Adjusted R-Squared: 0.553982 
+
+
+3SLS estimates for 'PrivateWages' (equation 3)
+Model Formula: privWage ~ gnp + gnpLag + trend
+Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag + 
+    gnpLag
+
+             Estimate Std. Error  t value   Pr(>|t|)    
+(Intercept) 2.6247475  1.1955574  2.19542   0.042304 *  
+gnp         0.3747796  0.0311027 12.04974 9.4450e-10 ***
+gnpLag      0.1936505  0.0324018  5.97653 1.5019e-05 ***
+trend       0.1679257  0.0289290  5.80475 2.1121e-05 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+
+Residual standard error: 0.864957 on 17 degrees of freedom
+Number of observations: 21 Degrees of Freedom: 17 
+SSR: 12.718563 MSE: 0.748151 Root MSE: 0.864957 
+Multiple R-Squared: 0.984 Adjusted R-Squared: 0.981176 
+
+> residuals( kleinI3sls )
+   Consumption   Investment PrivateWages
+1   -0.5368584 -3.954192690  -1.23034953
+2   -1.1873855  0.001512320   0.57966104
+3   -1.7045333 -0.220145859   1.67937262
+4   -0.7338877 -2.227530799  -0.02599380
+5   -0.2508902 -0.108662546  -0.13619503
+6    0.5995862  0.832181911  -0.18369666
+7    1.1423250  1.466244321  -0.58248579
+8    0.9210285  1.620299631   0.43465032
+9   -0.7451335  3.400127471   1.41041047
+10  -0.1970026 -2.154431435  -0.46791969
+11  -0.3847823 -1.622742373   0.01060869
+12  -0.3903677 -2.628688533  -0.73634837
+13   0.7487359  2.805172344   0.05812189
+14   0.1117045 -0.277095936   0.11128945
+15   0.1701550  0.135976384  -0.10889291
+16   1.9253369  2.762004891  -0.69764699
+17  -0.3412455 -0.539192140   0.86513485
+18   0.2191842 -4.328454732  -1.01159057
+19   1.3833233  1.718892985  -0.20865400
+20   1.0276831  1.064064778  -0.96560787
+21  -1.7769761  2.254660006   1.20613190
+> fitted( kleinI3sls )
+   Consumption Investment PrivateWages
+1     42.43686  3.7541927     26.73035
+2     46.18739  1.8984877     28.72034
+3     50.90453  5.4201459     32.42063
+4     51.33389  5.2275308     33.92599
+5     52.85089  5.2086625     35.53620
+6     54.50041  4.7678181     37.58370
+7     55.05767  2.7337557     38.48249
+8     56.37897  1.3797004     38.76535
+9     58.54513  1.6998725     39.88959
+10    55.19700  3.1544314     38.36792
+11    51.28478 -1.7772576     34.48939
+12    45.99037 -3.5713115     29.73635
+13    45.75126 -7.9051723     28.44188
+14    48.58830 -2.7229041     30.48871
+15    51.12985 -1.4359764     33.30889
+16    55.77466 -0.6620049     37.49765
+17    59.04125  2.5391921     40.13487
+18    57.28082  2.4284547     39.21159
+19    60.21668 -0.4188930     41.80865
+20    63.97232  2.2359352     45.96561
+21    71.47698  2.6453400     52.09387
+> predict( kleinI3sls, se.fit = TRUE, interval = "confidence",
++    useDfSys = TRUE )
+   Consumption.pred Consumption.se.fit Consumption.lwr Consumption.upr
+2          42.43686          0.4344100        41.56474        43.30897
+3          46.18739          0.4910424        45.20158        47.17319
+4          50.90453          0.3086534        50.28489        51.52418
+5          51.33389          0.3506471        50.62993        52.03784
+6          52.85089          0.3515395        52.14515        53.55664
+7          54.50041          0.3195044        53.85898        55.14185
+8          55.05767          0.2931454        54.46916        55.64619
+9          56.37897          0.3243507        55.72781        57.03013
+10         58.54513          0.3396351        57.86329        59.22698
+11         55.19700          0.6130299        53.96629        56.42771
+12         51.28478          0.5056639        50.26962        52.29994
+13         45.99037          0.6489585        44.68753        47.29321
+14         45.75126          0.5458854        44.65535        46.84717
+15         48.58830          0.3411056        47.90350        49.27309
+16         51.12985          0.3013489        50.52486        51.73483
+17         55.77466          0.3569208        55.05811        56.49121
+18         59.04125          0.2928239        58.45338        59.62911
+19         57.28082          0.3533615        56.57141        57.99022
+20         60.21668          0.4214007        59.37068        61.06267
+21         63.97232          0.4088313        63.15155        64.79308
+22         71.47698          0.6302347        70.21173        72.74223
+   Investment.pred Investment.se.fit Investment.lwr Investment.upr
+2        3.7541927         1.2634291      1.2177529     6.29063251
+3        1.8984877         1.0220333     -0.1533298     3.95030518
+4        5.4201459         0.8525259      3.7086287     7.13166299
+5        5.2275308         0.7273450      3.7673247     6.68773691
+6        5.2086625         0.7029816      3.7973681     6.61995697
+7        4.7678181         0.6878180      3.3869659     6.14867027
+8        2.7337557         0.6149370      1.4992182     3.96829312
+9        1.3797004         0.8515893     -0.3299364     3.08933715
+10       1.6998725         0.9383060     -0.1838553     3.58360034
+11       3.1544314         1.4372184      0.2690950     6.03976783
+12      -1.7772576         1.1731848     -4.1325243     0.57800906
+13      -3.5713115         1.4937374     -6.5701145    -0.57250846
+14      -7.9051723         1.4794679    -10.8753282    -4.93501652
+15      -2.7229041         0.7778731     -4.2845494    -1.16125875
+16      -1.4359764         0.6717099     -2.7844903    -0.08746252
+17      -0.6620049         0.8322571     -2.3328308     1.00882103
+18       2.5391921         0.5221824      1.4908673     3.58751702
+19       2.4284547         0.7525284      0.9176909     3.93921854
+20      -0.4188930         0.9069803     -2.2397319     1.40194590
+21       2.2359352         0.7754698      0.6791147     3.79275572
+22       2.6453400         1.0756180      0.4859468     4.80473320
+   PrivateWages.pred PrivateWages.se.fit PrivateWages.lwr PrivateWages.upr
+2           26.73035           0.3404931         26.04678         27.41392
+3           28.72034           0.3387449         28.04028         29.40040
+4           32.42063           0.3397617         31.73853         33.10273
+5           33.92599           0.2495446         33.42501         34.42698
+6           35.53620           0.2584337         35.01737         36.05502
+7           37.58370           0.2562697         37.06921         38.09818
+8           38.48249           0.2521657         37.97624         38.98873
+9           38.76535           0.2410868         38.28135         39.24935
+10          39.88959           0.2394934         39.40879         40.37039
+11          38.36792           0.3142307         37.73708         38.99876
+12          34.48939           0.3421743         33.80245         35.17633
+13          29.73635           0.4302690         28.87255         30.60015
+14          28.44188           0.3606875         27.71777         29.16599
+15          30.48871           0.3360958         29.81397         31.16345
+16          33.30889           0.2806917         32.74538         33.87241
+17          37.49765           0.2703834         36.95483         38.04046
+18          40.13487           0.2314359         39.67024         40.59949
+19          39.21159           0.3430853         38.52282         39.90036
+20          41.80865           0.2942295         41.21796         42.39934
+21          45.96561           0.3257973         45.31154         46.61967
+22          52.09387           0.5006612         51.08875         53.09899
+> all.equal( model.frame( klein2sls ), model.frame( kleinI3sls ) )
+[1] TRUE
+> all.equal( model.matrix( kleinOls ), model.matrix( kleinI3sls ) )
+[1] TRUE
+> 
