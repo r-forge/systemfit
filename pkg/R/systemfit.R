@@ -149,7 +149,7 @@ systemfit <- function(  formula,
 
    results$call <- match.call() # get the original call
 
-   # prepare data
+   ## prepare y vectors and X matrices for each equation
    modelFrame <- .prepareData.systemfit( data )
    # list of terms objects of each equation
    termsEq <- list()
@@ -159,8 +159,6 @@ systemfit <- function(  formula,
    evalModelFrameEq <- list()
    # list for vectors of endogenous variables in each equation
    yVecEq  <- list()
-   # stacked endogenous variables of all equations
-   yVecAll <- matrix( 0, 0, 1 )
    # list for matrices of regressors in each equation
    xMatEq  <- list()
    # attributes of the model matrices
@@ -191,7 +189,6 @@ systemfit <- function(  formula,
          xMatEq[[ i ]] <- as( xMatEq[[ i ]], "dgeMatrix" )
       }
       obsNamesEq[[ i ]] <- rownames( xMatEq[[ i ]] )
-      yVecAll <- c(yVecAll,yVecEq[[i]])
       nObsEq[i] <- length( yVecEq[[i]] )
       nCoefEq[i] <- ncol(xMatEq[[i]])
       cNamesEq <- NULL
@@ -209,9 +206,6 @@ systemfit <- function(  formula,
       }
       coefNamesEq[[ i ]] <- cNamesEq
    }
-   # stacked matrices of all regressors
-   xMatAll <- .stackMatList( xMatEq, way = "diag",
-      useMatrix = control$useMatrix )
    rm( modelFrameEq, xjName, cNamesEq )
 
    # test for unequal numbers of observations
@@ -221,6 +215,46 @@ systemfit <- function(  formula,
       }
    }
 
+   ## prepare Z matrices of instruments for each equation
+   if( !is.null( inst ) ) {
+      # list of terms objects of instruments of each equation
+      termsInst <- list()
+      # model frame of instruments
+      modelFrameInst <- list()
+      # evaluated model frame of instruments
+      evalModelFrameInst <- list()
+      # list for matrices of instruments in each equation
+      zMatEq  <- list()
+      # prepare data for individual equations
+      for(i in 1:nEq) {
+         rowsEq <- c( (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) )
+            # rows that belong to the ith equation
+         modelFrameInst[[ i ]] <- modelFrame
+         modelFrameInst[[ i ]]$formula <- inst[[ i ]]
+         evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]] )
+         termsInst[[ i ]] <- attr( evalModelFrameInst[[ i ]], "terms" )
+         zMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
+         if( control$useMatrix ){
+            zMatEq[[ i ]] <- as( zMatEq[[ i ]], "dgeMatrix" )
+         }
+         if( nrow( zMatEq[[ i ]] ) != nrow( xMatEq[[ i ]] ) ) {
+            stop( paste( "The instruments and the regressors of equation",
+               as.character( i ), "have different numbers of observations." ) )
+         }
+      }
+   }
+
+   # stacked vector of all endogenous variables
+   yVecAll <- matrix( 0, 0, 1 )
+   for( i in 1:nEq ) {
+      yVecAll <- c(yVecAll,yVecEq[[i]])
+   }
+
+   # stacked matrices of all regressors
+   xMatAll <- .stackMatList( xMatEq, way = "diag",
+      useMatrix = control$useMatrix )
+
+   # impose restrictions via argument 'restrict.regMat'
    if( !is.null( restrict.regMat ) ) {
       # checking matrix to modify (post-multiply) the regressor matrix (restrict.regMat)
       if( !is.matrix( restrict.regMat ) ) {
@@ -247,34 +281,12 @@ systemfit <- function(  formula,
       }
    }
 
-   ## preparing instruments
+   # fitted values of regressors for IV estimations
    if( !is.null( inst ) ) {
-      # list of terms objects of instruments of each equation
-      termsInst <- list()
-      # model frame of instruments
-      modelFrameInst <- list()
-      # evaluated model frame of instruments
-      evalModelFrameInst <- list()
-      # list for matrices of instruments in each equation
-      zMatEq  <- list()
-      # fitted values of regressors
       xMatHatEq <- list()
-      # prepare data for individual equations
       for(i in 1:nEq) {
+         # rows that belong to the ith equation
          rowsEq <- c( (1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i])) )
-            # rows that belong to the ith equation
-         modelFrameInst[[ i ]] <- modelFrame
-         modelFrameInst[[ i ]]$formula <- inst[[ i ]]
-         evalModelFrameInst[[ i ]] <- eval( modelFrameInst[[ i ]] )
-         termsInst[[ i ]] <- attr( evalModelFrameInst[[ i ]], "terms" )
-         zMatEq[[i]] <- model.matrix( termsInst[[ i ]], evalModelFrameInst[[ i ]] )
-         if( control$useMatrix ){
-            zMatEq[[ i ]] <- as( zMatEq[[ i ]], "dgeMatrix" )
-         }
-         if( nrow( zMatEq[[ i ]] ) != nrow( xMatAll[ rowsEq, ] ) ) {
-            stop( paste( "The instruments and the regressors of equation",
-               as.character( i ), "have different numbers of observations." ) )
-         }
          # extract instrument matrix
          xMatAllThisEq <- xMatAll[ rowsEq, ]
          if( control$useMatrix ){
