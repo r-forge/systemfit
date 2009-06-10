@@ -215,29 +215,32 @@ systemfit <- function(  formula,
    }
 
    ## check if all endogenous variables, regressors, and instruments
-   ## have the same number of observations
+   ## have the same number of observations (including observations with NAs)
    # total number of observations per equation (including NAs)
-   nObsPerEq <- length( yVecEq[[ 1 ]] )
+   nObsWithNa <- length( yVecEq[[ 1 ]] )
    for( i in 1:nEq ){
-      if( nObsPerEq != length( yVecEq[[ i ]] ) ) {
+      if( nObsWithNa != length( yVecEq[[ i ]] ) ) {
          stop( "all equations must have the same number of observations",
+            " (including observations with NAs)",
             " but the endogenous variable of equation 1 has ",
-            nObsPerEq, " observations",
+            nObsWithNa, " observations",
             " while the endogenous variable of equation ", i, " has ",
             length( yVecEq[[ i ]] ), " observations" )
       }
-      if( nObsPerEq != nrow( xMatEq[[ i ]] ) ) {
+      if( nObsWithNa != nrow( xMatEq[[ i ]] ) ) {
          stop( "the regressors of each equation must have the same number",
             " of observations as the corresponding endogenous variable",
+            " (including observations with NAs)",
             " but the regressors of equation ", i, " have ",
             nrow( xMatEq[[ i ]] ), " observations",
             " while the endogenous variable of this equation has ",
             length( yVecEq[[ i ]] ), " observations" )
       }
       if( !is.null( inst ) ) {
-         if( nObsPerEq != nrow( zMatEq[[ i ]] ) ) {
+         if( nObsWithNa != nrow( zMatEq[[ i ]] ) ) {
             stop( "the instrumental variables of each equation must have",
                " the same number of observations as the corresponding regressors",
+               " (including observations with NAs)",
                " but the instrumental variables of equation ", i, " have ",
                nrow( zMatEq[[ i ]] ), " observations",
                " while the regressors of this equation have ",
@@ -245,6 +248,46 @@ systemfit <- function(  formula,
          }
       }
    }
+
+   ## determine valid observations of each equation
+   # which observations in each equation have no NAs
+   validObsEq <- matrix( NA, nrow = nObsWithNa, ncol = nEq )
+   for( i in 1:nEq ){
+      validObsEq[ , i ] <- !is.na( yVecEq[[ i ]] ) &
+         rowSums( is.na( xMatEq[[ i ]] ) ) == 0
+      if( !is.null( inst ) ) {
+         validObsEq[ , i ] <- validObsEq[ , i ] &
+            rowSums( is.na( zMatEq[[ i ]] ) ) == 0
+      }
+   }
+
+   ## check if the system of equations is unbalanced
+   # which observations have no NAs in all equations
+   validObsAll <- rowSums( !validObsEq ) == 0
+   for( i in 1:nEq ) {
+      if( any( validObsEq[ !validObsAll, i ] ) ) {
+         warning( "systems of equations with unequal numbers of observations",
+            " are not supported yet: removing observation(s) ",
+            paste( which( validObsEq[ , i ] & !validObsAll ), collapse = ", " ),
+            " in equation ", i )
+         validObsEq[ !validObsAll, i ] <- FALSE
+      }
+   }
+
+   ## remove all observations with NAs
+   for( i in 1:nEq ) {
+      # vectors of endogenous variables
+      yVecEq[[ i ]] <- yVecEq[[ i ]][ validObsEq[ , i ] ]
+      # matrices of regressors
+      attrAssign <- attributes( xMatEq[[ i ]] )$assign
+      xMatEq[[ i ]] <- xMatEq[[ i ]][ validObsEq[ , i ], , drop = FALSE ]
+      attributes( xMatEq[[ i ]] )$assign <- attrAssign
+      # matrices of instrumental variables
+      if( !is.null( inst ) ) {
+         zMatEq[[ i ]] <- zMatEq[[ i ]][ validObsEq[ , i ], , drop = FALSE ]
+      }
+   }
+   rm( attrAssign )
 
    ## prepare matrices for using the Matrix package
    if( control$useMatrix ){
@@ -770,7 +813,8 @@ systemfit <- function(  formula,
       rownames( results$eq[[ i ]]$x ) <- obsNamesEq[[ i ]]
     }
     if( control$model ){
-      results$eq[[ i ]]$model <- evalModelFrameEq[[ i ]] # model frame of this equation
+      results$eq[[ i ]]$model <- evalModelFrameEq[[ i ]][ validObsEq[ , i ], ,
+         drop = FALSE ]        # model frame of this equation
       rownames( results$eq[[ i ]]$model ) <- obsNamesEq[[ i ]]
     }
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
