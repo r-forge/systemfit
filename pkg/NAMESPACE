@@ -6,6 +6,7 @@ export( "se.ratio.systemfit" )
 export( "systemfit" )
 export( "systemfit.control" )
 
+import( "Matrix" )
 importFrom( "car", "linear.hypothesis" )
 importFrom( "lmtest", "lrtest" )
 
