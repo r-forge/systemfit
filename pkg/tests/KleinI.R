@@ -1,4 +1,5 @@
 library( "systemfit" )
+options( warn = 1 )
 
 data( "KleinI" )
 eqConsump  <- consump ~ corpProf + corpProfLag + wages
@@ -7,6 +8,18 @@ eqPrivWage <- privWage ~ gnp + gnpLag + trend
 inst <- ~ govExp + taxes + govWage + trend + capitalLag + corpProfLag + gnpLag
 system <- list( Consumption = eqConsump, Investment = eqInvest,
    PrivateWages = eqPrivWage )
+
+for( dataNo in 1:5 ) {
+   # set some values of some variables to NA
+   if( dataNo == 2 ) {
+      KleinI$gnpLag[ 7 ] <- NA
+   } else if( dataNo == 3 ) {
+      KleinI$wages[ 10 ] <- NA
+   } else if( dataNo == 4 ) {
+      KleinI$corpProf[ 13 ] <- NA
+   } else if( dataNo == 5 ) {
+      KleinI$invest[ 16 ] <- NA
+   }
 
 for( methodNo in 1:5 ) {
    method <- c( "OLS", "2SLS", "SUR", "3SLS", "3SLS" )[ methodNo ]
@@ -50,4 +63,5 @@ for( methodNo in 1:5 ) {
    } else {
       print( all.equal( mmOls, model.matrix( kleinModel ) ) )
    }
+}
 }
