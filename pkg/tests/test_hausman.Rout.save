@@ -128,6 +128,9 @@ Hausman = 2.9831, df = 7, p-value = 0.8866
 > ## ********************* estimations with methodResidCov = 0 **************
 > fit2sls2r <- systemfit( eqSystem, "2SLS", data = Kmenta, restrict.matrix = restrm,
 +    inst = inst, methodResidCov = "noDfCor" )
+Note: Method with signature "Matrix#numeric" chosen for function "solve",
+ target signature "dgeMatrix#numeric".
+ "ddenseMatrix#ANY" would also be valid
 > fit3sls2r <- systemfit( eqSystem, "3SLS", data = Kmenta, restrict.matrix = restrm,
 +    inst = inst, methodResidCov = "noDfCor", useMatrix = useMatrix )
 > # print( hausman.systemfit( fit2sls2r, fit3sls2r ) )

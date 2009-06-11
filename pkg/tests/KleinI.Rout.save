@@ -110,6 +110,12 @@ Attaching package: 'zoo'
 + }
 > 
 > # OLS
+Note: Method with signature "ANY#diagonalMatrix" chosen for function "kronecker",
+ target signature "dspMatrix#ddiMatrix".
+ "Matrix#ANY" would also be valid
+Note: Method with signature "ANY#sparseMatrix" chosen for function "kronecker",
+ target signature "dspMatrix#dtTMatrix".
+ "Matrix#ANY" would also be valid
 > summary
 
 systemfit results 
@@ -3002,7 +3008,7 @@ Multiple R-Squared: 0.984481 Adjusted R-Squared: 0.981572
 14      -7.5091570         1.3599330  -10.243485465     -4.7748285
 15      -2.7213291         0.7119881   -4.152877083     -1.2897812
 16      -1.4195677         0.6140098   -2.654117154     -0.1850183
-17      -0.4548045         0.7507720   -1.964332742      1.0547237
+17      -0.4548045         0.7507720   -1.964332741      1.0547237
 18       2.4008781         0.4980973    1.399386280      3.4023698
 19       2.1454050         0.6982310    0.741517541      3.5492925
 20      -0.1481482         0.8163694   -1.789568990      1.4932725
