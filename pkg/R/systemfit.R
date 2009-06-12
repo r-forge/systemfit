@@ -163,6 +163,8 @@ systemfit <- function(  formula,
    xMatEq  <- list()
    # number of exogenous variables /(unrestricted) coefficients in each equation
    nCoefEq <- numeric( nEq )
+   # names of observations of each equation (with observations with NAs)
+   obsNamesNaEq <- list()
    # names of coefficients
    coefNames  <- NULL
    # names of coefficients of each equation
@@ -176,6 +178,7 @@ systemfit <- function(  formula,
       weights <- model.extract( evalModelFrameEq[[ i ]], "weights" )
       yVecEq[[i]] <- model.extract( evalModelFrameEq[[ i ]], "response" )
       xMatEq[[i]] <- model.matrix( termsEq[[ i ]], evalModelFrameEq[[ i ]] )
+      obsNamesNaEq[[ i ]] <- rownames( xMatEq[[ i ]] )
       nCoefEq[i] <- ncol(xMatEq[[i]])
       cNamesEq <- NULL
       for(j in 1:nCoefEq[i]) {
@@ -304,7 +307,7 @@ systemfit <- function(  formula,
 
    # number of observations in each equation
    nObsEq  <- numeric( nEq )
-   # names of observations of each equation
+   # names of observations of each equation (without observations with NAs)
    obsNamesEq <- list()
    for( i in 1:nEq ){
       obsNamesEq[[ i ]] <- rownames( xMatEq[[ i ]] )
@@ -770,9 +773,10 @@ systemfit <- function(  formula,
     results$eq[[ i ]]$eqnLabel <- eqnLabels[[i]]
     results$eq[[ i ]]$method   <- method
 
-    results$eq[[ i ]]$residuals <-
+    results$eq[[ i ]]$residuals <- rep( NA, nObsWithNa )
+    results$eq[[ i ]]$residuals[ validObsEq[ , i ] ] <-
       resids[ ( 1 + sum(nObsEq[1:i]) -nObsEq[i] ):( sum(nObsEq[1:i]) ) ]
-    names( results$eq[[ i ]]$residuals ) <- obsNamesEq[[ i ]]
+    names( results$eq[[ i ]]$residuals ) <- obsNamesNaEq[[ i ]]
 
     results$eq[[ i ]]$coefficients <-
       drop( coef[(1+sum(nCoefEq[1:i])-nCoefEq[i]):(sum(nCoefEq[1:i]))] )
@@ -787,9 +791,10 @@ systemfit <- function(  formula,
     colnames( results$eq[[ i ]]$coefCov ) <- coefNamesEq[[ i ]]
     rownames( results$eq[[ i ]]$coefCov ) <- coefNamesEq[[ i ]]
 
-    results$eq[[ i ]]$fitted.values <-
+    results$eq[[ i ]]$fitted.values <- rep( NA, nObsWithNa )
+    results$eq[[ i ]]$fitted.values[ validObsEq[ , i ] ] <-
       fitted.values[(1+sum(nObsEq[1:i])-nObsEq[i]):(sum(nObsEq[1:i]))]
-    names( results$eq[[ i ]]$fitted.values ) <- obsNamesEq[[ i ]]
+    names( results$eq[[ i ]]$fitted.values ) <- obsNamesNaEq[[ i ]]
 
     results$eq[[ i ]]$terms    <- termsEq[[ i ]]
     results$eq[[ i ]]$rank     <- nCoefLiEq[i]
@@ -813,9 +818,9 @@ systemfit <- function(  formula,
       rownames( results$eq[[ i ]]$x ) <- obsNamesEq[[ i ]]
     }
     if( control$model ){
-      results$eq[[ i ]]$model <- evalModelFrameEq[[ i ]][ validObsEq[ , i ], ,
-         drop = FALSE ]        # model frame of this equation
-      rownames( results$eq[[ i ]]$model ) <- obsNamesEq[[ i ]]
+      results$eq[[ i ]]$model <- evalModelFrameEq[[ i ]]
+         # model frame of this equation
+      rownames( results$eq[[ i ]]$model ) <- obsNamesNaEq[[ i ]]
     }
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
       results$eq[[ i ]]$inst         <- inst[[i]]

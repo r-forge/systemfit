@@ -179,6 +179,9 @@ model.matrix.systemfit.equation <- function( object, ... ){
       result <- object$x
    } else if( !is.null( model.frame( object ) ) ) {
       result <- model.matrix( object$terms, data = model.frame( object ) )
+      attrAssign <- attributes( result )$assign
+      result <- result[ !is.na( residuals( object ) ), ]
+      attributes( result )$assign <- attrAssign
    } else {
       stop( "returning model matrix not possible. Please re-estimate",
          " the system with either control variable",
