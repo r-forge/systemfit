@@ -63,5 +63,16 @@ for( methodNo in 1:5 ) {
    } else {
       print( all.equal( mmOls, model.matrix( kleinModel ) ) )
    }
+   cat( "> logLik\n" )
+   print( logLik( kleinModel ) )
+   cat( "> vcov\n" )
+   print( vcov( kleinModel ) )
+   print( vcov( kleinModel$eq[[ 1 + ( methodNo %% 3 ) ]] ) )
+   cat( "> terms\n" )
+   print( terms( kleinModel ) )
+   print( terms( kleinModel$eq[[ 1 + ( ( 1 + methodNo ) %% 3 ) ]] ) )
+   cat( "> correlation\n" )
+   print( correlation.systemfit( kleinModel, 1 + ( methodNo %% 3 ),
+      1 + ( ( methodNo + 1 ) %% 3 ) ) )
 }
 }
