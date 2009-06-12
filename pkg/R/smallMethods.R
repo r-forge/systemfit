@@ -92,8 +92,12 @@ residuals.systemfit <- function( object, ... ) {
 }
 
 ## return residuals of a single equation
-residuals.systemfit.equation <- function( object, ... ) {
-   object$residuals
+residuals.systemfit.equation <- function( object, na.rm = FALSE, ... ) {
+   if( na.rm ) {
+      return( object$residuals[ !is.na( object$residuals ) ] )
+   } else {
+      return( object$residuals )
+   }
 }
 
 ## return the variance covariance matrix of the coefficients
@@ -134,8 +138,12 @@ fitted.systemfit <- function( object, ... ) {
 }
 
 ## return the fitted values of e single euation
-fitted.systemfit.equation <- function( object, ... ) {
-   object$fitted.values
+fitted.systemfit.equation <- function( object, na.rm = FALSE, ... ) {
+   if( na.rm ) {
+      return( object$fitted.values[ !is.na( object$fitted.values ) ] )
+   } else {
+      return( object$fitted.values )
+   }
 }
 
 ## return model matrix of the entire system
