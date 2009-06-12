@@ -87,6 +87,7 @@ residuals.systemfit <- function( object, ... ) {
       result[[ object$eq[[i]]$eqnLabel ]] <- residuals( object$eq[[i]] )
    }
    result$obsNo <- NULL
+   rownames( result ) <- names( residuals( object$eq[[ 1 ]] ) )
    return( result )
 }
 
@@ -128,6 +129,7 @@ fitted.systemfit <- function( object, ... ) {
       fitted.values[ , i ]           <- object$eq[[ i ]]$fitted.values
       colnames( fitted.values )[ i ] <- object$eq[[ i ]]$eqnLabel
    }
+   rownames( fitted.values ) <- names( fitted( object$eq[[ 1 ]] ) )
    return( as.data.frame( fitted.values ) )
 }
 
