@@ -11,8 +11,10 @@ summary.systemfit <- function( object, useDfSys = NULL,
    nEq <- length( object$eq )
    # number of observations per equation
    nObsEq <- rep( NA, nEq )
+   validObsEq <- matrix( NA, nrow = nrow( residuals( object ) ), ncol = nEq )
    for( i in 1:nEq ) {
       nObsEq[ i ] <- length( residuals( object$eq[[ i ]], na.rm = TRUE ) )
+      validObsEq[ , i ] <- !is.na( residuals( object$eq[[ i ]] ) )
    }
    # total number of observations
    nObs <- sum( nObsEq )
@@ -99,7 +101,7 @@ summary.systemfit <- function( object, useDfSys = NULL,
       xMat <- as( xMat, "dgCMatrix" )
    }
    rtOmega <- .calcXtOmegaInv( xMat = xMat,
-      sigma = object$residCov, nObsEq = nObsEq,
+      sigma = object$residCov, validObsEq = validObsEq,
       solvetol = object$control$solvetol,
       useMatrix = object$control$useMatrix )
    yCov <- .calcResidCov( response, methodResidCov = "noDfCor",

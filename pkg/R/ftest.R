@@ -14,11 +14,15 @@
 
    resid <- unlist( residuals( object ) )
    nEq   <- length( object$eq )
-   nObsPerEq <- nrow( residuals( object ) )
    if( is.null( object$residCovEst ) ) {
       rcov <- diag( nEq )
    } else {
       rcov <- object$residCovEst
+   }
+
+   validObsEq <- matrix( NA, nrow = nrow( residuals( object ) ), ncol = nEq )
+   for( i in 1:nEq ) {
+      validObsEq[ , i ] <- !is.na( residuals( object$eq[[ i ]] ) )
    }
 
    result <- list()
@@ -36,9 +40,9 @@
       rcov <- as( rcov, "dspMatrix" )
 
       denominator <- as.numeric( .calcXtOmegaInv( xMat = resid, sigma = rcov,
-         nObsEq = nObsPerEq, useMatrix = TRUE ) %*% resid )
+         validObsEq = validObsEq, useMatrix = TRUE ) %*% resid )
    } else {
-      denominator <- crossprod( resid, solve( rcov ) %x% diag( nObsPerEq ) ) %*%
+      denominator <- crossprod( resid, solve( rcov ) %x% diag( sum( validObsEq[ , 1 ] ) ) ) %*%
          resid
    }
 
