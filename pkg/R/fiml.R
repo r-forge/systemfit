@@ -10,7 +10,7 @@
    }
    mlResids <- mlVars$yVec - mlVars$xMat %*% mlCoef
    mlSigma <- .calcResidCov( resids = mlResids, methodResidCov = mlVars$methodResidCov,
-      nObsEq = mlVars$nObsEq, nCoefEq = mlVars$nCoefEq, xEq = mlVars$xEq,
+      validObsEq = mlVars$validObsEq, nCoefEq = mlVars$nCoefEq, xEq = mlVars$xEq,
       centered = mlVars$centerResiduals, diag = FALSE,
       solvetol = mlVars$solvetol )
    likValue <- - nObs * log( 2 * pi ) -

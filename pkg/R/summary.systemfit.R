@@ -105,7 +105,7 @@ summary.systemfit <- function( object, useDfSys = NULL,
       solvetol = object$control$solvetol,
       useMatrix = object$control$useMatrix )
    yCov <- .calcResidCov( response, methodResidCov = "noDfCor",
-      nObsEq = nObsEq, centered = TRUE,
+      validObsEq = validObsEq, centered = TRUE,
       solvetol = object$control$solvetol )
    residCovInv <- solve( object$residCov, tol = object$control$solvetol )
    denominator <- 0
