@@ -51,6 +51,8 @@ Attaching package: 'zoo'
 > inst <- ~ govExp + taxes + govWage + trend + capitalLag + corpProfLag + gnpLag
 > system <- list( Consumption = eqConsump, Investment = eqInvest,
 +    PrivateWages = eqPrivWage )
+> restrict <- c( "Consumption_corpProf + Investment_capitalLag = 0" )
+> restrict2 <- c( restrict, "Consumption_corpProfLag - PrivateWages_trend = 0" )
 > 
 > for( dataNo in 1:5 ) {
 +    # set some values of some variables to NA
@@ -117,6 +119,13 @@ Attaching package: 'zoo'
 +    cat( "> correlation\n" )
 +    print( correlation.systemfit( kleinModel, 1 + ( methodNo %% 3 ),
 +       1 + ( ( methodNo + 1 ) %% 3 ) ) )
++    cat( "> linear.hypothesis\n" )
++    print( linear.hypothesis( kleinModel, restrict ) )
++    print( linear.hypothesis( kleinModel, restrict, test = "F" ) )
++    print( linear.hypothesis( kleinModel, restrict, test = "Chisq" ) )
++    print( linear.hypothesis( kleinModel, restrict2 ) )
++    print( linear.hypothesis( kleinModel, restrict2, test = "F" ) )
++    print( linear.hypothesis( kleinModel, restrict2, test = "Chisq" ) )
 + }
 + }
 > 
@@ -958,6 +967,76 @@ attr(,"dataClasses")
 [19,]    0
 [20,]    0
 [21,]    0
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     52 -1 0.8222 0.3688
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     52 -1 0.7288 0.3973
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     51                     
+2     52 -1 0.7288     0.3933
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     53 -2 0.4156 0.6622
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     53 -2 0.3683 0.6937
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     51                     
+2     53 -2 0.7367     0.6919
 > 
 > # 2SLS
 > summary
@@ -1414,6 +1493,76 @@ attr(,"dataClasses")
 [19,]    0
 [20,]    0
 [21,]    0
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     52 -1 1.0831 0.3029
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     51                
+2     52 -1 1.295 0.2605
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df Chisq Pr(>Chisq)
+1     51                    
+2     52 -1 1.295     0.2551
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     53 -2 0.5419  0.585
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     53 -2 0.6479 0.5274
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     51                     
+2     53 -2 1.2959     0.5231
 > 
 > # SUR
 > summary
@@ -1827,6 +1976,76 @@ attr(,"dataClasses")
 [19,] 0.07474147
 [20,] 0.05411875
 [21,] 0.04763013
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     52 -1 1.4364 0.2363
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     52 -1 1.6939 0.1989
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     51                     
+2     52 -1 1.6939     0.1931
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     53 -2 0.7745 0.4663
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     53 -2 0.9133 0.4076
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     51                     
+2     53 -2 1.8267     0.4012
 > 
 > # 3SLS
 > summary
@@ -2246,6 +2465,76 @@ attr(,"dataClasses")
 [19,] 0.13853713
 [20,] 0.17636069
 [21,] 0.14704998
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     51                
+2     52 -1 0.293 0.5906
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     52 -1 0.3858 0.5373
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     51                     
+2     52 -1 0.3858     0.5345
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     53 -2 0.3026 0.7402
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     53 -2 0.3983 0.6735
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     51                     
+2     53 -2 0.7966     0.6715
 > 
 > # I3SLS
 > summary
@@ -2667,6 +2956,76 @@ attr(,"dataClasses")
 [19,] -0.5841257
 [20,] -0.6277770
 [21,] -0.6379924
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     51                
+2     52 -1 0.592 0.4452
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     52 -1 0.7313 0.3965
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     51                     
+2     52 -1 0.7313     0.3925
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     53 -2 0.7153 0.4939
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     51                 
+2     53 -2 0.8836 0.4195
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     51                     
+2     53 -2 1.7672     0.4133
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -3478,6 +3837,76 @@ attr(,"dataClasses")
 [18,]    0
 [19,]    0
 [20,]    0
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     49 -1 0.8716 0.3552
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     49 -1 0.7552 0.3892
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     48                     
+2     49 -1 0.7552     0.3848
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     50 -2 0.4363  0.649
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     48                
+2     50 -2 0.378 0.6872
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     48                     
+2     50 -2 0.7561     0.6852
 > 
 > # 2SLS
 > summary
@@ -3926,6 +4355,76 @@ attr(,"dataClasses")
 [18,]    0
 [19,]    0
 [20,]    0
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     49 -1 0.9455 0.3357
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     49 -1 1.0525 0.3101
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     48                     
+2     49 -1 1.0525     0.3049
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     50 -2 0.4774 0.6233
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     50 -2 0.5314 0.5912
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     48                     
+2     50 -2 1.0627     0.5878
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -4337,6 +4836,76 @@ attr(,"dataClasses")
 [18,] -0.0001295421
 [19,] -0.0193568059
 [20,] -0.0199525873
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     49 -1 1.5035 0.2261
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     49 -1 1.7981 0.1863
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     48                     
+2     49 -1 1.7981     0.1799
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     50 -2 0.8378 0.4389
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     48                
+2     50 -2 1.002 0.3747
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df Chisq Pr(>Chisq)
+1     48                    
+2     50 -2 2.004     0.3671
 > 
 > # 3SLS
 > summary
@@ -4750,6 +5319,76 @@ attr(,"dataClasses")
 [18,] 0.17318407
 [19,] 0.20874079
 [20,] 0.18822392
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     49 -1 0.2212 0.6403
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     49 -1 0.2905 0.5924
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     48                     
+2     49 -1 0.2905     0.5899
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     50 -2 0.2914 0.7485
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     50 -2 0.3827 0.6841
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     48                     
+2     50 -2 0.7654      0.682
 > 
 > # I3SLS
 > summary
@@ -5165,6 +5804,76 @@ attr(,"dataClasses")
 [18,] -0.5852657
 [19,] -0.6238725
 [20,] -0.6255635
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     48                
+2     49 -1 0.396 0.5321
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     48                
+2     49 -1 0.495 0.4851
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df Chisq Pr(>Chisq)
+1     48                    
+2     49 -1 0.495     0.4817
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     50 -2 0.6638 0.5196
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     48                 
+2     50 -2 0.8298 0.4423
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     48                     
+2     50 -2 1.6595     0.4362
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -5952,6 +6661,76 @@ attr(,"dataClasses")
 [17,]    0
 [18,]    0
 [19,]    0
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     45                
+2     46 -1 0.748 0.3917
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     46 -1 0.6329 0.4305
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     45                     
+2     46 -1 0.6329     0.4263
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     47 -2 0.3834 0.6837
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     47 -2 0.3244 0.7246
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     45                     
+2     47 -2 0.6488      0.723
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -6396,6 +7175,76 @@ attr(,"dataClasses")
 [17,]    0
 [18,]    0
 [19,]    0
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     46 -1 1.0916 0.3017
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     46 -1 1.2142 0.2764
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     45                     
+2     46 -1 1.2142     0.2705
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     47 -2 0.5647 0.5725
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     47 -2 0.6281 0.5382
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     45                     
+2     47 -2 1.2561     0.5336
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -6803,6 +7652,76 @@ attr(,"dataClasses")
 [17,] 0.06175796
 [18,] 0.04585810
 [19,] 0.04070203
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     46 -1 1.1361 0.2922
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     46 -1 1.3837 0.2457
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     45                     
+2     46 -1 1.3837     0.2395
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     47 -2 0.7073 0.4984
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     47 -2 0.8615 0.4294
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df Chisq Pr(>Chisq)
+1     45                    
+2     47 -2 1.723     0.4225
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -7214,6 +8133,76 @@ attr(,"dataClasses")
 [17,] 0.09635074
 [18,] 0.13203298
 [19,] 0.10407110
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     46 -1 0.2102 0.6488
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     46 -1 0.2758 0.6021
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     45                     
+2     46 -1 0.2758     0.5995
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     47 -2 0.2625 0.7703
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     47 -2 0.3443 0.7105
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     45                     
+2     47 -2 0.6887     0.7087
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -7627,6 +8616,76 @@ attr(,"dataClasses")
 [17,] -0.5897942
 [18,] -0.6146916
 [19,] -0.6280095
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     46 -1 0.2056 0.6524
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     46 -1 0.2605 0.6123
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     45                     
+2     46 -1 0.2605     0.6098
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     47 -2 0.4387 0.6476
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     45                 
+2     47 -2 0.5557 0.5775
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     45                     
+2     47 -2 1.1115     0.5736
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -8388,6 +9447,76 @@ attr(,"dataClasses")
 [16,]    0
 [17,]    0
 [18,]    0
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     42                
+2     43 -1 0.238 0.6282
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     43 -1 0.2141 0.6459
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     42                     
+2     43 -1 0.2141     0.6435
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     42                
+2     44 -2 0.145 0.8655
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     44 -2 0.1304  0.878
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     42                     
+2     44 -2 0.2609     0.8777
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -8824,6 +9953,76 @@ attr(,"dataClasses")
 [16,]    0
 [17,]    0
 [18,]    0
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     43 -1 1.5282 0.2233
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     43 -1 1.9586  0.169
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     42                     
+2     43 -1 1.9586     0.1617
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     44 -2 0.7974 0.4572
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     42                
+2     44 -2 1.022 0.3687
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df Chisq Pr(>Chisq)
+1     42                    
+2     44 -2 2.044     0.3599
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -9225,6 +10424,76 @@ attr(,"dataClasses")
 [16,] 0.08026724
 [17,] 0.06521784
 [18,] 0.05965493
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     42                
+2     43 -1 0.562 0.4576
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     43 -1 0.6884 0.4114
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     42                     
+2     43 -1 0.6884     0.4067
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     44 -2 0.5513 0.5803
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     44 -2 0.6753 0.5144
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     42                     
+2     44 -2 1.3506      0.509
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -9630,6 +10899,76 @@ attr(,"dataClasses")
 [16,] 0.077911881
 [17,] 0.125539282
 [18,] 0.082676246
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     43 -1 0.3875  0.537
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     43 -1 0.5081 0.4799
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     42                     
+2     43 -1 0.5081     0.4759
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     44 -2 0.4222 0.6584
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     44 -2 0.5536  0.579
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     42                     
+2     44 -2 1.1073     0.5749
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -10037,6 +11376,76 @@ attr(,"dataClasses")
 [16,] -0.5367288
 [17,] -0.5622728
 [18,] -0.5953878
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     43 -1 0.1573 0.6936
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     43 -1 0.2023 0.6552
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     42                     
+2     43 -1 0.2023     0.6529
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     44 -2 0.6203 0.5426
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     42                 
+2     44 -2 0.7976 0.4571
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     42                     
+2     44 -2 1.5951     0.4504
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -10772,6 +12181,76 @@ attr(,"dataClasses")
 [15,]    0
 [16,]    0
 [17,]    0
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     40 -1 0.1982 0.6587
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     40 -1 0.1919 0.6637
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     39                     
+2     40 -1 0.1919     0.6613
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     39                
+2     41 -2 0.126  0.882
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     39                
+2     41 -2 0.122 0.8855
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df Chisq Pr(>Chisq)
+1     39                    
+2     41 -2 0.244     0.8851
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -11202,6 +12681,76 @@ attr(,"dataClasses")
 [15,]    0
 [16,]    0
 [17,]    0
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     40 -1 1.3641 0.2499
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     40 -1 1.8586 0.1806
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     39                     
+2     40 -1 1.8586     0.1728
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     41 -2 0.7113 0.4973
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     41 -2 0.9691 0.3884
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     39                     
+2     41 -2 1.9382     0.3794
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -11597,6 +13146,76 @@ attr(,"dataClasses")
 [15,] 0.08064882
 [16,] 0.06607391
 [17,] 0.06058639
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     40 -1 0.5066 0.4809
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     40 -1 0.6308 0.4319
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     39                     
+2     40 -1 0.6308     0.4270
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     41 -2 0.5174 0.6001
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     41 -2 0.6444 0.5305
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     39                     
+2     41 -2 1.2888      0.525
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -11998,6 +13617,76 @@ attr(,"dataClasses")
 [15,] 0.077205653
 [16,] 0.119593514
 [17,] 0.080239859
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df     F Pr(>F)
+1     39                
+2     40 -1 0.361 0.5514
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     40 -1 0.4777 0.4935
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     39                     
+2     40 -1 0.4777     0.4895
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     41 -2 0.3859 0.6824
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     41 -2 0.5107  0.604
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     39                     
+2     41 -2 1.0213     0.6001
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -12401,4 +14090,74 @@ attr(,"dataClasses")
 [15,] -0.5548562
 [16,] -0.5793556
 [17,] -0.6079424
+> linear.hypothesis
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     40 -1 0.1195 0.7314
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     40 -1 0.1563 0.6947
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     39                     
+2     40 -1 0.1563     0.6926
+Linear hypothesis test (Theil's F test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     41 -2 0.5252 0.5956
+Linear hypothesis test (F statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df      F Pr(>F)
+1     39                 
+2     41 -2 0.6868 0.5092
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProfLag - PrivateWages_trend = 0
+
+Model 1: kleinModel
+Model 2: restricted model
+
+  Res.Df Df  Chisq Pr(>Chisq)
+1     39                     
+2     41 -2 1.3736     0.5032
 > 
