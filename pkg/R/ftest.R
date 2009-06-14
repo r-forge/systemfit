@@ -13,6 +13,7 @@
    }
 
    resid <- unlist( residuals( object ) )
+   resid <- resid[ !is.na( resid ) ]
    nEq   <- length( object$eq )
    if( is.null( object$residCovEst ) ) {
       rcov <- diag( nEq )
