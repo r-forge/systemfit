@@ -8,6 +8,8 @@ eqPrivWage <- privWage ~ gnp + gnpLag + trend
 inst <- ~ govExp + taxes + govWage + trend + capitalLag + corpProfLag + gnpLag
 system <- list( Consumption = eqConsump, Investment = eqInvest,
    PrivateWages = eqPrivWage )
+restrict <- c( "Consumption_corpProf + Investment_capitalLag = 0" )
+restrict2 <- c( restrict, "Consumption_corpProfLag - PrivateWages_trend = 0" )
 
 for( dataNo in 1:5 ) {
    # set some values of some variables to NA
@@ -63,5 +65,12 @@ for( methodNo in 1:5 ) {
    } else {
       print( all.equal( mmOls, model.matrix( kleinModel ) ) )
    }
+   cat( "> linear.hypothesis\n" )
+   print( linear.hypothesis( kleinModel, restrict ) )
+   print( linear.hypothesis( kleinModel, restrict, test = "F" ) )
+   print( linear.hypothesis( kleinModel, restrict, test = "Chisq" ) )
+   print( linear.hypothesis( kleinModel, restrict2 ) )
+   print( linear.hypothesis( kleinModel, restrict2, test = "F" ) )
+   print( linear.hypothesis( kleinModel, restrict2, test = "Chisq" ) )
 }
 }
