@@ -1708,12 +1708,6 @@ Multiple R-Squared: 0.642641 Adjusted R-Squared: 0.575636
 > fitolsS1 <- systemfit(
 +    list( consump ~ price - 1, consump ~ price + trend ), "OLS",
 +    data = Kmenta )
-Note: Method with signature "ANY#diagonalMatrix" chosen for function "kronecker",
- target signature "dspMatrix#ddiMatrix".
- "Matrix#ANY" would also be valid
-Note: Method with signature "ANY#sparseMatrix" chosen for function "kronecker",
- target signature "dspMatrix#dtTMatrix".
- "Matrix#ANY" would also be valid
 > print( summary( fitolsS1 ) )
 
 systemfit results 

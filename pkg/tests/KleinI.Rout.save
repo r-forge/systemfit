@@ -119,12 +119,6 @@ Attaching package: 'zoo'
 + }
 > 
 > # OLS
-Note: Method with signature "ANY#diagonalMatrix" chosen for function "kronecker",
- target signature "dspMatrix#ddiMatrix".
- "Matrix#ANY" would also be valid
-Note: Method with signature "ANY#sparseMatrix" chosen for function "kronecker",
- target signature "dspMatrix#dtTMatrix".
- "Matrix#ANY" would also be valid
 > summary
 
 systemfit results 

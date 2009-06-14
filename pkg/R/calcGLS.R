@@ -21,8 +21,26 @@
    }
 
    if( useMatrix ){
-      result <- crossprod( xMat, suppressWarnings(
-         kronecker( sigmaInv, Diagonal( sum( validObsEq[ , 1 ] ) ) ) ) )
+      for( i in 1:nEq ) {
+         for( j in 1:nEq ) {
+            thisBlock <- sparseMatrix(
+               i = which( validObsEq[ validObsEq[ , i ], j ] ),
+               j = which( validObsEq[ validObsEq[ , j ], i ] ),
+               x = sigmaInv[ i, j ],
+               dims = c( sum( validObsEq[ , i ] ), sum( validObsEq[ , j ] ) ) )
+            if( j == 1 ) {
+               thisRow <- thisBlock
+            } else {
+               thisRow <- cBind( thisRow, thisBlock )
+            }
+         }
+         if( i == 1 ) {
+            omegaInv <- thisRow
+         } else {
+            omegaInv <- rBind( omegaInv, thisRow )
+         }
+      }
+      result <- crossprod( xMat, omegaInv )
    } else {
       eqSelect <- rep( 0, nrow( xMat ) )
       for( i in 1:nEq ) {

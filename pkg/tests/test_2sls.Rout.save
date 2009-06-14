@@ -2127,12 +2127,6 @@ Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672
 > fit2slsS1 <- systemfit(
 +    list( consump ~ price - 1, price ~ consump + trend ), "2SLS",
 +    data = Kmenta, inst = ~ farmPrice + trend + income )
-Note: Method with signature "ANY#diagonalMatrix" chosen for function "kronecker",
- target signature "dspMatrix#ddiMatrix".
- "Matrix#ANY" would also be valid
-Note: Method with signature "ANY#sparseMatrix" chosen for function "kronecker",
- target signature "dspMatrix#dtTMatrix".
- "Matrix#ANY" would also be valid
 > print( summary( fit2slsS1 ) )
 
 systemfit results 
