@@ -39,7 +39,11 @@ predict.systemfit.equation <- function( object, newdata = NULL,
    }
 
    if( is.null( newdata ) ) {
-      xMat <-  model.matrix( object )
+      xMatNoNa <-  model.matrix( object )
+      xMat <- matrix( NA, nrow = length( residuals( object ) ),
+         ncol = ncol( xMatNoNa ) )
+      xMat[ !is.na( residuals( object ) ), ] <- xMatNoNa
+      rm( xMatNoNa )
    } else {
       xMat <-  model.matrix( formula( delete.response( object$terms ) ),
          data = newdata )
