@@ -67,6 +67,12 @@ systemfit( formula, method = "OLS",
 }
 
 \details{
+   The estimation of systems of equations with unequal numbers
+   of observations has not been thoroughly tested yet.
+   Currently, \code{systemfit} calculates the residual covariance matrix
+   only from the residuals/observations that are available
+   in all equations.
+
    If argument \code{data} is of class \code{plm.dim}
    (created with \code{plm.data} and thus, contains panel data in long format),
    argument \code{formula} must be a single equation

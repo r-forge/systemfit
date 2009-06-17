@@ -267,15 +267,17 @@ systemfit <- function(  formula,
    ## check if the system of equations is unbalanced
    # which observations have no NAs in all equations
    validObsAll <- rowSums( !validObsEq ) == 0
+   unbalanced <- FALSE
    for( i in 1:nEq ) {
       if( any( validObsEq[ !validObsAll, i ] ) ) {
-         warning( "systems of equations with unequal numbers of observations",
-            " are not supported yet: removing observation(s) ",
-            paste( which( validObsEq[ , i ] & !validObsAll ), collapse = ", " ),
-            " in equation ", i )
-         validObsEq[ !validObsAll, i ] <- FALSE
+         unbalanced <- TRUE
       }
    }
+   if( unbalanced ) {
+      warning( "the estimation of systems of equations with unequal numbers",
+         " of observations has not been thoroughly tested yet" )
+   }
+   rm( validObsAll, unbalanced )
 
    ## remove all observations with NAs
    for( i in 1:nEq ) {
