@@ -49,8 +49,12 @@
       result <- matrix( 0, nrow = ncol( xMat ), ncol = nrow( xMat ) )
       for( i in 1:nEq ) {
          for( j in 1:nEq ) {
-            result[ , eqSelect == i ] <- result[ , eqSelect == i ] +
-               t( xMat )[ , eqSelect == j ] * sigmaInv[ i, j ]
+            colSelectI <- eqSelect == i
+            colSelectI[ colSelectI ] <- validObsEq[ validObsEq[ , i ], j ]
+            colSelectJ <- eqSelect == j
+            colSelectJ[ colSelectJ ] <- validObsEq[ validObsEq[ , j ], i ]
+            result[ , colSelectI ] <- result[ , colSelectI ] +
+               t( xMat )[ , colSelectJ ] * sigmaInv[ i, j ]
          }
       }
    }
