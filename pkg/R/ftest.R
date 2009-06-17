@@ -35,17 +35,14 @@
       solve( restrict.matrix %*% vcov %*% t( restrict.matrix ) ) %*%
       ( restrict.matrix %*% coef - restrict.rhs )
 
+   resid <- matrix( resid, ncol = 1 )
    if( object$control$useMatrix ) {
-      resid <- matrix( resid, ncol = 1 )
       resid <- as( resid, "dgCMatrix" )
       rcov <- as( rcov, "dspMatrix" )
-
-      denominator <- as.numeric( .calcXtOmegaInv( xMat = resid, sigma = rcov,
-         validObsEq = validObsEq, useMatrix = TRUE ) %*% resid )
-   } else {
-      denominator <- crossprod( resid, solve( rcov ) %x% diag( sum( validObsEq[ , 1 ] ) ) ) %*%
-         resid
    }
+
+   denominator <- as.numeric( .calcXtOmegaInv( xMat = resid, sigma = rcov,
+      validObsEq = validObsEq, useMatrix = object$control$useMatrix ) %*% resid )
 
    result$statistic <- ( numerator / result$nRestr ) /
       ( denominator / result$df.residual.sys )
