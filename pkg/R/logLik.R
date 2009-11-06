@@ -18,7 +18,7 @@ logLik.systemfit <- function( object, ... ){
       stop( "internal error: unknown estimation method '", object$method, "'" )
    }
 
-   attributes( result )$nobs <- nEq * nObsPerEq
+   attributes( result )$nobs <- df.residual( object ) + object$rank
    attributes( result )$df <- object$rank + nSigma
    class( result ) <- "logLik"
 
