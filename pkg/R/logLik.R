@@ -8,7 +8,6 @@ logLik.systemfit <- function( object, ... ){
    result <- - ( nObsPerEq / 2 ) * ( nEq * ( 1 + log( 2 * pi ) ) +
       log( det( residCov ) ) )
 
-   nCoef <- nEq * nObsPerEq - df.residual( object )
    if( object$method %in% c( "OLS", "2SLS" ) ){
       nSigma <- 1
    } else if( object$method %in% c( "WLS", "W2SLS" ) ){
@@ -20,7 +19,7 @@ logLik.systemfit <- function( object, ... ){
    }
 
    attributes( result )$nobs <- nEq * nObsPerEq
-   attributes( result )$df <- nCoef + nSigma
+   attributes( result )$df <- object$rank + nSigma
    class( result ) <- "logLik"
 
    return( result )
