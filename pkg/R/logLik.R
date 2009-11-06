@@ -2,8 +2,8 @@ logLik.systemfit <- function( object, ... ){
 
    resid <- residuals( object )
    residCov <- .calcResidCov( resid, "noDfCor" )
-   nObsPerEq <- nrow( resid )
    nEq <- ncol( resid )
+   nObsPerEq <- sum( !is.na( resid ) ) / nEq
 
    result <- - ( nObsPerEq / 2 ) * ( nEq * ( 1 + log( 2 * pi ) ) +
       log( det( residCov ) ) )
