@@ -103,6 +103,8 @@ Attaching package: 'zoo'
 +    print( linear.hypothesis( kleinModel, restrict2 ) )
 +    print( linear.hypothesis( kleinModel, restrict2, test = "F" ) )
 +    print( linear.hypothesis( kleinModel, restrict2, test = "Chisq" ) )
++    cat( "> logLik\n" )
++    print( logLik( kleinModel ) )
 + }
 + }
 > 
@@ -803,6 +805,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     51                     
 2     53 -2 0.7367     0.6919
+> logLik
+'log Lik.' -75.76492 (df=16)
 > 
 > # 2SLS
 > summary
@@ -1124,6 +1128,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     51                     
 2     53 -2 1.2959     0.5231
+> logLik
+'log Lik.' -79.94626 (df=16)
 > 
 > # SUR
 > summary
@@ -1400,6 +1406,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     51                     
 2     53 -2 1.8267     0.4012
+> logLik
+'log Lik.' -73.3814 (df=21)
 > 
 > # 3SLS
 > summary
@@ -1682,6 +1690,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     51                     
 2     53 -2 0.7966     0.6715
+> logLik
+'log Lik.' -79.76442 (df=21)
 > 
 > # I3SLS
 > summary
@@ -1966,6 +1976,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     51                     
 2     53 -2 1.7672     0.4133
+> logLik
+'log Lik.' -86.22546 (df=21)
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -2660,6 +2672,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     50                     
 2     52 -2 0.7487     0.6877
+> logLik
+'log Lik.' -75.42095 (df=17)
 > 
 > # 2SLS
 > summary
@@ -2983,6 +2997,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     48                     
 2     50 -2 1.0627     0.5878
+> logLik
+'log Lik.' -79.39083 (df=19)
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -3261,6 +3277,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     50                     
 2     52 -2 1.7473     0.4174
+> logLik
+'log Lik.' -73.09461 (df=22)
 > 
 > # 3SLS
 > summary
@@ -3545,6 +3563,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     48                     
 2     50 -2 0.7654      0.682
+> logLik
+'log Lik.' -79.06039 (df=24)
 > 
 > # I3SLS
 > summary
@@ -3831,6 +3851,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     48                     
 2     50 -2 1.6595     0.4362
+> logLik
+'log Lik.' -85.34575 (df=24)
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -4519,6 +4541,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     49                     
 2     51 -2 0.8688     0.6477
+> logLik
+'log Lik.' -75.25652 (df=18)
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -4844,6 +4868,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     47                     
 2     49 -2 0.9841     0.6114
+> logLik
+'log Lik.' -78.46183 (df=20)
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -5122,6 +5148,8 @@ Model 2: restricted model
   Res.Df Df Chisq Pr(>Chisq)
 1     49                    
 2     51 -2 1.377     0.5023
+> logLik
+'log Lik.' -72.85573 (df=23)
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -5408,6 +5436,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     47                     
 2     49 -2 1.3686     0.5045
+> logLik
+'log Lik.' -78.01982 (df=25)
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -5696,6 +5726,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     47                     
 2     49 -2 3.2782     0.1942
+> logLik
+'log Lik.' -82.08338 (df=25)
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -6372,6 +6404,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     47                     
 2     49 -2 0.3278     0.8488
+> logLik
+'log Lik.' -76.64258 (df=20)
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -6697,6 +6731,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     45                     
 2     47 -2 1.7789     0.4109
+> logLik
+'log Lik.' -81.56287 (df=22)
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -6975,6 +7011,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     47                     
 2     49 -2 0.7939     0.6724
+> logLik
+'log Lik.' -74.0356 (df=25)
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -7267,6 +7305,8 @@ Model 2: restricted model
 2     47 -2 4.9549    0.08396 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> logLik
+'log Lik.' -82.4566 (df=27)
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -7565,6 +7605,8 @@ Model 2: restricted model
 2     47 -2 6.3983     0.0408 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> logLik
+'log Lik.' -84.14766 (df=27)
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -8235,6 +8277,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     46                     
 2     48 -2 0.3037     0.8591
+> logLik
+'log Lik.' -78.521 (df=21)
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -8560,6 +8604,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     44                     
 2     46 -2 1.6755     0.4327
+> logLik
+'log Lik.' -83.30993 (df=23)
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -8838,6 +8884,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     46                     
 2     48 -2 0.7482     0.6879
+> logLik
+'log Lik.' -75.90049 (df=26)
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -9124,6 +9172,8 @@ Model 2: restricted model
   Res.Df Df  Chisq Pr(>Chisq)
 1     44                     
 2     46 -2 4.4088     0.1103
+> logLik
+'log Lik.' -84.50962 (df=28)
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -9420,4 +9470,6 @@ Model 2: restricted model
 2     46 -2 5.7904    0.05529 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> logLik
+'log Lik.' -87.06769 (df=28)
 > 

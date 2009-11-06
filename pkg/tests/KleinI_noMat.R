@@ -73,5 +73,7 @@ for( methodNo in 1:5 ) {
    print( linear.hypothesis( kleinModel, restrict2 ) )
    print( linear.hypothesis( kleinModel, restrict2, test = "F" ) )
    print( linear.hypothesis( kleinModel, restrict2, test = "Chisq" ) )
+   cat( "> logLik\n" )
+   print( logLik( kleinModel ) )
 }
 }
