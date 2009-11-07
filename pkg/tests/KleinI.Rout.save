@@ -2672,7 +2672,7 @@ Model 2: restricted model
 1     50                     
 2     52 -2 0.7487     0.6877
 > logLik
-'log Lik.' -70.84998 (df=13)
+'log Lik.' -71.88431 (df=13)
 > 
 > # 2SLS
 > summary
@@ -3277,7 +3277,7 @@ Model 2: restricted model
 1     50                     
 2     52 -2 1.7473     0.4174
 > logLik
-'log Lik.' -68.66463 (df=18)
+'log Lik.' -69.42669 (df=18)
 > 
 > # 3SLS
 > summary
@@ -4541,7 +4541,7 @@ Model 2: restricted model
 1     49                     
 2     51 -2 0.8688     0.6477
 > logLik
-'log Lik.' -69.55527 (df=13)
+'log Lik.' -71.73047 (df=13)
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -4868,7 +4868,7 @@ Model 2: restricted model
 1     47                     
 2     49 -2 0.9841     0.6114
 > logLik
-'log Lik.' -70.14012 (df=13)
+'log Lik.' -71.51436 (df=13)
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -5148,7 +5148,7 @@ Model 2: restricted model
 1     49                    
 2     51 -2 1.377     0.5023
 > logLik
-'log Lik.' -67.33635 (df=18)
+'log Lik.' -69.62877 (df=18)
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -5436,7 +5436,7 @@ Model 2: restricted model
 1     47                     
 2     49 -2 1.3686     0.5045
 > logLik
-'log Lik.' -69.745 (df=18)
+'log Lik.' -71.01165 (df=18)
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -5726,7 +5726,7 @@ Model 2: restricted model
 1     47                     
 2     49 -2 3.2782     0.1942
 > logLik
-'log Lik.' -73.37757 (df=18)
+'log Lik.' -74.54522 (df=18)
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -6404,7 +6404,7 @@ Model 2: restricted model
 1     47                     
 2     49 -2 0.3278     0.8488
 > logLik
-'log Lik.' -68.51382 (df=13)
+'log Lik.' -69.60817 (df=13)
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -6731,7 +6731,7 @@ Model 2: restricted model
 1     45                     
 2     47 -2 1.7789     0.4109
 > logLik
-'log Lik.' -70.44066 (df=13)
+'log Lik.' -70.62751 (df=13)
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -7011,7 +7011,7 @@ Model 2: restricted model
 1     47                     
 2     49 -2 0.7939     0.6724
 > logLik
-'log Lik.' -66.18334 (df=18)
+'log Lik.' -67.30159 (df=18)
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -7305,7 +7305,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > logLik
-'log Lik.' -71.21252 (df=18)
+'log Lik.' -71.17749 (df=18)
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -7605,7 +7605,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > logLik
-'log Lik.' -72.67298 (df=18)
+'log Lik.' -72.69263 (df=18)
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -8277,7 +8277,7 @@ Model 2: restricted model
 1     46                     
 2     48 -2 0.3037     0.8591
 > logLik
-'log Lik.' -69.0033 (df=13)
+'log Lik.' -68.75014 (df=13)
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -8604,7 +8604,7 @@ Model 2: restricted model
 1     44                     
 2     46 -2 1.6755     0.4327
 > logLik
-'log Lik.' -70.68722 (df=13)
+'log Lik.' -69.47985 (df=13)
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -8884,7 +8884,7 @@ Model 2: restricted model
 1     46                     
 2     48 -2 0.7482     0.6879
 > logLik
-'log Lik.' -66.70043 (df=18)
+'log Lik.' -66.4233 (df=18)
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -9172,7 +9172,7 @@ Model 2: restricted model
 1     44                     
 2     46 -2 4.4088     0.1103
 > logLik
-'log Lik.' -71.70514 (df=18)
+'log Lik.' -70.14471 (df=18)
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -9470,5 +9470,5 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > logLik
-'log Lik.' -73.87561 (df=18)
+'log Lik.' -72.22389 (df=18)
 > 
