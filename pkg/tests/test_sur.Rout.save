@@ -1,6 +1,6 @@
 
-R version 2.10.0 (2009-10-26)
-Copyright (C) 2009 The R Foundation for Statistical Computing
+R version 2.11.0 (2010-04-22)
+Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -19,17 +19,16 @@ Type 'q()' to quit R.
 > library( systemfit )
 Loading required package: Matrix
 Loading required package: lattice
+
+Attaching package: 'Matrix'
+
+The following object(s) are masked from 'package:base':
+
+    det
+
 Loading required package: car
 Loading required package: lmtest
 Loading required package: zoo
-
-Attaching package: 'zoo'
-
-
-	The following object(s) are masked from package:base :
-
-	 as.Date.numeric 
-
 > data( "Kmenta" )
 > useMatrix <- FALSE
 > 
@@ -2963,7 +2962,7 @@ SUR estimates for 'supply' (equation 2)
 Model Formula: consump ~ price + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 34.1957633  7.2257142  4.73251 3.5895e-05 ***
+(Intercept) 34.1957632  7.2257142  4.73251 3.5895e-05 ***
 price        0.4353193  0.0815254  5.33967 5.7345e-06 ***
 farmPrice    0.2070310  0.0124152 16.67557 < 2.22e-16 ***
 trend        0.3007469  0.0130683 23.01349 < 2.22e-16 ***
@@ -3961,7 +3960,7 @@ Coefficients:
 demand_(Intercept) 78.0341602  7.1637696 10.89289 8.6331e-13 ***
 demand_price       -0.0646807  0.0815254 -0.79338     0.4329    
 demand_income       0.3007469  0.0130683 23.01349 < 2.22e-16 ***
-supply_(Intercept) 34.1957633  7.2257142  4.73251 3.5895e-05 ***
+supply_(Intercept) 34.1957632  7.2257142  4.73251 3.5895e-05 ***
 supply_price        0.4353193  0.0815254  5.33967 5.7345e-06 ***
 supply_farmPrice    0.2070310  0.0124152 16.67557 < 2.22e-16 ***
 supply_trend        0.3007469  0.0130683 23.01349 < 2.22e-16 ***
