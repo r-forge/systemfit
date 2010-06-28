@@ -26,7 +26,7 @@
 # rm(list=ls(all=TRUE))
 
 ### this function is the "driver" function for the minimization...
-knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=NULL ) {
+knls <- function( theta, eqns, data, fitmethod="OLS", parmnames,gra=NULL, instr=NULL, S=NULL ) {
 
   r  <- matrix()               # residuals equation wise
   r <- NULL
@@ -73,36 +73,48 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
     if( fitmethod == "GMM" ) {
       gmm.resids <- cbind( gmm.resids, as.matrix( residi[[i]] ) )
     }
+if(is.null(gra)){
     dResidThetai[[ i ]] <- - attributes( with( data, with( as.list( theta ),
-      eval( deriv( eqns[[i]], names( parmnames ))))))$gradient
+      eval( deriv( eqns[[i]], names( parmnames ))))))$gradient}else{
+
+  dResidThetai[[ i ]] <- - attributes( with( data, with( as.list( theta ),
+      eval( gra[i]))))$gradient}
     dResidTheta <- rbind( dResidTheta, dResidThetai[[ i ]] )
-    d2ResidThetai[[ i ]] <- - attributes( with( data, with( as.list( theta ),
-      eval( deriv3( eqns[[i]], names( parmnames ) )))))$hessian
-    temp <- array( NA, c( dim( d2ResidTheta )[ 1 ] +
-      dim( d2ResidThetai[[ i ]] )[ 1 ], dim( d2ResidThetai[[ i ]] )[ 2:3 ] ) )
-    if( i > 1 ) {
-      temp[ 1:dim( d2ResidTheta )[ 1 ], , ] <- d2ResidTheta
-    }
-    temp[ ( dim( d2ResidTheta )[ 1 ] + 1 ):( dim( temp )[ 1 ] ),
-      , ] <- d2ResidThetai[[ i ]]
-    d2ResidTheta <- temp
-  }
+
+
+#    if( fitmethod != "FIML" ){
+#    d2ResidThetai[[ i ]] <- - attributes( with( data, with( as.list( theta ),
+#      eval( deriv3( eqns[[i]], names( parmnames ) )))))$hessian
+#    temp <- array( NA, c( dim( d2ResidTheta )[ 1 ] +
+#      dim( d2ResidThetai[[ i ]] )[ 1 ], dim( d2ResidThetai[[ i ]] )[ 2:3 ] ) )
+#    if( i > 1 ) {
+#      temp[ 1:dim( d2ResidTheta )[ 1 ], , ] <- d2ResidTheta
+#    }
+#    temp[ ( dim( d2ResidTheta )[ 1 ] + 1 ):( dim( temp )[ 1 ] ),
+#      , ] <- d2ResidThetai[[ i ]]
+#    d2ResidTheta <- temp
+#  }
+}
   ## these are the objective functions for the various fitting methods
   if( fitmethod == "OLS" ) {
     obj <- crossprod( r )
     gradient <- 2 * t( r ) %*% dResidTheta
 #print( d2ResidTheta )
 #print( t( dResidTheta ) %*% dResidTheta )
-    hessian <- matrix( NA, nrow = length( parmnames ), ncol = length( parmnames ) )
-    for( i in 1:length( parmnames ) ) {
-      hessian[ i, ] <- 2 * t( r ) %*% d2ResidTheta[ , , i ]
-    }
-    hessian <- hessian + 2 * t( dResidTheta ) %*% dResidTheta
-    rownames( hessian ) <- colnames( dResidTheta )
-    colnames( hessian ) <- colnames( dResidTheta )
+ #
+ #  hessian <- matrix( NA, nrow = length( parmnames ), ncol = length( parmnames ) )
+ #   for( i in 1:length( parmnames ) ) {
+ #     hessian[ i, ] <- 2 * t( r ) %*% d2ResidTheta[ , , i ]
+ #   }
+ #   hessian <- hessian + 2 * t( dResidTheta ) %*% dResidTheta
+ #   rownames( hessian ) <- colnames( dResidTheta )
+ #   colnames( hessian ) <- colnames( dResidTheta )
 #print( hessian - t( hessian ) )
-    hessian <- NULL
-    attributes( obj ) <- list( gradient = gradient, hessian = hessian )
+ #   hessian <- NULL
+ 
+
+ 
+  attributes( obj ) <- list( gradient = gradient)#, hessian = hessian )
   }
   if( fitmethod == "2SLS" ) {
     ## W is premultiplied == ( diag( neqs ) %x% W )
@@ -110,7 +122,7 @@ knls <- function( theta, eqns, data, fitmethod="OLS", parmnames, instr=NULL, S=N
     obj <- crossprod(t(crossprod(r,S)),r)
     attributes( obj ) <- list( gradient = 2 * t( r ) %*% S %*% dResidTheta )
   }
-  if( fitmethod == "SUR" ) {
+  if( fitmethod == "SUR"  ) {
     ## S is premultiplied == ( qr.solve( S ) %x% diag( nobs ) )
     ##obj <- ( t(r) %*% S %*% r )
     obj <- crossprod(t(crossprod(r,S)),r)
@@ -155,15 +167,18 @@ nlsystemfit <- function( method="OLS",
                         startvals,
                         eqnlabels=c(as.character(1:length(eqns))),
                         inst=NULL,
-                        data=list(),
+                        data=list(),gra=NULL,
                         solvtol=.Machine$double.eps,
-                        maxiter=1000, ... ) {
+                        maxiter=1000, tol=1e-6, ... ) {# tol is the 
+#stopping tolerance for SUR
+
 
   attach( data )
 
   ## some tests
-  if(!(method=="OLS" | method=="SUR" | method=="2SLS" | method=="3SLS" | method=="GMM" )){
-    stop("The method must be 'OLS', 'SUR', '2SLS', or '3SLS'")}
+  if(!(method=="OLS" | method=="SUR" | method=="2SLS" | method=="3SLS" | method=="GMM" |
+  method=="FIML")){
+    stop("The method must be 'OLS', 'SUR', '2SLS', '3SLS' or 'FIML'")}
   if((method=="2SLS" | method=="3SLS" | method=="GMM") & is.null(inst)) {
     stop("The methods '2SLS', '3SLS' and 'GMM' need instruments!")}
 
@@ -224,9 +239,9 @@ nlsystemfit <- function( method="OLS",
                parmnames=startvals,
                S=W2, ... )
   }
-  if( method == "SUR" || method == "3SLS" || method == "GMM" ) {
+  if( method == "SUR" || method == "3SLS" || method == "GMM") {
     ## fit ols/2sls, build the cov matrix for estimation and refit
-    if( method == "SUR" ) {
+    if( method == "SUR") {
       estols <- nlm( knls, startvals,
                     typsize=abs(startvals),iterlim=maxiter,
                     eqns=eqns,
@@ -281,12 +296,68 @@ nlsystemfit <- function( method="OLS",
       }
     }
 
-    if( method == "SUR" ) {
-      Solsinv <- qr.solve( Sols, tol=solvtol ) %x% diag( nobs )
-      est <- nlm( knls,estols$estimate,
-                 typsize=abs(estols$estimate),iterlim=maxiter,
-                 eqns=eqns, data=data, fitmethod=method, parmnames=startvals,
-                 S=Solsinv, ... )
+    if( method == "SUR") {
+
+    coef<-estols$estimate
+    coefOld  <- coef # coefficients of previous step
+    coefDiff <- coef # difference of coefficients between this and previous step
+    iter  <- 0
+    while((sum(coefDiff^2)/sum(coefOld^2))^0.5>tol & iter < maxiter) {
+      iter  <- iter+1
+      coefOld <- coef                           # coefficients of previous step
+    
+   ## build the iterative S matrix
+    names( coef ) <- names( startvals ) 
+    for( i in 1:length( coef ) ) {
+      name <- names( coef )[i]
+      val <- coef[i]
+      storage.mode( val ) <-  "double"
+      assign( name, val )
+      }
+
+    G       <- length( eqns )
+    lhs 	<- list()
+    rhs 	<- list()
+    derivs 	<- list()
+    residi	<-list()
+    df      <- array( 0, c(G) )    
+
+   for(i in 1:G) {
+     lhs[[i]] <- as.matrix( eval( as.formula( eqns[[i]] )[[2]] ,data) )
+     rhs[[i]] <- as.matrix( eval( as.formula( eqns[[i]] )[[3]] ,data) )
+     residi[[i]] <- lhs[[i]] - rhs[[i]]
+     derivs[[i]] <- deriv( as.formula( eqns[[i]] ), names( startvals ) )
+      
+     ## computing the jacobian to get the rank to get the number of variables...
+     jacobian <- attr( eval( derivs[[i]],data ), "gradient" )
+     n[i]   <-  length( lhs[[i]] )
+     k[i] <- qr( jacobian )$rank
+     df[i] <- n[i] - k[i]
+     }
+
+   Sols <- matrix( 0, G, G )
+   rcovformula <- 1
+   for(i in 1:G) {
+   for(i2 in 1:G) {
+    Sols[i,i2] <- sum(residi[[i]]*residi[[i2]])/(sqrt((n[i]-rcovformula*k[i])*(n[i2]-rcovformula*k[i2])))
+   }
+   }
+
+   solvtol=.Machine$double.eps
+   nobs <- dim( data )[[1]] 
+   Solsinv <- qr.solve( Sols, tol=solvtol ) %x% diag( nobs )
+ 
+  est <- nlm( knls,coef,
+		typsize=abs(startvals),
+		iterlim=maxiter,eqns=eqns,
+		data=data, fitmethod=method, 
+		parmnames=startvals,S=Solsinv,...)
+
+  coef<-est$estimate  
+  coefDiff <- coef - coefOld # difference of coefficients between this and previous step
+  }
+
+
     }
     if( method == "3SLS" ) {
       z <- as.matrix( model.frame( inst ) )
@@ -313,9 +384,9 @@ nlsystemfit <- function( method="OLS",
                  typsize=abs(estols$estimate),iterlim=maxiter,
                  eqns=eqns, data=data, fitmethod="GMM", parmnames=startvals,
                  S=v2sls, instr=inst, ... )
-    }
   }
-
+  }
+  
   ## done with the fitting...
   ## now, part out the results from the nlm function
   ## to rebuild the equations and return object
@@ -411,7 +482,7 @@ nlsystemfit <- function( method="OLS",
     SW <- diag( diag( qr.solve( S, tol=solvtol ) ) ) %x% W
     covb <- qr.solve(t(X) %*% SW %*% X, tol=solvtol )
   }
-  if( method == "SUR" ) {
+  if( method == "SUR") {
     SI <- qr.solve( S, tol=solvtol ) %x% diag( nrow( data ) )
     covb <- qr.solve(t(X) %*% SI %*% X, tol=solvtol )
   }
