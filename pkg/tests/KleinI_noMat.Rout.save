@@ -744,12 +744,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     52 -1 0.8222 0.3688
+1     52                 
+2     51  1 0.8222 0.3688
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -778,12 +778,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     53 -2 0.4156 0.6622
+1     53                 
+2     51  2 0.4156 0.6622
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -1067,12 +1067,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     52 -1 1.0831 0.3029
+1     52                 
+2     51  1 1.0831 0.3029
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -1101,12 +1101,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     53 -2 0.5419  0.585
+1     53                 
+2     51  2 0.5419  0.585
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -1345,12 +1345,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     52 -1 1.4364 0.2363
+1     52                 
+2     51  1 1.4364 0.2363
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -1379,12 +1379,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     53 -2 0.7745 0.4663
+1     53                 
+2     51  2 0.7745 0.4663
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -1629,12 +1629,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df     F Pr(>F)
-1     51                
-2     52 -1 0.293 0.5906
+1     52                
+2     51  1 0.293 0.5906
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -1663,12 +1663,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     53 -2 0.3026 0.7402
+1     53                 
+2     51  2 0.3026 0.7402
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -1915,12 +1915,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df     F Pr(>F)
-1     51                
-2     52 -1 0.592 0.4452
+1     52                
+2     51  1 0.592 0.4452
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -1949,12 +1949,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     53 -2 0.7153 0.4939
+1     53                 
+2     51  2 0.7153 0.4939
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -2611,12 +2611,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     50                 
-2     51 -1 0.8025 0.3746
+1     51                 
+2     50  1 0.8025 0.3746
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -2645,12 +2645,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     50                 
-2     52 -2 0.4165 0.6616
+1     52                 
+2     50  2 0.4165 0.6616
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -2936,12 +2936,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     48                 
-2     49 -1 0.9455 0.3357
+1     49                 
+2     48  1 0.9455 0.3357
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -2970,12 +2970,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     48                 
-2     50 -2 0.4774 0.6233
+1     50                 
+2     48  2 0.4774 0.6233
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -3216,12 +3216,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     50                 
-2     51 -1 1.3906 0.2439
+1     51                 
+2     50  1 1.3906 0.2439
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -3250,12 +3250,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df     F Pr(>F)
-1     50                
-2     52 -2 0.716 0.4937
+1     52                
+2     50  2 0.716 0.4937
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -3502,12 +3502,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     48                 
-2     49 -1 0.2212 0.6403
+1     49                 
+2     48  1 0.2212 0.6403
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -3536,12 +3536,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     48                 
-2     50 -2 0.2914 0.7485
+1     50                 
+2     48  2 0.2914 0.7485
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -3790,12 +3790,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df     F Pr(>F)
-1     48                
-2     49 -1 0.396 0.5321
+1     49                
+2     48  1 0.396 0.5321
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -3824,12 +3824,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     48                 
-2     50 -2 0.6638 0.5196
+1     50                 
+2     48  2 0.6638 0.5196
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -4480,12 +4480,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     49                 
-2     50 -1 0.8746 0.3543
+1     50                 
+2     49  1 0.8746 0.3543
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -4514,12 +4514,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     49                 
-2     51 -2 0.4778  0.623
+1     51                 
+2     49  2 0.4778  0.623
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -4807,12 +4807,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     48 -1 0.8685 0.3561
+1     48                 
+2     47  1 0.8685 0.3561
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -4841,12 +4841,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     49 -2 0.4343 0.6503
+1     49                 
+2     47  2 0.4343 0.6503
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -5087,12 +5087,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     49                 
-2     50 -1 1.0089 0.3201
+1     50                 
+2     49  1 1.0089 0.3201
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -5121,12 +5121,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     49                 
-2     51 -2 0.5335 0.5899
+1     51                 
+2     49  2 0.5335 0.5899
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -5375,12 +5375,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     48 -1 0.2263 0.6365
+1     48                 
+2     47  1 0.2263 0.6365
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -5409,12 +5409,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     49 -2 0.4953 0.6125
+1     49                 
+2     47  2 0.4953 0.6125
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -5665,12 +5665,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     48 -1 0.2825 0.5976
+1     48                 
+2     47  1 0.2825 0.5976
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -5699,12 +5699,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     49 -2 1.2498 0.2959
+1     49                 
+2     47  2 1.2498 0.2959
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -6343,12 +6343,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     48 -1 0.3282 0.5694
+1     48                 
+2     47  1 0.3282 0.5694
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -6377,12 +6377,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     49 -2 0.1743 0.8406
+1     49                 
+2     47  2 0.1743 0.8406
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -6670,12 +6670,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     45                 
-2     46 -1 1.3654 0.2488
+1     46                 
+2     45  1 1.3654 0.2488
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -6704,12 +6704,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     45                 
-2     47 -2 0.6874 0.5081
+1     47                 
+2     45  2 0.6874 0.5081
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -6950,12 +6950,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     48 -1 0.4121  0.524
+1     48                 
+2     47  1 0.4121  0.524
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -6984,12 +6984,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     49 -2 0.3125 0.7331
+1     49                 
+2     47  2 0.3125 0.7331
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -7238,12 +7238,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     45                 
-2     46 -1 1.9547 0.1689
+1     46                 
+2     45  1 1.9547 0.1689
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -7274,12 +7274,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     45                 
-2     47 -2 1.7849 0.1795
+1     47                 
+2     45  2 1.7849 0.1795
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -7534,12 +7534,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     45                 
-2     46 -1 2.1692 0.1478
+1     46                 
+2     45  1 2.1692 0.1478
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -7572,12 +7572,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F  Pr(>F)  
-1     45                    
-2     47 -2 2.4471 0.09798 .
+1     47                    
+2     45  2 2.4471 0.09798 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Linear hypothesis test (F statistic of a Wald test)
@@ -8216,12 +8216,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     46                 
-2     47 -1 0.2977 0.5879
+1     47                 
+2     46  1 0.2977 0.5879
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -8250,12 +8250,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df     F Pr(>F)
-1     46                
-2     48 -2 0.158 0.8543
+1     48                
+2     46  2 0.158 0.8543
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -8543,12 +8543,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     44                 
-2     45 -1 1.2657 0.2667
+1     45                 
+2     44  1 1.2657 0.2667
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -8577,12 +8577,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     44                 
-2     46 -2 0.6371 0.5337
+1     46                 
+2     44  2 0.6371 0.5337
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -8823,12 +8823,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     46                 
-2     47 -1 0.4012 0.5296
+1     47                 
+2     46  1 0.4012 0.5296
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -8857,12 +8857,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     46                 
-2     48 -2 0.3053 0.7384
+1     48                 
+2     46  2 0.3053 0.7384
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -9111,12 +9111,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     44                 
-2     45 -1 1.9132 0.1736
+1     45                 
+2     44  1 1.9132 0.1736
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -9145,12 +9145,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     44                 
-2     46 -2 1.6203 0.2094
+1     46                 
+2     44  2 1.6203 0.2094
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -9401,12 +9401,12 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     44                 
-2     45 -1 2.2942  0.137
+1     45                 
+2     44  1 2.2942  0.137
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -9439,12 +9439,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     44                 
-2     46 -2 2.2951 0.1127
+1     46                 
+2     44  2 2.2951 0.1127
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:

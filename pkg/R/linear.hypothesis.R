@@ -61,15 +61,15 @@ linearHypothesis.systemfit <- function( model,
       ftest <- .ftest.systemfit( object = model,
          restrict.matrix = R.restr, restrict.rhs = q.restr,
          vcov. = vcov. )
-      result[ 1, 1 ] <- ftest$df.residual.sys
-      result[ 2, 1 ] <- ftest$df.residual.sys + ftest$nRestr
+      result[ 1, 1 ] <- ftest$df.residual.sys + ftest$nRestr
+      result[ 2, 1 ] <- ftest$df.residual.sys
       result[ 2, 2 ] <- result[ 1, 1 ] - result[ 2, 1 ]
       result[ 2, 3 ] <- ftest$statistic
       result[ 2, 4 ] <- ftest$p.value
 
       title <- "Linear hypothesis test (Theil's F test)\n\nHypothesis:"
-      topnote <- paste( "Model 1: ", modelName,
-         "\nModel 2: restricted model", sep = "" )
+      topnote <- paste( "Model 1: restricted model",
+         "\nModel 2: ", modelName, sep = "" )
       if( is.null( vcov. ) ){
          note <- ""
       } else {

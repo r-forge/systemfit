@@ -4313,24 +4313,24 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitwls1
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwls1
 
   Res.Df Df     F Pr(>F)
-1     33                
-2     34 -1 0.644  0.428
+1     34                
+2     33  1 0.644  0.428
 > linearHypothesis( fitwls1, restrict )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitwls1
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwls1
 
   Res.Df Df     F Pr(>F)
-1     33                
-2     34 -1 0.644  0.428
+1     34                
+2     33  1 0.644  0.428
 > 
 > print( linearHypothesis( fitwlsi1e, restrm ) )
 Linear hypothesis test (Theil's F test)
@@ -4338,24 +4338,24 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitwlsi1e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwlsi1e
 
   Res.Df Df      F Pr(>F)
-1     33                 
-2     34 -1 0.6569 0.4235
+1     34                 
+2     33  1 0.6569 0.4235
 > linearHypothesis( fitwlsi1e, restrict )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitwlsi1e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwlsi1e
 
   Res.Df Df      F Pr(>F)
-1     33                 
-2     34 -1 0.6569 0.4235
+1     34                 
+2     33  1 0.6569 0.4235
 > 
 > # testing second restriction
 > restrOnly2m <- matrix(0,1,7)
@@ -4370,24 +4370,24 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwls1e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwls1e
 
   Res.Df Df      F Pr(>F)
-1     33                 
-2     34 -1 0.0317 0.8599
+1     34                 
+2     33  1 0.0317 0.8599
 > linearHypothesis( fitwls1e, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwls1e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwls1e
 
   Res.Df Df      F Pr(>F)
-1     33                 
-2     34 -1 0.0317 0.8599
+1     34                 
+2     33  1 0.0317 0.8599
 > 
 > print( linearHypothesis( fitwlsi1, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
@@ -4395,24 +4395,24 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwlsi1
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwlsi1
 
   Res.Df Df      F Pr(>F)
-1     33                 
-2     34 -1 0.0316   0.86
+1     34                 
+2     33  1 0.0316   0.86
 > linearHypothesis( fitwlsi1, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwlsi1
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwlsi1
 
   Res.Df Df      F Pr(>F)
-1     33                 
-2     34 -1 0.0316   0.86
+1     34                 
+2     33  1 0.0316   0.86
 > 
 > # first restriction imposed
 > print( linearHypothesis( fitwls2, restrOnly2m, restrOnly2q ) )
@@ -4421,24 +4421,24 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwls2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwls2
 
   Res.Df Df    F Pr(>F)
-1     34               
-2     35 -1 0.08  0.779
+1     35               
+2     34  1 0.08  0.779
 > linearHypothesis( fitwls2, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwls2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwls2
 
   Res.Df Df    F Pr(>F)
-1     34               
-2     35 -1 0.08  0.779
+1     35               
+2     34  1 0.08  0.779
 > 
 > print( linearHypothesis( fitwls3, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
@@ -4446,24 +4446,24 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwls3
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwls3
 
   Res.Df Df    F Pr(>F)
-1     34               
-2     35 -1 0.08  0.779
+1     35               
+2     34  1 0.08  0.779
 > linearHypothesis( fitwls3, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwls3
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwls3
 
   Res.Df Df    F Pr(>F)
-1     34               
-2     35 -1 0.08  0.779
+1     35               
+2     34  1 0.08  0.779
 > 
 > print( linearHypothesis( fitwlsi2e, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
@@ -4471,24 +4471,24 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwlsi2e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwlsi2e
 
   Res.Df Df      F Pr(>F)
-1     34                 
-2     35 -1 0.0835 0.7743
+1     35                 
+2     34  1 0.0835 0.7743
 > linearHypothesis( fitwlsi2e, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwlsi2e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwlsi2e
 
   Res.Df Df      F Pr(>F)
-1     34                 
-2     35 -1 0.0835 0.7743
+1     35                 
+2     34  1 0.0835 0.7743
 > 
 > print( linearHypothesis( fitwlsi3e, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
@@ -4496,24 +4496,24 @@ Linear hypothesis test (Theil's F test)
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwlsi3e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwlsi3e
 
   Res.Df Df      F Pr(>F)
-1     34                 
-2     35 -1 0.0835 0.7743
+1     35                 
+2     34  1 0.0835 0.7743
 > linearHypothesis( fitwlsi3e, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitwlsi3e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwlsi3e
 
   Res.Df Df      F Pr(>F)
-1     34                 
-2     35 -1 0.0835 0.7743
+1     35                 
+2     34  1 0.0835 0.7743
 > 
 > # testing both of the restrictions
 > print( linearHypothesis( fitwls1e, restr2m, restr2q ) )
@@ -4523,12 +4523,12 @@ Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_price = 0.5
 
-Model 1: fitwls1e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwls1e
 
   Res.Df Df      F Pr(>F)
-1     33                 
-2     35 -2 0.3707 0.6931
+1     35                 
+2     33  2 0.3707 0.6931
 > linearHypothesis( fitwls1e, restrict2 )
 Linear hypothesis test (Theil's F test)
 
@@ -4536,12 +4536,12 @@ Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_price = 0.5
 
-Model 1: fitwls1e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwls1e
 
   Res.Df Df      F Pr(>F)
-1     33                 
-2     35 -2 0.3707 0.6931
+1     35                 
+2     33  2 0.3707 0.6931
 > 
 > print( linearHypothesis( fitwlsi1, restr2m, restr2q ) )
 Linear hypothesis test (Theil's F test)
@@ -4550,12 +4550,12 @@ Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_price = 0.5
 
-Model 1: fitwlsi1
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwlsi1
 
   Res.Df Df      F Pr(>F)
-1     33                 
-2     35 -2 0.3621  0.699
+1     35                 
+2     33  2 0.3621  0.699
 > linearHypothesis( fitwlsi1, restrict2 )
 Linear hypothesis test (Theil's F test)
 
@@ -4563,12 +4563,12 @@ Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_price = 0.5
 
-Model 1: fitwlsi1
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitwlsi1
 
   Res.Df Df      F Pr(>F)
-1     33                 
-2     35 -2 0.3621  0.699
+1     35                 
+2     33  2 0.3621  0.699
 > 
 > 
 > ## ************** Wald tests ****************
