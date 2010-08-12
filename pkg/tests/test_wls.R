@@ -504,11 +504,11 @@ print( logLik( fitwlsi5e ) )
 
 ## ************** F tests ****************
 # testing first restriction
-print( linear.hypothesis( fitwls1, restrm ) )
-linear.hypothesis( fitwls1, restrict )
+print( linearHypothesis( fitwls1, restrm ) )
+linearHypothesis( fitwls1, restrict )
 
-print( linear.hypothesis( fitwlsi1e, restrm ) )
-linear.hypothesis( fitwlsi1e, restrict )
+print( linearHypothesis( fitwlsi1e, restrm ) )
+linearHypothesis( fitwlsi1e, restrict )
 
 # testing second restriction
 restrOnly2m <- matrix(0,1,7)
@@ -517,68 +517,68 @@ restrOnly2m[1,2] <- -1
 restrOnly2m[1,5] <-  1
 restrictOnly2 <- "- demand_price + supply_price = 0.5"
 # first restriction not imposed 
-print( linear.hypothesis( fitwls1e, restrOnly2m, restrOnly2q ) )
-linear.hypothesis( fitwls1e, restrictOnly2 )
+print( linearHypothesis( fitwls1e, restrOnly2m, restrOnly2q ) )
+linearHypothesis( fitwls1e, restrictOnly2 )
 
-print( linear.hypothesis( fitwlsi1, restrOnly2m, restrOnly2q ) )
-linear.hypothesis( fitwlsi1, restrictOnly2 )
+print( linearHypothesis( fitwlsi1, restrOnly2m, restrOnly2q ) )
+linearHypothesis( fitwlsi1, restrictOnly2 )
 
 # first restriction imposed
-print( linear.hypothesis( fitwls2, restrOnly2m, restrOnly2q ) )
-linear.hypothesis( fitwls2, restrictOnly2 )
+print( linearHypothesis( fitwls2, restrOnly2m, restrOnly2q ) )
+linearHypothesis( fitwls2, restrictOnly2 )
 
-print( linear.hypothesis( fitwls3, restrOnly2m, restrOnly2q ) )
-linear.hypothesis( fitwls3, restrictOnly2 )
+print( linearHypothesis( fitwls3, restrOnly2m, restrOnly2q ) )
+linearHypothesis( fitwls3, restrictOnly2 )
 
-print( linear.hypothesis( fitwlsi2e, restrOnly2m, restrOnly2q ) )
-linear.hypothesis( fitwlsi2e, restrictOnly2 )
+print( linearHypothesis( fitwlsi2e, restrOnly2m, restrOnly2q ) )
+linearHypothesis( fitwlsi2e, restrictOnly2 )
 
-print( linear.hypothesis( fitwlsi3e, restrOnly2m, restrOnly2q ) )
-linear.hypothesis( fitwlsi3e, restrictOnly2 )
+print( linearHypothesis( fitwlsi3e, restrOnly2m, restrOnly2q ) )
+linearHypothesis( fitwlsi3e, restrictOnly2 )
 
 # testing both of the restrictions
-print( linear.hypothesis( fitwls1e, restr2m, restr2q ) )
-linear.hypothesis( fitwls1e, restrict2 )
+print( linearHypothesis( fitwls1e, restr2m, restr2q ) )
+linearHypothesis( fitwls1e, restrict2 )
 
-print( linear.hypothesis( fitwlsi1, restr2m, restr2q ) )
-linear.hypothesis( fitwlsi1, restrict2 )
+print( linearHypothesis( fitwlsi1, restr2m, restr2q ) )
+linearHypothesis( fitwlsi1, restrict2 )
 
 
 ## ************** Wald tests ****************
 # testing first restriction
-print( linear.hypothesis( fitwls1, restrm, test = "Chisq" ) )
-linear.hypothesis( fitwls1, restrict, test = "Chisq" )
+print( linearHypothesis( fitwls1, restrm, test = "Chisq" ) )
+linearHypothesis( fitwls1, restrict, test = "Chisq" )
 
-print( linear.hypothesis( fitwlsi1e, restrm, test = "Chisq" ) )
-linear.hypothesis( fitwlsi1e, restrict, test = "Chisq" )
+print( linearHypothesis( fitwlsi1e, restrm, test = "Chisq" ) )
+linearHypothesis( fitwlsi1e, restrict, test = "Chisq" )
 
 # testing second restriction
 # first restriction not imposed
-print( linear.hypothesis( fitwls1e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-linear.hypothesis( fitwls1e, restrictOnly2, test = "Chisq" )
+print( linearHypothesis( fitwls1e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linearHypothesis( fitwls1e, restrictOnly2, test = "Chisq" )
 
-print( linear.hypothesis( fitwlsi1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-linear.hypothesis( fitwlsi1, restrictOnly2, test = "Chisq" )
+print( linearHypothesis( fitwlsi1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linearHypothesis( fitwlsi1, restrictOnly2, test = "Chisq" )
 
 # first restriction imposed
-print( linear.hypothesis( fitwls2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-linear.hypothesis( fitwls2, restrictOnly2, test = "Chisq" )
+print( linearHypothesis( fitwls2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linearHypothesis( fitwls2, restrictOnly2, test = "Chisq" )
 
-print( linear.hypothesis( fitwls3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-linear.hypothesis( fitwls3, restrictOnly2, test = "Chisq" )
+print( linearHypothesis( fitwls3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linearHypothesis( fitwls3, restrictOnly2, test = "Chisq" )
 
-print( linear.hypothesis( fitwlsi2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-linear.hypothesis( fitwlsi2e, restrictOnly2, test = "Chisq" )
+print( linearHypothesis( fitwlsi2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linearHypothesis( fitwlsi2e, restrictOnly2, test = "Chisq" )
 
-print( linear.hypothesis( fitwlsi3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-linear.hypothesis( fitwlsi3e, restrictOnly2, test = "Chisq" )
+print( linearHypothesis( fitwlsi3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+linearHypothesis( fitwlsi3e, restrictOnly2, test = "Chisq" )
 
 # testing both of the restrictions
-print( linear.hypothesis( fitwls1e, restr2m, restr2q, test = "Chisq" ) )
-linear.hypothesis( fitwls1e, restrict2, test = "Chisq" )
+print( linearHypothesis( fitwls1e, restr2m, restr2q, test = "Chisq" ) )
+linearHypothesis( fitwls1e, restrict2, test = "Chisq" )
 
-print( linear.hypothesis( fitwlsi1, restr2m, restr2q, test = "Chisq" ) )
-linear.hypothesis( fitwlsi1, restrict2, test = "Chisq" )
+print( linearHypothesis( fitwlsi1, restr2m, restr2q, test = "Chisq" ) )
+linearHypothesis( fitwlsi1, restrict2, test = "Chisq" )
 
 
 ## ****************** model frame **************************

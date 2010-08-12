@@ -1,4 +1,4 @@
-linear.hypothesis.systemfit <- function( model,
+linearHypothesis.systemfit <- function( model,
       hypothesis.matrix, rhs = NULL, test = c( "FT", "F", "Chisq" ),
       vcov. = NULL, ... ){
 
@@ -8,7 +8,7 @@ linear.hypothesis.systemfit <- function( model,
    modelName <- deparse( substitute( model ) )
 
    if( test == "Chisq" ){
-      result <- car:::linear.hypothesis.default( model,
+      result <- car:::linearHypothesis.default( model,
          hypothesis.matrix = hypothesis.matrix, rhs = rhs, test = test,
          vcov. = vcov., ... )
 
@@ -17,12 +17,12 @@ linear.hypothesis.systemfit <- function( model,
 
       modelPos <- grep( "^Model 1: .*Model 2:", attributes( result )$heading )
       attributes( result )$heading[ modelPos[ 1 ] ] <-
-         sub( "^Model 1: .*Model 2:",
-            paste( "Model 1: ", modelName, "\nModel 2:", sep = "" ),
+         sub( "Model 2:.*$",
+            paste( "Model 2: ", modelName, sep = "" ),
             attributes( result )$heading[ modelPos[ 1 ] ] )
 
    } else if ( test == "F" ) {
-      result <- car:::linear.hypothesis.default( model,
+      result <- car:::linearHypothesis.default( model,
          hypothesis.matrix = hypothesis.matrix, rhs = rhs, test = test,
          vcov. = vcov., ... )
 
@@ -31,8 +31,8 @@ linear.hypothesis.systemfit <- function( model,
 
       modelPos <- grep( "^Model 1: .*Model 2:", attributes( result )$heading )
       attributes( result )$heading[ modelPos[ 1 ] ] <-
-         sub( "^Model 1: .*Model 2:",
-            paste( "Model 1: ", modelName, "\nModel 2:", sep = "" ),
+         sub( "Model 2:.*$",
+            paste( "Model 2: ", modelName, sep = "" ),
             attributes( result )$heading[ modelPos[ 1 ] ] )
 
    } else if ( test == "FT" ) {
@@ -85,3 +85,9 @@ linear.hypothesis.systemfit <- function( model,
 
    return( result )
 }
+
+linear.hypothesis.systemfit <- function( ... ) {
+   .Deprecated( "linearHypothesis.systemfit", package = "systemfit" )
+   return( linearHypothesis.systemfit( ... ) )
+}
+

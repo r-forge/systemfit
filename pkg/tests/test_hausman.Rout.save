@@ -1,5 +1,5 @@
 
-R version 2.11.0 (2010-04-22)
+R version 2.11.1 (2010-05-31)
 Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -27,6 +27,10 @@ The following object(s) are masked from 'package:base':
     det
 
 Loading required package: car
+Loading required package: MASS
+Loading required package: nnet
+Loading required package: survival
+Loading required package: splines
 Loading required package: lmtest
 Loading required package: zoo
 > data( "Kmenta" )

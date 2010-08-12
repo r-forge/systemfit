@@ -1,5 +1,5 @@
 
-R version 2.11.0 (2010-04-22)
+R version 2.11.1 (2010-05-31)
 Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -26,16 +26,17 @@ The following object(s) are masked from 'package:base':
     det
 
 Loading required package: car
+Loading required package: MASS
+Loading required package: nnet
+Loading required package: survival
+Loading required package: splines
 Loading required package: lmtest
 Loading required package: zoo
 > library( plm )
 Loading required package: kinship
-Loading required package: survival
-Loading required package: splines
 Loading required package: nlme
 [1] "kinship is loaded"
 Loading required package: Formula
-Loading required package: MASS
 Loading required package: sandwich
 > useMatrix <- FALSE
 > 
@@ -465,7 +466,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9f8904c>
+<environment: 0xb3cac74>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -490,7 +491,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9f8904c>
+<environment: 0xb3cac74>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -515,7 +516,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9f8904c>
+<environment: 0xb3cac74>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -950,7 +951,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa10f6b8>
+<environment: 0xb8ff3b8>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -975,7 +976,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa10f6b8>
+<environment: 0xb8ff3b8>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -1000,7 +1001,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa10f6b8>
+<environment: 0xb8ff3b8>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -2413,7 +2414,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x98118e4>
+<environment: 0xaabbcac>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -2438,7 +2439,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x98118e4>
+<environment: 0xaabbcac>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -2463,7 +2464,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x98118e4>
+<environment: 0xaabbcac>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -2488,7 +2489,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x98118e4>
+<environment: 0xaabbcac>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -2513,7 +2514,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x98118e4>
+<environment: 0xaabbcac>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -2538,7 +2539,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x98118e4>
+<environment: 0xaabbcac>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -3915,7 +3916,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x954d324>
+<environment: 0xb544e5c>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -3940,7 +3941,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x954d324>
+<environment: 0xb544e5c>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -3965,7 +3966,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x954d324>
+<environment: 0xb544e5c>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -3990,7 +3991,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x954d324>
+<environment: 0xb544e5c>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -4015,7 +4016,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x954d324>
+<environment: 0xb544e5c>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -4040,7 +4041,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x954d324>
+<environment: 0xb544e5c>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -5474,7 +5475,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9c33e6c>
+<environment: 0xb89a164>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -5499,7 +5500,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9c33e6c>
+<environment: 0xb89a164>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -5524,7 +5525,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9c33e6c>
+<environment: 0xb89a164>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -5549,7 +5550,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9c33e6c>
+<environment: 0xb89a164>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -5574,7 +5575,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9c33e6c>
+<environment: 0xb89a164>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -5599,7 +5600,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x9c33e6c>
+<environment: 0xb89a164>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -6971,7 +6972,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa40c884>
+<environment: 0xb0c7c4c>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -6996,7 +6997,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa40c884>
+<environment: 0xb0c7c4c>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -7021,7 +7022,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa40c884>
+<environment: 0xb0c7c4c>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -7046,7 +7047,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa40c884>
+<environment: 0xb0c7c4c>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -7071,7 +7072,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa40c884>
+<environment: 0xb0c7c4c>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -7096,7 +7097,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa40c884>
+<environment: 0xb0c7c4c>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")

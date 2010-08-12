@@ -65,13 +65,13 @@ for( methodNo in 1:5 ) {
    } else {
       print( all.equal( mmOls, model.matrix( kleinModel ) ) )
    }
-   cat( "> linear.hypothesis\n" )
-   print( linear.hypothesis( kleinModel, restrict ) )
-   print( linear.hypothesis( kleinModel, restrict, test = "F" ) )
-   print( linear.hypothesis( kleinModel, restrict, test = "Chisq" ) )
-   print( linear.hypothesis( kleinModel, restrict2 ) )
-   print( linear.hypothesis( kleinModel, restrict2, test = "F" ) )
-   print( linear.hypothesis( kleinModel, restrict2, test = "Chisq" ) )
+   cat( "> linearHypothesis\n" )
+   print( linearHypothesis( kleinModel, restrict ) )
+   print( linearHypothesis( kleinModel, restrict, test = "F" ) )
+   print( linearHypothesis( kleinModel, restrict, test = "Chisq" ) )
+   print( linearHypothesis( kleinModel, restrict2 ) )
+   print( linearHypothesis( kleinModel, restrict2, test = "F" ) )
+   print( linearHypothesis( kleinModel, restrict2, test = "Chisq" ) )
    cat( "> logLik\n" )
    print( logLik( kleinModel ) )
 }

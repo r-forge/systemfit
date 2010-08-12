@@ -1,5 +1,5 @@
 
-R version 2.11.0 (2010-04-22)
+R version 2.11.1 (2010-05-31)
 Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -27,6 +27,10 @@ The following object(s) are masked from 'package:base':
     det
 
 Loading required package: car
+Loading required package: MASS
+Loading required package: nnet
+Loading required package: survival
+Loading required package: splines
 Loading required package: lmtest
 Loading required package: zoo
 > data( "Kmenta" )
@@ -7738,7 +7742,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > ## ************** F tests ****************
 > # testing first restriction
-> print( linear.hypothesis( fitsur1, restrm ) )
+> print( linearHypothesis( fitsur1, restrm ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7750,7 +7754,7 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     33                 
 2     34 -1 1.2404 0.2734
-> linear.hypothesis( fitsur1, restrict )
+> linearHypothesis( fitsur1, restrict )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7763,7 +7767,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 1.2404 0.2734
 > 
-> print( linear.hypothesis( fitsur1r2, restrm ) )
+> print( linearHypothesis( fitsur1r2, restrm ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7775,7 +7779,7 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     33                 
 2     34 -1 1.6496 0.2080
-> linear.hypothesis( fitsur1r2, restrict )
+> linearHypothesis( fitsur1r2, restrict )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7788,7 +7792,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 1.6496 0.2080
 > 
-> print( linear.hypothesis( fitsuri1e2, restrm ) )
+> print( linearHypothesis( fitsuri1e2, restrm ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7802,7 +7806,7 @@ Model 2: restricted model
 2     34 -1 139.68 2.107e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1e2, restrict )
+> linearHypothesis( fitsuri1e2, restrict )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7817,7 +7821,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsuri1r3, restrm ) )
+> print( linearHypothesis( fitsuri1r3, restrm ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7831,7 +7835,7 @@ Model 2: restricted model
 2     34 -1 140.82 1.888e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1r3, restrict )
+> linearHypothesis( fitsuri1r3, restrict )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7846,7 +7850,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsur1we2, restrm ) )
+> print( linearHypothesis( fitsur1we2, restrm ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7858,7 +7862,7 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     33                 
 2     34 -1 1.6496 0.2080
-> linear.hypothesis( fitsur1we2, restrict )
+> linearHypothesis( fitsur1we2, restrict )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7871,7 +7875,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 1.6496 0.2080
 > 
-> print( linear.hypothesis( fitsuri1wr3, restrm ) )
+> print( linearHypothesis( fitsuri1wr3, restrm ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7885,7 +7889,7 @@ Model 2: restricted model
 2     34 -1 140.82 1.888e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1wr3, restrict )
+> linearHypothesis( fitsuri1wr3, restrict )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7908,7 +7912,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > restrictOnly2 <- "- demand_price + supply_price = 0.5"
 > restrictOnly2i <- "- demand_price + supply_income = 0.5"
 > # first restriction not imposed 
-> print( linear.hypothesis( fitsur1e2, restrOnly2m, restrOnly2q ) )
+> print( linearHypothesis( fitsur1e2, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7920,7 +7924,7 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     33                 
 2     34 -1 2.3589 0.1341
-> linear.hypothesis( fitsur1e2, restrictOnly2 )
+> linearHypothesis( fitsur1e2, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7933,7 +7937,7 @@ Model 2: restricted model
 1     33                 
 2     34 -1 2.3589 0.1341
 > 
-> print( linear.hypothesis( fitsuri1, restrOnly2m, restrOnly2q ) )
+> print( linearHypothesis( fitsuri1, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7947,7 +7951,7 @@ Model 2: restricted model
 2     34 -1 12.206 0.001379 **
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1, restrictOnly2i )
+> linearHypothesis( fitsuri1, restrictOnly2i )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7963,7 +7967,7 @@ Model 2: restricted model
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > # first restriction imposed
-> print( linear.hypothesis( fitsur2, restrOnly2m, restrOnly2q ) )
+> print( linearHypothesis( fitsur2, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7977,7 +7981,7 @@ Model 2: restricted model
 2     35 -1 5.5006 0.02498 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsur2, restrictOnly2 )
+> linearHypothesis( fitsur2, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7992,7 +7996,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsur3, restrOnly2m, restrOnly2q ) )
+> print( linearHypothesis( fitsur3, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8006,7 +8010,7 @@ Model 2: restricted model
 2     35 -1 5.5006 0.02498 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsur3, restrictOnly2 )
+> linearHypothesis( fitsur3, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8021,7 +8025,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsuri2e, restrOnly2m, restrOnly2q ) )
+> print( linearHypothesis( fitsuri2e, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8033,7 +8037,7 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     34                 
 2     35 -1 2.3495 0.1346
-> linear.hypothesis( fitsuri2e, restrictOnly2i )
+> linearHypothesis( fitsuri2e, restrictOnly2i )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8046,7 +8050,7 @@ Model 2: restricted model
 1     34                 
 2     35 -1 2.3495 0.1346
 > 
-> print( linear.hypothesis( fitsuri3e, restrOnly2m, restrOnly2q ) )
+> print( linearHypothesis( fitsuri3e, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8058,7 +8062,7 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     34                 
 2     35 -1 2.3495 0.1346
-> linear.hypothesis( fitsuri3e, restrictOnly2i )
+> linearHypothesis( fitsuri3e, restrictOnly2i )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8071,7 +8075,7 @@ Model 2: restricted model
 1     34                 
 2     35 -1 2.3495 0.1346
 > 
-> print( linear.hypothesis( fitsur2we, restrOnly2m, restrOnly2q ) )
+> print( linearHypothesis( fitsur2we, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8085,7 +8089,7 @@ Model 2: restricted model
 2     35 -1 6.2567 0.01735 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsur2we, restrictOnly2 )
+> linearHypothesis( fitsur2we, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8100,7 +8104,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsuri3we, restrOnly2m, restrOnly2q ) )
+> print( linearHypothesis( fitsuri3we, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8112,7 +8116,7 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     34                 
 2     35 -1 2.3496 0.1346
-> linear.hypothesis( fitsuri3we, restrictOnly2i )
+> linearHypothesis( fitsuri3we, restrictOnly2i )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8126,7 +8130,7 @@ Model 2: restricted model
 2     35 -1 2.3496 0.1346
 > 
 > # testing both of the restrictions
-> print( linear.hypothesis( fitsur1r3, restr2m, restr2q ) )
+> print( linearHypothesis( fitsur1r3, restr2m, restr2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8141,7 +8145,7 @@ Model 2: restricted model
 2     35 -2 2.6017 0.08929 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsur1r3, restrict2 )
+> linearHypothesis( fitsur1r3, restrict2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8157,7 +8161,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsuri1e2, restr2m, restr2q ) )
+> print( linearHypothesis( fitsuri1e2, restr2m, restr2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8172,7 +8176,7 @@ Model 2: restricted model
 2     35 -2 89.085 4.996e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1e2, restrict2i )
+> linearHypothesis( fitsuri1e2, restrict2i )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8188,7 +8192,7 @@ Model 2: restricted model
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsur1w, restr2m, restr2q ) )
+> print( linearHypothesis( fitsur1w, restr2m, restr2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8201,7 +8205,7 @@ Model 2: restricted model
   Res.Df Df      F Pr(>F)
 1     33                 
 2     35 -2 1.8045 0.1804
-> linear.hypothesis( fitsur1w, restrict2 )
+> linearHypothesis( fitsur1w, restrict2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8215,7 +8219,7 @@ Model 2: restricted model
 1     33                 
 2     35 -2 1.8045 0.1804
 > 
-> print( linear.hypothesis( fitsuri1wr3, restr2m, restr2q ) )
+> print( linearHypothesis( fitsuri1wr3, restr2m, restr2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8230,7 +8234,7 @@ Model 2: restricted model
 2     35 -2 89.564 4.641e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1wr3, restrict2i )
+> linearHypothesis( fitsuri1wr3, restrict2i )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8249,481 +8253,481 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > ## ************** Wald tests ****************
 > # testing first restriction
-> print( linear.hypothesis( fitsur1, restrm, test = "Chisq" ) )
+> print( linearHypothesis( fitsur1, restrm, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitsur1
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     33                     
-2     34 -1 0.8106     0.3679
-> linear.hypothesis( fitsur1, restrict, test = "Chisq" )
+1     34                     
+2     33  1 0.8106     0.3679
+> linearHypothesis( fitsur1, restrict, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitsur1
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     33                     
-2     34 -1 0.8106     0.3679
+1     34                     
+2     33  1 0.8106     0.3679
 > 
-> print( linear.hypothesis( fitsur1r2, restrm, test = "Chisq" ) )
+> print( linearHypothesis( fitsur1r2, restrm, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitsur1r2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1r2
 
   Res.Df Df Chisq Pr(>Chisq)
-1     33                    
-2     34 -1 1.116     0.2908
-> linear.hypothesis( fitsur1r2, restrict, test = "Chisq" )
+1     34                    
+2     33  1 1.116     0.2908
+> linearHypothesis( fitsur1r2, restrict, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitsur1r2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1r2
 
   Res.Df Df Chisq Pr(>Chisq)
-1     33                    
-2     34 -1 1.116     0.2908
+1     34                    
+2     33  1 1.116     0.2908
 > 
-> print( linear.hypothesis( fitsuri1e2, restrm, test = "Chisq" ) )
+> print( linearHypothesis( fitsuri1e2, restrm, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitsuri1e2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri1e2
 
   Res.Df Df  Chisq Pr(>Chisq)    
-1     33                         
-2     34 -1 147.44  < 2.2e-16 ***
+1     34                         
+2     33  1 147.44  < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1e2, restrict, test = "Chisq" )
+> linearHypothesis( fitsuri1e2, restrict, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitsuri1e2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri1e2
 
   Res.Df Df  Chisq Pr(>Chisq)    
-1     33                         
-2     34 -1 147.44  < 2.2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> 
-> print( linear.hypothesis( fitsuri1r3, restrm, test = "Chisq" ) )
-Linear hypothesis test (Chi^2 statistic of a Wald test)
-
-Hypothesis:
-demand_income - supply_trend = 0
-
-Model 1: fitsuri1r3
-Model 2: restricted model
-
-  Res.Df Df  Chisq Pr(>Chisq)    
-1     33                         
-2     34 -1 147.32  < 2.2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1r3, restrict, test = "Chisq" )
-Linear hypothesis test (Chi^2 statistic of a Wald test)
-
-Hypothesis:
-demand_income - supply_trend = 0
-
-Model 1: fitsuri1r3
-Model 2: restricted model
-
-  Res.Df Df  Chisq Pr(>Chisq)    
-1     33                         
-2     34 -1 147.32  < 2.2e-16 ***
+1     34                         
+2     33  1 147.44  < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsur1w, restrm, test = "Chisq" ) )
+> print( linearHypothesis( fitsuri1r3, restrm, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitsur1w
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri1r3
+
+  Res.Df Df  Chisq Pr(>Chisq)    
+1     34                         
+2     33  1 147.32  < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linearHypothesis( fitsuri1r3, restrict, test = "Chisq" )
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: restricted model
+Model 2: fitsuri1r3
+
+  Res.Df Df  Chisq Pr(>Chisq)    
+1     34                         
+2     33  1 147.32  < 2.2e-16 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> print( linearHypothesis( fitsur1w, restrm, test = "Chisq" ) )
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+demand_income - supply_trend = 0
+
+Model 1: restricted model
+Model 2: fitsur1w
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     33                     
-2     34 -1 0.8106     0.3679
-> linear.hypothesis( fitsur1w, restrict, test = "Chisq" )
+1     34                     
+2     33  1 0.8106     0.3679
+> linearHypothesis( fitsur1w, restrict, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 
-Model 1: fitsur1w
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1w
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     33                     
-2     34 -1 0.8106     0.3679
+1     34                     
+2     33  1 0.8106     0.3679
 > 
 > # testing second restriction
 > # first restriction not imposed
-> print( linear.hypothesis( fitsur1e2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsur1e2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur1e2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1e2
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     33                     
-2     34 -1 1.5959     0.2065
-> linear.hypothesis( fitsur1e2, restrictOnly2, test = "Chisq" )
+1     34                     
+2     33  1 1.5959     0.2065
+> linearHypothesis( fitsur1e2, restrictOnly2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur1e2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1e2
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     33                     
-2     34 -1 1.5959     0.2065
+1     34                     
+2     33  1 1.5959     0.2065
 > 
-> print( linear.hypothesis( fitsuri1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsuri1, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_income = 0.5
 
-Model 1: fitsuri1
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri1
 
   Res.Df Df  Chisq Pr(>Chisq)    
-1     33                         
-2     34 -1 12.213  0.0004745 ***
+1     34                         
+2     33  1 12.213  0.0004745 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1, restrictOnly2i, test = "Chisq" )
+> linearHypothesis( fitsuri1, restrictOnly2i, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_income = 0.5
 
-Model 1: fitsuri1
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri1
 
   Res.Df Df  Chisq Pr(>Chisq)    
-1     33                         
-2     34 -1 12.213  0.0004745 ***
+1     34                         
+2     33  1 12.213  0.0004745 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > # first restriction imposed
-> print( linear.hypothesis( fitsur2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsur2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur2
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     34                       
-2     35 -1 3.9457    0.04699 *
+1     35                       
+2     34  1 3.9457    0.04699 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsur2, restrictOnly2, test = "Chisq" )
+> linearHypothesis( fitsur2, restrictOnly2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur2
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     34                       
-2     35 -1 3.9457    0.04699 *
+1     35                       
+2     34  1 3.9457    0.04699 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsur3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsur3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur3
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur3
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     34                       
-2     35 -1 3.9457    0.04699 *
+1     35                       
+2     34  1 3.9457    0.04699 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsur3, restrictOnly2, test = "Chisq" )
+> linearHypothesis( fitsur3, restrictOnly2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur3
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur3
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     34                       
-2     35 -1 3.9457    0.04699 *
+1     35                       
+2     34  1 3.9457    0.04699 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsuri2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsuri2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_income = 0.5
 
-Model 1: fitsuri2e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri2e
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     34                       
-2     35 -1 2.7641     0.0964 .
+1     35                       
+2     34  1 2.7641     0.0964 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri2e, restrictOnly2i, test = "Chisq" )
+> linearHypothesis( fitsuri2e, restrictOnly2i, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_income = 0.5
 
-Model 1: fitsuri2e
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri2e
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     34                       
-2     35 -1 2.7641     0.0964 .
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> 
-> print( linear.hypothesis( fitsuri3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
-Linear hypothesis test (Chi^2 statistic of a Wald test)
-
-Hypothesis:
--demand_price + supply_income = 0.5
-
-Model 1: fitsuri3e
-Model 2: restricted model
-
-  Res.Df Df  Chisq Pr(>Chisq)  
-1     34                       
-2     35 -1 2.7641     0.0964 .
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri3e, restrictOnly2i, test = "Chisq" )
-Linear hypothesis test (Chi^2 statistic of a Wald test)
-
-Hypothesis:
--demand_price + supply_income = 0.5
-
-Model 1: fitsuri3e
-Model 2: restricted model
-
-  Res.Df Df  Chisq Pr(>Chisq)  
-1     34                       
-2     35 -1 2.7641     0.0964 .
+1     35                       
+2     34  1 2.7641     0.0964 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsuri2w, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsuri3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_income = 0.5
 
-Model 1: fitsuri2w
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri3e
+
+  Res.Df Df  Chisq Pr(>Chisq)  
+1     35                       
+2     34  1 2.7641     0.0964 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> linearHypothesis( fitsuri3e, restrictOnly2i, test = "Chisq" )
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+-demand_price + supply_income = 0.5
+
+Model 1: restricted model
+Model 2: fitsuri3e
+
+  Res.Df Df  Chisq Pr(>Chisq)  
+1     35                       
+2     34  1 2.7641     0.0964 .
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+> 
+> print( linearHypothesis( fitsuri2w, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+Linear hypothesis test (Chi^2 statistic of a Wald test)
+
+Hypothesis:
+-demand_price + supply_income = 0.5
+
+Model 1: restricted model
+Model 2: fitsuri2w
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     34                     
-2     35 -1 2.1954     0.1384
-> linear.hypothesis( fitsuri2w, restrictOnly2i, test = "Chisq" )
+1     35                     
+2     34  1 2.1954     0.1384
+> linearHypothesis( fitsuri2w, restrictOnly2i, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_income = 0.5
 
-Model 1: fitsuri2w
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri2w
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     34                     
-2     35 -1 2.1954     0.1384
+1     35                     
+2     34  1 2.1954     0.1384
 > 
-> print( linear.hypothesis( fitsur3w, restrOnly2m, restrOnly2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsur3w, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur3w
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur3w
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     34                       
-2     35 -1 4.2575    0.03908 *
+1     35                       
+2     34  1 4.2575    0.03908 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsur3w, restrictOnly2, test = "Chisq" )
+> linearHypothesis( fitsur3w, restrictOnly2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur3w
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur3w
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     34                       
-2     35 -1 4.2575    0.03908 *
+1     35                       
+2     34  1 4.2575    0.03908 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
 > 
 > # testing both of the restrictions
-> print( linear.hypothesis( fitsur1r3, restr2m, restr2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsur1r3, restr2m, restr2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur1r3
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1r3
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     33                     
-2     35 -2 3.5059     0.1733
-> linear.hypothesis( fitsur1r3, restrict2, test = "Chisq" )
+1     35                     
+2     33  2 3.5059     0.1733
+> linearHypothesis( fitsur1r3, restrict2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur1r3
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1r3
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     33                     
-2     35 -2 3.5059     0.1733
+1     35                     
+2     33  2 3.5059     0.1733
 > 
-> print( linear.hypothesis( fitsuri1e2, restr2m, restr2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsuri1e2, restr2m, restr2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_income = 0.5
 
-Model 1: fitsuri1e2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri1e2
 
   Res.Df Df  Chisq Pr(>Chisq)    
-1     33                         
-2     35 -2 188.07  < 2.2e-16 ***
+1     35                         
+2     33  2 188.07  < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1e2, restrict2i, test = "Chisq" )
+> linearHypothesis( fitsuri1e2, restrict2i, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_income = 0.5
 
-Model 1: fitsuri1e2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri1e2
 
   Res.Df Df  Chisq Pr(>Chisq)    
-1     33                         
-2     35 -2 188.07  < 2.2e-16 ***
+1     35                         
+2     33  2 188.07  < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
-> print( linear.hypothesis( fitsur1we2, restr2m, restr2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsur1we2, restr2m, restr2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur1we2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1we2
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     33                     
-2     35 -2 3.6574     0.1606
-> linear.hypothesis( fitsur1we2, restrict2, test = "Chisq" )
+1     35                     
+2     33  2 3.6574     0.1606
+> linearHypothesis( fitsur1we2, restrict2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_price = 0.5
 
-Model 1: fitsur1we2
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsur1we2
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     33                     
-2     35 -2 3.6574     0.1606
+1     35                     
+2     33  2 3.6574     0.1606
 > 
-> print( linear.hypothesis( fitsuri1wr3, restr2m, restr2q, test = "Chisq" ) )
+> print( linearHypothesis( fitsuri1wr3, restr2m, restr2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_income = 0.5
 
-Model 1: fitsuri1wr3
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri1wr3
 
   Res.Df Df  Chisq Pr(>Chisq)    
-1     33                         
-2     35 -2 187.39  < 2.2e-16 ***
+1     35                         
+2     33  2 187.39  < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
-> linear.hypothesis( fitsuri1wr3, restrict2i, test = "Chisq" )
+> linearHypothesis( fitsuri1wr3, restrict2i, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
 -demand_price + supply_income = 0.5
 
-Model 1: fitsuri1wr3
-Model 2: restricted model
+Model 1: restricted model
+Model 2: fitsuri1wr3
 
   Res.Df Df  Chisq Pr(>Chisq)    
-1     33                         
-2     35 -2 187.39  < 2.2e-16 ***
+1     35                         
+2     33  2 187.39  < 2.2e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 

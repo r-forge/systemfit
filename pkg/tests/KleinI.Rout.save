@@ -1,5 +1,5 @@
 
-R version 2.11.0 (2010-04-22)
+R version 2.11.1 (2010-05-31)
 Copyright (C) 2010 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 
@@ -26,6 +26,10 @@ The following object(s) are masked from 'package:base':
     det
 
 Loading required package: car
+Loading required package: MASS
+Loading required package: nnet
+Loading required package: survival
+Loading required package: splines
 Loading required package: lmtest
 Loading required package: zoo
 > options( warn = 1 )
@@ -94,13 +98,13 @@ Loading required package: zoo
 +    } else {
 +       print( all.equal( mmOls, model.matrix( kleinModel ) ) )
 +    }
-+    cat( "> linear.hypothesis\n" )
-+    print( linear.hypothesis( kleinModel, restrict ) )
-+    print( linear.hypothesis( kleinModel, restrict, test = "F" ) )
-+    print( linear.hypothesis( kleinModel, restrict, test = "Chisq" ) )
-+    print( linear.hypothesis( kleinModel, restrict2 ) )
-+    print( linear.hypothesis( kleinModel, restrict2, test = "F" ) )
-+    print( linear.hypothesis( kleinModel, restrict2, test = "Chisq" ) )
++    cat( "> linearHypothesis\n" )
++    print( linearHypothesis( kleinModel, restrict ) )
++    print( linearHypothesis( kleinModel, restrict, test = "F" ) )
++    print( linearHypothesis( kleinModel, restrict, test = "Chisq" ) )
++    print( linearHypothesis( kleinModel, restrict2 ) )
++    print( linearHypothesis( kleinModel, restrict2, test = "F" ) )
++    print( linearHypothesis( kleinModel, restrict2, test = "Chisq" ) )
 +    cat( "> logLik\n" )
 +    print( logLik( kleinModel ) )
 + }
@@ -733,7 +737,7 @@ PrivateWages_19                  7
 PrivateWages_20                  8
 PrivateWages_21                  9
 PrivateWages_22                 10
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -750,23 +754,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     52 -1 0.7288 0.3973
+1     52                 
+2     51  1 0.7288 0.3973
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     51                     
-2     52 -1 0.7288     0.3933
+1     52                     
+2     51  1 0.7288     0.3933
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -785,24 +789,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     53 -2 0.3683 0.6937
+1     53                 
+2     51  2 0.3683 0.6937
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     51                     
-2     53 -2 0.7367     0.6919
+1     53                     
+2     51  2 0.7367     0.6919
 > logLik
 'log Lik.' -72.32106 (df=13)
 > 
@@ -1056,7 +1060,7 @@ Multiple R-Squared: 0.987414 Adjusted R-Squared: 0.985193
 22    10
 > model.matrix
 [1] TRUE
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -1073,23 +1077,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df     F Pr(>F)
-1     51                
-2     52 -1 1.295 0.2605
+1     52                
+2     51  1 1.295 0.2605
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df Chisq Pr(>Chisq)
-1     51                    
-2     52 -1 1.295     0.2551
+1     52                    
+2     51  1 1.295     0.2551
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -1108,24 +1112,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     53 -2 0.6479 0.5274
+1     53                 
+2     51  2 0.6479 0.5274
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     51                     
-2     53 -2 1.2959     0.5231
+1     53                     
+2     51  2 1.2959     0.5231
 > logLik
 'log Lik.' -76.31234 (df=13)
 > 
@@ -1334,7 +1338,7 @@ Multiple R-Squared: 0.98646 Adjusted R-Squared: 0.98407
 [1] TRUE
 > model.matrix
 [1] TRUE
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -1351,23 +1355,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     52 -1 1.6939 0.1989
+1     52                 
+2     51  1 1.6939 0.1989
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     51                     
-2     52 -1 1.6939     0.1931
+1     52                     
+2     51  1 1.6939     0.1931
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -1386,24 +1390,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     53 -2 0.9133 0.4076
+1     53                 
+2     51  2 0.9133 0.4076
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     51                     
-2     53 -2 1.8267     0.4012
+1     53                     
+2     51  2 1.8267     0.4012
 > logLik
 'log Lik.' -70.04588 (df=18)
 > 
@@ -1618,7 +1622,7 @@ Multiple R-Squared: 0.986262 Adjusted R-Squared: 0.983838
 [1] TRUE
 > model.matrix
 [1] TRUE
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -1635,23 +1639,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     52 -1 0.3858 0.5373
+1     52                 
+2     51  1 0.3858 0.5373
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     51                     
-2     52 -1 0.3858     0.5345
+1     52                     
+2     51  1 0.3858     0.5345
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -1670,24 +1674,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     53 -2 0.3983 0.6735
+1     53                 
+2     51  2 0.3983 0.6735
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     51                     
-2     53 -2 0.7966     0.6715
+1     53                     
+2     51  2 0.7966     0.6715
 > logLik
 'log Lik.' -76.13877 (df=18)
 > 
@@ -1904,7 +1908,7 @@ Multiple R-Squared: 0.984 Adjusted R-Squared: 0.981176
 [1] TRUE
 > model.matrix
 [1] TRUE
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -1921,23 +1925,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     52 -1 0.7313 0.3965
+1     52                 
+2     51  1 0.7313 0.3965
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     51                     
-2     52 -1 0.7313     0.3925
+1     52                     
+2     51  1 0.7313     0.3925
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -1956,24 +1960,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     51                 
-2     53 -2 0.8836 0.4195
+1     53                 
+2     51  2 0.8836 0.4195
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     51                     
-2     53 -2 1.7672     0.4133
+1     53                     
+2     51  2 1.7672     0.4133
 > logLik
 'log Lik.' -82.30612 (df=18)
 > 
@@ -2600,7 +2604,7 @@ PrivateWages_19                  7
 PrivateWages_20                  8
 PrivateWages_21                  9
 PrivateWages_22                 10
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -2617,23 +2621,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     50                 
-2     51 -1 0.7213 0.3998
+1     51                 
+2     50  1 0.7213 0.3998
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     50                     
-2     51 -1 0.7213     0.3957
+1     51                     
+2     50  1 0.7213     0.3957
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -2652,24 +2656,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     50                 
-2     52 -2 0.3743 0.6897
+1     52                 
+2     50  2 0.3743 0.6897
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     50                     
-2     52 -2 0.7487     0.6877
+1     52                     
+2     50  2 0.7487     0.6877
 > logLik
 'log Lik.' -71.88431 (df=13)
 > 
@@ -2925,7 +2929,7 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03225806 >"
 [2] "Attributes: < Component 2: Component 1: 55 string mismatches >"   
 [3] "Numeric: lengths (744, 720) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -2942,23 +2946,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     48                 
-2     49 -1 1.0525 0.3101
+1     49                 
+2     48  1 1.0525 0.3101
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     48                     
-2     49 -1 1.0525     0.3049
+1     49                     
+2     48  1 1.0525     0.3049
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -2977,24 +2981,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     48                 
-2     50 -2 0.5314 0.5912
+1     50                 
+2     48  2 0.5314 0.5912
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     48                     
-2     50 -2 1.0627     0.5878
+1     50                     
+2     48  2 1.0627     0.5878
 > logLik
 'log Lik.' -72.17348 (df=13)
 > 
@@ -3205,7 +3209,7 @@ Multiple R-Squared: 0.986633 Adjusted R-Squared: 0.984127
 [1] TRUE
 > model.matrix
 [1] TRUE
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -3222,23 +3226,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     50                 
-2     51 -1 1.6969 0.1987
+1     51                 
+2     50  1 1.6969 0.1987
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     50                     
-2     51 -1 1.6969     0.1927
+1     51                     
+2     50  1 1.6969     0.1927
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -3257,24 +3261,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     50                 
-2     52 -2 0.8736 0.4237
+1     52                 
+2     50  2 0.8736 0.4237
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     50                     
-2     52 -2 1.7473     0.4174
+1     52                     
+2     50  2 1.7473     0.4174
 > logLik
 'log Lik.' -69.42669 (df=18)
 > 
@@ -3491,7 +3495,7 @@ Multiple R-Squared: 0.986776 Adjusted R-Squared: 0.984297
 [1] "Attributes: < Component 1: Mean relative difference: 0.03225806 >"
 [2] "Attributes: < Component 2: Component 1: 55 string mismatches >"   
 [3] "Numeric: lengths (744, 720) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -3508,23 +3512,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     48                 
-2     49 -1 0.2905 0.5924
+1     49                 
+2     48  1 0.2905 0.5924
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     48                     
-2     49 -1 0.2905     0.5899
+1     49                     
+2     48  1 0.2905     0.5899
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -3543,24 +3547,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     48                 
-2     50 -2 0.3827 0.6841
+1     50                 
+2     48  2 0.3827 0.6841
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     48                     
-2     50 -2 0.7654      0.682
+1     50                     
+2     48  2 0.7654      0.682
 > logLik
 'log Lik.' -71.87308 (df=18)
 > 
@@ -3779,7 +3783,7 @@ Multiple R-Squared: 0.984481 Adjusted R-Squared: 0.981572
 [1] "Attributes: < Component 1: Mean relative difference: 0.03225806 >"
 [2] "Attributes: < Component 2: Component 1: 55 string mismatches >"   
 [3] "Numeric: lengths (744, 720) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -3796,23 +3800,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df     F Pr(>F)
-1     48                
-2     49 -1 0.495 0.4851
+1     49                
+2     48  1 0.495 0.4851
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df Chisq Pr(>Chisq)
-1     48                    
-2     49 -1 0.495     0.4817
+1     49                    
+2     48  1 0.495     0.4817
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -3831,24 +3835,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     48                 
-2     50 -2 0.8298 0.4423
+1     50                 
+2     48  2 0.8298 0.4423
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     48                     
-2     50 -2 1.6595     0.4362
+1     50                     
+2     48  2 1.6595     0.4362
 > logLik
 'log Lik.' -77.58704 (df=18)
 > 
@@ -4469,7 +4473,7 @@ PrivateWages_19                  7
 PrivateWages_20                  8
 PrivateWages_21                  9
 PrivateWages_22                 10
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -4486,23 +4490,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df     F Pr(>F)
-1     49                
-2     50 -1 0.795 0.3769
+1     50                
+2     49  1 0.795 0.3769
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df Chisq Pr(>Chisq)
-1     49                    
-2     50 -1 0.795     0.3726
+1     50                    
+2     49  1 0.795     0.3726
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -4521,24 +4525,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     49                 
-2     51 -2 0.4344 0.6501
+1     51                 
+2     49  2 0.4344 0.6501
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     49                     
-2     51 -2 0.8688     0.6477
+1     51                     
+2     49  2 0.8688     0.6477
 > logLik
 'log Lik.' -71.73047 (df=13)
 > 
@@ -4796,7 +4800,7 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03278689 >"
 [2] "Attributes: < Component 2: Component 1: 54 string mismatches >"   
 [3] "Numeric: lengths (732, 708) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -4813,23 +4817,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df     F Pr(>F)
-1     47                
-2     48 -1 0.984 0.3263
+1     48                
+2     47  1 0.984 0.3263
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df Chisq Pr(>Chisq)
-1     47                    
-2     48 -1 0.984     0.3212
+1     48                    
+2     47  1 0.984     0.3212
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -4848,24 +4852,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     49 -2 0.4921 0.6145
+1     49                 
+2     47  2 0.4921 0.6145
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     47                     
-2     49 -2 0.9841     0.6114
+1     49                     
+2     47  2 0.9841     0.6114
 > logLik
 'log Lik.' -71.51436 (df=13)
 > 
@@ -5076,7 +5080,7 @@ Multiple R-Squared: 0.987044 Adjusted R-Squared: 0.984615
 [1] TRUE
 > model.matrix
 [1] TRUE
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -5093,23 +5097,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     49                 
-2     50 -1 1.3019 0.2594
+1     50                 
+2     49  1 1.3019 0.2594
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     49                     
-2     50 -1 1.3019     0.2539
+1     50                     
+2     49  1 1.3019     0.2539
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -5128,24 +5132,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     49                 
-2     51 -2 0.6885 0.5071
+1     51                 
+2     49  2 0.6885 0.5071
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df Chisq Pr(>Chisq)
-1     49                    
-2     51 -2 1.377     0.5023
+1     51                    
+2     49  2 1.377     0.5023
 > logLik
 'log Lik.' -69.62877 (df=18)
 > 
@@ -5364,7 +5368,7 @@ Multiple R-Squared: 0.987001 Adjusted R-Squared: 0.984564
 [1] "Attributes: < Component 1: Mean relative difference: 0.03278689 >"
 [2] "Attributes: < Component 2: Component 1: 54 string mismatches >"   
 [3] "Numeric: lengths (732, 708) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -5381,23 +5385,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     48 -1 0.3126 0.5787
+1     48                 
+2     47  1 0.3126 0.5787
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     47                     
-2     48 -1 0.3126     0.5761
+1     48                     
+2     47  1 0.3126     0.5761
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -5416,24 +5420,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     49 -2 0.6843 0.5094
+1     49                 
+2     47  2 0.6843 0.5094
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     47                     
-2     49 -2 1.3686     0.5045
+1     49                     
+2     47  2 1.3686     0.5045
 > logLik
 'log Lik.' -71.01165 (df=18)
 > 
@@ -5654,7 +5658,7 @@ Multiple R-Squared: 0.985915 Adjusted R-Squared: 0.983274
 [1] "Attributes: < Component 1: Mean relative difference: 0.03278689 >"
 [2] "Attributes: < Component 2: Component 1: 54 string mismatches >"   
 [3] "Numeric: lengths (732, 708) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -5671,23 +5675,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     48 -1 0.3704 0.5457
+1     48                 
+2     47  1 0.3704 0.5457
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     47                     
-2     48 -1 0.3704     0.5428
+1     48                     
+2     47  1 0.3704     0.5428
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -5706,24 +5710,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     49 -2 1.6391 0.2051
+1     49                 
+2     47  2 1.6391 0.2051
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     47                     
-2     49 -2 3.2782     0.1942
+1     49                     
+2     47  2 3.2782     0.1942
 > logLik
 'log Lik.' -74.54522 (df=18)
 > 
@@ -6332,7 +6336,7 @@ PrivateWages_19                  7
 PrivateWages_20                  8
 PrivateWages_21                  9
 PrivateWages_22                 10
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -6349,23 +6353,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     48 -1 0.3087 0.5811
+1     48                 
+2     47  1 0.3087 0.5811
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     47                     
-2     48 -1 0.3087     0.5785
+1     48                     
+2     47  1 0.3087     0.5785
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -6384,24 +6388,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     49 -2 0.1639 0.8493
+1     49                 
+2     47  2 0.1639 0.8493
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     47                     
-2     49 -2 0.3278     0.8488
+1     49                     
+2     47  2 0.3278     0.8488
 > logLik
 'log Lik.' -69.60817 (df=13)
 > 
@@ -6659,7 +6663,7 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03389831 >"
 [2] "Attributes: < Component 2: Component 1: 52 string mismatches >"   
 [3] "Numeric: lengths (708, 684) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -6676,23 +6680,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     45                 
-2     46 -1 1.7666 0.1905
+1     46                 
+2     45  1 1.7666 0.1905
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     45                     
-2     46 -1 1.7666     0.1838
+1     46                     
+2     45  1 1.7666     0.1838
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -6711,24 +6715,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     45                 
-2     47 -2 0.8894  0.418
+1     47                 
+2     45  2 0.8894  0.418
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     45                     
-2     47 -2 1.7789     0.4109
+1     47                     
+2     45  2 1.7789     0.4109
 > logLik
 'log Lik.' -70.62751 (df=13)
 > 
@@ -6939,7 +6943,7 @@ Multiple R-Squared: 0.987068 Adjusted R-Squared: 0.984643
 [1] TRUE
 > model.matrix
 [1] TRUE
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -6956,23 +6960,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     48 -1 0.5234  0.473
+1     48                 
+2     47  1 0.5234  0.473
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     47                     
-2     48 -1 0.5234     0.4694
+1     48                     
+2     47  1 0.5234     0.4694
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -6991,24 +6995,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     47                 
-2     49 -2 0.3969 0.6746
+1     49                 
+2     47  2 0.3969 0.6746
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     47                     
-2     49 -2 0.7939     0.6724
+1     49                     
+2     47  2 0.7939     0.6724
 > logLik
 'log Lik.' -67.30159 (df=18)
 > 
@@ -7227,7 +7231,7 @@ Multiple R-Squared: 0.987334 Adjusted R-Squared: 0.984959
 [1] "Attributes: < Component 1: Mean relative difference: 0.03389831 >"
 [2] "Attributes: < Component 2: Component 1: 52 string mismatches >"   
 [3] "Numeric: lengths (708, 684) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7244,23 +7248,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     45                 
-2     46 -1 2.7131 0.1065
+1     46                 
+2     45  1 2.7131 0.1065
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     45                       
-2     46 -1 2.7131    0.09952 .
+1     46                       
+2     45  1 2.7131    0.09952 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Linear hypothesis test (Theil's F test)
@@ -7281,12 +7285,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F  Pr(>F)  
-1     45                    
-2     47 -2 2.4775 0.09534 .
+1     47                    
+2     45  2 2.4775 0.09534 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -7295,12 +7299,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     45                       
-2     47 -2 4.9549    0.08396 .
+1     47                       
+2     45  2 4.9549    0.08396 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > logLik
@@ -7523,7 +7527,7 @@ Multiple R-Squared: 0.987145 Adjusted R-Squared: 0.984735
 [1] "Attributes: < Component 1: Mean relative difference: 0.03389831 >"
 [2] "Attributes: < Component 2: Component 1: 52 string mismatches >"   
 [3] "Numeric: lengths (708, 684) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -7540,12 +7544,12 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F  Pr(>F)  
-1     45                    
-2     46 -1 2.8358 0.09911 .
+1     46                    
+2     45  1 2.8358 0.09911 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -7553,12 +7557,12 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     45                       
-2     46 -1 2.8358    0.09219 .
+1     46                       
+2     45  1 2.8358    0.09219 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Linear hypothesis test (Theil's F test)
@@ -7581,12 +7585,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F  Pr(>F)  
-1     45                    
-2     47 -2 3.1991 0.05023 .
+1     47                    
+2     45  2 3.1991 0.05023 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -7595,12 +7599,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     45                       
-2     47 -2 6.3983     0.0408 *
+1     47                       
+2     45  2 6.3983     0.0408 *
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > logLik
@@ -8205,7 +8209,7 @@ PrivateWages_19                  7
 PrivateWages_20                  8
 PrivateWages_21                  9
 PrivateWages_22                 10
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8222,23 +8226,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     46                 
-2     47 -1 0.2861 0.5953
+1     47                 
+2     46  1 0.2861 0.5953
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     46                     
-2     47 -1 0.2861     0.5927
+1     47                     
+2     46  1 0.2861     0.5927
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8257,24 +8261,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     46                 
-2     48 -2 0.1519 0.8595
+1     48                 
+2     46  2 0.1519 0.8595
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     46                     
-2     48 -2 0.3037     0.8591
+1     48                     
+2     46  2 0.3037     0.8591
 > logLik
 'log Lik.' -68.75014 (df=13)
 > 
@@ -8532,7 +8536,7 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03448276 >"
 [2] "Attributes: < Component 2: Component 1: 51 string mismatches >"   
 [3] "Numeric: lengths (696, 672) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8549,23 +8553,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     44                 
-2     45 -1 1.6645 0.2037
+1     45                 
+2     44  1 1.6645 0.2037
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     44                     
-2     45 -1 1.6645      0.197
+1     45                     
+2     44  1 1.6645      0.197
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8584,24 +8588,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     44                 
-2     46 -2 0.8378 0.4395
+1     46                 
+2     44  2 0.8378 0.4395
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     44                     
-2     46 -2 1.6755     0.4327
+1     46                     
+2     44  2 1.6755     0.4327
 > logLik
 'log Lik.' -69.47985 (df=13)
 > 
@@ -8812,7 +8816,7 @@ Multiple R-Squared: 0.987067 Adjusted R-Squared: 0.984642
 [1] TRUE
 > model.matrix
 [1] TRUE
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8829,23 +8833,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     46                 
-2     47 -1 0.4917 0.4867
+1     47                 
+2     46  1 0.4917 0.4867
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     46                     
-2     47 -1 0.4917     0.4832
+1     47                     
+2     46  1 0.4917     0.4832
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -8864,24 +8868,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     46                 
-2     48 -2 0.3741   0.69
+1     48                 
+2     46  2 0.3741   0.69
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     46                     
-2     48 -2 0.7482     0.6879
+1     48                     
+2     46  2 0.7482     0.6879
 > logLik
 'log Lik.' -66.4233 (df=18)
 > 
@@ -9100,7 +9104,7 @@ Multiple R-Squared: 0.98733 Adjusted R-Squared: 0.984954
 [1] "Attributes: < Component 1: Mean relative difference: 0.03448276 >"
 [2] "Attributes: < Component 2: Component 1: 51 string mismatches >"   
 [3] "Numeric: lengths (696, 672) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -9117,23 +9121,23 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     44                 
-2     45 -1 2.6028 0.1138
+1     45                 
+2     44  1 2.6028 0.1138
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     44                     
-2     45 -1 2.6028     0.1067
+1     45                     
+2     44  1 2.6028     0.1067
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -9152,24 +9156,24 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
-1     44                 
-2     46 -2 2.2044 0.1224
+1     46                 
+2     44  2 2.2044 0.1224
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)
-1     44                     
-2     46 -2 4.4088     0.1103
+1     46                     
+2     44  2 4.4088     0.1103
 > logLik
 'log Lik.' -70.14471 (df=18)
 > 
@@ -9390,7 +9394,7 @@ Multiple R-Squared: 0.987127 Adjusted R-Squared: 0.984714
 [1] "Attributes: < Component 1: Mean relative difference: 0.03448276 >"
 [2] "Attributes: < Component 2: Component 1: 51 string mismatches >"   
 [3] "Numeric: lengths (696, 672) differ"                               
-> linear.hypothesis
+> linearHypothesis
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -9407,12 +9411,12 @@ Linear hypothesis test (F statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F  Pr(>F)  
-1     44                    
-2     45 -1 2.8941 0.09596 .
+1     45                    
+2     44  1 2.8941 0.09596 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -9420,12 +9424,12 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     44                       
-2     45 -1 2.8941     0.0889 .
+1     45                       
+2     44  1 2.8941     0.0889 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Linear hypothesis test (Theil's F test)
@@ -9446,12 +9450,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df      F  Pr(>F)  
-1     44                    
-2     46 -2 2.8952 0.06588 .
+1     46                    
+2     44  2 2.8952 0.06588 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -9460,12 +9464,12 @@ Hypothesis:
 Consumption_corpProf + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
-Model 1: kleinModel
-Model 2: restricted model
+Model 1: restricted model
+Model 2: kleinModel
 
   Res.Df Df  Chisq Pr(>Chisq)  
-1     44                       
-2     46 -2 5.7904    0.05529 .
+1     46                       
+2     44  2 5.7904    0.05529 .
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > logLik

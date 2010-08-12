@@ -9,7 +9,7 @@ createSystemfitModel    Create a Model for systemfit
 fitted.systemfit        Fitted values
 formula.systemfit       Model Formulae of systemfit Objects
 hausman.systemfit       Hausman Test
-linear.hypothesis.systemfit
+linearHypothesis.systemfit
                         Test Linear Hypothesis
 logLik.systemfit        Log-Likelihood value of systemfit object
 lrtest.systemfit        Likelihood Ratio test for Equation Systems

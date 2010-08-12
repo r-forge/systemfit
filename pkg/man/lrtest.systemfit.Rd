@@ -61,7 +61,7 @@
 
 \seealso{\code{\link{systemfit}}, \code{\link[lmtest]{lrtest}}
    (package "lmtest"),
-   \code{\link{linear.hypothesis.systemfit}}}
+   \code{\link{linearHypothesis.systemfit}}}
 
 \examples{
 data( "Kmenta" )
