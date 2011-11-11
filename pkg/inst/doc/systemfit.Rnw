@@ -1470,13 +1470,13 @@ but Equation~\ref{eq:omegaInv} with standard \proglang{R} matrices.
 Single-equation models can be fitted in \proglang{R}
 by OLS with function \code{lm} (package \pkg{stats})
 and by 2SLS with function \code{tsls}
-(package \pkg{sem}, \citealp{r-sem-0.9-8}).
+(package \pkg{sem}, \citealp{r-sem-2.0}).
 This is also possible with the \code{systemfit} function,
 but \code{systemfit} is specialized in estimating systems of equation,
 i.e., more than one equation.
 Its capability to estimate single-equation models is just a side-effect.
 
-Function \code{sem} (package \pkg{sem}, \citealp{r-sem-0.9-8})
+Function \code{sem} (package \pkg{sem}, \citealp{r-sem-2.0})
 can be used to estimate structural equation models in \proglang{R}
 by limited information maximum likelihood (LIML)
 and full information maximum likelihood (FIML)
@@ -2678,7 +2678,7 @@ exogVar <- c("corpProf", "corpProfLag", "wages", "capitalLag", "trend",
 endogVar <- c("consump", "invest", "privWage")
 allVar <- c(exogVar, endogVar)
 
-limlResult <- sem(ram = limlRam, S = cov(KleinI[ -1, allVar ]),
+limlResult <- sem(model = limlRam, S = cov(KleinI[ -1, allVar ]),
    N = (nrow(KleinI) - 1), fixed.x = exogVar)
 print(limlResult)
 @
@@ -2705,7 +2705,7 @@ fimlRam <- rbind(limlRam,
    c("privWage <-> invest",   "s23", NA))
 class(fimlRam) <- "mod"
 
-fimlResult <- sem(ram = fimlRam, S = cov(KleinI[ -1, allVar ]),
+fimlResult <- sem(model = fimlRam, S = cov(KleinI[ -1, allVar ]),
    N = (nrow(KleinI) - 1), fixed.x = exogVar)
 print(fimlResult)
 @
