@@ -1,7 +1,8 @@
 
-R version 2.11.1 (2010-05-31)
-Copyright (C) 2010 The R Foundation for Statistical Computing
+R version 2.14.0 (2011-10-31)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: i686-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -32,6 +33,13 @@ Loading required package: survival
 Loading required package: splines
 Loading required package: lmtest
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+The following object(s) are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
 > options( warn = 1 )
 > 
 > data( "KleinI" )
@@ -742,7 +750,7 @@ PrivateWages_22                 10
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -753,7 +761,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -764,7 +772,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -775,7 +783,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -787,7 +795,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -799,7 +807,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1065,7 +1073,7 @@ Multiple R-Squared: 0.987414 Adjusted R-Squared: 0.985193
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1076,7 +1084,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1087,7 +1095,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1098,7 +1106,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1106,11 +1114,11 @@ Model 2: kleinModel
 
   Res.Df Df      F Pr(>F)
 1     53                 
-2     51  2 0.5419  0.585
+2     51  2 0.5419 0.5849
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1122,7 +1130,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1343,7 +1351,7 @@ Multiple R-Squared: 0.98646 Adjusted R-Squared: 0.98407
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1354,7 +1362,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1365,7 +1373,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1376,7 +1384,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1388,7 +1396,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1400,7 +1408,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1627,7 +1635,7 @@ Multiple R-Squared: 0.986262 Adjusted R-Squared: 0.983838
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1638,7 +1646,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1649,7 +1657,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1660,7 +1668,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1672,7 +1680,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1684,7 +1692,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1788,29 +1796,29 @@ SSR: 12.718563 MSE: 0.748151 Root MSE: 0.864957
 Multiple R-Squared: 0.984 Adjusted R-Squared: 0.981176 
 
 > residuals
-   Consumption   Investment PrivateWages
-1           NA           NA           NA
-2   -0.5368584 -3.954192690  -1.23034953
-3   -1.1873855  0.001512320   0.57966104
-4   -1.7045333 -0.220145859   1.67937262
-5   -0.7338877 -2.227530799  -0.02599380
-6   -0.2508902 -0.108662546  -0.13619503
-7    0.5995862  0.832181911  -0.18369666
-8    1.1423250  1.466244321  -0.58248579
-9    0.9210285  1.620299631   0.43465032
-10  -0.7451335  3.400127471   1.41041047
-11  -0.1970026 -2.154431435  -0.46791969
-12  -0.3847823 -1.622742373   0.01060869
-13  -0.3903677 -2.628688533  -0.73634837
-14   0.7487359  2.805172344   0.05812189
-15   0.1117045 -0.277095936   0.11128945
-16   0.1701550  0.135976384  -0.10889291
-17   1.9253369  2.762004891  -0.69764699
-18  -0.3412455 -0.539192140   0.86513485
-19   0.2191842 -4.328454732  -1.01159057
-20   1.3833233  1.718892985  -0.20865400
-21   1.0276831  1.064064778  -0.96560787
-22  -1.7769761  2.254660006   1.20613190
+   Consumption  Investment PrivateWages
+1           NA          NA           NA
+2   -0.5368584 -3.95419269  -1.23034953
+3   -1.1873855  0.00151232   0.57966104
+4   -1.7045333 -0.22014586   1.67937262
+5   -0.7338877 -2.22753080  -0.02599380
+6   -0.2508902 -0.10866255  -0.13619503
+7    0.5995862  0.83218191  -0.18369666
+8    1.1423250  1.46624432  -0.58248579
+9    0.9210285  1.62029963   0.43465032
+10  -0.7451335  3.40012747   1.41041047
+11  -0.1970026 -2.15443144  -0.46791969
+12  -0.3847823 -1.62274237   0.01060869
+13  -0.3903677 -2.62868853  -0.73634837
+14   0.7487359  2.80517234   0.05812189
+15   0.1117045 -0.27709594   0.11128945
+16   0.1701550  0.13597638  -0.10889291
+17   1.9253369  2.76200489  -0.69764699
+18  -0.3412455 -0.53919214   0.86513485
+19   0.2191842 -4.32845473  -1.01159057
+20   1.3833233  1.71889298  -0.20865400
+21   1.0276831  1.06406478  -0.96560787
+22  -1.7769761  2.25466001   1.20613190
 > fitted
    Consumption Investment PrivateWages
 1           NA         NA           NA
@@ -1913,7 +1921,7 @@ Multiple R-Squared: 0.984 Adjusted R-Squared: 0.981176
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1924,7 +1932,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1935,7 +1943,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -1946,7 +1954,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1958,7 +1966,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -1970,7 +1978,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -2609,7 +2617,7 @@ PrivateWages_22                 10
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -2620,7 +2628,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -2631,7 +2639,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -2642,7 +2650,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -2654,7 +2662,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -2666,7 +2674,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -2934,7 +2942,7 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -2945,7 +2953,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -2956,7 +2964,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -2967,7 +2975,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -2979,7 +2987,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -2991,7 +2999,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -3214,7 +3222,7 @@ Multiple R-Squared: 0.986633 Adjusted R-Squared: 0.984127
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -3225,7 +3233,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -3236,7 +3244,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -3247,7 +3255,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -3259,7 +3267,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -3271,7 +3279,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -3500,7 +3508,7 @@ Multiple R-Squared: 0.986776 Adjusted R-Squared: 0.984297
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -3511,7 +3519,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -3522,7 +3530,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -3533,7 +3541,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -3545,7 +3553,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -3557,7 +3565,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -3788,7 +3796,7 @@ Multiple R-Squared: 0.984481 Adjusted R-Squared: 0.981572
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -3799,7 +3807,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -3810,7 +3818,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -3821,7 +3829,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -3833,7 +3841,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -3845,7 +3853,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -4478,7 +4486,7 @@ PrivateWages_22                 10
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -4489,7 +4497,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -4500,7 +4508,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -4511,7 +4519,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -4523,7 +4531,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -4535,7 +4543,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -4805,7 +4813,7 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -4816,7 +4824,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -4827,7 +4835,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -4838,7 +4846,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -4850,7 +4858,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -4862,7 +4870,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -5085,7 +5093,7 @@ Multiple R-Squared: 0.987044 Adjusted R-Squared: 0.984615
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -5096,7 +5104,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -5107,7 +5115,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -5118,7 +5126,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -5130,7 +5138,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -5142,7 +5150,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -5373,7 +5381,7 @@ Multiple R-Squared: 0.987001 Adjusted R-Squared: 0.984564
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -5384,7 +5392,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -5395,7 +5403,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -5406,7 +5414,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -5418,7 +5426,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -5430,7 +5438,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -5536,29 +5544,29 @@ SSR: 11.180607 MSE: 0.698788 Root MSE: 0.835935
 Multiple R-Squared: 0.985915 Adjusted R-Squared: 0.983274 
 
 > residuals
-   Consumption  Investment PrivateWages
-1           NA          NA           NA
-2  -0.33086391 -2.63081823  -1.30606542
-3  -1.04194031  0.01459930   0.44504927
-4  -1.29175646  0.41284439   1.43376715
-5  -0.17722960 -1.74884993  -0.24941665
-6   0.35634357  0.28067410  -0.40655622
-7           NA          NA           NA
-8   1.67782879  1.46705855  -0.86999735
-9   1.45614236  1.10684496   0.17122531
-10          NA  2.90015809   1.12620084
-11  0.42374122 -1.06520127  -0.61888632
-12 -0.27112705 -0.94875093   0.03750607
-13 -0.56431206 -1.62405906  -0.50545352
-14  0.28454835  1.84774093   0.30797342
-15 -0.05143173 -0.23788494   0.30028035
-16  0.05210143  0.12675985   0.01414456
-17  1.87326825  2.24620479  -0.70833472
-18 -0.19619721 -0.17238733   0.83049043
-19  0.35532106 -3.58103915  -0.94478632
-20  1.31609085  1.03426759  -0.27377582
-21  1.20552565  0.66216786  -1.12826782
-22 -1.63266549  1.55411654   0.82574980
+   Consumption Investment PrivateWages
+1           NA         NA           NA
+2  -0.33086391 -2.6308182  -1.30606542
+3  -1.04194031  0.0145993   0.44504927
+4  -1.29175646  0.4128444   1.43376715
+5  -0.17722960 -1.7488499  -0.24941665
+6   0.35634357  0.2806741  -0.40655622
+7           NA         NA           NA
+8   1.67782879  1.4670585  -0.86999735
+9   1.45614236  1.1068450   0.17122531
+10          NA  2.9001581   1.12620084
+11  0.42374122 -1.0652013  -0.61888632
+12 -0.27112705 -0.9487509   0.03750607
+13 -0.56431206 -1.6240591  -0.50545352
+14  0.28454835  1.8477409   0.30797342
+15 -0.05143173 -0.2378849   0.30028035
+16  0.05210143  0.1267598   0.01414456
+17  1.87326825  2.2462048  -0.70833472
+18 -0.19619721 -0.1723873   0.83049043
+19  0.35532106 -3.5810392  -0.94478632
+20  1.31609085  1.0342676  -0.27377582
+21  1.20552565  0.6621679  -1.12826782
+22 -1.63266549  1.5541165   0.82574980
 > fitted
    Consumption Investment PrivateWages
 1           NA         NA           NA
@@ -5663,7 +5671,7 @@ Multiple R-Squared: 0.985915 Adjusted R-Squared: 0.983274
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -5674,7 +5682,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -5685,7 +5693,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -5696,7 +5704,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -5708,7 +5716,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -5720,7 +5728,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -6341,7 +6349,7 @@ PrivateWages_22                 10
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -6352,7 +6360,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -6363,7 +6371,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -6374,7 +6382,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -6386,7 +6394,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -6398,7 +6406,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -6496,29 +6504,29 @@ SSR: 9.740979 MSE: 0.608811 Root MSE: 0.780264
 Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427 
 
 > residuals
-   Consumption   Investment PrivateWages
-1           NA           NA           NA
-2  -0.67541270 -1.235987274  -1.34005450
-3  -0.46271157  0.329565820   0.23777458
-4  -1.15852099  1.088935680   1.11174599
-5  -0.03048102 -1.370169513  -0.19540625
-6   0.46931150  0.484306965  -0.53551346
-7           NA           NA           NA
-8   1.60451540  1.068106517  -0.79078658
-9   1.60182253  0.166950258   0.28309625
-10          NA  1.863796367   1.13533150
-11 -0.90307349 -0.921833060  -0.17645033
-12 -1.59480260 -1.032173687   0.60070990
-13          NA           NA   0.14427346
-14  0.28536585  0.854682646   0.48258733
-15 -0.47184465 -0.369428084   0.30156397
-16 -0.22680967  0.005544080   0.02613193
-17  2.00794803  1.695660241  -0.86138118
-18 -0.74341282 -0.126588347   0.99270163
-19 -0.54099962 -3.262093154  -0.44455655
-20  1.41855391  0.255788018  -0.39144822
-21  1.14617662 -0.001849240  -1.11152936
-22 -1.72562471  0.506785767   0.53120989
+   Consumption  Investment PrivateWages
+1           NA          NA           NA
+2  -0.67541270 -1.23598727  -1.34005450
+3  -0.46271157  0.32956582   0.23777458
+4  -1.15852099  1.08893568   1.11174599
+5  -0.03048102 -1.37016951  -0.19540625
+6   0.46931150  0.48430697  -0.53551346
+7           NA          NA           NA
+8   1.60451540  1.06810652  -0.79078658
+9   1.60182253  0.16695026   0.28309625
+10          NA  1.86379637   1.13533150
+11 -0.90307349 -0.92183306  -0.17645033
+12 -1.59480260 -1.03217369   0.60070990
+13          NA          NA   0.14427346
+14  0.28536585  0.85468265   0.48258733
+15 -0.47184465 -0.36942808   0.30156397
+16 -0.22680967  0.00554408   0.02613193
+17  2.00794803  1.69566024  -0.86138118
+18 -0.74341282 -0.12658835   0.99270163
+19 -0.54099962 -3.26209315  -0.44455655
+20  1.41855391  0.25578802  -0.39144822
+21  1.14617662 -0.00184924  -1.11152936
+22 -1.72562471  0.50678577   0.53120989
 > fitted
    Consumption Investment PrivateWages
 1           NA         NA           NA
@@ -6668,7 +6676,7 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -6679,7 +6687,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -6690,7 +6698,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -6701,7 +6709,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -6713,7 +6721,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -6725,7 +6733,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -6948,7 +6956,7 @@ Multiple R-Squared: 0.987068 Adjusted R-Squared: 0.984643
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -6959,7 +6967,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -6970,7 +6978,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -6981,7 +6989,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -6993,7 +7001,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -7005,7 +7013,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -7236,7 +7244,7 @@ Multiple R-Squared: 0.987334 Adjusted R-Squared: 0.984959
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -7247,7 +7255,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -7258,7 +7266,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -7271,7 +7279,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -7283,7 +7291,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -7297,7 +7305,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -7532,7 +7540,7 @@ Multiple R-Squared: 0.987145 Adjusted R-Squared: 0.984735
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -7543,7 +7551,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -7556,7 +7564,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -7569,7 +7577,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -7583,7 +7591,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -7597,7 +7605,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -8214,7 +8222,7 @@ PrivateWages_22                 10
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -8225,7 +8233,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -8236,7 +8244,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -8247,7 +8255,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -8259,7 +8267,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -8271,7 +8279,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -8541,7 +8549,7 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -8552,7 +8560,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -8563,7 +8571,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -8574,7 +8582,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -8586,7 +8594,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -8598,7 +8606,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -8640,9 +8648,9 @@ PrivateWages  -0.4518291  0.1806171     0.520510
 
 The correlations of the residuals
              Consumption Investment PrivateWages
-Consumption     1.000000   0.090720    -0.636169
-Investment      0.090720   1.000000     0.267073
-PrivateWages   -0.636169   0.267073     1.000000
+Consumption    1.0000000  0.0907199    -0.636169
+Investment     0.0907199  1.0000000     0.267073
+PrivateWages  -0.6361686  0.2670726     1.000000
 
 
 SUR estimates for 'Consumption' (equation 1)
@@ -8821,7 +8829,7 @@ Multiple R-Squared: 0.987067 Adjusted R-Squared: 0.984642
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -8832,7 +8840,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -8843,7 +8851,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -8854,7 +8862,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -8866,7 +8874,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -8878,7 +8886,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -9109,7 +9117,7 @@ Multiple R-Squared: 0.98733 Adjusted R-Squared: 0.984954
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -9120,7 +9128,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -9131,7 +9139,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -9142,7 +9150,7 @@ Model 2: kleinModel
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -9154,7 +9162,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -9166,7 +9174,7 @@ Model 2: kleinModel
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -9399,7 +9407,7 @@ Multiple R-Squared: 0.987127 Adjusted R-Squared: 0.984714
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -9410,7 +9418,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -9423,7 +9431,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 
 Model 1: restricted model
 Model 2: kleinModel
@@ -9436,7 +9444,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -9448,7 +9456,7 @@ Model 2: kleinModel
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model
@@ -9462,7 +9470,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
-Consumption_corpProf + Investment_capitalLag = 0
+Consumption_corpProf  + Investment_capitalLag = 0
 Consumption_corpProfLag - PrivateWages_trend = 0
 
 Model 1: restricted model

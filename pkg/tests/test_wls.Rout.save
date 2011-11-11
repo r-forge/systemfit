@@ -1,7 +1,8 @@
 
-R version 2.11.1 (2010-05-31)
-Copyright (C) 2010 The R Foundation for Statistical Computing
+R version 2.14.0 (2011-10-31)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: i686-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -33,6 +34,13 @@ Loading required package: survival
 Loading required package: splines
 Loading required package: lmtest
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+The following object(s) are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
 > data( "Kmenta" )
 > useMatrix <- FALSE
 > 
@@ -138,7 +146,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 155.883 3.01570 0.709298   0.536785
+system 40 33 155.883  3.0157 0.709298   0.536785
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
@@ -181,9 +189,9 @@ Model Formula: consump ~ price + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 58.2754312 10.2527383 5.68389 2.4491e-06 ***
-price        0.1603666  0.0848668 1.88963   0.067620 .  
+price        0.1603666  0.0848668 1.88963  0.0676199 .  
 farmPrice    0.2481333  0.0413117 6.00637 9.4678e-07 ***
-trend        0.2483023  0.0872225 2.84677   0.007539 ** 
+trend        0.2483023  0.0872225 2.84677  0.0075389 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -202,7 +210,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 34 159.377 2.34660 0.702781   0.622292
+system 40 34 159.377  2.3466 0.702781   0.622292
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7499 3.74999 1.93649 0.762229 0.734256
@@ -336,7 +344,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 34 159.377 2.34660 0.702781   0.622292
+system 40 34 159.377  2.3466 0.702781   0.622292
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7499 3.74999 1.93649 0.762229 0.734256
@@ -798,7 +806,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 155.883 3.01570 0.709298   0.536785
+system 40 33 155.883  3.0157 0.709298   0.536785
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
@@ -841,9 +849,9 @@ Model Formula: consump ~ price + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 58.2754312 10.2527383 5.68389 2.4491e-06 ***
-price        0.1603666  0.0848668 1.88963   0.067620 .  
+price        0.1603666  0.0848668 1.88963  0.0676199 .  
 farmPrice    0.2481333  0.0413117 6.00637 9.4678e-07 ***
-trend        0.2483023  0.0872225 2.84677   0.007539 ** 
+trend        0.2483023  0.0872225 2.84677  0.0075389 ** 
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1530,9 +1538,9 @@ eq1 2447.84 2439.23
 eq2 2439.23 2475.16
 
 The correlations of the residuals
-        eq1     eq2
-eq1 1.00000 0.98828
-eq2 0.98828 1.00000
+         eq1      eq2
+eq1 1.000000 0.988281
+eq2 0.988281 1.000000
 
 
 WLS estimates for 'eq1' (equation 1)
@@ -1552,8 +1560,8 @@ Multiple R-Squared: -172.466772 Adjusted R-Squared: -172.466772
 WLS estimates for 'eq2' (equation 2)
 Model Formula: price ~ trend - 1
 
-      Estimate Std. Error t value   Pr(>|t|)    
-trend 7.318426   0.928669 7.88055 2.0940e-07 ***
+      Estimate Std. Error t value  Pr(>|t|)    
+trend 7.318426   0.928669 7.88055 2.094e-07 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1571,8 +1579,8 @@ Multiple R-Squared: -69.480332 Adjusted R-Squared: -69.480332
 systemfit results 
 method: WLS 
 
-        N DF     SSR detRCov  OLS-R2 McElroy-R2
-system 40 39 93547.8  111736 -99.012   -1.02688
+        N DF     SSR detRCov   OLS-R2 McElroy-R2
+system 40 39 93547.8  111736 -99.0119   -1.02688
 
      N DF     SSR     MSE    RMSE        R2    Adj R2
 eq1 20 19 46514.2 2448.12 49.4785 -172.4865 -172.4865
@@ -1739,7 +1747,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 34 159.377 2.34660 0.702781   0.622292
+system 40 34 159.377  2.3466 0.702781   0.622292
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.7499 3.74999 1.93649 0.762229 0.734256
@@ -1856,7 +1864,7 @@ systemfit results
 method: WLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 155.883 3.01570 0.709298   0.536785
+system 40 33 155.883  3.0157 0.709298   0.536785
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 63.3317 3.72539 1.93013 0.763789 0.735999
@@ -4010,7 +4018,7 @@ income       0.252   0.395
 > print( predict( fitwls4e, se.fit = TRUE, interval = "confidence",
 +    level = 0.999, newdata = smallData ) )
   demand.pred demand.se.fit demand.lwr demand.upr supply.pred supply.se.fit
-1    108.3841      2.022465   101.1211   115.6470    117.1831      2.023029
+1    108.3841      2.022465   101.1211    115.647    117.1831      2.023029
   supply.lwr supply.upr
 1   109.9181   124.4481
 > print( predict( fitwls4e$eq[[ 2 ]], se.pred = TRUE, interval = "prediction",
@@ -4021,9 +4029,9 @@ income       0.252   0.395
 > print( predict( fitwls5, se.fit = TRUE, interval = "prediction",
 +    newdata = smallData ) )
   demand.pred demand.se.fit demand.lwr demand.upr supply.pred supply.se.fit
-1    108.4158      2.204294   102.4616   114.3700    117.1955      2.232657
+1    108.4158      2.204294   102.4616     114.37    117.1955      2.232657
   supply.lwr supply.upr
-1   110.4619   123.9290
+1   110.4619    123.929
 > print( predict( fitwls5$eq[[ 1 ]], se.pred = TRUE, interval = "confidence",
 +    newdata = smallData ) )
        fit  se.pred      lwr      upr
@@ -4204,27 +4212,27 @@ income       0.252   0.395
 [20,]  0.1324154824
 > 
 > print( correlation.systemfit( fitwlsi3e, 1, 2 ) )
-               [,1]
- [1,]  0.4104849041
- [2,]  0.1472057720
- [3,]  0.1472776244
- [4,]  0.1073158269
- [5,] -0.0690363738
- [6,] -0.0528499086
- [7,] -0.0513625613
- [8,] -0.0061299793
- [9,] -0.0003313000
-[10,] -0.0012570838
-[11,]  0.0483788413
-[12,]  0.0647140218
-[13,]  0.0245133343
-[14,] -0.0283775000
-[15,]  0.1743451185
-[16,]  0.2518823415
-[17,]  0.1030223295
-[18,]  0.0740087349
-[19,]  0.1560633777
-[20,]  0.1349735335
+              [,1]
+ [1,]  0.410484904
+ [2,]  0.147205772
+ [3,]  0.147277624
+ [4,]  0.107315827
+ [5,] -0.069036374
+ [6,] -0.052849909
+ [7,] -0.051362561
+ [8,] -0.006129979
+ [9,] -0.000331300
+[10,] -0.001257084
+[11,]  0.048378841
+[12,]  0.064714022
+[13,]  0.024513334
+[14,] -0.028377500
+[15,]  0.174345118
+[16,]  0.251882342
+[17,]  0.103022329
+[18,]  0.074008735
+[19,]  0.156063378
+[20,]  0.134973534
 > 
 > print( correlation.systemfit( fitwlsi4, 2, 1 ) )
               [,1]
@@ -4368,7 +4376,7 @@ Model 2: fitwlsi1e
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls1e
@@ -4380,7 +4388,7 @@ Model 2: fitwls1e
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls1e
@@ -4393,7 +4401,7 @@ Model 2: fitwls1e
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi1
@@ -4405,7 +4413,7 @@ Model 2: fitwlsi1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi1
@@ -4419,7 +4427,7 @@ Model 2: fitwlsi1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls2
@@ -4431,7 +4439,7 @@ Model 2: fitwls2
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls2
@@ -4444,7 +4452,7 @@ Model 2: fitwls2
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls3
@@ -4456,7 +4464,7 @@ Model 2: fitwls3
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls3
@@ -4469,7 +4477,7 @@ Model 2: fitwls3
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi2e
@@ -4481,7 +4489,7 @@ Model 2: fitwlsi2e
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi2e
@@ -4494,7 +4502,7 @@ Model 2: fitwlsi2e
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi3e
@@ -4506,7 +4514,7 @@ Model 2: fitwlsi3e
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi3e
@@ -4521,7 +4529,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls1e
@@ -4534,7 +4542,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls1e
@@ -4548,27 +4556,27 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi1
 
   Res.Df Df      F Pr(>F)
 1     35                 
-2     33  2 0.3621  0.699
+2     33  2 0.3621 0.6989
 > linearHypothesis( fitwlsi1, restrict2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi1
 
   Res.Df Df      F Pr(>F)
 1     35                 
-2     33  2 0.3621  0.699
+2     33  2 0.3621 0.6989
 > 
 > 
 > ## ************** Wald tests ****************
@@ -4629,7 +4637,7 @@ Model 2: fitwlsi1e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls1e
@@ -4641,7 +4649,7 @@ Model 2: fitwls1e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls1e
@@ -4654,7 +4662,7 @@ Model 2: fitwls1e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi1
@@ -4666,7 +4674,7 @@ Model 2: fitwlsi1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi1
@@ -4680,7 +4688,7 @@ Model 2: fitwlsi1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls2
@@ -4692,7 +4700,7 @@ Model 2: fitwls2
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls2
@@ -4705,7 +4713,7 @@ Model 2: fitwls2
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls3
@@ -4717,7 +4725,7 @@ Model 2: fitwls3
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls3
@@ -4730,7 +4738,7 @@ Model 2: fitwls3
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi2e
@@ -4742,7 +4750,7 @@ Model 2: fitwlsi2e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi2e
@@ -4755,7 +4763,7 @@ Model 2: fitwlsi2e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi3e
@@ -4767,7 +4775,7 @@ Model 2: fitwlsi3e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi3e
@@ -4782,7 +4790,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls1e
@@ -4795,7 +4803,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwls1e
@@ -4809,7 +4817,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi1
@@ -4822,7 +4830,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fitwlsi1

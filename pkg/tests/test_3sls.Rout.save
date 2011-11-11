@@ -1,7 +1,8 @@
 
-R version 2.11.1 (2010-05-31)
-Copyright (C) 2010 The R Foundation for Statistical Computing
+R version 2.14.0 (2011-10-31)
+Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
+Platform: i686-pc-linux-gnu (32-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -33,6 +34,13 @@ Loading required package: survival
 Loading required package: splines
 Loading required package: lmtest
 Loading required package: zoo
+
+Attaching package: 'zoo'
+
+The following object(s) are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
 > data( "Kmenta" )
 > useMatrix <- FALSE
 > 
@@ -230,7 +238,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 173.643 1.03320 0.676177   0.786468
+system 40 33 173.643  1.0332 0.676177   0.786468
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -1245,9 +1253,9 @@ eq1 112.1961 -68.3457
 eq2 -68.3457  91.6653
 
 The correlations of the residuals
-         eq1      eq2
-eq1  1.00000 -0.67393
-eq2 -0.67393  1.00000
+          eq1       eq2
+eq1  1.000000 -0.673931
+eq2 -0.673931  1.000000
 
 
 3SLS estimates for 'eq1' (equation 1)
@@ -1397,8 +1405,8 @@ Multiple R-Squared: -28.450844 Adjusted R-Squared: -28.450844
 systemfit results 
 method: 3SLS 
 
-        N DF    SSR detRCov   OLS-R2 McElroy-R2
-system 40 39 161126 1162329 -171.260    -17.403
+        N DF    SSR detRCov  OLS-R2 McElroy-R2
+system 40 39 161126 1162329 -171.26    -17.403
 
      N DF       SSR      MSE    RMSE        R2    Adj R2
 eq1 20 19   3553.12  187.006 13.6750  -12.2523  -12.2523
@@ -1513,7 +1521,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 173.643 1.03320 0.676177   0.786468
+system 40 33 173.643  1.0332 0.676177   0.786468
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -2528,9 +2536,9 @@ eq1 112.1961 -68.3457
 eq2 -68.3457  91.6653
 
 The correlations of the residuals
-         eq1      eq2
-eq1  1.00000 -0.67393
-eq2 -0.67393  1.00000
+          eq1       eq2
+eq1  1.000000 -0.673931
+eq2 -0.673931  1.000000
 
 
 3SLS estimates for 'eq1' (equation 1)
@@ -2680,8 +2688,8 @@ Multiple R-Squared: -28.450844 Adjusted R-Squared: -28.450844
 systemfit results 
 method: 3SLS 
 
-        N DF    SSR detRCov   OLS-R2 McElroy-R2
-system 40 39 161126 1162329 -171.260    -17.403
+        N DF    SSR detRCov  OLS-R2 McElroy-R2
+system 40 39 161126 1162329 -171.26    -17.403
 
      N DF       SSR      MSE    RMSE        R2    Adj R2
 eq1 20 19   3553.12  187.006 13.6750  -12.2523  -12.2523
@@ -2796,7 +2804,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 173.643 1.03320 0.676177   0.786468
+system 40 33 173.643  1.0332 0.676177   0.786468
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -3811,9 +3819,9 @@ eq1 112.1961 -68.3457
 eq2 -68.3457  91.6653
 
 The correlations of the residuals
-         eq1      eq2
-eq1  1.00000 -0.67393
-eq2 -0.67393  1.00000
+          eq1       eq2
+eq1  1.000000 -0.673931
+eq2 -0.673931  1.000000
 
 
 3SLS estimates for 'eq1' (equation 1)
@@ -3963,8 +3971,8 @@ Multiple R-Squared: -28.450844 Adjusted R-Squared: -28.450844
 systemfit results 
 method: 3SLS 
 
-        N DF    SSR detRCov   OLS-R2 McElroy-R2
-system 40 39 161126 1162329 -171.260    -17.403
+        N DF    SSR detRCov  OLS-R2 McElroy-R2
+system 40 39 161126 1162329 -171.26    -17.403
 
      N DF       SSR      MSE    RMSE        R2    Adj R2
 eq1 20 19   3553.12  187.006 13.6750  -12.2523  -12.2523
@@ -4079,7 +4087,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 173.643 1.03320 0.676177   0.786468
+system 40 33 173.643  1.0332 0.676177   0.786468
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -5094,9 +5102,9 @@ eq1 112.1961 -68.3457
 eq2 -68.3457  91.6653
 
 The correlations of the residuals
-         eq1      eq2
-eq1  1.00000 -0.67393
-eq2 -0.67393  1.00000
+          eq1       eq2
+eq1  1.000000 -0.673931
+eq2 -0.673931  1.000000
 
 
 3SLS estimates for 'eq1' (equation 1)
@@ -5246,8 +5254,8 @@ Multiple R-Squared: -28.450844 Adjusted R-Squared: -28.450844
 systemfit results 
 method: 3SLS 
 
-        N DF    SSR detRCov   OLS-R2 McElroy-R2
-system 40 39 161126 1162329 -171.260    -17.403
+        N DF    SSR detRCov  OLS-R2 McElroy-R2
+system 40 39 161126 1162329 -171.26    -17.403
 
      N DF       SSR      MSE    RMSE        R2    Adj R2
 eq1 20 19   3553.12  187.006 13.6750  -12.2523  -12.2523
@@ -5362,7 +5370,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 173.643 1.03320 0.676177   0.786468
+system 40 33 173.643  1.0332 0.676177   0.786468
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -6050,11 +6058,11 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov  OLS-R2 McElroy-R2
-system 40 35 439.477 21.2770 0.18043  -0.180169
+system 40 35 439.477  21.277 0.18043  -0.180169
 
-        N DF     SSR     MSE    RMSE        R2    Adj R2
-demand 20 17 168.882  9.9342 3.15186  0.370114  0.296009
-supply 20 16 270.595 16.9122 4.11245 -0.009253 -0.198488
+        N DF     SSR      MSE    RMSE        R2    Adj R2
+demand 20 17 168.882  9.93421 3.15186  0.370114  0.296009
+supply 20 16 270.595 16.91220 4.11245 -0.009253 -0.198488
 
 The covariance matrix of the residuals used for estimation
         demand  supply
@@ -6237,11 +6245,11 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov  OLS-R2 McElroy-R2
-system 40 35 439.477 21.2770 0.18043  -0.180169
+system 40 35 439.477  21.277 0.18043  -0.180169
 
-        N DF     SSR     MSE    RMSE        R2    Adj R2
-demand 20 17 168.882  9.9342 3.15186  0.370114  0.296009
-supply 20 16 270.595 16.9122 4.11245 -0.009253 -0.198488
+        N DF     SSR      MSE    RMSE        R2    Adj R2
+demand 20 17 168.882  9.93421 3.15186  0.370114  0.296009
+supply 20 16 270.595 16.91220 4.11245 -0.009253 -0.198488
 
 The covariance matrix of the residuals used for estimation
         demand  supply
@@ -6377,9 +6385,9 @@ eq1 112.1961 -68.3457
 eq2 -68.3457  91.6653
 
 The correlations of the residuals
-         eq1      eq2
-eq1  1.00000 -0.67393
-eq2 -0.67393  1.00000
+          eq1       eq2
+eq1  1.000000 -0.673931
+eq2 -0.673931  1.000000
 
 
 3SLS estimates for 'eq1' (equation 1)
@@ -6529,8 +6537,8 @@ Multiple R-Squared: -28.450844 Adjusted R-Squared: -28.450844
 systemfit results 
 method: 3SLS 
 
-        N DF    SSR detRCov   OLS-R2 McElroy-R2
-system 40 39 161126 1162329 -171.260    -17.403
+        N DF    SSR detRCov  OLS-R2 McElroy-R2
+system 40 39 161126 1162329 -171.26    -17.403
 
      N DF       SSR      MSE    RMSE        R2    Adj R2
 eq1 20 19   3553.12  187.006 13.6750  -12.2523  -12.2523
@@ -6764,8 +6772,8 @@ method: iterated 3SLS
 
 convergence achieved after 6 iterations
 
-        N DF     SSR  detRCov   OLS-R2 McElroy-R2
-system 40 33 178.160 0.983079 0.667753   0.814118
+        N DF    SSR  detRCov   OLS-R2 McElroy-R2
+system 40 33 178.16 0.983079 0.667753   0.814118
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -7792,8 +7800,8 @@ method: iterated 3SLS
 
 convergence achieved after 6 iterations
 
-        N DF     SSR  detRCov   OLS-R2 McElroy-R2
-system 40 33 178.160 0.983079 0.667753   0.814118
+        N DF    SSR  detRCov   OLS-R2 McElroy-R2
+system 40 33 178.16 0.983079 0.667753   0.814118
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -8820,8 +8828,8 @@ method: iterated 3SLS
 
 convergence achieved after 6 iterations
 
-        N DF     SSR  detRCov   OLS-R2 McElroy-R2
-system 40 33 178.160 0.983079 0.667753   0.814118
+        N DF    SSR  detRCov   OLS-R2 McElroy-R2
+system 40 33 178.16 0.983079 0.667753   0.814118
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -9848,8 +9856,8 @@ method: iterated 3SLS
 
 convergence achieved after 6 iterations
 
-        N DF     SSR  detRCov   OLS-R2 McElroy-R2
-system 40 33 178.160 0.983079 0.667753   0.814118
+        N DF    SSR  detRCov   OLS-R2 McElroy-R2
+system 40 33 178.16 0.983079 0.667753   0.814118
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -10876,8 +10884,8 @@ method: iterated 3SLS
 
 convergence achieved after 6 iterations
 
-        N DF     SSR  detRCov   OLS-R2 McElroy-R2
-system 40 33 178.160 0.983079 0.667753   0.814118
+        N DF    SSR  detRCov   OLS-R2 McElroy-R2
+system 40 33 178.16 0.983079 0.667753   0.814118
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  65.7291 3.86642 1.96632 0.754847 0.726005
@@ -12082,8 +12090,8 @@ Multiple R-Squared: 0.617913 Adjusted R-Squared: 0.546272
 systemfit results 
 method: 3SLS 
 
-        N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 169.650 8.99691 0.683624   0.510614
+        N DF    SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 169.65 8.99691 0.683624   0.510614
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.4466 3.96745 1.99185 0.748441 0.718846
@@ -12313,7 +12321,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 40.2918094 11.2021614 3.59679  0.0010110 ** 
+(Intercept) 40.2918094 11.2021614 3.59679   0.001011 ** 
 price        0.3613044  0.0784708 4.60431 5.5640e-05 ***
 farmPrice    0.2201044  0.0452619 4.86291 2.5845e-05 ***
 trend        0.3049025  0.0473987 6.43272 2.3747e-07 ***
@@ -12499,7 +12507,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 40.2918094 11.2021614 3.59679  0.0010110 ** 
+(Intercept) 40.2918094 11.2021614 3.59679   0.001011 ** 
 price        0.3613044  0.0784708 4.60431 5.5640e-05 ***
 farmPrice    0.2201044  0.0452619 4.86291 2.5845e-05 ***
 trend        0.3049025  0.0473987 6.43272 2.3747e-07 ***
@@ -12641,7 +12649,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 35 211.121 2.10330 0.606285   0.709617
+system 40 35 211.121  2.1033 0.606285   0.709617
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  77.9448 4.58499 2.14126 0.709285 0.675083
@@ -12720,9 +12728,9 @@ demand 3.89559 4.92842
 supply 4.92842 6.59987
 
 The correlations of the residuals
-        demand  supply
-demand 1.00000 0.97197
-supply 0.97197 1.00000
+         demand   supply
+demand 1.000000 0.971971
+supply 0.971971 1.000000
 
 
 3SLS estimates for 'demand' (equation 1)
@@ -12827,7 +12835,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 35 211.121 2.10330 0.606285   0.709617
+system 40 35 211.121  2.1033 0.606285   0.709617
 
         N DF      SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  77.9448 4.58499 2.14126 0.709285 0.675083
@@ -12906,9 +12914,9 @@ demand 3.89559 4.92842
 supply 4.92842 6.59987
 
 The correlations of the residuals
-        demand  supply
-demand 1.00000 0.97197
-supply 0.97197 1.00000
+         demand   supply
+demand 1.000000 0.971971
+supply 0.971971 1.000000
 
 
 3SLS estimates for 'demand' (equation 1)
@@ -13327,9 +13335,9 @@ method: 3SLS
         N DF     SSR detRCov   OLS-R2 McElroy-R2
 system 40 34 365.026 7.13944 0.319272  -0.166056
 
-        N DF     SSR     MSE    RMSE       R2   Adj R2
-demand 20 17 162.635  9.5668 3.09302 0.393410 0.322047
-supply 20 16 202.390 12.6494 3.55660 0.245134 0.103596
+        N DF     SSR      MSE    RMSE       R2   Adj R2
+demand 20 17 162.635  9.56679 3.09302 0.393410 0.322047
+supply 20 16 202.390 12.64940 3.55660 0.245134 0.103596
 
 The covariance matrix of the residuals used for estimation
         demand  supply
@@ -13513,9 +13521,9 @@ method: 3SLS
         N DF     SSR detRCov   OLS-R2 McElroy-R2
 system 40 34 365.026 7.13944 0.319272  -0.166056
 
-        N DF     SSR     MSE    RMSE       R2   Adj R2
-demand 20 17 162.635  9.5668 3.09302 0.393410 0.322047
-supply 20 16 202.390 12.6494 3.55660 0.245134 0.103596
+        N DF     SSR      MSE    RMSE       R2   Adj R2
+demand 20 17 162.635  9.56679 3.09302 0.393410 0.322047
+supply 20 16 202.390 12.64940 3.55660 0.245134 0.103596
 
 The covariance matrix of the residuals used for estimation
         demand  supply
@@ -13573,7 +13581,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 34 377.845 10.5460 0.295366  -0.071492
+system 40 34 377.845  10.546 0.295366  -0.071492
 
         N DF     SSR      MSE    RMSE       R2   Adj R2
 demand 20 17 165.668  9.74517 3.12173 0.382100 0.309405
@@ -14008,8 +14016,8 @@ Multiple R-Squared: 0.206596 Adjusted R-Squared: 0.057832
 systemfit results 
 method: 3SLS 
 
-        N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 164.080 9.24969 0.694011   0.512239
+        N DF    SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.08 9.24969 0.694011   0.512239
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
@@ -14070,8 +14078,8 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: 3SLS 
 
-        N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 164.080 6.28979 0.694011   0.500365
+        N DF    SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.08 6.28979 0.694011   0.500365
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
@@ -14132,8 +14140,8 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: 3SLS 
 
-        N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 164.080 8.24242 0.694011   0.480934
+        N DF    SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.08 8.24242 0.694011   0.480934
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
@@ -14194,8 +14202,8 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: 3SLS 
 
-        N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 164.080 9.24969 0.694011   0.512239
+        N DF    SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.08 9.24969 0.694011   0.512239
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
@@ -14321,9 +14329,9 @@ method: 3SLS
         N DF     SSR detRCov   OLS-R2 McElroy-R2
 system 40 34 175.206 1.74768 0.673262   0.635545
 
-        N DF     SSR     MSE    RMSE       R2   Adj R2
-demand 20 17  65.171 3.83359 1.95796 0.756928 0.728331
-supply 20 16 110.035 6.87720 2.62244 0.589596 0.512645
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  65.1711 3.83359 1.95796 0.756928 0.728331
+supply 20 16 110.0352 6.87720 2.62244 0.589596 0.512645
 
 The covariance matrix of the residuals used for estimation
         demand  supply
@@ -14383,9 +14391,9 @@ method: 3SLS
         N DF     SSR detRCov   OLS-R2 McElroy-R2
 system 40 34 175.012 1.76121 0.673624   0.634655
 
-        N DF     SSR     MSE    RMSE       R2   Adj R2
-demand 20 17  65.090 3.82883 1.95674 0.757230 0.728669
-supply 20 16 109.922 6.87012 2.62109 0.590019 0.513147
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  65.0901 3.82883 1.95674 0.757230 0.728669
+supply 20 16 109.9219 6.87012 2.62109 0.590019 0.513147
 
 The covariance matrix of the residuals used for estimation
         demand  supply
@@ -14507,9 +14515,9 @@ method: 3SLS
         N DF     SSR detRCov   OLS-R2 McElroy-R2
 system 40 34 175.206 1.74768 0.673262   0.635545
 
-        N DF     SSR     MSE    RMSE       R2   Adj R2
-demand 20 17  65.171 3.83359 1.95796 0.756928 0.728331
-supply 20 16 110.035 6.87720 2.62244 0.589596 0.512645
+        N DF      SSR     MSE    RMSE       R2   Adj R2
+demand 20 17  65.1711 3.83359 1.95796 0.756928 0.728331
+supply 20 16 110.0352 6.87720 2.62244 0.589596 0.512645
 
 The covariance matrix of the residuals used for estimation
         demand  supply
@@ -14657,7 +14665,7 @@ Instruments: ~income + farmPrice
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 93.3937246 10.2477453  9.11359 9.0760e-11 ***
-price       -0.2207678  0.1164659 -1.89556     0.0663 .  
+price       -0.2207678  0.1164659 -1.89556   0.066301 .  
 income       0.3033317  0.0257477 11.78094 9.8588e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -14843,7 +14851,7 @@ Instruments: ~income + farmPrice
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 93.3937246 10.2477453  9.11359 9.0760e-11 ***
-price       -0.2207678  0.1164659 -1.89556     0.0663 .  
+price       -0.2207678  0.1164659 -1.89556   0.066301 .  
 income       0.3033317  0.0257477 11.78094 9.8588e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -14939,7 +14947,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 35 179.049 1.30120 0.666095   0.660969
+system 40 35 179.049  1.3012 0.666095   0.660969
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17  67.800 3.98824 1.99706 0.747123 0.717372
@@ -14956,9 +14964,9 @@ demand 3.39000 4.18993
 supply 4.18993 5.56246
 
 The correlations of the residuals
-        demand  supply
-demand 1.00000 0.96488
-supply 0.96488 1.00000
+         demand   supply
+demand 1.000000 0.964881
+supply 0.964881 1.000000
 
 
 3SLS estimates for 'demand' (equation 1)
@@ -15002,8 +15010,8 @@ Multiple R-Squared: 0.585068 Adjusted R-Squared: 0.507268
 systemfit results 
 method: 3SLS 
 
-        N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 164.080 9.24969 0.694011   0.512239
+        N DF    SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.08 9.24969 0.694011   0.512239
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
@@ -15064,8 +15072,8 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: 3SLS 
 
-        N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 164.080 6.28979 0.694011   0.500365
+        N DF    SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.08 6.28979 0.694011   0.500365
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
@@ -15126,8 +15134,8 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: 3SLS 
 
-        N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 164.080 8.24242 0.694011   0.480934
+        N DF    SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.08 8.24242 0.694011   0.480934
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
@@ -15188,8 +15196,8 @@ Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004
 systemfit results 
 method: 3SLS 
 
-        N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 33 164.080 9.24969 0.694011   0.512239
+        N DF    SSR detRCov   OLS-R2 McElroy-R2
+system 40 33 164.08 9.24969 0.694011   0.512239
 
         N DF     SSR     MSE    RMSE       R2   Adj R2
 demand 20 17 67.4466 3.96745 1.99185 0.748441 0.718846
@@ -15330,9 +15338,9 @@ demand 3.16851 3.78529
 supply 3.78529 5.10352
 
 The correlations of the residuals
-        demand  supply
-demand 1.00000 0.94132
-supply 0.94132 1.00000
+         demand   supply
+demand 1.000000 0.941319
+supply 0.941319 1.000000
 
 
 3SLS estimates for 'demand' (equation 1)
@@ -15516,9 +15524,9 @@ demand 3.16851 3.78529
 supply 3.78529 5.10352
 
 The correlations of the residuals
-        demand  supply
-demand 1.00000 0.94132
-supply 0.94132 1.00000
+         demand   supply
+demand 1.000000 0.941319
+supply 0.941319 1.000000
 
 
 3SLS estimates for 'demand' (equation 1)
@@ -15605,8 +15613,8 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 49.7425292 12.3029407 4.04314 0.00028610 ***
-price        0.2366657  0.1023243 2.31290 0.02691049 *  
+(Intercept) 49.7425292 12.3029407 4.04314  0.0002861 ***
+price        0.2366657  0.1023243 2.31290  0.0269105 *  
 farmPrice    0.2474322  0.0477008 5.18717 9.8194e-06 ***
 trend        0.3406147  0.0510333 6.67437 1.1622e-07 ***
 ---
@@ -16290,7 +16298,7 @@ Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 57.6795480 11.2021614 5.14897 1.1008e-05 ***
-price        0.1323648  0.0784708 1.68680    0.10080    
+price        0.1323648  0.0784708 1.68680     0.1008    
 farmPrice    0.2700307  0.0452619 5.96596 9.5342e-07 ***
 trend        0.3702796  0.0473987 7.81202 4.3090e-09 ***
 ---
@@ -16476,7 +16484,7 @@ Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 57.6795480 11.2021614 5.14897 1.1008e-05 ***
-price        0.1323648  0.0784708 1.68680    0.10080    
+price        0.1323648  0.0784708 1.68680     0.1008    
 farmPrice    0.2700307  0.0452619 5.96596 9.5342e-07 ***
 trend        0.3702796  0.0473987 7.81202 4.3090e-09 ***
 ---
@@ -16679,7 +16687,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 35 358.858 21.8620 0.330775  -0.058817
+system 40 35 358.858  21.862 0.330775  -0.058817
 
         N DF     SSR      MSE    RMSE       R2   Adj R2
 demand 20 17 142.542  8.38485 2.89566 0.468352 0.405805
@@ -16724,7 +16732,7 @@ Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 14.4922283  4.9950204  2.90134  0.0063855 ** 
-price        0.4006146  0.0457994  8.74716 2.4910e-10 ***
+price        0.4006146  0.0457994  8.74716  2.491e-10 ***
 farmPrice    0.4206570  0.0183539 22.91925 < 2.22e-16 ***
 trend        0.5419901  0.0168081 32.24586 < 2.22e-16 ***
 ---
@@ -16786,7 +16794,7 @@ Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 13.9657653  5.1591375  2.70700   0.010427 *  
-price        0.4003669  0.0478693  8.36375  7.295e-10 ***
+price        0.4003669  0.0478693  8.36375 7.2951e-10 ***
 farmPrice    0.4262533  0.0193090 22.07540 < 2.22e-16 ***
 trend        0.5429893  0.0171080 31.73892 < 2.22e-16 ***
 ---
@@ -16865,7 +16873,7 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov   OLS-R2 McElroy-R2
-system 40 35 358.858 21.8620 0.330775  -0.058817
+system 40 35 358.858  21.862 0.330775  -0.058817
 
         N DF     SSR      MSE    RMSE       R2   Adj R2
 demand 20 17 142.542  8.38485 2.89566 0.468352 0.405805
@@ -16910,7 +16918,7 @@ Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 14.4922283  4.9950204  2.90134  0.0063855 ** 
-price        0.4006146  0.0457994  8.74716 2.4910e-10 ***
+price        0.4006146  0.0457994  8.74716  2.491e-10 ***
 farmPrice    0.4206570  0.0183539 22.91925 < 2.22e-16 ***
 trend        0.5419901  0.0168081 32.24586 < 2.22e-16 ***
 ---
@@ -17131,11 +17139,11 @@ systemfit results
 method: 3SLS 
 
         N DF     SSR detRCov  OLS-R2 McElroy-R2
-system 40 35 439.477 21.2770 0.18043  -0.180169
+system 40 35 439.477  21.277 0.18043  -0.180169
 
-        N DF     SSR     MSE    RMSE        R2    Adj R2
-demand 20 17 168.882  9.9342 3.15186  0.370114  0.296009
-supply 20 16 270.595 16.9122 4.11245 -0.009253 -0.198488
+        N DF     SSR      MSE    RMSE        R2    Adj R2
+demand 20 17 168.882  9.93421 3.15186  0.370114  0.296009
+supply 20 16 270.595 16.91220 4.11245 -0.009253 -0.198488
 
 The covariance matrix of the residuals used for estimation
         demand  supply
@@ -19795,24 +19803,24 @@ trend        0.371   0.439
 > print( predict( fit3slsi[[ 4 ]]$e3e, se.fit = TRUE, se.pred = TRUE,
 +    interval = "prediction", level = 0.5, newdata = smallData ) )
   demand.pred demand.se.fit demand.se.pred demand.lwr demand.upr supply.pred
-1    108.1510      2.753448       3.663667   105.6533   110.6488    112.2255
+1     108.151      2.753448       3.663667   105.6533   110.6488    112.2255
   supply.se.fit supply.se.pred supply.lwr supply.upr
-1      3.460081       4.539012   109.1309   115.3200
+1      3.460081       4.539012   109.1309     115.32
 > print( predict( fit3slsd[[ 5 ]]$e4$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
 +    interval = "confidence", level = 0.25, newdata = smallData ) )
-       fit   se.fit  se.pred      lwr      upr
-1 111.1361 1.846772 3.424954 110.5430 111.7292
+       fit   se.fit  se.pred     lwr      upr
+1 111.1361 1.846772 3.424954 110.543 111.7292
 > 
 > print( predict( fit3slsd[[ 2 ]]$e2we, se.fit = TRUE, se.pred = TRUE,
 +    interval = "prediction", level = 0.5, newdata = smallData ) )
   demand.pred demand.se.fit demand.se.pred demand.lwr demand.upr supply.pred
-1    101.4924      2.764834       4.102266   98.69554   104.2892    111.2090
+1    101.4924      2.764834       4.102266   98.69554   104.2892     111.209
   supply.se.fit supply.se.pred supply.lwr supply.upr
-1      2.789910       4.470696   108.1610   114.2570
+1       2.78991       4.470696    108.161    114.257
 > print( predict( fit3slsi[[ 3 ]]$e4we$eq[[ 1 ]], se.fit = TRUE, se.pred = TRUE,
 +    interval = "confidence", level = 0.25, newdata = smallData ) )
-       fit   se.fit  se.pred      lwr      upr
-1 111.1780 2.034326 2.855826 110.5247 111.8314
+      fit   se.fit  se.pred      lwr      upr
+1 111.178 2.034326 2.855826 110.5247 111.8314
 > 
 > 
 > ## ************ correlation of predicted values ***************
@@ -20223,7 +20231,7 @@ Model 2: fit3slsd[[2]]$e1w
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1c
@@ -20235,7 +20243,7 @@ Model 2: fit3sls[[5]]$e1c
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1c
@@ -20248,7 +20256,7 @@ Model 2: fit3sls[[5]]$e1c
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[1]]$e1e
@@ -20260,7 +20268,7 @@ Model 2: fit3slsi[[1]]$e1e
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[1]]$e1e
@@ -20273,7 +20281,7 @@ Model 2: fit3slsi[[1]]$e1e
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1we
@@ -20285,7 +20293,7 @@ Model 2: fit3slsi[[3]]$e1we
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1we
@@ -20298,7 +20306,7 @@ Model 2: fit3slsi[[3]]$e1we
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e1
@@ -20310,7 +20318,7 @@ Model 2: fit3slsd[[2]]$e1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e1
@@ -20324,7 +20332,7 @@ Model 2: fit3slsd[[2]]$e1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e2
@@ -20336,7 +20344,7 @@ Model 2: fit3sls[[4]]$e2
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e2
@@ -20349,7 +20357,7 @@ Model 2: fit3sls[[4]]$e2
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e3
@@ -20361,7 +20369,7 @@ Model 2: fit3sls[[4]]$e3
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e3
@@ -20374,32 +20382,32 @@ Model 2: fit3sls[[4]]$e3
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[1]]$e2w
 
   Res.Df Df      F Pr(>F)
 1     35                 
-2     34  1 0.8979 0.3500
+2     34  1 0.8979   0.35
 > linearHypothesis( fit3sls[[ 1 ]]$e2w, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[1]]$e2w
 
   Res.Df Df      F Pr(>F)
 1     35                 
-2     34  1 0.8979 0.3500
+2     34  1 0.8979   0.35
 > 
 > print( linearHypothesis( fit3sls[[ 1 ]]$e3we, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[1]]$e3we
@@ -20411,7 +20419,7 @@ Model 2: fit3sls[[1]]$e3we
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[1]]$e3we
@@ -20424,7 +20432,7 @@ Model 2: fit3sls[[1]]$e3we
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e2e
@@ -20438,7 +20446,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e2e
@@ -20453,7 +20461,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e3e
@@ -20467,7 +20475,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e3e
@@ -20482,7 +20490,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e2
@@ -20494,7 +20502,7 @@ Model 2: fit3slsd[[1]]$e2
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e2
@@ -20507,7 +20515,7 @@ Model 2: fit3slsd[[1]]$e2
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e3
@@ -20519,7 +20527,7 @@ Model 2: fit3slsd[[1]]$e3
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e3
@@ -20534,7 +20542,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[2]]$e1e
@@ -20547,7 +20555,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[2]]$e1e
@@ -20561,7 +20569,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1
@@ -20576,7 +20584,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1
@@ -20592,7 +20600,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[4]]$e1e
@@ -20605,7 +20613,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[4]]$e1e
@@ -20619,7 +20627,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[5]]$e1w
@@ -20632,7 +20640,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[5]]$e1w
@@ -20808,7 +20816,7 @@ Model 2: fit3slsd[[5]]$e1e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1c
@@ -20820,7 +20828,7 @@ Model 2: fit3sls[[5]]$e1c
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1c
@@ -20833,7 +20841,7 @@ Model 2: fit3sls[[5]]$e1c
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[3]]$e1wc
@@ -20845,7 +20853,7 @@ Model 2: fit3sls[[3]]$e1wc
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[3]]$e1wc
@@ -20858,7 +20866,7 @@ Model 2: fit3sls[[3]]$e1wc
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[1]]$e1e
@@ -20870,7 +20878,7 @@ Model 2: fit3slsi[[1]]$e1e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[1]]$e1e
@@ -20883,7 +20891,7 @@ Model 2: fit3slsi[[1]]$e1e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e1
@@ -20895,7 +20903,7 @@ Model 2: fit3slsd[[2]]$e1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e1
@@ -20909,7 +20917,7 @@ Model 2: fit3slsd[[2]]$e1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e2
@@ -20921,7 +20929,7 @@ Model 2: fit3sls[[4]]$e2
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e2
@@ -20934,7 +20942,7 @@ Model 2: fit3sls[[4]]$e2
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e3
@@ -20946,7 +20954,7 @@ Model 2: fit3sls[[4]]$e3
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e3
@@ -20959,28 +20967,28 @@ Model 2: fit3sls[[4]]$e3
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e2e
 
-  Res.Df Df  Chisq Pr(>Chisq)    
-1     35                         
-2     34  1 17.810  2.441e-05 ***
+  Res.Df Df Chisq Pr(>Chisq)    
+1     35                        
+2     34  1 17.81  2.441e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linearHypothesis( fit3slsi[[ 5 ]]$e2e, restrictOnly2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e2e
 
-  Res.Df Df  Chisq Pr(>Chisq)    
-1     35                         
-2     34  1 17.810  2.441e-05 ***
+  Res.Df Df Chisq Pr(>Chisq)    
+1     35                        
+2     34  1 17.81  2.441e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
@@ -20988,28 +20996,28 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e3e
 
-  Res.Df Df  Chisq Pr(>Chisq)    
-1     35                         
-2     34  1 17.810  2.441e-05 ***
+  Res.Df Df Chisq Pr(>Chisq)    
+1     35                        
+2     34  1 17.81  2.441e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > linearHypothesis( fit3slsi[[ 5 ]]$e3e, restrictOnly2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e3e
 
-  Res.Df Df  Chisq Pr(>Chisq)    
-1     35                         
-2     34  1 17.810  2.441e-05 ***
+  Res.Df Df Chisq Pr(>Chisq)    
+1     35                        
+2     34  1 17.81  2.441e-05 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 > 
@@ -21017,7 +21025,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e2
@@ -21029,7 +21037,7 @@ Model 2: fit3slsd[[1]]$e2
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e2
@@ -21042,7 +21050,7 @@ Model 2: fit3slsd[[1]]$e2
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e3
@@ -21054,7 +21062,7 @@ Model 2: fit3slsd[[1]]$e3
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e3
@@ -21067,7 +21075,7 @@ Model 2: fit3slsd[[1]]$e3
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e2we
@@ -21079,7 +21087,7 @@ Model 2: fit3slsd[[2]]$e2we
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e2we
@@ -21092,7 +21100,7 @@ Model 2: fit3slsd[[2]]$e2we
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[3]]$e3w
@@ -21104,7 +21112,7 @@ Model 2: fit3slsd[[3]]$e3w
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[3]]$e3w
@@ -21119,7 +21127,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[2]]$e1e
@@ -21132,7 +21140,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[2]]$e1e
@@ -21146,7 +21154,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1wc
@@ -21159,7 +21167,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1wc
@@ -21173,7 +21181,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1
@@ -21188,7 +21196,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1
@@ -21204,7 +21212,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[4]]$e1e
@@ -21217,7 +21225,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
--demand_price + supply_price = 0.5
+ - demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[4]]$e1e
