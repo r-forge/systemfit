@@ -29,7 +29,7 @@
 
 \hyphenation{systemfit}
 
-\author{Arne Henningsen\\University of Kiel
+\author{Arne Henningsen\\University of Copenhagen
    \And Jeff D.\ Hamann\\ Forest Informatics, Inc.}
 \Plainauthor{Arne Henningsen, Jeff D. Hamann}
         
@@ -86,10 +86,11 @@ and its reliability is demonstrated.
 %% in the following format:
 \Address{
    Arne Henningsen\\
-   Department of Agricultural Economics\\
-   University of Kiel\\
-   D-24098 Kiel, Germany\\
-   E-mail: \email{arne.henningsen@googlemail.com}\\
+   Institute of Food and Resource Economics\\
+   University of Copenhagen\\
+   Rolighedsvej 25\\
+   D-1958 Frederiksberg C, Denmark\\
+   E-mail: \email{arne.henningsen@gmail.com}\\
    URL: \url{http://www.arne-henningsen.name/}\\
    \\
    Jeff D.\ Hamann\\
