@@ -1,5 +1,5 @@
 
-R version 2.14.0 (2011-10-31)
+R version 2.14.1 (2011-12-22)
 Copyright (C) 2011 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
 Platform: i686-pc-linux-gnu (32-bit)
@@ -42,6 +42,13 @@ The following object(s) are masked from 'package:base':
 
 > library( plm )
 Loading required package: bdsmatrix
+
+Attaching package: 'bdsmatrix'
+
+The following object(s) are masked from 'package:base':
+
+    backsolve
+
 Loading required package: nlme
 Loading required package: Formula
 Loading required package: sandwich
@@ -94,7 +101,7 @@ Westinghouse             0.728965     1.000000
 
 OLS estimates for 'General.Electric' (equation 1)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa192090>
+<environment: 0x93f1280>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) -9.9563065 31.3742491 -0.31734    0.75485    
@@ -111,7 +118,7 @@ Multiple R-Squared: 0.705307 Adjusted R-Squared: 0.670637
 
 OLS estimates for 'Westinghouse' (equation 2)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa192090>
+<environment: 0x93f1280>
 
               Estimate Std. Error  t value  Pr(>|t|)   
 (Intercept) -0.5093902  8.0152889 -0.06355 0.9500680   
@@ -450,15 +457,15 @@ Westinghouse_X1954                 1188.9                213.5
 > formula( theilOls )
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa192090>
+<environment: 0x93f1280>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa192090>
+<environment: 0x93f1280>
 
 > formula( theilOls$eq[[ 1 ]] )
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa192090>
+<environment: 0x93f1280>
 > terms( theilOls )
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
@@ -478,7 +485,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa192090>
+<environment: 0x93f1280>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -503,7 +510,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa192090>
+<environment: 0x93f1280>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -528,7 +535,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa192090>
+<environment: 0x93f1280>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -580,7 +587,7 @@ Westinghouse             0.765043     1.000000
 
 SUR estimates for 'General.Electric' (equation 1)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa52b43c>
+<environment: 0x9cd78f0>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -27.7193171  27.0328280 -1.02539   0.319547    
@@ -597,7 +604,7 @@ Multiple R-Squared: 0.692557 Adjusted R-Squared: 0.656388
 
 SUR estimates for 'Westinghouse' (equation 2)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa52b43c>
+<environment: 0x9cd78f0>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) -1.2519882  6.9563467 -0.17998 0.85929789    
@@ -940,15 +947,15 @@ Westinghouse_X1954                 1188.9                213.5
 > formula( theilSur )
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa52b43c>
+<environment: 0x9cd78f0>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa52b43c>
+<environment: 0x9cd78f0>
 
 > formula( theilSur$eq[[ 2 ]] )
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa52b43c>
+<environment: 0x9cd78f0>
 > terms( theilSur )
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
@@ -968,7 +975,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa52b43c>
+<environment: 0x9cd78f0>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -993,7 +1000,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa52b43c>
+<environment: 0x9cd78f0>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -1018,7 +1025,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa52b43c>
+<environment: 0x9cd78f0>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -1101,7 +1108,7 @@ Westinghouse         1.000000
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) -6.1899605 13.5064781 -0.4583  0.6525443    
@@ -1118,7 +1125,7 @@ Multiple R-Squared: 0.913578 Adjusted R-Squared: 0.903411
 
 OLS estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) -9.9563065 31.3742491 -0.31734    0.75485    
@@ -1135,7 +1142,7 @@ Multiple R-Squared: 0.705307 Adjusted R-Squared: 0.670637
 
 OLS estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
                 Estimate   Std. Error  t value   Pr(>|t|)    
 (Intercept) -149.7824533  105.8421248 -1.41515  0.1750822    
@@ -1152,7 +1159,7 @@ Multiple R-Squared: 0.921354 Adjusted R-Squared: 0.912102
 
 OLS estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
                Estimate  Std. Error  t value Pr(>|t|)  
 (Intercept) -30.3685323 157.0476948 -0.19337 0.848960  
@@ -1169,7 +1176,7 @@ Multiple R-Squared: 0.440312 Adjusted R-Squared: 0.374467
 
 OLS estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
               Estimate Std. Error  t value  Pr(>|t|)   
 (Intercept) -0.5093902  8.0152889 -0.06355 0.9500680   
@@ -1264,7 +1271,7 @@ Westinghouse     20 17   1773.23   104.308  10.2131 0.744446 0.714381
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) -6.1899605 13.5064781 -0.4583  0.6525443    
@@ -1281,7 +1288,7 @@ Multiple R-Squared: 0.913578 Adjusted R-Squared: 0.903411
 
 OLS estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) -9.9563065 31.3742491 -0.31734    0.75485    
@@ -1298,7 +1305,7 @@ Multiple R-Squared: 0.705307 Adjusted R-Squared: 0.670637
 
 OLS estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
                 Estimate   Std. Error  t value   Pr(>|t|)    
 (Intercept) -149.7824533  105.8421248 -1.41515  0.1750822    
@@ -1315,7 +1322,7 @@ Multiple R-Squared: 0.921354 Adjusted R-Squared: 0.912102
 
 OLS estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
                Estimate  Std. Error  t value Pr(>|t|)  
 (Intercept) -30.3685323 157.0476948 -0.19337 0.848960  
@@ -1332,7 +1339,7 @@ Multiple R-Squared: 0.440312 Adjusted R-Squared: 0.374467
 
 OLS estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
               Estimate Std. Error  t value  Pr(>|t|)   
 (Intercept) -0.5093902  8.0152889 -0.06355 0.9500680   
@@ -2407,27 +2414,27 @@ Westinghouse_X1954                    213.5
 > formula( greeneOls )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
 $General.Motors
 General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
 $US.Steel
 US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 
 > formula( greeneOls$eq[[ 2 ]] )
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 > terms( greeneOls )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -2447,7 +2454,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -2472,7 +2479,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -2497,7 +2504,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -2522,7 +2529,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -2547,7 +2554,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -2572,7 +2579,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa42937c>
+<environment: 0x8ccf4c0>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -2650,7 +2657,7 @@ Westinghouse         1.000000
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600   0.027643 *  
@@ -2667,7 +2674,7 @@ Multiple R-Squared: 0.56415 Adjusted R-Squared: 0.512874
 
 OLS estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600   0.027643 *  
@@ -2684,7 +2691,7 @@ Multiple R-Squared: -14.290768 Adjusted R-Squared: -16.089682
 
 OLS estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600   0.027643 *  
@@ -2701,7 +2708,7 @@ Multiple R-Squared: 0.896634 Adjusted R-Squared: 0.884473
 
 OLS estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600   0.027643 *  
@@ -2718,7 +2725,7 @@ Multiple R-Squared: -1.10474 Adjusted R-Squared: -1.352356
 
 OLS estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600   0.027643 *  
@@ -2750,7 +2757,7 @@ Westinghouse     20 17  12668.5   745.204  27.2984  -0.825748  -1.040541
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600    0.03905 *  
@@ -2767,7 +2774,7 @@ Multiple R-Squared: 0.56415 Adjusted R-Squared: 0.512874
 
 OLS estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600    0.03905 *  
@@ -2784,7 +2791,7 @@ Multiple R-Squared: -14.290768 Adjusted R-Squared: -16.089682
 
 OLS estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600    0.03905 *  
@@ -2801,7 +2808,7 @@ Multiple R-Squared: 0.896634 Adjusted R-Squared: 0.884473
 
 OLS estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600    0.03905 *  
@@ -2818,7 +2825,7 @@ Multiple R-Squared: -1.10474 Adjusted R-Squared: -1.352356
 
 OLS estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600    0.03905 *  
@@ -3925,27 +3932,27 @@ Westinghouse_X1954                    213.5
 > formula( greeneOlsPooled )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
 $General.Motors
 General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
 $US.Steel
 US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 
 > formula( greeneOlsPooled$eq[[ 1 ]] )
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 > terms( greeneOlsPooled )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -3965,7 +3972,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -3990,7 +3997,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -4015,7 +4022,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -4040,7 +4047,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -4065,7 +4072,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -4090,7 +4097,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xa39819c>
+<environment: 0xa7b6528>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -4182,7 +4189,7 @@ Westinghouse         1.000000
 
 SUR estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept)  0.5043036 11.5128290  0.04380 0.96557134    
@@ -4199,7 +4206,7 @@ Multiple R-Squared: 0.911862 Adjusted R-Squared: 0.901493
 
 SUR estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -22.4389132  25.5185863 -0.87932  0.3914900    
@@ -4216,7 +4223,7 @@ Multiple R-Squared: 0.687636 Adjusted R-Squared: 0.650887
 
 SUR estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
                 Estimate   Std. Error  t value   Pr(>|t|)    
 (Intercept) -162.3641052   89.4592324 -1.81495   0.087216 .  
@@ -4233,7 +4240,7 @@ Multiple R-Squared: 0.920742 Adjusted R-Squared: 0.911417
 
 SUR estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
                Estimate  Std. Error t value  Pr(>|t|)   
 (Intercept)  85.4232548 111.8774214 0.76354 0.4556062   
@@ -4250,7 +4257,7 @@ Multiple R-Squared: 0.421959 Adjusted R-Squared: 0.353954
 
 SUR estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
              Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 1.0888770  6.2588045 0.17398 0.86393984    
@@ -4282,7 +4289,7 @@ Westinghouse     20 17   1898.25   111.662  10.5670 0.726429 0.694244
 
 SUR estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept)  0.5043036 11.5128290  0.04380    0.96516    
@@ -4299,7 +4306,7 @@ Multiple R-Squared: 0.911862 Adjusted R-Squared: 0.901493
 
 SUR estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -22.4389132  25.5185863 -0.87932  0.3817088    
@@ -4316,7 +4323,7 @@ Multiple R-Squared: 0.687636 Adjusted R-Squared: 0.650887
 
 SUR estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
                 Estimate   Std. Error  t value   Pr(>|t|)    
 (Intercept) -162.3641052   89.4592324 -1.81495   0.073059 .  
@@ -4333,7 +4340,7 @@ Multiple R-Squared: 0.920742 Adjusted R-Squared: 0.911417
 
 SUR estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
                Estimate  Std. Error t value  Pr(>|t|)   
 (Intercept)  85.4232548 111.8774214 0.76354 0.4472536   
@@ -4350,7 +4357,7 @@ Multiple R-Squared: 0.421959 Adjusted R-Squared: 0.353954
 
 SUR estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
              Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 1.0888770  6.2588045 0.17398     0.8623    
@@ -5500,27 +5507,27 @@ Westinghouse_X1954                    213.5
 > formula( greeneSur )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
 $General.Motors
 General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
 $US.Steel
 US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 
 > formula( greeneSur$eq[[ 1 ]] )
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 > terms( greeneSur )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -5540,7 +5547,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -5565,7 +5572,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -5590,7 +5597,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -5615,7 +5622,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -5640,7 +5647,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -5665,7 +5672,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xad38e64>
+<environment: 0xa609e4c>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -5758,7 +5765,7 @@ Westinghouse        1.0000000
 
 SUR estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 
                 Estimate   Std. Error t value   Pr(>|t|)    
 (Intercept) -28.24669393   4.88823801 -5.7785 9.1246e-08 ***
@@ -5775,7 +5782,7 @@ Multiple R-Squared: 0.823775 Adjusted R-Squared: 0.803042
 
 SUR estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 
                 Estimate   Std. Error t value   Pr(>|t|)    
 (Intercept) -28.24669393   4.88823801 -5.7785 9.1246e-08 ***
@@ -5792,7 +5799,7 @@ Multiple R-Squared: -14.410331 Adjusted R-Squared: -16.223311
 
 SUR estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 
                 Estimate   Std. Error t value   Pr(>|t|)    
 (Intercept) -28.24669393   4.88823801 -5.7785 9.1246e-08 ***
@@ -5809,7 +5816,7 @@ Multiple R-Squared: 0.889609 Adjusted R-Squared: 0.876622
 
 SUR estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 
                 Estimate   Std. Error t value   Pr(>|t|)    
 (Intercept) -28.24669393   4.88823801 -5.7785 9.1246e-08 ***
@@ -5826,7 +5833,7 @@ Multiple R-Squared: -1.168498 Adjusted R-Squared: -1.423616
 
 SUR estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 
                 Estimate   Std. Error t value   Pr(>|t|)    
 (Intercept) -28.24669393   4.88823801 -5.7785 9.1246e-08 ***
@@ -7008,27 +7015,27 @@ Westinghouse_X1954                    213.5
 > formula( greeneSurPooled )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 
 $General.Motors
 General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 
 $US.Steel
 US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 
 > formula( greeneSurPooled$eq[[ 1 ]] )
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 > terms( greeneSurPooled )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -7048,7 +7055,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -7073,7 +7080,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -7098,7 +7105,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -7123,7 +7130,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -7148,7 +7155,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -7173,7 +7180,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0xaf7dac0>
+<environment: 0xa3cbf78>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
