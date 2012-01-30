@@ -113,6 +113,25 @@
         <a href="http://r-forge.r-project.org/projects/systemfit/">project's R-Forge site</a>.</li>
     </ul>
 
+    <h3>
+       FAQ
+    </h3>
+    <ul>
+      <li><strong>Can the systemfit package estimate a system of non-linear
+        equations?</strong><br />
+        The systemfit package provides the function <TT>nlsystemfit</TT>,
+        which can estimate systems of non-linear equations.
+        However, while the code for estimating systems of linear equations
+        (function <TT>systemfit</TT>) has been very mature and reliable 
+        for many years, 
+        the estimation of systems of non-linear equations
+        (function <TT>nlsystemfit</TT>) is still under development 
+        and often has convergence problems.
+        Therefore, we cannot recommend using function <TT>nlsystemfit</TT>
+        for serious applications.
+      </li>
+    </ul>
+
     <p>
        &nbsp; 
     </p>
@@ -123,7 +142,7 @@
        &nbsp; 
     </p>
     <div align="center">
-       Last Update: 29 January 2012
+       Last Update: 30 January 2012
     </div>
   </body>
 </html>
