@@ -134,6 +134,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
+> nobs( fit2sls1 )
+[1] 40
 > 
 > ## *************** 2SLS estimation (singleEqSigma=F)*******************
 > fit2sls1s <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
@@ -195,6 +197,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
+> nobs( fit2sls1s )
+[1] 40
 > 
 > ## ********************* 2SLS (useDfSys = TRUE) *****************
 > print( summary( fit2sls1, useDfSys = TRUE ) )
@@ -254,6 +258,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
+> nobs( fit2sls1 )
+[1] 40
 > 
 > ## ********************* 2SLS (methodResidCov = "noDfCor" ) *****************
 > fit2sls1r <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
@@ -315,6 +321,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
+> nobs( fit2sls1r )
+[1] 40
 > 
 > ## *************** 2SLS (methodResidCov="noDfCor", singleEqSigma=F) *************
 > fit2sls1rs <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
@@ -376,6 +384,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
+> nobs( fit2sls1rs )
+[1] 40
 > 
 > ## ********************* 2SLS with restriction ********************
 > ## **************** 2SLS with restriction (default)********************
@@ -438,11 +448,15 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 98.155009 MSE: 6.134688 Root MSE: 2.47683 
 Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263 
 
+> nobs( fit2sls2 )
+[1] 40
 > # the same with symbolically specified restrictions
 > fit2sls2Sym <- systemfit( system, "2SLS", data = Kmenta,
 +    restrict.matrix = restrict, inst = inst, useMatrix = useMatrix )
 > all.equal( fit2sls2, fit2sls2Sym )
 [1] "Component 2: target, current do not match when deparsed"
+> nobs( fit2sls2Sym )
+[1] 40
 > 
 > ## ************* 2SLS with restriction (singleEqSigma=T) *****************
 > fit2sls2s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
@@ -505,6 +519,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 98.155009 MSE: 6.134688 Root MSE: 2.47683 
 Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263 
 
+> nobs( fit2sls2s )
+[1] 40
 > 
 > ## ********************* 2SLS with restriction (useDfSys=T) **************
 > print( summary( fit2sls2, useDfSys = TRUE ) )
@@ -564,6 +580,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 98.155009 MSE: 6.134688 Root MSE: 2.47683 
 Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263 
 
+> nobs( fit2sls2 )
+[1] 40
 > 
 > ## ********************* 2SLS with restriction (methodResidCov = "noDfCor") **************
 > fit2sls2r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
@@ -625,6 +643,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 98.155009 MSE: 6.134688 Root MSE: 2.47683 
 Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263 
 
+> nobs( fit2sls2r )
+[1] 40
 > 
 > ## ******** 2SLS with restriction (methodResidCov="noDfCor", singleEqSigma=TRUE) *********
 > fit2sls2rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
@@ -687,6 +707,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 98.155009 MSE: 6.134688 Root MSE: 2.47683 
 Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263 
 
+> nobs( fit2sls2rs )
+[1] 40
 > 
 > ## ********************* 2SLS with restriction via restrict.regMat ******************
 > ## *************** 2SLS with restriction via restrict.regMat (default )***************
@@ -749,6 +771,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 98.155009 MSE: 6.134688 Root MSE: 2.47683 
 Multiple R-Squared: 0.633906 Adjusted R-Squared: 0.565263 
 
+> nobs( fit2sls3 )
+[1] 40
 > 
 > 
 > ## ***************** 2SLS with 2 restrictions *******************
@@ -812,11 +836,15 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> nobs( fit2sls4 )
+[1] 40
 > # the same with symbolically specified restrictions
 > fit2sls4Sym <- systemfit( system, "2SLS", data = Kmenta,
 +    restrict.matrix = restrict2, inst = inst, useMatrix = useMatrix )
 > all.equal( fit2sls4, fit2sls4Sym )
 [1] "Component 2: target, current do not match when deparsed"
+> nobs( fit2sls4Sym )
+[1] 40
 > 
 > ## ************ 2SLS with 2 restrictions (singleEqSigma=T) **************
 > fit2sls4s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
@@ -879,6 +907,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> nobs( fit2sls4s )
+[1] 40
 > 
 > ## ***************** 2SLS with 2 restrictions (useDfSys=T) **************
 > print( summary( fit2sls4, useDfSys = TRUE ) )
@@ -938,6 +968,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> nobs( fit2sls4 )
+[1] 40
 > 
 > ## ***************** 2SLS with 2 restrictions (methodResidCov="noDfCor") **************
 > fit2sls4r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
@@ -1000,6 +1032,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> nobs( fit2sls4r )
+[1] 40
 > 
 > ## ***** 2SLS with 2 restrictions (methodResidCov="noDfCor", singleEqSigma=T) *******
 > fit2sls4rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
@@ -1062,6 +1096,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> nobs( fit2sls4rs )
+[1] 40
 > 
 > ## ************* 2SLS with 2 restrictions via R and restrict.regMat ******************
 > ## ******** 2SLS with 2 restrictions via R and restrict.regMat (default) *************
@@ -1125,12 +1161,16 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> nobs( fit2sls5 )
+[1] 40
 > # the same with symbolically specified restrictions
 > fit2sls5Sym <- systemfit( system, "2SLS", data = Kmenta,
 +    restrict.matrix = restrict3, restrict.regMat = tc, inst = inst,
 +    useMatrix = useMatrix )
 > all.equal( fit2sls5, fit2sls5Sym )
 [1] "Component 2: target, current do not match when deparsed"
+> nobs( fit2sls5Sym )
+[1] 40
 > 
 > ## ******* 2SLS with 2 restrictions via R and restrict.regMat (singleEqSigma=T) ******
 > fit2sls5s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
@@ -1193,6 +1233,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> nobs( fit2sls5s )
+[1] 40
 > 
 > ## ********** 2SLS with 2 restrictions via R and restrict.regMat (useDfSys=T) *******
 > print( summary( fit2sls5, useDfSys = TRUE ) )
@@ -1252,6 +1294,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> nobs( fit2sls5 )
+[1] 40
 > 
 > ## ************* 2SLS with 2 restrictions via R and restrict.regMat (methodResidCov="noDfCor") *********
 > fit2sls5r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
@@ -1314,6 +1358,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> nobs( fit2sls5r )
+[1] 40
 > 
 > ## ** 2SLS with 2 restrictions via R and restrict.regMat (methodResidCov="noDfCor", singleEqSigma=T) **
 > fit2sls5rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
@@ -1377,6 +1423,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 99.970628 MSE: 6.248164 Root MSE: 2.499633 
 Multiple R-Squared: 0.627134 Adjusted R-Squared: 0.557222 
 
+> nobs( fit2sls5rs )
+[1] 40
 > 
 > ## *********** 2SLS estimation with different instruments **************
 > ## ******* 2SLS estimation with different instruments (default) *********
@@ -1439,6 +1487,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
+> nobs( fit2slsd1 )
+[1] 40
 > 
 > ## *********** 2SLS estimation with different instruments (singleEqSigma=F)*****
 > fit2slsd1s <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
@@ -1500,6 +1550,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
+> nobs( fit2slsd1s )
+[1] 40
 > 
 > ## ********* 2SLS estimation with different instruments (useDfSys=T) *******
 > print( summary( fit2slsd1, useDfSys = TRUE ) )
@@ -1559,6 +1611,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
+> nobs( fit2slsd1 )
+[1] 40
 > 
 > ## ********* 2SLS estimation with different instruments (methodResidCov="noDfCor") ******
 > fit2slsd1r <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
@@ -1620,6 +1674,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
+> nobs( fit2slsd1r )
+[1] 40
 > 
 > ## 2SLS estimation with different instruments (methodResidCov="noDfCor",singleEqSigma=F)
 > fit2slsd1r <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
@@ -1682,6 +1738,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 96.633244 MSE: 6.039578 Root MSE: 2.457555 
 Multiple R-Squared: 0.639582 Adjusted R-Squared: 0.572004 
 
+> nobs( fit2slsd1r )
+[1] 40
 > 
 > ## **** 2SLS estimation with different instruments and restriction *******
 > ## ** 2SLS estimation with different instruments and restriction (default) ****
@@ -1744,6 +1802,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.320616 MSE: 6.270038 Root MSE: 2.504004 
 Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672 
 
+> nobs( fit2slsd2 )
+[1] 40
 > 
 > ## 2SLS estimation with different instruments and restriction (singleEqSigma=T)
 > fit2slsd2s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
@@ -1805,6 +1865,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.320616 MSE: 6.270038 Root MSE: 2.504004 
 Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672 
 
+> nobs( fit2slsd2s )
+[1] 40
 > 
 > ## **** 2SLS estimation with different instruments and restriction (useDfSys=F)
 > print( summary( fit2slsd2, useDfSys = FALSE ) )
@@ -1864,6 +1926,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.320616 MSE: 6.270038 Root MSE: 2.504004 
 Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672 
 
+> nobs( fit2slsd2 )
+[1] 40
 > 
 > ## **** 2SLS estimation with different instruments and restriction (methodResidCov="noDfCor")
 > fit2slsd2r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
@@ -1925,6 +1989,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.320616 MSE: 6.270038 Root MSE: 2.504004 
 Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672 
 
+> nobs( fit2slsd2r )
+[1] 40
 > 
 > ## 2SLS estimation with different instr. and restr. (methodResidCov="noDfCor", singleEqSigma=T)
 > fit2slsd2rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
@@ -1987,6 +2053,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.320616 MSE: 6.270038 Root MSE: 2.504004 
 Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672 
 
+> nobs( fit2slsd2rs )
+[1] 40
 > 
 > ## **** 2SLS estimation with different instruments and restriction via restrict.regMat *
 > ## 2SLS estimation with different instruments and restriction via restrict.regMat (default)
@@ -2049,6 +2117,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.320616 MSE: 6.270038 Root MSE: 2.504004 
 Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672 
 
+> nobs( fit2slsd3 )
+[1] 40
 > 
 > ## **** 2SLS estimation with different instr. and restr. via restrict.regMat (methodResidCov="noDfCor")
 > fit2slsd3r <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
@@ -2110,6 +2180,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 100.320616 MSE: 6.270038 Root MSE: 2.504004 
 Multiple R-Squared: 0.625829 Adjusted R-Squared: 0.555672 
 
+> nobs( fit2slsd3r )
+[1] 40
 > 
 > 
 > ## *********** estimations with a single regressor ************
@@ -2168,6 +2240,8 @@ Number of observations: 20 Degrees of Freedom: 17
 SSR: 682.257396 MSE: 40.132788 Root MSE: 6.335044 
 Multiple R-Squared: -0.022489 Adjusted R-Squared: -0.142782 
 
+> nobs( fit2slsS1 )
+[1] 40
 > fit2slsS2 <- systemfit(
 +    list( consump ~ price - 1, consump ~ trend - 1 ), "2SLS",
 +    data = Kmenta, inst = ~ farmPrice + price + income, useMatrix = useMatrix )
@@ -2223,6 +2297,8 @@ Number of observations: 20 Degrees of Freedom: 19
 SSR: 46594.549257 MSE: 2452.344698 Root MSE: 49.521154 
 Multiple R-Squared: -172.78614 Adjusted R-Squared: -172.78614 
 
+> nobs( fit2slsS2 )
+[1] 40
 > fit2slsS3 <- systemfit(
 +    list( consump ~ trend - 1, price ~ trend - 1 ), "2SLS",
 +    data = Kmenta, inst = instlist, useMatrix = useMatrix )
@@ -2278,6 +2354,8 @@ Number of observations: 20 Degrees of Freedom: 19
 SSR: 47028.107165 MSE: 2475.163535 Root MSE: 49.751015 
 Multiple R-Squared: -69.480332 Adjusted R-Squared: -69.480332 
 
+> nobs( fit2slsS3 )
+[1] 40
 > fit2slsS4 <- systemfit(
 +    list( consump ~ trend - 1, price ~ trend - 1 ), "2SLS",
 +    data = Kmenta, inst = ~ farmPrice + trend + income,
@@ -2334,6 +2412,8 @@ Number of observations: 20 Degrees of Freedom: 19
 SSR: 47033.468761 MSE: 2475.445724 Root MSE: 49.753851 
 Multiple R-Squared: -69.488367 Adjusted R-Squared: -69.488367 
 
+> nobs( fit2slsS4 )
+[1] 40
 > fit2slsS5 <- systemfit(
 +    list( consump ~ 1, price ~ 1 ), "2SLS",
 +    data = Kmenta, inst = ~ farmPrice, useMatrix = useMatrix )
@@ -5911,4 +5991,4 @@ attr(,"dataClasses")
 > 
 > proc.time()
    user  system elapsed 
-  2.572   0.032   2.590 
+  2.548   0.064   2.598 

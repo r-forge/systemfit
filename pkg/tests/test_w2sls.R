@@ -61,6 +61,7 @@ fitw2sls2e <- systemfit( system, "W2SLS", data = Kmenta, restrict.matrix = restr
    inst = inst, methodResidCov = "noDfCor", x = TRUE,
    useMatrix = useMatrix )
 print( summary( fitw2sls2e, useDfSys = TRUE ) )
+nobs( fitw2sls2e )
 
 ## ********************* W2SLS with restriction via restrict.regMat *******************
 fitw2sls3 <- systemfit( system, "W2SLS", data = Kmenta, restrict.regMat = tc,

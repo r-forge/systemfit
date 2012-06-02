@@ -97,6 +97,8 @@ The following object(s) are masked from 'package:base':
 +    } else {
 +       print( all.equal( mmOls, model.matrix( kleinModel ) ) )
 +    }
++    cat( "> nobs\n" )
++    print( nobs( kleinModel ) )
 +    cat( "> linearHypothesis\n" )
 +    print( linearHypothesis( kleinModel, restrict ) )
 +    print( linearHypothesis( kleinModel, restrict, test = "F" ) )
@@ -736,6 +738,8 @@ PrivateWages_19                  7
 PrivateWages_20                  8
 PrivateWages_21                  9
 PrivateWages_22                 10
+> nobs
+[1] 63
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -1059,6 +1063,8 @@ Multiple R-Squared: 0.987414 Adjusted R-Squared: 0.985193
 22    10
 > model.matrix
 [1] TRUE
+> nobs
+[1] 63
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -1337,6 +1343,8 @@ Multiple R-Squared: 0.98646 Adjusted R-Squared: 0.98407
 [1] TRUE
 > model.matrix
 [1] TRUE
+> nobs
+[1] 63
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -1621,6 +1629,8 @@ Multiple R-Squared: 0.986262 Adjusted R-Squared: 0.983838
 [1] TRUE
 > model.matrix
 [1] TRUE
+> nobs
+[1] 63
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -1907,6 +1917,8 @@ Multiple R-Squared: 0.984 Adjusted R-Squared: 0.981176
 [1] TRUE
 > model.matrix
 [1] TRUE
+> nobs
+[1] 63
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -2603,6 +2615,8 @@ PrivateWages_19                  7
 PrivateWages_20                  8
 PrivateWages_21                  9
 PrivateWages_22                 10
+> nobs
+[1] 62
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -2928,6 +2942,8 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03225806 >"
 [2] "Attributes: < Component 2: Component 1: 55 string mismatches >"   
 [3] "Numeric: lengths (744, 720) differ"                               
+> nobs
+[1] 60
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -3208,6 +3224,8 @@ Multiple R-Squared: 0.986633 Adjusted R-Squared: 0.984127
 [1] TRUE
 > model.matrix
 [1] TRUE
+> nobs
+[1] 62
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -3494,6 +3512,8 @@ Multiple R-Squared: 0.986776 Adjusted R-Squared: 0.984297
 [1] "Attributes: < Component 1: Mean relative difference: 0.03225806 >"
 [2] "Attributes: < Component 2: Component 1: 55 string mismatches >"   
 [3] "Numeric: lengths (744, 720) differ"                               
+> nobs
+[1] 60
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -3782,6 +3802,8 @@ Multiple R-Squared: 0.984481 Adjusted R-Squared: 0.981572
 [1] "Attributes: < Component 1: Mean relative difference: 0.03225806 >"
 [2] "Attributes: < Component 2: Component 1: 55 string mismatches >"   
 [3] "Numeric: lengths (744, 720) differ"                               
+> nobs
+[1] 60
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -4472,6 +4494,8 @@ PrivateWages_19                  7
 PrivateWages_20                  8
 PrivateWages_21                  9
 PrivateWages_22                 10
+> nobs
+[1] 61
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -4799,6 +4823,8 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03278689 >"
 [2] "Attributes: < Component 2: Component 1: 54 string mismatches >"   
 [3] "Numeric: lengths (732, 708) differ"                               
+> nobs
+[1] 59
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -5079,6 +5105,8 @@ Multiple R-Squared: 0.987044 Adjusted R-Squared: 0.984615
 [1] TRUE
 > model.matrix
 [1] TRUE
+> nobs
+[1] 61
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -5367,6 +5395,8 @@ Multiple R-Squared: 0.987001 Adjusted R-Squared: 0.984564
 [1] "Attributes: < Component 1: Mean relative difference: 0.03278689 >"
 [2] "Attributes: < Component 2: Component 1: 54 string mismatches >"   
 [3] "Numeric: lengths (732, 708) differ"                               
+> nobs
+[1] 59
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -5657,6 +5687,8 @@ Multiple R-Squared: 0.985915 Adjusted R-Squared: 0.983274
 [1] "Attributes: < Component 1: Mean relative difference: 0.03278689 >"
 [2] "Attributes: < Component 2: Component 1: 54 string mismatches >"   
 [3] "Numeric: lengths (732, 708) differ"                               
+> nobs
+[1] 59
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -6335,6 +6367,8 @@ PrivateWages_19                  7
 PrivateWages_20                  8
 PrivateWages_21                  9
 PrivateWages_22                 10
+> nobs
+[1] 59
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -6662,6 +6696,8 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03389831 >"
 [2] "Attributes: < Component 2: Component 1: 52 string mismatches >"   
 [3] "Numeric: lengths (708, 684) differ"                               
+> nobs
+[1] 57
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -6942,6 +6978,8 @@ Multiple R-Squared: 0.987068 Adjusted R-Squared: 0.984643
 [1] TRUE
 > model.matrix
 [1] TRUE
+> nobs
+[1] 59
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -7230,6 +7268,8 @@ Multiple R-Squared: 0.987334 Adjusted R-Squared: 0.984959
 [1] "Attributes: < Component 1: Mean relative difference: 0.03389831 >"
 [2] "Attributes: < Component 2: Component 1: 52 string mismatches >"   
 [3] "Numeric: lengths (708, 684) differ"                               
+> nobs
+[1] 57
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -7526,6 +7566,8 @@ Multiple R-Squared: 0.987145 Adjusted R-Squared: 0.984735
 [1] "Attributes: < Component 1: Mean relative difference: 0.03389831 >"
 [2] "Attributes: < Component 2: Component 1: 52 string mismatches >"   
 [3] "Numeric: lengths (708, 684) differ"                               
+> nobs
+[1] 57
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -8208,6 +8250,8 @@ PrivateWages_19                  7
 PrivateWages_20                  8
 PrivateWages_21                  9
 PrivateWages_22                 10
+> nobs
+[1] 58
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -8535,6 +8579,8 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03448276 >"
 [2] "Attributes: < Component 2: Component 1: 51 string mismatches >"   
 [3] "Numeric: lengths (696, 672) differ"                               
+> nobs
+[1] 56
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -8815,6 +8861,8 @@ Multiple R-Squared: 0.987067 Adjusted R-Squared: 0.984642
 [1] TRUE
 > model.matrix
 [1] TRUE
+> nobs
+[1] 58
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -9103,6 +9151,8 @@ Multiple R-Squared: 0.98733 Adjusted R-Squared: 0.984954
 [1] "Attributes: < Component 1: Mean relative difference: 0.03448276 >"
 [2] "Attributes: < Component 2: Component 1: 51 string mismatches >"   
 [3] "Numeric: lengths (696, 672) differ"                               
+> nobs
+[1] 56
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -9393,6 +9443,8 @@ Multiple R-Squared: 0.987127 Adjusted R-Squared: 0.984714
 [1] "Attributes: < Component 1: Mean relative difference: 0.03448276 >"
 [2] "Attributes: < Component 2: Component 1: 51 string mismatches >"   
 [3] "Numeric: lengths (696, 672) differ"                               
+> nobs
+[1] 56
 > linearHypothesis
 Linear hypothesis test (Theil's F test)
 
@@ -9476,4 +9528,4 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > proc.time()
    user  system elapsed 
-  7.368   0.080   7.443 
+  7.352   0.088   7.434 

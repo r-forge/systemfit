@@ -42,6 +42,7 @@ restrict3 <- "- C2 + C5 = 0.5"
 ## ********** OLS estimation (default) ********************
 fitols1 <- systemfit( system, "OLS", data = Kmenta, useMatrix = useMatrix )
 print( summary( fitols1 ) )
+nobs( fitols1 )
 
 ## ********** OLS estimation (no singleEqSigma=F) ******************
 fitols1s <- systemfit( system, "OLS", data = Kmenta,

@@ -43,11 +43,13 @@ system2 <- list( demand = demand, supply = supply2 )
 ## *************** SUR estimation ************************
 fitsur1 <- systemfit( system, "SUR", data = Kmenta, useMatrix = useMatrix )
 print( summary( fitsur1 ) )
+nobs( fitsur1 )
 
 ## ********************* SUR (EViews-like) *****************
 fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "noDfCor",
    useMatrix = useMatrix )
 print( summary( fitsur1e, useDfSys = TRUE ) )
+nobs( fitsur1e )
 
 ## ********************* SUR (methodResidCov="Theil") *****************
 fitsur1r2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
@@ -68,6 +70,7 @@ print( summary( fitsur1r3 ) )
 fitsur1w <- systemfit( system, "SUR", data = Kmenta, residCovWeighted = TRUE,
    useMatrix = useMatrix )
 summary( fitsur1w )
+nobs( fitsur1w )
 
 ## *************** WSUR (methodResidCov="Theil", useDfSys = TRUE ) ***************
 fitsur1we2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
@@ -79,10 +82,12 @@ summary( fitsur1we2, useDfSys = TRUE )
 fitsur2 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm,
    useMatrix = useMatrix )
 print( summary( fitsur2 ) )
+nobs( fitsur2 )
 # the same with symbolically specified restrictions
 fitsur2Sym <- systemfit( system, "SUR", data = Kmenta,
    restrict.matrix = restrict, useMatrix = useMatrix )
 all.equal( fitsur2, fitsur2Sym )
+nobs( fitsur2Sym )
 
 ## *************** SUR with cross-equation restriction (EViews-like) **
 fitsur2e <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm,
@@ -101,6 +106,7 @@ summary( fitsur2we )
 fitsur3 <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc,
    useMatrix = useMatrix )
 print( summary( fitsur3 ) )
+nobs( fitsur3 )
 
 ## *************** SUR with restriction via restrict.regMat (EViews-like) **************
 fitsur3e <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc,
@@ -118,6 +124,7 @@ summary( fitsur3w )
 fitsur4 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restr2m,
    restrict.rhs = restr2q, useMatrix = useMatrix )
 print( summary( fitsur4 ) )
+nobs( fitsur4 )
 # the same with symbolically specified restrictions
 fitsur4Sym <- systemfit( system, "SUR", data = Kmenta,
    restrict.matrix = restrict2, useMatrix = useMatrix )
@@ -151,6 +158,7 @@ fitsur5 <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restr3m,
    restrict.rhs = restr3q, restrict.regMat = tc,
    x = TRUE, useMatrix = useMatrix )
 print( summary( fitsur5 ) )
+nobs( fitsur5 )
 # the same with symbolically specified restrictions
 fitsur5Sym <- systemfit( system, "SUR", data = Kmenta,
    restrict.matrix = restrict3, restrict.regMat = tc,
@@ -174,6 +182,7 @@ summary( fitsur5w )
 fitsuri1 <- systemfit( system2, "SUR", data = Kmenta, maxit = 100,
    useMatrix = useMatrix )
 print( summary( fitsuri1 ) )
+nobs( fitsuri1 )
 
 ## ************** iterated SUR (EViews-like) *****************
 fitsuri1e <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "noDfCor",
@@ -284,6 +293,7 @@ fitsuri5e <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "noDfCor
    restrict.matrix = restr3m, restrict.rhs = restr3q, restrict.regMat = tc,
    maxit = 100, useMatrix = useMatrix )
 print( summary( fitsuri5e ) )
+nobs( fitsuri5e )
 
 ## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodResidCov="Theil") **********
 fitsurio5r2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
@@ -319,23 +329,28 @@ fitsurS1 <- systemfit(
    list( price ~ consump - 1, farmPrice ~ consump + trend ), "SUR",
    data = Kmenta, useMatrix = useMatrix )
 print( summary( fitsurS1 ) )
+nobs( fitsurS1 )
 fitsurS2 <- systemfit(
    list( consump ~ price - 1, consump ~ trend - 1 ), "SUR",
    data = Kmenta, useMatrix = useMatrix )
 print( summary( fitsurS2 ) )
+nobs( fitsurS2 )
 fitsurS3 <- systemfit(
    list( consump ~ trend - 1, price ~ trend - 1 ), "SUR",
    data = Kmenta, useMatrix = useMatrix )
+nobs( fitsurS3 )
 print( summary( fitsurS3 ) )
 fitsurS4 <- systemfit(
    list( consump ~ trend - 1, price ~ trend - 1 ), "SUR",
    data = Kmenta, restrict.matrix = matrix( c( 1, -1 ), nrow = 1 ),
    useMatrix = useMatrix )
 print( summary( fitsurS4 ) )
+nobs( fitsurS4 )
 fitsurS5 <- systemfit(
    list( consump ~ 1, price ~ 1 ), "SUR",
    data = Kmenta, useMatrix = useMatrix )
 print( summary( fitsurS5 ) )
+nobs( fitsurS5 )
 
 
 ## **************** shorter summaries **********************

@@ -134,6 +134,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.05843 MSE: 6.503652 Root MSE: 2.550226 
 Multiple R-Squared: 0.611888 Adjusted R-Squared: 0.539117 
 
+> nobs( fitsur1 )
+[1] 40
 > 
 > ## ********************* SUR (EViews-like) *****************
 > fitsur1e <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "noDfCor",
@@ -198,6 +200,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 103.549894 MSE: 6.471868 Root MSE: 2.543987 
 Multiple R-Squared: 0.613785 Adjusted R-Squared: 0.541369 
 
+> nobs( fitsur1e )
+[1] 40
 > 
 > ## ********************* SUR (methodResidCov="Theil") *****************
 > fitsur1r2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
@@ -460,6 +464,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 104.05843 MSE: 6.503652 Root MSE: 2.550226 
 Multiple R-Squared: 0.611888 Adjusted R-Squared: 0.539117 
 
+> nobs( fitsur1w )
+[1] 40
 > 
 > ## *************** WSUR (methodResidCov="Theil", useDfSys = TRUE ) ***************
 > fitsur1we2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
@@ -591,11 +597,15 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.806415 MSE: 6.737901 Root MSE: 2.595747 
 Multiple R-Squared: 0.597909 Adjusted R-Squared: 0.522517 
 
+> nobs( fitsur2 )
+[1] 40
 > # the same with symbolically specified restrictions
 > fitsur2Sym <- systemfit( system, "SUR", data = Kmenta,
 +    restrict.matrix = restrict, useMatrix = useMatrix )
 > all.equal( fitsur2, fitsur2Sym )
 [1] "Component 2: target, current do not match when deparsed"
+> nobs( fitsur2Sym )
+[1] 40
 > 
 > ## *************** SUR with cross-equation restriction (EViews-like) **
 > fitsur2e <- systemfit( system, "SUR", data = Kmenta, restrict.matrix = restrm,
@@ -791,6 +801,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 107.806415 MSE: 6.737901 Root MSE: 2.595747 
 Multiple R-Squared: 0.597909 Adjusted R-Squared: 0.522517 
 
+> nobs( fitsur3 )
+[1] 40
 > 
 > ## *************** SUR with restriction via restrict.regMat (EViews-like) **************
 > fitsur3e <- systemfit( system, "SUR", data = Kmenta, restrict.regMat = tc,
@@ -985,6 +997,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 101.473089 MSE: 6.342068 Root MSE: 2.518346 
 Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567 
 
+> nobs( fitsur4 )
+[1] 40
 > # the same with symbolically specified restrictions
 > fitsur4Sym <- systemfit( system, "SUR", data = Kmenta,
 +    restrict.matrix = restrict2, useMatrix = useMatrix )
@@ -1314,6 +1328,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 101.473089 MSE: 6.342068 Root MSE: 2.518346 
 Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567 
 
+> nobs( fitsur5 )
+[1] 40
 > # the same with symbolically specified restrictions
 > fitsur5Sym <- systemfit( system, "SUR", data = Kmenta,
 +    restrict.matrix = restrict3, restrict.regMat = tc,
@@ -1517,6 +1533,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 41.411056 MSE: 2.588191 Root MSE: 1.608786 
 Multiple R-Squared: 0.937938 Adjusted R-Squared: 0.926301 
 
+> nobs( fitsuri1 )
+[1] 40
 > 
 > ## ************** iterated SUR (EViews-like) *****************
 > fitsuri1e <- systemfit( system2, "SUR", data = Kmenta, methodResidCov = "noDfCor",
@@ -2908,6 +2926,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 504.066186 MSE: 31.504137 Root MSE: 5.612855 
 Multiple R-Squared: 0.244563 Adjusted R-Squared: 0.102919 
 
+> nobs( fitsuri5e )
+[1] 40
 > 
 > ## ********* iterated SUR with 2 restrictions via R and restrict.regMat (methodResidCov="Theil") **********
 > fitsurio5r2 <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "Theil",
@@ -3247,6 +3267,8 @@ Number of observations: 20 Degrees of Freedom: 17
 SSR: 1211.393006 MSE: 71.258412 Root MSE: 8.44147 
 Multiple R-Squared: 0.60525 Adjusted R-Squared: 0.558808 
 
+> nobs( fitsurS1 )
+[1] 40
 > fitsurS2 <- systemfit(
 +    list( consump ~ price - 1, consump ~ trend - 1 ), "SUR",
 +    data = Kmenta, useMatrix = useMatrix )
@@ -3305,9 +3327,13 @@ Number of observations: 20 Degrees of Freedom: 19
 SSR: 46508.986073 MSE: 2447.841372 Root MSE: 49.475664 
 Multiple R-Squared: -172.467011 Adjusted R-Squared: -172.467011 
 
+> nobs( fitsurS2 )
+[1] 40
 > fitsurS3 <- systemfit(
 +    list( consump ~ trend - 1, price ~ trend - 1 ), "SUR",
 +    data = Kmenta, useMatrix = useMatrix )
+> nobs( fitsurS3 )
+[1] 40
 > print( summary( fitsurS3 ) )
 
 systemfit results 
@@ -3422,6 +3448,8 @@ Number of observations: 20 Degrees of Freedom: 19
 SSR: 47041.802822 MSE: 2475.884359 Root MSE: 49.758259 
 Multiple R-Squared: -69.500857 Adjusted R-Squared: -69.500857 
 
+> nobs( fitsurS4 )
+[1] 40
 > fitsurS5 <- systemfit(
 +    list( consump ~ 1, price ~ 1 ), "SUR",
 +    data = Kmenta, useMatrix = useMatrix )
@@ -3480,6 +3508,8 @@ Number of observations: 20 Degrees of Freedom: 19
 SSR: 667.251499 MSE: 35.1185 Root MSE: 5.926086 
 Multiple R-Squared: 0 Adjusted R-Squared: 0 
 
+> nobs( fitsurS5 )
+[1] 40
 > 
 > 
 > ## **************** shorter summaries **********************
@@ -10422,4 +10452,4 @@ attr(,"dataClasses")
 > 
 > proc.time()
    user  system elapsed 
-  4.572   0.080   4.642 
+  4.532   0.072   4.601 

@@ -1115,6 +1115,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 95.573129 MSE: 5.973321 Root MSE: 2.444038 
 Multiple R-Squared: 0.643536 Adjusted R-Squared: 0.576699 
 
+> nobs( fitwlsi3e )
+[1] 40
 > 
 > ## ******* iterated WLS with 2 cross-equation restrictions ***********
 > fitwlsi4 <- systemfit( system, "WLS", data = Kmenta, restrict.matrix = restr2m,
@@ -6101,4 +6103,4 @@ attr(,"dataClasses")
 > 
 > proc.time()
    user  system elapsed 
-  2.508   0.060   2.555 
+  2.524   0.052   2.568 

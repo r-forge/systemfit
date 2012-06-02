@@ -338,6 +338,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 98.407706 MSE: 6.150482 Root MSE: 2.480016 
 Multiple R-Squared: 0.632964 Adjusted R-Squared: 0.564144 
 
+> nobs( fitw2sls2e )
+[1] 40
 > 
 > ## ********************* W2SLS with restriction via restrict.regMat *******************
 > fitw2sls3 <- systemfit( system, "W2SLS", data = Kmenta, restrict.regMat = tc,
@@ -5240,4 +5242,4 @@ attr(,"dataClasses")
 > 
 > proc.time()
    user  system elapsed 
-  2.436   0.048   2.472 
+  2.436   0.056   2.483 

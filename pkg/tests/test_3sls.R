@@ -84,6 +84,7 @@ for( i in seq( along = formulas ) ) {
       inst = inst, methodResidCov = "noDfCor", restrict.matrix = restrm,
       method3sls = formulas[ i ], useMatrix = useMatrix )
    print( summary( fit3sls[[ i ]]$e2e, useDfSys = TRUE ) )
+   print( nobs( fit3sls[[i]]$e2e ))
 
    print( "*************** W3SLS with restriction *****************" )
    fit3sls[[ i ]]$e2w <- systemfit( system, "3SLS", data = Kmenta,

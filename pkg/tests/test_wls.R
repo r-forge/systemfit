@@ -128,6 +128,7 @@ print( summary( fitwlsi3 ) )
 fitwlsi3e <- systemfit( system, "WLS", data = Kmenta, restrict.regMat = tc,
    methodResidCov = "noDfCor", maxit = 100, useMatrix = useMatrix )
 print( summary( fitwlsi3e ) )
+nobs( fitwlsi3e )
 
 ## ******* iterated WLS with 2 cross-equation restrictions ***********
 fitwlsi4 <- systemfit( system, "WLS", data = Kmenta, restrict.matrix = restr2m,

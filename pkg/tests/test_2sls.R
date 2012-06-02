@@ -46,60 +46,72 @@ restrict3 <- "- C2 + C5 = 0.5"
 fit2sls1 <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
    x = TRUE, useMatrix = useMatrix )
 print( summary( fit2sls1 ) )
+nobs( fit2sls1 )
 
 ## *************** 2SLS estimation (singleEqSigma=F)*******************
 fit2sls1s <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
    singleEqSigma = FALSE, useMatrix = useMatrix )
 print( summary( fit2sls1s ) )
+nobs( fit2sls1s )
 
 ## ********************* 2SLS (useDfSys = TRUE) *****************
 print( summary( fit2sls1, useDfSys = TRUE ) )
+nobs( fit2sls1 )
 
 ## ********************* 2SLS (methodResidCov = "noDfCor" ) *****************
 fit2sls1r <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
    methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( summary( fit2sls1r ) )
+nobs( fit2sls1r )
 
 ## *************** 2SLS (methodResidCov="noDfCor", singleEqSigma=F) *************
 fit2sls1rs <- systemfit( system, "2SLS", data = Kmenta, inst = inst,
    methodResidCov = "noDfCor", singleEqSigma = FALSE, useMatrix = useMatrix )
 print( summary( fit2sls1rs ) )
+nobs( fit2sls1rs )
 
 ## ********************* 2SLS with restriction ********************
 ## **************** 2SLS with restriction (default)********************
 fit2sls2 <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
    inst = inst, useMatrix = useMatrix )
 print( summary( fit2sls2 ) )
+nobs( fit2sls2 )
 # the same with symbolically specified restrictions
 fit2sls2Sym <- systemfit( system, "2SLS", data = Kmenta,
    restrict.matrix = restrict, inst = inst, useMatrix = useMatrix )
 all.equal( fit2sls2, fit2sls2Sym )
+nobs( fit2sls2Sym )
 
 ## ************* 2SLS with restriction (singleEqSigma=T) *****************
 fit2sls2s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
    inst = inst, singleEqSigma = TRUE, x = TRUE,
    useMatrix = useMatrix )
 print( summary( fit2sls2s ) )
+nobs( fit2sls2s )
 
 ## ********************* 2SLS with restriction (useDfSys=T) **************
 print( summary( fit2sls2, useDfSys = TRUE ) )
+nobs( fit2sls2 )
 
 ## ********************* 2SLS with restriction (methodResidCov = "noDfCor") **************
 fit2sls2r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
    inst = inst, methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( summary( fit2sls2r ) )
+nobs( fit2sls2r )
 
 ## ******** 2SLS with restriction (methodResidCov="noDfCor", singleEqSigma=TRUE) *********
 fit2sls2rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
    inst = inst, methodResidCov = "noDfCor", singleEqSigma = TRUE,
    useMatrix = useMatrix )
 print( summary( fit2sls2rs ) )
+nobs( fit2sls2rs )
 
 ## ********************* 2SLS with restriction via restrict.regMat ******************
 ## *************** 2SLS with restriction via restrict.regMat (default )***************
 fit2sls3 <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
    inst = inst, methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( summary( fit2sls3, useDfSys = TRUE ) )
+nobs( fit2sls3 )
 
 
 ## ***************** 2SLS with 2 restrictions *******************
@@ -107,31 +119,37 @@ print( summary( fit2sls3, useDfSys = TRUE ) )
 fit2sls4 <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
    restrict.rhs = restr2q, inst = inst, useMatrix = useMatrix )
 print( summary( fit2sls4 ) )
+nobs( fit2sls4 )
 # the same with symbolically specified restrictions
 fit2sls4Sym <- systemfit( system, "2SLS", data = Kmenta,
    restrict.matrix = restrict2, inst = inst, useMatrix = useMatrix )
 all.equal( fit2sls4, fit2sls4Sym )
+nobs( fit2sls4Sym )
 
 ## ************ 2SLS with 2 restrictions (singleEqSigma=T) **************
 fit2sls4s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
    restrict.rhs = restr2q, inst = inst, singleEqSigma = TRUE,
    useMatrix = useMatrix )
 print( summary( fit2sls4s ) )
+nobs( fit2sls4s )
 
 ## ***************** 2SLS with 2 restrictions (useDfSys=T) **************
 print( summary( fit2sls4, useDfSys = TRUE ) )
+nobs( fit2sls4 )
 
 ## ***************** 2SLS with 2 restrictions (methodResidCov="noDfCor") **************
 fit2sls4r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
    restrict.rhs = restr2q, inst = inst, methodResidCov = "noDfCor",
    x = TRUE, useMatrix = useMatrix )
 print( summary( fit2sls4r ) )
+nobs( fit2sls4r )
 
 ## ***** 2SLS with 2 restrictions (methodResidCov="noDfCor", singleEqSigma=T) *******
 fit2sls4rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr2m,
    restrict.rhs = restr2q, inst = inst, methodResidCov = "noDfCor",
    singleEqSigma = TRUE, useMatrix = useMatrix )
 print( summary( fit2sls4rs ) )
+nobs( fit2sls4rs )
 
 ## ************* 2SLS with 2 restrictions via R and restrict.regMat ******************
 ## ******** 2SLS with 2 restrictions via R and restrict.regMat (default) *************
@@ -139,26 +157,31 @@ fit2sls5 <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
    useMatrix = useMatrix )
 print( summary( fit2sls5 ) )
+nobs( fit2sls5 )
 # the same with symbolically specified restrictions
 fit2sls5Sym <- systemfit( system, "2SLS", data = Kmenta,
    restrict.matrix = restrict3, restrict.regMat = tc, inst = inst,
    useMatrix = useMatrix )
 all.equal( fit2sls5, fit2sls5Sym )
+nobs( fit2sls5Sym )
 
 ## ******* 2SLS with 2 restrictions via R and restrict.regMat (singleEqSigma=T) ******
 fit2sls5s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
    singleEqSigma = TRUE, useMatrix = useMatrix )
 print( summary( fit2sls5s ) )
+nobs( fit2sls5s )
 
 ## ********** 2SLS with 2 restrictions via R and restrict.regMat (useDfSys=T) *******
 print( summary( fit2sls5, useDfSys = TRUE ) )
+nobs( fit2sls5 )
 
 ## ************* 2SLS with 2 restrictions via R and restrict.regMat (methodResidCov="noDfCor") *********
 fit2sls5r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
    restrict.rhs = restr3q, restrict.regMat = tc, inst = inst,
    methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( summary( fit2sls5r ) )
+nobs( fit2sls5r )
 
 ## ** 2SLS with 2 restrictions via R and restrict.regMat (methodResidCov="noDfCor", singleEqSigma=T) **
 fit2sls5rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3m,
@@ -166,67 +189,80 @@ fit2sls5rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restr3
    methodResidCov = "noDfCor", singleEqSigma = TRUE,
    x = TRUE, useMatrix = useMatrix )
 print( summary( fit2sls5rs ) )
+nobs( fit2sls5rs )
 
 ## *********** 2SLS estimation with different instruments **************
 ## ******* 2SLS estimation with different instruments (default) *********
 fit2slsd1 <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
    useMatrix = useMatrix )
 print( summary( fit2slsd1 ) )
+nobs( fit2slsd1 )
 
 ## *********** 2SLS estimation with different instruments (singleEqSigma=F)*****
 fit2slsd1s <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
    singleEqSigma = FALSE, useMatrix = useMatrix )
 print( summary( fit2slsd1s ) )
+nobs( fit2slsd1s )
 
 ## ********* 2SLS estimation with different instruments (useDfSys=T) *******
 print( summary( fit2slsd1, useDfSys = TRUE ) )
+nobs( fit2slsd1 )
 
 ## ********* 2SLS estimation with different instruments (methodResidCov="noDfCor") ******
 fit2slsd1r <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
    methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( summary( fit2slsd1r ) )
+nobs( fit2slsd1r )
 
 ## 2SLS estimation with different instruments (methodResidCov="noDfCor",singleEqSigma=F)
 fit2slsd1r <- systemfit( system, "2SLS", data = Kmenta, inst = instlist,
    methodResidCov = "noDfCor", singleEqSigma = FALSE,
    useMatrix = useMatrix )
 print( summary( fit2slsd1r ) )
+nobs( fit2slsd1r )
 
 ## **** 2SLS estimation with different instruments and restriction *******
 ## ** 2SLS estimation with different instruments and restriction (default) ****
 fit2slsd2 <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
    inst = instlist, useMatrix = useMatrix )
 print( summary( fit2slsd2 ) )
+nobs( fit2slsd2 )
 
 ## 2SLS estimation with different instruments and restriction (singleEqSigma=T)
 fit2slsd2s <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
    inst = instlist, singleEqSigma = TRUE, useMatrix = useMatrix )
 print( summary( fit2slsd2s ) )
+nobs( fit2slsd2s )
 
 ## **** 2SLS estimation with different instruments and restriction (useDfSys=F)
 print( summary( fit2slsd2, useDfSys = FALSE ) )
+nobs( fit2slsd2 )
 
 ## **** 2SLS estimation with different instruments and restriction (methodResidCov="noDfCor")
 fit2slsd2r <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
    inst = instlist, methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( summary( fit2slsd2r ) )
+nobs( fit2slsd2r )
 
 ## 2SLS estimation with different instr. and restr. (methodResidCov="noDfCor", singleEqSigma=T)
 fit2slsd2rs <- systemfit( system, "2SLS", data = Kmenta, restrict.matrix = restrm,
    inst = instlist, methodResidCov = "noDfCor", singleEqSigma = TRUE,
    useMatrix = useMatrix )
 print( summary( fit2slsd2rs ) )
+nobs( fit2slsd2rs )
 
 ## **** 2SLS estimation with different instruments and restriction via restrict.regMat *
 ## 2SLS estimation with different instruments and restriction via restrict.regMat (default)
 fit2slsd3 <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
    inst = instlist, useMatrix = useMatrix )
 print( summary( fit2slsd3 ) )
+nobs( fit2slsd3 )
 
 ## **** 2SLS estimation with different instr. and restr. via restrict.regMat (methodResidCov="noDfCor")
 fit2slsd3r <- systemfit( system, "2SLS", data = Kmenta, restrict.regMat = tc,
    inst = instlist, methodResidCov = "noDfCor", useMatrix = useMatrix )
 print( summary( fit2slsd3r ) )
+nobs( fit2slsd3r )
 
 
 ## *********** estimations with a single regressor ************
@@ -234,19 +270,23 @@ fit2slsS1 <- systemfit(
    list( consump ~ price - 1, price ~ consump + trend ), "2SLS",
    data = Kmenta, inst = ~ farmPrice + trend + income, useMatrix = useMatrix )
 print( summary( fit2slsS1 ) )
+nobs( fit2slsS1 )
 fit2slsS2 <- systemfit(
    list( consump ~ price - 1, consump ~ trend - 1 ), "2SLS",
    data = Kmenta, inst = ~ farmPrice + price + income, useMatrix = useMatrix )
 print( summary( fit2slsS2 ) )
+nobs( fit2slsS2 )
 fit2slsS3 <- systemfit(
    list( consump ~ trend - 1, price ~ trend - 1 ), "2SLS",
    data = Kmenta, inst = instlist, useMatrix = useMatrix )
 print( summary( fit2slsS3 ) )
+nobs( fit2slsS3 )
 fit2slsS4 <- systemfit(
    list( consump ~ trend - 1, price ~ trend - 1 ), "2SLS",
    data = Kmenta, inst = ~ farmPrice + trend + income,
    restrict.matrix = matrix( c( 1, -1 ), nrow = 1 ), useMatrix = useMatrix )
 print( summary( fit2slsS4 ) )
+nobs( fit2slsS4 )
 fit2slsS5 <- systemfit(
    list( consump ~ 1, price ~ 1 ), "2SLS",
    data = Kmenta, inst = ~ farmPrice, useMatrix = useMatrix )

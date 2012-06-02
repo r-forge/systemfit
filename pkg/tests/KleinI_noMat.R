@@ -66,6 +66,8 @@ for( methodNo in 1:5 ) {
    } else {
       print( all.equal( mmOls, model.matrix( kleinModel ) ) )
    }
+   cat( "> nobs\n" )
+   print( nobs( kleinModel ) )
    cat( "> linearHypothesis\n" )
    print( linearHypothesis( kleinModel, restrict ) )
    print( linearHypothesis( kleinModel, restrict, test = "F" ) )

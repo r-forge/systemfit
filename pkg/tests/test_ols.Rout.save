@@ -128,6 +128,8 @@ Number of observations: 20 Degrees of Freedom: 16
 SSR: 92.551058 MSE: 5.784441 Root MSE: 2.405087 
 Multiple R-Squared: 0.654807 Adjusted R-Squared: 0.590084 
 
+> nobs( fitols1 )
+[1] 40
 > 
 > ## ********** OLS estimation (no singleEqSigma=F) ******************
 > fitols1s <- systemfit( system, "OLS", data = Kmenta,
@@ -4635,4 +4637,4 @@ attr(,"dataClasses")
 > 
 > proc.time()
    user  system elapsed 
-  2.372   0.052   2.414 
+  2.392   0.056   2.433 
