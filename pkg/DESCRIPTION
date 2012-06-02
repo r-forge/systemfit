@@ -1,6 +1,6 @@
 Package: systemfit
-Version: 1.1-11
-Date: 2011/11/11
+Version: 1.1-12
+Date: 2012/06/02
 Title: Estimating Systems of Simultaneous Equations
 Author: Arne Henningsen and Jeff D. Hamann
 Maintainer: Arne Henningsen <arne.henningsen@googlemail.com>
