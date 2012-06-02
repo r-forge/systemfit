@@ -1,8 +1,8 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
+R version 2.15.0 (2012-03-30)
+Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
-Platform: i686-pc-linux-gnu (32-bit)
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -19,18 +19,9 @@ Type 'q()' to quit R.
 > library( "systemfit" )
 Loading required package: Matrix
 Loading required package: lattice
-
-Attaching package: 'Matrix'
-
-The following object(s) are masked from 'package:base':
-
-    det
-
 Loading required package: car
 Loading required package: MASS
 Loading required package: nnet
-Loading required package: survival
-Loading required package: splines
 Loading required package: lmtest
 Loading required package: zoo
 
@@ -152,7 +143,7 @@ Model Formula: consump ~ corpProf + corpProfLag + wages
 (Intercept) 16.2366003  1.3026983 12.46382 5.6208e-10 ***
 corpProf     0.1929344  0.0912102  2.11527   0.049474 *  
 corpProfLag  0.0898849  0.0906479  0.99158   0.335306    
-wages        0.7962187  0.0399439 19.93342 3.1597e-13 ***
+wages        0.7962187  0.0399439 19.93342 3.1619e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -854,7 +845,7 @@ Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag +
 (Intercept) 16.5547558  1.3207924 12.53396 5.1550e-10 ***
 corpProf     0.0173022  0.1180494  0.14657   0.885197    
 corpProfLag  0.2162340  0.1072680  2.01583   0.059905 .  
-wages        0.8101827  0.0402497 20.12891 2.6934e-13 ***
+wages        0.8101827  0.0402497 20.12891 2.6956e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -1181,7 +1172,7 @@ Model Formula: consump ~ corpProf + corpProfLag + wages
 (Intercept) 15.9805197  1.1686949 13.67382 1.3323e-10 ***
 corpProf     0.2301589  0.0766927  3.00105  0.0080366 ** 
 corpProfLag  0.0672874  0.0769357  0.87459  0.3939837    
-wages        0.7961561  0.0352521 22.58467 4.0634e-14 ***
+wages        0.7961561  0.0352521 22.58467 4.0856e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -2025,7 +2016,7 @@ Model Formula: consump ~ corpProf + corpProfLag + wages
 (Intercept) 16.2366003  1.3141211 12.35548 6.4296e-10 ***
 corpProf     0.1929344  0.0920100  2.09689   0.051268 .  
 corpProfLag  0.0898849  0.0914428  0.98296   0.339409    
-wages        0.7962187  0.0402942 19.76015 3.6438e-13 ***
+wages        0.7962187  0.0402942 19.76015 3.6460e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -3900,7 +3891,7 @@ Model Formula: consump ~ corpProf + corpProfLag + wages
 (Intercept) 16.1356712  1.3571316 11.88954 2.3522e-09 ***
 corpProf     0.1994191  0.0949042  2.10127   0.051815 .  
 corpProfLag  0.0969012  0.0944342  1.02612   0.320098    
-wages        0.7940183  0.0414521 19.15506 1.8596e-12 ***
+wages        0.7940183  0.0414521 19.15506 1.8598e-12 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -4923,7 +4914,7 @@ Model Formula: consump ~ corpProf + corpProfLag + wages
 (Intercept) 16.0875786  1.2010271 13.39485 4.1180e-10 ***
 corpProf     0.2172746  0.0799220  2.71858   0.015183 *  
 corpProfLag  0.0694345  0.0792810  0.87580   0.394096    
-wages        0.7974940  0.0360010 22.15197 1.9695e-13 ***
+wages        0.7974940  0.0360010 22.15197 1.9673e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -5495,7 +5486,7 @@ Instruments: ~govExp + taxes + govWage + trend + capitalLag + corpProfLag +
 (Intercept) 16.8311059  1.2488994 13.47675 8.7144e-10 ***
 corpProf     0.1468359  0.0991394  1.48111    0.15928    
 corpProfLag  0.0924248  0.0905695  1.02048    0.32368    
-wages        0.7945106  0.0370661 21.43499 1.1535e-12 ***
+wages        0.7945106  0.0370661 21.43499 1.1533e-12 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -5775,7 +5766,7 @@ Model Formula: consump ~ corpProf + corpProfLag + wages
 (Intercept) 16.2956737  1.4878785 10.95229 1.4908e-08 ***
 corpProf     0.1796040  0.1162241  1.54532    0.14310    
 corpProfLag  0.1032105  0.0993729  1.03862    0.31544    
-wages        0.7961990  0.0432837 18.39491 1.0566e-11 ***
+wages        0.7961990  0.0432837 18.39491 1.0565e-11 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -9483,3 +9474,6 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > logLik
 'log Lik.' -72.22389 (df=18)
 > 
+> proc.time()
+   user  system elapsed 
+  7.368   0.080   7.443 

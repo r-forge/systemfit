@@ -1,8 +1,8 @@
 
-R version 2.14.1 (2011-12-22)
-Copyright (C) 2011 The R Foundation for Statistical Computing
+R version 2.15.0 (2012-03-30)
+Copyright (C) 2012 The R Foundation for Statistical Computing
 ISBN 3-900051-07-0
-Platform: i686-pc-linux-gnu (32-bit)
+Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
 You are welcome to redistribute it under certain conditions.
@@ -20,18 +20,9 @@ Type 'q()' to quit R.
 > library( systemfit )
 Loading required package: Matrix
 Loading required package: lattice
-
-Attaching package: 'Matrix'
-
-The following object(s) are masked from 'package:base':
-
-    det
-
 Loading required package: car
 Loading required package: MASS
 Loading required package: nnet
-Loading required package: survival
-Loading required package: splines
 Loading required package: lmtest
 Loading required package: zoo
 
@@ -327,7 +318,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -391,7 +382,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -455,7 +446,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -580,7 +571,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -642,7 +633,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.1822575  7.9792742 11.80336 1.4189e-13 ***
+(Intercept) 94.1822575  7.9792742 11.80336 1.4211e-13 ***
 price       -0.2193866  0.0953603 -2.30061   0.027675 *  
 income       0.2938307  0.0445146  6.60078 1.4441e-07 ***
 ---
@@ -659,7 +650,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 56.2541273 11.5687296 4.86260 2.5868e-05 ***
+(Intercept) 56.2541272 11.5687296 4.86260 2.5868e-05 ***
 price        0.2184437  0.1002824 2.17828   0.036414 *  
 farmPrice    0.2039878  0.0400734 5.09035 1.3116e-05 ***
 trend        0.2938307  0.0445146 6.60078 1.4441e-07 ***
@@ -766,7 +757,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -890,7 +881,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.9069910  7.9234137 11.85183 8.3267e-14 ***
+(Intercept) 93.9069910  7.9234137 11.85183 8.3045e-14 ***
 price       -0.2456903  0.0891255 -2.75668  0.0092123 ** 
 income       0.3236266  0.0232585 13.91432 8.8818e-16 ***
 ---
@@ -1015,7 +1006,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.7869588  7.9087931 11.85857 8.1934e-14 ***
+(Intercept) 93.7869588  7.9087931 11.85857 8.1712e-14 ***
 price       -0.2442767  0.0891559 -2.73988  0.0096072 ** 
 income       0.3234076  0.0228697 14.14131 4.4409e-16 ***
 ---
@@ -1077,7 +1068,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.9069910  7.9234137 11.85183 8.3267e-14 ***
+(Intercept) 93.9069910  7.9234137 11.85183 8.3045e-14 ***
 price       -0.2456903  0.0891255 -2.75668  0.0092123 ** 
 income       0.3236266  0.0232585 13.91432 8.8818e-16 ***
 ---
@@ -1202,7 +1193,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.0829619  7.3058260 12.87780 7.7716e-15 ***
+(Intercept) 94.0829619  7.3058260 12.87780 7.5495e-15 ***
 price       -0.2484468  0.0812018 -3.05962  0.0042346 ** 
 income       0.3246491  0.0205289 15.81421 < 2.22e-16 ***
 ---
@@ -1610,7 +1601,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -1674,7 +1665,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -1738,7 +1729,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -1863,7 +1854,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -1925,7 +1916,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.1822575  7.9792742 11.80336 1.4189e-13 ***
+(Intercept) 94.1822575  7.9792742 11.80336 1.4211e-13 ***
 price       -0.2193866  0.0953603 -2.30061   0.027675 *  
 income       0.2938307  0.0445146  6.60078 1.4441e-07 ***
 ---
@@ -1942,7 +1933,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 56.2541273 11.5687296 4.86260 2.5868e-05 ***
+(Intercept) 56.2541272 11.5687296 4.86260 2.5868e-05 ***
 price        0.2184437  0.1002824 2.17828   0.036414 *  
 farmPrice    0.2039878  0.0400734 5.09035 1.3116e-05 ***
 trend        0.2938307  0.0445146 6.60078 1.4441e-07 ***
@@ -2049,7 +2040,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -2173,7 +2164,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.9069910  7.9234137 11.85183 8.3267e-14 ***
+(Intercept) 93.9069910  7.9234137 11.85183 8.3045e-14 ***
 price       -0.2456903  0.0891255 -2.75668  0.0092123 ** 
 income       0.3236266  0.0232585 13.91432 8.8818e-16 ***
 ---
@@ -2298,7 +2289,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.7869588  7.9087931 11.85857 8.1934e-14 ***
+(Intercept) 93.7869588  7.9087931 11.85857 8.1712e-14 ***
 price       -0.2442767  0.0891559 -2.73988  0.0096072 ** 
 income       0.3234076  0.0228697 14.14131 4.4409e-16 ***
 ---
@@ -2360,7 +2351,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.9069910  7.9234137 11.85183 8.3267e-14 ***
+(Intercept) 93.9069910  7.9234137 11.85183 8.3045e-14 ***
 price       -0.2456903  0.0891255 -2.75668  0.0092123 ** 
 income       0.3236266  0.0232585 13.91432 8.8818e-16 ***
 ---
@@ -2485,7 +2476,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.0829619  7.3058260 12.87780 7.7716e-15 ***
+(Intercept) 94.0829619  7.3058260 12.87780 7.5495e-15 ***
 price       -0.2484468  0.0812018 -3.05962  0.0042346 ** 
 income       0.3246491  0.0205289 15.81421 < 2.22e-16 ***
 ---
@@ -2893,7 +2884,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -2957,7 +2948,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -3021,7 +3012,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -3146,7 +3137,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -3208,7 +3199,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.1822575  7.9792742 11.80336 1.4189e-13 ***
+(Intercept) 94.1822575  7.9792742 11.80336 1.4211e-13 ***
 price       -0.2193866  0.0953603 -2.30061   0.027675 *  
 income       0.2938307  0.0445146  6.60078 1.4441e-07 ***
 ---
@@ -3332,7 +3323,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -3456,7 +3447,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.9069910  7.9234137 11.85183 8.3267e-14 ***
+(Intercept) 93.9069910  7.9234137 11.85183 8.3045e-14 ***
 price       -0.2456903  0.0891255 -2.75668  0.0092123 ** 
 income       0.3236266  0.0232585 13.91432 8.8818e-16 ***
 ---
@@ -3581,7 +3572,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.7869588  7.9087931 11.85857 8.1934e-14 ***
+(Intercept) 93.7869588  7.9087931 11.85857 8.1712e-14 ***
 price       -0.2442767  0.0891559 -2.73988  0.0096072 ** 
 income       0.3234076  0.0228697 14.14131 4.4409e-16 ***
 ---
@@ -3643,7 +3634,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.9069910  7.9234137 11.85183 8.3267e-14 ***
+(Intercept) 93.9069910  7.9234137 11.85183 8.3045e-14 ***
 price       -0.2456903  0.0891255 -2.75668  0.0092123 ** 
 income       0.3236266  0.0232585 13.91432 8.8818e-16 ***
 ---
@@ -3768,7 +3759,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.0829619  7.3058260 12.87780 7.7716e-15 ***
+(Intercept) 94.0829619  7.3058260 12.87780 7.5495e-15 ***
 price       -0.2484468  0.0812018 -3.05962  0.0042346 ** 
 income       0.3246491  0.0205289 15.81421 < 2.22e-16 ***
 ---
@@ -4176,7 +4167,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -4240,7 +4231,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -4304,7 +4295,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -4429,7 +4420,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -4491,7 +4482,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.1822575  7.9792742 11.80336 1.4189e-13 ***
+(Intercept) 94.1822575  7.9792742 11.80336 1.4211e-13 ***
 price       -0.2193866  0.0953603 -2.30061   0.027675 *  
 income       0.2938307  0.0445146  6.60078 1.4441e-07 ***
 ---
@@ -4508,7 +4499,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 56.2541273 11.5687296 4.86260 2.5868e-05 ***
+(Intercept) 56.2541272 11.5687296 4.86260 2.5868e-05 ***
 price        0.2184437  0.1002824 2.17828   0.036414 *  
 farmPrice    0.2039878  0.0400734 5.09035 1.3116e-05 ***
 trend        0.2938307  0.0445146 6.60078 1.4441e-07 ***
@@ -4615,7 +4606,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -4739,7 +4730,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.9069910  7.9234137 11.85183 8.3267e-14 ***
+(Intercept) 93.9069910  7.9234137 11.85183 8.3045e-14 ***
 price       -0.2456903  0.0891255 -2.75668  0.0092123 ** 
 income       0.3236266  0.0232585 13.91432 8.8818e-16 ***
 ---
@@ -4864,7 +4855,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.7869588  7.9087931 11.85857 8.1934e-14 ***
+(Intercept) 93.7869588  7.9087931 11.85857 8.1712e-14 ***
 price       -0.2442767  0.0891559 -2.73988  0.0096072 ** 
 income       0.3234076  0.0228697 14.14131 4.4409e-16 ***
 ---
@@ -4926,7 +4917,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.9069910  7.9234137 11.85183 8.3267e-14 ***
+(Intercept) 93.9069910  7.9234137 11.85183 8.3045e-14 ***
 price       -0.2456903  0.0891255 -2.75668  0.0092123 ** 
 income       0.3236266  0.0232585 13.91432 8.8818e-16 ***
 ---
@@ -5051,7 +5042,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.0829619  7.3058260 12.87780 7.7716e-15 ***
+(Intercept) 94.0829619  7.3058260 12.87780 7.5495e-15 ***
 price       -0.2484468  0.0812018 -3.05962  0.0042346 ** 
 income       0.3246491  0.0205289 15.81421 < 2.22e-16 ***
 ---
@@ -5459,7 +5450,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -5523,7 +5514,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -5587,7 +5578,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -5712,7 +5703,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -5774,7 +5765,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.1822575  7.9792742 11.80336 1.4189e-13 ***
+(Intercept) 94.1822575  7.9792742 11.80336 1.4211e-13 ***
 price       -0.2193866  0.0953603 -2.30061   0.027675 *  
 income       0.2938307  0.0445146  6.60078 1.4441e-07 ***
 ---
@@ -5898,7 +5889,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -6864,7 +6855,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -6930,7 +6921,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -6994,7 +6985,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -7250,7 +7241,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 92.0742098  9.6303224  9.56086 3.6373e-11 ***
+(Intercept) 92.0742099  9.6303224  9.56086 3.6373e-11 ***
 price       -0.1064238  0.1022853 -1.04046    0.30547    
 income       0.1996042  0.0296612  6.72946 9.8811e-08 ***
 ---
@@ -7442,7 +7433,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 90.1569181  7.9174335 11.38714 2.5469e-13 ***
+(Intercept) 90.1569181  7.9174335 11.38714 2.5491e-13 ***
 price       -0.2006658  0.0920019 -2.18111   0.035982 *  
 income       0.3159039  0.0192402 16.41896 < 2.22e-16 ***
 ---
@@ -7634,7 +7625,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 90.1569181  7.9174335 11.38714 2.5469e-13 ***
+(Intercept) 90.1569181  7.9174335 11.38714 2.5491e-13 ***
 price       -0.2006658  0.0920019 -2.18111   0.035982 *  
 income       0.3159039  0.0192402 16.41896 < 2.22e-16 ***
 ---
@@ -7762,7 +7753,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 90.1569097  7.9174349 11.3871 2.5469e-13 ***
+(Intercept) 90.1569097  7.9174349 11.3871 2.5491e-13 ***
 price       -0.2006657  0.0920019 -2.1811   0.035983 *  
 income       0.3159039  0.0192402 16.4189 < 2.22e-16 ***
 ---
@@ -7892,7 +7883,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -7958,7 +7949,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -8022,7 +8013,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -8086,7 +8077,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 92.0742098  9.6303224  9.56086 3.6373e-11 ***
+(Intercept) 92.0742099  9.6303224  9.56086 3.6373e-11 ***
 price       -0.1064238  0.1022853 -1.04046    0.30547    
 income       0.1996042  0.0296612  6.72946 9.8811e-08 ***
 ---
@@ -8470,7 +8461,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 90.1569181  7.9174335 11.38714 2.5469e-13 ***
+(Intercept) 90.1569181  7.9174335 11.38714 2.5491e-13 ***
 price       -0.2006658  0.0920019 -2.18111   0.035982 *  
 income       0.3159039  0.0192402 16.41896 < 2.22e-16 ***
 ---
@@ -8662,7 +8653,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 90.1569181  7.9174335 11.38714 2.5469e-13 ***
+(Intercept) 90.1569181  7.9174335 11.38714 2.5491e-13 ***
 price       -0.2006658  0.0920019 -2.18111   0.035982 *  
 income       0.3159039  0.0192402 16.41896 < 2.22e-16 ***
 ---
@@ -8790,7 +8781,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 90.1569097  7.9174349 11.3871 2.5469e-13 ***
+(Intercept) 90.1569097  7.9174349 11.3871 2.5491e-13 ***
 price       -0.2006657  0.0920019 -2.1811   0.035983 *  
 income       0.3159039  0.0192402 16.4189 < 2.22e-16 ***
 ---
@@ -8920,7 +8911,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -8986,7 +8977,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -9050,7 +9041,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -9131,7 +9122,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 68.8551152 12.4839366 5.51550 3.6731e-06 ***
+(Intercept) 68.8551151 12.4839366 5.51550 3.6731e-06 ***
 price        0.1832979  0.1188778 1.54190    0.13235    
 farmPrice    0.1201962  0.0259561 4.63076 5.1457e-05 ***
 trend        0.1996042  0.0296612 6.72946 9.8811e-08 ***
@@ -9178,7 +9169,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 92.0353469  8.9214200 10.31622 5.2245e-12 ***
+(Intercept) 92.0353468  8.9214200 10.31622 5.2245e-12 ***
 price       -0.1043412  0.0957762 -1.08943    0.28363    
 income       0.1978671  0.0299191  6.61341 1.3912e-07 ***
 ---
@@ -9204,7 +9195,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.937766 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
-SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
+SSR: 138.087514 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
 [1] "******** iterated W3SLS with restriction (EViews-like) *********"
@@ -9370,7 +9361,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 92.0353468  8.9214200 10.31622 5.2245e-12 ***
+(Intercept) 92.0353469  8.9214200 10.31622 5.2245e-12 ***
 price       -0.1043412  0.0957762 -1.08943    0.28363    
 income       0.1978671  0.0299191  6.61341 1.3912e-07 ***
 ---
@@ -9498,7 +9489,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 90.1569181  7.9174335 11.38714 2.5469e-13 ***
+(Intercept) 90.1569181  7.9174335 11.38714 2.5491e-13 ***
 price       -0.2006658  0.0920019 -2.18111   0.035982 *  
 income       0.3159039  0.0192402 16.41896 < 2.22e-16 ***
 ---
@@ -9690,7 +9681,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 90.1569181  7.9174335 11.38714 2.5469e-13 ***
+(Intercept) 90.1569181  7.9174335 11.38714 2.5491e-13 ***
 price       -0.2006658  0.0920019 -2.18111   0.035982 *  
 income       0.3159039  0.0192402 16.41896 < 2.22e-16 ***
 ---
@@ -9818,7 +9809,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 90.1569097  7.9174349 11.3871 2.5469e-13 ***
+(Intercept) 90.1569097  7.9174349 11.3871 2.5491e-13 ***
 price       -0.2006657  0.0920019 -2.1811   0.035983 *  
 income       0.3159039  0.0192402 16.4189 < 2.22e-16 ***
 ---
@@ -9948,7 +9939,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -10014,7 +10005,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -10078,7 +10069,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -10142,7 +10133,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 92.0742098  9.6303224  9.56086 3.6373e-11 ***
+(Intercept) 92.0742100  9.6303224  9.56086 3.6373e-11 ***
 price       -0.1064238  0.1022853 -1.04046    0.30547    
 income       0.1996042  0.0296612  6.72946 9.8811e-08 ***
 ---
@@ -10159,7 +10150,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 68.8551152 12.4839366 5.51550 3.6731e-06 ***
+(Intercept) 68.8551153 12.4839366 5.51550 3.6731e-06 ***
 price        0.1832979  0.1188778 1.54190    0.13235    
 farmPrice    0.1201962  0.0259561 4.63076 5.1457e-05 ***
 trend        0.1996042  0.0296612 6.72946 9.8811e-08 ***
@@ -10232,7 +10223,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.937766 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
-SSR: 138.087513 MSE: 8.63047 Root MSE: 2.937766 
+SSR: 138.087514 MSE: 8.63047 Root MSE: 2.937766 
 Multiple R-Squared: 0.484968 Adjusted R-Squared: 0.388399 
 
 [1] "******** iterated W3SLS with restriction (EViews-like) *********"
@@ -10287,7 +10278,7 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 68.2830043 11.1530053 6.12239 5.9767e-07 ***
+(Intercept) 68.2830042 11.1530053 6.12239 5.9767e-07 ***
 price        0.1850839  0.1052540 1.75845    0.08767 .  
 farmPrice    0.1244572  0.0250870 4.96102 1.9296e-05 ***
 trend        0.1978669  0.0299191 6.61341 1.3913e-07 ***
@@ -10526,7 +10517,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 90.1569181  7.9174335 11.38714 2.5469e-13 ***
+(Intercept) 90.1569181  7.9174335 11.38714 2.5491e-13 ***
 price       -0.2006658  0.0920019 -2.18111   0.035982 *  
 income       0.3159039  0.0192402 16.41896 < 2.22e-16 ***
 ---
@@ -10718,7 +10709,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 90.1569181  7.9174335 11.38714 2.5469e-13 ***
+(Intercept) 90.1569181  7.9174335 11.38714 2.5491e-13 ***
 price       -0.2006658  0.0920019 -2.18111   0.035982 *  
 income       0.3159039  0.0192402 16.41896 < 2.22e-16 ***
 ---
@@ -10846,7 +10837,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error t value   Pr(>|t|)    
-(Intercept) 90.1569097  7.9174349 11.3871 2.5469e-13 ***
+(Intercept) 90.1569097  7.9174349 11.3871 2.5491e-13 ***
 price       -0.2006657  0.0920019 -2.1811   0.035983 *  
 income       0.3159039  0.0192402 16.4189 < 2.22e-16 ***
 ---
@@ -10976,7 +10967,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -11042,7 +11033,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.9208383 11.94738 1.5743e-13 ***
+(Intercept) 94.6333039  7.9208383 11.94738 1.5721e-13 ***
 price       -0.2435565  0.0964843 -2.52431   0.016584 *  
 income       0.3139918  0.0469437  6.68869 1.2900e-07 ***
 ---
@@ -11106,7 +11097,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.6333039  7.3026521 12.95876 1.7097e-14 ***
+(Intercept) 94.6333039  7.3026521 12.95876 1.6875e-14 ***
 price       -0.2435565  0.0889541 -2.73800  0.0098841 ** 
 income       0.3139918  0.0432799  7.25491 2.5378e-08 ***
 ---
@@ -11620,7 +11611,7 @@ Instruments: ~income + farmPrice + trend
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 68.3924863  9.6792068  7.06592 3.1415e-08 ***
 price       -0.0906707  0.1236168 -0.73348    0.46815    
-income       0.4262522  0.0384532 11.08497 5.3535e-13 ***
+income       0.4262522  0.0384532 11.08497 5.3513e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -11638,7 +11629,7 @@ Instruments: ~income + farmPrice + trend
 (Intercept) -27.3423576   9.5497622 -2.86315  0.0070402 ** 
 price         0.9093293   0.1236168  7.35603 1.3341e-08 ***
 farmPrice     0.3396084   0.0497717  6.82333 6.4662e-08 ***
-trend         0.4262522   0.0384532 11.08497 5.3535e-13 ***
+trend         0.4262522   0.0384532 11.08497 5.3513e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -11684,7 +11675,7 @@ Instruments: ~income + farmPrice + trend
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 68.3925061  9.6792054  7.06592 3.1415e-08 ***
 price       -0.0906710  0.1236168 -0.73348    0.46815    
-income       0.4262523  0.0384532 11.08497 5.3535e-13 ***
+income       0.4262523  0.0384532 11.08497 5.3513e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -11702,7 +11693,7 @@ Instruments: ~income + farmPrice + trend
 (Intercept) -27.3423389   9.5497614 -2.86314  0.0070403 ** 
 price         0.9093290   0.1236168  7.35603 1.3341e-08 ***
 farmPrice     0.3396084   0.0497717  6.82333 6.4662e-08 ***
-trend         0.4262523   0.0384532 11.08497 5.3535e-13 ***
+trend         0.4262523   0.0384532 11.08497 5.3513e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -11812,7 +11803,7 @@ Instruments: ~income + farmPrice + trend
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 68.3924863  9.6792068  7.06592 3.1415e-08 ***
 price       -0.0906707  0.1236168 -0.73348    0.46815    
-income       0.4262522  0.0384532 11.08497 5.3535e-13 ***
+income       0.4262522  0.0384532 11.08497 5.3513e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -11830,7 +11821,7 @@ Instruments: ~income + farmPrice + trend
 (Intercept) -27.3423576   9.5497622 -2.86315  0.0070402 ** 
 price         0.9093293   0.1236168  7.35603 1.3341e-08 ***
 farmPrice     0.3396084   0.0497717  6.82333 6.4662e-08 ***
-trend         0.4262522   0.0384532 11.08497 5.3535e-13 ***
+trend         0.4262522   0.0384532 11.08497 5.3513e-13 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -12118,7 +12109,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
                Estimate  Std. Error  t value   Pr(>|t|)    
-(Intercept) 106.7893583  10.2738409 10.39430 6.0927e-12 ***
+(Intercept) 106.7893583  10.2738409 10.39430 6.0929e-12 ***
 price        -0.4115989   0.1335401 -3.08221  0.0041293 ** 
 income        0.3616812   0.0520038  6.95489 5.9841e-08 ***
 ---
@@ -12428,7 +12419,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 88.9298234  5.9082970 15.05168 2.2204e-16 ***
+(Intercept) 88.9298234  5.9082970 15.05168 < 2.22e-16 ***
 price       -0.1760181  0.0745840 -2.36000   0.024155 *  
 income       0.3032095  0.0433991  6.98655 4.6485e-08 ***
 ---
@@ -12757,7 +12748,7 @@ Instruments: ~income + farmPrice + trend
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 41.6088945  4.9950204  8.33008 8.0240e-10 ***
 price        0.3624415  0.0457994  7.91368 2.6341e-09 ***
-farmPrice    0.2068943  0.0183539 11.27251 3.3729e-13 ***
+farmPrice    0.2068943  0.0183539 11.27251 3.3706e-13 ***
 trend        0.2901989  0.0168081 17.26547 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -12819,7 +12810,7 @@ Instruments: ~income + farmPrice + trend
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 41.4498060  5.1591375  8.03425 1.8632e-09 ***
 price        0.3681900  0.0478693  7.69157 5.0065e-09 ***
-farmPrice    0.2027846  0.0193090 10.50209 2.3166e-12 ***
+farmPrice    0.2027846  0.0193090 10.50209 2.3168e-12 ***
 trend        0.2884107  0.0171080 16.85824 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -12943,7 +12934,7 @@ Instruments: ~income + farmPrice + trend
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 41.6088945  4.9950204  8.33008 8.0240e-10 ***
 price        0.3624415  0.0457994  7.91368 2.6341e-09 ***
-farmPrice    0.2068943  0.0183539 11.27251 3.3729e-13 ***
+farmPrice    0.2068943  0.0183539 11.27251 3.3706e-13 ***
 trend        0.2901989  0.0168081 17.26547 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -13005,7 +12996,7 @@ Instruments: ~income + farmPrice + trend
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 41.2362419  4.7784200  8.62968 3.4556e-10 ***
 price        0.3670882  0.0438175  8.37765 7.0141e-10 ***
-farmPrice    0.2059671  0.0174383 11.81121 9.1704e-14 ***
+farmPrice    0.2059671  0.0174383 11.81121 9.1482e-14 ***
 trend        0.2899585  0.0159476 18.18194 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -13112,7 +13103,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
                Estimate  Std. Error  t value   Pr(>|t|)    
-(Intercept) 106.7893583  10.2738409 10.39430 6.0927e-12 ***
+(Intercept) 106.7893583  10.2738409 10.39430 6.0929e-12 ***
 price        -0.4115989   0.1335401 -3.08221  0.0041293 ** 
 income        0.3616812   0.0520038  6.95489 5.9841e-08 ***
 ---
@@ -13749,9 +13740,9 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 87.4510407  9.7547184  8.96500 1.3640e-10 ***
+(Intercept) 87.4510407  9.7547184  8.96500  1.364e-10 ***
 price       -0.1670847  0.1008570 -1.65665    0.10653    
-farmPrice    0.2710220  0.0183020 14.80835 2.2204e-16 ***
+farmPrice    0.2710220  0.0183020 14.80835 < 2.22e-16 ***
 trend        0.3782207  0.0159342 23.73638 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -13813,7 +13804,7 @@ Instruments: ~income + farmPrice + trend
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) 100.3734468  11.3092965  8.87530 1.7466e-10 ***
 price        -0.3202718   0.1194158 -2.68199   0.011092 *  
-farmPrice     0.2929739   0.0198086 14.79025 2.2204e-16 ***
+farmPrice     0.2929739   0.0198086 14.79025 < 2.22e-16 ***
 trend         0.4047077   0.0167693 24.13390 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -13935,9 +13926,9 @@ Model Formula: consump ~ price + farmPrice + trend
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 87.4510407  9.7547184  8.96500 1.3640e-10 ***
+(Intercept) 87.4510407  9.7547184  8.96500  1.364e-10 ***
 price       -0.1670847  0.1008570 -1.65665    0.10653    
-farmPrice    0.2710220  0.0183020 14.80835 2.2204e-16 ***
+farmPrice    0.2710220  0.0183020 14.80835 < 2.22e-16 ***
 trend        0.3782207  0.0159342 23.73638 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -14106,7 +14097,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
                Estimate  Std. Error  t value   Pr(>|t|)    
-(Intercept) 106.7893583  10.2738409 10.39430 6.0927e-12 ***
+(Intercept) 106.7893583  10.2738409 10.39430 6.0929e-12 ***
 price        -0.4115989   0.1335401 -3.08221  0.0041293 ** 
 income        0.3616812   0.0520038  6.95489 5.9841e-08 ***
 ---
@@ -14354,7 +14345,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.8446371  9.1491427 10.36651 4.6037e-12 ***
+(Intercept) 94.8446371  9.1491427 10.36651 4.6034e-12 ***
 price       -0.2540530  0.1185590 -2.14284   0.039369 *  
 income       0.3225888  0.0489936  6.58430 1.5162e-07 ***
 ---
@@ -14540,7 +14531,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.8446371  9.1491427 10.36651 4.6037e-12 ***
+(Intercept) 94.8446371  9.1491427 10.36651 4.6034e-12 ***
 price       -0.2540530  0.1185590 -2.14284   0.039369 *  
 income       0.3225888  0.0489936  6.58430 1.5162e-07 ***
 ---
@@ -14790,7 +14781,7 @@ Instruments: ~income + farmPrice
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 93.1798408 10.3779881  8.9786 1.3139e-10 ***
 price       -0.2183314  0.1182212 -1.8468   0.073245 .  
-income       0.3030261  0.0250222 12.1103 4.5075e-14 ***
+income       0.3030261  0.0250222 12.1103 4.5297e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -14808,7 +14799,7 @@ Instruments: ~income + farmPrice + trend
 (Intercept) 48.8549456 10.5929278  4.61203 5.1484e-05 ***
 price        0.2816686  0.1182212  2.38256   0.022757 *  
 farmPrice    0.2141190  0.0239450  8.94212 1.4526e-10 ***
-trend        0.3030261  0.0250222 12.11031 4.5075e-14 ***
+trend        0.3030261  0.0250222 12.11031 4.5297e-14 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -15100,7 +15091,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
                Estimate  Std. Error  t value   Pr(>|t|)    
-(Intercept) 106.7893583  10.2738409 10.39430 6.0927e-12 ***
+(Intercept) 106.7893583  10.2738409 10.39430 6.0929e-12 ***
 price        -0.4115989   0.1335401 -3.08221  0.0041293 ** 
 income        0.3616812   0.0520038  6.95489 5.9841e-08 ***
 ---
@@ -15658,9 +15649,9 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 98.8949461  8.2695689 11.95890 6.4615e-14 ***
+(Intercept) 98.8949461  8.2695689 11.95890 6.4393e-14 ***
 price       -0.2869843  0.0908692 -3.15821  0.0032631 ** 
-income       0.3148321  0.0224245 14.03964 6.6613e-16 ***
+income       0.3148321  0.0224245 14.03964 4.4409e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -15678,7 +15669,7 @@ Instruments: ~income + farmPrice + trend
 (Intercept) 54.6692871  8.4421885  6.47572 1.8335e-07 ***
 price        0.2130157  0.0908692  2.34420   0.024872 *  
 farmPrice    0.2237262  0.0227719  9.82466 1.3441e-11 ***
-trend        0.3148321  0.0224245 14.03964 6.6613e-16 ***
+trend        0.3148321  0.0224245 14.03964 4.4409e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -15739,7 +15730,7 @@ Instruments: ~income + farmPrice + trend
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 54.3281267  7.7347442  7.02391 3.5586e-08 ***
 price        0.2155206  0.0821645  2.62304   0.012821 *  
-farmPrice    0.2246870  0.0201274 11.16324 4.4120e-13 ***
+farmPrice    0.2246870  0.0201274 11.16324 4.4098e-13 ***
 trend        0.3146212  0.0202754 15.51739 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -15782,7 +15773,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 98.9360056  8.2214527 12.03388 5.3957e-14 ***
+(Intercept) 98.9360056  8.2214527 12.03388 5.4179e-14 ***
 price       -0.2872319  0.0907157 -3.16628  0.0031938 ** 
 income       0.3146650  0.0214970 14.63763 2.2204e-16 ***
 ---
@@ -15844,9 +15835,9 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 98.8949461  8.2695689 11.95890 6.4615e-14 ***
+(Intercept) 98.8949461  8.2695689 11.95890 6.4393e-14 ***
 price       -0.2869843  0.0908692 -3.15821  0.0032631 ** 
-income       0.3148321  0.0224245 14.03964 6.6613e-16 ***
+income       0.3148321  0.0224245 14.03964 4.4409e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -15864,7 +15855,7 @@ Instruments: ~income + farmPrice + trend
 (Intercept) 54.6692871  8.4421885  6.47572 1.8335e-07 ***
 price        0.2130157  0.0908692  2.34420   0.024872 *  
 farmPrice    0.2237262  0.0227719  9.82466 1.3441e-11 ***
-trend        0.3148321  0.0224245 14.03964 6.6613e-16 ***
+trend        0.3148321  0.0224245 14.03964 4.4409e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
 
@@ -15925,7 +15916,7 @@ Instruments: ~income + farmPrice + trend
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 54.3281267  7.7347442  7.02391 3.5586e-08 ***
 price        0.2155206  0.0821645  2.62304   0.012821 *  
-farmPrice    0.2246870  0.0201274 11.16324 4.4120e-13 ***
+farmPrice    0.2246870  0.0201274 11.16324 4.4098e-13 ***
 trend        0.3146212  0.0202754 15.51739 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -15968,7 +15959,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 98.6980354  7.5376053 13.09408 4.6629e-15 ***
+(Intercept) 98.6980354  7.5376053 13.09408  4.885e-15 ***
 price       -0.2846753  0.0820466 -3.46968  0.0014016 ** 
 income       0.3144832  0.0194930 16.13312 < 2.22e-16 ***
 ---
@@ -15987,7 +15978,7 @@ Instruments: ~income + farmPrice + trend
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) 54.3971709  7.6823655  7.08078 3.0061e-08 ***
 price        0.2153247  0.0820466  2.62442   0.012778 *  
-farmPrice    0.2241903  0.0193253 11.60084 1.5166e-13 ***
+farmPrice    0.2241903  0.0193253 11.60084 1.5188e-13 ***
 trend        0.3144832  0.0194930 16.13312 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -16094,7 +16085,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice
 
                Estimate  Std. Error  t value   Pr(>|t|)    
-(Intercept) 106.7893583  10.2738409 10.39430 6.0927e-12 ***
+(Intercept) 106.7893583  10.2738409 10.39430 6.0929e-12 ***
 price        -0.4115989   0.1335401 -3.08221  0.0041293 ** 
 income        0.3616812   0.0520038  6.95489 5.9841e-08 ***
 ---
@@ -16777,7 +16768,7 @@ Instruments: ~income + farmPrice
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) 107.9124716   5.1136214  21.1029 < 2.22e-16 ***
-price        -0.5996331   0.0478693 -12.5265 1.7097e-14 ***
+price        -0.5996331   0.0478693 -12.5265 1.7319e-14 ***
 income        0.5429893   0.0171080  31.7389 < 2.22e-16 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
@@ -17054,7 +17045,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 94.2736754  7.3904685 12.75612 1.6209e-14 ***
+(Intercept) 94.2736754  7.3904685 12.75612 1.6431e-14 ***
 price       -0.2242853  0.0888041 -2.52562   0.016377 *  
 income       0.2979169  0.0419672  7.09880 3.3505e-08 ***
 ---
@@ -17189,7 +17180,7 @@ supply 20 16 105.6592 6.60370 2.56977 0.605917 0.532027
 
 Coefficients:
                      Estimate Std. Error  t value   Pr(>|t|)    
-demand_(Intercept) 93.7869588  7.9087931 11.85857 8.1934e-14 ***
+demand_(Intercept) 93.7869588  7.9087931 11.85857 8.1712e-14 ***
 demand_price       -0.2442767  0.0891559 -2.73988  0.0096072 ** 
 demand_income       0.3234076  0.0228697 14.14131 4.4409e-16 ***
 supply_(Intercept) 49.8092665  8.1522257  6.10990 5.5341e-07 ***
@@ -17232,7 +17223,7 @@ Model Formula: consump ~ price + income
 Instruments: ~income + farmPrice + trend
 
               Estimate Std. Error  t value   Pr(>|t|)    
-(Intercept) 93.9069910  7.9234137 11.85183 8.3267e-14 ***
+(Intercept) 93.9069910  7.9234137 11.85183 8.3045e-14 ***
 price       -0.2456903  0.0891255 -2.75668  0.0092123 ** 
 income       0.3236266  0.0232585 13.91432 8.8818e-16 ***
 ---
@@ -17280,7 +17271,7 @@ supply 20 16 138.0875 8.63047 2.93777 0.484968 0.388399
 
 Coefficients:
                      Estimate Std. Error  t value   Pr(>|t|)    
-demand_(Intercept) 92.0353468  8.9214200 10.31622 5.2245e-12 ***
+demand_(Intercept) 92.0353469  8.9214200 10.31622 5.2245e-12 ***
 demand_price       -0.1043412  0.0957762 -1.08943    0.28363    
 demand_income       0.1978671  0.0299191  6.61341 1.3912e-07 ***
 supply_(Intercept) 68.2829847 11.1530016  6.12239 5.9767e-07 ***
@@ -17395,7 +17386,7 @@ supply 0.960767 1.000000
 
 Coefficients:
                      Estimate Std. Error  t value   Pr(>|t|)    
-demand_(Intercept) 88.9298234  5.9082970 15.05168 2.2204e-16 ***
+demand_(Intercept) 88.9298234  5.9082970 15.05168 < 2.22e-16 ***
 demand_price       -0.1760181  0.0745840 -2.36000 0.02415466 *  
 demand_income       0.3032095  0.0433991  6.98655 4.6485e-08 ***
 supply_(Intercept) 40.8325042 10.1094305  4.03905 0.00028949 ***
@@ -20231,7 +20222,7 @@ Model 2: fit3slsd[[2]]$e1w
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1c
@@ -20243,7 +20234,7 @@ Model 2: fit3sls[[5]]$e1c
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1c
@@ -20256,7 +20247,7 @@ Model 2: fit3sls[[5]]$e1c
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[1]]$e1e
@@ -20268,7 +20259,7 @@ Model 2: fit3slsi[[1]]$e1e
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[1]]$e1e
@@ -20281,7 +20272,7 @@ Model 2: fit3slsi[[1]]$e1e
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1we
@@ -20293,7 +20284,7 @@ Model 2: fit3slsi[[3]]$e1we
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1we
@@ -20306,7 +20297,7 @@ Model 2: fit3slsi[[3]]$e1we
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e1
@@ -20318,7 +20309,7 @@ Model 2: fit3slsd[[2]]$e1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e1
@@ -20332,7 +20323,7 @@ Model 2: fit3slsd[[2]]$e1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e2
@@ -20344,7 +20335,7 @@ Model 2: fit3sls[[4]]$e2
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e2
@@ -20357,7 +20348,7 @@ Model 2: fit3sls[[4]]$e2
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e3
@@ -20369,7 +20360,7 @@ Model 2: fit3sls[[4]]$e3
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e3
@@ -20382,7 +20373,7 @@ Model 2: fit3sls[[4]]$e3
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[1]]$e2w
@@ -20394,7 +20385,7 @@ Model 2: fit3sls[[1]]$e2w
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[1]]$e2w
@@ -20407,7 +20398,7 @@ Model 2: fit3sls[[1]]$e2w
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[1]]$e3we
@@ -20419,7 +20410,7 @@ Model 2: fit3sls[[1]]$e3we
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[1]]$e3we
@@ -20432,7 +20423,7 @@ Model 2: fit3sls[[1]]$e3we
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e2e
@@ -20446,7 +20437,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e2e
@@ -20461,7 +20452,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e3e
@@ -20475,7 +20466,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e3e
@@ -20490,7 +20481,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e2
@@ -20502,7 +20493,7 @@ Model 2: fit3slsd[[1]]$e2
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e2
@@ -20515,7 +20506,7 @@ Model 2: fit3slsd[[1]]$e2
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e3
@@ -20527,7 +20518,7 @@ Model 2: fit3slsd[[1]]$e3
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e3
@@ -20542,7 +20533,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[2]]$e1e
@@ -20555,7 +20546,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[2]]$e1e
@@ -20569,7 +20560,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1
@@ -20584,7 +20575,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1
@@ -20600,7 +20591,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[4]]$e1e
@@ -20613,7 +20604,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[4]]$e1e
@@ -20627,7 +20618,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[5]]$e1w
@@ -20640,7 +20631,7 @@ Linear hypothesis test (Theil's F test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[5]]$e1w
@@ -20816,7 +20807,7 @@ Model 2: fit3slsd[[5]]$e1e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1c
@@ -20828,7 +20819,7 @@ Model 2: fit3sls[[5]]$e1c
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1c
@@ -20841,7 +20832,7 @@ Model 2: fit3sls[[5]]$e1c
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[3]]$e1wc
@@ -20853,7 +20844,7 @@ Model 2: fit3sls[[3]]$e1wc
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[3]]$e1wc
@@ -20866,7 +20857,7 @@ Model 2: fit3sls[[3]]$e1wc
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[1]]$e1e
@@ -20878,7 +20869,7 @@ Model 2: fit3slsi[[1]]$e1e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[1]]$e1e
@@ -20891,7 +20882,7 @@ Model 2: fit3slsi[[1]]$e1e
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e1
@@ -20903,7 +20894,7 @@ Model 2: fit3slsd[[2]]$e1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e1
@@ -20917,7 +20908,7 @@ Model 2: fit3slsd[[2]]$e1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e2
@@ -20929,7 +20920,7 @@ Model 2: fit3sls[[4]]$e2
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e2
@@ -20942,7 +20933,7 @@ Model 2: fit3sls[[4]]$e2
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e3
@@ -20954,7 +20945,7 @@ Model 2: fit3sls[[4]]$e3
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[4]]$e3
@@ -20967,7 +20958,7 @@ Model 2: fit3sls[[4]]$e3
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e2e
@@ -20981,7 +20972,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e2e
@@ -20996,7 +20987,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e3e
@@ -21010,7 +21001,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[5]]$e3e
@@ -21025,7 +21016,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e2
@@ -21037,7 +21028,7 @@ Model 2: fit3slsd[[1]]$e2
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e2
@@ -21050,7 +21041,7 @@ Model 2: fit3slsd[[1]]$e2
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e3
@@ -21062,7 +21053,7 @@ Model 2: fit3slsd[[1]]$e3
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[1]]$e3
@@ -21075,7 +21066,7 @@ Model 2: fit3slsd[[1]]$e3
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e2we
@@ -21087,7 +21078,7 @@ Model 2: fit3slsd[[2]]$e2we
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[2]]$e2we
@@ -21100,7 +21091,7 @@ Model 2: fit3slsd[[2]]$e2we
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[3]]$e3w
@@ -21112,7 +21103,7 @@ Model 2: fit3slsd[[3]]$e3w
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[3]]$e3w
@@ -21127,7 +21118,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[2]]$e1e
@@ -21140,7 +21131,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[2]]$e1e
@@ -21154,7 +21145,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1wc
@@ -21167,7 +21158,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3sls[[5]]$e1wc
@@ -21181,7 +21172,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1
@@ -21196,7 +21187,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsi[[3]]$e1
@@ -21212,7 +21203,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[4]]$e1e
@@ -21225,7 +21216,7 @@ Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
 demand_income - supply_trend = 0
- - demand_price  + supply_price = 0.5
+- demand_price  + supply_price = 0.5
 
 Model 1: restricted model
 Model 2: fit3slsd[[4]]$e1e
@@ -22435,3 +22426,6 @@ attr(,"dataClasses")
   consump     price farmPrice     trend 
 "numeric" "numeric" "numeric" "numeric" 
 > 
+> proc.time()
+   user  system elapsed 
+  8.640   0.156   8.792 
