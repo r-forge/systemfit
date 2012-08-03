@@ -92,7 +92,7 @@ Westinghouse             0.728965     1.000000
 
 OLS estimates for 'General.Electric' (equation 1)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x3f34c70>
+<environment: 0x3c78c70>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) -9.9563065 31.3742491 -0.31734    0.75485    
@@ -109,7 +109,7 @@ Multiple R-Squared: 0.705307 Adjusted R-Squared: 0.670637
 
 OLS estimates for 'Westinghouse' (equation 2)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x3f34c70>
+<environment: 0x3c78c70>
 
               Estimate Std. Error  t value  Pr(>|t|)   
 (Intercept) -0.5093902  8.0152889 -0.06355 0.9500680   
@@ -450,15 +450,15 @@ Westinghouse_X1954                 1188.9                213.5
 > formula( theilOls )
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x3f34c70>
+<environment: 0x3c78c70>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x3f34c70>
+<environment: 0x3c78c70>
 
 > formula( theilOls$eq[[ 1 ]] )
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x3f34c70>
+<environment: 0x3c78c70>
 > terms( theilOls )
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
@@ -478,7 +478,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x3f34c70>
+<environment: 0x3c78c70>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -503,7 +503,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x3f34c70>
+<environment: 0x3c78c70>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -528,7 +528,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x3f34c70>
+<environment: 0x3c78c70>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -580,7 +580,7 @@ Westinghouse             0.765043     1.000000
 
 SUR estimates for 'General.Electric' (equation 1)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x4d4fa58>
+<environment: 0x4a93a58>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -27.7193171  27.0328280 -1.02539   0.319547    
@@ -597,7 +597,7 @@ Multiple R-Squared: 0.692557 Adjusted R-Squared: 0.656388
 
 SUR estimates for 'Westinghouse' (equation 2)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x4d4fa58>
+<environment: 0x4a93a58>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) -1.2519882  6.9563467 -0.17998 0.85929789    
@@ -942,15 +942,15 @@ Westinghouse_X1954                 1188.9                213.5
 > formula( theilSur )
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x4d4fa58>
+<environment: 0x4a93a58>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x4d4fa58>
+<environment: 0x4a93a58>
 
 > formula( theilSur$eq[[ 2 ]] )
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x4d4fa58>
+<environment: 0x4a93a58>
 > terms( theilSur )
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
@@ -970,7 +970,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x4d4fa58>
+<environment: 0x4a93a58>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -995,7 +995,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x4d4fa58>
+<environment: 0x4a93a58>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -1020,7 +1020,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x4d4fa58>
+<environment: 0x4a93a58>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -1103,7 +1103,7 @@ Westinghouse         1.000000
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) -6.1899605 13.5064781 -0.4583  0.6525443    
@@ -1120,7 +1120,7 @@ Multiple R-Squared: 0.913578 Adjusted R-Squared: 0.903411
 
 OLS estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) -9.9563065 31.3742491 -0.31734    0.75485    
@@ -1137,7 +1137,7 @@ Multiple R-Squared: 0.705307 Adjusted R-Squared: 0.670637
 
 OLS estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
                 Estimate   Std. Error  t value   Pr(>|t|)    
 (Intercept) -149.7824533  105.8421248 -1.41515  0.1750822    
@@ -1154,7 +1154,7 @@ Multiple R-Squared: 0.921354 Adjusted R-Squared: 0.912102
 
 OLS estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
                Estimate  Std. Error  t value Pr(>|t|)  
 (Intercept) -30.3685323 157.0476948 -0.19337 0.848960  
@@ -1171,7 +1171,7 @@ Multiple R-Squared: 0.440312 Adjusted R-Squared: 0.374467
 
 OLS estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
               Estimate Std. Error  t value  Pr(>|t|)   
 (Intercept) -0.5093902  8.0152889 -0.06355 0.9500680   
@@ -1266,7 +1266,7 @@ Westinghouse     20 17   1773.23   104.308  10.2131 0.744446 0.714381
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) -6.1899605 13.5064781 -0.4583  0.6525443    
@@ -1283,7 +1283,7 @@ Multiple R-Squared: 0.913578 Adjusted R-Squared: 0.903411
 
 OLS estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept) -9.9563065 31.3742491 -0.31734    0.75485    
@@ -1300,7 +1300,7 @@ Multiple R-Squared: 0.705307 Adjusted R-Squared: 0.670637
 
 OLS estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
                 Estimate   Std. Error  t value   Pr(>|t|)    
 (Intercept) -149.7824533  105.8421248 -1.41515  0.1750822    
@@ -1317,7 +1317,7 @@ Multiple R-Squared: 0.921354 Adjusted R-Squared: 0.912102
 
 OLS estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
                Estimate  Std. Error  t value Pr(>|t|)  
 (Intercept) -30.3685323 157.0476948 -0.19337 0.848960  
@@ -1334,7 +1334,7 @@ Multiple R-Squared: 0.440312 Adjusted R-Squared: 0.374467
 
 OLS estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
               Estimate Std. Error  t value  Pr(>|t|)   
 (Intercept) -0.5093902  8.0152889 -0.06355 0.9500680   
@@ -2411,27 +2411,27 @@ Westinghouse_X1954                    213.5
 > formula( greeneOls )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
 $General.Motors
 General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
 $US.Steel
 US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 
 > formula( greeneOls$eq[[ 2 ]] )
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 > terms( greeneOls )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -2451,7 +2451,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -2476,7 +2476,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -2501,7 +2501,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -2526,7 +2526,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -2551,7 +2551,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -2576,7 +2576,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x3d29510>
+<environment: 0x3a6d510>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -2654,7 +2654,7 @@ Westinghouse         1.000000
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600   0.027643 *  
@@ -2671,7 +2671,7 @@ Multiple R-Squared: 0.56415 Adjusted R-Squared: 0.512874
 
 OLS estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600   0.027643 *  
@@ -2688,7 +2688,7 @@ Multiple R-Squared: -14.290768 Adjusted R-Squared: -16.089682
 
 OLS estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600   0.027643 *  
@@ -2705,7 +2705,7 @@ Multiple R-Squared: 0.896634 Adjusted R-Squared: 0.884473
 
 OLS estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600   0.027643 *  
@@ -2722,7 +2722,7 @@ Multiple R-Squared: -1.10474 Adjusted R-Squared: -1.352356
 
 OLS estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600   0.027643 *  
@@ -2754,7 +2754,7 @@ Westinghouse     20 17  12668.5   745.204  27.2984  -0.825748  -1.040541
 
 OLS estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600    0.03905 *  
@@ -2771,7 +2771,7 @@ Multiple R-Squared: 0.56415 Adjusted R-Squared: 0.512874
 
 OLS estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600    0.03905 *  
@@ -2788,7 +2788,7 @@ Multiple R-Squared: -14.290768 Adjusted R-Squared: -16.089682
 
 OLS estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600    0.03905 *  
@@ -2805,7 +2805,7 @@ Multiple R-Squared: 0.896634 Adjusted R-Squared: 0.884473
 
 OLS estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600    0.03905 *  
@@ -2822,7 +2822,7 @@ Multiple R-Squared: -1.10474 Adjusted R-Squared: -1.352356
 
 OLS estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -48.0297376  21.4801653 -2.23600    0.03905 *  
@@ -3931,27 +3931,27 @@ Westinghouse_X1954                    213.5
 > formula( greeneOlsPooled )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
 $General.Motors
 General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
 $US.Steel
 US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 
 > formula( greeneOlsPooled$eq[[ 1 ]] )
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 > terms( greeneOlsPooled )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -3971,7 +3971,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -3996,7 +3996,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -4021,7 +4021,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -4046,7 +4046,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -4071,7 +4071,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -4096,7 +4096,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x4ca7010>
+<environment: 0x49eb010>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -4188,7 +4188,7 @@ Westinghouse         1.000000
 
 SUR estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept)  0.5043036 11.5128290  0.04380 0.96557134    
@@ -4205,7 +4205,7 @@ Multiple R-Squared: 0.911862 Adjusted R-Squared: 0.901493
 
 SUR estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -22.4389132  25.5185863 -0.87932  0.3914900    
@@ -4222,7 +4222,7 @@ Multiple R-Squared: 0.687636 Adjusted R-Squared: 0.650887
 
 SUR estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
                 Estimate   Std. Error  t value   Pr(>|t|)    
 (Intercept) -162.3641052   89.4592324 -1.81495   0.087216 .  
@@ -4239,7 +4239,7 @@ Multiple R-Squared: 0.920742 Adjusted R-Squared: 0.911417
 
 SUR estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
                Estimate  Std. Error t value  Pr(>|t|)   
 (Intercept)  85.4232548 111.8774214 0.76354 0.4556062   
@@ -4256,7 +4256,7 @@ Multiple R-Squared: 0.421959 Adjusted R-Squared: 0.353954
 
 SUR estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
              Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 1.0888770  6.2588045 0.17398 0.86393984    
@@ -4288,7 +4288,7 @@ Westinghouse     20 17   1898.25   111.662  10.5670 0.726429 0.694244
 
 SUR estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
               Estimate Std. Error  t value   Pr(>|t|)    
 (Intercept)  0.5043036 11.5128290  0.04380    0.96516    
@@ -4305,7 +4305,7 @@ Multiple R-Squared: 0.911862 Adjusted R-Squared: 0.901493
 
 SUR estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
                Estimate  Std. Error  t value   Pr(>|t|)    
 (Intercept) -22.4389132  25.5185863 -0.87932  0.3817088    
@@ -4322,7 +4322,7 @@ Multiple R-Squared: 0.687636 Adjusted R-Squared: 0.650887
 
 SUR estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
                 Estimate   Std. Error  t value   Pr(>|t|)    
 (Intercept) -162.3641052   89.4592324 -1.81495   0.073059 .  
@@ -4339,7 +4339,7 @@ Multiple R-Squared: 0.920742 Adjusted R-Squared: 0.911417
 
 SUR estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
                Estimate  Std. Error t value  Pr(>|t|)   
 (Intercept)  85.4232548 111.8774214 0.76354 0.4472536   
@@ -4356,7 +4356,7 @@ Multiple R-Squared: 0.421959 Adjusted R-Squared: 0.353954
 
 SUR estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
              Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 1.0888770  6.2588045 0.17398     0.8623    
@@ -5508,27 +5508,27 @@ Westinghouse_X1954                    213.5
 > formula( greeneSur )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
 $General.Motors
 General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
 $US.Steel
 US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 
 > formula( greeneSur$eq[[ 1 ]] )
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 > terms( greeneSur )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -5548,7 +5548,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -5573,7 +5573,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -5598,7 +5598,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -5623,7 +5623,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -5648,7 +5648,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -5673,7 +5673,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x430ba38>
+<environment: 0x404fa38>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -5766,7 +5766,7 @@ Westinghouse        1.0000000
 
 SUR estimates for 'Chrysler' (equation 1)
 Model Formula: Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 
                 Estimate   Std. Error t value   Pr(>|t|)    
 (Intercept) -28.24669393   4.88823801 -5.7785 9.1246e-08 ***
@@ -5783,7 +5783,7 @@ Multiple R-Squared: 0.823775 Adjusted R-Squared: 0.803042
 
 SUR estimates for 'General.Electric' (equation 2)
 Model Formula: General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 
                 Estimate   Std. Error t value   Pr(>|t|)    
 (Intercept) -28.24669393   4.88823801 -5.7785 9.1246e-08 ***
@@ -5800,7 +5800,7 @@ Multiple R-Squared: -14.410331 Adjusted R-Squared: -16.223311
 
 SUR estimates for 'General.Motors' (equation 3)
 Model Formula: General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 
                 Estimate   Std. Error t value   Pr(>|t|)    
 (Intercept) -28.24669393   4.88823801 -5.7785 9.1246e-08 ***
@@ -5817,7 +5817,7 @@ Multiple R-Squared: 0.889609 Adjusted R-Squared: 0.876622
 
 SUR estimates for 'US.Steel' (equation 4)
 Model Formula: US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 
                 Estimate   Std. Error t value   Pr(>|t|)    
 (Intercept) -28.24669393   4.88823801 -5.7785 9.1246e-08 ***
@@ -5834,7 +5834,7 @@ Multiple R-Squared: -1.168498 Adjusted R-Squared: -1.423616
 
 SUR estimates for 'Westinghouse' (equation 5)
 Model Formula: Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 
                 Estimate   Std. Error t value   Pr(>|t|)    
 (Intercept) -28.24669393   4.88823801 -5.7785 9.1246e-08 ***
@@ -7018,27 +7018,27 @@ Westinghouse_X1954                    213.5
 > formula( greeneSurPooled )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 
 $General.Electric
 General.Electric_invest ~ General.Electric_value + General.Electric_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 
 $General.Motors
 General.Motors_invest ~ General.Motors_value + General.Motors_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 
 $US.Steel
 US.Steel_invest ~ US.Steel_value + US.Steel_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 
 $Westinghouse
 Westinghouse_invest ~ Westinghouse_value + Westinghouse_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 
 > formula( greeneSurPooled$eq[[ 1 ]] )
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 > terms( greeneSurPooled )
 $Chrysler
 Chrysler_invest ~ Chrysler_value + Chrysler_capital
@@ -7058,7 +7058,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -7083,7 +7083,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 attr(,"predvars")
 list(General.Electric_invest, General.Electric_value, General.Electric_capital)
 attr(,"dataClasses")
@@ -7108,7 +7108,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 attr(,"predvars")
 list(General.Motors_invest, General.Motors_value, General.Motors_capital)
 attr(,"dataClasses")
@@ -7133,7 +7133,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 attr(,"predvars")
 list(US.Steel_invest, US.Steel_value, US.Steel_capital)
 attr(,"dataClasses")
@@ -7158,7 +7158,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 attr(,"predvars")
 list(Westinghouse_invest, Westinghouse_value, Westinghouse_capital)
 attr(,"dataClasses")
@@ -7183,7 +7183,7 @@ attr(,"intercept")
 attr(,"response")
 [1] 1
 attr(,".Environment")
-<environment: 0x42f47c0>
+<environment: 0x40387c0>
 attr(,"predvars")
 list(Chrysler_invest, Chrysler_value, Chrysler_capital)
 attr(,"dataClasses")
@@ -7321,128 +7321,128 @@ Westinghouse_X1954            -16056.3590        -2883.3650015
 > 
 > estfun( theilSur )
                        General.Electric_(Intercept) General.Electric_value
-General.Electric_X1935                   2.37564176             2780.92624
-General.Electric_X1936                 -19.02178421           -38344.11261
-General.Electric_X1937                 -18.88196518           -52931.81298
-General.Electric_X1938                 -27.53947714           -56172.27153
-General.Electric_X1939                 -34.61383175           -78095.72719
-General.Electric_X1940                  -5.50987398           -11748.15329
-General.Electric_X1941                  39.74145439            72889.80149
-General.Electric_X1942                  18.76806948            29803.69433
-General.Electric_X1943                 -22.47826225           -39323.47199
-General.Electric_X1944                 -24.79001819           -41825.71869
-General.Electric_X1945                  -0.03207772              -64.40243
-General.Electric_X1946                  54.91233722           121262.91428
-General.Electric_X1947                  47.99464248            79512.72419
-General.Electric_X1948                  37.00211043            59366.18598
-General.Electric_X1949                 -14.79936485           -21189.73059
-General.Electric_X1950                 -30.49135433           -49106.32615
-General.Electric_X1951                  -0.11732342             -213.45824
-General.Electric_X1952                   4.39134200             9132.67395
-General.Electric_X1953                   5.09210117            12076.42715
-General.Electric_X1954                 -12.00236590           -33125.32966
-Westinghouse_X1935                       0.00000000                0.00000
-Westinghouse_X1936                       0.00000000                0.00000
-Westinghouse_X1937                       0.00000000                0.00000
-Westinghouse_X1938                       0.00000000                0.00000
-Westinghouse_X1939                       0.00000000                0.00000
-Westinghouse_X1940                       0.00000000                0.00000
-Westinghouse_X1941                       0.00000000                0.00000
-Westinghouse_X1942                       0.00000000                0.00000
-Westinghouse_X1943                       0.00000000                0.00000
-Westinghouse_X1944                       0.00000000                0.00000
-Westinghouse_X1945                       0.00000000                0.00000
-Westinghouse_X1946                       0.00000000                0.00000
-Westinghouse_X1947                       0.00000000                0.00000
-Westinghouse_X1948                       0.00000000                0.00000
-Westinghouse_X1949                       0.00000000                0.00000
-Westinghouse_X1950                       0.00000000                0.00000
-Westinghouse_X1951                       0.00000000                0.00000
-Westinghouse_X1952                       0.00000000                0.00000
-Westinghouse_X1953                       0.00000000                0.00000
-Westinghouse_X1954                       0.00000000                0.00000
+General.Electric_X1935                 0.0076714946              8.9802516
+General.Electric_X1936                -0.0614257239           -123.8219743
+General.Electric_X1937                -0.0609742161           -170.9290199
+General.Electric_X1938                -0.0889313169           -181.3932071
+General.Electric_X1939                -0.1117760379           -252.1890968
+General.Electric_X1940                -0.0177926526            -37.9374938
+General.Electric_X1941                 0.1283343129            235.3779632
+General.Electric_X1942                 0.0606064206             96.2429959
+General.Electric_X1943                -0.0725874879           -126.9845514
+General.Electric_X1944                -0.0800526805           -135.0648825
+General.Electric_X1945                -0.0001035863             -0.2079703
+General.Electric_X1946                 0.1773245890            391.5858898
+General.Electric_X1947                 0.1549857588            256.7649066
+General.Electric_X1948                 0.1194883401            191.7070928
+General.Electric_X1949                -0.0477905589            -68.4265223
+General.Electric_X1950                -0.0984636085           -158.5756415
+General.Electric_X1951                -0.0003788644             -0.6893058
+General.Electric_X1952                 0.0141806551             29.4915084
+General.Electric_X1953                 0.0164435679             38.9975657
+General.Electric_X1954                -0.0387584049           -106.9693217
+Westinghouse_X1935                    -0.0194772846            -22.8001094
+Westinghouse_X1936                     0.0169416464             34.1509708
+Westinghouse_X1937                     0.0397394357            111.4015601
+Westinghouse_X1938                     0.0598430579            122.0618852
+Westinghouse_X1939                     0.0730913648            164.9087373
+Westinghouse_X1940                     0.0520154710            110.9073873
+Westinghouse_X1941                    -0.1059942969           -194.4041399
+Westinghouse_X1942                    -0.0537283097            -85.3205557
+Westinghouse_X1943                     0.0173317532             30.3201690
+Westinghouse_X1944                     0.0185690947             31.3297766
+Westinghouse_X1945                     0.0506049152            101.5994882
+Westinghouse_X1946                    -0.0345907106            -76.3866662
+Westinghouse_X1947                    -0.1040987205           -172.4603502
+Westinghouse_X1948                    -0.0275588631            -44.2154400
+Westinghouse_X1949                     0.0605668495             86.7196151
+Westinghouse_X1950                     0.0762213366            122.7544625
+Westinghouse_X1951                    -0.0361277773            -65.7308780
+Westinghouse_X1952                    -0.0894923791           -186.1173009
+Westinghouse_X1953                    -0.0730543022           -173.2555830
+Westinghouse_X1954                     0.0791977190            218.5777846
                        General.Electric_capital Westinghouse_(Intercept)
-General.Electric_X1935                232.33776                 0.000000
-General.Electric_X1936              -1985.87427                 0.000000
-General.Electric_X1937              -2228.07189                 0.000000
-General.Electric_X1938              -4301.66633                 0.000000
-General.Electric_X1939              -5974.34736                 0.000000
-General.Electric_X1940              -1028.14248                 0.000000
-General.Electric_X1941               8778.88727                 0.000000
-General.Electric_X1942               5401.45040                 0.000000
-General.Electric_X1943              -7190.79610                 0.000000
-General.Electric_X1944              -7965.03285                 0.000000
-General.Electric_X1945                -10.25204                 0.000000
-General.Electric_X1946              18999.66868                 0.000000
-General.Electric_X1947              21904.75483                 0.000000
-General.Electric_X1948              20106.94681                 0.000000
-General.Electric_X1949              -9150.44729                 0.000000
-General.Electric_X1950             -19740.10279                 0.000000
-General.Electric_X1951                -78.75921                 0.000000
-General.Electric_X1952               3188.55342                 0.000000
-General.Electric_X1953               4075.20857                 0.000000
-General.Electric_X1954             -10668.90305                 0.000000
-Westinghouse_X1935                      0.00000                 3.030722
-Westinghouse_X1936                      0.00000                -2.636169
-Westinghouse_X1937                      0.00000                -6.183571
-Westinghouse_X1938                      0.00000                -9.311753
-Westinghouse_X1939                      0.00000               -11.373227
-Westinghouse_X1940                      0.00000                -8.093757
-Westinghouse_X1941                      0.00000                16.493019
-Westinghouse_X1942                      0.00000                 8.360280
-Westinghouse_X1943                      0.00000                -2.696871
-Westinghouse_X1944                      0.00000                -2.889405
-Westinghouse_X1945                      0.00000                -7.874271
-Westinghouse_X1946                      0.00000                 5.382414
-Westinghouse_X1947                      0.00000                16.198061
-Westinghouse_X1948                      0.00000                 4.288239
-Westinghouse_X1949                      0.00000                -9.424377
-Westinghouse_X1950                      0.00000               -11.860260
-Westinghouse_X1951                      0.00000                 5.621586
-Westinghouse_X1952                      0.00000                13.925273
-Westinghouse_X1953                      0.00000                11.367460
-Westinghouse_X1954                      0.00000               -12.323394
+General.Electric_X1935               0.75027217            -0.0152673372
+General.Electric_X1936              -6.41284558             0.1222457020
+General.Electric_X1937              -7.19495749             0.1213471388
+General.Electric_X1938             -13.89107170             0.1769856433
+General.Electric_X1939             -19.29254415             0.2224498036
+General.Electric_X1940              -3.32010897             0.0354098440
+General.Electric_X1941              28.34904971            -0.2554030651
+General.Electric_X1942              17.44252785            -0.1206151749
+General.Electric_X1943             -23.22073739             0.1444591590
+General.Electric_X1944             -25.72092624             0.1593159266
+General.Electric_X1945              -0.03310619             0.0002061512
+General.Electric_X1946              61.35430778            -0.3529005028
+General.Electric_X1947              70.73550030            -0.3084431354
+General.Electric_X1948              64.92996399            -0.2377983535
+General.Electric_X1949             -29.54890260             0.0951098343
+General.Electric_X1950             -63.74534014             0.1959562244
+General.Electric_X1951              -0.25433165             0.0007539926
+General.Electric_X1952              10.29657366            -0.0282214686
+General.Electric_X1953              13.15978742            -0.0327249787
+General.Electric_X1954             -34.45234613             0.0771345963
+Westinghouse_X1935                  -1.90487843             0.0729454834
+Westinghouse_X1936                   1.76870788            -0.0634491209
+Westinghouse_X1937                   4.68925341            -0.1488304148
+Westinghouse_X1938                   9.34748564            -0.2241216306
+Westinghouse_X1939                  12.61556957            -0.2737386163
+Westinghouse_X1940                   9.70608690            -0.1948060911
+Westinghouse_X1941                 -23.41414018             0.3969652536
+Westinghouse_X1942                 -15.46300752             0.2012209401
+Westinghouse_X1943                   5.54442784            -0.0649101320
+Westinghouse_X1944                   5.96625014            -0.0695441700
+Westinghouse_X1945                  16.17333090            -0.1895233384
+Westinghouse_X1946                 -11.96838587             0.1295476324
+Westinghouse_X1947                 -47.51065603             0.3898660230
+Westinghouse_X1948                 -14.97548621             0.1032122615
+Westinghouse_X1949                  37.44848304            -0.2268323436
+Westinghouse_X1950                  49.34569328            -0.2854608510
+Westinghouse_X1951                 -24.25257690             0.1353041880
+Westinghouse_X1952                 -64.98041648             0.3351629854
+Westinghouse_X1953                 -58.46535803             0.2735998110
+Westinghouse_X1954                  70.39885240            -0.2966078697
                        Westinghouse_value Westinghouse_capital
-General.Electric_X1935             0.0000             0.000000
-General.Electric_X1936             0.0000             0.000000
-General.Electric_X1937             0.0000             0.000000
-General.Electric_X1938             0.0000             0.000000
-General.Electric_X1939             0.0000             0.000000
-General.Electric_X1940             0.0000             0.000000
-General.Electric_X1941             0.0000             0.000000
-General.Electric_X1942             0.0000             0.000000
-General.Electric_X1943             0.0000             0.000000
-General.Electric_X1944             0.0000             0.000000
-General.Electric_X1945             0.0000             0.000000
-General.Electric_X1946             0.0000             0.000000
-General.Electric_X1947             0.0000             0.000000
-General.Electric_X1948             0.0000             0.000000
-General.Electric_X1949             0.0000             0.000000
-General.Electric_X1950             0.0000             0.000000
-General.Electric_X1951             0.0000             0.000000
-General.Electric_X1952             0.0000             0.000000
-General.Electric_X1953             0.0000             0.000000
-General.Electric_X1954             0.0000             0.000000
-Westinghouse_X1935               580.3832             5.455299
-Westinghouse_X1936             -1360.2633            -2.108935
-Westinghouse_X1937             -4507.8232           -45.758425
-Westinghouse_X1938             -5218.3062          -168.542722
-Westinghouse_X1939             -5912.9409          -267.270844
-Westinghouse_X1940             -5086.9266          -214.484573
-Westinghouse_X1941              8858.4003           597.047275
-Westinghouse_X1942              4691.7892           508.305031
-Westinghouse_X1943             -1664.5087          -227.615899
-Westinghouse_X1944             -1810.7900          -263.513714
-Westinghouse_X1945             -5804.9125          -727.582633
-Westinghouse_X1946              4093.3262           462.887643
-Westinghouse_X1947              9417.5529          1799.604631
-Westinghouse_X1948              2840.1005           560.043971
-Westinghouse_X1949             -5501.9511         -1336.376611
-Westinghouse_X1950             -7533.6372         -1621.297549
-Westinghouse_X1951              4068.9043           729.119764
-Westinghouse_X1952             12032.8281          2026.127163
-Westinghouse_X1953             13567.0639          1987.032071
-Westinghouse_X1954            -14651.2828         -2631.044566
+General.Electric_X1935         -2.9236951          -0.02748121
+General.Electric_X1936         63.0787822           0.09779656
+General.Electric_X1937         88.4620642           0.89796883
+General.Electric_X1938         99.1827545           3.20344014
+General.Electric_X1939        115.6516529           5.22757038
+General.Electric_X1940         22.2550870           0.93836087
+General.Electric_X1941       -137.1769862          -9.24559096
+General.Electric_X1942        -67.6892361          -7.33340263
+General.Electric_X1943         89.1601929          12.19235302
+General.Electric_X1944         99.8432912          14.52961250
+General.Electric_X1945          0.1519746           0.01904837
+General.Electric_X1946       -268.3808324         -30.34944324
+General.Electric_X1947       -179.3288389         -34.26803234
+General.Electric_X1948       -157.4938495         -31.05646497
+General.Electric_X1949         55.5251213          13.48657451
+General.Electric_X1950        124.4713937          26.78721588
+General.Electric_X1951          0.5457398           0.09779284
+General.Electric_X1952        -24.3861710          -4.10622368
+General.Electric_X1953        -39.0572621          -5.72032627
+General.Electric_X1954         91.7053215          16.46823631
+Westinghouse_X1935             13.9690601           0.13130187
+Westinghouse_X1936            -32.7397464          -0.05075930
+Westinghouse_X1937           -108.4973724          -1.10134507
+Westinghouse_X1938           -125.5977618          -4.05660151
+Westinghouse_X1939           -142.3167066          -6.43285748
+Westinghouse_X1940           -122.4356282          -5.16236141
+Westinghouse_X1941            213.2100377          14.37014218
+Westinghouse_X1942            112.9251916          12.23423316
+Westinghouse_X1943            -40.0625335          -5.47841514
+Westinghouse_X1944            -43.5833313          -6.34242830
+Westinghouse_X1945           -139.7166051         -17.51195647
+Westinghouse_X1946             98.5209744          11.14109638
+Westinghouse_X1947            226.6681057          43.31411515
+Westinghouse_X1948             68.3574808          13.47952135
+Westinghouse_X1949           -132.4247222         -32.16482632
+Westinghouse_X1950           -181.3247326         -39.02249834
+Westinghouse_X1951             97.9331713          17.54895319
+Westinghouse_X1952            289.6143357          48.76621437
+Westinghouse_X1953            326.5413744          47.82524696
+Westinghouse_X1954           -352.6370963         -63.32578018
 > 
 > estfun( greeneOls )
                        Chrysler_(Intercept) Chrysler_value Chrysler_capital
@@ -8159,712 +8159,712 @@ Error in estfun.systemfit(greeneOlsPooled) :
 > 
 > estfun( greeneSur )
                        Chrysler_(Intercept) Chrysler_value Chrysler_capital
-Chrysler_X1935                     7.510685     3135.71117        78.862197
-Chrysler_X1936                    10.843228     9084.45623       110.600923
-Chrysler_X1937                    -6.422166    -5676.55261      -222.849163
-Chrysler_X1938                     4.659066     2040.20484       241.339600
-Chrysler_X1939                   -15.203870   -10334.07059      -977.608855
-Chrysler_X1940                    -2.412939    -1756.13692      -161.908199
-Chrysler_X1941                    -0.116409      -74.92085        -8.753959
-Chrysler_X1942                    -4.310676    -1771.25665      -307.782246
-Chrysler_X1943                   -14.728280    -8666.12023      -988.267620
-Chrysler_X1944                    -8.171904    -5707.25771      -494.400188
-Chrysler_X1945                    12.565758    10635.65769       686.090394
-Chrysler_X1946                   -14.708749   -13146.67974     -1247.301904
-Chrysler_X1947                    -7.958324    -4607.86983      -770.365803
-Chrysler_X1948                     6.547706     4548.03658       721.557200
-Chrysler_X1949                    -8.056543    -4755.77752     -1187.534484
-Chrysler_X1950                     1.571346     1089.72831       256.443634
-Chrysler_X1951                    41.064483    33221.16655      8356.622242
-Chrysler_X1952                     4.272994     3106.46663      1241.732053
-Chrysler_X1953                    -2.011498    -2014.51565      -696.179599
-Chrysler_X1954                    -4.933906    -3469.52281     -2047.077664
-General.Electric_X1935             0.000000        0.00000         0.000000
-General.Electric_X1936             0.000000        0.00000         0.000000
-General.Electric_X1937             0.000000        0.00000         0.000000
-General.Electric_X1938             0.000000        0.00000         0.000000
-General.Electric_X1939             0.000000        0.00000         0.000000
-General.Electric_X1940             0.000000        0.00000         0.000000
-General.Electric_X1941             0.000000        0.00000         0.000000
-General.Electric_X1942             0.000000        0.00000         0.000000
-General.Electric_X1943             0.000000        0.00000         0.000000
-General.Electric_X1944             0.000000        0.00000         0.000000
-General.Electric_X1945             0.000000        0.00000         0.000000
-General.Electric_X1946             0.000000        0.00000         0.000000
-General.Electric_X1947             0.000000        0.00000         0.000000
-General.Electric_X1948             0.000000        0.00000         0.000000
-General.Electric_X1949             0.000000        0.00000         0.000000
-General.Electric_X1950             0.000000        0.00000         0.000000
-General.Electric_X1951             0.000000        0.00000         0.000000
-General.Electric_X1952             0.000000        0.00000         0.000000
-General.Electric_X1953             0.000000        0.00000         0.000000
-General.Electric_X1954             0.000000        0.00000         0.000000
-General.Motors_X1935               0.000000        0.00000         0.000000
-General.Motors_X1936               0.000000        0.00000         0.000000
-General.Motors_X1937               0.000000        0.00000         0.000000
-General.Motors_X1938               0.000000        0.00000         0.000000
-General.Motors_X1939               0.000000        0.00000         0.000000
-General.Motors_X1940               0.000000        0.00000         0.000000
-General.Motors_X1941               0.000000        0.00000         0.000000
-General.Motors_X1942               0.000000        0.00000         0.000000
-General.Motors_X1943               0.000000        0.00000         0.000000
-General.Motors_X1944               0.000000        0.00000         0.000000
-General.Motors_X1945               0.000000        0.00000         0.000000
-General.Motors_X1946               0.000000        0.00000         0.000000
-General.Motors_X1947               0.000000        0.00000         0.000000
-General.Motors_X1948               0.000000        0.00000         0.000000
-General.Motors_X1949               0.000000        0.00000         0.000000
-General.Motors_X1950               0.000000        0.00000         0.000000
-General.Motors_X1951               0.000000        0.00000         0.000000
-General.Motors_X1952               0.000000        0.00000         0.000000
-General.Motors_X1953               0.000000        0.00000         0.000000
-General.Motors_X1954               0.000000        0.00000         0.000000
-US.Steel_X1935                     0.000000        0.00000         0.000000
-US.Steel_X1936                     0.000000        0.00000         0.000000
-US.Steel_X1937                     0.000000        0.00000         0.000000
-US.Steel_X1938                     0.000000        0.00000         0.000000
-US.Steel_X1939                     0.000000        0.00000         0.000000
-US.Steel_X1940                     0.000000        0.00000         0.000000
-US.Steel_X1941                     0.000000        0.00000         0.000000
-US.Steel_X1942                     0.000000        0.00000         0.000000
-US.Steel_X1943                     0.000000        0.00000         0.000000
-US.Steel_X1944                     0.000000        0.00000         0.000000
-US.Steel_X1945                     0.000000        0.00000         0.000000
-US.Steel_X1946                     0.000000        0.00000         0.000000
-US.Steel_X1947                     0.000000        0.00000         0.000000
-US.Steel_X1948                     0.000000        0.00000         0.000000
-US.Steel_X1949                     0.000000        0.00000         0.000000
-US.Steel_X1950                     0.000000        0.00000         0.000000
-US.Steel_X1951                     0.000000        0.00000         0.000000
-US.Steel_X1952                     0.000000        0.00000         0.000000
-US.Steel_X1953                     0.000000        0.00000         0.000000
-US.Steel_X1954                     0.000000        0.00000         0.000000
-Westinghouse_X1935                 0.000000        0.00000         0.000000
-Westinghouse_X1936                 0.000000        0.00000         0.000000
-Westinghouse_X1937                 0.000000        0.00000         0.000000
-Westinghouse_X1938                 0.000000        0.00000         0.000000
-Westinghouse_X1939                 0.000000        0.00000         0.000000
-Westinghouse_X1940                 0.000000        0.00000         0.000000
-Westinghouse_X1941                 0.000000        0.00000         0.000000
-Westinghouse_X1942                 0.000000        0.00000         0.000000
-Westinghouse_X1943                 0.000000        0.00000         0.000000
-Westinghouse_X1944                 0.000000        0.00000         0.000000
-Westinghouse_X1945                 0.000000        0.00000         0.000000
-Westinghouse_X1946                 0.000000        0.00000         0.000000
-Westinghouse_X1947                 0.000000        0.00000         0.000000
-Westinghouse_X1948                 0.000000        0.00000         0.000000
-Westinghouse_X1949                 0.000000        0.00000         0.000000
-Westinghouse_X1950                 0.000000        0.00000         0.000000
-Westinghouse_X1951                 0.000000        0.00000         0.000000
-Westinghouse_X1952                 0.000000        0.00000         0.000000
-Westinghouse_X1953                 0.000000        0.00000         0.000000
-Westinghouse_X1954                 0.000000        0.00000         0.000000
+Chrysler_X1935                 0.0618269988     25.8127720      0.649183487
+Chrysler_X1936                 0.0892600597     74.7820780      0.910452609
+Chrysler_X1937                -0.0528664472    -46.7286527     -1.834465717
+Chrysler_X1938                 0.0383528304     16.7947044      1.986676617
+Chrysler_X1939                -0.1251563087    -85.0687430     -8.047550652
+Chrysler_X1940                -0.0198630033    -14.4562938     -1.332807521
+Chrysler_X1941                -0.0009582642     -0.6167388     -0.072061468
+Chrysler_X1942                -0.0354849294    -14.5807575     -2.533623958
+Chrysler_X1943                -0.1212413150    -71.3383897     -8.135292237
+Chrysler_X1944                -0.0672700647    -46.9814132     -4.069838912
+Chrysler_X1945                 0.1034397086     87.5513694      5.647808091
+Chrysler_X1946                -0.1210805333   -108.2217807    -10.267629228
+Chrysler_X1947                -0.0655119054    -37.9313932     -6.341552439
+Chrysler_X1948                 0.0538998755     37.4388536      5.939766285
+Chrysler_X1949                -0.0663204308    -39.1489503     -9.775631498
+Chrysler_X1950                 0.0129351170      8.9705036      2.111011091
+Chrysler_X1951                 0.3380375529    273.4723803     68.790642020
+Chrysler_X1952                 0.0351747382     25.5720347     10.221778924
+Chrysler_X1953                -0.0165583968    -16.5832344     -5.730861127
+Chrysler_X1954                -0.0406152824    -28.5606666    -16.851280664
+General.Electric_X1935        -0.0007941240     -0.3315468     -0.008338302
+General.Electric_X1936        -0.0187663903    -15.7224818     -0.191417181
+General.Electric_X1937        -0.0178412299    -15.7698631     -0.619090676
+General.Electric_X1938        -0.0258439192    -11.3170522     -1.338715017
+General.Electric_X1939        -0.0317391538    -21.5731028     -2.040827590
+General.Electric_X1940        -0.0062107288     -4.5201684     -0.416739901
+General.Electric_X1941         0.0334779266     21.5463936      2.517540084
+General.Electric_X1942         0.0153388754      6.3027439      1.095195700
+General.Electric_X1943        -0.0204768432    -12.0485746     -1.373996182
+General.Electric_X1944        -0.0225508072    -15.7494837     -1.364323834
+General.Electric_X1945        -0.0005522283     -0.4674061     -0.030151668
+General.Electric_X1946         0.0480304304     42.9295987      4.072980495
+General.Electric_X1947         0.0422667704     24.4724601      4.091423373
+General.Electric_X1948         0.0332044415     23.0638051      3.659129458
+General.Electric_X1949        -0.0118617315     -7.0019801     -1.748419220
+General.Electric_X1950        -0.0252605104    -17.5181640     -4.122515295
+General.Electric_X1951         0.0017516576      1.4170910      0.356462320
+General.Electric_X1952         0.0063374382      4.6073175      1.841659531
+General.Electric_X1953         0.0077506343      7.7622602      2.682494517
+General.Electric_X1954        -0.0062605076     -4.4023890     -2.597484622
+General.Motors_X1935           0.0152663742      6.3737112      0.160296929
+General.Motors_X1936          -0.0039130400     -3.2783449     -0.039913008
+General.Motors_X1937          -0.0192602218    -17.0241101     -0.668329697
+General.Motors_X1938           0.0005024442      0.2200203      0.026026612
+General.Motors_X1939          -0.0147632679    -10.0345932     -0.949278129
+General.Motors_X1940          -0.0021634266     -1.5745419     -0.145165923
+General.Motors_X1941           0.0040019558      2.5756588      0.300947079
+General.Motors_X1942           0.0145986183      5.9985723      1.042341346
+General.Motors_X1943           0.0102438368      6.0274735      0.687361446
+General.Motors_X1944           0.0148524159     10.3729272      0.898571160
+General.Motors_X1945           0.0054927862      4.6490943      0.299906129
+General.Motors_X1946           0.0149898647     13.3979411      1.271140527
+General.Motors_X1947           0.0021048510      1.2187087      0.203749574
+General.Motors_X1948          -0.0075868442     -5.2698220     -0.836070233
+General.Motors_X1949          -0.0168033984     -9.9190461     -2.476820921
+General.Motors_X1950          -0.0096017111     -6.6587867     -1.566999256
+General.Motors_X1951          -0.0178636806    -14.4517176     -3.635259002
+General.Motors_X1952          -0.0123554585     -8.9824184     -3.590496249
+General.Motors_X1953           0.0048686283      4.8759313      1.685032265
+General.Motors_X1954           0.0173892738     12.2281373      7.214809680
+US.Steel_X1935                 0.0139284652      5.8151342      0.146248884
+US.Steel_X1936                -0.0261610456    -21.9177240     -0.266842665
+US.Steel_X1937                -0.0259067977    -22.8990185     -0.898965881
+US.Steel_X1938                 0.0434287251     19.0174387      2.249607958
+US.Steel_X1939                 0.0705263413     47.9367542      4.534843748
+US.Steel_X1940                 0.0588157040     42.8060694      3.946533739
+US.Steel_X1941                -0.0162777054    -10.4763312     -1.224083446
+US.Steel_X1942                -0.0081422401     -3.3456465     -0.581355946
+US.Steel_X1943                 0.0181462077     10.6772286      1.217610536
+US.Steel_X1944                 0.0366720364     25.6117502      2.218658200
+US.Steel_X1945                 0.0394596522     33.3986496      2.154497008
+US.Steel_X1946                -0.0126323503    -11.2907947     -1.071223302
+US.Steel_X1947                -0.0184808248    -10.7003976     -1.788943841
+US.Steel_X1948                -0.0478804903    -33.2577885     -5.276430028
+US.Steel_X1949                -0.0039759152     -2.3469828     -0.586049907
+US.Steel_X1950                -0.0079080845     -5.4842566     -1.290599390
+US.Steel_X1951                -0.0527220451    -42.6521345    -10.728936187
+US.Steel_X1952                -0.0643090711    -46.7526947    -18.688216066
+US.Steel_X1953                -0.0394647475    -39.5239446    -13.658749110
+US.Steel_X1954                 0.0428841860     30.1561596     17.792648764
+Westinghouse_X1935            -0.0006386551     -0.2666385     -0.006705879
+Westinghouse_X1936             0.0034888553      2.9229629      0.035586324
+Westinghouse_X1937             0.0059458927      5.2555745      0.206322476
+Westinghouse_X1938             0.0081964673      3.5892330      0.424577008
+Westinghouse_X1939             0.0096745479      6.5757902      0.622073433
+Westinghouse_X1940             0.0071066537      5.1722226      0.476856465
+Westinghouse_X1941            -0.0115063988     -7.4055183     -0.865281192
+Westinghouse_X1942            -0.0058167576     -2.3901057     -0.415316493
+Westinghouse_X1943             0.0020743521      1.2205488      0.139189026
+Westinghouse_X1944             0.0020997965      1.4664979      0.127037689
+Westinghouse_X1945             0.0057770657      4.8897084      0.315427789
+Westinghouse_X1946            -0.0040960321     -3.6610335     -0.347343522
+Westinghouse_X1947            -0.0125711194     -7.2786781     -1.216884354
+Westinghouse_X1948            -0.0039810422     -2.7652319     -0.438710853
+Westinghouse_X1949             0.0061796041      3.6478203      0.910873652
+Westinghouse_X1950             0.0080738400      5.5992081      1.317650695
+Westinghouse_X1951            -0.0049973534     -4.0428589     -1.016961419
+Westinghouse_X1952            -0.0115751029     -8.4150998     -3.363724905
+Westinghouse_X1953            -0.0103003241    -10.3157746     -3.564942163
+Westinghouse_X1954             0.0068657101      4.8279674      2.848583139
                        General.Electric_(Intercept) General.Electric_value
-Chrysler_X1935                            0.0000000                  0.000
-Chrysler_X1936                            0.0000000                  0.000
-Chrysler_X1937                            0.0000000                  0.000
-Chrysler_X1938                            0.0000000                  0.000
-Chrysler_X1939                            0.0000000                  0.000
-Chrysler_X1940                            0.0000000                  0.000
-Chrysler_X1941                            0.0000000                  0.000
-Chrysler_X1942                            0.0000000                  0.000
-Chrysler_X1943                            0.0000000                  0.000
-Chrysler_X1944                            0.0000000                  0.000
-Chrysler_X1945                            0.0000000                  0.000
-Chrysler_X1946                            0.0000000                  0.000
-Chrysler_X1947                            0.0000000                  0.000
-Chrysler_X1948                            0.0000000                  0.000
-Chrysler_X1949                            0.0000000                  0.000
-Chrysler_X1950                            0.0000000                  0.000
-Chrysler_X1951                            0.0000000                  0.000
-Chrysler_X1952                            0.0000000                  0.000
-Chrysler_X1953                            0.0000000                  0.000
-Chrysler_X1954                            0.0000000                  0.000
-General.Electric_X1935                   -0.9050143              -1059.410
-General.Electric_X1936                  -21.3869006             -43111.714
-General.Electric_X1937                  -20.3325522             -56998.244
-General.Electric_X1938                  -29.4527250             -60074.723
-General.Electric_X1939                  -36.1711612             -81609.374
-General.Electric_X1940                   -7.0779855             -15091.681
-General.Electric_X1941                   38.1527336              69975.929
-General.Electric_X1942                   17.4807727              27759.467
-General.Electric_X1943                  -23.3361986             -40824.346
-General.Electric_X1944                  -25.6997677             -43360.648
-General.Electric_X1945                   -0.6293407              -1263.527
-General.Electric_X1946                   54.7373269             120876.439
-General.Electric_X1947                   48.1688382              79801.314
-General.Electric_X1948                   37.8410595              60712.196
-General.Electric_X1949                  -13.5180857             -19355.195
-General.Electric_X1950                  -28.7878498             -46362.832
-General.Electric_X1951                    1.9962564               3631.989
-General.Electric_X1952                    7.2223884              15020.401
-General.Electric_X1953                    8.8329211              20948.156
-General.Electric_X1954                   -7.1347155             -19691.101
-General.Motors_X1935                      0.0000000                  0.000
-General.Motors_X1936                      0.0000000                  0.000
-General.Motors_X1937                      0.0000000                  0.000
-General.Motors_X1938                      0.0000000                  0.000
-General.Motors_X1939                      0.0000000                  0.000
-General.Motors_X1940                      0.0000000                  0.000
-General.Motors_X1941                      0.0000000                  0.000
-General.Motors_X1942                      0.0000000                  0.000
-General.Motors_X1943                      0.0000000                  0.000
-General.Motors_X1944                      0.0000000                  0.000
-General.Motors_X1945                      0.0000000                  0.000
-General.Motors_X1946                      0.0000000                  0.000
-General.Motors_X1947                      0.0000000                  0.000
-General.Motors_X1948                      0.0000000                  0.000
-General.Motors_X1949                      0.0000000                  0.000
-General.Motors_X1950                      0.0000000                  0.000
-General.Motors_X1951                      0.0000000                  0.000
-General.Motors_X1952                      0.0000000                  0.000
-General.Motors_X1953                      0.0000000                  0.000
-General.Motors_X1954                      0.0000000                  0.000
-US.Steel_X1935                            0.0000000                  0.000
-US.Steel_X1936                            0.0000000                  0.000
-US.Steel_X1937                            0.0000000                  0.000
-US.Steel_X1938                            0.0000000                  0.000
-US.Steel_X1939                            0.0000000                  0.000
-US.Steel_X1940                            0.0000000                  0.000
-US.Steel_X1941                            0.0000000                  0.000
-US.Steel_X1942                            0.0000000                  0.000
-US.Steel_X1943                            0.0000000                  0.000
-US.Steel_X1944                            0.0000000                  0.000
-US.Steel_X1945                            0.0000000                  0.000
-US.Steel_X1946                            0.0000000                  0.000
-US.Steel_X1947                            0.0000000                  0.000
-US.Steel_X1948                            0.0000000                  0.000
-US.Steel_X1949                            0.0000000                  0.000
-US.Steel_X1950                            0.0000000                  0.000
-US.Steel_X1951                            0.0000000                  0.000
-US.Steel_X1952                            0.0000000                  0.000
-US.Steel_X1953                            0.0000000                  0.000
-US.Steel_X1954                            0.0000000                  0.000
-Westinghouse_X1935                        0.0000000                  0.000
-Westinghouse_X1936                        0.0000000                  0.000
-Westinghouse_X1937                        0.0000000                  0.000
-Westinghouse_X1938                        0.0000000                  0.000
-Westinghouse_X1939                        0.0000000                  0.000
-Westinghouse_X1940                        0.0000000                  0.000
-Westinghouse_X1941                        0.0000000                  0.000
-Westinghouse_X1942                        0.0000000                  0.000
-Westinghouse_X1943                        0.0000000                  0.000
-Westinghouse_X1944                        0.0000000                  0.000
-Westinghouse_X1945                        0.0000000                  0.000
-Westinghouse_X1946                        0.0000000                  0.000
-Westinghouse_X1947                        0.0000000                  0.000
-Westinghouse_X1948                        0.0000000                  0.000
-Westinghouse_X1949                        0.0000000                  0.000
-Westinghouse_X1950                        0.0000000                  0.000
-Westinghouse_X1951                        0.0000000                  0.000
-Westinghouse_X1952                        0.0000000                  0.000
-Westinghouse_X1953                        0.0000000                  0.000
-Westinghouse_X1954                        0.0000000                  0.000
+Chrysler_X1935                         0.0065904105              7.7147345
+Chrysler_X1936                         0.0095146206             19.1795721
+Chrysler_X1937                        -0.0056352661            -15.7973414
+Chrysler_X1938                         0.0040881961              8.3386936
+Chrysler_X1939                        -0.0133409589            -30.0998715
+Chrysler_X1940                        -0.0021172845             -4.5144740
+Chrysler_X1941                        -0.0001021456             -0.1873452
+Chrysler_X1942                        -0.0037824940             -6.0066004
+Chrysler_X1943                        -0.0129236426            -22.6086203
+Chrysler_X1944                        -0.0071706107            -12.0982544
+Chrysler_X1945                         0.0110260914             22.1370838
+Chrysler_X1946                        -0.0129065042            -28.5014332
+Chrysler_X1947                        -0.0069832008            -11.5690688
+Chrysler_X1948                         0.0057454237              9.2179578
+Chrysler_X1949                        -0.0070693851            -10.1219456
+Chrysler_X1950                         0.0013788108              2.2205747
+Chrysler_X1951                         0.0360329028             65.5582633
+Chrysler_X1952                         0.0037494293              7.7976882
+Chrysler_X1953                        -0.0017650320             -4.1859499
+Chrysler_X1954                        -0.0043293608            -11.9486028
+General.Electric_X1935                -0.0031917162             -3.7362230
+General.Electric_X1936                -0.0754252349           -152.0421885
+General.Electric_X1937                -0.0717068618           -201.0158456
+General.Electric_X1938                -0.1038709976           -211.8656739
+General.Electric_X1939                -0.1275649231           -287.8119795
+General.Electric_X1940                -0.0249619490            -53.2238677
+General.Electric_X1941                 0.1345533395            246.7842799
+General.Electric_X1942                 0.0616494840             97.8993806
+General.Electric_X1943                -0.0822998291           -143.9753210
+General.Electric_X1944                -0.0906354341           -152.9201044
+General.Electric_X1945                -0.0022194973             -4.4560847
+General.Electric_X1946                 0.1930422654            426.2952347
+General.Electric_X1947                 0.1698771601            281.4354911
+General.Electric_X1948                 0.1334541575            214.1138502
+General.Electric_X1949                -0.0476742661            -68.2600141
+General.Electric_X1950                -0.1015261807           -163.5079140
+General.Electric_X1951                 0.0070402024             12.8089442
+General.Electric_X1952                 0.0254712150             52.9724859
+General.Electric_X1953                 0.0311510845             73.8779120
+General.Electric_X1954                -0.0251620185            -69.4446549
+General.Motors_X1935                  -0.0162119879            -18.9777530
+General.Motors_X1936                   0.0041554174              8.3764904
+General.Motors_X1937                   0.0204532182             57.3365066
+General.Motors_X1938                  -0.0005335661             -1.0883148
+General.Motors_X1939                   0.0156777187             35.3720690
+General.Motors_X1940                   0.0022974313              4.8985829
+General.Motors_X1941                  -0.0042498408             -7.7946330
+General.Motors_X1942                  -0.0155028705            -24.6185584
+General.Motors_X1943                  -0.0108783497            -19.0305850
+General.Motors_X1944                  -0.0157723886            -26.6111740
+General.Motors_X1945                  -0.0058330146            -11.7109435
+General.Motors_X1946                  -0.0159183511            -35.1524948
+General.Motors_X1947                  -0.0022352274             -3.7031013
+General.Motors_X1948                   0.0080567805             12.9262987
+General.Motors_X1949                   0.0178442168             25.5493496
+General.Motors_X1950                   0.0101964502             16.4213831
+General.Motors_X1951                   0.0189701739             34.5143344
+General.Motors_X1952                   0.0131207673             27.2872598
+General.Motors_X1953                  -0.0051701958            -12.2616363
+General.Motors_X1954                  -0.0184663818            -50.9653672
+US.Steel_X1935                         0.0006595703              0.7720930
+US.Steel_X1936                        -0.0012388334             -2.4972404
+US.Steel_X1937                        -0.0012267937             -3.4390709
+US.Steel_X1938                         0.0020565293              4.1947027
+US.Steel_X1939                         0.0033397132              7.5350609
+US.Steel_X1940                         0.0027851662              5.9385313
+US.Steel_X1941                        -0.0007708165             -1.4137545
+US.Steel_X1942                        -0.0003855687             -0.6122830
+US.Steel_X1943                         0.0008592978              1.5032555
+US.Steel_X1944                         0.0017365722              2.9299446
+US.Steel_X1945                         0.0018685773              3.7515426
+US.Steel_X1946                        -0.0005981939             -1.3209916
+US.Steel_X1947                        -0.0008751433             -1.4498499
+US.Steel_X1948                        -0.0022673387             -3.6377182
+US.Steel_X1949                        -0.0001882760             -0.2695736
+US.Steel_X1950                        -0.0003744804             -0.6031007
+US.Steel_X1951                        -0.0024966063             -4.5423255
+US.Steel_X1952                        -0.0030452998             -6.3333099
+US.Steel_X1953                        -0.0018688186             -4.4320901
+US.Steel_X1954                         0.0020307431              5.6046479
+Westinghouse_X1935                    -0.0057925362             -6.7807429
+Westinghouse_X1936                     0.0316435581             63.7870843
+Westinghouse_X1937                     0.0539286344            151.1781407
+Westinghouse_X1938                     0.0743411148            151.6335719
+Westinghouse_X1939                     0.0877471537            197.9751281
+Westinghouse_X1940                     0.0644566175            137.4343999
+Westinghouse_X1941                    -0.1043618527           -191.4100740
+Westinghouse_X1942                    -0.0527573925            -83.7787394
+Westinghouse_X1943                     0.0188141600             32.9134915
+Westinghouse_X1944                     0.0190449382             32.1326197
+Westinghouse_X1945                     0.0523973914            105.1982427
+Westinghouse_X1946                    -0.0371505894            -82.0396465
+Westinghouse_X1947                    -0.1140187582           -188.8948767
+Westinghouse_X1948                    -0.0361076431            -57.9311026
+Westinghouse_X1949                     0.0560483734             80.2500610
+Westinghouse_X1950                     0.0732288979            117.9351400
+Westinghouse_X1951                    -0.0453254809            -82.4651799
+Westinghouse_X1952                    -0.1049849915           -218.3372869
+Westinghouse_X1953                    -0.0934228788           -221.5616994
+Westinghouse_X1954                     0.0622712841            171.8625169
                        General.Electric_capital General.Motors_(Intercept)
-Chrysler_X1935                           0.0000                   0.000000
-Chrysler_X1936                           0.0000                   0.000000
-Chrysler_X1937                           0.0000                   0.000000
-Chrysler_X1938                           0.0000                   0.000000
-Chrysler_X1939                           0.0000                   0.000000
-Chrysler_X1940                           0.0000                   0.000000
-Chrysler_X1941                           0.0000                   0.000000
-Chrysler_X1942                           0.0000                   0.000000
-Chrysler_X1943                           0.0000                   0.000000
-Chrysler_X1944                           0.0000                   0.000000
-Chrysler_X1945                           0.0000                   0.000000
-Chrysler_X1946                           0.0000                   0.000000
-Chrysler_X1947                           0.0000                   0.000000
-Chrysler_X1948                           0.0000                   0.000000
-Chrysler_X1949                           0.0000                   0.000000
-Chrysler_X1950                           0.0000                   0.000000
-Chrysler_X1951                           0.0000                   0.000000
-Chrysler_X1952                           0.0000                   0.000000
-Chrysler_X1953                           0.0000                   0.000000
-Chrysler_X1954                           0.0000                   0.000000
-General.Electric_X1935                 -88.5104                   0.000000
-General.Electric_X1936               -2232.7924                   0.000000
-General.Electric_X1937               -2399.2412                   0.000000
-General.Electric_X1938               -4600.5156                   0.000000
-General.Electric_X1939               -6243.1424                   0.000000
-General.Electric_X1940               -1320.7521                   0.000000
-General.Electric_X1941                8427.9389                   0.000000
-General.Electric_X1942                5030.9664                   0.000000
-General.Electric_X1943               -7465.2499                   0.000000
-General.Electric_X1944               -8257.3354                   0.000000
-General.Electric_X1945                -201.1373                   0.000000
-General.Electric_X1946               18939.1151                   0.000000
-General.Electric_X1947               21984.2578                   0.000000
-General.Electric_X1948               20562.8317                   0.000000
-General.Electric_X1949               -8358.2324                   0.000000
-General.Electric_X1950              -18637.2540                   0.000000
-General.Electric_X1951                1340.0869                   0.000000
-General.Electric_X1952                5244.1762                   0.000000
-General.Electric_X1953                7068.9867                   0.000000
-General.Electric_X1954               -6342.0486                   0.000000
-General.Motors_X1935                     0.0000                 107.954643
-General.Motors_X1936                     0.0000                 -27.670672
-General.Motors_X1937                     0.0000                -136.196738
-General.Motors_X1938                     0.0000                   3.552984
-General.Motors_X1939                     0.0000                -104.396977
-General.Motors_X1940                     0.0000                 -15.298455
-General.Motors_X1941                     0.0000                  28.299432
-General.Motors_X1942                     0.0000                 103.232673
-General.Motors_X1943                     0.0000                  72.438270
-General.Motors_X1944                     0.0000                 105.027377
-General.Motors_X1945                     0.0000                  38.841690
-General.Motors_X1946                     0.0000                 105.999333
-General.Motors_X1947                     0.0000                  14.884244
-General.Motors_X1948                     0.0000                 -53.649612
-General.Motors_X1949                     0.0000                -118.823556
-General.Motors_X1950                     0.0000                 -67.897543
-General.Motors_X1951                     0.0000                -126.321236
-General.Motors_X1952                     0.0000                 -87.370393
-General.Motors_X1953                     0.0000                  34.428020
-General.Motors_X1954                     0.0000                 122.966515
-US.Steel_X1935                           0.0000                   0.000000
-US.Steel_X1936                           0.0000                   0.000000
-US.Steel_X1937                           0.0000                   0.000000
-US.Steel_X1938                           0.0000                   0.000000
-US.Steel_X1939                           0.0000                   0.000000
-US.Steel_X1940                           0.0000                   0.000000
-US.Steel_X1941                           0.0000                   0.000000
-US.Steel_X1942                           0.0000                   0.000000
-US.Steel_X1943                           0.0000                   0.000000
-US.Steel_X1944                           0.0000                   0.000000
-US.Steel_X1945                           0.0000                   0.000000
-US.Steel_X1946                           0.0000                   0.000000
-US.Steel_X1947                           0.0000                   0.000000
-US.Steel_X1948                           0.0000                   0.000000
-US.Steel_X1949                           0.0000                   0.000000
-US.Steel_X1950                           0.0000                   0.000000
-US.Steel_X1951                           0.0000                   0.000000
-US.Steel_X1952                           0.0000                   0.000000
-US.Steel_X1953                           0.0000                   0.000000
-US.Steel_X1954                           0.0000                   0.000000
-Westinghouse_X1935                       0.0000                   0.000000
-Westinghouse_X1936                       0.0000                   0.000000
-Westinghouse_X1937                       0.0000                   0.000000
-Westinghouse_X1938                       0.0000                   0.000000
-Westinghouse_X1939                       0.0000                   0.000000
-Westinghouse_X1940                       0.0000                   0.000000
-Westinghouse_X1941                       0.0000                   0.000000
-Westinghouse_X1942                       0.0000                   0.000000
-Westinghouse_X1943                       0.0000                   0.000000
-Westinghouse_X1944                       0.0000                   0.000000
-Westinghouse_X1945                       0.0000                   0.000000
-Westinghouse_X1946                       0.0000                   0.000000
-Westinghouse_X1947                       0.0000                   0.000000
-Westinghouse_X1948                       0.0000                   0.000000
-Westinghouse_X1949                       0.0000                   0.000000
-Westinghouse_X1950                       0.0000                   0.000000
-Westinghouse_X1951                       0.0000                   0.000000
-Westinghouse_X1952                       0.0000                   0.000000
-Westinghouse_X1953                       0.0000                   0.000000
-Westinghouse_X1954                       0.0000                   0.000000
+Chrysler_X1935                       0.64454215               1.062121e-03
+Chrysler_X1936                       0.99332639               1.533392e-03
+Chrysler_X1937                      -0.66496140              -9.081887e-04
+Chrysler_X1938                       0.63857623               6.588604e-04
+Chrysler_X1939                      -2.30264951              -2.150051e-03
+Chrysler_X1940                      -0.39508528              -3.412250e-04
+Chrysler_X1941                      -0.02256396              -1.646195e-05
+Chrysler_X1942                      -1.08860177              -6.095929e-04
+Chrysler_X1943                      -4.13427326              -2.082795e-03
+Chrysler_X1944                      -2.30391722              -1.155627e-03
+Chrysler_X1945                       3.52393882               1.776983e-03
+Chrysler_X1946                      -4.46565044              -2.080033e-03
+Chrysler_X1947                      -3.18713285              -1.125424e-03
+Chrysler_X1948                       3.12206325               9.259419e-04
+Chrysler_X1949                      -4.37100080              -1.139314e-03
+Chrysler_X1950                       0.89264208               2.222114e-04
+Chrysler_X1951                      24.18888763               5.807122e-03
+Chrysler_X1952                       2.72246065               6.042642e-04
+Chrysler_X1953                      -1.41255512              -2.844555e-04
+Chrysler_X1954                      -3.84836879              -6.977269e-04
+General.Electric_X1935              -0.31214985               1.359097e-04
+General.Electric_X1936              -7.87439452               3.211758e-03
+General.Electric_X1937              -8.46140969               3.053422e-03
+General.Electric_X1938             -16.22464983               4.423036e-03
+General.Electric_X1939             -22.01770573               5.431970e-03
+General.Electric_X1940              -4.65789969               1.062930e-03
+General.Electric_X1941              29.72283269              -5.729551e-03
+General.Electric_X1942              17.74272149              -2.625159e-03
+General.Electric_X1943             -26.32771532               3.504492e-03
+General.Electric_X1944             -29.12116497               3.859439e-03
+General.Electric_X1945              -0.70935134               9.451065e-05
+General.Electric_X1946              66.79262384              -8.220127e-03
+General.Electric_X1947              77.53193586              -7.233710e-03
+General.Electric_X1948              72.51898917              -5.682746e-03
+General.Electric_X1949             -29.47699870               2.030066e-03
+General.Electric_X1950             -65.72804937               4.323189e-03
+General.Electric_X1951               4.72608785              -2.997859e-04
+General.Electric_X1952              18.49464924              -1.084615e-03
+General.Electric_X1953              24.93021294              -1.326476e-03
+General.Electric_X1954             -22.36651827               1.071449e-03
+General.Motors_X1935                -1.58553241               2.128254e-02
+General.Motors_X1936                 0.43382558              -5.455090e-03
+General.Motors_X1937                 2.41347975              -2.685028e-02
+General.Motors_X1938                -0.08334303               7.004473e-04
+General.Motors_X1939                 2.70597425              -2.058117e-02
+General.Motors_X1940                 0.42870067              -3.015989e-03
+General.Motors_X1941                -0.93878983               5.579045e-03
+General.Motors_X1942                -4.46172614               2.035164e-02
+General.Motors_X1943                -3.47998407               1.428072e-02
+General.Motors_X1944                -5.06766845               2.070545e-02
+General.Motors_X1945                -1.86423148               7.657382e-03
+General.Motors_X1946                -5.50774949               2.089707e-02
+General.Motors_X1947                -1.02015780               2.934330e-03
+General.Motors_X1948                 4.37805455              -1.057667e-02
+General.Motors_X1949                11.03307924              -2.342528e-02
+General.Motors_X1950                 6.60118186              -1.338555e-02
+General.Motors_X1951                12.73467774              -2.490339e-02
+General.Motors_X1952                 9.52698916              -1.722449e-02
+General.Motors_X1953                -4.13770768               6.787256e-03
+General.Motors_X1954               -16.41476682               2.424203e-02
+US.Steel_X1935                       0.06450597              -3.295255e-03
+US.Steel_X1936                      -0.12933421               6.189291e-03
+US.Steel_X1937                      -0.14476166               6.129140e-03
+US.Steel_X1938                       0.32122987              -1.027455e-02
+US.Steel_X1939                       0.57643449              -1.668542e-02
+US.Steel_X1940                       0.51971201              -1.391487e-02
+US.Steel_X1941                      -0.17027336               3.851048e-03
+US.Steel_X1942                      -0.11096666               1.926326e-03
+US.Steel_X1943                       0.27488936              -4.293106e-03
+US.Steel_X1944                       0.55796064              -8.676025e-03
+US.Steel_X1945                       0.59719730              -9.335531e-03
+US.Steel_X1946                      -0.20697509               2.988615e-03
+US.Steel_X1947                      -0.39941539               4.372272e-03
+US.Steel_X1948                      -1.23207186               1.132777e-02
+US.Steel_X1949                      -0.11641104               9.406388e-04
+US.Steel_X1950                      -0.24243862               1.870928e-03
+US.Steel_X1951                      -1.67597181               1.247320e-02
+US.Steel_X1952                      -2.21119217               1.521451e-02
+US.Steel_X1953                      -1.49561551               9.336737e-03
+US.Steel_X1954                       1.80512754              -1.014572e-02
+Westinghouse_X1935                  -0.56651004              -4.908448e-04
+Westinghouse_X1936                   3.30358746               2.681395e-03
+Westinghouse_X1937                   6.36357885               4.569776e-03
+Westinghouse_X1938                  11.61208214               6.299478e-03
+Westinghouse_X1939                  15.14515872               7.435471e-03
+Westinghouse_X1940                  12.02760483               5.461890e-03
+Westinghouse_X1941                 -23.05353325              -8.843359e-03
+Westinghouse_X1942                 -15.18357758              -4.470528e-03
+Westinghouse_X1943                   6.01864978               1.594264e-03
+Westinghouse_X1944                   6.11913863               1.613820e-03
+Westinghouse_X1945                  16.74620630               4.440022e-03
+Westinghouse_X1946                 -12.85410392              -3.148047e-03
+Westinghouse_X1947                 -52.03816124              -9.661661e-03
+Westinghouse_X1948                 -19.62089325              -3.059670e-03
+Westinghouse_X1949                  34.65470925               4.749397e-03
+Westinghouse_X1950                  47.40838847               6.205231e-03
+Westinghouse_X1951                 -30.42699531              -3.840766e-03
+Westinghouse_X1952                 -76.22960236              -8.896162e-03
+Westinghouse_X1953                 -74.76632991              -7.916418e-03
+Westinghouse_X1954                  55.35294441               5.276711e-03
                        General.Motors_value General.Motors_capital
-Chrysler_X1935                        0.000                 0.0000
-Chrysler_X1936                        0.000                 0.0000
-Chrysler_X1937                        0.000                 0.0000
-Chrysler_X1938                        0.000                 0.0000
-Chrysler_X1939                        0.000                 0.0000
-Chrysler_X1940                        0.000                 0.0000
-Chrysler_X1941                        0.000                 0.0000
-Chrysler_X1942                        0.000                 0.0000
-Chrysler_X1943                        0.000                 0.0000
-Chrysler_X1944                        0.000                 0.0000
-Chrysler_X1945                        0.000                 0.0000
-Chrysler_X1946                        0.000                 0.0000
-Chrysler_X1947                        0.000                 0.0000
-Chrysler_X1948                        0.000                 0.0000
-Chrysler_X1949                        0.000                 0.0000
-Chrysler_X1950                        0.000                 0.0000
-Chrysler_X1951                        0.000                 0.0000
-Chrysler_X1952                        0.000                 0.0000
-Chrysler_X1953                        0.000                 0.0000
-Chrysler_X1954                        0.000                 0.0000
-General.Electric_X1935                0.000                 0.0000
-General.Electric_X1936                0.000                 0.0000
-General.Electric_X1937                0.000                 0.0000
-General.Electric_X1938                0.000                 0.0000
-General.Electric_X1939                0.000                 0.0000
-General.Electric_X1940                0.000                 0.0000
-General.Electric_X1941                0.000                 0.0000
-General.Electric_X1942                0.000                 0.0000
-General.Electric_X1943                0.000                 0.0000
-General.Electric_X1944                0.000                 0.0000
-General.Electric_X1945                0.000                 0.0000
-General.Electric_X1946                0.000                 0.0000
-General.Electric_X1947                0.000                 0.0000
-General.Electric_X1948                0.000                 0.0000
-General.Electric_X1949                0.000                 0.0000
-General.Electric_X1950                0.000                 0.0000
-General.Electric_X1951                0.000                 0.0000
-General.Electric_X1952                0.000                 0.0000
-General.Electric_X1953                0.000                 0.0000
-General.Electric_X1954                0.000                 0.0000
-General.Motors_X1935             332338.367               302.2730
-General.Motors_X1936            -128992.372             -1455.4774
-General.Motors_X1937            -733705.446            -21369.2681
-General.Motors_X1938               9920.643               743.2843
-General.Motors_X1939            -450285.040            -21234.3451
-General.Motors_X1940             -71044.496             -3169.8399
-General.Motors_X1941             128796.373              7222.0149
-General.Motors_X1942             334897.115             31351.7629
-General.Motors_X1943             293643.015             19130.9471
-General.Motors_X1944             459946.394             21173.5193
-General.Motors_X1945             188028.738             10293.0479
-General.Motors_X1946             519492.132             42632.9318
-General.Motors_X1947              52489.286             11334.3516
-General.Motors_X1948            -174613.393            -49486.4023
-General.Motors_X1949            -439670.921           -121211.9092
-General.Motors_X1950            -254996.011            -74619.3993
-General.Motors_X1951            -610510.532           -152558.1563
-General.Motors_X1952            -430290.447           -124983.3468
-General.Motors_X1953             214889.370             61188.9193
-General.Motors_X1954             687825.498            273760.3523
-US.Steel_X1935                        0.000                 0.0000
-US.Steel_X1936                        0.000                 0.0000
-US.Steel_X1937                        0.000                 0.0000
-US.Steel_X1938                        0.000                 0.0000
-US.Steel_X1939                        0.000                 0.0000
-US.Steel_X1940                        0.000                 0.0000
-US.Steel_X1941                        0.000                 0.0000
-US.Steel_X1942                        0.000                 0.0000
-US.Steel_X1943                        0.000                 0.0000
-US.Steel_X1944                        0.000                 0.0000
-US.Steel_X1945                        0.000                 0.0000
-US.Steel_X1946                        0.000                 0.0000
-US.Steel_X1947                        0.000                 0.0000
-US.Steel_X1948                        0.000                 0.0000
-US.Steel_X1949                        0.000                 0.0000
-US.Steel_X1950                        0.000                 0.0000
-US.Steel_X1951                        0.000                 0.0000
-US.Steel_X1952                        0.000                 0.0000
-US.Steel_X1953                        0.000                 0.0000
-US.Steel_X1954                        0.000                 0.0000
-Westinghouse_X1935                    0.000                 0.0000
-Westinghouse_X1936                    0.000                 0.0000
-Westinghouse_X1937                    0.000                 0.0000
-Westinghouse_X1938                    0.000                 0.0000
-Westinghouse_X1939                    0.000                 0.0000
-Westinghouse_X1940                    0.000                 0.0000
-Westinghouse_X1941                    0.000                 0.0000
-Westinghouse_X1942                    0.000                 0.0000
-Westinghouse_X1943                    0.000                 0.0000
-Westinghouse_X1944                    0.000                 0.0000
-Westinghouse_X1945                    0.000                 0.0000
-Westinghouse_X1946                    0.000                 0.0000
-Westinghouse_X1947                    0.000                 0.0000
-Westinghouse_X1948                    0.000                 0.0000
-Westinghouse_X1949                    0.000                 0.0000
-Westinghouse_X1950                    0.000                 0.0000
-Westinghouse_X1951                    0.000                 0.0000
-Westinghouse_X1952                    0.000                 0.0000
-Westinghouse_X1953                    0.000                 0.0000
-Westinghouse_X1954                    0.000                 0.0000
+Chrysler_X1935                   3.26974068           2.973940e-03
+Chrysler_X1936                   7.14821294           8.065641e-02
+Chrysler_X1937                  -4.89250356          -1.424948e-01
+Chrysler_X1938                   1.83967002           1.378336e-01
+Chrysler_X1939                  -9.27359937          -4.373203e-01
+Chrysler_X1940                  -1.58461499          -7.070183e-02
+Chrysler_X1941                  -0.07492162          -4.201089e-03
+Chrysler_X1942                  -1.97758048          -1.851334e-01
+Chrysler_X1943                  -8.44302802          -5.500663e-01
+Chrysler_X1944                  -5.06083910          -2.329745e-01
+Chrysler_X1945                   8.60219706           4.709005e-01
+Chrysler_X1946                 -10.19403578          -8.365894e-01
+Chrysler_X1947                  -3.96880815          -8.570105e-01
+Chrysler_X1948                   3.01366319           8.540888e-01
+Chrysler_X1949                  -4.21568861          -1.162214e+00
+Chrysler_X1950                   0.83453716           2.442103e-01
+Chrysler_X1951                  28.06581975           7.013261e+00
+Chrysler_X1952                   2.97594073           8.643999e-01
+Chrysler_X1953                  -1.77548564          -5.055627e-01
+Chrysler_X1954                  -3.90280517          -1.553349e+00
+General.Electric_X1935           0.41839796           3.805471e-04
+General.Electric_X1936          14.97225168           1.689385e-01
+General.Electric_X1937          16.44909011           4.790819e-01
+General.Electric_X1938          12.34999983           9.252990e-01
+General.Electric_X1939          23.42917489           1.104863e+00
+General.Electric_X1940           4.93614010           2.202391e-01
+General.Electric_X1941         -26.07633357          -1.462181e+00
+General.Electric_X1942          -8.51627751          -7.972607e-01
+General.Electric_X1943          14.20615878           9.255363e-01
+General.Electric_X1944          16.90163981           7.780628e-01
+General.Electric_X1945           0.45751660           2.504532e-02
+General.Electric_X1946         -40.28602081          -3.306135e+00
+General.Electric_X1947         -25.50967975          -5.508470e+00
+General.Electric_X1948         -18.49563294          -5.241765e+00
+General.Electric_X1949           7.51164994           2.070870e+00
+General.Electric_X1950          16.23616683           4.751184e+00
+General.Electric_X1951          -1.44886548          -3.620515e-01
+General.Electric_X1952          -5.34162266          -1.551542e+00
+General.Electric_X1953          -8.27946335          -2.357545e+00
+General.Electric_X1954           5.99325851           2.385367e+00
+General.Motors_X1935            65.51830694           5.959112e-02
+General.Motors_X1936           -25.42999147          -2.869377e-01
+General.Motors_X1937          -144.64516698          -4.212810e+00
+General.Motors_X1938             1.95578902           1.465336e-01
+General.Motors_X1939           -88.77071205          -4.186210e+00
+General.Motors_X1940           -14.00595167          -6.249129e-01
+General.Motors_X1941            25.39135153           1.423772e+00
+General.Motors_X1942            66.02274721           6.180792e+00
+General.Motors_X1943            57.88977462           3.771539e+00
+General.Motors_X1944            90.67538390           4.174219e+00
+General.Motors_X1945            37.06861972           2.029206e+00
+General.Motors_X1946           102.41443166           8.404800e+00
+General.Motors_X1947            10.34791484           2.234492e+00
+General.Motors_X1948           -34.42387341          -9.755916e+00
+General.Motors_X1949           -86.67820874          -2.389612e+01
+General.Motors_X1950           -50.27077392          -1.471072e+01
+General.Motors_X1951          -120.35810606          -3.007583e+01
+General.Motors_X1952           -84.82891047          -2.463964e+01
+General.Motors_X1953            42.36401546           1.206299e+01
+General.Motors_X1954           135.60023934           5.397004e+01
+US.Steel_X1935                 -10.14444295          -9.226714e-03
+US.Steel_X1936                  28.85261655           3.255567e-01
+US.Steel_X1937                  33.01828836           9.616620e-01
+US.Steel_X1938                 -28.68860210          -2.149436e+00
+US.Steel_X1939                 -71.96755288          -3.393814e+00
+US.Steel_X1940                 -64.61925449          -2.883161e+00
+US.Steel_X1941                  17.52689115           9.827875e-01
+US.Steel_X1942                   6.24919281           5.850251e-01
+US.Steel_X1943                 -17.40296579          -1.133809e+00
+US.Steel_X1944                 -37.99491770          -1.749087e+00
+US.Steel_X1945                 -45.19237321          -2.473916e+00
+US.Steel_X1946                  14.64690229           1.202021e+00
+US.Steel_X1947                  15.41881588           3.329485e+00
+US.Steel_X1948                  36.86848882           1.044873e+01
+US.Steel_X1949                   3.48055180           9.595457e-01
+US.Steel_X1950                   7.02645737           2.056150e+00
+US.Steel_X1951                  60.28299600           1.506389e+01
+US.Steel_X1952                  74.92994909           2.176436e+01
+US.Steel_X1953                  58.27710961           1.659418e+01
+US.Steel_X1954                 -56.75111018          -2.258742e+01
+Westinghouse_X1935              -1.51106583          -1.374366e-03
+Westinghouse_X1936              12.49985861           1.410414e-01
+Westinghouse_X1937              24.61783911           7.169978e-01
+Westinghouse_X1938              17.58940145           1.317851e+00
+Westinghouse_X1939              32.07067518           1.512375e+00
+Westinghouse_X1940              25.36447278           1.131704e+00
+Westinghouse_X1941             -40.24789486          -2.256825e+00
+Westinghouse_X1942             -14.50283897          -1.357699e+00
+Westinghouse_X1943               6.46266890           4.210452e-01
+Westinghouse_X1944               7.06740099           3.253461e-01
+Westinghouse_X1945              21.49370315           1.176606e+00
+Westinghouse_X1946             -15.42826244          -1.266144e+00
+Westinghouse_X1947             -34.07184596          -7.357355e+00
+Westinghouse_X1948              -9.95830844          -2.822240e+00
+Westinghouse_X1949              17.57371911           4.844860e+00
+Westinghouse_X1950              23.30436625           6.819549e+00
+Westinghouse_X1951             -18.56242382          -4.638494e+00
+Westinghouse_X1952             -43.81270859          -1.272596e+01
+Westinghouse_X1953             -49.41190590          -1.406985e+01
+Westinghouse_X1954              29.51580936           1.174754e+01
                        US.Steel_(Intercept) US.Steel_value US.Steel_capital
-Chrysler_X1935                      0.00000           0.00            0.000
-Chrysler_X1936                      0.00000           0.00            0.000
-Chrysler_X1937                      0.00000           0.00            0.000
-Chrysler_X1938                      0.00000           0.00            0.000
-Chrysler_X1939                      0.00000           0.00            0.000
-Chrysler_X1940                      0.00000           0.00            0.000
-Chrysler_X1941                      0.00000           0.00            0.000
-Chrysler_X1942                      0.00000           0.00            0.000
-Chrysler_X1943                      0.00000           0.00            0.000
-Chrysler_X1944                      0.00000           0.00            0.000
-Chrysler_X1945                      0.00000           0.00            0.000
-Chrysler_X1946                      0.00000           0.00            0.000
-Chrysler_X1947                      0.00000           0.00            0.000
-Chrysler_X1948                      0.00000           0.00            0.000
-Chrysler_X1949                      0.00000           0.00            0.000
-Chrysler_X1950                      0.00000           0.00            0.000
-Chrysler_X1951                      0.00000           0.00            0.000
-Chrysler_X1952                      0.00000           0.00            0.000
-Chrysler_X1953                      0.00000           0.00            0.000
-Chrysler_X1954                      0.00000           0.00            0.000
-General.Electric_X1935              0.00000           0.00            0.000
-General.Electric_X1936              0.00000           0.00            0.000
-General.Electric_X1937              0.00000           0.00            0.000
-General.Electric_X1938              0.00000           0.00            0.000
-General.Electric_X1939              0.00000           0.00            0.000
-General.Electric_X1940              0.00000           0.00            0.000
-General.Electric_X1941              0.00000           0.00            0.000
-General.Electric_X1942              0.00000           0.00            0.000
-General.Electric_X1943              0.00000           0.00            0.000
-General.Electric_X1944              0.00000           0.00            0.000
-General.Electric_X1945              0.00000           0.00            0.000
-General.Electric_X1946              0.00000           0.00            0.000
-General.Electric_X1947              0.00000           0.00            0.000
-General.Electric_X1948              0.00000           0.00            0.000
-General.Electric_X1949              0.00000           0.00            0.000
-General.Electric_X1950              0.00000           0.00            0.000
-General.Electric_X1951              0.00000           0.00            0.000
-General.Electric_X1952              0.00000           0.00            0.000
-General.Electric_X1953              0.00000           0.00            0.000
-General.Electric_X1954              0.00000           0.00            0.000
-General.Motors_X1935                0.00000           0.00            0.000
-General.Motors_X1936                0.00000           0.00            0.000
-General.Motors_X1937                0.00000           0.00            0.000
-General.Motors_X1938                0.00000           0.00            0.000
-General.Motors_X1939                0.00000           0.00            0.000
-General.Motors_X1940                0.00000           0.00            0.000
-General.Motors_X1941                0.00000           0.00            0.000
-General.Motors_X1942                0.00000           0.00            0.000
-General.Motors_X1943                0.00000           0.00            0.000
-General.Motors_X1944                0.00000           0.00            0.000
-General.Motors_X1945                0.00000           0.00            0.000
-General.Motors_X1946                0.00000           0.00            0.000
-General.Motors_X1947                0.00000           0.00            0.000
-General.Motors_X1948                0.00000           0.00            0.000
-General.Motors_X1949                0.00000           0.00            0.000
-General.Motors_X1950                0.00000           0.00            0.000
-General.Motors_X1951                0.00000           0.00            0.000
-General.Motors_X1952                0.00000           0.00            0.000
-General.Motors_X1953                0.00000           0.00            0.000
-General.Motors_X1954                0.00000           0.00            0.000
-US.Steel_X1935                    -35.29674      -48088.28        -1898.965
-US.Steel_X1936                     66.29586      119803.25         3347.941
-US.Steel_X1937                     65.65156      175703.27         7753.449
-US.Steel_X1938                   -110.05465     -198307.48       -28636.220
-US.Steel_X1939                   -178.72392     -349816.33       -55886.969
-US.Steel_X1940                   -149.04747     -328336.68       -37887.868
-US.Steel_X1941                     41.25005       98195.75        10782.764
-US.Steel_X1942                     20.63361       44746.05         6163.259
-US.Steel_X1943                    -45.98511      -91285.04       -13878.305
-US.Steel_X1944                    -92.93223     -168569.77       -25937.385
-US.Steel_X1945                    -99.99645     -185013.43       -21379.241
-US.Steel_X1946                     32.01220       66191.62         7446.037
-US.Steel_X1947                     46.83307       84144.99        12401.398
-US.Steel_X1948                    121.33607      197268.18        37238.039
-US.Steel_X1949                     10.07554       16795.93         3537.523
-US.Steel_X1950                     20.04023       33615.48         7170.393
-US.Steel_X1951                    133.60526      305889.25        45706.361
-US.Steel_X1952                    162.96846      351914.09        72390.590
-US.Steel_X1953                    100.00936      203149.01        62365.837
-US.Steel_X1954                   -108.67471     -229901.35       -72779.454
-Westinghouse_X1935                  0.00000           0.00            0.000
-Westinghouse_X1936                  0.00000           0.00            0.000
-Westinghouse_X1937                  0.00000           0.00            0.000
-Westinghouse_X1938                  0.00000           0.00            0.000
-Westinghouse_X1939                  0.00000           0.00            0.000
-Westinghouse_X1940                  0.00000           0.00            0.000
-Westinghouse_X1941                  0.00000           0.00            0.000
-Westinghouse_X1942                  0.00000           0.00            0.000
-Westinghouse_X1943                  0.00000           0.00            0.000
-Westinghouse_X1944                  0.00000           0.00            0.000
-Westinghouse_X1945                  0.00000           0.00            0.000
-Westinghouse_X1946                  0.00000           0.00            0.000
-Westinghouse_X1947                  0.00000           0.00            0.000
-Westinghouse_X1948                  0.00000           0.00            0.000
-Westinghouse_X1949                  0.00000           0.00            0.000
-Westinghouse_X1950                  0.00000           0.00            0.000
-Westinghouse_X1951                  0.00000           0.00            0.000
-Westinghouse_X1952                  0.00000           0.00            0.000
-Westinghouse_X1953                  0.00000           0.00            0.000
-Westinghouse_X1954                  0.00000           0.00            0.000
+Chrysler_X1935                -2.963796e-03    -4.03787514    -1.594522e-01
+Chrysler_X1936                -4.278852e-03    -7.73231332    -2.160820e-01
+Chrysler_X1937                 2.534254e-03     6.78242507     2.992954e-01
+Chrysler_X1938                -1.838516e-03    -3.31282268    -4.783820e-01
+Chrysler_X1939                 5.999607e-03    11.74303153     1.876077e+00
+Chrysler_X1940                 9.521711e-04     2.09753773     2.420419e-01
+Chrysler_X1941                 4.593623e-05     0.10935119     1.200773e-02
+Chrysler_X1942                 1.701038e-03     3.68887113     5.081001e-01
+Chrysler_X1943                 5.811935e-03    11.53727149     1.754042e+00
+Chrysler_X1944                 3.224719e-03     5.84931852     9.000192e-01
+Chrysler_X1945                -4.958581e-03    -9.17436575    -1.060145e+00
+Chrysler_X1946                 5.804227e-03    12.00140075     1.350063e+00
+Chrysler_X1947                 3.140439e-03     5.64242615     8.315882e-01
+Chrysler_X1948                -2.583794e-03    -4.20073192    -7.929663e-01
+Chrysler_X1949                 3.179197e-03     5.29972120     1.116216e+00
+Chrysler_X1950                -6.200696e-04    -1.04010476    -2.218609e-01
+Chrysler_X1951                -1.620448e-02   -37.10015141    -5.543552e+00
+Chrysler_X1952                -1.686168e-03    -3.64111215    -7.489960e-01
+Chrysler_X1953                 7.937585e-04     1.61236157     4.949878e-01
+Chrysler_X1954                 1.946971e-03     4.11881790     1.303887e+00
+General.Electric_X1935         1.691149e-05     0.02304022     9.098383e-04
+General.Electric_X1936         3.996450e-04     0.72219841     2.018207e-02
+General.Electric_X1937         3.799429e-04     1.01684131     4.487126e-02
+General.Electric_X1938         5.503665e-04     0.99170536     1.432054e-01
+General.Electric_X1939         6.759101e-04     1.32295886     2.113571e-01
+General.Electric_X1940         1.322623e-04     0.29136068     3.362108e-02
+General.Electric_X1941        -7.129386e-04    -1.69715043    -1.863622e-01
+General.Electric_X1942        -3.266534e-04    -0.70838046    -9.757136e-02
+General.Electric_X1943         4.360704e-04     0.86564334     1.316060e-01
+General.Electric_X1944         4.802371e-04     0.87110204     1.340342e-01
+General.Electric_X1945         1.176013e-05     0.02175860     2.514317e-03
+General.Electric_X1946        -1.022846e-03    -2.11493782    -2.379139e-01
+General.Electric_X1947        -9.001039e-04    -1.61721675    -2.383475e-01
+General.Electric_X1948        -7.071146e-04    -1.14962685    -2.170135e-01
+General.Electric_X1949         2.526049e-04     0.42109229     8.868956e-02
+General.Electric_X1950         5.379423e-04     0.90234446     1.924758e-01
+General.Electric_X1951        -3.730292e-05    -0.08540503    -1.276133e-02
+General.Electric_X1952        -1.349607e-04    -0.29143414    -5.994954e-02
+General.Electric_X1953        -1.650558e-04    -0.33527789    -1.029288e-01
+General.Electric_X1954         1.333224e-04     0.28204355     8.928602e-02
+General.Motors_X1935           1.007850e-02    13.73094477     5.422232e-01
+General.Motors_X1936          -2.583296e-03    -4.66827419    -1.304564e-01
+General.Motors_X1937          -1.271514e-02   -34.02953078    -1.501658e+00
+General.Motors_X1938           3.317017e-04     0.59769338     8.630879e-02
+General.Motors_X1939          -9.746359e-03   -19.07654758    -3.047686e+00
+General.Motors_X1940          -1.428243e-03    -3.14627605    -3.630593e-01
+General.Motors_X1941           2.641996e-03     6.28927175     6.906178e-01
+General.Motors_X1942           9.637661e-03    20.90023113     2.878769e+00
+General.Motors_X1943           6.762738e-03    13.42471023     2.040994e+00
+General.Motors_X1944           9.805212e-03    17.78567383     2.736635e+00
+General.Motors_X1945           3.626207e-03     6.70920802     7.752830e-01
+General.Motors_X1946           9.895952e-03    20.46186066     2.301799e+00
+General.Motors_X1947           1.389573e-03     2.49664505     3.679588e-01
+General.Motors_X1948          -5.008654e-03    -8.14307000    -1.537156e+00
+General.Motors_X1949          -1.109320e-02   -18.49237134    -3.894824e+00
+General.Motors_X1950          -6.338821e-03   -10.63273907    -2.268030e+00
+General.Motors_X1951          -1.179318e-02   -27.00047937    -4.034446e+00
+General.Motors_X1952          -8.156780e-03   -17.61375075    -3.623242e+00
+General.Motors_X1953           3.214153e-03     6.52890835     2.004346e+00
+General.Motors_X1954           1.147999e-02    24.28590859     7.688146e+00
+US.Steel_X1935                -8.992067e-03   -12.25079194    -4.837732e-01
+US.Steel_X1936                 1.688929e-02    30.52063402     8.529091e-01
+US.Steel_X1937                 1.672515e-02    44.76151688     1.975240e+00
+US.Steel_X1938                -2.803712e-02   -50.52008030    -7.295258e+00
+US.Steel_X1939                -4.553105e-02   -89.11791513    -1.423756e+01
+US.Steel_X1940                -3.797078e-02   -83.64584054    -9.652173e+00
+US.Steel_X1941                 1.050871e-02    25.01598669     2.746977e+00
+US.Steel_X1942                 5.256542e-03    11.39933791     1.570129e+00
+US.Steel_X1943                -1.171500e-02   -23.25543854    -3.535586e+00
+US.Steel_X1944                -2.367507e-02   -42.94421163    -6.607712e+00
+US.Steel_X1945                -2.547473e-02   -47.13333783    -5.446496e+00
+US.Steel_X1946                 8.155309e-03    16.86273261     1.896925e+00
+US.Steel_X1947                 1.193102e-02    21.43646577     3.159334e+00
+US.Steel_X1948                 3.091113e-02    50.25531216     9.486625e+00
+US.Steel_X1949                 2.566808e-03     4.27886894     9.012063e-01
+US.Steel_X1950                 5.105374e-03     8.56375446     1.826703e+00
+US.Steel_X1951                 3.403678e-02    77.92721644     1.164398e+01
+US.Steel_X1952                 4.151724e-02    89.65233405     1.844196e+01
+US.Steel_X1953                 2.547802e-02    51.75349265     1.588809e+01
+US.Steel_X1954                -2.768557e-02   -58.56881908    -1.854102e+01
+Westinghouse_X1935            -1.363606e-03    -1.85777631    -7.336198e-02
+Westinghouse_X1936             7.449126e-03    13.46131611     3.761809e-01
+Westinghouse_X1937             1.269520e-02    33.97615610     1.499303e+00
+Westinghouse_X1938             1.750045e-02    31.53405214     4.553616e+00
+Westinghouse_X1939             2.065633e-02    40.43062551     6.459233e+00
+Westinghouse_X1940             1.517356e-02    33.42583930     3.857119e+00
+Westinghouse_X1941            -2.456755e-02   -58.48304713    -6.421957e+00
+Westinghouse_X1942            -1.241948e-02   -26.93288043    -3.709698e+00
+Westinghouse_X1943             4.428992e-03     8.79199128     1.336670e+00
+Westinghouse_X1944             4.483319e-03     8.13229144     1.251294e+00
+Westinghouse_X1945             1.233473e-02    22.82171983     2.637166e+00
+Westinghouse_X1946            -8.745522e-03   -18.08311575    -2.034208e+00
+Westinghouse_X1947            -2.684085e-02   -48.22496276    -7.107458e+00
+Westinghouse_X1948            -8.500005e-03   -13.81930769    -2.608651e+00
+Westinghouse_X1949             1.319420e-02    21.99473021     4.632483e+00
+Westinghouse_X1950             1.723862e-02    28.91606305     6.167979e+00
+Westinghouse_X1951            -1.066995e-02   -24.42885405    -3.650190e+00
+Westinghouse_X1952            -2.471424e-02   -53.36792793    -1.097807e+01
+Westinghouse_X1953            -2.199243e-02   -44.67322862    -1.371448e+01
+Westinghouse_X1954             1.465912e-02    31.01136463     9.817211e+00
                        Westinghouse_(Intercept) Westinghouse_value
-Chrysler_X1935                        0.0000000             0.0000
-Chrysler_X1936                        0.0000000             0.0000
-Chrysler_X1937                        0.0000000             0.0000
-Chrysler_X1938                        0.0000000             0.0000
-Chrysler_X1939                        0.0000000             0.0000
-Chrysler_X1940                        0.0000000             0.0000
-Chrysler_X1941                        0.0000000             0.0000
-Chrysler_X1942                        0.0000000             0.0000
-Chrysler_X1943                        0.0000000             0.0000
-Chrysler_X1944                        0.0000000             0.0000
-Chrysler_X1945                        0.0000000             0.0000
-Chrysler_X1946                        0.0000000             0.0000
-Chrysler_X1947                        0.0000000             0.0000
-Chrysler_X1948                        0.0000000             0.0000
-Chrysler_X1949                        0.0000000             0.0000
-Chrysler_X1950                        0.0000000             0.0000
-Chrysler_X1951                        0.0000000             0.0000
-Chrysler_X1952                        0.0000000             0.0000
-Chrysler_X1953                        0.0000000             0.0000
-Chrysler_X1954                        0.0000000             0.0000
-General.Electric_X1935                0.0000000             0.0000
-General.Electric_X1936                0.0000000             0.0000
-General.Electric_X1937                0.0000000             0.0000
-General.Electric_X1938                0.0000000             0.0000
-General.Electric_X1939                0.0000000             0.0000
-General.Electric_X1940                0.0000000             0.0000
-General.Electric_X1941                0.0000000             0.0000
-General.Electric_X1942                0.0000000             0.0000
-General.Electric_X1943                0.0000000             0.0000
-General.Electric_X1944                0.0000000             0.0000
-General.Electric_X1945                0.0000000             0.0000
-General.Electric_X1946                0.0000000             0.0000
-General.Electric_X1947                0.0000000             0.0000
-General.Electric_X1948                0.0000000             0.0000
-General.Electric_X1949                0.0000000             0.0000
-General.Electric_X1950                0.0000000             0.0000
-General.Electric_X1951                0.0000000             0.0000
-General.Electric_X1952                0.0000000             0.0000
-General.Electric_X1953                0.0000000             0.0000
-General.Electric_X1954                0.0000000             0.0000
-General.Motors_X1935                  0.0000000             0.0000
-General.Motors_X1936                  0.0000000             0.0000
-General.Motors_X1937                  0.0000000             0.0000
-General.Motors_X1938                  0.0000000             0.0000
-General.Motors_X1939                  0.0000000             0.0000
-General.Motors_X1940                  0.0000000             0.0000
-General.Motors_X1941                  0.0000000             0.0000
-General.Motors_X1942                  0.0000000             0.0000
-General.Motors_X1943                  0.0000000             0.0000
-General.Motors_X1944                  0.0000000             0.0000
-General.Motors_X1945                  0.0000000             0.0000
-General.Motors_X1946                  0.0000000             0.0000
-General.Motors_X1947                  0.0000000             0.0000
-General.Motors_X1948                  0.0000000             0.0000
-General.Motors_X1949                  0.0000000             0.0000
-General.Motors_X1950                  0.0000000             0.0000
-General.Motors_X1951                  0.0000000             0.0000
-General.Motors_X1952                  0.0000000             0.0000
-General.Motors_X1953                  0.0000000             0.0000
-General.Motors_X1954                  0.0000000             0.0000
-US.Steel_X1935                        0.0000000             0.0000
-US.Steel_X1936                        0.0000000             0.0000
-US.Steel_X1937                        0.0000000             0.0000
-US.Steel_X1938                        0.0000000             0.0000
-US.Steel_X1939                        0.0000000             0.0000
-US.Steel_X1940                        0.0000000             0.0000
-US.Steel_X1941                        0.0000000             0.0000
-US.Steel_X1942                        0.0000000             0.0000
-US.Steel_X1943                        0.0000000             0.0000
-US.Steel_X1944                        0.0000000             0.0000
-US.Steel_X1945                        0.0000000             0.0000
-US.Steel_X1946                        0.0000000             0.0000
-US.Steel_X1947                        0.0000000             0.0000
-US.Steel_X1948                        0.0000000             0.0000
-US.Steel_X1949                        0.0000000             0.0000
-US.Steel_X1950                        0.0000000             0.0000
-US.Steel_X1951                        0.0000000             0.0000
-US.Steel_X1952                        0.0000000             0.0000
-US.Steel_X1953                        0.0000000             0.0000
-US.Steel_X1954                        0.0000000             0.0000
-Westinghouse_X1935                    0.8491596           162.6141
-Westinghouse_X1936                   -4.6388023         -2393.6220
-Westinghouse_X1937                   -7.9056935         -5763.2506
-Westinghouse_X1938                  -10.8980707         -6107.2788
-Westinghouse_X1939                  -12.8633353         -6687.6480
-Westinghouse_X1940                   -9.4490482         -5938.7268
-Westinghouse_X1941                   15.2989749          8217.0794
-Westinghouse_X1942                    7.7339948          4340.3179
-Westinghouse_X1943                   -2.7580706         -1702.2812
-Westinghouse_X1944                   -2.7919017         -1749.6848
-Westinghouse_X1945                   -7.6812203         -5662.5956
-Westinghouse_X1946                    5.4461081          4141.7652
-Westinghouse_X1947                   16.7146335          9717.8879
-Westinghouse_X1948                    5.2932169          3505.6976
-Westinghouse_X1949                   -8.2164377         -4796.7563
-Westinghouse_X1950                  -10.7350248         -6818.8877
-Westinghouse_X1951                    6.6445102          4809.2965
-Westinghouse_X1952                   15.3903243         13298.7792
-Westinghouse_X1953                   13.6953709         16345.4252
-Westinghouse_X1954                   -9.1286882        -10853.0974
+Chrysler_X1935                    -5.648806e-03        -1.08174636
+Chrysler_X1936                    -8.155220e-03        -4.20809342
+Chrysler_X1937                     4.830128e-03         3.52116318
+Chrysler_X1938                    -3.504095e-03        -1.96369505
+Chrysler_X1939                     1.143487e-02         5.94498909
+Chrysler_X1940                     1.814778e-03         1.14058773
+Chrysler_X1941                     8.755153e-05         0.04702393
+Chrysler_X1942                     3.242070e-03         1.81944992
+Chrysler_X1943                     1.107718e-02         6.83683429
+Chrysler_X1944                     6.146110e-03         3.85176727
+Chrysler_X1945                    -9.450739e-03        -6.96708507
+Chrysler_X1946                     1.106249e-02         8.41302234
+Chrysler_X1947                     5.985476e-03         3.47995603
+Chrysler_X1948                    -4.924547e-03        -3.26152728
+Chrysler_X1949                     6.059347e-03         3.53744688
+Chrysler_X1950                    -1.181813e-03        -0.75068778
+Chrysler_X1951                    -3.088470e-02       -22.35434896
+Chrysler_X1952                    -3.213730e-03        -2.77698400
+Chrysler_X1953                     1.512853e-03         1.80559027
+Chrysler_X1954                     3.710804e-03         4.41177446
+General.Electric_X1935             6.173549e-03         1.18223463
+General.Electric_X1936             1.458906e-01        75.27954748
+General.Electric_X1937             1.386984e-01       101.11110845
+General.Electric_X1938             2.009116e-01       112.59083926
+General.Electric_X1939             2.467413e-01       128.28081662
+General.Electric_X1940             4.828243e-02        30.34550722
+General.Electric_X1941            -2.602586e-01      -139.78490005
+General.Electric_X1942            -1.192450e-01       -66.92027779
+General.Electric_X1943             1.591877e-01        98.25066026
+General.Electric_X1944             1.753108e-01       109.86727187
+General.Electric_X1945             4.293043e-03         3.16483138
+General.Electric_X1946            -3.733903e-01      -283.96332373
+General.Electric_X1947            -3.285834e-01      -191.03838870
+General.Electric_X1948            -2.581325e-01      -170.96117333
+General.Electric_X1949             9.221353e-02        53.83425823
+General.Electric_X1950             1.963761e-01       124.73811161
+General.Electric_X1951            -1.361745e-02        -9.85630987
+General.Electric_X1952            -4.926747e-02       -42.57202363
+General.Electric_X1953            -6.025371e-02       -71.91280375
+General.Electric_X1954             4.866941e-02        57.86306464
+General.Motors_X1935              -6.240167e-02       -11.94992056
+General.Motors_X1936               1.599465e-02         8.25323719
+General.Motors_X1937               7.872662e-02        57.39170800
+General.Motors_X1938              -2.053753e-03        -1.15092319
+General.Motors_X1939               6.034521e-02        31.37347725
+General.Motors_X1940               8.843058e-03         5.55786224
+General.Motors_X1941              -1.635809e-02        -8.78593086
+General.Motors_X1942              -5.967221e-02       -33.48804174
+General.Motors_X1943              -4.187193e-02       -25.84335556
+General.Motors_X1944              -6.070961e-02       -38.04671210
+General.Motors_X1945              -2.245190e-02       -16.55153824
+General.Motors_X1946              -6.127143e-02       -46.59692610
+General.Motors_X1947              -8.603629e-03        -5.00215007
+General.Motors_X1948               3.101141e-02        20.53885641
+General.Motors_X1949               6.868430e-02        40.09789287
+General.Motors_X1950               3.924723e-02        24.92983831
+General.Motors_X1951               7.301823e-02        52.85059248
+General.Motors_X1952               5.050324e-02        43.63984598
+General.Motors_X1953              -1.990064e-02       -23.75140919
+General.Motors_X1954              -7.107908e-02       -84.50591492
+US.Steel_X1935                     5.668055e-02        10.85432540
+US.Steel_X1936                    -1.064599e-01       -54.93328830
+US.Steel_X1937                    -1.054252e-01       -76.85498805
+US.Steel_X1938                     1.767290e-01        99.03894448
+US.Steel_X1939                     2.870002e-01       149.21138749
+US.Steel_X1940                     2.393449e-01       150.42824141
+US.Steel_X1941                    -6.624056e-02       -35.57780360
+US.Steel_X1942                    -3.313406e-02       -18.59483658
+US.Steel_X1943                     7.384425e-02        45.57667005
+US.Steel_X1944                     1.492333e-01        93.52452647
+US.Steel_X1945                     1.605773e-01       118.37755773
+US.Steel_X1946                    -5.140614e-02       -39.09436595
+US.Steel_X1947                    -7.520594e-02       -43.72473379
+US.Steel_X1948                    -1.948451e-01      -129.04587906
+US.Steel_X1949                    -1.617960e-02        -9.44565340
+US.Steel_X1950                    -3.218119e-02       -20.44149180
+US.Steel_X1951                    -2.145473e-01      -155.28933282
+US.Steel_X1952                    -2.616996e-01      -226.13461105
+US.Steel_X1953                    -1.605980e-01      -191.67370974
+US.Steel_X1954                     1.745131e-01       207.47859313
+Westinghouse_X1935                 3.030012e-02         5.80247360
+Westinghouse_X1936                -1.655240e-01       -85.41037882
+Westinghouse_X1937                -2.820948e-01      -205.64709887
+Westinghouse_X1938                -3.888702e-01      -217.92288123
+Westinghouse_X1939                -4.589958e-01      -238.63189571
+Westinghouse_X1940                -3.371655e-01      -211.90852549
+Westinghouse_X1941                 5.459054e-01       293.20580788
+Westinghouse_X1942                 2.759681e-01       154.87332469
+Westinghouse_X1943                -9.841481e-02       -60.74162217
+Westinghouse_X1944                -9.962199e-02       -62.43309976
+Westinghouse_X1945                -2.740850e-01      -202.05547785
+Westinghouse_X1946                 1.943307e-01       147.78847319
+Westinghouse_X1947                 5.964196e-01       346.75838386
+Westinghouse_X1948                 1.888751e-01       125.09199880
+Westinghouse_X1949                -2.931829e-01      -171.16018203
+Westinghouse_X1950                -3.830524e-01      -243.31485428
+Westinghouse_X1951                 2.370926e-01       171.60764650
+Westinghouse_X1952                 5.491650e-01       474.53347994
+Westinghouse_X1953                 4.886849e-01       583.24537725
+Westinghouse_X1954                -3.257343e-01      -387.26547797
                        Westinghouse_capital
-Chrysler_X1935                     0.000000
-Chrysler_X1936                     0.000000
-Chrysler_X1937                     0.000000
-Chrysler_X1938                     0.000000
-Chrysler_X1939                     0.000000
-Chrysler_X1940                     0.000000
-Chrysler_X1941                     0.000000
-Chrysler_X1942                     0.000000
-Chrysler_X1943                     0.000000
-Chrysler_X1944                     0.000000
-Chrysler_X1945                     0.000000
-Chrysler_X1946                     0.000000
-Chrysler_X1947                     0.000000
-Chrysler_X1948                     0.000000
-Chrysler_X1949                     0.000000
-Chrysler_X1950                     0.000000
-Chrysler_X1951                     0.000000
-Chrysler_X1952                     0.000000
-Chrysler_X1953                     0.000000
-Chrysler_X1954                     0.000000
-General.Electric_X1935             0.000000
-General.Electric_X1936             0.000000
-General.Electric_X1937             0.000000
-General.Electric_X1938             0.000000
-General.Electric_X1939             0.000000
-General.Electric_X1940             0.000000
-General.Electric_X1941             0.000000
-General.Electric_X1942             0.000000
-General.Electric_X1943             0.000000
-General.Electric_X1944             0.000000
-General.Electric_X1945             0.000000
-General.Electric_X1946             0.000000
-General.Electric_X1947             0.000000
-General.Electric_X1948             0.000000
-General.Electric_X1949             0.000000
-General.Electric_X1950             0.000000
-General.Electric_X1951             0.000000
-General.Electric_X1952             0.000000
-General.Electric_X1953             0.000000
-General.Electric_X1954             0.000000
-General.Motors_X1935               0.000000
-General.Motors_X1936               0.000000
-General.Motors_X1937               0.000000
-General.Motors_X1938               0.000000
-General.Motors_X1939               0.000000
-General.Motors_X1940               0.000000
-General.Motors_X1941               0.000000
-General.Motors_X1942               0.000000
-General.Motors_X1943               0.000000
-General.Motors_X1944               0.000000
-General.Motors_X1945               0.000000
-General.Motors_X1946               0.000000
-General.Motors_X1947               0.000000
-General.Motors_X1948               0.000000
-General.Motors_X1949               0.000000
-General.Motors_X1950               0.000000
-General.Motors_X1951               0.000000
-General.Motors_X1952               0.000000
-General.Motors_X1953               0.000000
-General.Motors_X1954               0.000000
-US.Steel_X1935                     0.000000
-US.Steel_X1936                     0.000000
-US.Steel_X1937                     0.000000
-US.Steel_X1938                     0.000000
-US.Steel_X1939                     0.000000
-US.Steel_X1940                     0.000000
-US.Steel_X1941                     0.000000
-US.Steel_X1942                     0.000000
-US.Steel_X1943                     0.000000
-US.Steel_X1944                     0.000000
-US.Steel_X1945                     0.000000
-US.Steel_X1946                     0.000000
-US.Steel_X1947                     0.000000
-US.Steel_X1948                     0.000000
-US.Steel_X1949                     0.000000
-US.Steel_X1950                     0.000000
-US.Steel_X1951                     0.000000
-US.Steel_X1952                     0.000000
-US.Steel_X1953                     0.000000
-US.Steel_X1954                     0.000000
-Westinghouse_X1935                 1.528487
-Westinghouse_X1936                -3.711042
-Westinghouse_X1937               -58.502132
-Westinghouse_X1938              -197.255080
-Westinghouse_X1939              -302.288380
-Westinghouse_X1940              -250.399777
-Westinghouse_X1941               553.822892
-Westinghouse_X1942               470.226884
-Westinghouse_X1943              -232.781162
-Westinghouse_X1944              -254.621433
-Westinghouse_X1945              -709.744752
-Westinghouse_X1946               468.365300
-Westinghouse_X1947              1856.995786
-Westinghouse_X1948               691.294132
-Westinghouse_X1949             -1165.090863
-Westinghouse_X1950             -1467.477885
-Westinghouse_X1951               861.792974
-Westinghouse_X1952              2239.292180
-Westinghouse_X1953              2393.950834
-Westinghouse_X1954             -1948.974932
+Chrysler_X1935                 -0.010167851
+Chrysler_X1936                 -0.006524176
+Chrysler_X1937                  0.035742946
+Chrysler_X1938                 -0.063424126
+Chrysler_X1939                  0.268719453
+Chrysler_X1940                  0.048091607
+Chrysler_X1941                  0.003169366
+Chrysler_X1942                  0.197117881
+Chrysler_X1943                  0.934913827
+Chrysler_X1944                  0.560525251
+Chrysler_X1945                 -0.873248318
+Chrysler_X1946                  0.951373992
+Chrysler_X1947                  0.664986438
+Chrysler_X1948                 -0.643145800
+Chrysler_X1949                  0.859215430
+Chrysler_X1950                 -0.161553873
+Chrysler_X1951                 -4.005746146
+Chrysler_X1952                 -0.467597699
+Chrysler_X1953                  0.264446737
+Chrysler_X1954                  0.792256580
+General.Electric_X1935          0.011112388
+General.Electric_X1936          0.116712477
+General.Electric_X1937          1.026367905
+General.Electric_X1938          3.636499269
+General.Electric_X1939          5.798421217
+General.Electric_X1940          1.279484393
+General.Electric_X1941         -9.421361724
+General.Electric_X1942         -7.250094244
+General.Electric_X1943         13.435443496
+General.Electric_X1944         15.988344016
+General.Electric_X1945          0.396677183
+General.Electric_X1946        -32.111565865
+General.Electric_X1947        -36.505615728
+General.Electric_X1948        -33.712108164
+General.Electric_X1949         13.075878413
+General.Electric_X1950         26.844615644
+General.Electric_X1951         -1.766183186
+General.Electric_X1952         -7.168417356
+General.Electric_X1953        -10.532348634
+General.Electric_X1954         10.390919591
+General.Motors_X1935           -0.112323013
+General.Motors_X1936            0.012795717
+General.Motors_X1937            0.582577008
+General.Motors_X1938           -0.037172929
+General.Motors_X1939            1.418112551
+General.Motors_X1940            0.234341049
+General.Motors_X1941           -0.592162907
+General.Motors_X1942           -3.628070096
+General.Motors_X1943           -3.533990942
+General.Motors_X1944           -5.536716360
+General.Motors_X1945           -2.074555254
+General.Motors_X1946           -5.269343385
+General.Motors_X1947           -0.955863214
+General.Motors_X1948            4.050090060
+General.Motors_X1949            9.739433382
+General.Motors_X1950            5.365095871
+General.Motors_X1951            9.470464002
+General.Motors_X1952            7.348220796
+General.Motors_X1953           -3.478631191
+General.Motors_X1954          -15.175382989
+US.Steel_X1935                  0.102024991
+US.Steel_X1936                 -0.085167889
+US.Steel_X1937                 -0.780146655
+US.Steel_X1938                  3.198795316
+US.Steel_X1939                  6.744503955
+US.Steel_X1940                  6.342638659
+US.Steel_X1941                 -2.397908193
+US.Steel_X1942                 -2.014551077
+US.Steel_X1943                  6.232454557
+US.Steel_X1944                 13.610079486
+US.Steel_X1945                 14.837339032
+US.Steel_X1946                 -4.420927642
+US.Steel_X1947                 -8.355379985
+US.Steel_X1948                -25.446764012
+US.Steel_X1949                 -2.294267988
+US.Steel_X1950                 -4.399168654
+US.Steel_X1951                -27.826784287
+US.Steel_X1952                -38.077289558
+US.Steel_X1953                -28.072529923
+US.Steel_X1954                 37.258541201
+Westinghouse_X1935              0.054540222
+Westinghouse_X1936             -0.132419192
+Westinghouse_X1937             -2.087501415
+Westinghouse_X1938             -7.038551303
+Westinghouse_X1939            -10.786400364
+Westinghouse_X1940             -8.934886119
+Westinghouse_X1941             19.761776662
+Westinghouse_X1942             16.778863401
+Westinghouse_X1943             -8.306210160
+Westinghouse_X1944             -9.085525288
+Westinghouse_X1945            -25.325455987
+Westinghouse_X1946             16.712437468
+Westinghouse_X1947             66.262222990
+Westinghouse_X1948             24.667092018
+Westinghouse_X1949            -41.573336436
+Westinghouse_X1950            -52.363256581
+Westinghouse_X1951             30.750914273
+Westinghouse_X1952             79.903508080
+Westinghouse_X1953             85.422113065
+Westinghouse_X1954            -69.544267429
 > 
 > try( estfun( greeneSurPooled ) )
 Error in estfun.systemfit(greeneSurPooled) : 
@@ -8872,4 +8872,4 @@ Error in estfun.systemfit(greeneSurPooled) :
 > 
 > proc.time()
    user  system elapsed 
-  2.736   0.084   2.902 
+  2.556   0.096   2.641 

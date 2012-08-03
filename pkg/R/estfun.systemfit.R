@@ -15,13 +15,16 @@ estfun.systemfit <- function ( obj, ... ) {
       stop( "internal error: the number of residuals is not equal to the",
          " number of rows of the model matrix. Please contact the maintainer." )
    }
+
+   if( is.null( obj$residCovEst ) ) {
+      omegaInvXmat <- mm
+   } else {
+      omegaInvXmat <- t( .calcXtOmegaInv( xMat = mm, sigma = obj$residCovEst, 
+         validObsEq = !is.na( residuals( obj ) ), invertSigma = TRUE ) )
+   }
    
-   mmAll <- matrix( NA, nrow = length( res ), ncol = ncol( mm ) )
-   mmAll[ !is.na( res ), ] <- mm
-      
-   result <- res * mmAll
+   result <- res[ !is.na( res ) ] * omegaInvXmat
    
-   result <- result[ !is.na( res ), ]
    dimnames( result ) <- dimnames( mm )
    
    return( result )

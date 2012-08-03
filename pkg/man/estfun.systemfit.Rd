@@ -29,10 +29,6 @@
 \section{Warnings}{
    The \pkg{sandwich} package must be loaded before this method
    can be used.
-   
-   Currently, the residual covariance matrix is always assumed 
-   to be the identity matrix, 
-   although this is only true for OLS estimations!
 }
 
 \author{
@@ -47,6 +43,18 @@ eqDemand <- consump ~ price + income
 eqSupply <- consump ~ price + farmPrice + trend
 system <- list( demand = eqDemand, supply = eqSupply )
 
+## OLS estimation
+fitols <- systemfit( system, "OLS", data = Kmenta )
+
+## obtain the estimation function
+library( "sandwich" )
+estfun( fitols )
+
+## this is only true for OLS and 2SLS models
+all.equal( estfun( fitols ),
+   unlist( residuals( fitols ) ) * model.matrix( fitols ) )
+
+
 ## iterated SUR estimation
 fitsur <- systemfit( system, "SUR", data = Kmenta, maxit = 100 )
 
@@ -54,9 +62,11 @@ fitsur <- systemfit( system, "SUR", data = Kmenta, maxit = 100 )
 library( "sandwich" )
 estfun( fitsur )
 
-## this should be true only for OLS models
+## this should be true for SUR, 3SLS, WLS, and W2SLS models
 all.equal( estfun( fitsur ),
-   unlist( residuals( fitsur ) ) * model.matrix( fitsur ) )
+   unlist( residuals( fitsur ) ) * 
+   ( ( solve( fitsur$residCovEst ) \%x\% diag( nrow( Kmenta ) ) ) \%*\% 
+      model.matrix( fitsur ) ), check.attributes = FALSE )
 }
 
 \keyword{methods}
