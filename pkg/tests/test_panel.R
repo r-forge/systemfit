@@ -155,3 +155,19 @@ formula( greeneSurPooled )
 formula( greeneSurPooled$eq[[ 1 ]] )
 terms( greeneSurPooled )
 terms( greeneSurPooled$eq[[ 1 ]] )
+
+
+## **************** estfun ************************
+library( "sandwich" )
+
+estfun( theilOls )
+
+estfun( theilSur )
+
+estfun( greeneOls )
+
+try( estfun( greeneOlsPooled ) )
+
+estfun( greeneSur )
+
+try( estfun( greeneSurPooled ) )

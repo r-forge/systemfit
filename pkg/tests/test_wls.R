@@ -741,3 +741,11 @@ terms( fitwlsi4$eq[[ 2 ]] )
 
 terms( fitwlsi5e )
 terms( fitwlsi5e$eq[[ 1 ]] )
+
+
+## **************** estfun ************************
+library( "sandwich" )
+
+estfun( fitwls1 )
+
+estfun( fitwlsi1e )

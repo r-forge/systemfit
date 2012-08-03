@@ -1,4 +1,5 @@
 library( "systemfit" )
+library( "sandwich" )
 options( warn = 1 )
 
 data( "KleinI" )
@@ -76,5 +77,8 @@ for( methodNo in 1:5 ) {
    print( linearHypothesis( kleinModel, restrict2, test = "Chisq" ) )
    cat( "> logLik\n" )
    print( logLik( kleinModel ) )
+   
+   cat( "Estimating function\n" )
+   print( estfun( kleinModel ) )
 }
 }

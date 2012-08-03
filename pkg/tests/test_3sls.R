@@ -1144,3 +1144,18 @@ terms( fit3slsd[[ 4 ]]$e4$eq[[ 2 ]] )
 
 terms( fit3slsd[[ 5 ]]$e5we )
 terms( fit3slsd[[ 5 ]]$e5we$eq[[ 2 ]] )
+
+
+## **************** estfun ************************
+library( "sandwich" )
+
+estfun( fit3sls[[ 1 ]]$e1 )
+
+estfun( fit3sls[[ 2 ]]$e1e )
+
+estfun( fit3sls[[ 3 ]]$e1c )
+
+estfun( fit3sls[[ 4 ]]$e1wc )
+
+estfun( fit3slsd[[ 5 ]]$e1w )
+

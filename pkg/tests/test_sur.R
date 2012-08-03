@@ -1219,3 +1219,29 @@ terms( fitsurio5r2 )
 terms( fitsurio5r2$eq[[ 1 ]] )
 terms( fitsuri5r2 )
 terms( fitsuri5r2$eq[[ 1 ]] )
+
+
+## **************** estfun ************************
+library( "sandwich" )
+
+estfun( fitsur1 )
+
+estfun( fitsur1e2 )
+
+estfun( fitsur1r3 )
+
+estfun( fitsur1w )
+
+estfun( fitsuri1e )
+
+estfun( fitsuri1wr3 )
+
+estfun( fitsurS1 )
+
+estfun( fitsurS2 )
+
+estfun( fitsurS3 )
+
+try( estfun( fitsurS4 ) )
+
+estfun( fitsurS5 )

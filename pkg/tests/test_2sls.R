@@ -756,3 +756,13 @@ terms( fit2slsd1$eq[[ 2 ]] )
 
 terms( fit2slsd2r )
 terms( fit2slsd2r$eq[[ 1 ]] )
+
+
+## **************** estfun ************************
+library( "sandwich" )
+
+estfun( fit2sls1 )
+
+estfun( fit2sls1s )
+
+estfun( fit2sls1r )

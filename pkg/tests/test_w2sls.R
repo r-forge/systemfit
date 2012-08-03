@@ -665,3 +665,13 @@ terms( fitw2slsd2e$eq[[ 1 ]] )
 
 terms( fitw2slsd3e )
 terms( fitw2slsd3e$eq[[ 2 ]] )
+
+
+## **************** estfun ************************
+library( "sandwich" )
+
+estfun( fitw2sls1 )
+
+estfun( fitw2sls1e )
+
+estfun( fitw2slsd1e )
