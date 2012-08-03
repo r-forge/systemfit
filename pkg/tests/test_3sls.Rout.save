@@ -22433,6 +22433,233 @@ attr(,"dataClasses")
 "numeric" "numeric" "numeric" "numeric" 
 > 
 > 
+> ## **************** terms of instruments *******************
+> fit3sls[[ 2 ]]$e1c$eq[[ 1 ]]$termsInst
+~income + farmPrice + trend
+attr(,"variables")
+list(income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 0
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(income, farmPrice, trend)
+attr(,"dataClasses")
+   income farmPrice     trend 
+"numeric" "numeric" "numeric" 
+> 
+> fit3sls[[ 3 ]]$e2e$eq[[ 2 ]]$termsInst
+~income + farmPrice + trend
+attr(,"variables")
+list(income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 0
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(income, farmPrice, trend)
+attr(,"dataClasses")
+   income farmPrice     trend 
+"numeric" "numeric" "numeric" 
+> 
+> fit3sls[[ 4 ]]$e3$eq[[ 1 ]]$termsInst
+~income + farmPrice + trend
+attr(,"variables")
+list(income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 0
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(income, farmPrice, trend)
+attr(,"dataClasses")
+   income farmPrice     trend 
+"numeric" "numeric" "numeric" 
+> 
+> fit3sls[[ 5 ]]$e4e$eq[[ 2 ]]$termsInst
+~income + farmPrice + trend
+attr(,"variables")
+list(income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 0
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(income, farmPrice, trend)
+attr(,"dataClasses")
+   income farmPrice     trend 
+"numeric" "numeric" "numeric" 
+> 
+> fit3sls[[ 1 ]]$e5$eq[[ 1 ]]$termsInst
+~income + farmPrice + trend
+attr(,"variables")
+list(income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 0
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(income, farmPrice, trend)
+attr(,"dataClasses")
+   income farmPrice     trend 
+"numeric" "numeric" "numeric" 
+> 
+> fit3sls[[ 2 ]]$e4wSym$eq[[ 1 ]]$termsInst
+~income + farmPrice + trend
+attr(,"variables")
+list(income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 0
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(income, farmPrice, trend)
+attr(,"dataClasses")
+   income farmPrice     trend 
+"numeric" "numeric" "numeric" 
+> 
+> fit3slsi[[ 3 ]]$e3e$eq[[ 1 ]]$termsInst
+~income + farmPrice + trend
+attr(,"variables")
+list(income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 0
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(income, farmPrice, trend)
+attr(,"dataClasses")
+   income farmPrice     trend 
+"numeric" "numeric" "numeric" 
+> 
+> fit3slsd[[ 4 ]]$e4$eq[[ 2 ]]$termsInst
+~income + farmPrice + trend
+attr(,"variables")
+list(income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 0
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(income, farmPrice, trend)
+attr(,"dataClasses")
+   income farmPrice     trend 
+"numeric" "numeric" "numeric" 
+> 
+> fit3slsd[[ 5 ]]$e5we$eq[[ 2 ]]$termsInst
+~income + farmPrice + trend
+attr(,"variables")
+list(income, farmPrice, trend)
+attr(,"factors")
+          income farmPrice trend
+income         1         0     0
+farmPrice      0         1     0
+trend          0         0     1
+attr(,"term.labels")
+[1] "income"    "farmPrice" "trend"    
+attr(,"order")
+[1] 1 1 1
+attr(,"intercept")
+[1] 1
+attr(,"response")
+[1] 0
+attr(,".Environment")
+<environment: R_GlobalEnv>
+attr(,"predvars")
+list(income, farmPrice, trend)
+attr(,"dataClasses")
+   income farmPrice     trend 
+"numeric" "numeric" "numeric" 
+> 
+> 
 > ## **************** estfun ************************
 > library( "sandwich" )
 > 
@@ -22883,4 +23110,4 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
 > 
 > proc.time()
    user  system elapsed 
-  8.680   0.128   8.802 
+  8.784   0.112   8.890 

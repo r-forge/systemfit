@@ -667,6 +667,24 @@ terms( fitw2slsd3e )
 terms( fitw2slsd3e$eq[[ 2 ]] )
 
 
+## **************** terms of instruments *******************
+fitw2sls1e$eq[[ 1 ]]$termsInst
+
+fitw2sls2$eq[[ 2 ]]$termsInst
+
+fitw2sls3$eq[[ 1 ]]$termsInst
+
+fitw2sls4e$eq[[ 2 ]]$termsInst
+
+fitw2sls5$eq[[ 1 ]]$termsInst
+
+fitw2slsd1$eq[[ 2 ]]$termsInst
+
+fitw2slsd2e$eq[[ 1 ]]$termsInst
+
+fitw2slsd3e$eq[[ 2 ]]$termsInst
+
+
 ## **************** estfun ************************
 library( "sandwich" )
 

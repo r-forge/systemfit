@@ -758,6 +758,22 @@ terms( fit2slsd2r )
 terms( fit2slsd2r$eq[[ 1 ]] )
 
 
+## **************** terms of instruments *******************
+fit2sls1$eq[[ 1 ]]$termsInst
+
+fit2sls2s$eq[[ 2 ]]$termsInst
+
+fit2sls3$eq[[ 1 ]]$termsInst
+
+fit2sls4r$eq[[ 2 ]]$termsInst
+
+fit2sls5rs$eq[[ 1 ]]$termsInst
+
+fit2slsd1$eq[[ 2 ]]$termsInst
+
+fit2slsd2r$eq[[ 1 ]]$termsInst
+
+
 ## **************** estfun ************************
 library( "sandwich" )
 

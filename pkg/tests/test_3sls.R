@@ -1146,6 +1146,26 @@ terms( fit3slsd[[ 5 ]]$e5we )
 terms( fit3slsd[[ 5 ]]$e5we$eq[[ 2 ]] )
 
 
+## **************** terms of instruments *******************
+fit3sls[[ 2 ]]$e1c$eq[[ 1 ]]$termsInst
+
+fit3sls[[ 3 ]]$e2e$eq[[ 2 ]]$termsInst
+
+fit3sls[[ 4 ]]$e3$eq[[ 1 ]]$termsInst
+
+fit3sls[[ 5 ]]$e4e$eq[[ 2 ]]$termsInst
+
+fit3sls[[ 1 ]]$e5$eq[[ 1 ]]$termsInst
+
+fit3sls[[ 2 ]]$e4wSym$eq[[ 1 ]]$termsInst
+
+fit3slsi[[ 3 ]]$e3e$eq[[ 1 ]]$termsInst
+
+fit3slsd[[ 4 ]]$e4$eq[[ 2 ]]$termsInst
+
+fit3slsd[[ 5 ]]$e5we$eq[[ 2 ]]$termsInst
+
+
 ## **************** estfun ************************
 library( "sandwich" )
 
