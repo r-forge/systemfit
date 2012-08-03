@@ -7,15 +7,22 @@ estfun.systemfit <- function ( obj, ... ) {
    
    # residuals
    res <- unlist(  residuals( obj ) )
-   res <- res[ !is.na( res ) ]
    
    # model matrix
    mm <- model.matrix( obj )
    
-   if( length( res ) != nrow( mm ) ) {
+   if( sum( !is.na( res ) ) != nrow( mm ) ) {
       stop( "internal error: the number of residuals is not equal to the",
          " number of rows of the model matrix. Please contact the maintainer." )
    }
    
-   return( res * mm )
+   mmAll <- matrix( NA, nrow = length( res ), ncol = ncol( mm ) )
+   mmAll[ !is.na( res ), ] <- mm
+      
+   result <- res * mmAll
+   
+   result <- result[ !is.na( res ), ]
+   dimnames( result ) <- dimnames( mm )
+   
+   return( result )
 }
