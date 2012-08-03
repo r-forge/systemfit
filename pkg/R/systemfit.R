@@ -824,6 +824,10 @@ systemfit <- function(  formula,
       results$eq[[ i ]]$model <- evalModelFrameEq[[ i ]]
          # model frame of this equation
       rownames( results$eq[[ i ]]$model ) <- obsNamesNaEq[[ i ]]
+      if( !is.null( inst ) ) {
+         results$eq[[ i ]]$modelInst <- evalModelFrameInst[[ i ]]
+         rownames( results$eq[[ i ]]$modelInst ) <- obsNamesNaEq[[ i ]]
+      }
     }
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
       results$eq[[ i ]]$inst         <- inst[[i]]
