@@ -54,6 +54,9 @@ estfun( fitols )
 all.equal( estfun( fitols ),
    unlist( residuals( fitols ) ) * model.matrix( fitols ) )
 
+# each column should sum up to (approximately) zero
+colSums( estfun( fitols ) )
+
 
 ## iterated SUR estimation
 fitsur <- systemfit( system, "SUR", data = Kmenta, maxit = 100 )
@@ -67,6 +70,9 @@ all.equal( estfun( fitsur ),
    unlist( residuals( fitsur ) ) * 
    ( ( solve( fitsur$residCovEst ) \%x\% diag( nrow( Kmenta ) ) ) \%*\% 
       model.matrix( fitsur ) ), check.attributes = FALSE )
+
+# each column should sum up to (approximately) zero
+colSums( estfun( fitsur ) )
 }
 
 \keyword{methods}

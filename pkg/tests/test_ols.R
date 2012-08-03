@@ -626,10 +626,13 @@ terms( fitols5$eq[[ 2 ]] )
 library( "sandwich" )
 
 estfun( fitols1 )
+colSums( estfun( fitols1 ) )
 
 estfun( fitols1s )
+colSums( estfun( fitols1s ) )
 
 estfun( fitols1r )
+colSums( estfun( fitols1r ) )
 
 try( estfun( fitols2 ) )
 

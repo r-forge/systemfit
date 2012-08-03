@@ -112,6 +112,7 @@ The following object(s) are masked from 'package:base':
 +    
 +    cat( "Estimating function\n" )
 +    print( estfun( kleinModel ) )
++    print( colSums( estfun( kleinModel ) ) )
 + }
 + }
 > 
@@ -1201,6 +1202,14 @@ PrivateWages_19        -3.28128011
 PrivateWages_20        -3.03626134
 PrivateWages_21        -9.81817773
 PrivateWages_22         5.91730980
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -1.776357e-13             5.156597e-12            -1.000311e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            1.399997e-11             3.747003e-14             2.044698e-12 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -9.886397e-13            -5.107914e-12             1.243450e-13 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+            4.125922e-12             1.683298e-11            -3.019807e-13 
 > 
 > # 2SLS
 > summary
@@ -1911,6 +1920,14 @@ PrivateWages_19        -3.31367513
 PrivateWages_20        -3.01282512
 PrivateWages_21        -9.80387906
 PrivateWages_22         5.97396596
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            2.842171e-14             2.387276e+01             4.721556e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            1.052896e+01             8.726353e-14             3.559097e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            4.566569e-12            -3.932854e-11             3.588241e-13 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+            3.462451e-01             2.647571e-11            -9.592327e-14 
 > 
 > # SUR
 > summary
@@ -2576,6 +2593,14 @@ PrivateWages_19       -20.46230404
 PrivateWages_20       -11.01208499
 PrivateWages_21       -37.90046018
 PrivateWages_22        23.98250604
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -1.662585e-13             3.484679e-11             1.265663e-11 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            2.110179e-11             7.654203e-13            -3.654466e-12 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -7.807067e-12             2.231781e-11             1.498607e-12 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+            1.173062e-12             4.436385e-11            -2.278545e-12 
 > 
 > # 3SLS
 > summary
@@ -3247,6 +3272,14 @@ PrivateWages_19        -24.9498574
 PrivateWages_20         -9.3822356
 PrivateWages_21        -41.5763512
 PrivateWages_22         38.2553690
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -1.183203e-13            -5.680947e+00             1.199985e-11 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+           -7.248032e+00            -3.759649e-13             3.756430e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -2.173169e-11             9.977885e-11             1.816096e-12 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -2.233384e+01            -1.451195e-11            -2.191650e-12 
 > 
 > # I3SLS
 > summary
@@ -3920,6 +3953,14 @@ PrivateWages_19       -52.23201198
 PrivateWages_20       -12.31262504
 PrivateWages_21       -64.10283693
 PrivateWages_22        88.96695885
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            5.845438e-12            -7.436710e+00             4.535622e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+           -9.651064e-01            -4.836643e-13             1.973328e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            5.469528e-12             2.619793e-12             6.144257e-12 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -2.385183e+01             9.974122e-11             2.175857e-12 
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -4997,6 +5038,14 @@ PrivateWages_19         -3.2179816
 PrivateWages_20         -3.0550971
 PrivateWages_21         -9.9558843
 PrivateWages_22          5.5005760
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -1.776357e-13             5.156597e-12            -1.000311e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            1.399997e-11             3.747003e-14             2.044698e-12 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -9.886397e-13            -5.107914e-12            -7.105427e-15 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+            1.527889e-12             2.567502e-12            -1.847411e-13 
 > 
 > # 2SLS
 > summary
@@ -5691,6 +5740,14 @@ PrivateWages_19         -3.1118959
 PrivateWages_20         -3.1315858
 PrivateWages_21        -10.0037642
 PrivateWages_22          5.3120989
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            5.684342e-14             2.263363e+01            -6.771472e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            9.401761e+00            -2.058353e-13             2.962175e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -3.002931e-12            -1.670308e-11            -7.460699e-14 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -1.127363e+00             1.515232e-11             2.700062e-13 
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -6352,6 +6409,14 @@ PrivateWages_19       -19.64593967
 PrivateWages_20       -11.08922310
 PrivateWages_21       -37.06436743
 PrivateWages_22        21.03340067
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            2.278345e-12            -8.084360e-12             1.881126e-11 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            5.575487e-11            -3.783892e-13             2.307751e-12 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -3.851239e-12             1.621192e-11            -1.409654e-13 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -1.492084e-12             4.594652e-11            -1.505303e-12 
 > 
 > # 3SLS
 > summary
@@ -7007,6 +7072,14 @@ PrivateWages_19        -21.8146394
 PrivateWages_20         -9.1049967
 PrivateWages_21        -38.9048893
 PrivateWages_22         32.3935454
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            4.073825e-14            -3.467544e-01             1.449285e-11 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+           -3.665011e+00             3.302913e-14             3.641697e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -3.216649e-12             3.451017e-11             1.155354e-12 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -1.945205e+01             1.564127e-11             3.455139e-12 
 > 
 > # I3SLS
 > summary
@@ -7664,6 +7737,14 @@ PrivateWages_19       -46.83052366
 PrivateWages_20       -10.81969483
 PrivateWages_21       -59.23918456
 PrivateWages_22        79.78132651
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -3.861785e-13            -5.719770e+00             2.071229e-11 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+           -1.658561e+00            -2.045885e-13             2.030283e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            7.118688e-12            -1.856863e-10             5.407662e-13 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -2.588815e+01             1.568918e-10             4.500650e-12 
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -8729,6 +8810,14 @@ PrivateWages_19         -3.2179816
 PrivateWages_20         -3.0550971
 PrivateWages_21         -9.9558843
 PrivateWages_22          5.5005760
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            1.421085e-14             5.133616e-12             1.452449e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            8.527956e-12             3.747003e-14             2.044698e-12 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -9.886397e-13            -5.107914e-12            -7.105427e-15 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+            1.527889e-12             2.567502e-12            -1.847411e-13 
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -9419,6 +9508,14 @@ PrivateWages_19         -3.1118959
 PrivateWages_20         -3.1315858
 PrivateWages_21        -10.0037642
 PrivateWages_22          5.3120989
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -1.065814e-13             2.278019e+01            -7.021550e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            9.587188e+00            -2.058353e-13             2.962175e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -3.002931e-12            -1.670308e-11            -7.460699e-14 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -1.127363e+00             1.515232e-11             2.700062e-13 
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -10074,6 +10171,14 @@ PrivateWages_19       -18.67635167
 PrivateWages_20       -11.34925455
 PrivateWages_21       -37.85502274
 PrivateWages_22        19.76080668
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -9.220298e-13             3.467342e-11             1.769499e-11 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+           -2.071017e-11            -4.367299e-13            -4.005563e-12 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -3.152300e-12            -7.009920e-12            -8.018438e-13 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -2.211881e-11            -9.840684e-12             1.112544e-12 
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -10725,6 +10830,14 @@ PrivateWages_19      -21.690979460
 PrivateWages_20      -10.312868339
 PrivateWages_21      -41.140757075
 PrivateWages_22       27.312222801
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            1.642251e+00             3.552754e+01             3.465149e+01 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            7.043647e+01             8.002830e-13             3.509195e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            1.246895e-11            -6.080303e-11             6.690763e-13 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -6.503616e+00            -7.111520e-11            -9.104384e-13 
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -11378,6 +11491,14 @@ PrivateWages_19        -37.5219766
 PrivateWages_20        -12.4262231
 PrivateWages_21        -57.6114472
 PrivateWages_22         46.8492400
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            3.225379e+00             6.311869e+01             6.805550e+01 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            1.396477e+02            -1.527424e-13             2.441067e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            6.509959e-12            -4.478595e-11            -1.374630e-13 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -2.045061e+01             5.472534e-11             9.605650e-13 
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -12419,6 +12540,14 @@ PrivateWages_19         -3.2179816
 PrivateWages_20         -3.0550971
 PrivateWages_21         -9.9558843
 PrivateWages_22          5.5005760
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -3.055334e-13            -2.022826e-13            -2.386980e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+           -1.655720e-11             2.831069e-15             2.395653e-13 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            5.913325e-14            -6.839806e-12            -7.105427e-15 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+            1.527889e-12             2.567502e-12            -1.847411e-13 
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -13097,6 +13226,14 @@ PrivateWages_19         -3.1118959
 PrivateWages_20         -3.1315858
 PrivateWages_21        -10.0037642
 PrivateWages_22          5.3120989
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            3.126388e-13             2.363256e+01            -5.062173e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            1.097363e+01            -8.415491e-14             3.198142e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -4.371586e-12            -1.308953e-11            -7.460699e-14 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -1.127363e+00             1.515232e-11             2.700062e-13 
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -13740,6 +13877,14 @@ PrivateWages_19        -17.7770593
 PrivateWages_20        -10.7479922
 PrivateWages_21        -36.4476686
 PrivateWages_22         18.6654070
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            1.839161e-12            -1.603645e-11            -2.992201e-11 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+           -2.445744e-11            -1.200515e-13             3.545816e-12 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            4.435341e-13            -5.360601e-12             9.688916e-13 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -3.030221e-11             9.815992e-11            -5.061437e-12 
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -14385,6 +14530,14 @@ PrivateWages_19       -16.99831851
 PrivateWages_20        -9.19879569
 PrivateWages_21       -40.03355169
 PrivateWages_22        21.73870834
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -2.450964e-01             2.062245e+01             1.381744e+01 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            5.897554e+00             1.197765e+00             3.982856e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            1.365452e+01             2.554832e+02             1.515538e-12 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -6.833908e+00            -2.533640e-11            -2.771922e-12 
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -15036,6 +15189,14 @@ PrivateWages_19        -20.4370740
 PrivateWages_20        -10.0138058
 PrivateWages_21        -49.0273971
 PrivateWages_22         25.2782072
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -2.244818e-01             2.567095e+01             2.182857e+01 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            1.214231e+01             1.605238e+00             3.792177e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            1.829971e+01             3.423973e+02             2.369188e-12 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -1.972813e+01            -1.048761e-11             4.663797e-12 
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -16065,6 +16226,14 @@ PrivateWages_19         -3.2179816
 PrivateWages_20         -3.0550971
 PrivateWages_21         -9.9558843
 PrivateWages_22          5.5005760
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -3.055334e-13            -2.022826e-13            -2.386980e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+           -1.655720e-11            -4.402034e-14             5.391937e-13 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -9.318102e-13             1.669997e-12            -7.105427e-15 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+            1.527889e-12             2.567502e-12            -1.847411e-13 
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -16737,6 +16906,14 @@ PrivateWages_19         -3.1118959
 PrivateWages_20         -3.1315858
 PrivateWages_21        -10.0037642
 PrivateWages_22          5.3120989
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+            3.126388e-13             2.363256e+01            -5.062173e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            1.097363e+01             5.373479e-14             3.147976e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -2.295497e-12            -9.081536e-11            -7.460699e-14 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -1.127363e+00             1.515232e-11             2.700062e-13 
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -17374,6 +17551,14 @@ PrivateWages_19       -16.79284439
 PrivateWages_20       -10.17136326
 PrivateWages_21       -34.44067212
 PrivateWages_22        17.61407154
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -1.235300e-12             4.352418e-11             6.671913e-12 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            8.139545e-12             2.993439e-14            -1.467049e-12 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+           -1.536049e-12             1.756373e-11            -2.801488e-12 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -5.398881e-11            -3.639999e-11            -5.675391e-12 
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -18007,6 +18192,14 @@ PrivateWages_19       -15.80607096
 PrivateWages_20        -8.60379443
 PrivateWages_21       -37.74131997
 PrivateWages_22        20.27225436
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -2.265658e-01             1.907438e+01             1.313534e+01 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            5.323620e+00             2.073798e+00             5.206685e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            2.448658e+01             4.289107e+02            -7.255134e-13 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -8.043143e+00             1.277733e-11            -3.977967e-12 
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -18650,7 +18843,15 @@ PrivateWages_19        -18.6261958
 PrivateWages_20         -9.2830942
 PrivateWages_21        -46.2278182
 PrivateWages_22         23.3174589
+ Consumption_(Intercept)     Consumption_corpProf  Consumption_corpProfLag 
+           -1.791345e-01             2.566576e+01             2.148487e+01 
+       Consumption_wages   Investment_(Intercept)      Investment_corpProf 
+            1.341699e+01             2.580962e+00             4.966445e+01 
+  Investment_corpProfLag    Investment_capitalLag PrivateWages_(Intercept) 
+            3.044470e+01             5.342851e+02             6.686873e-13 
+        PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
+           -1.856805e+01             1.302958e-12             1.084299e-12 
 > 
 > proc.time()
    user  system elapsed 
-  7.980   0.108   8.092 
+  7.632   0.120   7.755 

@@ -4722,6 +4722,11 @@ supply_17    -22.89515        -29.24824   -4.4997294
 supply_18   -254.72427       -226.52279  -44.0801105
 supply_19    328.91055        277.69679   59.0844240
 supply_20    194.53554        159.41321   34.2824100
+> colSums( estfun( fitols1 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+      8.526513e-14       4.119727e-11      -4.589396e-11       1.421085e-14 
+      supply_price   supply_farmPrice       supply_trend 
+      3.959499e-11       2.412293e-11      -2.415845e-13 
 > 
 > estfun( fitols1s )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -4806,6 +4811,11 @@ supply_17    -22.89515        -29.24824   -4.4997294
 supply_18   -254.72427       -226.52279  -44.0801105
 supply_19    328.91055        277.69679   59.0844240
 supply_20    194.53554        159.41321   34.2824100
+> colSums( estfun( fitols1s ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+      8.526513e-14       4.119727e-11      -4.589396e-11       1.421085e-14 
+      supply_price   supply_farmPrice       supply_trend 
+      3.959499e-11       2.412293e-11      -2.415845e-13 
 > 
 > estfun( fitols1r )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -4890,6 +4900,11 @@ supply_17    -22.89515        -29.24824   -4.4997294
 supply_18   -254.72427       -226.52279  -44.0801105
 supply_19    328.91055        277.69679   59.0844240
 supply_20    194.53554        159.41321   34.2824100
+> colSums( estfun( fitols1r ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+      8.526513e-14       4.119727e-11      -4.589396e-11       1.421085e-14 
+      supply_price   supply_farmPrice       supply_trend 
+      3.959499e-11       2.412293e-11      -2.415845e-13 
 > 
 > try( estfun( fitols2 ) )
 Error in estfun.systemfit(fitols2) : 
@@ -4921,4 +4936,4 @@ Error in estfun.systemfit(fitols5Sym) :
 > 
 > proc.time()
    user  system elapsed 
-  2.428   0.064   2.479 
+  2.352   0.068   2.408 

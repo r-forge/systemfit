@@ -161,13 +161,17 @@ terms( greeneSurPooled$eq[[ 1 ]] )
 library( "sandwich" )
 
 estfun( theilOls )
+colSums( estfun( theilOls ) )
 
 estfun( theilSur )
+colSums( estfun( theilSur ) )
 
 estfun( greeneOls )
+colSums( estfun( greeneOls ) )
 
 try( estfun( greeneOlsPooled ) )
 
 estfun( greeneSur )
+colSums( estfun( greeneSur ) )
 
 try( estfun( greeneSurPooled ) )

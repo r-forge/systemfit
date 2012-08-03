@@ -5327,6 +5327,11 @@ supply_17     9.729415       12.4291929   1.91218353
 supply_18   -47.728919      -42.4446717  -8.25950368
 supply_19    46.703303       39.4312603   8.38962985
 supply_20    11.717013        9.6015705   2.06485386
+> colSums( estfun( fitw2sls1 ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+      1.542551e-13      -8.524165e+00       4.944489e-12       4.246950e-14 
+      supply_price   supply_farmPrice       supply_trend 
+     -8.479648e+00       5.574430e-12       3.687328e-13 
 > 
 > estfun( fitw2sls1e )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -5411,6 +5416,11 @@ supply_17    12.161768        15.536491   2.39022941
 supply_18   -59.661148       -53.055840 -10.32437960
 supply_19    58.379129        49.289075  10.48703731
 supply_20    14.646267        12.001963   2.58106733
+> colSums( estfun( fitw2sls1e ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+     -1.816602e-13      -1.002843e+01      -3.376854e-12      -3.021888e-15 
+      supply_price   supply_farmPrice       supply_trend 
+     -1.059956e+01       1.506040e-11       1.757941e-12 
 > 
 > estfun( fitw2slsd1e )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -5495,7 +5505,12 @@ supply_17    12.161768        15.536491   2.39022941
 supply_18   -59.661148       -53.055840 -10.32437960
 supply_19    58.379129        49.289075  10.48703731
 supply_20    14.646267        12.001963   2.58106733
+> colSums( estfun( fitw2slsd1e ) )
+demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
+      8.548717e-15       1.280375e+01      -2.337797e-12      -3.021888e-15 
+      supply_price   supply_farmPrice       supply_trend 
+     -1.059956e+01       1.506040e-11       1.757941e-12 
 > 
 > proc.time()
    user  system elapsed 
-  2.404   0.044   2.445 
+  2.416   0.052   2.454 

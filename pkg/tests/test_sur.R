@@ -1225,23 +1225,33 @@ terms( fitsuri5r2$eq[[ 1 ]] )
 library( "sandwich" )
 
 estfun( fitsur1 )
+colSums( estfun( fitsur1 ) )
 
 estfun( fitsur1e2 )
+colSums( estfun( fitsur1e2 ) )
 
 estfun( fitsur1r3 )
+colSums( estfun( fitsur1r3 ) )
 
 estfun( fitsur1w )
+colSums( estfun( fitsur1w ) )
 
 estfun( fitsuri1e )
+colSums( estfun( fitsuri1e ) )
 
 estfun( fitsuri1wr3 )
+colSums( estfun( fitsuri1wr3 ) )
 
 estfun( fitsurS1 )
+colSums( estfun( fitsurS1 ) )
 
 estfun( fitsurS2 )
+colSums( estfun( fitsurS2 ) )
 
 estfun( fitsurS3 )
+colSums( estfun( fitsurS3 ) )
 
 try( estfun( fitsurS4 ) )
 
 estfun( fitsurS5 )
+colSums( estfun( fitsurS5 ) )

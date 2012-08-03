@@ -747,5 +747,7 @@ terms( fitwlsi5e$eq[[ 1 ]] )
 library( "sandwich" )
 
 estfun( fitwls1 )
+colSums( estfun( fitwls1 ) )
 
 estfun( fitwlsi1e )
+colSums( estfun( fitwlsi1e ) )

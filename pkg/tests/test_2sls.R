@@ -762,7 +762,10 @@ terms( fit2slsd2r$eq[[ 1 ]] )
 library( "sandwich" )
 
 estfun( fit2sls1 )
+colSums( estfun( fit2sls1 ) )
 
 estfun( fit2sls1s )
+colSums( estfun( fit2sls1s ) )
 
 estfun( fit2sls1r )
+colSums( estfun( fit2sls1r ) )

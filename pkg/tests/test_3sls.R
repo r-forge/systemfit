@@ -1150,12 +1150,16 @@ terms( fit3slsd[[ 5 ]]$e5we$eq[[ 2 ]] )
 library( "sandwich" )
 
 estfun( fit3sls[[ 1 ]]$e1 )
+colSums( estfun( fit3sls[[ 1 ]]$e1 ) )
 
 estfun( fit3sls[[ 2 ]]$e1e )
+colSums( estfun( fit3sls[[ 2 ]]$e1e ) )
 
 estfun( fit3sls[[ 3 ]]$e1c )
+colSums( estfun( fit3sls[[ 3 ]]$e1c ) )
 
 estfun( fit3sls[[ 4 ]]$e1wc )
+colSums( estfun( fit3sls[[ 4 ]]$e1wc ) )
 
 estfun( fit3slsd[[ 5 ]]$e1w )
-
+colSums( estfun( fit3slsd[[ 5 ]]$e1w ) )
