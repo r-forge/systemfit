@@ -167,6 +167,8 @@ systemfit( formula, method = "OLS",
   \item{eqnNo*}{the number of this equation.}
   \item{terms*}{the 'terms' object used for the ith equation.}
   \item{inst*}{instruments of the ith equation (only 2SLS, W2SLS, and 3SLS).}
+  \item{termsInst*}{the 'terms' object of the instruments 
+     used for the ith equation (only 2SLS, W2SLS, and 3SLS).}
   \item{rank*}{number of linear independent coefficients in the ith equation
      (differs from the number of coefficients only if there are
      restrictions that are not cross-equation).}

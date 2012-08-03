@@ -827,6 +827,7 @@ systemfit <- function(  formula,
     }
     if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ) {
       results$eq[[ i ]]$inst         <- inst[[i]]
+      results$eq[[ i ]]$termsInst <- termsInst[[i]]
       if(  control$z ) {
          results$eq[[ i ]]$z <- zMatEq[[i]]  # matrix of instrumental variables
          rownames( results$eq[[ i ]]$z ) <- obsNamesEq[[ i ]]
