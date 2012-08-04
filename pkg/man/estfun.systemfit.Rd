@@ -12,11 +12,15 @@
 }
 
 \usage{
-\method{estfun}{systemfit}( obj, ... )
+\method{estfun}{systemfit}( obj, residFit = TRUE, ... )
 }
 
 \arguments{
    \item{obj}{an object of class \code{systemfit}.}
+   \item{residFit}{logical. 
+      If \code{FALSE}, the residuals are calculated based on observed regressors.
+      If \code{TRUE}, the residuals are calculated based on fitted regressors.
+      This argument is ignored if no instrumental variable are used.}
    \item{\dots}{further arguments (currently ignored).}
 }
 
@@ -29,13 +33,6 @@
 \section{Warnings}{
    The \pkg{sandwich} package must be loaded before this method
    can be used.
-   
-   In some cases with unbalanced systems estimated by 3SLS 
-   (and perhaps also by W2SLS),
-   the columns of the matrix returned by this \code{estfun} method
-   do not sum up to zero.
-   This indicates a bug.
-   Unfortunately, the reason for this has not yet been found.
 }
 
 \author{
@@ -74,10 +71,14 @@ estfun( fit2sls )
 
 ## this is only true for 2SLS models
 all.equal( estfun( fit2sls ),
+   drop( rep( Kmenta$consump, 2 ) -  model.matrix( fit2sls, which = "xHat" ) \%*\% 
+   coef( fit2sls ) ) * model.matrix( fit2sls, which = "xHat" ) )
+all.equal( estfun( fit2sls, residFit = FALSE ),
    unlist( residuals( fit2sls ) ) * model.matrix( fit2sls, which = "xHat" ) )
 
 # each column should sum up to (approximately) zero
 colSums( estfun( fit2sls ) )
+colSums( estfun( fit2sls, residFit = FALSE ) )
 
 
 ## iterated SUR estimation
@@ -101,15 +102,22 @@ fit3sls <- systemfit( system, "3SLS", inst = inst, data = Kmenta )
 
 ## obtain the estimation function
 estfun( fit3sls )
+estfun( fit3sls, residFit = FALSE )
 
 ## this should be true for 3SLS and W2SLS models
 all.equal( estfun( fit3sls ),
+   drop( rep( Kmenta$consump, 2 ) -  
+   model.matrix( fit2sls, which = "xHat" ) \%*\% coef( fit3sls ) ) * 
+   ( ( solve( fit3sls$residCovEst ) \%x\% diag( nrow( Kmenta ) ) ) \%*\% 
+      model.matrix( fit3sls, which = "xHat" ) ), check.attributes = FALSE )
+all.equal( estfun( fit3sls, residFit = FALSE ),
    unlist( residuals( fit3sls ) ) * 
    ( ( solve( fit3sls$residCovEst ) \%x\% diag( nrow( Kmenta ) ) ) \%*\% 
       model.matrix( fit3sls, which = "xHat" ) ), check.attributes = FALSE )
 
 # each column should sum up to (approximately) zero
 colSums( estfun( fit3sls ) )
+colSums( estfun( fit3sls, residFit = FALSE ) )
 }
 
 \keyword{methods}

@@ -1,4 +1,4 @@
-estfun.systemfit <- function ( obj, ... ) {
+estfun.systemfit <- function ( obj, residFit = TRUE, ... ) {
    if( !is.null( obj$restrict.matrix ) || !is.null( obj$restrict.rhs ) ||
         !is.null( obj$restrict.regMat ) ) {
       stop( "returning the estimation function for models with restrictions",
@@ -13,6 +13,14 @@ estfun.systemfit <- function ( obj, ... ) {
       mm <- model.matrix( obj )
    } else {
       mm <- model.matrix( obj, which = "xHat" )
+      if( residFit ) {
+         res[ !is.na( res ) ] <- res[ !is.na( res ) ] +
+            ( model.matrix( obj ) - mm ) %*% coef( obj )
+         #       resid_fit = y - x_fit b
+         #       resid = y - x b
+         #       resid_fit - resid = - x_fit b + x b
+         #       resid_fit = resid + ( x - x_fit ) b
+      }
    }
    
    if( sum( !is.na( res ) ) != nrow( mm ) ) {
