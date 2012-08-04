@@ -29,6 +29,13 @@
 \section{Warnings}{
    The \pkg{sandwich} package must be loaded before this method
    can be used.
+   
+   In some cases with unbalanced systems estimated by 3SLS 
+   (and perhaps also by W2SLS),
+   the columns of the matrix returned by this \code{estfun} method
+   do not sum up to zero.
+   This indicates a bug.
+   Unfortunately, the reason for this has not yet been found.
 }
 
 \author{
