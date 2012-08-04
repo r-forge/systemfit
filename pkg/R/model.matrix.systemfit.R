@@ -35,6 +35,14 @@ model.matrix.systemfit.equation <- function( object, which = "x", ... ){
    if( which == "xHat" ) {
       xMat <- model.matrix( object, which = "x" )
       zMat <- model.matrix( object, which = "z" )
+      res <- residuals( object )
+      if( sum( !is.na( res ) ) != nrow( xMat ) ) {
+         stop( "internal error: number of non-NA residuals not equal to",
+            " number of observations in xMat. Please contact the maintainer" )
+      } else if( nrow( xMat ) != nrow( zMat) ) {
+         stop( "internal error: number of observations in xMat is not equal to",
+            " number of observations in zMat. Please contact the maintainer" )
+      }
       result <- zMat %*% solve( crossprod( zMat ), crossprod( zMat, xMat ) )
    } else {
       if( !is.null( object[[ which ]] ) ) {
