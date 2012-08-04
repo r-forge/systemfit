@@ -39,5 +39,11 @@ estfun.systemfit <- function ( obj, residFit = TRUE, ... ) {
    
    dimnames( result ) <- dimnames( mm )
    
+   if( max( abs( colSums( result ) ) ) > 1e-6 ) {
+      warning( "the columns of the returned estimating function",
+         " do not all sum up to zero,",
+         " which indicates that the wrong estimating function is returned" )
+   }
+   
    return( result )
 }

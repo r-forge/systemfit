@@ -23549,6 +23549,9 @@ supply_17    -73.58535        -92.71763  -14.2642503
 supply_18   -129.69808       -118.71348  -23.1010014
 supply_19     94.13436         79.25643   16.8630698
 supply_20     27.13717         22.06164    4.7444386
+Warning message:
+In estfun.systemfit(fit3slsd[[5]]$e1w) :
+  the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
 > estfun( fit3slsd[[ 5 ]]$e1w, residFit = FALSE )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
 demand_1          0.89946635   85.6488353    78.6133594       -0.571234218
@@ -23638,6 +23641,9 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
       1.382783e-13       1.706724e-11       1.946887e-11      -1.262601e-13 
       supply_price   supply_farmPrice       supply_trend 
       3.861219e+01      -1.512568e-11      -5.238820e+01 
+Warning message:
+In estfun.systemfit(fit3slsd[[5]]$e1w) :
+  the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
 > colSums( estfun( fit3slsd[[ 5 ]]$e1w, residFit = FALSE ) )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
      -3.822116e-14      -3.617551e-12      -4.498624e-12       2.394959e-14 
@@ -23649,28 +23655,43 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
      -4.054118e-13      -3.611156e-11      -1.084466e-11       3.352318e-13 
       supply_price   supply_farmPrice       supply_trend 
       9.670560e+00      -6.599166e-12      -1.312081e+01 
+Warning message:
+In estfun.systemfit(fit3slsd[[4]]$e1w) :
+  the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
 > colSums( estfun( fit3slsd[[ 4 ]]$e1w, residFit = FALSE ) )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
      -5.901044e-13      -5.780543e-11      -3.642875e-11       4.938940e-13 
       supply_price   supply_farmPrice       supply_trend 
      -2.894163e+01       1.107547e-11       3.926739e+01 
+Warning message:
+In estfun.systemfit(fit3slsd[[4]]$e1w, residFit = FALSE) :
+  the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
 > 
 > colSums( estfun( fit3slsd[[ 3 ]]$e1w ) )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
       2.670086e-14      -2.818545e-11      -6.640466e-11       5.150047e-14 
       supply_price   supply_farmPrice       supply_trend 
       9.670560e+00       1.607603e-11      -1.312081e+01 
+Warning message:
+In estfun.systemfit(fit3slsd[[3]]$e1w) :
+  the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
 > colSums( estfun( fit3slsd[[ 3 ]]$e1w, residFit = FALSE ) )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
      -1.576066e-13      -4.985523e-11      -9.201184e-11       2.099093e-13 
       supply_price   supply_farmPrice       supply_trend 
      -2.894163e+01       3.372813e-11       3.926739e+01 
+Warning message:
+In estfun.systemfit(fit3slsd[[3]]$e1w, residFit = FALSE) :
+  the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
 > 
 > colSums( estfun( fit3slsd[[ 2 ]]$e1w ) )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
      -3.897715e-13      -2.080647e-11       5.970691e-11       4.185541e-14 
       supply_price   supply_farmPrice       supply_trend 
       3.861219e+01      -3.380407e-12      -5.238820e+01 
+Warning message:
+In estfun.systemfit(fit3slsd[[2]]$e1w) :
+  the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
 > colSums( estfun( fit3slsd[[ 2 ]]$e1w, residFit = FALSE ) )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
      -5.660073e-13      -4.146850e-11       3.574374e-11       1.922872e-13 
@@ -23687,7 +23708,10 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
      -4.913171e-13      -9.866274e-11      -4.961576e-11       4.566026e-13 
       supply_price   supply_farmPrice       supply_trend 
      -3.861219e+01       6.287637e-11       5.238820e+01 
+Warning message:
+In estfun.systemfit(fit3slsd[[1]]$e1w, residFit = FALSE) :
+  the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
 > 
 > proc.time()
    user  system elapsed 
-  9.016   0.164   9.182 
+  9.144   0.124   9.269 
