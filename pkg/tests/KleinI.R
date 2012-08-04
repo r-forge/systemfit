@@ -73,6 +73,8 @@ for( methodNo in 1:5 ) {
    if( methodNo == 2 ) {
       cat( "> matrix of instrumental variables\n" )
       print( model.matrix( kleinModel, which = "z" ) )
+      cat( "> matrix of fitted regressors\n" )
+      print( model.matrix( kleinModel, which = "xHat" ) )
    }
    cat( "> nobs\n" )
    print( nobs( kleinModel ) )

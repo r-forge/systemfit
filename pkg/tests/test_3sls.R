@@ -1104,6 +1104,11 @@ model.matrix( fit3sls[[ 1 ]]$e1c, which = "z" )
 model.matrix( fit3sls[[ 3 ]]$e1c$eq[[ 1 ]], which = "z" )
 model.matrix( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]], which = "z" )
 
+# matrices of fitted regressors
+model.matrix( fit3slsd[[ 1 ]]$e3w, which = "xHat" )
+model.matrix( fit3slsd[[ 3 ]]$e3w$eq[[ 1 ]], which = "xHat" )
+model.matrix( fit3slsd[[ 4 ]]$e3w$eq[[ 2 ]], which = "xHat" )
+
 
 ## **************** formulas ************************
 formula( fit3sls[[ 2 ]]$e1c )

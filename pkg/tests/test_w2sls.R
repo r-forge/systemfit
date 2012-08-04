@@ -628,6 +628,11 @@ model.matrix( fitw2sls1, which = "z" )
 model.matrix( fitw2sls1$eq[[ 1 ]], which = "z" )
 model.matrix( fitw2sls1$eq[[ 2 ]], which = "z" )
 
+# matrices of fitted regressors
+model.matrix( fitw2sls5e, which = "xHat" )
+model.matrix( fitw2sls5e$eq[[ 1 ]], which = "xHat" )
+model.matrix( fitw2sls5e$eq[[ 2 ]], which = "xHat" )
+
 
 ## **************** formulas ************************
 formula( fitw2sls1e )
