@@ -29,7 +29,7 @@
    
    This method might not be suitable for specific formulas 
    for 3SLS estimations in case of unbalanced systems
-   or different instruments for different quations.
+   or different instruments for different equations.
 }
 
 \author{
