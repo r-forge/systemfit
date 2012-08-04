@@ -4195,7 +4195,7 @@ attr(,"assign")
 > 
 > try( model.matrix( fitols1, which = "z" ) )
 Error in model.matrix.systemfit.equation(object$eq[[i]], which = which) : 
-  argument 'which' can only be set to "z" if instruments were used
+  argument 'which' can only be set to "xHat" or "z" if instruments were used
 > 
 > 
 > ## **************** formulas ************************
@@ -4940,4 +4940,4 @@ Error in estfun.systemfit(fitols5Sym) :
 > 
 > proc.time()
    user  system elapsed 
-  3.448   0.076   3.517 
+  3.248   0.044   3.290 

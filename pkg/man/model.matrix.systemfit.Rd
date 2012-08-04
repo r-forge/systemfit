@@ -19,6 +19,7 @@
       \code{systemfit.equation}.}
    \item{which}{character string: 
       \code{"x"} indicates the usual model matrix of the regressors,
+      \code{"xHat"} indicates the model matrix of the fitted regressors,
       \code{"z"} indicates the matrix of instrumental variables.}
    \item{\dots}{currently ignored.}
 }
