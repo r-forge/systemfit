@@ -1004,6 +1004,15 @@ print( all.equal( mf1, model.frame( fit3slsi[[ 4 ]]$e3e$eq[[ 1 ]] ) ) )
 print( all.equal( mf, model.frame( fit3slsd[[ 5 ]]$e4 ) ) )
 print( all.equal( mf2, model.frame( fit3slsd[[ 5 ]]$e4$eq[[ 2 ]] ) ) )
 
+fit3sls[[ 3 ]]$e1c$eq[[ 1 ]]$modelInst
+fit3sls[[ 3 ]]$e1c$eq[[ 2 ]]$modelInst
+
+fit3sls[[ 1 ]]$e3$eq[[ 1 ]]$modelInst
+fit3sls[[ 1 ]]$e3$eq[[ 2 ]]$modelInst
+
+fit3slsd[[ 5 ]]$e4$eq[[ 1 ]]$modelInst
+fit3slsd[[ 5 ]]$e4$eq[[ 2 ]]$modelInst
+
 
 ## **************** model matrix ************************
 # with x (returnModelMatrix) = TRUE

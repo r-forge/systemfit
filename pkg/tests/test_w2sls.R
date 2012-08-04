@@ -614,6 +614,15 @@ print( all.equal( mm1, model.matrix( fitw2sls5e$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitw2sls5e$eq[[ 2 ]] ) ) )
 print( !is.null( fitw2sls5e$eq[[ 1 ]]$x ) )
 
+fitw2sls1e$eq[[ 1 ]]$modelInst
+fitw2sls1e$eq[[ 2 ]]$modelInst
+
+fitw2sls4Sym$eq[[ 1 ]]$modelInst
+fitw2sls4Sym$eq[[ 2 ]]$modelInst
+
+fitw2sls5$eq[[ 1 ]]$modelInst
+fitw2sls5$eq[[ 2 ]]$modelInst
+
 
 ## **************** formulas ************************
 formula( fitw2sls1e )

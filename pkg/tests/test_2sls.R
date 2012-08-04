@@ -655,6 +655,15 @@ print( all.equal( mf2, model.frame( fit2sls4r$eq[[ 2 ]] ) ) )
 print( all.equal( mf, model.frame( fit2sls5rs ) ) )
 print( all.equal( mf1, model.frame( fit2sls5rs$eq[[ 1 ]] ) ) )
 
+fit2sls1$eq[[ 1 ]]$modelInst
+fit2sls1$eq[[ 2 ]]$modelInst
+
+fit2sls2s$eq[[ 1 ]]$modelInst
+fit2sls2s$eq[[ 2 ]]$modelInst
+
+fit2sls5rs$eq[[ 1 ]]$modelInst
+fit2sls5rs$eq[[ 2 ]]$modelInst
+
 
 ## **************** model matrix ************************
 # with x (returnModelMatrix) = TRUE

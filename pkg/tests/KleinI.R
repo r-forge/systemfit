@@ -54,6 +54,10 @@ for( methodNo in 1:5 ) {
    } else if( methodNo == 2 ) {
       mf2sls <- model.frame( kleinModel )
       print( mf2sls )
+   cat( "> Frames of instrumental variables\n" )
+      for( i in 1:3 ){
+         print( kleinModel$eq[[ i ]]$modelInst )
+      }
    } else if( methodNo == 3 ) {
       print( all.equal( mfOls, model.frame( kleinModel ) ) )
    } else {
