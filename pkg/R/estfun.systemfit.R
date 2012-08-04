@@ -9,7 +9,11 @@ estfun.systemfit <- function ( obj, ... ) {
    res <- unlist(  residuals( obj ) )
    
    # model matrix
-   mm <- model.matrix( obj )
+   if( is.null( obj$eq[[1]]$inst ) ) {
+      mm <- model.matrix( obj )
+   } else {
+      mm <- model.matrix( obj, which = "xHat" )
+   }
    
    if( sum( !is.na( res ) ) != nrow( mm ) ) {
       stop( "internal error: the number of residuals is not equal to the",
