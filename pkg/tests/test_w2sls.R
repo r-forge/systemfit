@@ -552,6 +552,15 @@ print( all.equal( mf1, model.frame( fitw2slsd2e$eq[[ 1 ]] ) ) )
 print( all.equal( mf, model.frame( fitw2slsd3e ) ) )
 print( all.equal( mf2, model.frame( fitw2slsd3e$eq[[ 2 ]] ) ) )
 
+fitw2sls1e$eq[[ 1 ]]$modelInst
+fitw2sls1e$eq[[ 2 ]]$modelInst
+
+fitw2sls4Sym$eq[[ 1 ]]$modelInst
+fitw2sls4Sym$eq[[ 2 ]]$modelInst
+
+fitw2sls5$eq[[ 1 ]]$modelInst
+fitw2sls5$eq[[ 2 ]]$modelInst
+
 
 ## **************** model matrix ************************
 # with x (returnModelMatrix) = TRUE
@@ -613,15 +622,6 @@ print( all.equal( mm, model.matrix( fitw2sls5e ) ) )
 print( all.equal( mm1, model.matrix( fitw2sls5e$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitw2sls5e$eq[[ 2 ]] ) ) )
 print( !is.null( fitw2sls5e$eq[[ 1 ]]$x ) )
-
-fitw2sls1e$eq[[ 1 ]]$modelInst
-fitw2sls1e$eq[[ 2 ]]$modelInst
-
-fitw2sls4Sym$eq[[ 1 ]]$modelInst
-fitw2sls4Sym$eq[[ 2 ]]$modelInst
-
-fitw2sls5$eq[[ 1 ]]$modelInst
-fitw2sls5$eq[[ 2 ]]$modelInst
 
 
 ## **************** formulas ************************
