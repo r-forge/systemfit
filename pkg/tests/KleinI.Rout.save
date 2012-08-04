@@ -102,6 +102,10 @@ The following object(s) are masked from 'package:base':
 +    } else {
 +       print( all.equal( mmOls, model.matrix( kleinModel ) ) )
 +    }
++    if( methodNo == 2 ) {
++       cat( "> matrix of instrumental variables\n" )
++       print( model.matrix( kleinModel, which = "z" ) )
++    }
 +    cat( "> nobs\n" )
 +    print( nobs( kleinModel ) )
 +    cat( "> linearHypothesis\n" )
@@ -1535,6 +1539,583 @@ Multiple R-Squared: 0.987414 Adjusted R-Squared: 0.985193
 22   13.8  11.6     8.5    10      204.5        21.1   75.7
 > model.matrix
 [1] TRUE
+> matrix of instrumental variables
+                Consumption_(Intercept) Consumption_govExp Consumption_taxes
+Consumption_2                         1                3.9               7.7
+Consumption_3                         1                3.2               3.9
+Consumption_4                         1                2.8               4.7
+Consumption_5                         1                3.5               3.8
+Consumption_6                         1                3.3               5.5
+Consumption_7                         1                3.3               7.0
+Consumption_8                         1                4.0               6.7
+Consumption_9                         1                4.2               4.2
+Consumption_10                        1                4.1               4.0
+Consumption_11                        1                5.2               7.7
+Consumption_12                        1                5.9               7.5
+Consumption_13                        1                4.9               8.3
+Consumption_14                        1                3.7               5.4
+Consumption_15                        1                4.0               6.8
+Consumption_16                        1                4.4               7.2
+Consumption_17                        1                2.9               8.3
+Consumption_18                        1                4.3               6.7
+Consumption_19                        1                5.3               7.4
+Consumption_20                        1                6.6               8.9
+Consumption_21                        1                7.4               9.6
+Consumption_22                        1               13.8              11.6
+Investment_2                          0                0.0               0.0
+Investment_3                          0                0.0               0.0
+Investment_4                          0                0.0               0.0
+Investment_5                          0                0.0               0.0
+Investment_6                          0                0.0               0.0
+Investment_7                          0                0.0               0.0
+Investment_8                          0                0.0               0.0
+Investment_9                          0                0.0               0.0
+Investment_10                         0                0.0               0.0
+Investment_11                         0                0.0               0.0
+Investment_12                         0                0.0               0.0
+Investment_13                         0                0.0               0.0
+Investment_14                         0                0.0               0.0
+Investment_15                         0                0.0               0.0
+Investment_16                         0                0.0               0.0
+Investment_17                         0                0.0               0.0
+Investment_18                         0                0.0               0.0
+Investment_19                         0                0.0               0.0
+Investment_20                         0                0.0               0.0
+Investment_21                         0                0.0               0.0
+Investment_22                         0                0.0               0.0
+PrivateWages_2                        0                0.0               0.0
+PrivateWages_3                        0                0.0               0.0
+PrivateWages_4                        0                0.0               0.0
+PrivateWages_5                        0                0.0               0.0
+PrivateWages_6                        0                0.0               0.0
+PrivateWages_7                        0                0.0               0.0
+PrivateWages_8                        0                0.0               0.0
+PrivateWages_9                        0                0.0               0.0
+PrivateWages_10                       0                0.0               0.0
+PrivateWages_11                       0                0.0               0.0
+PrivateWages_12                       0                0.0               0.0
+PrivateWages_13                       0                0.0               0.0
+PrivateWages_14                       0                0.0               0.0
+PrivateWages_15                       0                0.0               0.0
+PrivateWages_16                       0                0.0               0.0
+PrivateWages_17                       0                0.0               0.0
+PrivateWages_18                       0                0.0               0.0
+PrivateWages_19                       0                0.0               0.0
+PrivateWages_20                       0                0.0               0.0
+PrivateWages_21                       0                0.0               0.0
+PrivateWages_22                       0                0.0               0.0
+                Consumption_govWage Consumption_trend Consumption_capitalLag
+Consumption_2                   2.7               -10                  182.8
+Consumption_3                   2.9                -9                  182.6
+Consumption_4                   2.9                -8                  184.5
+Consumption_5                   3.1                -7                  189.7
+Consumption_6                   3.2                -6                  192.7
+Consumption_7                   3.3                -5                  197.8
+Consumption_8                   3.6                -4                  203.4
+Consumption_9                   3.7                -3                  207.6
+Consumption_10                  4.0                -2                  210.6
+Consumption_11                  4.2                -1                  215.7
+Consumption_12                  4.8                 0                  216.7
+Consumption_13                  5.3                 1                  213.3
+Consumption_14                  5.6                 2                  207.1
+Consumption_15                  6.0                 3                  202.0
+Consumption_16                  6.1                 4                  199.0
+Consumption_17                  7.4                 5                  197.7
+Consumption_18                  6.7                 6                  199.8
+Consumption_19                  7.7                 7                  201.8
+Consumption_20                  7.8                 8                  199.9
+Consumption_21                  8.0                 9                  201.2
+Consumption_22                  8.5                10                  204.5
+Investment_2                    0.0                 0                    0.0
+Investment_3                    0.0                 0                    0.0
+Investment_4                    0.0                 0                    0.0
+Investment_5                    0.0                 0                    0.0
+Investment_6                    0.0                 0                    0.0
+Investment_7                    0.0                 0                    0.0
+Investment_8                    0.0                 0                    0.0
+Investment_9                    0.0                 0                    0.0
+Investment_10                   0.0                 0                    0.0
+Investment_11                   0.0                 0                    0.0
+Investment_12                   0.0                 0                    0.0
+Investment_13                   0.0                 0                    0.0
+Investment_14                   0.0                 0                    0.0
+Investment_15                   0.0                 0                    0.0
+Investment_16                   0.0                 0                    0.0
+Investment_17                   0.0                 0                    0.0
+Investment_18                   0.0                 0                    0.0
+Investment_19                   0.0                 0                    0.0
+Investment_20                   0.0                 0                    0.0
+Investment_21                   0.0                 0                    0.0
+Investment_22                   0.0                 0                    0.0
+PrivateWages_2                  0.0                 0                    0.0
+PrivateWages_3                  0.0                 0                    0.0
+PrivateWages_4                  0.0                 0                    0.0
+PrivateWages_5                  0.0                 0                    0.0
+PrivateWages_6                  0.0                 0                    0.0
+PrivateWages_7                  0.0                 0                    0.0
+PrivateWages_8                  0.0                 0                    0.0
+PrivateWages_9                  0.0                 0                    0.0
+PrivateWages_10                 0.0                 0                    0.0
+PrivateWages_11                 0.0                 0                    0.0
+PrivateWages_12                 0.0                 0                    0.0
+PrivateWages_13                 0.0                 0                    0.0
+PrivateWages_14                 0.0                 0                    0.0
+PrivateWages_15                 0.0                 0                    0.0
+PrivateWages_16                 0.0                 0                    0.0
+PrivateWages_17                 0.0                 0                    0.0
+PrivateWages_18                 0.0                 0                    0.0
+PrivateWages_19                 0.0                 0                    0.0
+PrivateWages_20                 0.0                 0                    0.0
+PrivateWages_21                 0.0                 0                    0.0
+PrivateWages_22                 0.0                 0                    0.0
+                Consumption_corpProfLag Consumption_gnpLag
+Consumption_2                      12.7               44.9
+Consumption_3                      12.4               45.6
+Consumption_4                      16.9               50.1
+Consumption_5                      18.4               57.2
+Consumption_6                      19.4               57.1
+Consumption_7                      20.1               61.0
+Consumption_8                      19.6               64.0
+Consumption_9                      19.8               64.4
+Consumption_10                     21.1               64.5
+Consumption_11                     21.7               67.0
+Consumption_12                     15.6               61.2
+Consumption_13                     11.4               53.4
+Consumption_14                      7.0               44.3
+Consumption_15                     11.2               45.1
+Consumption_16                     12.3               49.7
+Consumption_17                     14.0               54.4
+Consumption_18                     17.6               62.7
+Consumption_19                     17.3               65.0
+Consumption_20                     15.3               60.9
+Consumption_21                     19.0               69.5
+Consumption_22                     21.1               75.7
+Investment_2                        0.0                0.0
+Investment_3                        0.0                0.0
+Investment_4                        0.0                0.0
+Investment_5                        0.0                0.0
+Investment_6                        0.0                0.0
+Investment_7                        0.0                0.0
+Investment_8                        0.0                0.0
+Investment_9                        0.0                0.0
+Investment_10                       0.0                0.0
+Investment_11                       0.0                0.0
+Investment_12                       0.0                0.0
+Investment_13                       0.0                0.0
+Investment_14                       0.0                0.0
+Investment_15                       0.0                0.0
+Investment_16                       0.0                0.0
+Investment_17                       0.0                0.0
+Investment_18                       0.0                0.0
+Investment_19                       0.0                0.0
+Investment_20                       0.0                0.0
+Investment_21                       0.0                0.0
+Investment_22                       0.0                0.0
+PrivateWages_2                      0.0                0.0
+PrivateWages_3                      0.0                0.0
+PrivateWages_4                      0.0                0.0
+PrivateWages_5                      0.0                0.0
+PrivateWages_6                      0.0                0.0
+PrivateWages_7                      0.0                0.0
+PrivateWages_8                      0.0                0.0
+PrivateWages_9                      0.0                0.0
+PrivateWages_10                     0.0                0.0
+PrivateWages_11                     0.0                0.0
+PrivateWages_12                     0.0                0.0
+PrivateWages_13                     0.0                0.0
+PrivateWages_14                     0.0                0.0
+PrivateWages_15                     0.0                0.0
+PrivateWages_16                     0.0                0.0
+PrivateWages_17                     0.0                0.0
+PrivateWages_18                     0.0                0.0
+PrivateWages_19                     0.0                0.0
+PrivateWages_20                     0.0                0.0
+PrivateWages_21                     0.0                0.0
+PrivateWages_22                     0.0                0.0
+                Investment_(Intercept) Investment_govExp Investment_taxes
+Consumption_2                        0               0.0              0.0
+Consumption_3                        0               0.0              0.0
+Consumption_4                        0               0.0              0.0
+Consumption_5                        0               0.0              0.0
+Consumption_6                        0               0.0              0.0
+Consumption_7                        0               0.0              0.0
+Consumption_8                        0               0.0              0.0
+Consumption_9                        0               0.0              0.0
+Consumption_10                       0               0.0              0.0
+Consumption_11                       0               0.0              0.0
+Consumption_12                       0               0.0              0.0
+Consumption_13                       0               0.0              0.0
+Consumption_14                       0               0.0              0.0
+Consumption_15                       0               0.0              0.0
+Consumption_16                       0               0.0              0.0
+Consumption_17                       0               0.0              0.0
+Consumption_18                       0               0.0              0.0
+Consumption_19                       0               0.0              0.0
+Consumption_20                       0               0.0              0.0
+Consumption_21                       0               0.0              0.0
+Consumption_22                       0               0.0              0.0
+Investment_2                         1               3.9              7.7
+Investment_3                         1               3.2              3.9
+Investment_4                         1               2.8              4.7
+Investment_5                         1               3.5              3.8
+Investment_6                         1               3.3              5.5
+Investment_7                         1               3.3              7.0
+Investment_8                         1               4.0              6.7
+Investment_9                         1               4.2              4.2
+Investment_10                        1               4.1              4.0
+Investment_11                        1               5.2              7.7
+Investment_12                        1               5.9              7.5
+Investment_13                        1               4.9              8.3
+Investment_14                        1               3.7              5.4
+Investment_15                        1               4.0              6.8
+Investment_16                        1               4.4              7.2
+Investment_17                        1               2.9              8.3
+Investment_18                        1               4.3              6.7
+Investment_19                        1               5.3              7.4
+Investment_20                        1               6.6              8.9
+Investment_21                        1               7.4              9.6
+Investment_22                        1              13.8             11.6
+PrivateWages_2                       0               0.0              0.0
+PrivateWages_3                       0               0.0              0.0
+PrivateWages_4                       0               0.0              0.0
+PrivateWages_5                       0               0.0              0.0
+PrivateWages_6                       0               0.0              0.0
+PrivateWages_7                       0               0.0              0.0
+PrivateWages_8                       0               0.0              0.0
+PrivateWages_9                       0               0.0              0.0
+PrivateWages_10                      0               0.0              0.0
+PrivateWages_11                      0               0.0              0.0
+PrivateWages_12                      0               0.0              0.0
+PrivateWages_13                      0               0.0              0.0
+PrivateWages_14                      0               0.0              0.0
+PrivateWages_15                      0               0.0              0.0
+PrivateWages_16                      0               0.0              0.0
+PrivateWages_17                      0               0.0              0.0
+PrivateWages_18                      0               0.0              0.0
+PrivateWages_19                      0               0.0              0.0
+PrivateWages_20                      0               0.0              0.0
+PrivateWages_21                      0               0.0              0.0
+PrivateWages_22                      0               0.0              0.0
+                Investment_govWage Investment_trend Investment_capitalLag
+Consumption_2                  0.0                0                   0.0
+Consumption_3                  0.0                0                   0.0
+Consumption_4                  0.0                0                   0.0
+Consumption_5                  0.0                0                   0.0
+Consumption_6                  0.0                0                   0.0
+Consumption_7                  0.0                0                   0.0
+Consumption_8                  0.0                0                   0.0
+Consumption_9                  0.0                0                   0.0
+Consumption_10                 0.0                0                   0.0
+Consumption_11                 0.0                0                   0.0
+Consumption_12                 0.0                0                   0.0
+Consumption_13                 0.0                0                   0.0
+Consumption_14                 0.0                0                   0.0
+Consumption_15                 0.0                0                   0.0
+Consumption_16                 0.0                0                   0.0
+Consumption_17                 0.0                0                   0.0
+Consumption_18                 0.0                0                   0.0
+Consumption_19                 0.0                0                   0.0
+Consumption_20                 0.0                0                   0.0
+Consumption_21                 0.0                0                   0.0
+Consumption_22                 0.0                0                   0.0
+Investment_2                   2.7              -10                 182.8
+Investment_3                   2.9               -9                 182.6
+Investment_4                   2.9               -8                 184.5
+Investment_5                   3.1               -7                 189.7
+Investment_6                   3.2               -6                 192.7
+Investment_7                   3.3               -5                 197.8
+Investment_8                   3.6               -4                 203.4
+Investment_9                   3.7               -3                 207.6
+Investment_10                  4.0               -2                 210.6
+Investment_11                  4.2               -1                 215.7
+Investment_12                  4.8                0                 216.7
+Investment_13                  5.3                1                 213.3
+Investment_14                  5.6                2                 207.1
+Investment_15                  6.0                3                 202.0
+Investment_16                  6.1                4                 199.0
+Investment_17                  7.4                5                 197.7
+Investment_18                  6.7                6                 199.8
+Investment_19                  7.7                7                 201.8
+Investment_20                  7.8                8                 199.9
+Investment_21                  8.0                9                 201.2
+Investment_22                  8.5               10                 204.5
+PrivateWages_2                 0.0                0                   0.0
+PrivateWages_3                 0.0                0                   0.0
+PrivateWages_4                 0.0                0                   0.0
+PrivateWages_5                 0.0                0                   0.0
+PrivateWages_6                 0.0                0                   0.0
+PrivateWages_7                 0.0                0                   0.0
+PrivateWages_8                 0.0                0                   0.0
+PrivateWages_9                 0.0                0                   0.0
+PrivateWages_10                0.0                0                   0.0
+PrivateWages_11                0.0                0                   0.0
+PrivateWages_12                0.0                0                   0.0
+PrivateWages_13                0.0                0                   0.0
+PrivateWages_14                0.0                0                   0.0
+PrivateWages_15                0.0                0                   0.0
+PrivateWages_16                0.0                0                   0.0
+PrivateWages_17                0.0                0                   0.0
+PrivateWages_18                0.0                0                   0.0
+PrivateWages_19                0.0                0                   0.0
+PrivateWages_20                0.0                0                   0.0
+PrivateWages_21                0.0                0                   0.0
+PrivateWages_22                0.0                0                   0.0
+                Investment_corpProfLag Investment_gnpLag
+Consumption_2                      0.0               0.0
+Consumption_3                      0.0               0.0
+Consumption_4                      0.0               0.0
+Consumption_5                      0.0               0.0
+Consumption_6                      0.0               0.0
+Consumption_7                      0.0               0.0
+Consumption_8                      0.0               0.0
+Consumption_9                      0.0               0.0
+Consumption_10                     0.0               0.0
+Consumption_11                     0.0               0.0
+Consumption_12                     0.0               0.0
+Consumption_13                     0.0               0.0
+Consumption_14                     0.0               0.0
+Consumption_15                     0.0               0.0
+Consumption_16                     0.0               0.0
+Consumption_17                     0.0               0.0
+Consumption_18                     0.0               0.0
+Consumption_19                     0.0               0.0
+Consumption_20                     0.0               0.0
+Consumption_21                     0.0               0.0
+Consumption_22                     0.0               0.0
+Investment_2                      12.7              44.9
+Investment_3                      12.4              45.6
+Investment_4                      16.9              50.1
+Investment_5                      18.4              57.2
+Investment_6                      19.4              57.1
+Investment_7                      20.1              61.0
+Investment_8                      19.6              64.0
+Investment_9                      19.8              64.4
+Investment_10                     21.1              64.5
+Investment_11                     21.7              67.0
+Investment_12                     15.6              61.2
+Investment_13                     11.4              53.4
+Investment_14                      7.0              44.3
+Investment_15                     11.2              45.1
+Investment_16                     12.3              49.7
+Investment_17                     14.0              54.4
+Investment_18                     17.6              62.7
+Investment_19                     17.3              65.0
+Investment_20                     15.3              60.9
+Investment_21                     19.0              69.5
+Investment_22                     21.1              75.7
+PrivateWages_2                     0.0               0.0
+PrivateWages_3                     0.0               0.0
+PrivateWages_4                     0.0               0.0
+PrivateWages_5                     0.0               0.0
+PrivateWages_6                     0.0               0.0
+PrivateWages_7                     0.0               0.0
+PrivateWages_8                     0.0               0.0
+PrivateWages_9                     0.0               0.0
+PrivateWages_10                    0.0               0.0
+PrivateWages_11                    0.0               0.0
+PrivateWages_12                    0.0               0.0
+PrivateWages_13                    0.0               0.0
+PrivateWages_14                    0.0               0.0
+PrivateWages_15                    0.0               0.0
+PrivateWages_16                    0.0               0.0
+PrivateWages_17                    0.0               0.0
+PrivateWages_18                    0.0               0.0
+PrivateWages_19                    0.0               0.0
+PrivateWages_20                    0.0               0.0
+PrivateWages_21                    0.0               0.0
+PrivateWages_22                    0.0               0.0
+                PrivateWages_(Intercept) PrivateWages_govExp PrivateWages_taxes
+Consumption_2                          0                 0.0                0.0
+Consumption_3                          0                 0.0                0.0
+Consumption_4                          0                 0.0                0.0
+Consumption_5                          0                 0.0                0.0
+Consumption_6                          0                 0.0                0.0
+Consumption_7                          0                 0.0                0.0
+Consumption_8                          0                 0.0                0.0
+Consumption_9                          0                 0.0                0.0
+Consumption_10                         0                 0.0                0.0
+Consumption_11                         0                 0.0                0.0
+Consumption_12                         0                 0.0                0.0
+Consumption_13                         0                 0.0                0.0
+Consumption_14                         0                 0.0                0.0
+Consumption_15                         0                 0.0                0.0
+Consumption_16                         0                 0.0                0.0
+Consumption_17                         0                 0.0                0.0
+Consumption_18                         0                 0.0                0.0
+Consumption_19                         0                 0.0                0.0
+Consumption_20                         0                 0.0                0.0
+Consumption_21                         0                 0.0                0.0
+Consumption_22                         0                 0.0                0.0
+Investment_2                           0                 0.0                0.0
+Investment_3                           0                 0.0                0.0
+Investment_4                           0                 0.0                0.0
+Investment_5                           0                 0.0                0.0
+Investment_6                           0                 0.0                0.0
+Investment_7                           0                 0.0                0.0
+Investment_8                           0                 0.0                0.0
+Investment_9                           0                 0.0                0.0
+Investment_10                          0                 0.0                0.0
+Investment_11                          0                 0.0                0.0
+Investment_12                          0                 0.0                0.0
+Investment_13                          0                 0.0                0.0
+Investment_14                          0                 0.0                0.0
+Investment_15                          0                 0.0                0.0
+Investment_16                          0                 0.0                0.0
+Investment_17                          0                 0.0                0.0
+Investment_18                          0                 0.0                0.0
+Investment_19                          0                 0.0                0.0
+Investment_20                          0                 0.0                0.0
+Investment_21                          0                 0.0                0.0
+Investment_22                          0                 0.0                0.0
+PrivateWages_2                         1                 3.9                7.7
+PrivateWages_3                         1                 3.2                3.9
+PrivateWages_4                         1                 2.8                4.7
+PrivateWages_5                         1                 3.5                3.8
+PrivateWages_6                         1                 3.3                5.5
+PrivateWages_7                         1                 3.3                7.0
+PrivateWages_8                         1                 4.0                6.7
+PrivateWages_9                         1                 4.2                4.2
+PrivateWages_10                        1                 4.1                4.0
+PrivateWages_11                        1                 5.2                7.7
+PrivateWages_12                        1                 5.9                7.5
+PrivateWages_13                        1                 4.9                8.3
+PrivateWages_14                        1                 3.7                5.4
+PrivateWages_15                        1                 4.0                6.8
+PrivateWages_16                        1                 4.4                7.2
+PrivateWages_17                        1                 2.9                8.3
+PrivateWages_18                        1                 4.3                6.7
+PrivateWages_19                        1                 5.3                7.4
+PrivateWages_20                        1                 6.6                8.9
+PrivateWages_21                        1                 7.4                9.6
+PrivateWages_22                        1                13.8               11.6
+                PrivateWages_govWage PrivateWages_trend PrivateWages_capitalLag
+Consumption_2                    0.0                  0                     0.0
+Consumption_3                    0.0                  0                     0.0
+Consumption_4                    0.0                  0                     0.0
+Consumption_5                    0.0                  0                     0.0
+Consumption_6                    0.0                  0                     0.0
+Consumption_7                    0.0                  0                     0.0
+Consumption_8                    0.0                  0                     0.0
+Consumption_9                    0.0                  0                     0.0
+Consumption_10                   0.0                  0                     0.0
+Consumption_11                   0.0                  0                     0.0
+Consumption_12                   0.0                  0                     0.0
+Consumption_13                   0.0                  0                     0.0
+Consumption_14                   0.0                  0                     0.0
+Consumption_15                   0.0                  0                     0.0
+Consumption_16                   0.0                  0                     0.0
+Consumption_17                   0.0                  0                     0.0
+Consumption_18                   0.0                  0                     0.0
+Consumption_19                   0.0                  0                     0.0
+Consumption_20                   0.0                  0                     0.0
+Consumption_21                   0.0                  0                     0.0
+Consumption_22                   0.0                  0                     0.0
+Investment_2                     0.0                  0                     0.0
+Investment_3                     0.0                  0                     0.0
+Investment_4                     0.0                  0                     0.0
+Investment_5                     0.0                  0                     0.0
+Investment_6                     0.0                  0                     0.0
+Investment_7                     0.0                  0                     0.0
+Investment_8                     0.0                  0                     0.0
+Investment_9                     0.0                  0                     0.0
+Investment_10                    0.0                  0                     0.0
+Investment_11                    0.0                  0                     0.0
+Investment_12                    0.0                  0                     0.0
+Investment_13                    0.0                  0                     0.0
+Investment_14                    0.0                  0                     0.0
+Investment_15                    0.0                  0                     0.0
+Investment_16                    0.0                  0                     0.0
+Investment_17                    0.0                  0                     0.0
+Investment_18                    0.0                  0                     0.0
+Investment_19                    0.0                  0                     0.0
+Investment_20                    0.0                  0                     0.0
+Investment_21                    0.0                  0                     0.0
+Investment_22                    0.0                  0                     0.0
+PrivateWages_2                   2.7                -10                   182.8
+PrivateWages_3                   2.9                 -9                   182.6
+PrivateWages_4                   2.9                 -8                   184.5
+PrivateWages_5                   3.1                 -7                   189.7
+PrivateWages_6                   3.2                 -6                   192.7
+PrivateWages_7                   3.3                 -5                   197.8
+PrivateWages_8                   3.6                 -4                   203.4
+PrivateWages_9                   3.7                 -3                   207.6
+PrivateWages_10                  4.0                 -2                   210.6
+PrivateWages_11                  4.2                 -1                   215.7
+PrivateWages_12                  4.8                  0                   216.7
+PrivateWages_13                  5.3                  1                   213.3
+PrivateWages_14                  5.6                  2                   207.1
+PrivateWages_15                  6.0                  3                   202.0
+PrivateWages_16                  6.1                  4                   199.0
+PrivateWages_17                  7.4                  5                   197.7
+PrivateWages_18                  6.7                  6                   199.8
+PrivateWages_19                  7.7                  7                   201.8
+PrivateWages_20                  7.8                  8                   199.9
+PrivateWages_21                  8.0                  9                   201.2
+PrivateWages_22                  8.5                 10                   204.5
+                PrivateWages_corpProfLag PrivateWages_gnpLag
+Consumption_2                        0.0                 0.0
+Consumption_3                        0.0                 0.0
+Consumption_4                        0.0                 0.0
+Consumption_5                        0.0                 0.0
+Consumption_6                        0.0                 0.0
+Consumption_7                        0.0                 0.0
+Consumption_8                        0.0                 0.0
+Consumption_9                        0.0                 0.0
+Consumption_10                       0.0                 0.0
+Consumption_11                       0.0                 0.0
+Consumption_12                       0.0                 0.0
+Consumption_13                       0.0                 0.0
+Consumption_14                       0.0                 0.0
+Consumption_15                       0.0                 0.0
+Consumption_16                       0.0                 0.0
+Consumption_17                       0.0                 0.0
+Consumption_18                       0.0                 0.0
+Consumption_19                       0.0                 0.0
+Consumption_20                       0.0                 0.0
+Consumption_21                       0.0                 0.0
+Consumption_22                       0.0                 0.0
+Investment_2                         0.0                 0.0
+Investment_3                         0.0                 0.0
+Investment_4                         0.0                 0.0
+Investment_5                         0.0                 0.0
+Investment_6                         0.0                 0.0
+Investment_7                         0.0                 0.0
+Investment_8                         0.0                 0.0
+Investment_9                         0.0                 0.0
+Investment_10                        0.0                 0.0
+Investment_11                        0.0                 0.0
+Investment_12                        0.0                 0.0
+Investment_13                        0.0                 0.0
+Investment_14                        0.0                 0.0
+Investment_15                        0.0                 0.0
+Investment_16                        0.0                 0.0
+Investment_17                        0.0                 0.0
+Investment_18                        0.0                 0.0
+Investment_19                        0.0                 0.0
+Investment_20                        0.0                 0.0
+Investment_21                        0.0                 0.0
+Investment_22                        0.0                 0.0
+PrivateWages_2                      12.7                44.9
+PrivateWages_3                      12.4                45.6
+PrivateWages_4                      16.9                50.1
+PrivateWages_5                      18.4                57.2
+PrivateWages_6                      19.4                57.1
+PrivateWages_7                      20.1                61.0
+PrivateWages_8                      19.6                64.0
+PrivateWages_9                      19.8                64.4
+PrivateWages_10                     21.1                64.5
+PrivateWages_11                     21.7                67.0
+PrivateWages_12                     15.6                61.2
+PrivateWages_13                     11.4                53.4
+PrivateWages_14                      7.0                44.3
+PrivateWages_15                     11.2                45.1
+PrivateWages_16                     12.3                49.7
+PrivateWages_17                     14.0                54.4
+PrivateWages_18                     17.6                62.7
+PrivateWages_19                     17.3                65.0
+PrivateWages_20                     15.3                60.9
+PrivateWages_21                     19.0                69.5
+PrivateWages_22                     21.1                75.7
 > nobs
 [1] 63
 > linearHypothesis
@@ -5443,6 +6024,556 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03225806 >"
 [2] "Attributes: < Component 2: Component 1: 55 string mismatches >"   
 [3] "Numeric: lengths (744, 720) differ"                               
+> matrix of instrumental variables
+                Consumption_(Intercept) Consumption_govExp Consumption_taxes
+Consumption_2                         1                3.9               7.7
+Consumption_3                         1                3.2               3.9
+Consumption_4                         1                2.8               4.7
+Consumption_5                         1                3.5               3.8
+Consumption_6                         1                3.3               5.5
+Consumption_8                         1                4.0               6.7
+Consumption_9                         1                4.2               4.2
+Consumption_10                        1                4.1               4.0
+Consumption_11                        1                5.2               7.7
+Consumption_12                        1                5.9               7.5
+Consumption_13                        1                4.9               8.3
+Consumption_14                        1                3.7               5.4
+Consumption_15                        1                4.0               6.8
+Consumption_16                        1                4.4               7.2
+Consumption_17                        1                2.9               8.3
+Consumption_18                        1                4.3               6.7
+Consumption_19                        1                5.3               7.4
+Consumption_20                        1                6.6               8.9
+Consumption_21                        1                7.4               9.6
+Consumption_22                        1               13.8              11.6
+Investment_2                          0                0.0               0.0
+Investment_3                          0                0.0               0.0
+Investment_4                          0                0.0               0.0
+Investment_5                          0                0.0               0.0
+Investment_6                          0                0.0               0.0
+Investment_8                          0                0.0               0.0
+Investment_9                          0                0.0               0.0
+Investment_10                         0                0.0               0.0
+Investment_11                         0                0.0               0.0
+Investment_12                         0                0.0               0.0
+Investment_13                         0                0.0               0.0
+Investment_14                         0                0.0               0.0
+Investment_15                         0                0.0               0.0
+Investment_16                         0                0.0               0.0
+Investment_17                         0                0.0               0.0
+Investment_18                         0                0.0               0.0
+Investment_19                         0                0.0               0.0
+Investment_20                         0                0.0               0.0
+Investment_21                         0                0.0               0.0
+Investment_22                         0                0.0               0.0
+PrivateWages_2                        0                0.0               0.0
+PrivateWages_3                        0                0.0               0.0
+PrivateWages_4                        0                0.0               0.0
+PrivateWages_5                        0                0.0               0.0
+PrivateWages_6                        0                0.0               0.0
+PrivateWages_8                        0                0.0               0.0
+PrivateWages_9                        0                0.0               0.0
+PrivateWages_10                       0                0.0               0.0
+PrivateWages_11                       0                0.0               0.0
+PrivateWages_12                       0                0.0               0.0
+PrivateWages_13                       0                0.0               0.0
+PrivateWages_14                       0                0.0               0.0
+PrivateWages_15                       0                0.0               0.0
+PrivateWages_16                       0                0.0               0.0
+PrivateWages_17                       0                0.0               0.0
+PrivateWages_18                       0                0.0               0.0
+PrivateWages_19                       0                0.0               0.0
+PrivateWages_20                       0                0.0               0.0
+PrivateWages_21                       0                0.0               0.0
+PrivateWages_22                       0                0.0               0.0
+                Consumption_govWage Consumption_trend Consumption_capitalLag
+Consumption_2                   2.7               -10                  182.8
+Consumption_3                   2.9                -9                  182.6
+Consumption_4                   2.9                -8                  184.5
+Consumption_5                   3.1                -7                  189.7
+Consumption_6                   3.2                -6                  192.7
+Consumption_8                   3.6                -4                  203.4
+Consumption_9                   3.7                -3                  207.6
+Consumption_10                  4.0                -2                  210.6
+Consumption_11                  4.2                -1                  215.7
+Consumption_12                  4.8                 0                  216.7
+Consumption_13                  5.3                 1                  213.3
+Consumption_14                  5.6                 2                  207.1
+Consumption_15                  6.0                 3                  202.0
+Consumption_16                  6.1                 4                  199.0
+Consumption_17                  7.4                 5                  197.7
+Consumption_18                  6.7                 6                  199.8
+Consumption_19                  7.7                 7                  201.8
+Consumption_20                  7.8                 8                  199.9
+Consumption_21                  8.0                 9                  201.2
+Consumption_22                  8.5                10                  204.5
+Investment_2                    0.0                 0                    0.0
+Investment_3                    0.0                 0                    0.0
+Investment_4                    0.0                 0                    0.0
+Investment_5                    0.0                 0                    0.0
+Investment_6                    0.0                 0                    0.0
+Investment_8                    0.0                 0                    0.0
+Investment_9                    0.0                 0                    0.0
+Investment_10                   0.0                 0                    0.0
+Investment_11                   0.0                 0                    0.0
+Investment_12                   0.0                 0                    0.0
+Investment_13                   0.0                 0                    0.0
+Investment_14                   0.0                 0                    0.0
+Investment_15                   0.0                 0                    0.0
+Investment_16                   0.0                 0                    0.0
+Investment_17                   0.0                 0                    0.0
+Investment_18                   0.0                 0                    0.0
+Investment_19                   0.0                 0                    0.0
+Investment_20                   0.0                 0                    0.0
+Investment_21                   0.0                 0                    0.0
+Investment_22                   0.0                 0                    0.0
+PrivateWages_2                  0.0                 0                    0.0
+PrivateWages_3                  0.0                 0                    0.0
+PrivateWages_4                  0.0                 0                    0.0
+PrivateWages_5                  0.0                 0                    0.0
+PrivateWages_6                  0.0                 0                    0.0
+PrivateWages_8                  0.0                 0                    0.0
+PrivateWages_9                  0.0                 0                    0.0
+PrivateWages_10                 0.0                 0                    0.0
+PrivateWages_11                 0.0                 0                    0.0
+PrivateWages_12                 0.0                 0                    0.0
+PrivateWages_13                 0.0                 0                    0.0
+PrivateWages_14                 0.0                 0                    0.0
+PrivateWages_15                 0.0                 0                    0.0
+PrivateWages_16                 0.0                 0                    0.0
+PrivateWages_17                 0.0                 0                    0.0
+PrivateWages_18                 0.0                 0                    0.0
+PrivateWages_19                 0.0                 0                    0.0
+PrivateWages_20                 0.0                 0                    0.0
+PrivateWages_21                 0.0                 0                    0.0
+PrivateWages_22                 0.0                 0                    0.0
+                Consumption_corpProfLag Consumption_gnpLag
+Consumption_2                      12.7               44.9
+Consumption_3                      12.4               45.6
+Consumption_4                      16.9               50.1
+Consumption_5                      18.4               57.2
+Consumption_6                      19.4               57.1
+Consumption_8                      19.6               64.0
+Consumption_9                      19.8               64.4
+Consumption_10                     21.1               64.5
+Consumption_11                     21.7               67.0
+Consumption_12                     15.6               61.2
+Consumption_13                     11.4               53.4
+Consumption_14                      7.0               44.3
+Consumption_15                     11.2               45.1
+Consumption_16                     12.3               49.7
+Consumption_17                     14.0               54.4
+Consumption_18                     17.6               62.7
+Consumption_19                     17.3               65.0
+Consumption_20                     15.3               60.9
+Consumption_21                     19.0               69.5
+Consumption_22                     21.1               75.7
+Investment_2                        0.0                0.0
+Investment_3                        0.0                0.0
+Investment_4                        0.0                0.0
+Investment_5                        0.0                0.0
+Investment_6                        0.0                0.0
+Investment_8                        0.0                0.0
+Investment_9                        0.0                0.0
+Investment_10                       0.0                0.0
+Investment_11                       0.0                0.0
+Investment_12                       0.0                0.0
+Investment_13                       0.0                0.0
+Investment_14                       0.0                0.0
+Investment_15                       0.0                0.0
+Investment_16                       0.0                0.0
+Investment_17                       0.0                0.0
+Investment_18                       0.0                0.0
+Investment_19                       0.0                0.0
+Investment_20                       0.0                0.0
+Investment_21                       0.0                0.0
+Investment_22                       0.0                0.0
+PrivateWages_2                      0.0                0.0
+PrivateWages_3                      0.0                0.0
+PrivateWages_4                      0.0                0.0
+PrivateWages_5                      0.0                0.0
+PrivateWages_6                      0.0                0.0
+PrivateWages_8                      0.0                0.0
+PrivateWages_9                      0.0                0.0
+PrivateWages_10                     0.0                0.0
+PrivateWages_11                     0.0                0.0
+PrivateWages_12                     0.0                0.0
+PrivateWages_13                     0.0                0.0
+PrivateWages_14                     0.0                0.0
+PrivateWages_15                     0.0                0.0
+PrivateWages_16                     0.0                0.0
+PrivateWages_17                     0.0                0.0
+PrivateWages_18                     0.0                0.0
+PrivateWages_19                     0.0                0.0
+PrivateWages_20                     0.0                0.0
+PrivateWages_21                     0.0                0.0
+PrivateWages_22                     0.0                0.0
+                Investment_(Intercept) Investment_govExp Investment_taxes
+Consumption_2                        0               0.0              0.0
+Consumption_3                        0               0.0              0.0
+Consumption_4                        0               0.0              0.0
+Consumption_5                        0               0.0              0.0
+Consumption_6                        0               0.0              0.0
+Consumption_8                        0               0.0              0.0
+Consumption_9                        0               0.0              0.0
+Consumption_10                       0               0.0              0.0
+Consumption_11                       0               0.0              0.0
+Consumption_12                       0               0.0              0.0
+Consumption_13                       0               0.0              0.0
+Consumption_14                       0               0.0              0.0
+Consumption_15                       0               0.0              0.0
+Consumption_16                       0               0.0              0.0
+Consumption_17                       0               0.0              0.0
+Consumption_18                       0               0.0              0.0
+Consumption_19                       0               0.0              0.0
+Consumption_20                       0               0.0              0.0
+Consumption_21                       0               0.0              0.0
+Consumption_22                       0               0.0              0.0
+Investment_2                         1               3.9              7.7
+Investment_3                         1               3.2              3.9
+Investment_4                         1               2.8              4.7
+Investment_5                         1               3.5              3.8
+Investment_6                         1               3.3              5.5
+Investment_8                         1               4.0              6.7
+Investment_9                         1               4.2              4.2
+Investment_10                        1               4.1              4.0
+Investment_11                        1               5.2              7.7
+Investment_12                        1               5.9              7.5
+Investment_13                        1               4.9              8.3
+Investment_14                        1               3.7              5.4
+Investment_15                        1               4.0              6.8
+Investment_16                        1               4.4              7.2
+Investment_17                        1               2.9              8.3
+Investment_18                        1               4.3              6.7
+Investment_19                        1               5.3              7.4
+Investment_20                        1               6.6              8.9
+Investment_21                        1               7.4              9.6
+Investment_22                        1              13.8             11.6
+PrivateWages_2                       0               0.0              0.0
+PrivateWages_3                       0               0.0              0.0
+PrivateWages_4                       0               0.0              0.0
+PrivateWages_5                       0               0.0              0.0
+PrivateWages_6                       0               0.0              0.0
+PrivateWages_8                       0               0.0              0.0
+PrivateWages_9                       0               0.0              0.0
+PrivateWages_10                      0               0.0              0.0
+PrivateWages_11                      0               0.0              0.0
+PrivateWages_12                      0               0.0              0.0
+PrivateWages_13                      0               0.0              0.0
+PrivateWages_14                      0               0.0              0.0
+PrivateWages_15                      0               0.0              0.0
+PrivateWages_16                      0               0.0              0.0
+PrivateWages_17                      0               0.0              0.0
+PrivateWages_18                      0               0.0              0.0
+PrivateWages_19                      0               0.0              0.0
+PrivateWages_20                      0               0.0              0.0
+PrivateWages_21                      0               0.0              0.0
+PrivateWages_22                      0               0.0              0.0
+                Investment_govWage Investment_trend Investment_capitalLag
+Consumption_2                  0.0                0                   0.0
+Consumption_3                  0.0                0                   0.0
+Consumption_4                  0.0                0                   0.0
+Consumption_5                  0.0                0                   0.0
+Consumption_6                  0.0                0                   0.0
+Consumption_8                  0.0                0                   0.0
+Consumption_9                  0.0                0                   0.0
+Consumption_10                 0.0                0                   0.0
+Consumption_11                 0.0                0                   0.0
+Consumption_12                 0.0                0                   0.0
+Consumption_13                 0.0                0                   0.0
+Consumption_14                 0.0                0                   0.0
+Consumption_15                 0.0                0                   0.0
+Consumption_16                 0.0                0                   0.0
+Consumption_17                 0.0                0                   0.0
+Consumption_18                 0.0                0                   0.0
+Consumption_19                 0.0                0                   0.0
+Consumption_20                 0.0                0                   0.0
+Consumption_21                 0.0                0                   0.0
+Consumption_22                 0.0                0                   0.0
+Investment_2                   2.7              -10                 182.8
+Investment_3                   2.9               -9                 182.6
+Investment_4                   2.9               -8                 184.5
+Investment_5                   3.1               -7                 189.7
+Investment_6                   3.2               -6                 192.7
+Investment_8                   3.6               -4                 203.4
+Investment_9                   3.7               -3                 207.6
+Investment_10                  4.0               -2                 210.6
+Investment_11                  4.2               -1                 215.7
+Investment_12                  4.8                0                 216.7
+Investment_13                  5.3                1                 213.3
+Investment_14                  5.6                2                 207.1
+Investment_15                  6.0                3                 202.0
+Investment_16                  6.1                4                 199.0
+Investment_17                  7.4                5                 197.7
+Investment_18                  6.7                6                 199.8
+Investment_19                  7.7                7                 201.8
+Investment_20                  7.8                8                 199.9
+Investment_21                  8.0                9                 201.2
+Investment_22                  8.5               10                 204.5
+PrivateWages_2                 0.0                0                   0.0
+PrivateWages_3                 0.0                0                   0.0
+PrivateWages_4                 0.0                0                   0.0
+PrivateWages_5                 0.0                0                   0.0
+PrivateWages_6                 0.0                0                   0.0
+PrivateWages_8                 0.0                0                   0.0
+PrivateWages_9                 0.0                0                   0.0
+PrivateWages_10                0.0                0                   0.0
+PrivateWages_11                0.0                0                   0.0
+PrivateWages_12                0.0                0                   0.0
+PrivateWages_13                0.0                0                   0.0
+PrivateWages_14                0.0                0                   0.0
+PrivateWages_15                0.0                0                   0.0
+PrivateWages_16                0.0                0                   0.0
+PrivateWages_17                0.0                0                   0.0
+PrivateWages_18                0.0                0                   0.0
+PrivateWages_19                0.0                0                   0.0
+PrivateWages_20                0.0                0                   0.0
+PrivateWages_21                0.0                0                   0.0
+PrivateWages_22                0.0                0                   0.0
+                Investment_corpProfLag Investment_gnpLag
+Consumption_2                      0.0               0.0
+Consumption_3                      0.0               0.0
+Consumption_4                      0.0               0.0
+Consumption_5                      0.0               0.0
+Consumption_6                      0.0               0.0
+Consumption_8                      0.0               0.0
+Consumption_9                      0.0               0.0
+Consumption_10                     0.0               0.0
+Consumption_11                     0.0               0.0
+Consumption_12                     0.0               0.0
+Consumption_13                     0.0               0.0
+Consumption_14                     0.0               0.0
+Consumption_15                     0.0               0.0
+Consumption_16                     0.0               0.0
+Consumption_17                     0.0               0.0
+Consumption_18                     0.0               0.0
+Consumption_19                     0.0               0.0
+Consumption_20                     0.0               0.0
+Consumption_21                     0.0               0.0
+Consumption_22                     0.0               0.0
+Investment_2                      12.7              44.9
+Investment_3                      12.4              45.6
+Investment_4                      16.9              50.1
+Investment_5                      18.4              57.2
+Investment_6                      19.4              57.1
+Investment_8                      19.6              64.0
+Investment_9                      19.8              64.4
+Investment_10                     21.1              64.5
+Investment_11                     21.7              67.0
+Investment_12                     15.6              61.2
+Investment_13                     11.4              53.4
+Investment_14                      7.0              44.3
+Investment_15                     11.2              45.1
+Investment_16                     12.3              49.7
+Investment_17                     14.0              54.4
+Investment_18                     17.6              62.7
+Investment_19                     17.3              65.0
+Investment_20                     15.3              60.9
+Investment_21                     19.0              69.5
+Investment_22                     21.1              75.7
+PrivateWages_2                     0.0               0.0
+PrivateWages_3                     0.0               0.0
+PrivateWages_4                     0.0               0.0
+PrivateWages_5                     0.0               0.0
+PrivateWages_6                     0.0               0.0
+PrivateWages_8                     0.0               0.0
+PrivateWages_9                     0.0               0.0
+PrivateWages_10                    0.0               0.0
+PrivateWages_11                    0.0               0.0
+PrivateWages_12                    0.0               0.0
+PrivateWages_13                    0.0               0.0
+PrivateWages_14                    0.0               0.0
+PrivateWages_15                    0.0               0.0
+PrivateWages_16                    0.0               0.0
+PrivateWages_17                    0.0               0.0
+PrivateWages_18                    0.0               0.0
+PrivateWages_19                    0.0               0.0
+PrivateWages_20                    0.0               0.0
+PrivateWages_21                    0.0               0.0
+PrivateWages_22                    0.0               0.0
+                PrivateWages_(Intercept) PrivateWages_govExp PrivateWages_taxes
+Consumption_2                          0                 0.0                0.0
+Consumption_3                          0                 0.0                0.0
+Consumption_4                          0                 0.0                0.0
+Consumption_5                          0                 0.0                0.0
+Consumption_6                          0                 0.0                0.0
+Consumption_8                          0                 0.0                0.0
+Consumption_9                          0                 0.0                0.0
+Consumption_10                         0                 0.0                0.0
+Consumption_11                         0                 0.0                0.0
+Consumption_12                         0                 0.0                0.0
+Consumption_13                         0                 0.0                0.0
+Consumption_14                         0                 0.0                0.0
+Consumption_15                         0                 0.0                0.0
+Consumption_16                         0                 0.0                0.0
+Consumption_17                         0                 0.0                0.0
+Consumption_18                         0                 0.0                0.0
+Consumption_19                         0                 0.0                0.0
+Consumption_20                         0                 0.0                0.0
+Consumption_21                         0                 0.0                0.0
+Consumption_22                         0                 0.0                0.0
+Investment_2                           0                 0.0                0.0
+Investment_3                           0                 0.0                0.0
+Investment_4                           0                 0.0                0.0
+Investment_5                           0                 0.0                0.0
+Investment_6                           0                 0.0                0.0
+Investment_8                           0                 0.0                0.0
+Investment_9                           0                 0.0                0.0
+Investment_10                          0                 0.0                0.0
+Investment_11                          0                 0.0                0.0
+Investment_12                          0                 0.0                0.0
+Investment_13                          0                 0.0                0.0
+Investment_14                          0                 0.0                0.0
+Investment_15                          0                 0.0                0.0
+Investment_16                          0                 0.0                0.0
+Investment_17                          0                 0.0                0.0
+Investment_18                          0                 0.0                0.0
+Investment_19                          0                 0.0                0.0
+Investment_20                          0                 0.0                0.0
+Investment_21                          0                 0.0                0.0
+Investment_22                          0                 0.0                0.0
+PrivateWages_2                         1                 3.9                7.7
+PrivateWages_3                         1                 3.2                3.9
+PrivateWages_4                         1                 2.8                4.7
+PrivateWages_5                         1                 3.5                3.8
+PrivateWages_6                         1                 3.3                5.5
+PrivateWages_8                         1                 4.0                6.7
+PrivateWages_9                         1                 4.2                4.2
+PrivateWages_10                        1                 4.1                4.0
+PrivateWages_11                        1                 5.2                7.7
+PrivateWages_12                        1                 5.9                7.5
+PrivateWages_13                        1                 4.9                8.3
+PrivateWages_14                        1                 3.7                5.4
+PrivateWages_15                        1                 4.0                6.8
+PrivateWages_16                        1                 4.4                7.2
+PrivateWages_17                        1                 2.9                8.3
+PrivateWages_18                        1                 4.3                6.7
+PrivateWages_19                        1                 5.3                7.4
+PrivateWages_20                        1                 6.6                8.9
+PrivateWages_21                        1                 7.4                9.6
+PrivateWages_22                        1                13.8               11.6
+                PrivateWages_govWage PrivateWages_trend PrivateWages_capitalLag
+Consumption_2                    0.0                  0                     0.0
+Consumption_3                    0.0                  0                     0.0
+Consumption_4                    0.0                  0                     0.0
+Consumption_5                    0.0                  0                     0.0
+Consumption_6                    0.0                  0                     0.0
+Consumption_8                    0.0                  0                     0.0
+Consumption_9                    0.0                  0                     0.0
+Consumption_10                   0.0                  0                     0.0
+Consumption_11                   0.0                  0                     0.0
+Consumption_12                   0.0                  0                     0.0
+Consumption_13                   0.0                  0                     0.0
+Consumption_14                   0.0                  0                     0.0
+Consumption_15                   0.0                  0                     0.0
+Consumption_16                   0.0                  0                     0.0
+Consumption_17                   0.0                  0                     0.0
+Consumption_18                   0.0                  0                     0.0
+Consumption_19                   0.0                  0                     0.0
+Consumption_20                   0.0                  0                     0.0
+Consumption_21                   0.0                  0                     0.0
+Consumption_22                   0.0                  0                     0.0
+Investment_2                     0.0                  0                     0.0
+Investment_3                     0.0                  0                     0.0
+Investment_4                     0.0                  0                     0.0
+Investment_5                     0.0                  0                     0.0
+Investment_6                     0.0                  0                     0.0
+Investment_8                     0.0                  0                     0.0
+Investment_9                     0.0                  0                     0.0
+Investment_10                    0.0                  0                     0.0
+Investment_11                    0.0                  0                     0.0
+Investment_12                    0.0                  0                     0.0
+Investment_13                    0.0                  0                     0.0
+Investment_14                    0.0                  0                     0.0
+Investment_15                    0.0                  0                     0.0
+Investment_16                    0.0                  0                     0.0
+Investment_17                    0.0                  0                     0.0
+Investment_18                    0.0                  0                     0.0
+Investment_19                    0.0                  0                     0.0
+Investment_20                    0.0                  0                     0.0
+Investment_21                    0.0                  0                     0.0
+Investment_22                    0.0                  0                     0.0
+PrivateWages_2                   2.7                -10                   182.8
+PrivateWages_3                   2.9                 -9                   182.6
+PrivateWages_4                   2.9                 -8                   184.5
+PrivateWages_5                   3.1                 -7                   189.7
+PrivateWages_6                   3.2                 -6                   192.7
+PrivateWages_8                   3.6                 -4                   203.4
+PrivateWages_9                   3.7                 -3                   207.6
+PrivateWages_10                  4.0                 -2                   210.6
+PrivateWages_11                  4.2                 -1                   215.7
+PrivateWages_12                  4.8                  0                   216.7
+PrivateWages_13                  5.3                  1                   213.3
+PrivateWages_14                  5.6                  2                   207.1
+PrivateWages_15                  6.0                  3                   202.0
+PrivateWages_16                  6.1                  4                   199.0
+PrivateWages_17                  7.4                  5                   197.7
+PrivateWages_18                  6.7                  6                   199.8
+PrivateWages_19                  7.7                  7                   201.8
+PrivateWages_20                  7.8                  8                   199.9
+PrivateWages_21                  8.0                  9                   201.2
+PrivateWages_22                  8.5                 10                   204.5
+                PrivateWages_corpProfLag PrivateWages_gnpLag
+Consumption_2                        0.0                 0.0
+Consumption_3                        0.0                 0.0
+Consumption_4                        0.0                 0.0
+Consumption_5                        0.0                 0.0
+Consumption_6                        0.0                 0.0
+Consumption_8                        0.0                 0.0
+Consumption_9                        0.0                 0.0
+Consumption_10                       0.0                 0.0
+Consumption_11                       0.0                 0.0
+Consumption_12                       0.0                 0.0
+Consumption_13                       0.0                 0.0
+Consumption_14                       0.0                 0.0
+Consumption_15                       0.0                 0.0
+Consumption_16                       0.0                 0.0
+Consumption_17                       0.0                 0.0
+Consumption_18                       0.0                 0.0
+Consumption_19                       0.0                 0.0
+Consumption_20                       0.0                 0.0
+Consumption_21                       0.0                 0.0
+Consumption_22                       0.0                 0.0
+Investment_2                         0.0                 0.0
+Investment_3                         0.0                 0.0
+Investment_4                         0.0                 0.0
+Investment_5                         0.0                 0.0
+Investment_6                         0.0                 0.0
+Investment_8                         0.0                 0.0
+Investment_9                         0.0                 0.0
+Investment_10                        0.0                 0.0
+Investment_11                        0.0                 0.0
+Investment_12                        0.0                 0.0
+Investment_13                        0.0                 0.0
+Investment_14                        0.0                 0.0
+Investment_15                        0.0                 0.0
+Investment_16                        0.0                 0.0
+Investment_17                        0.0                 0.0
+Investment_18                        0.0                 0.0
+Investment_19                        0.0                 0.0
+Investment_20                        0.0                 0.0
+Investment_21                        0.0                 0.0
+Investment_22                        0.0                 0.0
+PrivateWages_2                      12.7                44.9
+PrivateWages_3                      12.4                45.6
+PrivateWages_4                      16.9                50.1
+PrivateWages_5                      18.4                57.2
+PrivateWages_6                      19.4                57.1
+PrivateWages_8                      19.6                64.0
+PrivateWages_9                      19.8                64.4
+PrivateWages_10                     21.1                64.5
+PrivateWages_11                     21.7                67.0
+PrivateWages_12                     15.6                61.2
+PrivateWages_13                     11.4                53.4
+PrivateWages_14                      7.0                44.3
+PrivateWages_15                     11.2                45.1
+PrivateWages_16                     12.3                49.7
+PrivateWages_17                     14.0                54.4
+PrivateWages_18                     17.6                62.7
+PrivateWages_19                     17.3                65.0
+PrivateWages_20                     15.3                60.9
+PrivateWages_21                     19.0                69.5
+PrivateWages_22                     21.1                75.7
 > nobs
 [1] 60
 > linearHypothesis
@@ -9287,6 +10418,547 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03278689 >"
 [2] "Attributes: < Component 2: Component 1: 54 string mismatches >"   
 [3] "Numeric: lengths (732, 708) differ"                               
+> matrix of instrumental variables
+                Consumption_(Intercept) Consumption_govExp Consumption_taxes
+Consumption_2                         1                3.9               7.7
+Consumption_3                         1                3.2               3.9
+Consumption_4                         1                2.8               4.7
+Consumption_5                         1                3.5               3.8
+Consumption_6                         1                3.3               5.5
+Consumption_8                         1                4.0               6.7
+Consumption_9                         1                4.2               4.2
+Consumption_11                        1                5.2               7.7
+Consumption_12                        1                5.9               7.5
+Consumption_13                        1                4.9               8.3
+Consumption_14                        1                3.7               5.4
+Consumption_15                        1                4.0               6.8
+Consumption_16                        1                4.4               7.2
+Consumption_17                        1                2.9               8.3
+Consumption_18                        1                4.3               6.7
+Consumption_19                        1                5.3               7.4
+Consumption_20                        1                6.6               8.9
+Consumption_21                        1                7.4               9.6
+Consumption_22                        1               13.8              11.6
+Investment_2                          0                0.0               0.0
+Investment_3                          0                0.0               0.0
+Investment_4                          0                0.0               0.0
+Investment_5                          0                0.0               0.0
+Investment_6                          0                0.0               0.0
+Investment_8                          0                0.0               0.0
+Investment_9                          0                0.0               0.0
+Investment_10                         0                0.0               0.0
+Investment_11                         0                0.0               0.0
+Investment_12                         0                0.0               0.0
+Investment_13                         0                0.0               0.0
+Investment_14                         0                0.0               0.0
+Investment_15                         0                0.0               0.0
+Investment_16                         0                0.0               0.0
+Investment_17                         0                0.0               0.0
+Investment_18                         0                0.0               0.0
+Investment_19                         0                0.0               0.0
+Investment_20                         0                0.0               0.0
+Investment_21                         0                0.0               0.0
+Investment_22                         0                0.0               0.0
+PrivateWages_2                        0                0.0               0.0
+PrivateWages_3                        0                0.0               0.0
+PrivateWages_4                        0                0.0               0.0
+PrivateWages_5                        0                0.0               0.0
+PrivateWages_6                        0                0.0               0.0
+PrivateWages_8                        0                0.0               0.0
+PrivateWages_9                        0                0.0               0.0
+PrivateWages_10                       0                0.0               0.0
+PrivateWages_11                       0                0.0               0.0
+PrivateWages_12                       0                0.0               0.0
+PrivateWages_13                       0                0.0               0.0
+PrivateWages_14                       0                0.0               0.0
+PrivateWages_15                       0                0.0               0.0
+PrivateWages_16                       0                0.0               0.0
+PrivateWages_17                       0                0.0               0.0
+PrivateWages_18                       0                0.0               0.0
+PrivateWages_19                       0                0.0               0.0
+PrivateWages_20                       0                0.0               0.0
+PrivateWages_21                       0                0.0               0.0
+PrivateWages_22                       0                0.0               0.0
+                Consumption_govWage Consumption_trend Consumption_capitalLag
+Consumption_2                   2.7               -10                  182.8
+Consumption_3                   2.9                -9                  182.6
+Consumption_4                   2.9                -8                  184.5
+Consumption_5                   3.1                -7                  189.7
+Consumption_6                   3.2                -6                  192.7
+Consumption_8                   3.6                -4                  203.4
+Consumption_9                   3.7                -3                  207.6
+Consumption_11                  4.2                -1                  215.7
+Consumption_12                  4.8                 0                  216.7
+Consumption_13                  5.3                 1                  213.3
+Consumption_14                  5.6                 2                  207.1
+Consumption_15                  6.0                 3                  202.0
+Consumption_16                  6.1                 4                  199.0
+Consumption_17                  7.4                 5                  197.7
+Consumption_18                  6.7                 6                  199.8
+Consumption_19                  7.7                 7                  201.8
+Consumption_20                  7.8                 8                  199.9
+Consumption_21                  8.0                 9                  201.2
+Consumption_22                  8.5                10                  204.5
+Investment_2                    0.0                 0                    0.0
+Investment_3                    0.0                 0                    0.0
+Investment_4                    0.0                 0                    0.0
+Investment_5                    0.0                 0                    0.0
+Investment_6                    0.0                 0                    0.0
+Investment_8                    0.0                 0                    0.0
+Investment_9                    0.0                 0                    0.0
+Investment_10                   0.0                 0                    0.0
+Investment_11                   0.0                 0                    0.0
+Investment_12                   0.0                 0                    0.0
+Investment_13                   0.0                 0                    0.0
+Investment_14                   0.0                 0                    0.0
+Investment_15                   0.0                 0                    0.0
+Investment_16                   0.0                 0                    0.0
+Investment_17                   0.0                 0                    0.0
+Investment_18                   0.0                 0                    0.0
+Investment_19                   0.0                 0                    0.0
+Investment_20                   0.0                 0                    0.0
+Investment_21                   0.0                 0                    0.0
+Investment_22                   0.0                 0                    0.0
+PrivateWages_2                  0.0                 0                    0.0
+PrivateWages_3                  0.0                 0                    0.0
+PrivateWages_4                  0.0                 0                    0.0
+PrivateWages_5                  0.0                 0                    0.0
+PrivateWages_6                  0.0                 0                    0.0
+PrivateWages_8                  0.0                 0                    0.0
+PrivateWages_9                  0.0                 0                    0.0
+PrivateWages_10                 0.0                 0                    0.0
+PrivateWages_11                 0.0                 0                    0.0
+PrivateWages_12                 0.0                 0                    0.0
+PrivateWages_13                 0.0                 0                    0.0
+PrivateWages_14                 0.0                 0                    0.0
+PrivateWages_15                 0.0                 0                    0.0
+PrivateWages_16                 0.0                 0                    0.0
+PrivateWages_17                 0.0                 0                    0.0
+PrivateWages_18                 0.0                 0                    0.0
+PrivateWages_19                 0.0                 0                    0.0
+PrivateWages_20                 0.0                 0                    0.0
+PrivateWages_21                 0.0                 0                    0.0
+PrivateWages_22                 0.0                 0                    0.0
+                Consumption_corpProfLag Consumption_gnpLag
+Consumption_2                      12.7               44.9
+Consumption_3                      12.4               45.6
+Consumption_4                      16.9               50.1
+Consumption_5                      18.4               57.2
+Consumption_6                      19.4               57.1
+Consumption_8                      19.6               64.0
+Consumption_9                      19.8               64.4
+Consumption_11                     21.7               67.0
+Consumption_12                     15.6               61.2
+Consumption_13                     11.4               53.4
+Consumption_14                      7.0               44.3
+Consumption_15                     11.2               45.1
+Consumption_16                     12.3               49.7
+Consumption_17                     14.0               54.4
+Consumption_18                     17.6               62.7
+Consumption_19                     17.3               65.0
+Consumption_20                     15.3               60.9
+Consumption_21                     19.0               69.5
+Consumption_22                     21.1               75.7
+Investment_2                        0.0                0.0
+Investment_3                        0.0                0.0
+Investment_4                        0.0                0.0
+Investment_5                        0.0                0.0
+Investment_6                        0.0                0.0
+Investment_8                        0.0                0.0
+Investment_9                        0.0                0.0
+Investment_10                       0.0                0.0
+Investment_11                       0.0                0.0
+Investment_12                       0.0                0.0
+Investment_13                       0.0                0.0
+Investment_14                       0.0                0.0
+Investment_15                       0.0                0.0
+Investment_16                       0.0                0.0
+Investment_17                       0.0                0.0
+Investment_18                       0.0                0.0
+Investment_19                       0.0                0.0
+Investment_20                       0.0                0.0
+Investment_21                       0.0                0.0
+Investment_22                       0.0                0.0
+PrivateWages_2                      0.0                0.0
+PrivateWages_3                      0.0                0.0
+PrivateWages_4                      0.0                0.0
+PrivateWages_5                      0.0                0.0
+PrivateWages_6                      0.0                0.0
+PrivateWages_8                      0.0                0.0
+PrivateWages_9                      0.0                0.0
+PrivateWages_10                     0.0                0.0
+PrivateWages_11                     0.0                0.0
+PrivateWages_12                     0.0                0.0
+PrivateWages_13                     0.0                0.0
+PrivateWages_14                     0.0                0.0
+PrivateWages_15                     0.0                0.0
+PrivateWages_16                     0.0                0.0
+PrivateWages_17                     0.0                0.0
+PrivateWages_18                     0.0                0.0
+PrivateWages_19                     0.0                0.0
+PrivateWages_20                     0.0                0.0
+PrivateWages_21                     0.0                0.0
+PrivateWages_22                     0.0                0.0
+                Investment_(Intercept) Investment_govExp Investment_taxes
+Consumption_2                        0               0.0              0.0
+Consumption_3                        0               0.0              0.0
+Consumption_4                        0               0.0              0.0
+Consumption_5                        0               0.0              0.0
+Consumption_6                        0               0.0              0.0
+Consumption_8                        0               0.0              0.0
+Consumption_9                        0               0.0              0.0
+Consumption_11                       0               0.0              0.0
+Consumption_12                       0               0.0              0.0
+Consumption_13                       0               0.0              0.0
+Consumption_14                       0               0.0              0.0
+Consumption_15                       0               0.0              0.0
+Consumption_16                       0               0.0              0.0
+Consumption_17                       0               0.0              0.0
+Consumption_18                       0               0.0              0.0
+Consumption_19                       0               0.0              0.0
+Consumption_20                       0               0.0              0.0
+Consumption_21                       0               0.0              0.0
+Consumption_22                       0               0.0              0.0
+Investment_2                         1               3.9              7.7
+Investment_3                         1               3.2              3.9
+Investment_4                         1               2.8              4.7
+Investment_5                         1               3.5              3.8
+Investment_6                         1               3.3              5.5
+Investment_8                         1               4.0              6.7
+Investment_9                         1               4.2              4.2
+Investment_10                        1               4.1              4.0
+Investment_11                        1               5.2              7.7
+Investment_12                        1               5.9              7.5
+Investment_13                        1               4.9              8.3
+Investment_14                        1               3.7              5.4
+Investment_15                        1               4.0              6.8
+Investment_16                        1               4.4              7.2
+Investment_17                        1               2.9              8.3
+Investment_18                        1               4.3              6.7
+Investment_19                        1               5.3              7.4
+Investment_20                        1               6.6              8.9
+Investment_21                        1               7.4              9.6
+Investment_22                        1              13.8             11.6
+PrivateWages_2                       0               0.0              0.0
+PrivateWages_3                       0               0.0              0.0
+PrivateWages_4                       0               0.0              0.0
+PrivateWages_5                       0               0.0              0.0
+PrivateWages_6                       0               0.0              0.0
+PrivateWages_8                       0               0.0              0.0
+PrivateWages_9                       0               0.0              0.0
+PrivateWages_10                      0               0.0              0.0
+PrivateWages_11                      0               0.0              0.0
+PrivateWages_12                      0               0.0              0.0
+PrivateWages_13                      0               0.0              0.0
+PrivateWages_14                      0               0.0              0.0
+PrivateWages_15                      0               0.0              0.0
+PrivateWages_16                      0               0.0              0.0
+PrivateWages_17                      0               0.0              0.0
+PrivateWages_18                      0               0.0              0.0
+PrivateWages_19                      0               0.0              0.0
+PrivateWages_20                      0               0.0              0.0
+PrivateWages_21                      0               0.0              0.0
+PrivateWages_22                      0               0.0              0.0
+                Investment_govWage Investment_trend Investment_capitalLag
+Consumption_2                  0.0                0                   0.0
+Consumption_3                  0.0                0                   0.0
+Consumption_4                  0.0                0                   0.0
+Consumption_5                  0.0                0                   0.0
+Consumption_6                  0.0                0                   0.0
+Consumption_8                  0.0                0                   0.0
+Consumption_9                  0.0                0                   0.0
+Consumption_11                 0.0                0                   0.0
+Consumption_12                 0.0                0                   0.0
+Consumption_13                 0.0                0                   0.0
+Consumption_14                 0.0                0                   0.0
+Consumption_15                 0.0                0                   0.0
+Consumption_16                 0.0                0                   0.0
+Consumption_17                 0.0                0                   0.0
+Consumption_18                 0.0                0                   0.0
+Consumption_19                 0.0                0                   0.0
+Consumption_20                 0.0                0                   0.0
+Consumption_21                 0.0                0                   0.0
+Consumption_22                 0.0                0                   0.0
+Investment_2                   2.7              -10                 182.8
+Investment_3                   2.9               -9                 182.6
+Investment_4                   2.9               -8                 184.5
+Investment_5                   3.1               -7                 189.7
+Investment_6                   3.2               -6                 192.7
+Investment_8                   3.6               -4                 203.4
+Investment_9                   3.7               -3                 207.6
+Investment_10                  4.0               -2                 210.6
+Investment_11                  4.2               -1                 215.7
+Investment_12                  4.8                0                 216.7
+Investment_13                  5.3                1                 213.3
+Investment_14                  5.6                2                 207.1
+Investment_15                  6.0                3                 202.0
+Investment_16                  6.1                4                 199.0
+Investment_17                  7.4                5                 197.7
+Investment_18                  6.7                6                 199.8
+Investment_19                  7.7                7                 201.8
+Investment_20                  7.8                8                 199.9
+Investment_21                  8.0                9                 201.2
+Investment_22                  8.5               10                 204.5
+PrivateWages_2                 0.0                0                   0.0
+PrivateWages_3                 0.0                0                   0.0
+PrivateWages_4                 0.0                0                   0.0
+PrivateWages_5                 0.0                0                   0.0
+PrivateWages_6                 0.0                0                   0.0
+PrivateWages_8                 0.0                0                   0.0
+PrivateWages_9                 0.0                0                   0.0
+PrivateWages_10                0.0                0                   0.0
+PrivateWages_11                0.0                0                   0.0
+PrivateWages_12                0.0                0                   0.0
+PrivateWages_13                0.0                0                   0.0
+PrivateWages_14                0.0                0                   0.0
+PrivateWages_15                0.0                0                   0.0
+PrivateWages_16                0.0                0                   0.0
+PrivateWages_17                0.0                0                   0.0
+PrivateWages_18                0.0                0                   0.0
+PrivateWages_19                0.0                0                   0.0
+PrivateWages_20                0.0                0                   0.0
+PrivateWages_21                0.0                0                   0.0
+PrivateWages_22                0.0                0                   0.0
+                Investment_corpProfLag Investment_gnpLag
+Consumption_2                      0.0               0.0
+Consumption_3                      0.0               0.0
+Consumption_4                      0.0               0.0
+Consumption_5                      0.0               0.0
+Consumption_6                      0.0               0.0
+Consumption_8                      0.0               0.0
+Consumption_9                      0.0               0.0
+Consumption_11                     0.0               0.0
+Consumption_12                     0.0               0.0
+Consumption_13                     0.0               0.0
+Consumption_14                     0.0               0.0
+Consumption_15                     0.0               0.0
+Consumption_16                     0.0               0.0
+Consumption_17                     0.0               0.0
+Consumption_18                     0.0               0.0
+Consumption_19                     0.0               0.0
+Consumption_20                     0.0               0.0
+Consumption_21                     0.0               0.0
+Consumption_22                     0.0               0.0
+Investment_2                      12.7              44.9
+Investment_3                      12.4              45.6
+Investment_4                      16.9              50.1
+Investment_5                      18.4              57.2
+Investment_6                      19.4              57.1
+Investment_8                      19.6              64.0
+Investment_9                      19.8              64.4
+Investment_10                     21.1              64.5
+Investment_11                     21.7              67.0
+Investment_12                     15.6              61.2
+Investment_13                     11.4              53.4
+Investment_14                      7.0              44.3
+Investment_15                     11.2              45.1
+Investment_16                     12.3              49.7
+Investment_17                     14.0              54.4
+Investment_18                     17.6              62.7
+Investment_19                     17.3              65.0
+Investment_20                     15.3              60.9
+Investment_21                     19.0              69.5
+Investment_22                     21.1              75.7
+PrivateWages_2                     0.0               0.0
+PrivateWages_3                     0.0               0.0
+PrivateWages_4                     0.0               0.0
+PrivateWages_5                     0.0               0.0
+PrivateWages_6                     0.0               0.0
+PrivateWages_8                     0.0               0.0
+PrivateWages_9                     0.0               0.0
+PrivateWages_10                    0.0               0.0
+PrivateWages_11                    0.0               0.0
+PrivateWages_12                    0.0               0.0
+PrivateWages_13                    0.0               0.0
+PrivateWages_14                    0.0               0.0
+PrivateWages_15                    0.0               0.0
+PrivateWages_16                    0.0               0.0
+PrivateWages_17                    0.0               0.0
+PrivateWages_18                    0.0               0.0
+PrivateWages_19                    0.0               0.0
+PrivateWages_20                    0.0               0.0
+PrivateWages_21                    0.0               0.0
+PrivateWages_22                    0.0               0.0
+                PrivateWages_(Intercept) PrivateWages_govExp PrivateWages_taxes
+Consumption_2                          0                 0.0                0.0
+Consumption_3                          0                 0.0                0.0
+Consumption_4                          0                 0.0                0.0
+Consumption_5                          0                 0.0                0.0
+Consumption_6                          0                 0.0                0.0
+Consumption_8                          0                 0.0                0.0
+Consumption_9                          0                 0.0                0.0
+Consumption_11                         0                 0.0                0.0
+Consumption_12                         0                 0.0                0.0
+Consumption_13                         0                 0.0                0.0
+Consumption_14                         0                 0.0                0.0
+Consumption_15                         0                 0.0                0.0
+Consumption_16                         0                 0.0                0.0
+Consumption_17                         0                 0.0                0.0
+Consumption_18                         0                 0.0                0.0
+Consumption_19                         0                 0.0                0.0
+Consumption_20                         0                 0.0                0.0
+Consumption_21                         0                 0.0                0.0
+Consumption_22                         0                 0.0                0.0
+Investment_2                           0                 0.0                0.0
+Investment_3                           0                 0.0                0.0
+Investment_4                           0                 0.0                0.0
+Investment_5                           0                 0.0                0.0
+Investment_6                           0                 0.0                0.0
+Investment_8                           0                 0.0                0.0
+Investment_9                           0                 0.0                0.0
+Investment_10                          0                 0.0                0.0
+Investment_11                          0                 0.0                0.0
+Investment_12                          0                 0.0                0.0
+Investment_13                          0                 0.0                0.0
+Investment_14                          0                 0.0                0.0
+Investment_15                          0                 0.0                0.0
+Investment_16                          0                 0.0                0.0
+Investment_17                          0                 0.0                0.0
+Investment_18                          0                 0.0                0.0
+Investment_19                          0                 0.0                0.0
+Investment_20                          0                 0.0                0.0
+Investment_21                          0                 0.0                0.0
+Investment_22                          0                 0.0                0.0
+PrivateWages_2                         1                 3.9                7.7
+PrivateWages_3                         1                 3.2                3.9
+PrivateWages_4                         1                 2.8                4.7
+PrivateWages_5                         1                 3.5                3.8
+PrivateWages_6                         1                 3.3                5.5
+PrivateWages_8                         1                 4.0                6.7
+PrivateWages_9                         1                 4.2                4.2
+PrivateWages_10                        1                 4.1                4.0
+PrivateWages_11                        1                 5.2                7.7
+PrivateWages_12                        1                 5.9                7.5
+PrivateWages_13                        1                 4.9                8.3
+PrivateWages_14                        1                 3.7                5.4
+PrivateWages_15                        1                 4.0                6.8
+PrivateWages_16                        1                 4.4                7.2
+PrivateWages_17                        1                 2.9                8.3
+PrivateWages_18                        1                 4.3                6.7
+PrivateWages_19                        1                 5.3                7.4
+PrivateWages_20                        1                 6.6                8.9
+PrivateWages_21                        1                 7.4                9.6
+PrivateWages_22                        1                13.8               11.6
+                PrivateWages_govWage PrivateWages_trend PrivateWages_capitalLag
+Consumption_2                    0.0                  0                     0.0
+Consumption_3                    0.0                  0                     0.0
+Consumption_4                    0.0                  0                     0.0
+Consumption_5                    0.0                  0                     0.0
+Consumption_6                    0.0                  0                     0.0
+Consumption_8                    0.0                  0                     0.0
+Consumption_9                    0.0                  0                     0.0
+Consumption_11                   0.0                  0                     0.0
+Consumption_12                   0.0                  0                     0.0
+Consumption_13                   0.0                  0                     0.0
+Consumption_14                   0.0                  0                     0.0
+Consumption_15                   0.0                  0                     0.0
+Consumption_16                   0.0                  0                     0.0
+Consumption_17                   0.0                  0                     0.0
+Consumption_18                   0.0                  0                     0.0
+Consumption_19                   0.0                  0                     0.0
+Consumption_20                   0.0                  0                     0.0
+Consumption_21                   0.0                  0                     0.0
+Consumption_22                   0.0                  0                     0.0
+Investment_2                     0.0                  0                     0.0
+Investment_3                     0.0                  0                     0.0
+Investment_4                     0.0                  0                     0.0
+Investment_5                     0.0                  0                     0.0
+Investment_6                     0.0                  0                     0.0
+Investment_8                     0.0                  0                     0.0
+Investment_9                     0.0                  0                     0.0
+Investment_10                    0.0                  0                     0.0
+Investment_11                    0.0                  0                     0.0
+Investment_12                    0.0                  0                     0.0
+Investment_13                    0.0                  0                     0.0
+Investment_14                    0.0                  0                     0.0
+Investment_15                    0.0                  0                     0.0
+Investment_16                    0.0                  0                     0.0
+Investment_17                    0.0                  0                     0.0
+Investment_18                    0.0                  0                     0.0
+Investment_19                    0.0                  0                     0.0
+Investment_20                    0.0                  0                     0.0
+Investment_21                    0.0                  0                     0.0
+Investment_22                    0.0                  0                     0.0
+PrivateWages_2                   2.7                -10                   182.8
+PrivateWages_3                   2.9                 -9                   182.6
+PrivateWages_4                   2.9                 -8                   184.5
+PrivateWages_5                   3.1                 -7                   189.7
+PrivateWages_6                   3.2                 -6                   192.7
+PrivateWages_8                   3.6                 -4                   203.4
+PrivateWages_9                   3.7                 -3                   207.6
+PrivateWages_10                  4.0                 -2                   210.6
+PrivateWages_11                  4.2                 -1                   215.7
+PrivateWages_12                  4.8                  0                   216.7
+PrivateWages_13                  5.3                  1                   213.3
+PrivateWages_14                  5.6                  2                   207.1
+PrivateWages_15                  6.0                  3                   202.0
+PrivateWages_16                  6.1                  4                   199.0
+PrivateWages_17                  7.4                  5                   197.7
+PrivateWages_18                  6.7                  6                   199.8
+PrivateWages_19                  7.7                  7                   201.8
+PrivateWages_20                  7.8                  8                   199.9
+PrivateWages_21                  8.0                  9                   201.2
+PrivateWages_22                  8.5                 10                   204.5
+                PrivateWages_corpProfLag PrivateWages_gnpLag
+Consumption_2                        0.0                 0.0
+Consumption_3                        0.0                 0.0
+Consumption_4                        0.0                 0.0
+Consumption_5                        0.0                 0.0
+Consumption_6                        0.0                 0.0
+Consumption_8                        0.0                 0.0
+Consumption_9                        0.0                 0.0
+Consumption_11                       0.0                 0.0
+Consumption_12                       0.0                 0.0
+Consumption_13                       0.0                 0.0
+Consumption_14                       0.0                 0.0
+Consumption_15                       0.0                 0.0
+Consumption_16                       0.0                 0.0
+Consumption_17                       0.0                 0.0
+Consumption_18                       0.0                 0.0
+Consumption_19                       0.0                 0.0
+Consumption_20                       0.0                 0.0
+Consumption_21                       0.0                 0.0
+Consumption_22                       0.0                 0.0
+Investment_2                         0.0                 0.0
+Investment_3                         0.0                 0.0
+Investment_4                         0.0                 0.0
+Investment_5                         0.0                 0.0
+Investment_6                         0.0                 0.0
+Investment_8                         0.0                 0.0
+Investment_9                         0.0                 0.0
+Investment_10                        0.0                 0.0
+Investment_11                        0.0                 0.0
+Investment_12                        0.0                 0.0
+Investment_13                        0.0                 0.0
+Investment_14                        0.0                 0.0
+Investment_15                        0.0                 0.0
+Investment_16                        0.0                 0.0
+Investment_17                        0.0                 0.0
+Investment_18                        0.0                 0.0
+Investment_19                        0.0                 0.0
+Investment_20                        0.0                 0.0
+Investment_21                        0.0                 0.0
+Investment_22                        0.0                 0.0
+PrivateWages_2                      12.7                44.9
+PrivateWages_3                      12.4                45.6
+PrivateWages_4                      16.9                50.1
+PrivateWages_5                      18.4                57.2
+PrivateWages_6                      19.4                57.1
+PrivateWages_8                      19.6                64.0
+PrivateWages_9                      19.8                64.4
+PrivateWages_10                     21.1                64.5
+PrivateWages_11                     21.7                67.0
+PrivateWages_12                     15.6                61.2
+PrivateWages_13                     11.4                53.4
+PrivateWages_14                      7.0                44.3
+PrivateWages_15                     11.2                45.1
+PrivateWages_16                     12.3                49.7
+PrivateWages_17                     14.0                54.4
+PrivateWages_18                     17.6                62.7
+PrivateWages_19                     17.3                65.0
+PrivateWages_20                     15.3                60.9
+PrivateWages_21                     19.0                69.5
+PrivateWages_22                     21.1                75.7
 > nobs
 [1] 59
 > linearHypothesis
@@ -13087,6 +14759,529 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03389831 >"
 [2] "Attributes: < Component 2: Component 1: 52 string mismatches >"   
 [3] "Numeric: lengths (708, 684) differ"                               
+> matrix of instrumental variables
+                Consumption_(Intercept) Consumption_govExp Consumption_taxes
+Consumption_2                         1                3.9               7.7
+Consumption_3                         1                3.2               3.9
+Consumption_4                         1                2.8               4.7
+Consumption_5                         1                3.5               3.8
+Consumption_6                         1                3.3               5.5
+Consumption_8                         1                4.0               6.7
+Consumption_9                         1                4.2               4.2
+Consumption_11                        1                5.2               7.7
+Consumption_12                        1                5.9               7.5
+Consumption_14                        1                3.7               5.4
+Consumption_15                        1                4.0               6.8
+Consumption_16                        1                4.4               7.2
+Consumption_17                        1                2.9               8.3
+Consumption_18                        1                4.3               6.7
+Consumption_19                        1                5.3               7.4
+Consumption_20                        1                6.6               8.9
+Consumption_21                        1                7.4               9.6
+Consumption_22                        1               13.8              11.6
+Investment_2                          0                0.0               0.0
+Investment_3                          0                0.0               0.0
+Investment_4                          0                0.0               0.0
+Investment_5                          0                0.0               0.0
+Investment_6                          0                0.0               0.0
+Investment_8                          0                0.0               0.0
+Investment_9                          0                0.0               0.0
+Investment_10                         0                0.0               0.0
+Investment_11                         0                0.0               0.0
+Investment_12                         0                0.0               0.0
+Investment_14                         0                0.0               0.0
+Investment_15                         0                0.0               0.0
+Investment_16                         0                0.0               0.0
+Investment_17                         0                0.0               0.0
+Investment_18                         0                0.0               0.0
+Investment_19                         0                0.0               0.0
+Investment_20                         0                0.0               0.0
+Investment_21                         0                0.0               0.0
+Investment_22                         0                0.0               0.0
+PrivateWages_2                        0                0.0               0.0
+PrivateWages_3                        0                0.0               0.0
+PrivateWages_4                        0                0.0               0.0
+PrivateWages_5                        0                0.0               0.0
+PrivateWages_6                        0                0.0               0.0
+PrivateWages_8                        0                0.0               0.0
+PrivateWages_9                        0                0.0               0.0
+PrivateWages_10                       0                0.0               0.0
+PrivateWages_11                       0                0.0               0.0
+PrivateWages_12                       0                0.0               0.0
+PrivateWages_13                       0                0.0               0.0
+PrivateWages_14                       0                0.0               0.0
+PrivateWages_15                       0                0.0               0.0
+PrivateWages_16                       0                0.0               0.0
+PrivateWages_17                       0                0.0               0.0
+PrivateWages_18                       0                0.0               0.0
+PrivateWages_19                       0                0.0               0.0
+PrivateWages_20                       0                0.0               0.0
+PrivateWages_21                       0                0.0               0.0
+PrivateWages_22                       0                0.0               0.0
+                Consumption_govWage Consumption_trend Consumption_capitalLag
+Consumption_2                   2.7               -10                  182.8
+Consumption_3                   2.9                -9                  182.6
+Consumption_4                   2.9                -8                  184.5
+Consumption_5                   3.1                -7                  189.7
+Consumption_6                   3.2                -6                  192.7
+Consumption_8                   3.6                -4                  203.4
+Consumption_9                   3.7                -3                  207.6
+Consumption_11                  4.2                -1                  215.7
+Consumption_12                  4.8                 0                  216.7
+Consumption_14                  5.6                 2                  207.1
+Consumption_15                  6.0                 3                  202.0
+Consumption_16                  6.1                 4                  199.0
+Consumption_17                  7.4                 5                  197.7
+Consumption_18                  6.7                 6                  199.8
+Consumption_19                  7.7                 7                  201.8
+Consumption_20                  7.8                 8                  199.9
+Consumption_21                  8.0                 9                  201.2
+Consumption_22                  8.5                10                  204.5
+Investment_2                    0.0                 0                    0.0
+Investment_3                    0.0                 0                    0.0
+Investment_4                    0.0                 0                    0.0
+Investment_5                    0.0                 0                    0.0
+Investment_6                    0.0                 0                    0.0
+Investment_8                    0.0                 0                    0.0
+Investment_9                    0.0                 0                    0.0
+Investment_10                   0.0                 0                    0.0
+Investment_11                   0.0                 0                    0.0
+Investment_12                   0.0                 0                    0.0
+Investment_14                   0.0                 0                    0.0
+Investment_15                   0.0                 0                    0.0
+Investment_16                   0.0                 0                    0.0
+Investment_17                   0.0                 0                    0.0
+Investment_18                   0.0                 0                    0.0
+Investment_19                   0.0                 0                    0.0
+Investment_20                   0.0                 0                    0.0
+Investment_21                   0.0                 0                    0.0
+Investment_22                   0.0                 0                    0.0
+PrivateWages_2                  0.0                 0                    0.0
+PrivateWages_3                  0.0                 0                    0.0
+PrivateWages_4                  0.0                 0                    0.0
+PrivateWages_5                  0.0                 0                    0.0
+PrivateWages_6                  0.0                 0                    0.0
+PrivateWages_8                  0.0                 0                    0.0
+PrivateWages_9                  0.0                 0                    0.0
+PrivateWages_10                 0.0                 0                    0.0
+PrivateWages_11                 0.0                 0                    0.0
+PrivateWages_12                 0.0                 0                    0.0
+PrivateWages_13                 0.0                 0                    0.0
+PrivateWages_14                 0.0                 0                    0.0
+PrivateWages_15                 0.0                 0                    0.0
+PrivateWages_16                 0.0                 0                    0.0
+PrivateWages_17                 0.0                 0                    0.0
+PrivateWages_18                 0.0                 0                    0.0
+PrivateWages_19                 0.0                 0                    0.0
+PrivateWages_20                 0.0                 0                    0.0
+PrivateWages_21                 0.0                 0                    0.0
+PrivateWages_22                 0.0                 0                    0.0
+                Consumption_corpProfLag Consumption_gnpLag
+Consumption_2                      12.7               44.9
+Consumption_3                      12.4               45.6
+Consumption_4                      16.9               50.1
+Consumption_5                      18.4               57.2
+Consumption_6                      19.4               57.1
+Consumption_8                      19.6               64.0
+Consumption_9                      19.8               64.4
+Consumption_11                     21.7               67.0
+Consumption_12                     15.6               61.2
+Consumption_14                      7.0               44.3
+Consumption_15                     11.2               45.1
+Consumption_16                     12.3               49.7
+Consumption_17                     14.0               54.4
+Consumption_18                     17.6               62.7
+Consumption_19                     17.3               65.0
+Consumption_20                     15.3               60.9
+Consumption_21                     19.0               69.5
+Consumption_22                     21.1               75.7
+Investment_2                        0.0                0.0
+Investment_3                        0.0                0.0
+Investment_4                        0.0                0.0
+Investment_5                        0.0                0.0
+Investment_6                        0.0                0.0
+Investment_8                        0.0                0.0
+Investment_9                        0.0                0.0
+Investment_10                       0.0                0.0
+Investment_11                       0.0                0.0
+Investment_12                       0.0                0.0
+Investment_14                       0.0                0.0
+Investment_15                       0.0                0.0
+Investment_16                       0.0                0.0
+Investment_17                       0.0                0.0
+Investment_18                       0.0                0.0
+Investment_19                       0.0                0.0
+Investment_20                       0.0                0.0
+Investment_21                       0.0                0.0
+Investment_22                       0.0                0.0
+PrivateWages_2                      0.0                0.0
+PrivateWages_3                      0.0                0.0
+PrivateWages_4                      0.0                0.0
+PrivateWages_5                      0.0                0.0
+PrivateWages_6                      0.0                0.0
+PrivateWages_8                      0.0                0.0
+PrivateWages_9                      0.0                0.0
+PrivateWages_10                     0.0                0.0
+PrivateWages_11                     0.0                0.0
+PrivateWages_12                     0.0                0.0
+PrivateWages_13                     0.0                0.0
+PrivateWages_14                     0.0                0.0
+PrivateWages_15                     0.0                0.0
+PrivateWages_16                     0.0                0.0
+PrivateWages_17                     0.0                0.0
+PrivateWages_18                     0.0                0.0
+PrivateWages_19                     0.0                0.0
+PrivateWages_20                     0.0                0.0
+PrivateWages_21                     0.0                0.0
+PrivateWages_22                     0.0                0.0
+                Investment_(Intercept) Investment_govExp Investment_taxes
+Consumption_2                        0               0.0              0.0
+Consumption_3                        0               0.0              0.0
+Consumption_4                        0               0.0              0.0
+Consumption_5                        0               0.0              0.0
+Consumption_6                        0               0.0              0.0
+Consumption_8                        0               0.0              0.0
+Consumption_9                        0               0.0              0.0
+Consumption_11                       0               0.0              0.0
+Consumption_12                       0               0.0              0.0
+Consumption_14                       0               0.0              0.0
+Consumption_15                       0               0.0              0.0
+Consumption_16                       0               0.0              0.0
+Consumption_17                       0               0.0              0.0
+Consumption_18                       0               0.0              0.0
+Consumption_19                       0               0.0              0.0
+Consumption_20                       0               0.0              0.0
+Consumption_21                       0               0.0              0.0
+Consumption_22                       0               0.0              0.0
+Investment_2                         1               3.9              7.7
+Investment_3                         1               3.2              3.9
+Investment_4                         1               2.8              4.7
+Investment_5                         1               3.5              3.8
+Investment_6                         1               3.3              5.5
+Investment_8                         1               4.0              6.7
+Investment_9                         1               4.2              4.2
+Investment_10                        1               4.1              4.0
+Investment_11                        1               5.2              7.7
+Investment_12                        1               5.9              7.5
+Investment_14                        1               3.7              5.4
+Investment_15                        1               4.0              6.8
+Investment_16                        1               4.4              7.2
+Investment_17                        1               2.9              8.3
+Investment_18                        1               4.3              6.7
+Investment_19                        1               5.3              7.4
+Investment_20                        1               6.6              8.9
+Investment_21                        1               7.4              9.6
+Investment_22                        1              13.8             11.6
+PrivateWages_2                       0               0.0              0.0
+PrivateWages_3                       0               0.0              0.0
+PrivateWages_4                       0               0.0              0.0
+PrivateWages_5                       0               0.0              0.0
+PrivateWages_6                       0               0.0              0.0
+PrivateWages_8                       0               0.0              0.0
+PrivateWages_9                       0               0.0              0.0
+PrivateWages_10                      0               0.0              0.0
+PrivateWages_11                      0               0.0              0.0
+PrivateWages_12                      0               0.0              0.0
+PrivateWages_13                      0               0.0              0.0
+PrivateWages_14                      0               0.0              0.0
+PrivateWages_15                      0               0.0              0.0
+PrivateWages_16                      0               0.0              0.0
+PrivateWages_17                      0               0.0              0.0
+PrivateWages_18                      0               0.0              0.0
+PrivateWages_19                      0               0.0              0.0
+PrivateWages_20                      0               0.0              0.0
+PrivateWages_21                      0               0.0              0.0
+PrivateWages_22                      0               0.0              0.0
+                Investment_govWage Investment_trend Investment_capitalLag
+Consumption_2                  0.0                0                   0.0
+Consumption_3                  0.0                0                   0.0
+Consumption_4                  0.0                0                   0.0
+Consumption_5                  0.0                0                   0.0
+Consumption_6                  0.0                0                   0.0
+Consumption_8                  0.0                0                   0.0
+Consumption_9                  0.0                0                   0.0
+Consumption_11                 0.0                0                   0.0
+Consumption_12                 0.0                0                   0.0
+Consumption_14                 0.0                0                   0.0
+Consumption_15                 0.0                0                   0.0
+Consumption_16                 0.0                0                   0.0
+Consumption_17                 0.0                0                   0.0
+Consumption_18                 0.0                0                   0.0
+Consumption_19                 0.0                0                   0.0
+Consumption_20                 0.0                0                   0.0
+Consumption_21                 0.0                0                   0.0
+Consumption_22                 0.0                0                   0.0
+Investment_2                   2.7              -10                 182.8
+Investment_3                   2.9               -9                 182.6
+Investment_4                   2.9               -8                 184.5
+Investment_5                   3.1               -7                 189.7
+Investment_6                   3.2               -6                 192.7
+Investment_8                   3.6               -4                 203.4
+Investment_9                   3.7               -3                 207.6
+Investment_10                  4.0               -2                 210.6
+Investment_11                  4.2               -1                 215.7
+Investment_12                  4.8                0                 216.7
+Investment_14                  5.6                2                 207.1
+Investment_15                  6.0                3                 202.0
+Investment_16                  6.1                4                 199.0
+Investment_17                  7.4                5                 197.7
+Investment_18                  6.7                6                 199.8
+Investment_19                  7.7                7                 201.8
+Investment_20                  7.8                8                 199.9
+Investment_21                  8.0                9                 201.2
+Investment_22                  8.5               10                 204.5
+PrivateWages_2                 0.0                0                   0.0
+PrivateWages_3                 0.0                0                   0.0
+PrivateWages_4                 0.0                0                   0.0
+PrivateWages_5                 0.0                0                   0.0
+PrivateWages_6                 0.0                0                   0.0
+PrivateWages_8                 0.0                0                   0.0
+PrivateWages_9                 0.0                0                   0.0
+PrivateWages_10                0.0                0                   0.0
+PrivateWages_11                0.0                0                   0.0
+PrivateWages_12                0.0                0                   0.0
+PrivateWages_13                0.0                0                   0.0
+PrivateWages_14                0.0                0                   0.0
+PrivateWages_15                0.0                0                   0.0
+PrivateWages_16                0.0                0                   0.0
+PrivateWages_17                0.0                0                   0.0
+PrivateWages_18                0.0                0                   0.0
+PrivateWages_19                0.0                0                   0.0
+PrivateWages_20                0.0                0                   0.0
+PrivateWages_21                0.0                0                   0.0
+PrivateWages_22                0.0                0                   0.0
+                Investment_corpProfLag Investment_gnpLag
+Consumption_2                      0.0               0.0
+Consumption_3                      0.0               0.0
+Consumption_4                      0.0               0.0
+Consumption_5                      0.0               0.0
+Consumption_6                      0.0               0.0
+Consumption_8                      0.0               0.0
+Consumption_9                      0.0               0.0
+Consumption_11                     0.0               0.0
+Consumption_12                     0.0               0.0
+Consumption_14                     0.0               0.0
+Consumption_15                     0.0               0.0
+Consumption_16                     0.0               0.0
+Consumption_17                     0.0               0.0
+Consumption_18                     0.0               0.0
+Consumption_19                     0.0               0.0
+Consumption_20                     0.0               0.0
+Consumption_21                     0.0               0.0
+Consumption_22                     0.0               0.0
+Investment_2                      12.7              44.9
+Investment_3                      12.4              45.6
+Investment_4                      16.9              50.1
+Investment_5                      18.4              57.2
+Investment_6                      19.4              57.1
+Investment_8                      19.6              64.0
+Investment_9                      19.8              64.4
+Investment_10                     21.1              64.5
+Investment_11                     21.7              67.0
+Investment_12                     15.6              61.2
+Investment_14                      7.0              44.3
+Investment_15                     11.2              45.1
+Investment_16                     12.3              49.7
+Investment_17                     14.0              54.4
+Investment_18                     17.6              62.7
+Investment_19                     17.3              65.0
+Investment_20                     15.3              60.9
+Investment_21                     19.0              69.5
+Investment_22                     21.1              75.7
+PrivateWages_2                     0.0               0.0
+PrivateWages_3                     0.0               0.0
+PrivateWages_4                     0.0               0.0
+PrivateWages_5                     0.0               0.0
+PrivateWages_6                     0.0               0.0
+PrivateWages_8                     0.0               0.0
+PrivateWages_9                     0.0               0.0
+PrivateWages_10                    0.0               0.0
+PrivateWages_11                    0.0               0.0
+PrivateWages_12                    0.0               0.0
+PrivateWages_13                    0.0               0.0
+PrivateWages_14                    0.0               0.0
+PrivateWages_15                    0.0               0.0
+PrivateWages_16                    0.0               0.0
+PrivateWages_17                    0.0               0.0
+PrivateWages_18                    0.0               0.0
+PrivateWages_19                    0.0               0.0
+PrivateWages_20                    0.0               0.0
+PrivateWages_21                    0.0               0.0
+PrivateWages_22                    0.0               0.0
+                PrivateWages_(Intercept) PrivateWages_govExp PrivateWages_taxes
+Consumption_2                          0                 0.0                0.0
+Consumption_3                          0                 0.0                0.0
+Consumption_4                          0                 0.0                0.0
+Consumption_5                          0                 0.0                0.0
+Consumption_6                          0                 0.0                0.0
+Consumption_8                          0                 0.0                0.0
+Consumption_9                          0                 0.0                0.0
+Consumption_11                         0                 0.0                0.0
+Consumption_12                         0                 0.0                0.0
+Consumption_14                         0                 0.0                0.0
+Consumption_15                         0                 0.0                0.0
+Consumption_16                         0                 0.0                0.0
+Consumption_17                         0                 0.0                0.0
+Consumption_18                         0                 0.0                0.0
+Consumption_19                         0                 0.0                0.0
+Consumption_20                         0                 0.0                0.0
+Consumption_21                         0                 0.0                0.0
+Consumption_22                         0                 0.0                0.0
+Investment_2                           0                 0.0                0.0
+Investment_3                           0                 0.0                0.0
+Investment_4                           0                 0.0                0.0
+Investment_5                           0                 0.0                0.0
+Investment_6                           0                 0.0                0.0
+Investment_8                           0                 0.0                0.0
+Investment_9                           0                 0.0                0.0
+Investment_10                          0                 0.0                0.0
+Investment_11                          0                 0.0                0.0
+Investment_12                          0                 0.0                0.0
+Investment_14                          0                 0.0                0.0
+Investment_15                          0                 0.0                0.0
+Investment_16                          0                 0.0                0.0
+Investment_17                          0                 0.0                0.0
+Investment_18                          0                 0.0                0.0
+Investment_19                          0                 0.0                0.0
+Investment_20                          0                 0.0                0.0
+Investment_21                          0                 0.0                0.0
+Investment_22                          0                 0.0                0.0
+PrivateWages_2                         1                 3.9                7.7
+PrivateWages_3                         1                 3.2                3.9
+PrivateWages_4                         1                 2.8                4.7
+PrivateWages_5                         1                 3.5                3.8
+PrivateWages_6                         1                 3.3                5.5
+PrivateWages_8                         1                 4.0                6.7
+PrivateWages_9                         1                 4.2                4.2
+PrivateWages_10                        1                 4.1                4.0
+PrivateWages_11                        1                 5.2                7.7
+PrivateWages_12                        1                 5.9                7.5
+PrivateWages_13                        1                 4.9                8.3
+PrivateWages_14                        1                 3.7                5.4
+PrivateWages_15                        1                 4.0                6.8
+PrivateWages_16                        1                 4.4                7.2
+PrivateWages_17                        1                 2.9                8.3
+PrivateWages_18                        1                 4.3                6.7
+PrivateWages_19                        1                 5.3                7.4
+PrivateWages_20                        1                 6.6                8.9
+PrivateWages_21                        1                 7.4                9.6
+PrivateWages_22                        1                13.8               11.6
+                PrivateWages_govWage PrivateWages_trend PrivateWages_capitalLag
+Consumption_2                    0.0                  0                     0.0
+Consumption_3                    0.0                  0                     0.0
+Consumption_4                    0.0                  0                     0.0
+Consumption_5                    0.0                  0                     0.0
+Consumption_6                    0.0                  0                     0.0
+Consumption_8                    0.0                  0                     0.0
+Consumption_9                    0.0                  0                     0.0
+Consumption_11                   0.0                  0                     0.0
+Consumption_12                   0.0                  0                     0.0
+Consumption_14                   0.0                  0                     0.0
+Consumption_15                   0.0                  0                     0.0
+Consumption_16                   0.0                  0                     0.0
+Consumption_17                   0.0                  0                     0.0
+Consumption_18                   0.0                  0                     0.0
+Consumption_19                   0.0                  0                     0.0
+Consumption_20                   0.0                  0                     0.0
+Consumption_21                   0.0                  0                     0.0
+Consumption_22                   0.0                  0                     0.0
+Investment_2                     0.0                  0                     0.0
+Investment_3                     0.0                  0                     0.0
+Investment_4                     0.0                  0                     0.0
+Investment_5                     0.0                  0                     0.0
+Investment_6                     0.0                  0                     0.0
+Investment_8                     0.0                  0                     0.0
+Investment_9                     0.0                  0                     0.0
+Investment_10                    0.0                  0                     0.0
+Investment_11                    0.0                  0                     0.0
+Investment_12                    0.0                  0                     0.0
+Investment_14                    0.0                  0                     0.0
+Investment_15                    0.0                  0                     0.0
+Investment_16                    0.0                  0                     0.0
+Investment_17                    0.0                  0                     0.0
+Investment_18                    0.0                  0                     0.0
+Investment_19                    0.0                  0                     0.0
+Investment_20                    0.0                  0                     0.0
+Investment_21                    0.0                  0                     0.0
+Investment_22                    0.0                  0                     0.0
+PrivateWages_2                   2.7                -10                   182.8
+PrivateWages_3                   2.9                 -9                   182.6
+PrivateWages_4                   2.9                 -8                   184.5
+PrivateWages_5                   3.1                 -7                   189.7
+PrivateWages_6                   3.2                 -6                   192.7
+PrivateWages_8                   3.6                 -4                   203.4
+PrivateWages_9                   3.7                 -3                   207.6
+PrivateWages_10                  4.0                 -2                   210.6
+PrivateWages_11                  4.2                 -1                   215.7
+PrivateWages_12                  4.8                  0                   216.7
+PrivateWages_13                  5.3                  1                   213.3
+PrivateWages_14                  5.6                  2                   207.1
+PrivateWages_15                  6.0                  3                   202.0
+PrivateWages_16                  6.1                  4                   199.0
+PrivateWages_17                  7.4                  5                   197.7
+PrivateWages_18                  6.7                  6                   199.8
+PrivateWages_19                  7.7                  7                   201.8
+PrivateWages_20                  7.8                  8                   199.9
+PrivateWages_21                  8.0                  9                   201.2
+PrivateWages_22                  8.5                 10                   204.5
+                PrivateWages_corpProfLag PrivateWages_gnpLag
+Consumption_2                        0.0                 0.0
+Consumption_3                        0.0                 0.0
+Consumption_4                        0.0                 0.0
+Consumption_5                        0.0                 0.0
+Consumption_6                        0.0                 0.0
+Consumption_8                        0.0                 0.0
+Consumption_9                        0.0                 0.0
+Consumption_11                       0.0                 0.0
+Consumption_12                       0.0                 0.0
+Consumption_14                       0.0                 0.0
+Consumption_15                       0.0                 0.0
+Consumption_16                       0.0                 0.0
+Consumption_17                       0.0                 0.0
+Consumption_18                       0.0                 0.0
+Consumption_19                       0.0                 0.0
+Consumption_20                       0.0                 0.0
+Consumption_21                       0.0                 0.0
+Consumption_22                       0.0                 0.0
+Investment_2                         0.0                 0.0
+Investment_3                         0.0                 0.0
+Investment_4                         0.0                 0.0
+Investment_5                         0.0                 0.0
+Investment_6                         0.0                 0.0
+Investment_8                         0.0                 0.0
+Investment_9                         0.0                 0.0
+Investment_10                        0.0                 0.0
+Investment_11                        0.0                 0.0
+Investment_12                        0.0                 0.0
+Investment_14                        0.0                 0.0
+Investment_15                        0.0                 0.0
+Investment_16                        0.0                 0.0
+Investment_17                        0.0                 0.0
+Investment_18                        0.0                 0.0
+Investment_19                        0.0                 0.0
+Investment_20                        0.0                 0.0
+Investment_21                        0.0                 0.0
+Investment_22                        0.0                 0.0
+PrivateWages_2                      12.7                44.9
+PrivateWages_3                      12.4                45.6
+PrivateWages_4                      16.9                50.1
+PrivateWages_5                      18.4                57.2
+PrivateWages_6                      19.4                57.1
+PrivateWages_8                      19.6                64.0
+PrivateWages_9                      19.8                64.4
+PrivateWages_10                     21.1                64.5
+PrivateWages_11                     21.7                67.0
+PrivateWages_12                     15.6                61.2
+PrivateWages_13                     11.4                53.4
+PrivateWages_14                      7.0                44.3
+PrivateWages_15                     11.2                45.1
+PrivateWages_16                     12.3                49.7
+PrivateWages_17                     14.0                54.4
+PrivateWages_18                     17.6                62.7
+PrivateWages_19                     17.3                65.0
+PrivateWages_20                     15.3                60.9
+PrivateWages_21                     19.0                69.5
+PrivateWages_22                     21.1                75.7
 > nobs
 [1] 57
 > linearHypothesis
@@ -16843,6 +19038,520 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 [1] "Attributes: < Component 1: Mean relative difference: 0.03448276 >"
 [2] "Attributes: < Component 2: Component 1: 51 string mismatches >"   
 [3] "Numeric: lengths (696, 672) differ"                               
+> matrix of instrumental variables
+                Consumption_(Intercept) Consumption_govExp Consumption_taxes
+Consumption_2                         1                3.9               7.7
+Consumption_3                         1                3.2               3.9
+Consumption_4                         1                2.8               4.7
+Consumption_5                         1                3.5               3.8
+Consumption_6                         1                3.3               5.5
+Consumption_8                         1                4.0               6.7
+Consumption_9                         1                4.2               4.2
+Consumption_11                        1                5.2               7.7
+Consumption_12                        1                5.9               7.5
+Consumption_14                        1                3.7               5.4
+Consumption_15                        1                4.0               6.8
+Consumption_16                        1                4.4               7.2
+Consumption_17                        1                2.9               8.3
+Consumption_18                        1                4.3               6.7
+Consumption_19                        1                5.3               7.4
+Consumption_20                        1                6.6               8.9
+Consumption_21                        1                7.4               9.6
+Consumption_22                        1               13.8              11.6
+Investment_2                          0                0.0               0.0
+Investment_3                          0                0.0               0.0
+Investment_4                          0                0.0               0.0
+Investment_5                          0                0.0               0.0
+Investment_6                          0                0.0               0.0
+Investment_8                          0                0.0               0.0
+Investment_9                          0                0.0               0.0
+Investment_10                         0                0.0               0.0
+Investment_11                         0                0.0               0.0
+Investment_12                         0                0.0               0.0
+Investment_14                         0                0.0               0.0
+Investment_15                         0                0.0               0.0
+Investment_17                         0                0.0               0.0
+Investment_18                         0                0.0               0.0
+Investment_19                         0                0.0               0.0
+Investment_20                         0                0.0               0.0
+Investment_21                         0                0.0               0.0
+Investment_22                         0                0.0               0.0
+PrivateWages_2                        0                0.0               0.0
+PrivateWages_3                        0                0.0               0.0
+PrivateWages_4                        0                0.0               0.0
+PrivateWages_5                        0                0.0               0.0
+PrivateWages_6                        0                0.0               0.0
+PrivateWages_8                        0                0.0               0.0
+PrivateWages_9                        0                0.0               0.0
+PrivateWages_10                       0                0.0               0.0
+PrivateWages_11                       0                0.0               0.0
+PrivateWages_12                       0                0.0               0.0
+PrivateWages_13                       0                0.0               0.0
+PrivateWages_14                       0                0.0               0.0
+PrivateWages_15                       0                0.0               0.0
+PrivateWages_16                       0                0.0               0.0
+PrivateWages_17                       0                0.0               0.0
+PrivateWages_18                       0                0.0               0.0
+PrivateWages_19                       0                0.0               0.0
+PrivateWages_20                       0                0.0               0.0
+PrivateWages_21                       0                0.0               0.0
+PrivateWages_22                       0                0.0               0.0
+                Consumption_govWage Consumption_trend Consumption_capitalLag
+Consumption_2                   2.7               -10                  182.8
+Consumption_3                   2.9                -9                  182.6
+Consumption_4                   2.9                -8                  184.5
+Consumption_5                   3.1                -7                  189.7
+Consumption_6                   3.2                -6                  192.7
+Consumption_8                   3.6                -4                  203.4
+Consumption_9                   3.7                -3                  207.6
+Consumption_11                  4.2                -1                  215.7
+Consumption_12                  4.8                 0                  216.7
+Consumption_14                  5.6                 2                  207.1
+Consumption_15                  6.0                 3                  202.0
+Consumption_16                  6.1                 4                  199.0
+Consumption_17                  7.4                 5                  197.7
+Consumption_18                  6.7                 6                  199.8
+Consumption_19                  7.7                 7                  201.8
+Consumption_20                  7.8                 8                  199.9
+Consumption_21                  8.0                 9                  201.2
+Consumption_22                  8.5                10                  204.5
+Investment_2                    0.0                 0                    0.0
+Investment_3                    0.0                 0                    0.0
+Investment_4                    0.0                 0                    0.0
+Investment_5                    0.0                 0                    0.0
+Investment_6                    0.0                 0                    0.0
+Investment_8                    0.0                 0                    0.0
+Investment_9                    0.0                 0                    0.0
+Investment_10                   0.0                 0                    0.0
+Investment_11                   0.0                 0                    0.0
+Investment_12                   0.0                 0                    0.0
+Investment_14                   0.0                 0                    0.0
+Investment_15                   0.0                 0                    0.0
+Investment_17                   0.0                 0                    0.0
+Investment_18                   0.0                 0                    0.0
+Investment_19                   0.0                 0                    0.0
+Investment_20                   0.0                 0                    0.0
+Investment_21                   0.0                 0                    0.0
+Investment_22                   0.0                 0                    0.0
+PrivateWages_2                  0.0                 0                    0.0
+PrivateWages_3                  0.0                 0                    0.0
+PrivateWages_4                  0.0                 0                    0.0
+PrivateWages_5                  0.0                 0                    0.0
+PrivateWages_6                  0.0                 0                    0.0
+PrivateWages_8                  0.0                 0                    0.0
+PrivateWages_9                  0.0                 0                    0.0
+PrivateWages_10                 0.0                 0                    0.0
+PrivateWages_11                 0.0                 0                    0.0
+PrivateWages_12                 0.0                 0                    0.0
+PrivateWages_13                 0.0                 0                    0.0
+PrivateWages_14                 0.0                 0                    0.0
+PrivateWages_15                 0.0                 0                    0.0
+PrivateWages_16                 0.0                 0                    0.0
+PrivateWages_17                 0.0                 0                    0.0
+PrivateWages_18                 0.0                 0                    0.0
+PrivateWages_19                 0.0                 0                    0.0
+PrivateWages_20                 0.0                 0                    0.0
+PrivateWages_21                 0.0                 0                    0.0
+PrivateWages_22                 0.0                 0                    0.0
+                Consumption_corpProfLag Consumption_gnpLag
+Consumption_2                      12.7               44.9
+Consumption_3                      12.4               45.6
+Consumption_4                      16.9               50.1
+Consumption_5                      18.4               57.2
+Consumption_6                      19.4               57.1
+Consumption_8                      19.6               64.0
+Consumption_9                      19.8               64.4
+Consumption_11                     21.7               67.0
+Consumption_12                     15.6               61.2
+Consumption_14                      7.0               44.3
+Consumption_15                     11.2               45.1
+Consumption_16                     12.3               49.7
+Consumption_17                     14.0               54.4
+Consumption_18                     17.6               62.7
+Consumption_19                     17.3               65.0
+Consumption_20                     15.3               60.9
+Consumption_21                     19.0               69.5
+Consumption_22                     21.1               75.7
+Investment_2                        0.0                0.0
+Investment_3                        0.0                0.0
+Investment_4                        0.0                0.0
+Investment_5                        0.0                0.0
+Investment_6                        0.0                0.0
+Investment_8                        0.0                0.0
+Investment_9                        0.0                0.0
+Investment_10                       0.0                0.0
+Investment_11                       0.0                0.0
+Investment_12                       0.0                0.0
+Investment_14                       0.0                0.0
+Investment_15                       0.0                0.0
+Investment_17                       0.0                0.0
+Investment_18                       0.0                0.0
+Investment_19                       0.0                0.0
+Investment_20                       0.0                0.0
+Investment_21                       0.0                0.0
+Investment_22                       0.0                0.0
+PrivateWages_2                      0.0                0.0
+PrivateWages_3                      0.0                0.0
+PrivateWages_4                      0.0                0.0
+PrivateWages_5                      0.0                0.0
+PrivateWages_6                      0.0                0.0
+PrivateWages_8                      0.0                0.0
+PrivateWages_9                      0.0                0.0
+PrivateWages_10                     0.0                0.0
+PrivateWages_11                     0.0                0.0
+PrivateWages_12                     0.0                0.0
+PrivateWages_13                     0.0                0.0
+PrivateWages_14                     0.0                0.0
+PrivateWages_15                     0.0                0.0
+PrivateWages_16                     0.0                0.0
+PrivateWages_17                     0.0                0.0
+PrivateWages_18                     0.0                0.0
+PrivateWages_19                     0.0                0.0
+PrivateWages_20                     0.0                0.0
+PrivateWages_21                     0.0                0.0
+PrivateWages_22                     0.0                0.0
+                Investment_(Intercept) Investment_govExp Investment_taxes
+Consumption_2                        0               0.0              0.0
+Consumption_3                        0               0.0              0.0
+Consumption_4                        0               0.0              0.0
+Consumption_5                        0               0.0              0.0
+Consumption_6                        0               0.0              0.0
+Consumption_8                        0               0.0              0.0
+Consumption_9                        0               0.0              0.0
+Consumption_11                       0               0.0              0.0
+Consumption_12                       0               0.0              0.0
+Consumption_14                       0               0.0              0.0
+Consumption_15                       0               0.0              0.0
+Consumption_16                       0               0.0              0.0
+Consumption_17                       0               0.0              0.0
+Consumption_18                       0               0.0              0.0
+Consumption_19                       0               0.0              0.0
+Consumption_20                       0               0.0              0.0
+Consumption_21                       0               0.0              0.0
+Consumption_22                       0               0.0              0.0
+Investment_2                         1               3.9              7.7
+Investment_3                         1               3.2              3.9
+Investment_4                         1               2.8              4.7
+Investment_5                         1               3.5              3.8
+Investment_6                         1               3.3              5.5
+Investment_8                         1               4.0              6.7
+Investment_9                         1               4.2              4.2
+Investment_10                        1               4.1              4.0
+Investment_11                        1               5.2              7.7
+Investment_12                        1               5.9              7.5
+Investment_14                        1               3.7              5.4
+Investment_15                        1               4.0              6.8
+Investment_17                        1               2.9              8.3
+Investment_18                        1               4.3              6.7
+Investment_19                        1               5.3              7.4
+Investment_20                        1               6.6              8.9
+Investment_21                        1               7.4              9.6
+Investment_22                        1              13.8             11.6
+PrivateWages_2                       0               0.0              0.0
+PrivateWages_3                       0               0.0              0.0
+PrivateWages_4                       0               0.0              0.0
+PrivateWages_5                       0               0.0              0.0
+PrivateWages_6                       0               0.0              0.0
+PrivateWages_8                       0               0.0              0.0
+PrivateWages_9                       0               0.0              0.0
+PrivateWages_10                      0               0.0              0.0
+PrivateWages_11                      0               0.0              0.0
+PrivateWages_12                      0               0.0              0.0
+PrivateWages_13                      0               0.0              0.0
+PrivateWages_14                      0               0.0              0.0
+PrivateWages_15                      0               0.0              0.0
+PrivateWages_16                      0               0.0              0.0
+PrivateWages_17                      0               0.0              0.0
+PrivateWages_18                      0               0.0              0.0
+PrivateWages_19                      0               0.0              0.0
+PrivateWages_20                      0               0.0              0.0
+PrivateWages_21                      0               0.0              0.0
+PrivateWages_22                      0               0.0              0.0
+                Investment_govWage Investment_trend Investment_capitalLag
+Consumption_2                  0.0                0                   0.0
+Consumption_3                  0.0                0                   0.0
+Consumption_4                  0.0                0                   0.0
+Consumption_5                  0.0                0                   0.0
+Consumption_6                  0.0                0                   0.0
+Consumption_8                  0.0                0                   0.0
+Consumption_9                  0.0                0                   0.0
+Consumption_11                 0.0                0                   0.0
+Consumption_12                 0.0                0                   0.0
+Consumption_14                 0.0                0                   0.0
+Consumption_15                 0.0                0                   0.0
+Consumption_16                 0.0                0                   0.0
+Consumption_17                 0.0                0                   0.0
+Consumption_18                 0.0                0                   0.0
+Consumption_19                 0.0                0                   0.0
+Consumption_20                 0.0                0                   0.0
+Consumption_21                 0.0                0                   0.0
+Consumption_22                 0.0                0                   0.0
+Investment_2                   2.7              -10                 182.8
+Investment_3                   2.9               -9                 182.6
+Investment_4                   2.9               -8                 184.5
+Investment_5                   3.1               -7                 189.7
+Investment_6                   3.2               -6                 192.7
+Investment_8                   3.6               -4                 203.4
+Investment_9                   3.7               -3                 207.6
+Investment_10                  4.0               -2                 210.6
+Investment_11                  4.2               -1                 215.7
+Investment_12                  4.8                0                 216.7
+Investment_14                  5.6                2                 207.1
+Investment_15                  6.0                3                 202.0
+Investment_17                  7.4                5                 197.7
+Investment_18                  6.7                6                 199.8
+Investment_19                  7.7                7                 201.8
+Investment_20                  7.8                8                 199.9
+Investment_21                  8.0                9                 201.2
+Investment_22                  8.5               10                 204.5
+PrivateWages_2                 0.0                0                   0.0
+PrivateWages_3                 0.0                0                   0.0
+PrivateWages_4                 0.0                0                   0.0
+PrivateWages_5                 0.0                0                   0.0
+PrivateWages_6                 0.0                0                   0.0
+PrivateWages_8                 0.0                0                   0.0
+PrivateWages_9                 0.0                0                   0.0
+PrivateWages_10                0.0                0                   0.0
+PrivateWages_11                0.0                0                   0.0
+PrivateWages_12                0.0                0                   0.0
+PrivateWages_13                0.0                0                   0.0
+PrivateWages_14                0.0                0                   0.0
+PrivateWages_15                0.0                0                   0.0
+PrivateWages_16                0.0                0                   0.0
+PrivateWages_17                0.0                0                   0.0
+PrivateWages_18                0.0                0                   0.0
+PrivateWages_19                0.0                0                   0.0
+PrivateWages_20                0.0                0                   0.0
+PrivateWages_21                0.0                0                   0.0
+PrivateWages_22                0.0                0                   0.0
+                Investment_corpProfLag Investment_gnpLag
+Consumption_2                      0.0               0.0
+Consumption_3                      0.0               0.0
+Consumption_4                      0.0               0.0
+Consumption_5                      0.0               0.0
+Consumption_6                      0.0               0.0
+Consumption_8                      0.0               0.0
+Consumption_9                      0.0               0.0
+Consumption_11                     0.0               0.0
+Consumption_12                     0.0               0.0
+Consumption_14                     0.0               0.0
+Consumption_15                     0.0               0.0
+Consumption_16                     0.0               0.0
+Consumption_17                     0.0               0.0
+Consumption_18                     0.0               0.0
+Consumption_19                     0.0               0.0
+Consumption_20                     0.0               0.0
+Consumption_21                     0.0               0.0
+Consumption_22                     0.0               0.0
+Investment_2                      12.7              44.9
+Investment_3                      12.4              45.6
+Investment_4                      16.9              50.1
+Investment_5                      18.4              57.2
+Investment_6                      19.4              57.1
+Investment_8                      19.6              64.0
+Investment_9                      19.8              64.4
+Investment_10                     21.1              64.5
+Investment_11                     21.7              67.0
+Investment_12                     15.6              61.2
+Investment_14                      7.0              44.3
+Investment_15                     11.2              45.1
+Investment_17                     14.0              54.4
+Investment_18                     17.6              62.7
+Investment_19                     17.3              65.0
+Investment_20                     15.3              60.9
+Investment_21                     19.0              69.5
+Investment_22                     21.1              75.7
+PrivateWages_2                     0.0               0.0
+PrivateWages_3                     0.0               0.0
+PrivateWages_4                     0.0               0.0
+PrivateWages_5                     0.0               0.0
+PrivateWages_6                     0.0               0.0
+PrivateWages_8                     0.0               0.0
+PrivateWages_9                     0.0               0.0
+PrivateWages_10                    0.0               0.0
+PrivateWages_11                    0.0               0.0
+PrivateWages_12                    0.0               0.0
+PrivateWages_13                    0.0               0.0
+PrivateWages_14                    0.0               0.0
+PrivateWages_15                    0.0               0.0
+PrivateWages_16                    0.0               0.0
+PrivateWages_17                    0.0               0.0
+PrivateWages_18                    0.0               0.0
+PrivateWages_19                    0.0               0.0
+PrivateWages_20                    0.0               0.0
+PrivateWages_21                    0.0               0.0
+PrivateWages_22                    0.0               0.0
+                PrivateWages_(Intercept) PrivateWages_govExp PrivateWages_taxes
+Consumption_2                          0                 0.0                0.0
+Consumption_3                          0                 0.0                0.0
+Consumption_4                          0                 0.0                0.0
+Consumption_5                          0                 0.0                0.0
+Consumption_6                          0                 0.0                0.0
+Consumption_8                          0                 0.0                0.0
+Consumption_9                          0                 0.0                0.0
+Consumption_11                         0                 0.0                0.0
+Consumption_12                         0                 0.0                0.0
+Consumption_14                         0                 0.0                0.0
+Consumption_15                         0                 0.0                0.0
+Consumption_16                         0                 0.0                0.0
+Consumption_17                         0                 0.0                0.0
+Consumption_18                         0                 0.0                0.0
+Consumption_19                         0                 0.0                0.0
+Consumption_20                         0                 0.0                0.0
+Consumption_21                         0                 0.0                0.0
+Consumption_22                         0                 0.0                0.0
+Investment_2                           0                 0.0                0.0
+Investment_3                           0                 0.0                0.0
+Investment_4                           0                 0.0                0.0
+Investment_5                           0                 0.0                0.0
+Investment_6                           0                 0.0                0.0
+Investment_8                           0                 0.0                0.0
+Investment_9                           0                 0.0                0.0
+Investment_10                          0                 0.0                0.0
+Investment_11                          0                 0.0                0.0
+Investment_12                          0                 0.0                0.0
+Investment_14                          0                 0.0                0.0
+Investment_15                          0                 0.0                0.0
+Investment_17                          0                 0.0                0.0
+Investment_18                          0                 0.0                0.0
+Investment_19                          0                 0.0                0.0
+Investment_20                          0                 0.0                0.0
+Investment_21                          0                 0.0                0.0
+Investment_22                          0                 0.0                0.0
+PrivateWages_2                         1                 3.9                7.7
+PrivateWages_3                         1                 3.2                3.9
+PrivateWages_4                         1                 2.8                4.7
+PrivateWages_5                         1                 3.5                3.8
+PrivateWages_6                         1                 3.3                5.5
+PrivateWages_8                         1                 4.0                6.7
+PrivateWages_9                         1                 4.2                4.2
+PrivateWages_10                        1                 4.1                4.0
+PrivateWages_11                        1                 5.2                7.7
+PrivateWages_12                        1                 5.9                7.5
+PrivateWages_13                        1                 4.9                8.3
+PrivateWages_14                        1                 3.7                5.4
+PrivateWages_15                        1                 4.0                6.8
+PrivateWages_16                        1                 4.4                7.2
+PrivateWages_17                        1                 2.9                8.3
+PrivateWages_18                        1                 4.3                6.7
+PrivateWages_19                        1                 5.3                7.4
+PrivateWages_20                        1                 6.6                8.9
+PrivateWages_21                        1                 7.4                9.6
+PrivateWages_22                        1                13.8               11.6
+                PrivateWages_govWage PrivateWages_trend PrivateWages_capitalLag
+Consumption_2                    0.0                  0                     0.0
+Consumption_3                    0.0                  0                     0.0
+Consumption_4                    0.0                  0                     0.0
+Consumption_5                    0.0                  0                     0.0
+Consumption_6                    0.0                  0                     0.0
+Consumption_8                    0.0                  0                     0.0
+Consumption_9                    0.0                  0                     0.0
+Consumption_11                   0.0                  0                     0.0
+Consumption_12                   0.0                  0                     0.0
+Consumption_14                   0.0                  0                     0.0
+Consumption_15                   0.0                  0                     0.0
+Consumption_16                   0.0                  0                     0.0
+Consumption_17                   0.0                  0                     0.0
+Consumption_18                   0.0                  0                     0.0
+Consumption_19                   0.0                  0                     0.0
+Consumption_20                   0.0                  0                     0.0
+Consumption_21                   0.0                  0                     0.0
+Consumption_22                   0.0                  0                     0.0
+Investment_2                     0.0                  0                     0.0
+Investment_3                     0.0                  0                     0.0
+Investment_4                     0.0                  0                     0.0
+Investment_5                     0.0                  0                     0.0
+Investment_6                     0.0                  0                     0.0
+Investment_8                     0.0                  0                     0.0
+Investment_9                     0.0                  0                     0.0
+Investment_10                    0.0                  0                     0.0
+Investment_11                    0.0                  0                     0.0
+Investment_12                    0.0                  0                     0.0
+Investment_14                    0.0                  0                     0.0
+Investment_15                    0.0                  0                     0.0
+Investment_17                    0.0                  0                     0.0
+Investment_18                    0.0                  0                     0.0
+Investment_19                    0.0                  0                     0.0
+Investment_20                    0.0                  0                     0.0
+Investment_21                    0.0                  0                     0.0
+Investment_22                    0.0                  0                     0.0
+PrivateWages_2                   2.7                -10                   182.8
+PrivateWages_3                   2.9                 -9                   182.6
+PrivateWages_4                   2.9                 -8                   184.5
+PrivateWages_5                   3.1                 -7                   189.7
+PrivateWages_6                   3.2                 -6                   192.7
+PrivateWages_8                   3.6                 -4                   203.4
+PrivateWages_9                   3.7                 -3                   207.6
+PrivateWages_10                  4.0                 -2                   210.6
+PrivateWages_11                  4.2                 -1                   215.7
+PrivateWages_12                  4.8                  0                   216.7
+PrivateWages_13                  5.3                  1                   213.3
+PrivateWages_14                  5.6                  2                   207.1
+PrivateWages_15                  6.0                  3                   202.0
+PrivateWages_16                  6.1                  4                   199.0
+PrivateWages_17                  7.4                  5                   197.7
+PrivateWages_18                  6.7                  6                   199.8
+PrivateWages_19                  7.7                  7                   201.8
+PrivateWages_20                  7.8                  8                   199.9
+PrivateWages_21                  8.0                  9                   201.2
+PrivateWages_22                  8.5                 10                   204.5
+                PrivateWages_corpProfLag PrivateWages_gnpLag
+Consumption_2                        0.0                 0.0
+Consumption_3                        0.0                 0.0
+Consumption_4                        0.0                 0.0
+Consumption_5                        0.0                 0.0
+Consumption_6                        0.0                 0.0
+Consumption_8                        0.0                 0.0
+Consumption_9                        0.0                 0.0
+Consumption_11                       0.0                 0.0
+Consumption_12                       0.0                 0.0
+Consumption_14                       0.0                 0.0
+Consumption_15                       0.0                 0.0
+Consumption_16                       0.0                 0.0
+Consumption_17                       0.0                 0.0
+Consumption_18                       0.0                 0.0
+Consumption_19                       0.0                 0.0
+Consumption_20                       0.0                 0.0
+Consumption_21                       0.0                 0.0
+Consumption_22                       0.0                 0.0
+Investment_2                         0.0                 0.0
+Investment_3                         0.0                 0.0
+Investment_4                         0.0                 0.0
+Investment_5                         0.0                 0.0
+Investment_6                         0.0                 0.0
+Investment_8                         0.0                 0.0
+Investment_9                         0.0                 0.0
+Investment_10                        0.0                 0.0
+Investment_11                        0.0                 0.0
+Investment_12                        0.0                 0.0
+Investment_14                        0.0                 0.0
+Investment_15                        0.0                 0.0
+Investment_17                        0.0                 0.0
+Investment_18                        0.0                 0.0
+Investment_19                        0.0                 0.0
+Investment_20                        0.0                 0.0
+Investment_21                        0.0                 0.0
+Investment_22                        0.0                 0.0
+PrivateWages_2                      12.7                44.9
+PrivateWages_3                      12.4                45.6
+PrivateWages_4                      16.9                50.1
+PrivateWages_5                      18.4                57.2
+PrivateWages_6                      19.4                57.1
+PrivateWages_8                      19.6                64.0
+PrivateWages_9                      19.8                64.4
+PrivateWages_10                     21.1                64.5
+PrivateWages_11                     21.7                67.0
+PrivateWages_12                     15.6                61.2
+PrivateWages_13                     11.4                53.4
+PrivateWages_14                      7.0                44.3
+PrivateWages_15                     11.2                45.1
+PrivateWages_16                     12.3                49.7
+PrivateWages_17                     14.0                54.4
+PrivateWages_18                     17.6                62.7
+PrivateWages_19                     17.3                65.0
+PrivateWages_20                     15.3                60.9
+PrivateWages_21                     19.0                69.5
+PrivateWages_22                     21.1                75.7
 > nobs
 [1] 56
 > linearHypothesis
@@ -19208,4 +21917,4 @@ PrivateWages_22         23.3174589
 > 
 > proc.time()
    user  system elapsed 
- 10.676   0.164  10.847 
+ 10.564   0.188  10.759 

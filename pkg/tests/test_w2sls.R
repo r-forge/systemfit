@@ -623,6 +623,11 @@ print( all.equal( mm1, model.matrix( fitw2sls5e$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitw2sls5e$eq[[ 2 ]] ) ) )
 print( !is.null( fitw2sls5e$eq[[ 1 ]]$x ) )
 
+# matrices of instrumental variables
+model.matrix( fitw2sls1, which = "z" )
+model.matrix( fitw2sls1$eq[[ 1 ]], which = "z" )
+model.matrix( fitw2sls1$eq[[ 2 ]], which = "z" )
+
 
 ## **************** formulas ************************
 formula( fitw2sls1e )

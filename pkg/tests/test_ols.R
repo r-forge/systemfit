@@ -587,6 +587,8 @@ print( all.equal( mm1, model.matrix( fitols5$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fitols5$eq[[ 2 ]] ) ) )
 print( !is.null( fitols5$eq[[ 1 ]]$x ) )
 
+try( model.matrix( fitols1, which = "z" ) )
+
 
 ## **************** formulas ************************
 formula( fitols1 )

@@ -1099,6 +1099,11 @@ print( all.equal( mm1, model.matrix( fit3slsd[[ 2 ]]$e3$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit3slsd[[ 2 ]]$e3$eq[[ 2 ]] ) ) )
 print( !is.null( fit3slsd[[ 2 ]]$e3$eq[[ 1 ]]$x ) )
 
+# matrices of instrumental variables
+model.matrix( fit3sls[[ 1 ]]$e1c, which = "z" )
+model.matrix( fit3sls[[ 3 ]]$e1c$eq[[ 1 ]], which = "z" )
+model.matrix( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]], which = "z" )
+
 
 ## **************** formulas ************************
 formula( fit3sls[[ 2 ]]$e1c )

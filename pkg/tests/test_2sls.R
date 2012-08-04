@@ -720,6 +720,11 @@ print( all.equal( mm1, model.matrix( fit2sls5r$eq[[ 1 ]] ) ) )
 print( all.equal( mm2, model.matrix( fit2sls5r$eq[[ 2 ]] ) ) )
 print( !is.null( fit2sls5r$eq[[ 1 ]]$x ) )
 
+# matrices of instrumental variables
+model.matrix( fit2sls1, which = "z" )
+model.matrix( fit2sls1$eq[[ 1 ]], which = "z" )
+model.matrix( fit2sls1$eq[[ 2 ]], which = "z" )
+
 
 ## **************** formulas ************************
 formula( fit2sls1 )

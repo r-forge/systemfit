@@ -70,6 +70,10 @@ for( methodNo in 1:5 ) {
    } else {
       print( all.equal( mmOls, model.matrix( kleinModel ) ) )
    }
+   if( methodNo == 2 ) {
+      cat( "> matrix of instrumental variables\n" )
+      print( model.matrix( kleinModel, which = "z" ) )
+   }
    cat( "> nobs\n" )
    print( nobs( kleinModel ) )
    cat( "> linearHypothesis\n" )

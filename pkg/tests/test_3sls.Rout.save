@@ -21786,6 +21786,139 @@ attr(,"assign")
 > print( !is.null( fit3slsd[[ 2 ]]$e3$eq[[ 1 ]]$x ) )
 [1] FALSE
 > 
+> # matrices of instrumental variables
+> model.matrix( fit3sls[[ 1 ]]$e1c, which = "z" )
+          demand_(Intercept) demand_income demand_farmPrice demand_trend
+demand_1                   1          87.4             98.0            1
+demand_2                   1          97.6             99.1            2
+demand_3                   1          96.7             99.1            3
+demand_4                   1          98.2             98.1            4
+demand_5                   1          99.8            110.8            5
+demand_6                   1         100.5            108.2            6
+demand_7                   1         103.2            105.6            7
+demand_8                   1         107.8            109.8            8
+demand_9                   1          96.6            108.7            9
+demand_10                  1          88.9            100.6           10
+demand_11                  1          75.1             81.0           11
+demand_12                  1          76.9             68.6           12
+demand_13                  1          84.6             70.9           13
+demand_14                  1          90.6             81.4           14
+demand_15                  1         103.1            102.3           15
+demand_16                  1         105.1            105.0           16
+demand_17                  1          96.4            110.5           17
+demand_18                  1         104.4             92.5           18
+demand_19                  1         110.7             89.3           19
+demand_20                  1         127.1             93.0           20
+supply_1                   0           0.0              0.0            0
+supply_2                   0           0.0              0.0            0
+supply_3                   0           0.0              0.0            0
+supply_4                   0           0.0              0.0            0
+supply_5                   0           0.0              0.0            0
+supply_6                   0           0.0              0.0            0
+supply_7                   0           0.0              0.0            0
+supply_8                   0           0.0              0.0            0
+supply_9                   0           0.0              0.0            0
+supply_10                  0           0.0              0.0            0
+supply_11                  0           0.0              0.0            0
+supply_12                  0           0.0              0.0            0
+supply_13                  0           0.0              0.0            0
+supply_14                  0           0.0              0.0            0
+supply_15                  0           0.0              0.0            0
+supply_16                  0           0.0              0.0            0
+supply_17                  0           0.0              0.0            0
+supply_18                  0           0.0              0.0            0
+supply_19                  0           0.0              0.0            0
+supply_20                  0           0.0              0.0            0
+          supply_(Intercept) supply_income supply_farmPrice supply_trend
+demand_1                   0           0.0              0.0            0
+demand_2                   0           0.0              0.0            0
+demand_3                   0           0.0              0.0            0
+demand_4                   0           0.0              0.0            0
+demand_5                   0           0.0              0.0            0
+demand_6                   0           0.0              0.0            0
+demand_7                   0           0.0              0.0            0
+demand_8                   0           0.0              0.0            0
+demand_9                   0           0.0              0.0            0
+demand_10                  0           0.0              0.0            0
+demand_11                  0           0.0              0.0            0
+demand_12                  0           0.0              0.0            0
+demand_13                  0           0.0              0.0            0
+demand_14                  0           0.0              0.0            0
+demand_15                  0           0.0              0.0            0
+demand_16                  0           0.0              0.0            0
+demand_17                  0           0.0              0.0            0
+demand_18                  0           0.0              0.0            0
+demand_19                  0           0.0              0.0            0
+demand_20                  0           0.0              0.0            0
+supply_1                   1          87.4             98.0            1
+supply_2                   1          97.6             99.1            2
+supply_3                   1          96.7             99.1            3
+supply_4                   1          98.2             98.1            4
+supply_5                   1          99.8            110.8            5
+supply_6                   1         100.5            108.2            6
+supply_7                   1         103.2            105.6            7
+supply_8                   1         107.8            109.8            8
+supply_9                   1          96.6            108.7            9
+supply_10                  1          88.9            100.6           10
+supply_11                  1          75.1             81.0           11
+supply_12                  1          76.9             68.6           12
+supply_13                  1          84.6             70.9           13
+supply_14                  1          90.6             81.4           14
+supply_15                  1         103.1            102.3           15
+supply_16                  1         105.1            105.0           16
+supply_17                  1          96.4            110.5           17
+supply_18                  1         104.4             92.5           18
+supply_19                  1         110.7             89.3           19
+supply_20                  1         127.1             93.0           20
+> model.matrix( fit3sls[[ 3 ]]$e1c$eq[[ 1 ]], which = "z" )
+   (Intercept) income farmPrice trend
+1            1   87.4      98.0     1
+2            1   97.6      99.1     2
+3            1   96.7      99.1     3
+4            1   98.2      98.1     4
+5            1   99.8     110.8     5
+6            1  100.5     108.2     6
+7            1  103.2     105.6     7
+8            1  107.8     109.8     8
+9            1   96.6     108.7     9
+10           1   88.9     100.6    10
+11           1   75.1      81.0    11
+12           1   76.9      68.6    12
+13           1   84.6      70.9    13
+14           1   90.6      81.4    14
+15           1  103.1     102.3    15
+16           1  105.1     105.0    16
+17           1   96.4     110.5    17
+18           1  104.4      92.5    18
+19           1  110.7      89.3    19
+20           1  127.1      93.0    20
+attr(,"assign")
+[1] 0 1 2 3
+> model.matrix( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]], which = "z" )
+   (Intercept) income farmPrice trend
+1            1   87.4      98.0     1
+2            1   97.6      99.1     2
+3            1   96.7      99.1     3
+4            1   98.2      98.1     4
+5            1   99.8     110.8     5
+6            1  100.5     108.2     6
+7            1  103.2     105.6     7
+8            1  107.8     109.8     8
+9            1   96.6     108.7     9
+10           1   88.9     100.6    10
+11           1   75.1      81.0    11
+12           1   76.9      68.6    12
+13           1   84.6      70.9    13
+14           1   90.6      81.4    14
+15           1  103.1     102.3    15
+16           1  105.1     105.0    16
+17           1   96.4     110.5    17
+18           1  104.4      92.5    18
+19           1  110.7      89.3    19
+20           1  127.1      93.0    20
+attr(,"assign")
+[1] 0 1 2 3
+> 
 > 
 > ## **************** formulas ************************
 > formula( fit3sls[[ 2 ]]$e1c )
@@ -23245,4 +23378,4 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
 > 
 > proc.time()
    user  system elapsed 
- 12.304   0.216  12.530 
+ 12.520   0.284  12.825 
