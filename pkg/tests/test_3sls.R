@@ -1198,7 +1198,36 @@ estfun( fit3sls[[ 3 ]]$e1c )
 colSums( estfun( fit3sls[[ 3 ]]$e1c ) )
 
 estfun( fit3sls[[ 4 ]]$e1wc )
+
+colSums( estfun( fit3sls[[ 5 ]]$e1wc ) )
+colSums( estfun( fit3sls[[ 5 ]]$e1wc, residFit = FALSE ) )
+
 colSums( estfun( fit3sls[[ 4 ]]$e1wc ) )
+colSums( estfun( fit3sls[[ 4 ]]$e1wc, residFit = FALSE ) )
+
+colSums( estfun( fit3sls[[ 3 ]]$e1wc ) )
+colSums( estfun( fit3sls[[ 3 ]]$e1wc, residFit = FALSE ) )
+
+colSums( estfun( fit3sls[[ 2 ]]$e1wc ) )
+colSums( estfun( fit3sls[[ 2 ]]$e1wc, residFit = FALSE ) )
+
+colSums( estfun( fit3sls[[ 1 ]]$e1wc ) )
+colSums( estfun( fit3sls[[ 1 ]]$e1wc, residFit = FALSE ) )
 
 estfun( fit3slsd[[ 5 ]]$e1w )
+estfun( fit3slsd[[ 5 ]]$e1w, residFit = FALSE )
+
 colSums( estfun( fit3slsd[[ 5 ]]$e1w ) )
+colSums( estfun( fit3slsd[[ 5 ]]$e1w, residFit = FALSE ) )
+
+colSums( estfun( fit3slsd[[ 4 ]]$e1w ) )
+colSums( estfun( fit3slsd[[ 4 ]]$e1w, residFit = FALSE ) )
+
+colSums( estfun( fit3slsd[[ 3 ]]$e1w ) )
+colSums( estfun( fit3slsd[[ 3 ]]$e1w, residFit = FALSE ) )
+
+colSums( estfun( fit3slsd[[ 2 ]]$e1w ) )
+colSums( estfun( fit3slsd[[ 2 ]]$e1w, residFit = FALSE ) )
+
+colSums( estfun( fit3slsd[[ 1 ]]$e1w ) )
+colSums( estfun( fit3slsd[[ 1 ]]$e1w, residFit = FALSE ) )
