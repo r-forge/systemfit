@@ -33,6 +33,17 @@
 \section{Warnings}{
    The \pkg{sandwich} package must be loaded before this method
    can be used.
+   
+   In specific estimations with the 3SLS method,
+   not all columns of the matrix returned by the \code{estfun} method
+   sum up to zero,
+   which indicates that an inappropriate estimating function is returned.
+   This can be either with argument \code{residFit} set to \code{TRUE} 
+   or with this argument set to \code{FALSE}
+   or even in both cases.
+   This problem depends on the formula used for the 3SLS estimation
+   and seems to be related to unbalanced systems and
+   systems where different instruments are used in different equations.
 }
 
 \author{
