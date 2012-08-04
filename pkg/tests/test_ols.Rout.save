@@ -4938,6 +4938,90 @@ Error in estfun.systemfit(fitols5) :
 Error in estfun.systemfit(fitols5Sym) : 
   returning the estimation function for models with restrictions has not yet been implemented.
 > 
+> 
+> ## **************** bread ************************
+> bread( fitols1 )
+                   demand_(Intercept) demand_price demand_income
+demand_(Intercept)        607.0858530  -6.38645912    0.34532958
+demand_price               -6.3864591   0.08828487   -0.02505470
+demand_income               0.3453296  -0.02505470    0.02215223
+supply_(Intercept)          0.0000000   0.00000000    0.00000000
+supply_price                0.0000000   0.00000000    0.00000000
+supply_farmPrice            0.0000000   0.00000000    0.00000000
+supply_trend                0.0000000   0.00000000    0.00000000
+                   supply_(Intercept) supply_price supply_farmPrice
+demand_(Intercept)           0.000000  0.000000000      0.000000000
+demand_price                 0.000000  0.000000000      0.000000000
+demand_income                0.000000  0.000000000      0.000000000
+supply_(Intercept)         908.632658 -6.828661282     -2.104686670
+supply_price                -6.828661  0.062256396      0.005836298
+supply_farmPrice            -2.104687  0.005836298      0.014752110
+supply_trend                -1.930580  0.003609851      0.009097435
+                   supply_trend
+demand_(Intercept)  0.000000000
+demand_price        0.000000000
+demand_income       0.000000000
+supply_(Intercept) -1.930580399
+supply_price        0.003609851
+supply_farmPrice    0.009097435
+supply_trend        0.065760648
+> 
+> bread( fitols1s )
+                   demand_(Intercept) demand_price demand_income
+demand_(Intercept)        607.0858530  -6.38645912    0.34532958
+demand_price               -6.3864591   0.08828487   -0.02505470
+demand_income               0.3453296  -0.02505470    0.02215223
+supply_(Intercept)          0.0000000   0.00000000    0.00000000
+supply_price                0.0000000   0.00000000    0.00000000
+supply_farmPrice            0.0000000   0.00000000    0.00000000
+supply_trend                0.0000000   0.00000000    0.00000000
+                   supply_(Intercept) supply_price supply_farmPrice
+demand_(Intercept)           0.000000  0.000000000      0.000000000
+demand_price                 0.000000  0.000000000      0.000000000
+demand_income                0.000000  0.000000000      0.000000000
+supply_(Intercept)         908.632658 -6.828661282     -2.104686670
+supply_price                -6.828661  0.062256396      0.005836298
+supply_farmPrice            -2.104687  0.005836298      0.014752110
+supply_trend                -1.930580  0.003609851      0.009097435
+                   supply_trend
+demand_(Intercept)  0.000000000
+demand_price        0.000000000
+demand_income       0.000000000
+supply_(Intercept) -1.930580399
+supply_price        0.003609851
+supply_farmPrice    0.009097435
+supply_trend        0.065760648
+> 
+> bread( fitols1r )
+                   demand_(Intercept) demand_price demand_income
+demand_(Intercept)        607.0858530  -6.38645912    0.34532958
+demand_price               -6.3864591   0.08828487   -0.02505470
+demand_income               0.3453296  -0.02505470    0.02215223
+supply_(Intercept)          0.0000000   0.00000000    0.00000000
+supply_price                0.0000000   0.00000000    0.00000000
+supply_farmPrice            0.0000000   0.00000000    0.00000000
+supply_trend                0.0000000   0.00000000    0.00000000
+                   supply_(Intercept) supply_price supply_farmPrice
+demand_(Intercept)           0.000000  0.000000000      0.000000000
+demand_price                 0.000000  0.000000000      0.000000000
+demand_income                0.000000  0.000000000      0.000000000
+supply_(Intercept)         908.632658 -6.828661282     -2.104686670
+supply_price                -6.828661  0.062256396      0.005836298
+supply_farmPrice            -2.104687  0.005836298      0.014752110
+supply_trend                -1.930580  0.003609851      0.009097435
+                   supply_trend
+demand_(Intercept)  0.000000000
+demand_price        0.000000000
+demand_income       0.000000000
+supply_(Intercept) -1.930580399
+supply_price        0.003609851
+supply_farmPrice    0.009097435
+supply_trend        0.065760648
+> 
+> try( bread( fitols2 ) )
+Error in bread.systemfit(fitols2) : 
+  returning the 'bread' for models with restrictions has not yet been implemented.
+> 
 > proc.time()
    user  system elapsed 
-  3.248   0.044   3.290 
+  2.408   0.048   2.443 

@@ -649,3 +649,13 @@ try( estfun( fitols4Sym ) )
 try( estfun( fitols5 ) )
 
 try( estfun( fitols5Sym ) )
+
+
+## **************** bread ************************
+bread( fitols1 )
+
+bread( fitols1s )
+
+bread( fitols1r )
+
+try( bread( fitols2 ) )

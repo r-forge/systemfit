@@ -804,3 +804,11 @@ colSums( estfun( fit2sls1s ) )
 
 estfun( fit2sls1r )
 colSums( estfun( fit2sls1r ) )
+
+
+## **************** bread ************************
+bread( fit2sls1 )
+
+bread( fit2sls1s )
+
+bread( fit2sls1r )

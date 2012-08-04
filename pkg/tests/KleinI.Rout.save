@@ -123,6 +123,9 @@ The following object(s) are masked from 'package:base':
 +    cat( "Estimating function\n" )
 +    print( estfun( kleinModel ) )
 +    print( colSums( estfun( kleinModel ) ) )
++ 
++    cat( "> Bread\n" )
++    print( bread( kleinModel ) )
 + }
 + }
 > 
@@ -1220,6 +1223,85 @@ PrivateWages_22         5.91730980
            -9.886397e-13            -5.107914e-12             1.243450e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             4.125922e-12             1.683298e-11            -3.019807e-13 
+> Bread
+                         Consumption_(Intercept) Consumption_corpProf
+Consumption_(Intercept)             101.65365998           0.03003377
+Consumption_corpProf                  0.03003377           0.49833554
+Consumption_corpProfLag              -1.06066345          -0.31570498
+Consumption_wages                    -1.97178013          -0.07900285
+Investment_(Intercept)                0.00000000           0.00000000
+Investment_corpProf                   0.00000000           0.00000000
+Investment_corpProfLag                0.00000000           0.00000000
+Investment_capitalLag                 0.00000000           0.00000000
+PrivateWages_(Intercept)              0.00000000           0.00000000
+PrivateWages_gnp                      0.00000000           0.00000000
+PrivateWages_gnpLag                   0.00000000           0.00000000
+PrivateWages_trend                    0.00000000           0.00000000
+                         Consumption_corpProfLag Consumption_wages
+Consumption_(Intercept)              -1.06066345       -1.97178013
+Consumption_corpProf                 -0.31570498       -0.07900285
+Consumption_corpProfLag               0.49221087       -0.04019841
+Consumption_wages                    -0.04019841        0.09557333
+Investment_(Intercept)                0.00000000        0.00000000
+Investment_corpProf                   0.00000000        0.00000000
+Investment_corpProfLag                0.00000000        0.00000000
+Investment_capitalLag                 0.00000000        0.00000000
+PrivateWages_(Intercept)              0.00000000        0.00000000
+PrivateWages_gnp                      0.00000000        0.00000000
+PrivateWages_gnpLag                   0.00000000        0.00000000
+PrivateWages_trend                    0.00000000        0.00000000
+                         Investment_(Intercept) Investment_corpProf
+Consumption_(Intercept)                0.000000          0.00000000
+Consumption_corpProf                   0.000000          0.00000000
+Consumption_corpProfLag                0.000000          0.00000000
+Consumption_wages                      0.000000          0.00000000
+Investment_(Intercept)              1846.890000        -17.97092178
+Investment_corpProf                  -17.970922          0.58309938
+Investment_corpProfLag                14.674167         -0.50077331
+Investment_capitalLag                 -8.881306          0.08141268
+PrivateWages_(Intercept)               0.000000          0.00000000
+PrivateWages_gnp                       0.000000          0.00000000
+PrivateWages_gnpLag                    0.000000          0.00000000
+PrivateWages_trend                     0.000000          0.00000000
+                         Investment_corpProfLag Investment_capitalLag
+Consumption_(Intercept)              0.00000000            0.00000000
+Consumption_corpProf                 0.00000000            0.00000000
+Consumption_corpProfLag              0.00000000            0.00000000
+Consumption_wages                    0.00000000            0.00000000
+Investment_(Intercept)              14.67416674           -8.88130581
+Investment_corpProf                 -0.50077331            0.08141268
+Investment_corpProfLag               0.62893403           -0.08237308
+Investment_capitalLag               -0.08237308            0.04416646
+PrivateWages_(Intercept)             0.00000000            0.00000000
+PrivateWages_gnp                     0.00000000            0.00000000
+PrivateWages_gnpLag                  0.00000000            0.00000000
+PrivateWages_trend                   0.00000000            0.00000000
+                         PrivateWages_(Intercept) PrivateWages_gnp
+Consumption_(Intercept)                 0.0000000       0.00000000
+Consumption_corpProf                    0.0000000       0.00000000
+Consumption_corpProfLag                 0.0000000       0.00000000
+Consumption_wages                       0.0000000       0.00000000
+Investment_(Intercept)                  0.0000000       0.00000000
+Investment_corpProf                     0.0000000       0.00000000
+Investment_corpProfLag                  0.0000000       0.00000000
+Investment_capitalLag                   0.0000000       0.00000000
+PrivateWages_(Intercept)              172.6682862      -0.59189717
+PrivateWages_gnp                       -0.5918972       0.11242854
+PrivateWages_gnpLag                    -2.3129944      -0.10623720
+PrivateWages_trend                      1.9928392      -0.02737595
+                         PrivateWages_gnpLag PrivateWages_trend
+Consumption_(Intercept)          0.000000000        0.000000000
+Consumption_corpProf             0.000000000        0.000000000
+Consumption_corpProfLag          0.000000000        0.000000000
+Consumption_wages                0.000000000        0.000000000
+Investment_(Intercept)           0.000000000        0.000000000
+Investment_corpProf              0.000000000        0.000000000
+Investment_corpProfLag           0.000000000        0.000000000
+Investment_capitalLag            0.000000000        0.000000000
+PrivateWages_(Intercept)        -2.312994412        1.992839216
+PrivateWages_gnp                -0.106237196       -0.027375951
+PrivateWages_gnpLag              0.149921355       -0.006013858
+PrivateWages_trend              -0.006013858        0.109004697
 > 
 > # 2SLS
 > summary
@@ -2970,6 +3052,85 @@ PrivateWages_22       1.443113e+01
             5.330625e-12            -4.790923e-11             3.210487e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             4.231415e-11             2.870948e-11             8.799905e-14 
+> Bread
+                         Consumption_(Intercept) Consumption_corpProf
+Consumption_(Intercept)              105.2651165          -0.92586471
+Consumption_corpProf                  -0.9258647           0.84089736
+Consumption_corpProfLag               -0.2867444          -0.57752888
+Consumption_wages                     -1.9751485          -0.09208007
+Investment_(Intercept)                 0.0000000           0.00000000
+Investment_corpProf                    0.0000000           0.00000000
+Investment_corpProfLag                 0.0000000           0.00000000
+Investment_capitalLag                  0.0000000           0.00000000
+PrivateWages_(Intercept)               0.0000000           0.00000000
+PrivateWages_gnp                       0.0000000           0.00000000
+PrivateWages_gnpLag                    0.0000000           0.00000000
+PrivateWages_trend                     0.0000000           0.00000000
+                         Consumption_corpProfLag Consumption_wages
+Consumption_(Intercept)              -0.28674435       -1.97514849
+Consumption_corpProf                 -0.57752888       -0.09208007
+Consumption_corpProfLag               0.69431320       -0.03203212
+Consumption_wages                    -0.03203212        0.09775544
+Investment_(Intercept)                0.00000000        0.00000000
+Investment_corpProf                   0.00000000        0.00000000
+Investment_corpProfLag                0.00000000        0.00000000
+Investment_capitalLag                 0.00000000        0.00000000
+PrivateWages_(Intercept)              0.00000000        0.00000000
+PrivateWages_gnp                      0.00000000        0.00000000
+PrivateWages_gnpLag                   0.00000000        0.00000000
+PrivateWages_trend                    0.00000000        0.00000000
+                         Investment_(Intercept) Investment_corpProf
+Consumption_(Intercept)                 0.00000           0.0000000
+Consumption_corpProf                    0.00000           0.0000000
+Consumption_corpProfLag                 0.00000           0.0000000
+Consumption_wages                       0.00000           0.0000000
+Investment_(Intercept)               2591.28406         -42.1241466
+Investment_corpProf                   -42.12415           1.3667949
+Investment_corpProfLag                 35.41727          -1.1738212
+Investment_capitalLag                 -12.25359           0.1908327
+PrivateWages_(Intercept)                0.00000           0.0000000
+PrivateWages_gnp                        0.00000           0.0000000
+PrivateWages_gnpLag                     0.00000           0.0000000
+PrivateWages_trend                      0.00000           0.0000000
+                         Investment_corpProfLag Investment_capitalLag
+Consumption_(Intercept)               0.0000000            0.00000000
+Consumption_corpProf                  0.0000000            0.00000000
+Consumption_corpProfLag               0.0000000            0.00000000
+Consumption_wages                     0.0000000            0.00000000
+Investment_(Intercept)               35.4172696          -12.25359337
+Investment_corpProf                  -1.1738212            0.19083271
+Investment_corpProfLag                1.2069563           -0.17634442
+Investment_capitalLag                -0.1763444            0.05944375
+PrivateWages_(Intercept)              0.0000000            0.00000000
+PrivateWages_gnp                      0.0000000            0.00000000
+PrivateWages_gnpLag                   0.0000000            0.00000000
+PrivateWages_trend                    0.0000000            0.00000000
+                         PrivateWages_(Intercept) PrivateWages_gnp
+Consumption_(Intercept)                 0.0000000       0.00000000
+Consumption_corpProf                    0.0000000       0.00000000
+Consumption_corpProfLag                 0.0000000       0.00000000
+Consumption_wages                       0.0000000       0.00000000
+Investment_(Intercept)                  0.0000000       0.00000000
+Investment_corpProf                     0.0000000       0.00000000
+Investment_corpProfLag                  0.0000000       0.00000000
+Investment_capitalLag                   0.0000000       0.00000000
+PrivateWages_(Intercept)              174.2054644      -0.88387813
+PrivateWages_gnp                       -0.8838781       0.16788917
+PrivateWages_gnpLag                    -2.0370926      -0.15864366
+PrivateWages_trend                      2.0639355      -0.04088042
+                         PrivateWages_gnpLag PrivateWages_trend
+Consumption_(Intercept)           0.00000000         0.00000000
+Consumption_corpProf              0.00000000         0.00000000
+Consumption_corpProfLag           0.00000000         0.00000000
+Consumption_wages                 0.00000000         0.00000000
+Investment_(Intercept)            0.00000000         0.00000000
+Investment_corpProf               0.00000000         0.00000000
+Investment_corpProfLag            0.00000000         0.00000000
+Investment_capitalLag             0.00000000         0.00000000
+PrivateWages_(Intercept)         -2.03709260         2.06393554
+PrivateWages_gnp                 -0.15864366        -0.04088042
+PrivateWages_gnpLag               0.19944184         0.00674693
+PrivateWages_trend                0.00674693         0.11229299
 > 
 > # SUR
 > summary
@@ -3643,6 +3804,59 @@ PrivateWages_22        23.98250604
            -7.807067e-12             2.231781e-11             1.498607e-12 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             1.173062e-12             4.436385e-11            -2.278545e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]             86.04840381         -0.024535530             -0.83573197
+ [2,]             -0.02453553          0.370551370             -0.22830667
+ [3,]             -0.83573197         -0.228306666              0.37290340
+ [4,]             -1.67290455         -0.060159181             -0.03410714
+ [5,]             10.17856102         -0.461293971              0.72764053
+ [6,]             -0.12932557          0.039883452             -0.03791507
+ [7,]             -0.05045922         -0.034363038              0.04602195
+ [8,]             -0.03501016          0.001747568             -0.00419412
+ [9,]            -37.42226747          0.068000610              1.80970626
+[10,]              0.40737295         -0.063326260              0.04057745
+[11,]              0.20374269          0.064415756             -0.07323652
+[12,]              0.20573230          0.032173389              0.03109125
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.672905e+00             10.1785610        -0.129325569
+ [2,]     -6.015918e-02             -0.4612940         0.039883452
+ [3,]     -3.410714e-02              0.7276405        -0.037915073
+ [4,]      7.829056e-02             -0.3412307         0.001846137
+ [5,]     -3.412307e-01           1452.3464148       -13.960981930
+ [6,]      1.846137e-03            -13.9609819         0.466760815
+ [7,]     -2.960319e-03             11.2295379        -0.398792401
+ [8,]      1.788209e-03             -6.9725405         0.062883637
+ [9,]      1.324744e-01             19.4266336        -0.133380185
+[10,]     -5.463526e-05              0.4162767         0.015163080
+[11,]     -2.228017e-03             -0.7599030        -0.013404527
+[12,]     -3.033470e-02             -0.7358117         0.005711814
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]           -0.050459220          -0.035010158             -37.42226747
+ [2,]           -0.034363038           0.001747568               0.06800061
+ [3,]            0.046021946          -0.004194120               1.80970626
+ [4,]           -0.002960319           0.001788209               0.13247439
+ [5,]           11.229537909          -6.972540472              19.42663358
+ [6,]           -0.398792401           0.062883637              -0.13338018
+ [7,]            0.503871050          -0.063568755              -0.51574477
+ [8,]           -0.063568755           0.034671247              -0.04171837
+ [9,]           -0.515744773          -0.041718366              78.64950306
+[10,]           -0.007844055          -0.002712946              -0.33385565
+[11,]            0.017018610           0.003529320              -0.98592968
+[12,]           -0.013897463           0.004323913               0.87119040
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]     4.073730e-01         0.203742691        0.205732297
+ [2,]    -6.332626e-02         0.064415756        0.032173389
+ [3,]     4.057745e-02        -0.073236521        0.031091248
+ [4,]    -5.463526e-05        -0.002228017       -0.030334703
+ [5,]     4.162767e-01        -0.759902951       -0.735811700
+ [6,]     1.516308e-02        -0.013404527        0.005711814
+ [7,]    -7.844055e-03         0.017018610       -0.013897463
+ [8,]    -2.712946e-03         0.003529320        0.004323913
+ [9,]    -3.338556e-01        -0.985929682        0.871190403
+[10,]     4.679848e-02        -0.042712713       -0.011622490
+[11,]    -4.271271e-02         0.061241518       -0.002986543
+[12,]    -1.162249e-02        -0.002986543        0.047913135
 > 
 > # 3SLS
 > summary
@@ -4322,6 +4536,59 @@ PrivateWages_22       7.185089e+01
            -2.178369e-11             1.179501e-10             8.144874e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             1.287024e-10            -4.776535e-11            -5.768858e-13 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]            1.072164e+02         -1.069818022             -0.35145266
+ [2,]           -1.069818e+00          0.736589137             -0.50793171
+ [3,]           -3.514527e-01         -0.507931712              0.63553333
+ [4,]           -1.934840e+00         -0.073612987             -0.03560559
+ [5,]            1.237653e+02         -0.986176132              3.44549046
+ [6,]           -2.709307e+00          0.383895166             -0.37186350
+ [7,]            9.647357e-01         -0.311393086              0.39922653
+ [8,]           -4.613027e-01         -0.001987895             -0.01846602
+ [9,]           -3.876422e+01          0.053509259              1.80032258
+[10,]            6.267885e-01         -0.085329585              0.05562511
+[11,]           -5.964614e-04          0.087455021             -0.08865990
+[12,]            2.137416e-01          0.040285684              0.02790101
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.9348403505            123.7653227       -2.709307e+00
+ [2,]     -0.0736129865             -0.9861761        3.838952e-01
+ [3,]     -0.0356055868              3.4454905       -3.718635e-01
+ [4,]      0.0906749340             -3.9106817        5.580494e-02
+ [5,]     -3.9106817396           2907.7847282       -4.613164e+01
+ [6,]      0.0558049377            -46.1316430        1.651255e+00
+ [7,]     -0.0540722384             38.0834644       -1.407846e+00
+ [8,]      0.0192204417            -13.7066189        2.059716e-01
+ [9,]      0.1741116638             17.4224494       -1.056372e-01
+[10,]     -0.0023253698              2.3888816        2.040101e-03
+[11,]     -0.0005942256             -2.7647160       -2.912008e-04
+[12,]     -0.0325715362             -2.0797403        3.104674e-02
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]            0.964735671         -4.613027e-01            -3.876422e+01
+ [2,]           -0.311393086         -1.987895e-03             5.350926e-02
+ [3,]            0.399226535         -1.846602e-02             1.800323e+00
+ [4,]           -0.054072238          1.922044e-02             1.741117e-01
+ [5,]           38.083464396         -1.370662e+01             1.742245e+01
+ [6,]           -1.407846376          2.059716e-01            -1.056372e-01
+ [7,]            1.473478134         -1.916965e-01            -9.315294e-01
+ [8,]           -0.191696460          6.666950e-02             9.702712e-04
+ [9,]           -0.931529445          9.702712e-04             7.844334e+01
+[10,]            0.011120364         -1.299507e-02            -4.981018e-01
+[11,]            0.004547192          1.344256e-02            -8.122602e-01
+[12,]           -0.041741123          1.116688e-02             8.859186e-01
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]      0.626788495       -0.0005964614        0.213741624
+ [2,]     -0.085329585        0.0874550207        0.040285684
+ [3,]      0.055625110       -0.0886599017        0.027901014
+ [4,]     -0.002325370       -0.0005942256       -0.032571536
+ [5,]      2.388881559       -2.7647159934       -2.079740254
+ [6,]      0.002040101       -0.0002912008        0.031046739
+ [7,]      0.011120364        0.0045471920       -0.041741123
+ [8,]     -0.012995067        0.0134425578        0.011166882
+ [9,]     -0.498101754       -0.8122602124        0.885918628
+[10,]      0.063761877       -0.0574495713       -0.017811496
+[11,]     -0.057449571        0.0735097838        0.003169556
+[12,]     -0.017811496        0.0031695557        0.049163778
 > 
 > # I3SLS
 > summary
@@ -5003,6 +5270,59 @@ PrivateWages_22       1.422403e+02
             4.616973e-12             3.739409e-11             3.822831e-12 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             3.535554e-10             1.899458e-11             5.432960e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]            94.446775215          -0.91977031             -0.30085368
+ [2,]            -0.919770314           0.58300381             -0.40361540
+ [3,]            -0.300853681          -0.40361540              0.51143593
+ [4,]            -1.717411361          -0.05587526             -0.03030939
+ [5,]           169.114318313          -7.04628519              6.87305249
+ [6,]            -3.787190661           0.82221420             -0.71388917
+ [7,]             1.245043191          -0.67986399              0.75452296
+ [8,]            -0.616527076           0.02140838             -0.03576811
+ [9,]           -43.939266200           0.09411902              1.61103283
+[10,]             0.705195215          -0.06652899              0.04168557
+[11,]             0.004868658           0.06728246             -0.07095797
+[12,]             0.277816845           0.04498826              0.02542791
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.7174113615             169.114318       -3.787191e+00
+ [2,]     -0.0558752581              -7.046285        8.222142e-01
+ [3,]     -0.0303093871               6.873052       -7.138892e-01
+ [4,]      0.0761198380              -3.874753        3.834016e-02
+ [5,]     -3.8747528069            7070.318945       -1.044102e+02
+ [6,]      0.0383401614            -104.410242        4.263833e+00
+ [7,]     -0.0510602647              83.926121       -3.592179e+00
+ [8,]      0.0202665254             -33.255177        4.549648e-01
+ [9,]      0.3534640824              48.429074       -5.076751e-01
+[10,]     -0.0063677358               6.614613        4.290272e-03
+[11,]      0.0004995012              -7.648097        4.311642e-03
+[12,]     -0.0350546980              -5.668826        7.939418e-02
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]             1.24504319           -0.61652708             -43.93926620
+ [2,]            -0.67986399            0.02140838               0.09411902
+ [3,]             0.75452296           -0.03576811               1.61103283
+ [4,]            -0.05106026            0.02026653               0.35346408
+ [5,]            83.92612087          -33.25517747              48.42907432
+ [6,]            -3.59217941            0.45496484              -0.50767513
+ [7,]             3.89889470           -0.43443198              -3.11308992
+ [8,]            -0.43443198            0.16302106               0.06648438
+ [9,]            -3.11308992            0.06648438              90.04951745
+[10,]             0.04233796           -0.03681091              -0.71314627
+[11,]             0.00983678            0.03697935              -0.78300421
+[12,]            -0.11558221            0.03102626               0.93852118
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]      0.705195215        0.0048686576        0.277816845
+ [2,]     -0.066528986        0.0672824646        0.044988262
+ [3,]      0.041685566       -0.0709579747        0.025427906
+ [4,]     -0.006367736        0.0004995012       -0.035054698
+ [5,]      6.614613090       -7.6480974035       -5.668825740
+ [6,]      0.004290272        0.0043116419        0.079394176
+ [7,]      0.042337965        0.0098367799       -0.115582206
+ [8,]     -0.036810911        0.0369793458        0.031026256
+ [9,]     -0.713146269       -0.7830042126        0.938521183
+[10,]      0.060944841       -0.0508233237       -0.021221724
+[11,]     -0.050823324        0.0661422882        0.005794444
+[12,]     -0.021221724        0.0057944436        0.052723954
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -6088,6 +6408,85 @@ PrivateWages_22          5.5005760
            -9.886397e-13            -5.107914e-12            -7.105427e-15 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             1.527889e-12             2.567502e-12            -1.847411e-13 
+> Bread
+                         Consumption_(Intercept) Consumption_corpProf
+Consumption_(Intercept)             100.04010982           0.02955704
+Consumption_corpProf                  0.02955704           0.49042545
+Consumption_corpProfLag              -1.04382753          -0.31069379
+Consumption_wages                    -1.94048204          -0.07774884
+Investment_(Intercept)                0.00000000           0.00000000
+Investment_corpProf                   0.00000000           0.00000000
+Investment_corpProfLag                0.00000000           0.00000000
+Investment_capitalLag                 0.00000000           0.00000000
+PrivateWages_(Intercept)              0.00000000           0.00000000
+PrivateWages_gnp                      0.00000000           0.00000000
+PrivateWages_gnpLag                   0.00000000           0.00000000
+PrivateWages_trend                    0.00000000           0.00000000
+                         Consumption_corpProfLag Consumption_wages
+Consumption_(Intercept)              -1.04382753       -1.94048204
+Consumption_corpProf                 -0.31069379       -0.07774884
+Consumption_corpProfLag               0.48439800       -0.03956034
+Consumption_wages                    -0.03956034        0.09405629
+Investment_(Intercept)                0.00000000        0.00000000
+Investment_corpProf                   0.00000000        0.00000000
+Investment_corpProfLag                0.00000000        0.00000000
+Investment_capitalLag                 0.00000000        0.00000000
+PrivateWages_(Intercept)              0.00000000        0.00000000
+PrivateWages_gnp                      0.00000000        0.00000000
+PrivateWages_gnpLag                   0.00000000        0.00000000
+PrivateWages_trend                    0.00000000        0.00000000
+                         Investment_(Intercept) Investment_corpProf
+Consumption_(Intercept)                0.000000          0.00000000
+Consumption_corpProf                   0.000000          0.00000000
+Consumption_corpProfLag                0.000000          0.00000000
+Consumption_wages                      0.000000          0.00000000
+Investment_(Intercept)              1817.574285        -17.68566905
+Investment_corpProf                  -17.685669          0.57384383
+Investment_corpProfLag                14.441243         -0.49282453
+Investment_capitalLag                 -8.740333          0.08012042
+PrivateWages_(Intercept)               0.000000          0.00000000
+PrivateWages_gnp                       0.000000          0.00000000
+PrivateWages_gnpLag                    0.000000          0.00000000
+PrivateWages_trend                     0.000000          0.00000000
+                         Investment_corpProfLag Investment_capitalLag
+Consumption_(Intercept)              0.00000000            0.00000000
+Consumption_corpProf                 0.00000000            0.00000000
+Consumption_corpProfLag              0.00000000            0.00000000
+Consumption_wages                    0.00000000            0.00000000
+Investment_(Intercept)              14.44124346           -8.74033270
+Investment_corpProf                 -0.49282453            0.08012042
+Investment_corpProfLag               0.61895095           -0.08106557
+Investment_capitalLag               -0.08106557            0.04346540
+PrivateWages_(Intercept)             0.00000000            0.00000000
+PrivateWages_gnp                     0.00000000            0.00000000
+PrivateWages_gnpLag                  0.00000000            0.00000000
+PrivateWages_trend                   0.00000000            0.00000000
+                         PrivateWages_(Intercept) PrivateWages_gnp
+Consumption_(Intercept)                 0.0000000       0.00000000
+Consumption_corpProf                    0.0000000       0.00000000
+Consumption_corpProfLag                 0.0000000       0.00000000
+Consumption_wages                       0.0000000       0.00000000
+Investment_(Intercept)                  0.0000000       0.00000000
+Investment_corpProf                     0.0000000       0.00000000
+Investment_corpProfLag                  0.0000000       0.00000000
+Investment_capitalLag                   0.0000000       0.00000000
+PrivateWages_(Intercept)              174.6273812      -0.65759009
+PrivateWages_gnp                       -0.6575901       0.11184362
+PrivateWages_gnpLag                    -2.2945069      -0.10425969
+PrivateWages_trend                      2.1550627      -0.03003858
+                         PrivateWages_gnpLag PrivateWages_trend
+Consumption_(Intercept)          0.000000000        0.000000000
+Consumption_corpProf             0.000000000        0.000000000
+Consumption_corpProfLag          0.000000000        0.000000000
+Consumption_wages                0.000000000        0.000000000
+Investment_(Intercept)           0.000000000        0.000000000
+Investment_corpProf              0.000000000        0.000000000
+Investment_corpProfLag           0.000000000        0.000000000
+Investment_capitalLag            0.000000000        0.000000000
+PrivateWages_(Intercept)        -2.294506852        2.155062676
+PrivateWages_gnp                -0.104259690       -0.030038581
+PrivateWages_gnpLag              0.147612336       -0.006670196
+PrivateWages_trend              -0.006670196        0.115270461
 > 
 > # 2SLS
 > summary
@@ -7777,6 +8176,85 @@ PrivateWages_22       1.206209e+01
            -3.897549e-12            -2.325784e-11            -2.729171e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -2.324740e-11             6.065148e-12             6.528025e-14 
+> Bread
+                         Consumption_(Intercept) Consumption_corpProf
+Consumption_(Intercept)               99.9445593          -0.79429011
+Consumption_corpProf                  -0.7942901           0.77968507
+Consumption_corpProfLag               -0.3246335          -0.52851283
+Consumption_wages                     -1.8877749          -0.08941981
+Investment_(Intercept)                 0.0000000           0.00000000
+Investment_corpProf                    0.0000000           0.00000000
+Investment_corpProfLag                 0.0000000           0.00000000
+Investment_capitalLag                  0.0000000           0.00000000
+PrivateWages_(Intercept)               0.0000000           0.00000000
+PrivateWages_gnp                       0.0000000           0.00000000
+PrivateWages_gnpLag                    0.0000000           0.00000000
+PrivateWages_trend                     0.0000000           0.00000000
+                         Consumption_corpProfLag Consumption_wages
+Consumption_(Intercept)              -0.32463349       -1.88777486
+Consumption_corpProf                 -0.52851283       -0.08941981
+Consumption_corpProfLag               0.66543104       -0.03837819
+Consumption_wages                    -0.03837819        0.09651606
+Investment_(Intercept)                0.00000000        0.00000000
+Investment_corpProf                   0.00000000        0.00000000
+Investment_corpProfLag                0.00000000        0.00000000
+Investment_capitalLag                 0.00000000        0.00000000
+PrivateWages_(Intercept)              0.00000000        0.00000000
+PrivateWages_gnp                      0.00000000        0.00000000
+PrivateWages_gnpLag                   0.00000000        0.00000000
+PrivateWages_trend                    0.00000000        0.00000000
+                         Investment_(Intercept) Investment_corpProf
+Consumption_(Intercept)                 0.00000           0.0000000
+Consumption_corpProf                    0.00000           0.0000000
+Consumption_corpProfLag                 0.00000           0.0000000
+Consumption_wages                       0.00000           0.0000000
+Investment_(Intercept)               2446.22111         -38.9175439
+Investment_corpProf                   -38.91754           1.2520126
+Investment_corpProfLag                 33.38397          -1.0900135
+Investment_capitalLag                 -11.62161           0.1773782
+PrivateWages_(Intercept)                0.00000           0.0000000
+PrivateWages_gnp                        0.00000           0.0000000
+PrivateWages_gnpLag                     0.00000           0.0000000
+PrivateWages_trend                      0.00000           0.0000000
+                         Investment_corpProfLag Investment_capitalLag
+Consumption_(Intercept)               0.0000000            0.00000000
+Consumption_corpProf                  0.0000000            0.00000000
+Consumption_corpProfLag               0.0000000            0.00000000
+Consumption_wages                     0.0000000            0.00000000
+Investment_(Intercept)               33.3839658          -11.62161227
+Investment_corpProf                  -1.0900135            0.17737821
+Investment_corpProfLag                1.1484248           -0.16803961
+Investment_capitalLag                -0.1680396            0.05667249
+PrivateWages_(Intercept)              0.0000000            0.00000000
+PrivateWages_gnp                      0.0000000            0.00000000
+PrivateWages_gnpLag                   0.0000000            0.00000000
+PrivateWages_trend                    0.0000000            0.00000000
+                         PrivateWages_(Intercept) PrivateWages_gnp
+Consumption_(Intercept)                 0.0000000       0.00000000
+Consumption_corpProf                    0.0000000       0.00000000
+Consumption_corpProfLag                 0.0000000       0.00000000
+Consumption_wages                       0.0000000       0.00000000
+Investment_(Intercept)                  0.0000000       0.00000000
+Investment_corpProf                     0.0000000       0.00000000
+Investment_corpProfLag                  0.0000000       0.00000000
+Investment_capitalLag                   0.0000000       0.00000000
+PrivateWages_(Intercept)              170.7143453      -0.92893486
+PrivateWages_gnp                       -0.9289349       0.15799422
+PrivateWages_gnpLag                    -1.9477710      -0.14728090
+PrivateWages_trend                      2.1641186      -0.04243356
+                         PrivateWages_gnpLag PrivateWages_trend
+Consumption_(Intercept)          0.000000000        0.000000000
+Consumption_corpProf             0.000000000        0.000000000
+Consumption_corpProfLag          0.000000000        0.000000000
+Consumption_wages                0.000000000        0.000000000
+Investment_(Intercept)           0.000000000        0.000000000
+Investment_corpProf              0.000000000        0.000000000
+Investment_corpProfLag           0.000000000        0.000000000
+Investment_capitalLag            0.000000000        0.000000000
+PrivateWages_(Intercept)        -1.947770970        2.164118592
+PrivateWages_gnp                -0.147280900       -0.042433555
+PrivateWages_gnpLag              0.186089824        0.006002744
+PrivateWages_trend               0.006002744        0.115141307
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -8446,6 +8924,59 @@ PrivateWages_22        21.03340067
            -3.851239e-12             1.621192e-11            -1.409654e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -1.492084e-12             4.594652e-11            -1.505303e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]             85.28891438         -0.013616387            -0.838408024
+ [2,]             -0.01361639          0.372830064            -0.232200245
+ [3,]             -0.83840802         -0.232200245             0.368584283
+ [4,]             -1.65901977         -0.059935530            -0.031203169
+ [5,]             -3.18440423         -0.682547247             0.703549449
+ [6,]              0.05950070          0.018458654            -0.017737763
+ [7,]             -0.02391835         -0.017451940             0.020092306
+ [8,]              0.01266971          0.003285624            -0.003615736
+ [9,]            -36.01415048          0.079784360             1.660830145
+[10,]              0.38878229         -0.062089003             0.040324085
+[11,]              0.20005436          0.062866852            -0.070119595
+[12,]              0.18142537          0.031851565             0.026192944
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.659020e+00            -3.18440423         0.059500697
+ [2,]     -5.993553e-02            -0.68254725         0.018458654
+ [3,]     -3.120317e-02             0.70354945        -0.017737763
+ [4,]      7.692047e-02             0.08198445        -0.002036615
+ [5,]      8.198445e-02          1298.38633816       -12.399232714
+ [6,]     -2.036615e-03           -12.39923271         0.414862954
+ [7,]     -2.162127e-05             9.90838736        -0.353283425
+ [8,]     -2.535614e-04            -6.23005801         0.055757035
+ [9,]      1.498935e-01            24.45132437        -0.181948145
+[10,]      6.528586e-06             0.39130265         0.021581904
+[11,]     -2.678247e-03            -0.82128590        -0.019129278
+[12,]     -2.782399e-02            -0.89037899         0.005902685
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]          -2.391835e-02          0.0126697126             -36.01415048
+ [2,]          -1.745194e-02          0.0032856235               0.07978436
+ [3,]           2.009231e-02         -0.0036157357               1.66083015
+ [4,]          -2.162127e-05         -0.0002535614               0.14989349
+ [5,]           9.908387e+00         -6.2300580148              24.45132437
+ [6,]          -3.532834e-01          0.0557570348              -0.18194815
+ [7,]           4.465606e-01         -0.0561523908              -0.64598695
+ [8,]          -5.615239e-02          0.0309659738              -0.05118014
+ [9,]          -6.459869e-01         -0.0511801445              80.16803495
+[10,]          -1.216389e-02         -0.0027777825              -0.35877629
+[11,]           2.360331e-02          0.0037745209              -0.98895754
+[12,]          -1.605656e-02          0.0052675797               0.92007077
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]     3.887823e-01         0.200054358        0.181425365
+ [2,]    -6.208900e-02         0.062866852        0.031851565
+ [3,]     4.032409e-02        -0.070119595        0.026192944
+ [4,]     6.528586e-06        -0.002678247       -0.027823992
+ [5,]     3.913027e-01        -0.821285905       -0.890378993
+ [6,]     2.158190e-02        -0.019129278        0.005902685
+ [7,]    -1.216389e-02         0.023603312       -0.016056558
+ [8,]    -2.777782e-03         0.003774521        0.005267580
+ [9,]    -3.587763e-01        -0.988957537        0.920070766
+[10,]     4.815343e-02        -0.043596030       -0.013082202
+[11,]    -4.359603e-02         0.062172633       -0.002443564
+[12,]    -1.308220e-02        -0.002443564        0.049480385
 > 
 > # 3SLS
 > summary
@@ -9109,6 +9640,59 @@ PrivateWages_22       5.709573e+01
            -6.143863e-12             1.036948e-11             6.264572e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -3.580691e-11             1.204903e-11             2.433536e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]            101.77415177        -0.8583600653             -0.37360285
+ [2,]             -0.85836007         0.6909734716             -0.46699361
+ [3,]             -0.37360285        -0.4669936070              0.60989040
+ [4,]             -1.88446522        -0.0760663284             -0.04036717
+ [5,]             84.12388267        -0.8772024337              2.81727109
+ [6,]             -1.78433047         0.2672043030             -0.26356180
+ [7,]              0.60608985        -0.2188193548              0.28745501
+ [8,]             -0.31456785        -0.0002847047             -0.01522798
+ [9,]            -36.65696058         0.1207587792              1.77241166
+[10,]              0.56731809        -0.0839442908              0.05417943
+[11,]              0.02587802         0.0846149829             -0.08684492
+[12,]              0.20145363         0.0417557360              0.02833533
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.8844652180             84.1238827         -1.78433047
+ [2,]     -0.0760663284             -0.8772024          0.26720430
+ [3,]     -0.0403671694              2.8172711         -0.26356180
+ [4,]      0.0918232423             -2.7483069          0.03791878
+ [5,]     -2.7483069043           2378.0678463        -36.81581348
+ [6,]      0.0379187827            -36.8158135          1.27558291
+ [7,]     -0.0383831450             31.0992319         -1.10217089
+ [8,]      0.0136290725            -11.2708124          0.16591521
+ [9,]      0.1153184256             17.9514888         -0.11747103
+[10,]     -0.0009151368              1.8407338          0.01210872
+[11,]     -0.0009051715             -2.1965306         -0.01062179
+[12,]     -0.0327509614             -1.9848558          0.02781591
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]            0.606089845         -3.145679e-01            -3.665696e+01
+ [2,]           -0.218819355         -2.847047e-04             1.207588e-01
+ [3,]            0.287455011         -1.522798e-02             1.772412e+00
+ [4,]           -0.038383145          1.362907e-02             1.153184e-01
+ [5,]           31.099231935         -1.127081e+01             1.795149e+01
+ [6,]           -1.102170893          1.659152e-01            -1.174710e-01
+ [7,]            1.179837504         -1.581714e-01            -9.588988e-01
+ [8,]           -0.158171399          5.508497e-02             7.305187e-04
+ [9,]           -0.958898836          7.305187e-04             7.876026e+01
+[10,]            0.002479072         -1.038604e-02            -5.110829e-01
+[11,]            0.014187360          1.069035e-02            -8.116880e-01
+[12,]           -0.040097495          1.080586e-02             9.531365e-01
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]     0.5673180859        0.0258780160        0.201453629
+ [2,]    -0.0839442908        0.0846149829        0.041755736
+ [3,]     0.0541794310       -0.0868449248        0.028335326
+ [4,]    -0.0009151368       -0.0009051715       -0.032750961
+ [5,]     1.8407338422       -2.1965306330       -1.984855844
+ [6,]     0.0121087213       -0.0106217861        0.027815905
+ [7,]     0.0024790723        0.0141873596       -0.040097495
+ [8,]    -0.0103860422        0.0106903519        0.010805856
+ [9,]    -0.5110829371       -0.8116879515        0.953136485
+[10,]     0.0631607455       -0.0564531256       -0.019011095
+[11,]    -0.0564531256        0.0724514281        0.002974818
+[12,]    -0.0190110946        0.0029748184        0.051276069
 > 
 > # I3SLS
 > summary
@@ -9774,6 +10358,59 @@ PrivateWages_22       1.188321e+02
             3.400835e-12            -2.211191e-10            -2.155220e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             2.505729e-11             1.782996e-10             2.884359e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]             89.11731194          -0.76277393             -0.31605079
+ [2,]             -0.76277393           0.54372335             -0.37023828
+ [3,]             -0.31605079          -0.37023828              0.48967408
+ [4,]             -1.64994867          -0.05667517             -0.03392173
+ [5,]            127.14864534          -5.81423424              6.04844184
+ [6,]             -2.75668770           0.63900761             -0.56396980
+ [7,]              0.82234615          -0.53317151              0.60798098
+ [8,]             -0.46228180           0.01863983             -0.03211055
+ [9,]            -41.72250952           0.15544588              1.59962804
+[10,]              0.65174932          -0.06703326              0.04224637
+[11,]              0.02303367           0.06649367             -0.07149771
+[12,]              0.26556677           0.04601501              0.02629600
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.6499486721             127.148645         -2.75668770
+ [2,]     -0.0566751707              -5.814234          0.63900761
+ [3,]     -0.0339217308               6.048442         -0.56396980
+ [4,]      0.0758365602              -3.037786          0.02843898
+ [5,]     -3.0377864652            5674.464095        -81.62320004
+ [6,]      0.0284389777             -81.623200          3.27639561
+ [7,]     -0.0417213268              66.553512         -2.78371714
+ [8,]      0.0161329795             -26.780208          0.35785063
+ [9,]      0.2868445141              49.742200         -0.54820583
+[10,]     -0.0051198418               5.386827          0.02063907
+[11,]      0.0004916381              -6.377135         -0.01216392
+[12,]     -0.0352187024              -4.995705          0.06500566
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]             0.82234615           -0.46228180             -41.72250952
+ [2,]            -0.53317151            0.01863983               0.15544588
+ [3,]             0.60798098           -0.03211055               1.59962804
+ [4,]            -0.04172133            0.01613298               0.28684451
+ [5,]            66.55351207          -26.78020845              49.74220033
+ [6,]            -2.78371714            0.35785063              -0.54820583
+ [7,]             3.09435664           -0.34895063              -2.91051350
+ [8,]            -0.34895063            0.13175463               0.04332011
+ [9,]            -2.91051350            0.04332011              89.70867974
+[10,]             0.02555838           -0.03063562              -0.71024943
+[11,]             0.02431262            0.03083946              -0.78834713
+[12,]            -0.10212503            0.02771240               0.99461793
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]      0.651749315        0.0230336685         0.26556677
+ [2,]     -0.067033260        0.0664936683         0.04601501
+ [3,]      0.042246373       -0.0714977082         0.02629600
+ [4,]     -0.005119842        0.0004916381        -0.03521870
+ [5,]      5.386827070       -6.3771354813        -4.99570522
+ [6,]      0.020639071       -0.0121639213         0.06500566
+ [7,]      0.025558376        0.0243126194        -0.10212503
+ [8,]     -0.030635622        0.0308394591         0.02771240
+ [9,]     -0.710249433       -0.7883471296         0.99461793
+[10,]      0.060622275       -0.0503693771        -0.02194816
+[11,]     -0.050369377        0.0657411000         0.00528611
+[12,]     -0.021948161        0.0052861101         0.05390729
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -10847,6 +11484,85 @@ PrivateWages_22          5.5005760
            -9.886397e-13            -5.107914e-12            -7.105427e-15 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             1.527889e-12             2.567502e-12            -1.847411e-13 
+> Bread
+                         Consumption_(Intercept) Consumption_corpProf
+Consumption_(Intercept)              99.98672772          -0.07116082
+Consumption_corpProf                 -0.07116082           0.48895588
+Consumption_corpProfLag              -1.13545002          -0.29871412
+Consumption_wages                    -1.87516921          -0.07868028
+Investment_(Intercept)                0.00000000           0.00000000
+Investment_corpProf                   0.00000000           0.00000000
+Investment_corpProfLag                0.00000000           0.00000000
+Investment_capitalLag                 0.00000000           0.00000000
+PrivateWages_(Intercept)              0.00000000           0.00000000
+PrivateWages_gnp                      0.00000000           0.00000000
+PrivateWages_gnpLag                   0.00000000           0.00000000
+PrivateWages_trend                    0.00000000           0.00000000
+                         Consumption_corpProfLag Consumption_wages
+Consumption_(Intercept)              -1.13545002       -1.87516921
+Consumption_corpProf                 -0.29871412       -0.07868028
+Consumption_corpProfLag               0.48412485       -0.04128687
+Consumption_wages                    -0.04128687        0.09328084
+Investment_(Intercept)                0.00000000        0.00000000
+Investment_corpProf                   0.00000000        0.00000000
+Investment_corpProfLag                0.00000000        0.00000000
+Investment_capitalLag                 0.00000000        0.00000000
+PrivateWages_(Intercept)              0.00000000        0.00000000
+PrivateWages_gnp                      0.00000000        0.00000000
+PrivateWages_gnpLag                   0.00000000        0.00000000
+PrivateWages_trend                    0.00000000        0.00000000
+                         Investment_(Intercept) Investment_corpProf
+Consumption_(Intercept)                 0.00000          0.00000000
+Consumption_corpProf                    0.00000          0.00000000
+Consumption_corpProfLag                 0.00000          0.00000000
+Consumption_wages                       0.00000          0.00000000
+Investment_(Intercept)               1788.25857        -17.40041633
+Investment_corpProf                   -17.40042          0.56458829
+Investment_corpProfLag                 14.20832         -0.48487575
+Investment_capitalLag                  -8.59936          0.07882815
+PrivateWages_(Intercept)                0.00000          0.00000000
+PrivateWages_gnp                        0.00000          0.00000000
+PrivateWages_gnpLag                     0.00000          0.00000000
+PrivateWages_trend                      0.00000          0.00000000
+                         Investment_corpProfLag Investment_capitalLag
+Consumption_(Intercept)              0.00000000            0.00000000
+Consumption_corpProf                 0.00000000            0.00000000
+Consumption_corpProfLag              0.00000000            0.00000000
+Consumption_wages                    0.00000000            0.00000000
+Investment_(Intercept)              14.20832017           -8.59935959
+Investment_corpProf                 -0.48487575            0.07882815
+Investment_corpProfLag               0.60896787           -0.07975806
+Investment_capitalLag               -0.07975806            0.04276435
+PrivateWages_(Intercept)             0.00000000            0.00000000
+PrivateWages_gnp                     0.00000000            0.00000000
+PrivateWages_gnpLag                  0.00000000            0.00000000
+PrivateWages_trend                   0.00000000            0.00000000
+                         PrivateWages_(Intercept) PrivateWages_gnp
+Consumption_(Intercept)                 0.0000000       0.00000000
+Consumption_corpProf                    0.0000000       0.00000000
+Consumption_corpProfLag                 0.0000000       0.00000000
+Consumption_wages                       0.0000000       0.00000000
+Investment_(Intercept)                  0.0000000       0.00000000
+Investment_corpProf                     0.0000000       0.00000000
+Investment_corpProfLag                  0.0000000       0.00000000
+Investment_capitalLag                   0.0000000       0.00000000
+PrivateWages_(Intercept)              171.8108105      -0.64698380
+PrivateWages_gnp                       -0.6469838       0.11003969
+PrivateWages_gnpLag                    -2.2574987      -0.10257808
+PrivateWages_trend                      2.1203036      -0.02955409
+                         PrivateWages_gnpLag PrivateWages_trend
+Consumption_(Intercept)          0.000000000        0.000000000
+Consumption_corpProf             0.000000000        0.000000000
+Consumption_corpProfLag          0.000000000        0.000000000
+Consumption_wages                0.000000000        0.000000000
+Investment_(Intercept)           0.000000000        0.000000000
+Investment_corpProf              0.000000000        0.000000000
+Investment_corpProfLag           0.000000000        0.000000000
+Investment_capitalLag            0.000000000        0.000000000
+PrivateWages_(Intercept)        -2.257498677        2.120303601
+PrivateWages_gnp                -0.102578082       -0.029554088
+PrivateWages_gnpLag              0.145231492       -0.006562613
+PrivateWages_trend              -0.006562613        0.113411260
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -12517,6 +13233,85 @@ PrivateWages_22       1.206209e+01
            -3.897549e-12            -2.325784e-11            -2.729171e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -2.324740e-11             6.065148e-12             6.528025e-14 
+> Bread
+                         Consumption_(Intercept) Consumption_corpProf
+Consumption_(Intercept)               99.7625537           -0.8715166
+Consumption_corpProf                  -0.8715166            0.7621291
+Consumption_corpProfLag               -0.4786028           -0.4940222
+Consumption_wages                     -1.8067535           -0.0926658
+Investment_(Intercept)                 0.0000000            0.0000000
+Investment_corpProf                    0.0000000            0.0000000
+Investment_corpProfLag                 0.0000000            0.0000000
+Investment_capitalLag                  0.0000000            0.0000000
+PrivateWages_(Intercept)               0.0000000            0.0000000
+PrivateWages_gnp                       0.0000000            0.0000000
+PrivateWages_gnpLag                    0.0000000            0.0000000
+PrivateWages_trend                     0.0000000            0.0000000
+                         Consumption_corpProfLag Consumption_wages
+Consumption_(Intercept)              -0.47860283       -1.80675345
+Consumption_corpProf                 -0.49402218       -0.09266580
+Consumption_corpProfLag               0.64616866       -0.04034549
+Consumption_wages                    -0.04034549        0.09627099
+Investment_(Intercept)                0.00000000        0.00000000
+Investment_corpProf                   0.00000000        0.00000000
+Investment_corpProfLag                0.00000000        0.00000000
+Investment_capitalLag                 0.00000000        0.00000000
+PrivateWages_(Intercept)              0.00000000        0.00000000
+PrivateWages_gnp                      0.00000000        0.00000000
+PrivateWages_gnpLag                   0.00000000        0.00000000
+PrivateWages_trend                    0.00000000        0.00000000
+                         Investment_(Intercept) Investment_corpProf
+Consumption_(Intercept)                 0.00000           0.0000000
+Consumption_corpProf                    0.00000           0.0000000
+Consumption_corpProfLag                 0.00000           0.0000000
+Consumption_wages                       0.00000           0.0000000
+Investment_(Intercept)               2405.45076         -38.2689181
+Investment_corpProf                   -38.26892           1.2311458
+Investment_corpProfLag                 32.82757          -1.0718466
+Investment_capitalLag                 -11.42792           0.1744219
+PrivateWages_(Intercept)                0.00000           0.0000000
+PrivateWages_gnp                        0.00000           0.0000000
+PrivateWages_gnpLag                     0.00000           0.0000000
+PrivateWages_trend                      0.00000           0.0000000
+                         Investment_corpProfLag Investment_capitalLag
+Consumption_(Intercept)                0.000000            0.00000000
+Consumption_corpProf                   0.000000            0.00000000
+Consumption_corpProfLag                0.000000            0.00000000
+Consumption_wages                      0.000000            0.00000000
+Investment_(Intercept)                32.827566          -11.42791873
+Investment_corpProf                   -1.071847            0.17442191
+Investment_corpProfLag                 1.129284           -0.16523895
+Investment_capitalLag                 -0.165239            0.05572795
+PrivateWages_(Intercept)               0.000000            0.00000000
+PrivateWages_gnp                       0.000000            0.00000000
+PrivateWages_gnpLag                    0.000000            0.00000000
+PrivateWages_trend                     0.000000            0.00000000
+                         PrivateWages_(Intercept) PrivateWages_gnp
+Consumption_(Intercept)                 0.0000000       0.00000000
+Consumption_corpProf                    0.0000000       0.00000000
+Consumption_corpProfLag                 0.0000000       0.00000000
+Consumption_wages                       0.0000000       0.00000000
+Investment_(Intercept)                  0.0000000       0.00000000
+Investment_corpProf                     0.0000000       0.00000000
+Investment_corpProfLag                  0.0000000       0.00000000
+Investment_capitalLag                   0.0000000       0.00000000
+PrivateWages_(Intercept)              167.8691062      -0.91345262
+PrivateWages_gnp                       -0.9134526       0.15536098
+PrivateWages_gnpLag                    -1.9153081      -0.14482622
+PrivateWages_trend                      2.1280499      -0.04172633
+                         PrivateWages_gnpLag PrivateWages_trend
+Consumption_(Intercept)          0.000000000        0.000000000
+Consumption_corpProf             0.000000000        0.000000000
+Consumption_corpProfLag          0.000000000        0.000000000
+Consumption_wages                0.000000000        0.000000000
+Investment_(Intercept)           0.000000000        0.000000000
+Investment_corpProf              0.000000000        0.000000000
+Investment_corpProfLag           0.000000000        0.000000000
+Investment_capitalLag            0.000000000        0.000000000
+PrivateWages_(Intercept)        -1.915308121        2.128049949
+PrivateWages_gnp                -0.144826218       -0.041726329
+PrivateWages_gnpLag              0.182988327        0.005902698
+PrivateWages_trend               0.005902698        0.113222285
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -13180,6 +13975,59 @@ PrivateWages_22        19.76080668
            -3.152300e-12            -7.009920e-12            -8.018438e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -2.211881e-11            -9.840684e-12             1.112544e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]            87.990427629        -0.0880843315            -0.914156993
+ [2,]            -0.088084332         0.3896391714            -0.236124705
+ [3,]            -0.914156993        -0.2361247052             0.383413947
+ [4,]            -1.669236302        -0.0629524850            -0.033256551
+ [5,]             2.685141485        -0.1889610450             0.723416121
+ [6,]            -0.035485738         0.0233697561            -0.026429872
+ [7,]            -0.056276969        -0.0200384114             0.031963045
+ [8,]            -0.005396147         0.0006179459            -0.003967494
+ [9,]           -33.168659147         0.0631564247             1.542167832
+[10,]             0.366465252        -0.0591718996             0.038128741
+[11,]             0.174054022         0.0601883478            -0.065738719
+[12,]             0.183109898         0.0294763819             0.024251014
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]      -1.669236302              2.6851415        -0.035485738
+ [2,]      -0.062952485             -0.1889610         0.023369756
+ [3,]      -0.033256551              0.7234161        -0.026429872
+ [4,]       0.079060591             -0.2483167         0.001506037
+ [5,]      -0.248316741           1269.2468609       -12.230802507
+ [6,]       0.001506037            -12.2308025         0.404615837
+ [7,]      -0.002777646              9.8843504        -0.346139192
+ [8,]       0.001327036             -6.0969815         0.055190410
+ [9,]       0.134742817             17.9032166        -0.138715057
+[10,]       0.000195516              0.2623902         0.013966400
+[11,]      -0.002616246             -0.5812272        -0.011967802
+[12,]      -0.026193159             -0.5506366         0.003554077
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]           -0.056276969         -0.0053961466             -33.16865915
+ [2,]           -0.020038411          0.0006179459               0.06315642
+ [3,]            0.031963045         -0.0039674940               1.54216783
+ [4,]           -0.002777646          0.0013270363               0.13474282
+ [5,]            9.884350441         -6.0969815347              17.90321657
+ [6,]           -0.346139192          0.0551904100              -0.13871506
+ [7,]            0.436315669         -0.0557847682              -0.40000146
+ [8,]           -0.055784768          0.0303172743              -0.04334285
+ [9,]           -0.400001459         -0.0433428550              71.48403520
+[10,]           -0.007856664         -0.0018437906              -0.30848391
+[11,]            0.014926415          0.0026860533              -0.89086728
+[12,]           -0.010326036          0.0032953538               0.81461333
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]      0.366465252         0.174054022        0.183109898
+ [2,]     -0.059171900         0.060188348        0.029476382
+ [3,]      0.038128741        -0.065738719        0.024251014
+ [4,]      0.000195516        -0.002616246       -0.026193159
+ [5,]      0.262390248        -0.581227238       -0.550636558
+ [6,]      0.013966400        -0.011967802        0.003554077
+ [7,]     -0.007856664         0.014926415       -0.010326036
+ [8,]     -0.001843791         0.002686053        0.003295354
+ [9,]     -0.308483907        -0.890867285        0.814613332
+[10,]      0.044017480        -0.040215784       -0.011575102
+[11,]     -0.040215784         0.056958744       -0.002117386
+[12,]     -0.011575102        -0.002117386        0.045061806
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -13839,6 +14687,59 @@ PrivateWages_22       5.230445e+01
             1.193581e-11            -3.961809e-11            -1.963013e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -1.707079e-11            -1.002136e-10            -2.309413e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]           104.286574758          -1.00823716             -0.46958895
+ [2,]            -1.008237161           0.71069406             -0.44941681
+ [3,]            -0.469588951          -0.44941681              0.59792059
+ [4,]            -1.850528822          -0.08570076             -0.04088336
+ [5,]            80.530001919           1.32411879              3.04276226
+ [6,]            -1.813585146           0.23344120             -0.25827551
+ [7,]             0.540474607          -0.18474769              0.28257788
+ [8,]            -0.287778373          -0.01116588             -0.01647150
+ [9,]           -35.771588113           0.20503691              1.70444691
+[10,]             0.580314673          -0.08698528              0.05102654
+[11,]            -0.004609499           0.08622824             -0.08213051
+[12,]             0.193693063           0.04159500              0.02677765
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.8505288224              80.530002        -1.813585146
+ [2,]     -0.0857007599               1.324119         0.233441196
+ [3,]     -0.0408833580               3.042762        -0.258275515
+ [4,]      0.0947730277              -3.542001         0.049310981
+ [5,]     -3.5420008508            2206.842023       -34.415285129
+ [6,]      0.0493109806             -34.415285         1.179505704
+ [7,]     -0.0481328165              29.517063        -1.025617110
+ [8,]      0.0174214558             -10.486723         0.155733810
+ [9,]      0.0837280020              18.024753        -0.148099763
+[10,]      0.0009575547               1.156385         0.003856172
+[11,]     -0.0023042705              -1.518745        -0.001258224
+[12,]     -0.0319893288              -0.954968         0.014426181
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]            0.540474607          -0.287778373              -35.7715881
+ [2,]           -0.184747689          -0.011165878                0.2050369
+ [3,]            0.282577877          -0.016471500                1.7044469
+ [4,]           -0.048132817           0.017421456                0.0837280
+ [5,]           29.517062545         -10.486723195               18.0247528
+ [6,]           -1.025617110           0.155733810               -0.1480998
+ [7,]            1.093621982          -0.149711798               -0.4803018
+ [8,]           -0.149711798           0.051321910               -0.0380561
+ [9,]           -0.480301785          -0.038056102               70.4425482
+[10,]            0.003528447          -0.006373622               -0.4680960
+[11,]            0.004714079           0.007316340               -0.7110424
+[12,]           -0.022467829           0.005344161                0.8424479
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]     0.5803146732        -0.004609499        0.193693063
+ [2,]    -0.0869852828         0.086228237        0.041595004
+ [3,]     0.0510265440        -0.082130515        0.026777652
+ [4,]     0.0009575547        -0.002304270       -0.031989329
+ [5,]     1.1563853204        -1.518744616       -0.954968011
+ [6,]     0.0038561722        -0.001258224        0.014426181
+ [7,]     0.0035284465         0.004714079       -0.022467829
+ [8,]    -0.0063736222         0.007316340        0.005344161
+ [9,]    -0.4680960240        -0.711042389        0.842447887
+[10,]     0.0586344553        -0.052508357       -0.017087309
+[11,]    -0.0525083567         0.066546340        0.003008929
+[12,]    -0.0170873090         0.003008929        0.046345878
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -14500,6 +15401,59 @@ PrivateWages_22       8.081369e+01
             6.871663e-12            -8.041345e-12            -1.404652e-12 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             1.191502e-11             2.153122e-11            -1.252498e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]            92.025230128         -0.888335342             -0.35667258
+ [2,]            -0.888335342          0.579888060             -0.36349333
+ [3,]            -0.356672580         -0.363493330              0.48396763
+ [4,]            -1.650593131         -0.069508706             -0.03448798
+ [5,]            87.303449323         -0.493965846              5.60925060
+ [6,]            -2.096693988          0.410006107             -0.41285114
+ [7,]             0.523527880         -0.335168701              0.43972377
+ [8,]            -0.294411634         -0.004700935             -0.02911581
+ [9,]           -39.256938308          0.292988705              1.58794021
+[10,]             0.633946891         -0.076613674              0.04435264
+[11,]            -0.003771267          0.073937397             -0.07297914
+[12,]             0.264121092          0.044995975              0.02394760
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.6505931306             87.3034493        -2.096693988
+ [2,]     -0.0695087064             -0.4939658         0.410006107
+ [3,]     -0.0344879757              5.6092506        -0.412851142
+ [4,]      0.0810596549             -3.8677582         0.044186128
+ [5,]     -3.8677581811           4034.6815009       -59.459284581
+ [6,]      0.0441861283            -59.4592846         2.205833319
+ [7,]     -0.0480172101             50.6791355        -1.907192065
+ [8,]      0.0194693444            -19.1838916         0.265858971
+ [9,]      0.1720810353             52.2026799        -0.497622807
+[10,]     -0.0018386906              2.9432146         0.017284393
+[11,]     -0.0009456393             -3.9711496        -0.008828906
+[12,]     -0.0341680317             -2.6407386         0.037406489
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]            0.523527880          -0.294411634             -39.25693831
+ [2,]           -0.335168701          -0.004700935               0.29298870
+ [3,]            0.439723770          -0.029115809               1.58794021
+ [4,]           -0.048017210           0.019469344               0.17208104
+ [5,]           50.679135539         -19.183891566              52.20267990
+ [6,]           -1.907192065           0.265858971              -0.49762281
+ [7,]            2.081361758          -0.261246811              -1.52864375
+ [8,]           -0.261246811           0.094426562              -0.09137373
+ [9,]           -1.528643746          -0.091373731              77.97514615
+[10,]            0.008719438          -0.016815004              -0.59094376
+[11,]            0.017558596           0.019145604              -0.70861440
+[12,]           -0.062674765           0.015041622               0.86750086
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]      0.633946891       -0.0037712665        0.264121092
+ [2,]     -0.076613674        0.0739373974        0.044995975
+ [3,]      0.044352639       -0.0729791431        0.023947598
+ [4,]     -0.001838691       -0.0009456393       -0.034168032
+ [5,]      2.943214579       -3.9711496204       -2.640738600
+ [6,]      0.017284393       -0.0088289055        0.037406489
+ [7,]      0.008719438        0.0175585963       -0.062674765
+ [8,]     -0.016815004        0.0191456043        0.015041622
+ [9,]     -0.590943763       -0.7086144010        0.867500856
+[10,]      0.057811428       -0.0495423238       -0.018906167
+[11,]     -0.049542324        0.0634078332        0.004534039
+[12,]     -0.018906167        0.0045340392        0.048250555
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -15549,6 +16503,85 @@ PrivateWages_22          5.5005760
             5.913325e-14            -6.839806e-12            -7.105427e-15 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             1.527889e-12             2.567502e-12            -1.847411e-13 
+> Bread
+                         Consumption_(Intercept) Consumption_corpProf
+Consumption_(Intercept)              109.3959155          -1.64007209
+Consumption_corpProf                  -1.6400721           0.66751137
+Consumption_corpProfLag               -0.5979239          -0.35087840
+Consumption_wages                     -1.6407649          -0.09751586
+Investment_(Intercept)                 0.0000000           0.00000000
+Investment_corpProf                    0.0000000           0.00000000
+Investment_corpProfLag                 0.0000000           0.00000000
+Investment_capitalLag                  0.0000000           0.00000000
+PrivateWages_(Intercept)               0.0000000           0.00000000
+PrivateWages_gnp                       0.0000000           0.00000000
+PrivateWages_gnpLag                    0.0000000           0.00000000
+PrivateWages_trend                     0.0000000           0.00000000
+                         Consumption_corpProfLag Consumption_wages
+Consumption_(Intercept)              -0.59792387       -1.64076488
+Consumption_corpProf                 -0.35087840       -0.09751586
+Consumption_corpProfLag               0.48797995       -0.03311439
+Consumption_wages                    -0.03311439        0.09257931
+Investment_(Intercept)                0.00000000        0.00000000
+Investment_corpProf                   0.00000000        0.00000000
+Investment_corpProfLag                0.00000000        0.00000000
+Investment_capitalLag                 0.00000000        0.00000000
+PrivateWages_(Intercept)              0.00000000        0.00000000
+PrivateWages_gnp                      0.00000000        0.00000000
+PrivateWages_gnpLag                   0.00000000        0.00000000
+PrivateWages_trend                    0.00000000        0.00000000
+                         Investment_(Intercept) Investment_corpProf
+Consumption_(Intercept)                0.000000          0.00000000
+Consumption_corpProf                   0.000000          0.00000000
+Consumption_corpProfLag                0.000000          0.00000000
+Consumption_wages                      0.000000          0.00000000
+Investment_(Intercept)              1730.480334        -16.51260580
+Investment_corpProf                  -16.512606          0.66408414
+Investment_corpProfLag                13.633268         -0.50959205
+Investment_capitalLag                 -8.341607          0.06724611
+PrivateWages_(Intercept)               0.000000          0.00000000
+PrivateWages_gnp                       0.000000          0.00000000
+PrivateWages_gnpLag                    0.000000          0.00000000
+PrivateWages_trend                     0.000000          0.00000000
+                         Investment_corpProfLag Investment_capitalLag
+Consumption_(Intercept)              0.00000000            0.00000000
+Consumption_corpProf                 0.00000000            0.00000000
+Consumption_corpProfLag              0.00000000            0.00000000
+Consumption_wages                    0.00000000            0.00000000
+Investment_(Intercept)              13.63326829           -8.34160650
+Investment_corpProf                 -0.50959205            0.06724611
+Investment_corpProfLag               0.60297959           -0.07404641
+Investment_capitalLag               -0.07404641            0.04204826
+PrivateWages_(Intercept)             0.00000000            0.00000000
+PrivateWages_gnp                     0.00000000            0.00000000
+PrivateWages_gnpLag                  0.00000000            0.00000000
+PrivateWages_trend                   0.00000000            0.00000000
+                         PrivateWages_(Intercept) PrivateWages_gnp
+Consumption_(Intercept)                 0.0000000       0.00000000
+Consumption_corpProf                    0.0000000       0.00000000
+Consumption_corpProfLag                 0.0000000       0.00000000
+Consumption_wages                       0.0000000       0.00000000
+Investment_(Intercept)                  0.0000000       0.00000000
+Investment_corpProf                     0.0000000       0.00000000
+Investment_corpProfLag                  0.0000000       0.00000000
+Investment_capitalLag                   0.0000000       0.00000000
+PrivateWages_(Intercept)              166.1776692      -0.62577122
+PrivateWages_gnp                       -0.6257712       0.10643183
+PrivateWages_gnpLag                    -2.1834823      -0.09921487
+PrivateWages_trend                      2.0507855      -0.02858510
+                         PrivateWages_gnpLag PrivateWages_trend
+Consumption_(Intercept)          0.000000000        0.000000000
+Consumption_corpProf             0.000000000        0.000000000
+Consumption_corpProfLag          0.000000000        0.000000000
+Consumption_wages                0.000000000        0.000000000
+Investment_(Intercept)           0.000000000        0.000000000
+Investment_corpProf              0.000000000        0.000000000
+Investment_corpProfLag           0.000000000        0.000000000
+Investment_capitalLag            0.000000000        0.000000000
+PrivateWages_(Intercept)        -2.183482327        2.050785450
+PrivateWages_gnp                -0.099214867       -0.028585102
+PrivateWages_gnpLag              0.140469804       -0.006347445
+PrivateWages_trend              -0.006347445        0.109692858
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -17177,6 +18210,85 @@ PrivateWages_22       1.206209e+01
            -4.720113e-12            -4.522605e-12            -2.729171e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -2.324740e-11             6.065148e-12             6.528025e-14 
+> Bread
+                         Consumption_(Intercept) Consumption_corpProf
+Consumption_(Intercept)               118.206349           -4.2125220
+Consumption_corpProf                   -4.212522            1.2349351
+Consumption_corpProfLag                 1.029817           -0.6890547
+Consumption_wages                      -1.438443           -0.1356381
+Investment_(Intercept)                  0.000000            0.0000000
+Investment_corpProf                     0.000000            0.0000000
+Investment_corpProfLag                  0.000000            0.0000000
+Investment_capitalLag                   0.000000            0.0000000
+PrivateWages_(Intercept)                0.000000            0.0000000
+PrivateWages_gnp                        0.000000            0.0000000
+PrivateWages_gnpLag                     0.000000            0.0000000
+PrivateWages_trend                      0.000000            0.0000000
+                         Consumption_corpProfLag Consumption_wages
+Consumption_(Intercept)               1.02981684       -1.43844325
+Consumption_corpProf                 -0.68905471       -0.13563809
+Consumption_corpProfLag               0.71036431       -0.01909892
+Consumption_wages                    -0.01909892        0.09724960
+Investment_(Intercept)                0.00000000        0.00000000
+Investment_corpProf                   0.00000000        0.00000000
+Investment_corpProfLag                0.00000000        0.00000000
+Investment_capitalLag                 0.00000000        0.00000000
+PrivateWages_(Intercept)              0.00000000        0.00000000
+PrivateWages_gnp                      0.00000000        0.00000000
+PrivateWages_gnpLag                   0.00000000        0.00000000
+PrivateWages_trend                    0.00000000        0.00000000
+                         Investment_(Intercept) Investment_corpProf
+Consumption_(Intercept)                 0.00000           0.0000000
+Consumption_corpProf                    0.00000           0.0000000
+Consumption_corpProfLag                 0.00000           0.0000000
+Consumption_wages                       0.00000           0.0000000
+Investment_(Intercept)               2314.80215         -41.1070912
+Investment_corpProf                   -41.10709           1.6368162
+Investment_corpProfLag                 33.15894          -1.2719659
+Investment_capitalLag                 -10.73773           0.1688094
+PrivateWages_(Intercept)                0.00000           0.0000000
+PrivateWages_gnp                        0.00000           0.0000000
+PrivateWages_gnpLag                     0.00000           0.0000000
+PrivateWages_trend                      0.00000           0.0000000
+                         Investment_corpProfLag Investment_capitalLag
+Consumption_(Intercept)               0.0000000            0.00000000
+Consumption_corpProf                  0.0000000            0.00000000
+Consumption_corpProfLag               0.0000000            0.00000000
+Consumption_wages                     0.0000000            0.00000000
+Investment_(Intercept)               33.1589396          -10.73772985
+Investment_corpProf                  -1.2719659            0.16880939
+Investment_corpProfLag                1.2043560           -0.15500977
+Investment_capitalLag                -0.1550098            0.05186628
+PrivateWages_(Intercept)              0.0000000            0.00000000
+PrivateWages_gnp                      0.0000000            0.00000000
+PrivateWages_gnpLag                   0.0000000            0.00000000
+PrivateWages_trend                    0.0000000            0.00000000
+                         PrivateWages_(Intercept) PrivateWages_gnp
+Consumption_(Intercept)                 0.0000000       0.00000000
+Consumption_corpProf                    0.0000000       0.00000000
+Consumption_corpProfLag                 0.0000000       0.00000000
+Consumption_wages                       0.0000000       0.00000000
+Investment_(Intercept)                  0.0000000       0.00000000
+Investment_corpProf                     0.0000000       0.00000000
+Investment_corpProfLag                  0.0000000       0.00000000
+Investment_capitalLag                   0.0000000       0.00000000
+PrivateWages_(Intercept)              162.1786280      -0.88248812
+PrivateWages_gnp                       -0.8824881       0.15009451
+PrivateWages_gnpLag                    -1.8503824      -0.13991686
+PrivateWages_trend                      2.0559127      -0.04031188
+                         PrivateWages_gnpLag PrivateWages_trend
+Consumption_(Intercept)          0.000000000        0.000000000
+Consumption_corpProf             0.000000000        0.000000000
+Consumption_corpProfLag          0.000000000        0.000000000
+Consumption_wages                0.000000000        0.000000000
+Investment_(Intercept)           0.000000000        0.000000000
+Investment_corpProf              0.000000000        0.000000000
+Investment_corpProfLag           0.000000000        0.000000000
+Investment_capitalLag            0.000000000        0.000000000
+PrivateWages_(Intercept)        -1.850382422        2.055912663
+PrivateWages_gnp                -0.139916855       -0.040311877
+PrivateWages_gnpLag              0.176785333        0.005702607
+PrivateWages_trend               0.005702607        0.109384241
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -17828,6 +18940,59 @@ PrivateWages_22         18.6654070
             4.435341e-13            -5.360601e-12             9.688916e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -3.030221e-11             9.815992e-11            -5.061437e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]            9.638373e+01         -1.012068647            -0.677596320
+ [2,]           -1.012069e+00          0.507170164            -0.269116703
+ [3,]           -6.775963e-01         -0.269116703             0.395465925
+ [4,]           -1.566759e+00         -0.078159794            -0.029602221
+ [5,]            4.724732e+00         -0.069983885             0.785891506
+ [6,]           -2.599363e-01          0.050617128            -0.041471056
+ [7,]            5.843518e-03         -0.033405470             0.043691511
+ [8,]           -2.628795e-04         -0.001317898            -0.003913756
+ [9,]           -3.350374e+01          0.063713773             1.585119123
+[10,]            2.971340e-01         -0.052789386             0.036177011
+[11,]            2.537931e-01          0.053342818            -0.064354851
+[12,]            1.915738e-01          0.030838531             0.024783850
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.5667593370             4.72473180        -0.259936270
+ [2,]     -0.0781597943            -0.06998389         0.050617128
+ [3,]     -0.0296022207             0.78589151        -0.041471056
+ [4,]      0.0816967859            -0.36819064         0.001157672
+ [5,]     -0.3681906446          1275.70645920       -12.078929591
+ [6,]      0.0011576715           -12.07892959         0.495143015
+ [7,]     -0.0032104560             9.84515917        -0.378875549
+ [8,]      0.0019975727            -6.13991041         0.048896574
+ [9,]      0.1263048592            19.26367646        -0.149043037
+[10,]     -0.0002060992             0.26580751         0.012828702
+[11,]     -0.0020552681            -0.60807914        -0.010531563
+[12,]     -0.0271615031            -0.54935210         0.003938550
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]            0.005843518         -0.0002628795             -33.50373891
+ [2,]           -0.033405470         -0.0013178975               0.06371377
+ [3,]            0.043691511         -0.0039137557               1.58511912
+ [4,]           -0.003210456          0.0019975727               0.12630486
+ [5,]            9.845159166         -6.1399104096              19.26367646
+ [6,]           -0.378875549          0.0488965736              -0.14904304
+ [7,]            0.450255350         -0.0537689887              -0.40395459
+ [8,]           -0.053768989          0.0309397047              -0.04900705
+ [9,]           -0.403954587         -0.0490070510              70.68486417
+[10,]           -0.007548235         -0.0017769535              -0.21106121
+[11,]            0.014652380          0.0027090044              -0.98166136
+[12,]           -0.010652202          0.0032784210               0.78387492
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]     0.2971339764         0.253793141        0.191573812
+ [2,]    -0.0527893858         0.053342818        0.030838531
+ [3,]     0.0361770108        -0.064354851        0.024783850
+ [4,]    -0.0002060992        -0.002055268       -0.027161503
+ [5,]     0.2658075140        -0.608079135       -0.549352099
+ [6,]     0.0128287019        -0.010531563        0.003938550
+ [7,]    -0.0075482347         0.014652380       -0.010652202
+ [8,]    -0.0017769535         0.002709004        0.003278421
+ [9,]    -0.2110612133        -0.981661357        0.783874924
+[10,]     0.0399111771        -0.037441388       -0.009553029
+[11,]    -0.0374413881         0.055503995       -0.003765948
+[12,]    -0.0095530295        -0.003765948        0.044883474
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -18481,6 +19646,59 @@ PrivateWages_22       4.685925e+01
            -8.465895e-12            -4.885869e-12             5.388467e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -9.258017e-11            -8.674172e-11            -3.905078e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]            132.96471928          -4.18763287              0.77624025
+ [2,]             -4.18763287           1.21600053             -0.66872187
+ [3,]              0.77624025          -0.66872187              0.72189392
+ [4,]             -1.68968707          -0.13442066             -0.02783715
+ [5,]            101.64831488           3.24730418              3.49969450
+ [6,]             -4.31502757           0.51395001             -0.44743225
+ [7,]              1.55658836          -0.33742324              0.42396313
+ [8,]             -0.25392033          -0.03291539             -0.01382755
+ [9,]            -35.75223542           0.32964958              1.67078594
+[10,]              0.53545990          -0.07966632              0.04782903
+[11,]              0.04586568           0.07594702             -0.07800551
+[12,]              0.19727139           0.04814157              0.02500059
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.6896870656            101.6483149       -4.315028e+00
+ [2,]     -0.1344206562              3.2473042        5.139500e-01
+ [3,]     -0.0278371494              3.4996945       -4.474322e-01
+ [4,]      0.1060977482             -4.9963933        6.633807e-02
+ [5,]     -4.9963933129           2449.0153015       -4.256948e+01
+ [6,]      0.0663380691            -42.5694763        1.862014e+00
+ [7,]     -0.0645786209             34.2089724       -1.435231e+00
+ [8,]      0.0245687281            -11.3551939        1.700196e-01
+ [9,]      0.0472202036             27.9135711       -2.656111e-01
+[10,]      0.0001721284              1.3069140        3.122081e-04
+[11,]     -0.0008266912             -1.8417754        4.407887e-03
+[12,]     -0.0340788541             -0.8000371        1.582399e-02
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]           1.5565883633          -0.253920331              -35.7522354
+ [2,]          -0.3374232386          -0.032915387                0.3296496
+ [3,]           0.4239631305          -0.013827549                1.6707859
+ [4,]          -0.0645786209           0.024568728                0.0472202
+ [5,]          34.2089723611         -11.355193898               27.9135711
+ [6,]          -1.4352313676           0.170019573               -0.2656111
+ [7,]           1.3713737468          -0.159907199               -0.3975883
+ [8,]          -0.1599071995           0.055209416               -0.0847483
+ [9,]          -0.3975882532          -0.084748298               68.4821338
+[10,]           0.0060070735          -0.007006420               -0.3279088
+[11,]           0.0008797211           0.008750600               -0.8283297
+[12,]          -0.0227897991           0.004447634                0.7887439
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]     0.5354598980        0.0458656845       0.1972713878
+ [2,]    -0.0796663205        0.0759470237       0.0481415726
+ [3,]     0.0478290267       -0.0780055101       0.0250005883
+ [4,]     0.0001721284       -0.0008266912      -0.0340788541
+ [5,]     1.3069139964       -1.8417753539      -0.8000371083
+ [6,]     0.0003122081        0.0044078868       0.0158239949
+ [7,]     0.0060070735        0.0008797211      -0.0227897991
+ [8,]    -0.0070064201        0.0087506002       0.0044476343
+ [9,]    -0.3279088311       -0.8283296634       0.7887439248
+[10,]     0.0510959336       -0.0468386796      -0.0139325166
+[11,]    -0.0468386796        0.0625045767       0.0005320142
+[12,]    -0.0139325166        0.0005320142       0.0456634596
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -19140,6 +20358,59 @@ PrivateWages_22       5.597987e+01
             1.228839e-11             9.118040e-11             1.128639e-12 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -3.744915e-11            -9.044943e-11             3.180928e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]            132.55890722          -4.14050585              0.77112305
+ [2,]             -4.14050585           1.18393787             -0.64914796
+ [3,]              0.77112305          -0.64914796              0.70091146
+ [4,]             -1.69437905          -0.12970182             -0.02826160
+ [5,]            114.86555427           3.18372494              5.15874733
+ [6,]             -5.57043387           0.74913602             -0.62231612
+ [7,]              1.92184924          -0.49725274              0.58170334
+ [8,]             -0.23700349          -0.03983291             -0.02007212
+ [9,]            -36.81307802           0.32916087              1.66430567
+[10,]              0.51104332          -0.06979197              0.04399284
+[11,]              0.08978597           0.06545622             -0.07369208
+[12,]              0.28348210           0.05050823              0.02437820
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.6943790537             114.865554        -5.570433865
+ [2,]     -0.1297018241               3.183725         0.749136016
+ [3,]     -0.0282616050               5.158747        -0.622316116
+ [4,]      0.1044894276              -5.874854         0.067719508
+ [5,]     -5.8748542845            3366.951860       -56.985866611
+ [6,]      0.0677195075             -56.985867         2.645509951
+ [7,]     -0.0697946803              45.440918        -2.025444000
+ [8,]      0.0292712010             -15.601427         0.222918740
+ [9,]      0.0758321002              53.511024        -0.487501420
+[10,]     -0.0018924590               2.115758         0.004423409
+[11,]      0.0008172181              -3.117775         0.004099279
+[12,]     -0.0369199871              -1.396100         0.028202162
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]            1.921849236           -0.23700349              -36.8130780
+ [2,]           -0.497252736           -0.03983291                0.3291609
+ [3,]            0.581703338           -0.02007212                1.6643057
+ [4,]           -0.069794680            0.02927120                0.0758321
+ [5,]           45.440918080          -15.60142657               53.5110236
+ [6,]           -2.025444000            0.22291874               -0.4875014
+ [7,]            1.950294003           -0.21271390               -0.7903830
+ [8,]           -0.212713902            0.07615916               -0.1618026
+ [9,]           -0.790382963           -0.16180259               69.6579728
+[10,]            0.008062398           -0.01150262               -0.3038681
+[11,]            0.005797999            0.01471905               -0.8752785
+[12,]           -0.041334665            0.00782414                0.7539051
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]      0.511043318        0.0897859726       0.2834821014
+ [2,]     -0.069791973        0.0654562167       0.0505082292
+ [3,]      0.043992840       -0.0736920782       0.0243781978
+ [4,]     -0.001892459        0.0008172181      -0.0369199871
+ [5,]      2.115758383       -3.1177747119      -1.3960999705
+ [6,]      0.004423409        0.0040992793       0.0282021624
+ [7,]      0.008062398        0.0057979987      -0.0413346655
+ [8,]     -0.011502624        0.0147190495       0.0078241403
+ [9,]     -0.303868101       -0.8752785198       0.7539050925
+[10,]      0.046993914       -0.0428621514      -0.0130488574
+[11,]     -0.042862151        0.0590964604       0.0001724723
+[12,]     -0.013048857        0.0001724723       0.0456314863
 > 
 > # OLS
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -20177,6 +21448,85 @@ PrivateWages_22          5.5005760
            -9.318102e-13             1.669997e-12            -7.105427e-15 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
             1.527889e-12             2.567502e-12            -1.847411e-13 
+> Bread
+                         Consumption_(Intercept) Consumption_corpProf
+Consumption_(Intercept)              107.5417474          -1.61227425
+Consumption_corpProf                  -1.6122743           0.65619762
+Consumption_corpProfLag               -0.5877896          -0.34493131
+Consumption_wages                     -1.6129553          -0.09586305
+Investment_(Intercept)                 0.0000000           0.00000000
+Investment_corpProf                    0.0000000           0.00000000
+Investment_corpProfLag                 0.0000000           0.00000000
+Investment_capitalLag                  0.0000000           0.00000000
+PrivateWages_(Intercept)               0.0000000           0.00000000
+PrivateWages_gnp                       0.0000000           0.00000000
+PrivateWages_gnpLag                    0.0000000           0.00000000
+PrivateWages_trend                     0.0000000           0.00000000
+                         Consumption_corpProfLag Consumption_wages
+Consumption_(Intercept)              -0.58778956       -1.61295531
+Consumption_corpProf                 -0.34493131       -0.09586305
+Consumption_corpProfLag               0.47970910       -0.03255313
+Consumption_wages                    -0.03255313        0.09101017
+Investment_(Intercept)                0.00000000        0.00000000
+Investment_corpProf                   0.00000000        0.00000000
+Investment_corpProfLag                0.00000000        0.00000000
+Investment_capitalLag                 0.00000000        0.00000000
+PrivateWages_(Intercept)              0.00000000        0.00000000
+PrivateWages_gnp                      0.00000000        0.00000000
+PrivateWages_gnpLag                   0.00000000        0.00000000
+PrivateWages_trend                    0.00000000        0.00000000
+                         Investment_(Intercept) Investment_corpProf
+Consumption_(Intercept)                 0.00000          0.00000000
+Consumption_corpProf                    0.00000          0.00000000
+Consumption_corpProfLag                 0.00000          0.00000000
+Consumption_wages                       0.00000          0.00000000
+Investment_(Intercept)               1702.07629        -16.24612580
+Investment_corpProf                   -16.24613          0.65302221
+Investment_corpProfLag                 13.29396         -0.49938954
+Investment_capitalLag                  -8.19274          0.06599811
+PrivateWages_(Intercept)                0.00000          0.00000000
+PrivateWages_gnp                        0.00000          0.00000000
+PrivateWages_gnpLag                     0.00000          0.00000000
+PrivateWages_trend                      0.00000          0.00000000
+                         Investment_corpProfLag Investment_capitalLag
+Consumption_(Intercept)              0.00000000            0.00000000
+Consumption_corpProf                 0.00000000            0.00000000
+Consumption_corpProfLag              0.00000000            0.00000000
+Consumption_wages                    0.00000000            0.00000000
+Investment_(Intercept)              13.29396484           -8.19273975
+Investment_corpProf                 -0.49938954            0.06599811
+Investment_corpProfLag               0.60540790           -0.07366595
+Investment_capitalLag               -0.07366595            0.04139605
+PrivateWages_(Intercept)             0.00000000            0.00000000
+PrivateWages_gnp                     0.00000000            0.00000000
+PrivateWages_gnpLag                  0.00000000            0.00000000
+PrivateWages_trend                   0.00000000            0.00000000
+                         PrivateWages_(Intercept) PrivateWages_gnp
+Consumption_(Intercept)                 0.0000000       0.00000000
+Consumption_corpProf                    0.0000000       0.00000000
+Consumption_corpProfLag                 0.0000000       0.00000000
+Consumption_wages                       0.0000000       0.00000000
+Investment_(Intercept)                  0.0000000       0.00000000
+Investment_corpProf                     0.0000000       0.00000000
+Investment_corpProfLag                  0.0000000       0.00000000
+Investment_capitalLag                   0.0000000       0.00000000
+PrivateWages_(Intercept)              163.3610985      -0.61516493
+PrivateWages_gnp                       -0.6151649       0.10462790
+PrivateWages_gnpLag                    -2.1464742      -0.09753326
+PrivateWages_trend                      2.0160264      -0.02810061
+                         PrivateWages_gnpLag PrivateWages_trend
+Consumption_(Intercept)          0.000000000        0.000000000
+Consumption_corpProf             0.000000000        0.000000000
+Consumption_corpProfLag          0.000000000        0.000000000
+Consumption_wages                0.000000000        0.000000000
+Investment_(Intercept)           0.000000000        0.000000000
+Investment_corpProf              0.000000000        0.000000000
+Investment_corpProfLag           0.000000000        0.000000000
+Investment_capitalLag            0.000000000        0.000000000
+PrivateWages_(Intercept)        -2.146474152        2.016026375
+PrivateWages_gnp                -0.097533259       -0.028100608
+PrivateWages_gnpLag              0.138088960       -0.006239861
+PrivateWages_trend              -0.006239861        0.107833657
 > 
 > # 2SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -21784,6 +23134,85 @@ PrivateWages_22       1.206209e+01
            -9.756640e-13            -8.682122e-11            -2.729171e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -2.324740e-11             6.065148e-12             6.528025e-14 
+> Bread
+                         Consumption_(Intercept) Consumption_corpProf
+Consumption_(Intercept)               116.132554           -4.1386181
+Consumption_corpProf                   -4.138618            1.2132695
+Consumption_corpProfLag                 1.011750           -0.6769660
+Consumption_wages                      -1.413207           -0.1332585
+Investment_(Intercept)                  0.000000            0.0000000
+Investment_corpProf                     0.000000            0.0000000
+Investment_corpProfLag                  0.000000            0.0000000
+Investment_capitalLag                   0.000000            0.0000000
+PrivateWages_(Intercept)                0.000000            0.0000000
+PrivateWages_gnp                        0.000000            0.0000000
+PrivateWages_gnpLag                     0.000000            0.0000000
+PrivateWages_trend                      0.000000            0.0000000
+                         Consumption_corpProfLag Consumption_wages
+Consumption_(Intercept)               1.01174988       -1.41320740
+Consumption_corpProf                 -0.67696603       -0.13325847
+Consumption_corpProfLag               0.69790178       -0.01876385
+Consumption_wages                    -0.01876385        0.09554347
+Investment_(Intercept)                0.00000000        0.00000000
+Investment_corpProf                   0.00000000        0.00000000
+Investment_corpProfLag                0.00000000        0.00000000
+Investment_capitalLag                 0.00000000        0.00000000
+PrivateWages_(Intercept)              0.00000000        0.00000000
+PrivateWages_gnp                      0.00000000        0.00000000
+PrivateWages_gnpLag                   0.00000000        0.00000000
+PrivateWages_trend                    0.00000000        0.00000000
+                         Investment_(Intercept) Investment_corpProf
+Consumption_(Intercept)                 0.00000           0.0000000
+Consumption_corpProf                    0.00000           0.0000000
+Consumption_corpProfLag                 0.00000           0.0000000
+Consumption_wages                       0.00000           0.0000000
+Investment_(Intercept)               2271.10338         -40.2291017
+Investment_corpProf                   -40.22910           1.6010606
+Investment_corpProfLag                 32.28014          -1.2400620
+Investment_capitalLag                 -10.52000           0.1648122
+PrivateWages_(Intercept)                0.00000           0.0000000
+PrivateWages_gnp                        0.00000           0.0000000
+PrivateWages_gnpLag                     0.00000           0.0000000
+PrivateWages_trend                      0.00000           0.0000000
+                         Investment_corpProfLag Investment_capitalLag
+Consumption_(Intercept)               0.0000000            0.00000000
+Consumption_corpProf                  0.0000000            0.00000000
+Consumption_corpProfLag               0.0000000            0.00000000
+Consumption_wages                     0.0000000            0.00000000
+Investment_(Intercept)               32.2801361          -10.52000356
+Investment_corpProf                  -1.2400620            0.16481218
+Investment_corpProfLag                1.1873716           -0.15217320
+Investment_capitalLag                -0.1521732            0.05090124
+PrivateWages_(Intercept)              0.0000000            0.00000000
+PrivateWages_gnp                      0.0000000            0.00000000
+PrivateWages_gnpLag                   0.0000000            0.00000000
+PrivateWages_trend                    0.0000000            0.00000000
+                         PrivateWages_(Intercept) PrivateWages_gnp
+Consumption_(Intercept)                 0.0000000       0.00000000
+Consumption_corpProf                    0.0000000       0.00000000
+Consumption_corpProfLag                 0.0000000       0.00000000
+Consumption_wages                       0.0000000       0.00000000
+Investment_(Intercept)                  0.0000000       0.00000000
+Investment_corpProf                     0.0000000       0.00000000
+Investment_corpProfLag                  0.0000000       0.00000000
+Investment_capitalLag                   0.0000000       0.00000000
+PrivateWages_(Intercept)              159.3333889      -0.86700587
+PrivateWages_gnp                       -0.8670059       0.14746127
+PrivateWages_gnpLag                    -1.8179196      -0.13746217
+PrivateWages_trend                      2.0198440      -0.03960465
+                         PrivateWages_gnpLag PrivateWages_trend
+Consumption_(Intercept)          0.000000000        0.000000000
+Consumption_corpProf             0.000000000        0.000000000
+Consumption_corpProfLag          0.000000000        0.000000000
+Consumption_wages                0.000000000        0.000000000
+Investment_(Intercept)           0.000000000        0.000000000
+Investment_corpProf              0.000000000        0.000000000
+Investment_corpProfLag           0.000000000        0.000000000
+Investment_capitalLag            0.000000000        0.000000000
+PrivateWages_(Intercept)        -1.817919572        2.019844020
+PrivateWages_gnp                -0.137462173       -0.039604651
+PrivateWages_gnpLag              0.173683836        0.005602561
+PrivateWages_trend               0.005602561        0.107465219
 > 
 > # SUR
 Warning in systemfit(system, method = method, data = KleinI, methodResidCov = ifelse(method ==  :
@@ -22429,6 +23858,59 @@ PrivateWages_22        17.61407154
            -1.536049e-12             1.756373e-11            -2.801488e-12 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -5.398881e-11            -3.639999e-11            -5.675391e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]            1.002713e+02         -1.051444943            -0.705945512
+ [2,]           -1.051445e+00          0.527666410            -0.280067212
+ [3,]           -7.059455e-01         -0.280067212             0.411616300
+ [4,]           -1.630203e+00         -0.081318913            -0.030814512
+ [5,]            5.034336e+00         -0.063750768             0.809650149
+ [6,]           -2.733329e-01          0.052858137            -0.043232967
+ [7,]            4.772394e-03         -0.035640020             0.046773716
+ [8,]           -4.659689e-04         -0.001347359            -0.004153125
+ [9,]           -3.495305e+01          0.071536854             1.649133898
+[10,]            3.085482e-01         -0.054911890             0.037671747
+[11,]            2.661882e-01          0.055405830            -0.066991970
+[12,]            1.975368e-01          0.032172338             0.025821922
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.6302032066             5.03433592        -0.273332914
+ [2,]     -0.0813189134            -0.06375077         0.052858137
+ [3,]     -0.0308145124             0.80965015        -0.043232967
+ [4,]      0.0850080000            -0.38629489         0.001223259
+ [5,]     -0.3862948907          1328.30338885       -12.582808984
+ [6,]      0.0012232592           -12.58280898         0.515500659
+ [7,]     -0.0034687149            10.15755261        -0.392857786
+ [8,]      0.0021052371            -6.38313607         0.050783856
+ [9,]      0.1312123618            19.84083821        -0.153360355
+[10,]     -0.0002200424             0.27312379         0.013391793
+[11,]     -0.0021291592            -0.62568686        -0.011034215
+[12,]     -0.0282740820            -0.57877005         0.004184293
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]            0.004772394         -0.0004659689             -34.95304843
+ [2,]           -0.035640020         -0.0013473589               0.07153685
+ [3,]            0.046773716         -0.0041531248               1.64913390
+ [4,]           -0.003468715          0.0021052371               0.13121236
+ [5,]           10.157552611         -6.3831360689              19.84083821
+ [6,]           -0.392857786          0.0507838556              -0.15336036
+ [7,]            0.477259351         -0.0565264893              -0.39566026
+ [8,]           -0.056526489          0.0322327238              -0.05259908
+ [9,]           -0.395660260         -0.0525990785              73.27789947
+[10,]           -0.007434883         -0.0018777889              -0.22090804
+[11,]            0.014393842          0.0028760349              -1.01587211
+[12,]           -0.010261982          0.0033565722               0.81082369
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]     0.3085481972         0.266188230        0.197536789
+ [2,]    -0.0549118901         0.055405830        0.032172338
+ [3,]     0.0376717467        -0.066991970        0.025821922
+ [4,]    -0.0002200424        -0.002129159       -0.028274082
+ [5,]     0.2731237909        -0.625686858       -0.578770049
+ [6,]     0.0133917926        -0.011034215        0.004184293
+ [7,]    -0.0074348829         0.014393842       -0.010261982
+ [8,]    -0.0018777889         0.002876035        0.003356572
+ [9,]    -0.2209080407        -1.015872111        0.810823691
+[10,]     0.0415406082        -0.038951619       -0.009952547
+[11,]    -0.0389516194         0.057659986       -0.003831670
+[12,]    -0.0099525473        -0.003831670        0.046641924
 > 
 > # 3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -23070,6 +24552,59 @@ PrivateWages_22       4.400316e+01
            -9.329426e-12             7.504930e-11            -1.683709e-12 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -1.249765e-10            -4.747580e-11            -5.229376e-12 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]            137.12665093          -4.29970898              0.84629705
+ [2,]             -4.29970898           1.25973573             -0.69418815
+ [3,]              0.84629705          -0.69418815              0.74541478
+ [4,]             -1.77325597          -0.13942350             -0.02806694
+ [5,]            105.02647988           3.42414762              3.48069323
+ [6,]             -4.47211471           0.52436563             -0.45300222
+ [7,]              1.64419807          -0.34535694              0.42680280
+ [8,]             -0.26436059          -0.03402242             -0.01343084
+ [9,]            -38.01508390           0.36801162              1.76550852
+[10,]              0.53790898          -0.08245632              0.05024828
+[11,]              0.08094624           0.07816352             -0.08209216
+[12,]              0.18945854           0.05046015              0.02651072
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]     -1.7732559669            105.0264799        -4.472114714
+ [2,]     -0.1394235007              3.4241476         0.524365630
+ [3,]     -0.0280669447              3.4806932        -0.453002222
+ [4,]      0.1101545201             -5.1384614         0.067842859
+ [5,]     -5.1384613506           2514.4642953       -43.599667167
+ [6,]      0.0678428592            -43.5996672         1.902157923
+ [7,]     -0.0641779501             34.7505480        -1.454564396
+ [8,]      0.0250835350            -11.6325189         0.173098647
+ [9,]      0.0442380013             27.9186227        -0.258217795
+[10,]      0.0002025022              1.3122674         0.001362262
+[11,]     -0.0008106623             -1.8470946         0.003160388
+[12,]     -0.0354875069             -0.8504607         0.016791852
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]            1.644198065          -0.264360591             -38.01508390
+ [2,]           -0.345356943          -0.034022416               0.36801162
+ [3,]            0.426802796          -0.013430843               1.76550852
+ [4,]           -0.064177950           0.025083535               0.04423800
+ [5,]           34.750548016         -11.632518864              27.91862267
+ [6,]           -1.454564396           0.173098647              -0.25821780
+ [7,]            1.392566177          -0.162695686              -0.35175474
+ [8,]           -0.162695686           0.056554778              -0.09045601
+ [9,]           -0.351754738          -0.090456008              70.92830767
+[10,]            0.007689479          -0.007300536              -0.34442798
+[11,]           -0.001564899           0.009147862              -0.85334729
+[12,]           -0.022387873           0.004555129               0.81626530
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]     0.5379089847        0.0809462412       0.1894585366
+ [2,]    -0.0824563213        0.0781635223       0.0504601469
+ [3,]     0.0502482763       -0.0820921552       0.0265107154
+ [4,]     0.0002025022       -0.0008106623      -0.0354875069
+ [5,]     1.3122674422       -1.8470945562      -0.8504607406
+ [6,]     0.0013622619        0.0031603876       0.0167918519
+ [7,]     0.0076894785       -0.0015648987      -0.0223878734
+ [8,]    -0.0073005361        0.0091478621       0.0045551285
+ [9,]    -0.3444279832       -0.8533472941       0.8162653019
+[10,]     0.0532580765       -0.0487846320      -0.0145222747
+[11,]    -0.0487846320        0.0649561838       0.0006482987
+[12,]    -0.0145222747        0.0006482987       0.0474515901
 > 
 > # I3SLS
 Warning in systemfit(system, method = method, data = KleinI, inst = inst,  :
@@ -23721,7 +25256,60 @@ PrivateWages_22       5.244629e+01
             9.419021e-12            -4.892442e-11            -5.743947e-13 
         PrivateWages_gnp      PrivateWages_gnpLag       PrivateWages_trend 
            -8.573942e-11            -7.799095e-11            -6.201498e-13 
+> Bread
+      Consumption_(Intercept) Consumption_corpProf Consumption_corpProfLag
+ [1,]             133.7076906          -4.19800131              0.85762374
+ [2,]              -4.1980013           1.20999349             -0.66530612
+ [3,]               0.8576237          -0.66530612              0.71185972
+ [4,]              -1.7382156          -0.13241225             -0.02768376
+ [5,]             125.2345273           3.65837924              5.41706822
+ [6,]              -6.1836878           0.81499525             -0.66769052
+ [7,]               2.2700346          -0.54312326              0.61866506
+ [8,]              -0.2646896          -0.04408422             -0.02038213
+ [9,]             -39.0267197           0.38714437              1.74247408
+[10,]               0.4903079          -0.07008452              0.04558044
+[11,]               0.1473387           0.06479021             -0.07659468
+[12,]               0.2604368           0.05234701              0.02562868
+      Consumption_wages Investment_(Intercept) Investment_corpProf
+ [1,]      -1.738215572             125.234527        -6.183687805
+ [2,]      -0.132412249               3.658379         0.814995247
+ [3,]      -0.027683755               5.417068        -0.667690518
+ [4,]       0.106339847              -6.402603         0.072602359
+ [5,]      -6.402602658            3920.724774       -66.168324980
+ [6,]       0.072602359             -66.168325         3.067831070
+ [7,]      -0.072855177              52.354864        -2.322063725
+ [8,]       0.031699436             -18.130659         0.256288827
+ [9,]       0.067312496              57.065931        -0.518237576
+[10,]      -0.002023378               2.271485         0.007846903
+[11,]       0.001086437              -3.339873         0.001012885
+[12,]      -0.037727631              -1.627913         0.032413938
+      Investment_corpProfLag Investment_capitalLag PrivateWages_(Intercept)
+ [1,]            2.270034632          -0.264689587              -39.0267197
+ [2,]           -0.543123259          -0.044084216                0.3871444
+ [3,]            0.618665055          -0.020382133                1.7424741
+ [4,]           -0.072855177           0.031699436                0.0673125
+ [5,]           52.354863833         -18.130658961               57.0659309
+ [6,]           -2.322063725           0.256288827               -0.5182376
+ [7,]            2.223786773          -0.243857693               -0.7310918
+ [8,]           -0.243857693           0.088449168               -0.1850620
+ [9,]           -0.731091790          -0.185061970               71.2481533
+[10,]            0.011030682          -0.012881294               -0.3219872
+[11,]            0.002018168           0.016530432               -0.8850799
+[12,]           -0.043407326           0.008713767                0.7697610
+      PrivateWages_gnp PrivateWages_gnpLag PrivateWages_trend
+ [1,]      0.490307856        0.1473386840       0.2604368187
+ [2,]     -0.070084525        0.0647902060       0.0523470111
+ [3,]      0.045580445       -0.0765946837       0.0256286759
+ [4,]     -0.002023378        0.0010864366      -0.0377276309
+ [5,]      2.271485385       -3.3398727698      -1.6279125595
+ [6,]      0.007846903        0.0010128854       0.0324139376
+ [7,]      0.011030682        0.0020181676      -0.0434073258
+ [8,]     -0.012881294        0.0165304316       0.0087137670
+ [9,]     -0.321987217       -0.8850799149       0.7697610139
+[10,]      0.048922883       -0.0445492661      -0.0136157385
+[11,]     -0.044549266        0.0610463652       0.0004489276
+[12,]     -0.013615738        0.0004489276       0.0470572222
 > 
 > proc.time()
    user  system elapsed 
-  7.908   0.160   8.063 
+  8.008   0.148   8.151 

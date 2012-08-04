@@ -175,3 +175,17 @@ estfun( greeneSur )
 colSums( estfun( greeneSur ) )
 
 try( estfun( greeneSurPooled ) )
+
+
+## **************** bread ************************
+bread( theilOls )
+
+bread( theilSur )
+
+bread( greeneOls )
+
+try( bread( greeneOlsPooled ) )
+
+bread( greeneSur )
+
+try( bread( greeneSurPooled ) )

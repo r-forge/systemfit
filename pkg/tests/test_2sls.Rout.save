@@ -6833,6 +6833,86 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
       supply_price   supply_farmPrice       supply_trend 
      -2.140865e-11       2.848921e-11      -7.470691e-13 
 > 
+> 
+> ## **************** bread ************************
+> bread( fit2sls1 )
+                   demand_(Intercept) demand_price demand_income
+demand_(Intercept)        649.0730897  -6.96688057    0.51004959
+demand_price               -6.9668806   0.09630848   -0.02733175
+demand_income               0.5100496  -0.02733175    0.02279844
+supply_(Intercept)          0.0000000   0.00000000    0.00000000
+supply_price                0.0000000   0.00000000    0.00000000
+supply_farmPrice            0.0000000   0.00000000    0.00000000
+supply_trend                0.0000000   0.00000000    0.00000000
+                   supply_(Intercept) supply_price supply_farmPrice
+demand_(Intercept)           0.000000  0.000000000      0.000000000
+demand_price                 0.000000  0.000000000      0.000000000
+demand_income                0.000000  0.000000000      0.000000000
+supply_(Intercept)         955.382982 -7.254880502     -2.144643083
+supply_price                -7.254881  0.066142205      0.006200577
+supply_farmPrice            -2.144643  0.006200577      0.014786260
+supply_trend                -1.955294  0.003835165      0.009118557
+                   supply_trend
+demand_(Intercept)  0.000000000
+demand_price        0.000000000
+demand_income       0.000000000
+supply_(Intercept) -1.955294134
+supply_price        0.003835165
+supply_farmPrice    0.009118557
+supply_trend        0.065773713
+> 
+> bread( fit2sls1s )
+                   demand_(Intercept) demand_price demand_income
+demand_(Intercept)        649.0730897  -6.96688057    0.51004959
+demand_price               -6.9668806   0.09630848   -0.02733175
+demand_income               0.5100496  -0.02733175    0.02279844
+supply_(Intercept)          0.0000000   0.00000000    0.00000000
+supply_price                0.0000000   0.00000000    0.00000000
+supply_farmPrice            0.0000000   0.00000000    0.00000000
+supply_trend                0.0000000   0.00000000    0.00000000
+                   supply_(Intercept) supply_price supply_farmPrice
+demand_(Intercept)           0.000000  0.000000000      0.000000000
+demand_price                 0.000000  0.000000000      0.000000000
+demand_income                0.000000  0.000000000      0.000000000
+supply_(Intercept)         955.382982 -7.254880502     -2.144643083
+supply_price                -7.254881  0.066142205      0.006200577
+supply_farmPrice            -2.144643  0.006200577      0.014786260
+supply_trend                -1.955294  0.003835165      0.009118557
+                   supply_trend
+demand_(Intercept)  0.000000000
+demand_price        0.000000000
+demand_income       0.000000000
+supply_(Intercept) -1.955294134
+supply_price        0.003835165
+supply_farmPrice    0.009118557
+supply_trend        0.065773713
+> 
+> bread( fit2sls1r )
+                   demand_(Intercept) demand_price demand_income
+demand_(Intercept)        649.0730897  -6.96688057    0.51004959
+demand_price               -6.9668806   0.09630848   -0.02733175
+demand_income               0.5100496  -0.02733175    0.02279844
+supply_(Intercept)          0.0000000   0.00000000    0.00000000
+supply_price                0.0000000   0.00000000    0.00000000
+supply_farmPrice            0.0000000   0.00000000    0.00000000
+supply_trend                0.0000000   0.00000000    0.00000000
+                   supply_(Intercept) supply_price supply_farmPrice
+demand_(Intercept)           0.000000  0.000000000      0.000000000
+demand_price                 0.000000  0.000000000      0.000000000
+demand_income                0.000000  0.000000000      0.000000000
+supply_(Intercept)         955.382982 -7.254880502     -2.144643083
+supply_price                -7.254881  0.066142205      0.006200577
+supply_farmPrice            -2.144643  0.006200577      0.014786260
+supply_trend                -1.955294  0.003835165      0.009118557
+                   supply_trend
+demand_(Intercept)  0.000000000
+demand_price        0.000000000
+demand_income       0.000000000
+supply_(Intercept) -1.955294134
+supply_price        0.003835165
+supply_farmPrice    0.009118557
+supply_trend        0.065773713
+> 
 > proc.time()
    user  system elapsed 
-  2.600   0.084   2.671 
+  2.616   0.056   2.659 

@@ -1255,3 +1255,25 @@ try( estfun( fitsurS4 ) )
 
 estfun( fitsurS5 )
 colSums( estfun( fitsurS5 ) )
+
+
+## **************** bread ************************
+bread( fitsur1 )
+
+bread( fitsur1e2 )
+
+bread( fitsur1r3 )
+
+bread( fitsur1w )
+
+bread( fitsuri1e )
+
+bread( fitsuri1wr3 )
+
+bread( fitsurS1 )
+
+bread( fitsurS2 )
+
+bread( fitsurS3 )
+
+try( bread( fitsurS4 ) )

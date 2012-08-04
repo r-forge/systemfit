@@ -91,5 +91,8 @@ for( methodNo in 1:5 ) {
    cat( "Estimating function\n" )
    print( estfun( kleinModel ) )
    print( colSums( estfun( kleinModel ) ) )
+
+   cat( "> Bread\n" )
+   print( bread( kleinModel ) )
 }
 }

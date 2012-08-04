@@ -751,3 +751,9 @@ colSums( estfun( fitwls1 ) )
 
 estfun( fitwlsi1e )
 colSums( estfun( fitwlsi1e ) )
+
+
+## **************** bread ************************
+bread( fitwls1 )
+
+bread( fitwlsi1e )

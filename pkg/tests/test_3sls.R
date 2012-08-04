@@ -1231,3 +1231,23 @@ colSums( estfun( fit3slsd[[ 2 ]]$e1w, residFit = FALSE ) )
 
 colSums( estfun( fit3slsd[[ 1 ]]$e1w ) )
 colSums( estfun( fit3slsd[[ 1 ]]$e1w, residFit = FALSE ) )
+
+
+## **************** bread ************************
+bread( fit3sls[[ 1 ]]$e1 )
+
+bread( fit3sls[[ 2 ]]$e1e )
+
+bread( fit3sls[[ 3 ]]$e1c )
+
+bread( fit3sls[[ 4 ]]$e1wc )
+
+bread( fit3slsd[[ 5 ]]$e1w )
+
+bread( fit3slsd[[ 4 ]]$e1w )
+
+bread( fit3slsd[[ 3 ]]$e1w )
+
+bread( fit3slsd[[ 2 ]]$e1w )
+
+bread( fit3slsd[[ 1 ]]$e1w )
