@@ -9,14 +9,17 @@
 }
 
 \usage{
-   \method{model.matrix}{systemfit}( object, \dots )
+   \method{model.matrix}{systemfit}( object, which = "x", \dots )
 
-   \method{model.matrix}{systemfit.equation}( object, \dots )
+   \method{model.matrix}{systemfit.equation}( object, which = "x", \dots )
 }
 
 \arguments{
    \item{object}{an object of class \code{systemfit} or
       \code{systemfit.equation}.}
+   \item{which}{character string: 
+      \code{"x"} indicates the usual model matrix of the regressors,
+      \code{"z"} indicates the matrix of instrumental variables.}
    \item{\dots}{currently ignored.}
 }
 
