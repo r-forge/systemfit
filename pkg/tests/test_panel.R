@@ -1,5 +1,6 @@
 library( systemfit )
 library( plm )
+options( digits = 3 )
 useMatrix <- FALSE
 
 ## Repeating the OLS and SUR estimations in Theil (1971, pp. 295, 300)

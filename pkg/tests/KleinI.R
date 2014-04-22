@@ -1,6 +1,7 @@
 library( "systemfit" )
 library( "sandwich" )
 options( warn = 1 )
+options( digits = 3 )
 
 data( "KleinI" )
 eqConsump  <- consump ~ corpProf + corpProfLag + wages
