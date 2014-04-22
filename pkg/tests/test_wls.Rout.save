@@ -1,7 +1,6 @@
 
-R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
-Copyright (C) 2012 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
+R version 3.1.0 (2014-04-10) -- "Spring Dance"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -19,16 +18,13 @@ Type 'q()' to quit R.
 > 
 > library( systemfit )
 Loading required package: Matrix
-Loading required package: lattice
 Loading required package: car
-Loading required package: MASS
-Loading required package: nnet
 Loading required package: lmtest
 Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object(s) are masked from 'package:base':
+The following objects are masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -103,7 +99,7 @@ Model Formula: consump ~ price + income
 price       -0.3162988  0.0906774 -3.48818  0.0028153 ** 
 income       0.3346356  0.0454218  7.36729 1.0999e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.930127 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -120,7 +116,7 @@ price        0.1603666  0.0948839 1.69013 0.11038810
 farmPrice    0.2481333  0.0461879 5.37226 6.2274e-05 ***
 trend        0.2483023  0.0975178 2.54623 0.02156713 *  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.405087 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -167,7 +163,7 @@ Model Formula: consump ~ price + income
 price       -0.3162988  0.0836004 -3.78346 0.00061936 ***
 income       0.3346356  0.0418769  7.99094 3.2219e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.930127 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -184,7 +180,7 @@ price        0.1603666  0.0848668 1.88963  0.0676199 .
 farmPrice    0.2481333  0.0413117 6.00637 9.4678e-07 ***
 trend        0.2483023  0.0872225 2.84677  0.0075389 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.405087 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -231,7 +227,7 @@ Model Formula: consump ~ price + income
 price       -0.2990854  0.0886668 -3.37314   0.001868 ** 
 income       0.3194163  0.0415015  7.69651 5.9845e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.93649 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -248,7 +244,7 @@ price        0.1642703  0.0960493 1.71027   0.096328 .
 farmPrice    0.2579713  0.0451416 5.71471 2.0221e-06 ***
 trend        0.3194163  0.0415015 7.69651 5.9845e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.444729 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -260,7 +256,7 @@ Multiple R-Squared: 0.643334 Adjusted R-Squared: 0.576459
 +    restrict.matrix = restrict, x = TRUE,
 +    useMatrix = useMatrix )
 > all.equal( fitwls2, fitwls2Sym )
-[1] "Component 2: target, current do not match when deparsed"
+[1] "Component \"call\": target, current do not match when deparsed"
 > 
 > ## ************** WLS with cross-equation restriction (EViews-like) *******
 > fitwls2e <- systemfit( system, "WLS", data = Kmenta, restrict.matrix = restrm,
@@ -301,7 +297,7 @@ Model Formula: consump ~ price + income
 price       -0.2982089  0.0816218 -3.65354 0.00086325 ***
 income       0.3186413  0.0380534  8.37353 8.9233e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.937153 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -318,7 +314,7 @@ price        0.1642278  0.0859104 1.91162   0.064384 .
 farmPrice    0.2578641  0.0403925 6.38396 2.7443e-07 ***
 trend        0.3186413  0.0380534 8.37353 8.9233e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.443876 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -365,7 +361,7 @@ Model Formula: consump ~ price + income
 price       -0.2990854  0.0886668 -3.37314   0.001868 ** 
 income       0.3194163  0.0415015  7.69651 5.9845e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.93649 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -382,7 +378,7 @@ price        0.1642703  0.0960493 1.71027   0.096328 .
 farmPrice    0.2579713  0.0451416 5.71471 2.0221e-06 ***
 trend        0.3194163  0.0415015 7.69651 5.9845e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.444729 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -429,7 +425,7 @@ Model Formula: consump ~ price + income
 price       -0.2982089  0.0816218 -3.65354 0.00086325 ***
 income       0.3186413  0.0380534  8.37353 8.9233e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.937153 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -446,7 +442,7 @@ price        0.1642278  0.0859104 1.91162   0.064384 .
 farmPrice    0.2578641  0.0403925 6.38396 2.7443e-07 ***
 trend        0.3186413  0.0380534 8.37353 8.9233e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.443876 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -493,7 +489,7 @@ Model Formula: consump ~ price + income
 price        -0.3159508   0.0648152 -4.87464 2.3415e-05 ***
 income        0.3238376   0.0384796  8.41583 6.2977e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.934761 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -510,7 +506,7 @@ price        0.1840492  0.0648152 2.83960  0.0074747 **
 farmPrice    0.2602630  0.0445606 5.84065 1.2521e-06 ***
 trend        0.3238376  0.0384796 8.41583 6.2977e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.452901 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -521,7 +517,7 @@ Multiple R-Squared: 0.640946 Adjusted R-Squared: 0.573623
 > fitwls4Sym <- systemfit( system, "WLS", data = Kmenta,
 +    restrict.matrix = restrict2, useMatrix = useMatrix )
 > all.equal( fitwls4, fitwls4Sym )
-[1] "Component 2: target, current do not match when deparsed"
+[1] "Component \"call\": target, current do not match when deparsed"
 > 
 > ## ***** WLS with 2 cross-equation restrictions (EViews-like) **********
 > fitwls4e <- systemfit( system,"WLS", data = Kmenta, methodResidCov = "noDfCor",
@@ -563,7 +559,7 @@ Model Formula: consump ~ price + income
 price        -0.3160276   0.0588646 -5.36872 5.2505e-06 ***
 income        0.3232761   0.0352186  9.17914 7.5899e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.935279 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -580,7 +576,7 @@ price        0.1839724  0.0588646 3.12535  0.0035607 **
 farmPrice    0.2601814  0.0398735 6.52517 1.5800e-07 ***
 trend        0.3232761  0.0352186 9.17914 7.5899e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.452231 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -628,7 +624,7 @@ Model Formula: consump ~ price + income
 price        -0.3159508   0.0648152 -4.87464 2.3415e-05 ***
 income        0.3238376   0.0384796  8.41583 6.2977e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.934761 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -645,7 +641,7 @@ price        0.1840492  0.0648152 2.83960  0.0074747 **
 farmPrice    0.2602630  0.0445606 5.84065 1.2521e-06 ***
 trend        0.3238376  0.0384796 8.41583 6.2977e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.452901 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -657,7 +653,7 @@ Multiple R-Squared: 0.640946 Adjusted R-Squared: 0.573623
 +    restrict.matrix = restrict3, restrict.regMat = tc,
 +    x = TRUE, useMatrix = useMatrix )
 > all.equal( fitwls5, fitwls5Sym )
-[1] "Component 2: target, current do not match when deparsed"
+[1] "Component \"call\": target, current do not match when deparsed"
 > 
 > ## *********** WLS with 2 cross-equation restrictions via R and restrict.regMat (EViews-like)
 > fitwls5e <- systemfit( system, "WLS", data = Kmenta, methodResidCov = "noDfCor",
@@ -699,7 +695,7 @@ Model Formula: consump ~ price + income
 price        -0.3160276   0.0588646 -5.36872 5.2505e-06 ***
 income        0.3232761   0.0352186  9.17914 7.5899e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.935279 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -716,7 +712,7 @@ price        0.1839724  0.0588646 3.12535  0.0035607 **
 farmPrice    0.2601814  0.0398735 6.52517 1.5800e-07 ***
 trend        0.3232761  0.0352186 9.17914 7.5899e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.452231 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -763,7 +759,7 @@ Model Formula: consump ~ price + income
 price       -0.3162988  0.0906774 -3.48818  0.0013998 ** 
 income       0.3346356  0.0454218  7.36729 1.8447e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.930127 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -780,7 +776,7 @@ price        0.1603666  0.0948839 1.69013   0.100429
 farmPrice    0.2481333  0.0461879 5.37226 6.1488e-06 ***
 trend        0.2483023  0.0975178 2.54623   0.015741 *  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.405087 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -827,7 +823,7 @@ Model Formula: consump ~ price + income
 price       -0.3162988  0.0836004 -3.78346 0.00061936 ***
 income       0.3346356  0.0418769  7.99094 3.2219e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.930127 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -844,7 +840,7 @@ price        0.1603666  0.0848668 1.88963  0.0676199 .
 farmPrice    0.2481333  0.0413117 6.00637 9.4678e-07 ***
 trend        0.2483023  0.0872225 2.84677  0.0075389 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.405087 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -893,7 +889,7 @@ Model Formula: consump ~ price + income
 price       -0.2992655  0.0883868 -3.38586  0.0018046 ** 
 income       0.3195755  0.0414037  7.71853 5.6206e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.936358 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -910,7 +906,7 @@ price        0.1642791  0.0963279 1.70542   0.097239 .
 farmPrice    0.2579933  0.0452688 5.69914 2.1186e-06 ***
 trend        0.3195755  0.0414037 7.71853 5.6206e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.444905 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -959,7 +955,7 @@ Model Formula: consump ~ price + income
 price       -0.2983756  0.0813903 -3.66599 0.00083377 ***
 income       0.3187888  0.0379741  8.39490 8.4107e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.937025 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -976,7 +972,7 @@ price        0.1642359  0.0861290 1.90686   0.065018 .
 farmPrice    0.2578845  0.0404922 6.36874 2.8711e-07 ***
 trend        0.3187888  0.0379741 8.39490 8.4107e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.444038 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1025,7 +1021,7 @@ Model Formula: consump ~ price + income
 price       -0.2992655  0.0883868 -3.38586  0.0018046 ** 
 income       0.3195755  0.0414037  7.71853 5.6206e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.936358 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1042,7 +1038,7 @@ price        0.1642791  0.0963279 1.70542   0.097239 .
 farmPrice    0.2579933  0.0452688 5.69914 2.1186e-06 ***
 trend        0.3195755  0.0414037 7.71853 5.6206e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.444905 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1091,7 +1087,7 @@ Model Formula: consump ~ price + income
 price       -0.2983756  0.0813903 -3.66599 0.00083377 ***
 income       0.3187888  0.0379741  8.39490 8.4107e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.937025 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1108,7 +1104,7 @@ price        0.1642359  0.0861290 1.90686   0.065018 .
 farmPrice    0.2578845  0.0404922 6.36874 2.8711e-07 ***
 trend        0.3187888  0.0379741 8.39490 8.4107e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.444038 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1159,7 +1155,7 @@ Model Formula: consump ~ price + income
 price        -0.3159383   0.0647944 -4.87601 2.3319e-05 ***
 income        0.3239340   0.0384158  8.43232 6.0118e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.934675 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1176,7 +1172,7 @@ price        0.1840617  0.0647944 2.84070  0.0074538 **
 farmPrice    0.2602770  0.0446649 5.82733 1.3038e-06 ***
 trend        0.3239340  0.0384158 8.43232 6.0118e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.453016 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1226,7 +1222,7 @@ Model Formula: consump ~ price + income
 price        -0.3160149   0.0588500 -5.36983 5.2328e-06 ***
 income        0.3233665   0.0351662  9.19537 7.2619e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.935194 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1243,7 +1239,7 @@ price        0.1839851  0.0588500 3.12634  0.0035514 **
 farmPrice    0.2601946  0.0399560 6.51203 1.6437e-07 ***
 trend        0.3233665  0.0351662 9.19537 7.2619e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.452339 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1293,7 +1289,7 @@ Model Formula: consump ~ price + income
 price        -0.3159383   0.0647944 -4.87601 2.3319e-05 ***
 income        0.3239340   0.0384158  8.43232 6.0118e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.934675 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1310,7 +1306,7 @@ price        0.1840617  0.0647944 2.84070  0.0074538 **
 farmPrice    0.2602770  0.0446649 5.82733 1.3038e-06 ***
 trend        0.3239340  0.0384158 8.43232 6.0118e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.453016 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1360,7 +1356,7 @@ Model Formula: consump ~ price + income
 price        -0.3160149   0.0588500 -5.36983 5.2328e-06 ***
 income        0.3233665   0.0351662  9.19537 7.2619e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.935194 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1377,7 +1373,7 @@ price        0.1839851  0.0588500 3.12634  0.0035514 **
 farmPrice    0.2601946  0.0399560 6.51203 1.6437e-07 ***
 trend        0.3233665  0.0351662 9.19537 7.2619e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.452339 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1424,7 +1420,7 @@ Model Formula: consump ~ price - 1
        Estimate Std. Error t value   Pr(>|t|)    
 price 1.0056434  0.0150286 66.9155 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 6.733453 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -1440,7 +1436,7 @@ Model Formula: consump ~ price + trend
 price        0.0621990  0.1512505 0.41123    0.68604    
 trend        0.0952818  0.1515064 0.62890    0.53778    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 3.906985 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1484,7 +1480,7 @@ Model Formula: consump ~ price - 1
        Estimate Std. Error t value   Pr(>|t|)    
 price 1.0056434  0.0150286 66.9155 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 6.733453 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -1498,7 +1494,7 @@ Model Formula: consump ~ trend - 1
       Estimate Std. Error t value   Pr(>|t|)    
 trend 7.404870   0.923529 8.01802 1.6209e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 49.47563 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -1542,7 +1538,7 @@ Model Formula: consump ~ trend - 1
       Estimate Std. Error t value   Pr(>|t|)    
 trend 7.404870   0.923529 8.01802 1.6209e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 49.47563 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -1556,7 +1552,7 @@ Model Formula: price ~ trend - 1
       Estimate Std. Error t value  Pr(>|t|)    
 trend 7.318426   0.928669 7.88055 2.094e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 49.751015 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -1601,7 +1597,7 @@ Model Formula: consump ~ trend - 1
       Estimate Std. Error t value   Pr(>|t|)    
 trend 7.361888   0.654881 11.2416 8.3933e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 49.47845 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -1615,7 +1611,7 @@ Model Formula: price ~ trend - 1
       Estimate Std. Error t value   Pr(>|t|)    
 trend 7.361888   0.654881 11.2416 8.3933e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 49.753883 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -1659,7 +1655,7 @@ Model Formula: consump ~ 1
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 100.898200   0.839979  120.12 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 3.756498 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -1673,7 +1669,7 @@ Model Formula: price ~ 1
              Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 100.01905    1.32511 75.4796 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.926086 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -1706,7 +1702,7 @@ supply_price        0.1603666  0.0948839  1.69013 0.11038810
 supply_farmPrice    0.2481333  0.0461879  5.37226 6.2274e-05 ***
 supply_trend        0.2483023  0.0975178  2.54623 0.02156713 *  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitwls2e, useDfSys = FALSE, residCov = FALSE ),
 +    equations = FALSE )
@@ -1732,7 +1728,7 @@ supply_price        0.1642278  0.0859104  1.91162  0.0740056 .
 supply_farmPrice    0.2578641  0.0403925  6.38396 9.0550e-06 ***
 supply_trend        0.3186413  0.0380534  8.37353 3.0525e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitwls3 ), residCov = FALSE )
 
@@ -1755,7 +1751,7 @@ Model Formula: consump ~ price + income
 price       -0.2990854  0.0886668 -3.37314   0.001868 ** 
 income       0.3194163  0.0415015  7.69651 5.9845e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.93649 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1772,7 +1768,7 @@ price        0.1642703  0.0960493 1.71027   0.096328 .
 farmPrice    0.2579713  0.0451416 5.71471 2.0221e-06 ***
 trend        0.3194163  0.0415015 7.69651 5.9845e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.444729 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1803,7 +1799,7 @@ supply_price         0.1839724   0.0588646  3.12535  0.0035607 **
 supply_farmPrice     0.2601814   0.0398735  6.52517 1.5800e-07 ***
 supply_trend         0.3232761   0.0352186  9.17914 7.5899e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitwls5, useDfSys = FALSE ), residCov = FALSE )
 
@@ -1826,7 +1822,7 @@ Model Formula: consump ~ price + income
 price        -0.3159508   0.0648152 -4.87464 0.00014256 ***
 income        0.3238376   0.0384796  8.41583 1.8185e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.934761 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1843,7 +1839,7 @@ price        0.1840492  0.0648152 2.83960   0.011833 *
 farmPrice    0.2602630  0.0445606 5.84065 2.5074e-05 ***
 trend        0.3238376  0.0384796 8.41583 2.8561e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.452901 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1889,7 +1885,7 @@ supply_price        0.1603666  0.0848668  1.88963 0.06761989 .
 supply_farmPrice    0.2481333  0.0413117  6.00637 9.4678e-07 ***
 supply_trend        0.2483023  0.0872225  2.84677 0.00753894 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitwlsi2, equations = FALSE, residCov = FALSE ),
 +    residCov = TRUE )
@@ -1932,7 +1928,7 @@ supply_price        0.1642791  0.0963279  1.70542  0.0972386 .
 supply_farmPrice    0.2579933  0.0452688  5.69914 2.1186e-06 ***
 supply_trend        0.3195755  0.0414037  7.71853 5.6206e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitwlsi3e ), equations = FALSE, residCov = FALSE )
 
@@ -1959,7 +1955,7 @@ supply_price        0.1642359  0.0861290  1.90686 0.06501771 .
 supply_farmPrice    0.2578845  0.0404922  6.36874 2.8711e-07 ***
 supply_trend        0.3187888  0.0379741  8.39490 8.4107e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitwlsi4, equations = FALSE ), equations = TRUE )
 
@@ -1999,7 +1995,7 @@ Model Formula: consump ~ price + income
 price        -0.3159383   0.0647944 -4.87601 2.3319e-05 ***
 income        0.3239340   0.0384158  8.43232 6.0118e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.934675 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2016,7 +2012,7 @@ price        0.1840617  0.0647944 2.84070  0.0074538 **
 farmPrice    0.2602770  0.0446649 5.82733 1.3038e-06 ***
 trend        0.3239340  0.0384158 8.43232 6.0118e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.453016 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2047,7 +2043,7 @@ Model Formula: consump ~ price + income
 price        -0.3160149   0.0588500 -5.36983 5.0927e-05 ***
 income        0.3233665   0.0351662  9.19537 5.2178e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.935194 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2064,7 +2060,7 @@ price        0.1839851  0.0588500 3.12634  0.0065104 **
 farmPrice    0.2601946  0.0399560 6.51203 7.1642e-06 ***
 trend        0.3233665  0.0351662 9.19537 8.7098e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.452339 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -6323,4 +6319,4 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
 > 
 > proc.time()
    user  system elapsed 
-  2.496   0.056   2.542 
+  2.581   0.084   2.639 

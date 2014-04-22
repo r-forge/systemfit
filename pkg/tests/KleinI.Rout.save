@@ -1,7 +1,6 @@
 
-R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
-Copyright (C) 2012 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
+R version 3.1.0 (2014-04-10) -- "Spring Dance"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -18,16 +17,13 @@ Type 'q()' to quit R.
 
 > library( "systemfit" )
 Loading required package: Matrix
-Loading required package: lattice
 Loading required package: car
-Loading required package: MASS
-Loading required package: nnet
 Loading required package: lmtest
 Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object(s) are masked from 'package:base':
+The following objects are masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -165,7 +161,7 @@ corpProf     0.1929344  0.0912102  2.11527   0.049474 *
 corpProfLag  0.0898849  0.0906479  0.99158   0.335306    
 wages        0.7962187  0.0399439 19.93342 3.1619e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.02554 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -182,7 +178,7 @@ corpProf     0.4796356  0.0971146  4.93886 0.00012456 ***
 corpProfLag  0.3330387  0.1008592  3.30202 0.00421173 ** 
 capitalLag  -0.1117947  0.0267276 -4.18275 0.00062445 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.009447 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -199,7 +195,7 @@ gnp         0.4394770  0.0324076 13.56093 1.5169e-10 ***
 gnpLag      0.1460899  0.0374231  3.90373 0.00114240 ** 
 trend       0.1302452  0.0319103  4.08160 0.00077703 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.767147 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -1341,7 +1337,7 @@ corpProf     0.0173022  0.1180494  0.14657   0.885197
 corpProfLag  0.2162340  0.1072680  2.01583   0.059905 .  
 wages        0.8101827  0.0402497 20.12891 2.6956e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.135659 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -1360,7 +1356,7 @@ corpProf     0.1502218  0.1732293  0.86718 0.3979163
 corpProfLag  0.6159436  0.1627854  3.78378 0.0014821 ** 
 capitalLag  -0.1577876  0.0361262 -4.36767 0.0004193 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.307149 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -1379,7 +1375,7 @@ gnp         0.4388591  0.0356319 12.31646 6.7501e-10 ***
 gnpLag      0.1466738  0.0388361  3.77674 0.00150497 ** 
 trend       0.1303957  0.0291410  4.47465 0.00033335 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.767155 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -3174,7 +3170,7 @@ corpProf     0.2301589  0.0766927  3.00105  0.0080366 **
 corpProfLag  0.0672874  0.0769357  0.87459  0.3939837    
 wages        0.7961561  0.0352521 22.58467 4.0856e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.031787 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -3191,7 +3187,7 @@ corpProf     0.4428597  0.0860750  5.14505 8.0987e-05 ***
 corpProfLag  0.3654797  0.0894313  4.08671  0.0007685 ***
 capitalLag  -0.1253291  0.0234593 -5.34241 5.3876e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.017671 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -3208,7 +3204,7 @@ gnp         0.4098279  0.0272550 15.03682 2.9780e-11 ***
 gnpLag      0.1744238  0.0311783  5.59439 3.2234e-05 ***
 trend       0.1558459  0.0275776  5.65117 2.8742e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.795703 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -3902,7 +3898,7 @@ corpProf     0.1248905  0.1081290  1.15501    0.26406
 corpProfLag  0.1631441  0.1004382  1.62432    0.12270    
 wages        0.7900809  0.0379379 20.82563 1.5432e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.049565 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -3921,7 +3917,7 @@ corpProf    -0.0130792  0.1618962 -0.08079 0.93655448
 corpProfLag  0.7557240  0.1529331  4.94153 0.00012386 ***
 capitalLag  -0.1948482  0.0325307 -5.98967 1.4635e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.607958 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -3940,7 +3936,7 @@ gnp         0.4004919  0.0318134 12.58877 4.8192e-10 ***
 gnpLag      0.1812910  0.0341588  5.30730 5.7908e-05 ***
 trend       0.1496741  0.0279352  5.35790 5.2190e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.80149 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -4636,7 +4632,7 @@ corpProf     0.1645088  0.0961979  1.71011   0.105433
 corpProfLag  0.1765637  0.0901001  1.95964   0.066644 .  
 wages        0.7658016  0.0347599 22.03117 6.1284e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.063099 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -4655,7 +4651,7 @@ corpProf    -0.3565237  0.2601536 -1.37044 0.18837714
 corpProfLag  1.0112935  0.2487714  4.06515 0.00080520 ***
 capitalLag  -0.2601984  0.0508688 -5.11509  8.619e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.372152 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -4674,7 +4670,7 @@ gnp         0.3747796  0.0311027 12.04974 9.4450e-10 ***
 gnpLag      0.1936505  0.0324018  5.97653 1.5019e-05 ***
 trend       0.1679257  0.0289290  5.80475 2.1121e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.864957 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -5362,7 +5358,7 @@ corpProf     0.1929344  0.0920100  2.09689   0.051268 .
 corpProfLag  0.0898849  0.0914428  0.98296   0.339409    
 wages        0.7962187  0.0402942 19.76015 3.6460e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.02554 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -5379,7 +5375,7 @@ corpProf     0.4796356  0.0934480  5.13265   8.31e-05 ***
 corpProfLag  0.3330387  0.0970512  3.43158 0.00318261 ** 
 capitalLag  -0.1117947  0.0257185 -4.34687 0.00043847 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.009447 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -5396,7 +5392,7 @@ gnp         0.4417459  0.0331360 13.33130 4.4174e-10 ***
 gnpLag      0.1466407  0.0380676  3.85211  0.0014090 ** 
 trend       0.1243874  0.0336398  3.69763  0.0019521 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.780172 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -6526,7 +6522,7 @@ corpProf     0.0218902  0.1158920  0.18888   0.852558
 corpProfLag  0.1930827  0.1070645  1.80342   0.090184 .  
 wages        0.8173880  0.0407750 20.04632 9.2326e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.136644 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -6545,7 +6541,7 @@ corpProf     0.2167092  0.1549625  1.39846 0.18105780
 corpProfLag  0.5415911  0.1484136  3.64920 0.00216236 ** 
 capitalLag  -0.1455008  0.0329692 -4.41323 0.00043512 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.199369 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -6564,7 +6560,7 @@ gnp         0.4437796  0.0358122 12.39185 1.2899e-09 ***
 gnpLag      0.1447449  0.0388662  3.72419 0.00184566 ** 
 trend       0.1238412  0.0305722  4.05078 0.00092758 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.780264 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -6807,9 +6803,9 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 21    7.4   9.6     8.0     9      201.2        19.0   69.5
 22   13.8  11.6     8.5    10      204.5        21.1   75.7
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03225806 >"
-[2] "Attributes: < Component 2: Component 1: 55 string mismatches >"   
-[3] "Numeric: lengths (744, 720) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03225806 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 55 string mismatches >"
+[3] "Numeric: lengths (744, 720) differ"                                       
 > matrix of instrumental variables
                 Consumption_(Intercept) Consumption_govExp Consumption_taxes
 Consumption_2                         1                3.9               7.7
@@ -8300,7 +8296,7 @@ corpProf     0.2283302  0.0775460  2.94445  0.0090658 **
 corpProfLag  0.0723013  0.0771032  0.93772  0.3615200    
 wages        0.7929806  0.0352229 22.51321 4.2855e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.030712 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -8317,7 +8313,7 @@ corpProf     0.4461011  0.0818006  5.45352 4.2915e-05 ***
 corpProfLag  0.3608788  0.0848681  4.25223 0.00053753 ***
 capitalLag  -0.1223529  0.0223484 -5.47479 4.1094e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.015002 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -8334,7 +8330,7 @@ gnp         0.4116720  0.0278688 14.77180 9.6136e-11 ***
 gnpLag      0.1742922  0.0316668  5.50395 4.8082e-05 ***
 trend       0.1550255  0.0282501  5.48760 4.9645e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.814345 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -9022,7 +9018,7 @@ corpProf     0.1185743  0.1073137  1.10493    0.28553
 corpProfLag  0.1447598  0.1008208  1.43581    0.17032    
 wages        0.8006468  0.0391202 20.46634 6.7057e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.055504 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -9041,7 +9037,7 @@ corpProf     0.0702489  0.1458071  0.48179 0.63647645
 corpProfLag  0.6688066  0.1402282  4.76941 0.00020897 ***
 capitalLag  -0.1786485  0.0302999 -5.89601 2.2561e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.464041 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -9060,7 +9056,7 @@ gnp         0.4062024  0.0324450 12.51972 1.1105e-09 ***
 gnpLag      0.1784419  0.0347494  5.13510 9.9759e-05 ***
 trend       0.1434773  0.0292336  4.90796 0.00015764 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.80996 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -9188,9 +9184,9 @@ Multiple R-Squared: 0.986776 Adjusted R-Squared: 0.984297
 > model.frame
 [1] TRUE
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03225806 >"
-[2] "Attributes: < Component 2: Component 1: 55 string mismatches >"   
-[3] "Numeric: lengths (744, 720) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03225806 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 55 string mismatches >"
+[3] "Numeric: lengths (744, 720) differ"                                       
 > nobs
 [1] 60
 > linearHypothesis
@@ -9740,7 +9736,7 @@ corpProf     0.1642249  0.0951948  1.72514    0.10376
 corpProfLag  0.1552211  0.0903396  1.71820    0.10505    
 wages        0.7755911  0.0355520 21.81570 2.4958e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.063467 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -9759,7 +9755,7 @@ corpProf    -0.2501121  0.2336805 -1.07032 0.30035810
 corpProfLag  0.9129326  0.2270960  4.02003 0.00098948 ***
 capitalLag  -0.2409087  0.0468605 -5.14097 9.8594e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.184768 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -9778,7 +9774,7 @@ gnp         0.3775970  0.0317863 11.87922 2.3819e-09 ***
 gnpLag      0.1937324  0.0331011  5.85274 2.4502e-05 ***
 trend       0.1619467  0.0299742  5.40286 5.8630e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.877438 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -9906,9 +9902,9 @@ Multiple R-Squared: 0.984481 Adjusted R-Squared: 0.981572
 > model.frame
 [1] TRUE
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03225806 >"
-[2] "Attributes: < Component 2: Component 1: 55 string mismatches >"   
-[3] "Numeric: lengths (744, 720) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03225806 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 55 string mismatches >"
+[3] "Numeric: lengths (744, 720) differ"                                       
 > nobs
 [1] 60
 > linearHypothesis
@@ -10450,7 +10446,7 @@ corpProf     0.1994191  0.0949042  2.10127   0.051815 .
 corpProfLag  0.0969012  0.0944342  1.02612   0.320098    
 wages        0.7940183  0.0414521 19.15506 1.8598e-12 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.045262 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -10467,7 +10463,7 @@ corpProf     0.4796356  0.0926878  5.17474 7.6147e-05 ***
 corpProfLag  0.3330387  0.0962618  3.45972 0.00299438 ** 
 capitalLag  -0.1117947  0.0255092 -4.38252 0.00040614 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.009447 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -10484,7 +10480,7 @@ gnp         0.4417459  0.0318642 13.86340 2.4757e-10 ***
 gnpLag      0.1466407  0.0366065  4.00586  0.0010194 ** 
 trend       0.1243874  0.0323487  3.84521  0.0014297 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.780172 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -11604,7 +11600,7 @@ corpProf     0.0243291  0.1180373  0.20611   0.839473
 corpProfLag  0.1981090  0.1086871  1.82275   0.088335 .  
 wages        0.8158954  0.0419520 19.44831 4.7302e-12 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.168859 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -11623,7 +11619,7 @@ corpProf     0.2167092  0.1477744  1.46649 0.16189438
 corpProfLag  0.5415911  0.1415293  3.82671 0.00148658 ** 
 capitalLag  -0.1455008  0.0314399 -4.62790 0.00027926 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.199369 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -11642,7 +11638,7 @@ gnp         0.4437796  0.0342254 12.96640 6.6463e-10 ***
 gnpLag      0.1447449  0.0371440  3.89686 0.00128223 ** 
 trend       0.1238412  0.0292175  4.23860 0.00062592 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.780264 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -11885,9 +11881,9 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 21    7.4   9.6     8.0     9      201.2        19.0   69.5
 22   13.8  11.6     8.5    10      204.5        21.1   75.7
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03278689 >"
-[2] "Attributes: < Component 2: Component 1: 54 string mismatches >"   
-[3] "Numeric: lengths (732, 708) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03278689 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 54 string mismatches >"
+[3] "Numeric: lengths (732, 708) differ"                                       
 > matrix of instrumental variables
                 Consumption_(Intercept) Consumption_govExp Consumption_taxes
 Consumption_2                         1                3.9               7.7
@@ -13357,7 +13353,7 @@ corpProf     0.2172746  0.0799220  2.71858   0.015183 *
 corpProfLag  0.0694345  0.0792810  0.87580   0.394096    
 wages        0.7974940  0.0360010 22.15197 1.9673e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.049701 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -13374,7 +13370,7 @@ corpProf     0.4510664  0.0814435  5.53840 3.6107e-05 ***
 corpProfLag  0.3569512  0.0845737  4.22059 0.00057548 ***
 capitalLag  -0.1224630  0.0222936 -5.49319 3.9582e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.014604 on 17 degrees of freedom
 Number of observations: 21 Degrees of Freedom: 17 
@@ -13391,7 +13387,7 @@ gnp         0.4177407  0.0268626 15.55103 4.4428e-11 ***
 gnpLag      0.1708978  0.0305573  5.59270 4.0442e-05 ***
 trend       0.1466725  0.0271794  5.39646 5.9373e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.801718 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -14075,7 +14071,7 @@ corpProf     0.110008   0.109753  1.00233    0.33208
 corpProfLag  0.115535   0.100669  1.14767    0.26908    
 wages        0.808633   0.040079 20.17601 2.7789e-12 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.09699 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -14094,7 +14090,7 @@ corpProf     0.1072457  0.1413917  0.75850 0.45917972
 corpProfLag  0.6277580  0.1361469  4.61089 0.00028921 ***
 capitalLag  -0.1726107  0.0294934 -5.85251 2.4512e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.394766 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -14113,7 +14109,7 @@ gnp         0.4116758  0.0315247 13.05885 5.9874e-10 ***
 gnpLag      0.1782457  0.0335843  5.30741 7.0789e-05 ***
 trend       0.1370084  0.0280272  4.88841 0.00016401 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.803058 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -14241,9 +14237,9 @@ Multiple R-Squared: 0.987001 Adjusted R-Squared: 0.984564
 > model.frame
 [1] TRUE
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03278689 >"
-[2] "Attributes: < Component 2: Component 1: 54 string mismatches >"   
-[3] "Numeric: lengths (732, 708) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03278689 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 54 string mismatches >"
+[3] "Numeric: lengths (732, 708) differ"                                       
 > nobs
 [1] 59
 > linearHypothesis
@@ -14789,7 +14785,7 @@ corpProf     0.1468359  0.0991394  1.48111    0.15928
 corpProfLag  0.0924248  0.0905695  1.02048    0.32368    
 wages        0.7945106  0.0370661 21.43499 1.1533e-12 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.099706 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -14808,7 +14804,7 @@ corpProf    -0.0798855  0.1933572 -0.41315 0.68498068
 corpProfLag  0.7607412  0.1878226  4.05032 0.00092848 ***
 capitalLag  -0.2114484  0.0400056 -5.28547 7.3936e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.802758 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -14827,7 +14823,7 @@ gnp         0.3935816  0.0313026 12.57344 1.0432e-09 ***
 gnpLag      0.1944959  0.0327828  5.93287 2.1034e-05 ***
 trend       0.1416208  0.0285973  4.95224 0.00014412 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.835935 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -14955,9 +14951,9 @@ Multiple R-Squared: 0.985915 Adjusted R-Squared: 0.983274
 > model.frame
 [1] TRUE
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03278689 >"
-[2] "Attributes: < Component 2: Component 1: 54 string mismatches >"   
-[3] "Numeric: lengths (732, 708) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03278689 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 54 string mismatches >"
+[3] "Numeric: lengths (732, 708) differ"                                       
 > nobs
 [1] 59
 > linearHypothesis
@@ -15493,7 +15489,7 @@ corpProf     0.1796040  0.1162241  1.54532    0.14310
 corpProfLag  0.1032105  0.0993729  1.03862    0.31544    
 wages        0.7961990  0.0432837 18.39491 1.0565e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.07586 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -15510,7 +15506,7 @@ corpProf     0.5002874  0.1052367  4.75392 0.00021569 ***
 corpProfLag  0.3259311  0.1002783  3.25027 0.00501821 ** 
 capitalLag  -0.1133693  0.0264807 -4.28120 0.00057267 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.03409 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -15527,7 +15523,7 @@ gnp         0.4417459  0.0329541 13.40487 4.0728e-10 ***
 gnpLag      0.1466407  0.0378587  3.87337  0.0013473 ** 
 trend       0.1243874  0.0334552  3.71803  0.0018698 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.780172 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -16623,7 +16619,7 @@ corpProf    -0.0770168  0.1637203 -0.47042   0.645302
 corpProfLag  0.2326512  0.1241712  1.87363   0.082007 .  
 wages        0.8259175  0.0459435 17.97680 4.5411e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.261218 on 14 degrees of freedom
 Number of observations: 18 Degrees of Freedom: 14 
@@ -16642,7 +16638,7 @@ corpProf     0.1506899  0.1904663  0.79116 0.44117999
 corpProfLag  0.5756645  0.1633788  3.52350 0.00307181 ** 
 capitalLag  -0.1452080  0.0339048 -4.28282 0.00065403 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.321953 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -16661,7 +16657,7 @@ gnp         0.4437796  0.0351199 12.63614 9.7004e-10 ***
 gnpLag      0.1447449  0.0381148  3.79760 0.00158071 ** 
 trend       0.1238412  0.0299811  4.13064 0.00078451 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.780264 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -16904,9 +16900,9 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 21    7.4   9.6     8.0     9      201.2        19.0   69.5
 22   13.8  11.6     8.5    10      204.5        21.1   75.7
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03389831 >"
-[2] "Attributes: < Component 2: Component 1: 52 string mismatches >"   
-[3] "Numeric: lengths (708, 684) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03389831 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 52 string mismatches >"
+[3] "Numeric: lengths (708, 684) differ"                                       
 > matrix of instrumental variables
                 Consumption_(Intercept) Consumption_govExp Consumption_taxes
 Consumption_2                         1                3.9               7.7
@@ -18334,7 +18330,7 @@ corpProf     0.1942490  0.0927152  2.09512   0.053545 .
 corpProfLag  0.0745674  0.0818707  0.91079   0.376808    
 wages        0.8010812  0.0372114 21.52782 1.0831e-12 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.080169 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -18351,7 +18347,7 @@ corpProf     0.4706814  0.0916092  5.13792 9.9197e-05 ***
 corpProfLag  0.3519084  0.0873582  4.02834 0.00097235 ***
 capitalLag  -0.1253285  0.0228998 -5.47290 5.1095e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.040579 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -18368,7 +18364,7 @@ gnp         0.4183523  0.0260089 16.08499 2.6693e-11 ***
 gnpLag      0.1714316  0.0306716  5.58927 4.0713e-05 ***
 trend       0.1454678  0.0275815  5.27411 7.5620e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.800995 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -19040,7 +19036,7 @@ corpProf    -0.0638859  0.1460594 -0.43740    0.66850
 corpProfLag  0.1687153  0.1125380  1.49918    0.15603    
 wages        0.8229613  0.0431435 19.07496 2.0413e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.271283 on 14 degrees of freedom
 Number of observations: 18 Degrees of Freedom: 14 
@@ -19059,7 +19055,7 @@ corpProf     0.0523621  0.1807399  0.28971 0.77600458
 corpProfLag  0.6584412  0.1551102  4.24499 0.00070582 ***
 capitalLag  -0.1756447  0.0311221 -5.64373 4.6702e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.508841 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -19078,7 +19074,7 @@ gnp         0.4249988  0.0299403 14.19489 1.7425e-10 ***
 gnpLag      0.1730518  0.0331145  5.22586 8.3231e-05 ***
 trend       0.1255276  0.0283039  4.43499 0.00041593 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.792701 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -19206,9 +19202,9 @@ Multiple R-Squared: 0.987334 Adjusted R-Squared: 0.984959
 > model.frame
 [1] TRUE
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03389831 >"
-[2] "Attributes: < Component 2: Component 1: 52 string mismatches >"   
-[3] "Numeric: lengths (708, 684) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03389831 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 52 string mismatches >"
+[3] "Numeric: lengths (708, 684) differ"                                       
 > nobs
 [1] 57
 > linearHypothesis
@@ -19246,7 +19242,7 @@ Model 2: kleinModel
 1     46                       
 2     45  1 2.7131    0.09952 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -19272,7 +19268,7 @@ Model 2: kleinModel
 1     47                    
 2     45  2 2.4775 0.09534 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
@@ -19286,7 +19282,7 @@ Model 2: kleinModel
 1     47                       
 2     45  2 4.9549    0.08396 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > logLik
 'log Lik.' -71.17749 (df=18)
 Estimating function
@@ -19748,7 +19744,7 @@ corpProf    -0.0437912  0.1441209 -0.30385    0.76571
 corpProfLag  0.1456093  0.1108905  1.31309    0.21027    
 wages        0.8140951  0.0428153 19.01413 2.1314e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.273459 on 14 degrees of freedom
 Number of observations: 18 Degrees of Freedom: 14 
@@ -19767,7 +19763,7 @@ corpProf    -0.0183253  0.2154355 -0.08506 0.9333374
 corpProfLag  0.7195072  0.1849748  3.88976 0.0014512 ** 
 capitalLag  -0.1985459  0.0365531 -5.43172 6.941e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.676032 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -19786,7 +19782,7 @@ gnp         0.4250784  0.0287133 14.80423 9.3032e-11 ***
 gnpLag      0.1775608  0.0321991  5.51447 4.7103e-05 ***
 trend       0.1210869  0.0282940  4.27959  0.0005746 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.798587 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -19914,9 +19910,9 @@ Multiple R-Squared: 0.987145 Adjusted R-Squared: 0.984735
 > model.frame
 [1] TRUE
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03389831 >"
-[2] "Attributes: < Component 2: Component 1: 52 string mismatches >"   
-[3] "Numeric: lengths (708, 684) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03389831 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 52 string mismatches >"
+[3] "Numeric: lengths (708, 684) differ"                                       
 > nobs
 [1] 57
 > linearHypothesis
@@ -19943,7 +19939,7 @@ Model 2: kleinModel
 1     46                    
 2     45  1 2.8358 0.09911 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
@@ -19956,7 +19952,7 @@ Model 2: kleinModel
 1     46                       
 2     45  1 2.8358    0.09219 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -19970,7 +19966,7 @@ Model 2: kleinModel
 1     47                    
 2     45  2 2.4471 0.09798 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (F statistic of a Wald test)
 
 Hypothesis:
@@ -19984,7 +19980,7 @@ Model 2: kleinModel
 1     47                    
 2     45  2 3.1991 0.05023 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
@@ -19998,7 +19994,7 @@ Model 2: kleinModel
 1     47                       
 2     45  2 6.3983     0.0408 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > logLik
 'log Lik.' -72.69263 (df=18)
 Estimating function
@@ -20450,7 +20446,7 @@ corpProf     0.1796040  0.1205937  1.48933    0.15712
 corpProfLag  0.1032105  0.1031089  1.00099    0.33271    
 wages        0.7961990  0.0449109 17.72840 1.7962e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.07586 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -20467,7 +20463,7 @@ corpProf     0.5004160  0.1092153  4.58192 0.00035965 ***
 corpProfLag  0.3269702  0.1051583  3.10932 0.00717929 ** 
 capitalLag  -0.1134411  0.0274979 -4.12545 0.00089869 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.067849 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -20484,7 +20480,7 @@ gnp         0.4417459  0.0341965 12.91787 7.0224e-10 ***
 gnpLag      0.1466407  0.0392860  3.73265  0.0018130 ** 
 trend       0.1243874  0.0347164  3.58296  0.0024872 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.780172 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -21568,7 +21564,7 @@ corpProf    -0.0770168  0.1682721 -0.45769   0.654196
 corpProfLag  0.2326512  0.1276235  1.82295   0.089733 .  
 wages        0.8259175  0.0472209 17.49052 6.5650e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.261218 on 14 degrees of freedom
 Number of observations: 18 Degrees of Freedom: 14 
@@ -21587,7 +21583,7 @@ corpProf     0.1563795  0.1941754  0.80535 0.43408241
 corpProfLag  0.5713535  0.1672183  3.41681 0.00417104 ** 
 capitalLag  -0.1446295  0.0346222 -4.17736 0.00093063 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.358893 on 14 degrees of freedom
 Number of observations: 18 Degrees of Freedom: 14 
@@ -21606,7 +21602,7 @@ gnp         0.4437796  0.0361366 12.28061 1.4709e-09 ***
 gnpLag      0.1447449  0.0392182  3.69076  0.0019807 ** 
 trend       0.1238412  0.0308491  4.01442  0.0010012 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.780264 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -21849,9 +21845,9 @@ Multiple R-Squared: 0.987728 Adjusted R-Squared: 0.985427
 21    7.4   9.6     8.0     9      201.2        19.0   69.5
 22   13.8  11.6     8.5    10      204.5        21.1   75.7
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03448276 >"
-[2] "Attributes: < Component 2: Component 1: 51 string mismatches >"   
-[3] "Numeric: lengths (696, 672) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03448276 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 51 string mismatches >"
+[3] "Numeric: lengths (696, 672) differ"                                       
 > matrix of instrumental variables
                 Consumption_(Intercept) Consumption_govExp Consumption_taxes
 Consumption_2                         1                3.9               7.7
@@ -23258,7 +23254,7 @@ corpProf     0.1941731  0.0953818  2.03575   0.059838 .
 corpProfLag  0.0747004  0.0842427  0.88673   0.389221    
 wages        0.8010914  0.0382839 20.92503 1.6371e-12 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.080145 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -23275,7 +23271,7 @@ corpProf     0.4708378  0.0942759  4.99426 0.00016014 ***
 corpProfLag  0.3533003  0.0907117  3.89476 0.00143650 ** 
 capitalLag  -0.1254470  0.0235741 -5.32140 8.5503e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.074588 on 15 degrees of freedom
 Number of observations: 19 Degrees of Freedom: 15 
@@ -23292,7 +23288,7 @@ gnp         0.4183903  0.0267622 15.63360 4.1021e-11 ***
 gnpLag      0.1713575  0.0315299  5.43475 5.5066e-05 ***
 trend       0.1455560  0.0283579  5.13282 0.00010022 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.801015 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -23958,7 +23954,7 @@ corpProf    -0.0632348  0.1499843 -0.42161    0.67971
 corpProfLag  0.1783514  0.1153732  1.54586    0.14444    
 wages        0.8223790  0.0443514 18.54235 2.9919e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.264251 on 14 degrees of freedom
 Number of observations: 18 Degrees of Freedom: 14 
@@ -23977,7 +23973,7 @@ corpProf     0.0472267  0.1843017  0.25625 0.80148744
 corpProfLag  0.6873918  0.1576935  4.35904 0.00065448 ***
 capitalLag  -0.1776300  0.0317790 -5.58953 6.6692e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.581969 on 14 degrees of freedom
 Number of observations: 18 Degrees of Freedom: 14 
@@ -23996,7 +23992,7 @@ gnp         0.4256736  0.0308389 13.80314 2.6409e-10 ***
 gnpLag      0.1728307  0.0340578  5.07463 0.00011262 ***
 trend       0.1251772  0.0291093  4.30025 0.00055037 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.79283 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -24124,9 +24120,9 @@ Multiple R-Squared: 0.98733 Adjusted R-Squared: 0.984954
 > model.frame
 [1] TRUE
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03448276 >"
-[2] "Attributes: < Component 2: Component 1: 51 string mismatches >"   
-[3] "Numeric: lengths (696, 672) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03448276 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 51 string mismatches >"
+[3] "Numeric: lengths (696, 672) differ"                                       
 > nobs
 [1] 56
 > linearHypothesis
@@ -24654,7 +24650,7 @@ corpProf    -0.0435625  0.1469933 -0.29636    0.77131
 corpProfLag  0.1614416  0.1127465  1.43190    0.17412    
 wages        0.8127378  0.0435767 18.65076 2.7657e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.263126 on 14 degrees of freedom
 Number of observations: 18 Degrees of Freedom: 14 
@@ -24673,7 +24669,7 @@ corpProf    -0.0436996  0.2340570 -0.18671 0.85457039
 corpProfLag  0.7855742  0.1992749  3.94216 0.00147429 ** 
 capitalLag  -0.2065319  0.0397423 -5.19678 0.00013538 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.829083 on 14 degrees of freedom
 Number of observations: 18 Degrees of Freedom: 14 
@@ -24692,7 +24688,7 @@ gnp         0.4267595  0.0295571 14.43847 1.3521e-10 ***
 gnpLag      0.1767419  0.0330169  5.35308 6.4677e-05 ***
 trend       0.1201366  0.0289881  4.14435  0.0007623 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 0.799146 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -24820,9 +24816,9 @@ Multiple R-Squared: 0.987127 Adjusted R-Squared: 0.984714
 > model.frame
 [1] TRUE
 > model.matrix
-[1] "Attributes: < Component 1: Mean relative difference: 0.03448276 >"
-[2] "Attributes: < Component 2: Component 1: 51 string mismatches >"   
-[3] "Numeric: lengths (696, 672) differ"                               
+[1] "Attributes: < Component \"dim\": Mean relative difference: 0.03448276 >"  
+[2] "Attributes: < Component \"dimnames\": Component 1: 51 string mismatches >"
+[3] "Numeric: lengths (696, 672) differ"                                       
 > nobs
 [1] 56
 > linearHypothesis
@@ -24849,7 +24845,7 @@ Model 2: kleinModel
 1     45                    
 2     44  1 2.8941 0.09596 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
@@ -24862,7 +24858,7 @@ Model 2: kleinModel
 1     45                       
 2     44  1 2.8941     0.0889 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Theil's F test)
 
 Hypothesis:
@@ -24888,7 +24884,7 @@ Model 2: kleinModel
 1     46                    
 2     44  2 2.8952 0.06588 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
 Hypothesis:
@@ -24902,7 +24898,7 @@ Model 2: kleinModel
 1     46                       
 2     44  2 5.7904    0.05529 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > logLik
 'log Lik.' -72.22389 (df=18)
 Estimating function
@@ -25312,4 +25308,4 @@ PrivateWages_22       5.244629e+01
 > 
 > proc.time()
    user  system elapsed 
-  8.008   0.148   8.151 
+  7.508   0.156   7.646 

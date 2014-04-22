@@ -1,7 +1,6 @@
 
-R version 2.15.1 (2012-06-22) -- "Roasted Marshmallows"
-Copyright (C) 2012 The R Foundation for Statistical Computing
-ISBN 3-900051-07-0
+R version 3.1.0 (2014-04-10) -- "Spring Dance"
+Copyright (C) 2014 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -19,16 +18,13 @@ Type 'q()' to quit R.
 > 
 > library( systemfit )
 Loading required package: Matrix
-Loading required package: lattice
 Loading required package: car
-Loading required package: MASS
-Loading required package: nnet
 Loading required package: lmtest
 Loading required package: zoo
 
 Attaching package: 'zoo'
 
-The following object(s) are masked from 'package:base':
+The following objects are masked from 'package:base':
 
     as.Date, as.Date.numeric
 
@@ -110,7 +106,7 @@ Model Formula: consump ~ price + income
 price       -0.2754857  0.0885091 -3.11251  0.0063324 ** 
 income       0.2985505  0.0419454  7.11760 1.7249e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.96563 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -127,7 +123,7 @@ price        0.1468841  0.0944351 1.55540 0.13940780
 farmPrice    0.2140040  0.0398684 5.36776 6.2829e-05 ***
 trend        0.3393039  0.0679113 4.99628 0.00013185 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.550226 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -176,7 +172,7 @@ Model Formula: consump ~ price + income
 price       -0.2713333  0.0816013 -3.32511  0.0021748 ** 
 income       0.2948791  0.0386717  7.62519 8.9170e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.973138 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -193,7 +189,7 @@ price        0.1461467  0.0844653 1.73026   0.092928 .
 farmPrice    0.2121429  0.0356594 5.94915 1.1204e-06 ***
 trend        0.3322117  0.0607417 5.46925 4.6167e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.543987 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -244,7 +240,7 @@ Model Formula: consump ~ price + income
 price       -0.2667139  0.0877120 -3.04079  0.0073831 ** 
 income       0.2907949  0.0406154  7.15972 1.5978e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.982307 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -261,7 +257,7 @@ price        0.1438645  0.0943406 1.52495    0.14679
 farmPrice    0.2063724  0.0384127 5.37250 6.2245e-05 ***
 trend        0.3325200  0.0640279 5.19336 8.8799e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.565663 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -310,7 +306,7 @@ Model Formula: consump ~ price + income
 price       -0.2667139  0.0877120 -3.04079  0.0045974 ** 
 income       0.2907949  0.0406154  7.15972 3.3283e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.982307 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -327,7 +323,7 @@ price        0.1438645  0.0943406 1.52495     0.1368
 farmPrice    0.2063724  0.0384127 5.37250 6.1445e-06 ***
 trend        0.3325200  0.0640279 5.19336 1.0430e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.565663 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -376,7 +372,7 @@ Model Formula: consump ~ price + income
 price       -0.2676578  0.0877988 -3.04854  0.0072619 ** 
 income       0.2916295  0.0407617  7.15450 1.6131e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.980364 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -393,7 +389,7 @@ price        0.1441860  0.0943505 1.52819    0.14599
 farmPrice    0.2071848  0.0385679 5.37195 6.2313e-05 ***
 trend        0.3333413  0.0644118 5.17516 9.2082e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.564015 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -440,7 +436,7 @@ Model Formula: consump ~ price + income
 price       -0.2754857  0.0885091 -3.11251  0.0063324 ** 
 income       0.2985505  0.0419454  7.11760 1.7249e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.96563 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -457,7 +453,7 @@ price        0.1468841  0.0944351 1.55540 0.13940780
 farmPrice    0.2140040  0.0398684 5.36776 6.2829e-05 ***
 trend        0.3393039  0.0679113 4.99628 0.00013185 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.550226 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -508,7 +504,7 @@ Model Formula: consump ~ price + income
 price       -0.2667139  0.0877120 -3.04079  0.0045974 ** 
 income       0.2907949  0.0406154  7.15972 3.3283e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.982307 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -525,7 +521,7 @@ price        0.1438645  0.0943406 1.52495     0.1368
 farmPrice    0.2063724  0.0384127 5.37250 6.1445e-06 ***
 trend        0.3325200  0.0640279 5.19336 1.0430e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.565663 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -573,7 +569,7 @@ Model Formula: consump ~ price + income
 price       -0.2397799  0.0859935 -2.78835   0.008613 ** 
 income       0.2669811  0.0368424  7.24657 2.1812e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.052209 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -590,7 +586,7 @@ price        0.1332168  0.0953100 1.39772    0.17125
 farmPrice    0.1794809  0.0336540 5.33313 6.3436e-06 ***
 trend        0.2669811  0.0368424 7.24657 2.1812e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.595747 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -603,7 +599,7 @@ Multiple R-Squared: 0.597909 Adjusted R-Squared: 0.522517
 > fitsur2Sym <- systemfit( system, "SUR", data = Kmenta,
 +    restrict.matrix = restrict, useMatrix = useMatrix )
 > all.equal( fitsur2, fitsur2Sym )
-[1] "Component 2: target, current do not match when deparsed"
+[1] "Component \"call\": target, current do not match when deparsed"
 > nobs( fitsur2Sym )
 [1] 40
 > 
@@ -647,7 +643,7 @@ Model Formula: consump ~ price + income
 price       -0.2353669  0.0794963 -2.96073  0.0055611 ** 
 income       0.2630793  0.0343562  7.65740 6.6906e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.066217 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -664,7 +660,7 @@ price        0.1328254  0.0852704 1.55770    0.12857
 farmPrice    0.1784930  0.0305058 5.85111 1.3442e-06 ***
 trend        0.2630793  0.0343562 7.65740 6.6906e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.597076 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -712,7 +708,7 @@ Model Formula: consump ~ price + income
 price       -0.2335009  0.0789970 -2.95582  0.0056317 ** 
 income       0.2614294  0.0337859  7.73784 5.3200e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.072347 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -729,7 +725,7 @@ price        0.1320497  0.0854572 1.54522    0.13155
 farmPrice    0.1765325  0.0301337 5.85830 1.3156e-06 ***
 trend        0.2614294  0.0337859 7.73784 5.3200e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.60569 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -777,7 +773,7 @@ Model Formula: consump ~ price + income
 price       -0.2397799  0.0859935 -2.78835   0.008613 ** 
 income       0.2669811  0.0368424  7.24657 2.1812e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.052209 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -794,7 +790,7 @@ price        0.1332168  0.0953100 1.39772    0.17125
 farmPrice    0.1794809  0.0336540 5.33313 6.3436e-06 ***
 trend        0.2669811  0.0368424 7.24657 2.1812e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.595747 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -844,7 +840,7 @@ Model Formula: consump ~ price + income
 price       -0.2353669  0.0794963 -2.96073  0.0055611 ** 
 income       0.2630793  0.0343562  7.65740 6.6906e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.066217 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -861,7 +857,7 @@ price        0.1328254  0.0852704 1.55770    0.12857
 farmPrice    0.1784930  0.0305058 5.85111 1.3442e-06 ***
 trend        0.2630793  0.0343562 7.65740 6.6906e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.597076 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -908,7 +904,7 @@ Model Formula: consump ~ price + income
 price       -0.2378306  0.0853805 -2.78554  0.0086739 ** 
 income       0.2652576  0.0361291  7.34194 1.6553e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.058311 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -925,7 +921,7 @@ price        0.1323739  0.0955483 1.38541    0.17495
 farmPrice    0.1773503  0.0331715 5.34647 6.0950e-06 ***
 trend        0.2652576  0.0361291 7.34194 1.6553e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.605029 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -973,7 +969,7 @@ Model Formula: consump ~ price + income
 price       -0.2797707  0.0839707 -3.33176  0.0020456 ** 
 income       0.3286315  0.0206322 15.92811 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.940085 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -990,7 +986,7 @@ price        0.2202293  0.0839707  2.62269   0.012832 *
 farmPrice    0.2326705  0.0212149 10.96732 7.1676e-13 ***
 trend        0.3286315  0.0206322 15.92811 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.518346 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1003,7 +999,7 @@ Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567
 > fitsur4Sym <- systemfit( system, "SUR", data = Kmenta,
 +    restrict.matrix = restrict2, useMatrix = useMatrix )
 > all.equal( fitsur4, fitsur4Sym )
-[1] "Component 2: target, current do not match when deparsed"
+[1] "Component \"call\": target, current do not match when deparsed"
 > 
 > ## *************** SUR with 2 restrictions (EViews-like) **************
 > fitsur4e <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "noDfCor",
@@ -1044,7 +1040,7 @@ Model Formula: consump ~ price + income
 price       -0.2850964  0.0767191 -3.71611 0.00070361 ***
 income       0.3295788  0.0184496 17.86374 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.93742 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1061,7 +1057,7 @@ price        0.2149036  0.0767191  2.80118  0.0082379 **
 farmPrice    0.2342994  0.0186528 12.56107 1.5987e-14 ***
 trend        0.3295788  0.0184496 17.86374 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.510417 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1108,7 +1104,7 @@ Model Formula: consump ~ price + income
 price       -0.2304036  0.0826915 -2.7863  0.0085523 ** 
 income       0.3221034  0.0166262 19.3733 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.985944 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1125,7 +1121,7 @@ price        0.2695964  0.0826915  3.26027  0.0024826 **
 farmPrice    0.2261346  0.0166072 13.61664 1.5543e-15 ***
 trend        0.3221034  0.0166262 19.37326 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.600686 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1173,7 +1169,7 @@ Model Formula: consump ~ price + income
 price       -0.2381107  0.0829348 -2.87106  0.0068996 ** 
 income       0.3231256  0.0170395 18.96335 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.976402 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1190,7 +1186,7 @@ price        0.2618893  0.0829348  3.15777   0.003267 **
 farmPrice    0.2271038  0.0170827 13.29439 3.1086e-15 ***
 trend        0.3231256  0.0170395 18.96335 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.585101 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1238,7 +1234,7 @@ Model Formula: consump ~ price + income
 price       -0.2813655  0.0766192 -3.67226 0.00079635 ***
 income       0.3290996  0.0181068 18.17543 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.939307 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1255,7 +1251,7 @@ price        0.2186345  0.0766192  2.85352  0.0072148 **
 farmPrice    0.2336737  0.0183137 12.75951 1.0214e-14 ***
 trend        0.3290996  0.0181068 18.17543 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.514968 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1304,7 +1300,7 @@ Model Formula: consump ~ price + income
 price       -0.2797707  0.0839707 -3.33176  0.0020456 ** 
 income       0.3286315  0.0206322 15.92811 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.940085 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1321,7 +1317,7 @@ price        0.2202293  0.0839707  2.62269   0.012832 *
 farmPrice    0.2326705  0.0212149 10.96732 7.1676e-13 ***
 trend        0.3286315  0.0206322 15.92811 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.518346 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1335,7 +1331,7 @@ Multiple R-Squared: 0.62153 Adjusted R-Squared: 0.550567
 +    restrict.matrix = restrict3, restrict.regMat = tc,
 +    x = TRUE, useMatrix = useMatrix )
 > all.equal( fitsur5, fitsur5Sym )
-[1] "Component 2: target, current do not match when deparsed"
+[1] "Component \"call\": target, current do not match when deparsed"
 > 
 > ## *************** SUR with 2 restrictions via R and restrict.regMat (EViews-like) **************
 > fitsur5e <- systemfit( system, "SUR", data = Kmenta, methodResidCov = "noDfCor",
@@ -1377,7 +1373,7 @@ Model Formula: consump ~ price + income
 price       -0.2850964  0.0767191 -3.71611 0.00070361 ***
 income       0.3295788  0.0184496 17.86374 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.93742 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1394,7 +1390,7 @@ price        0.2149036  0.0767191  2.80118  0.0082379 **
 farmPrice    0.2342994  0.0186528 12.56107 1.5987e-14 ***
 trend        0.3295788  0.0184496 17.86374 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.510417 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1442,7 +1438,7 @@ Model Formula: consump ~ price + income
 price       -0.2752751  0.0837795 -3.28571  0.0023177 ** 
 income       0.3279727  0.0202330 16.20976 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.94271 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1459,7 +1455,7 @@ price        0.2247249  0.0837795  2.68234   0.011083 *
 farmPrice    0.2318407  0.0208109 11.14034 4.6674e-13 ***
 trend        0.3279727  0.0202330 16.20976 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.52447 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1509,7 +1505,7 @@ Model Formula: consump ~ price + income
 price       -0.2355446  0.0881823 -2.67111   0.016117 *  
 income       0.3117181  0.0457444  6.81435 3.0133e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.974637 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1526,7 +1522,7 @@ income       0.6654843  0.0422982  15.7332 3.7277e-11 ***
 farmPrice   -0.4742290  0.0372402 -12.7343 8.6614e-10 ***
 trend       -0.7966445  0.0655695 -12.1496 1.7190e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.608786 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1577,7 +1573,7 @@ Model Formula: consump ~ price + income
 price       -0.2295389  0.0815681 -2.81408  0.0081824 ** 
 income       0.3100137  0.0423173  7.32593 2.0741e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.981415 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1594,7 +1590,7 @@ income       0.6640620  0.0377229  17.6037 < 2.22e-16 ***
 farmPrice   -0.4730034  0.0332088 -14.2433 1.3323e-15 ***
 trend       -0.7919324  0.0584615 -13.5462 4.8850e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.604211 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1643,7 +1639,7 @@ Model Formula: consump ~ price + income
 price       -0.2270669  0.0876610 -2.59028   0.019059 *  
 income       0.3093121  0.0458215  6.75037 3.3950e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.984339 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1660,7 +1656,7 @@ income       0.6635336  0.0422647  15.6995 3.8502e-11 ***
 farmPrice   -0.4709882  0.0369417 -12.7495 8.5119e-10 ***
 trend       -0.7952033  0.0642531 -12.3761 1.3140e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.615636 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1709,7 +1705,7 @@ Model Formula: consump ~ price + income
 price       -0.2270669  0.0876610 -2.59028   0.014166 *  
 income       0.3093121  0.0458215  6.75037 1.0791e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.984339 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1726,7 +1722,7 @@ income       0.6635336  0.0422647  15.6995 < 2.22e-16 ***
 farmPrice   -0.4709882  0.0369417 -12.7495 2.6645e-14 ***
 trend       -0.7952033  0.0642531 -12.3761 6.0396e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.615636 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1775,7 +1771,7 @@ Model Formula: consump ~ price + income
 price       -0.2284806  0.0877473 -2.60385   0.018532 *  
 income       0.3097133  0.0458074  6.76120 3.3271e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.982657 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1792,7 +1788,7 @@ income       0.6638709  0.0422720  15.7047 3.8307e-11 ***
 farmPrice   -0.4715317  0.0369928 -12.7466 8.5406e-10 ***
 trend       -0.7955072  0.0644652 -12.3401 1.3710e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.614546 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1841,7 +1837,7 @@ Model Formula: consump ~ price + income
 price       -0.2284806  0.0877473 -2.60385   0.018532 *  
 income       0.3097133  0.0458074  6.76120 3.3271e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.982657 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1858,7 +1854,7 @@ income       0.6638709  0.0422720  15.7047 3.8307e-11 ***
 farmPrice   -0.4715317  0.0369928 -12.7466 8.5406e-10 ***
 trend       -0.7955072  0.0644652 -12.3401 1.3710e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.614546 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1908,7 +1904,7 @@ Model Formula: consump ~ price + income
 price        -0.3944594   0.0911882 -4.32577 0.00012611 ***
 income        0.3381742   0.0466172  7.25428 2.1330e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.985592 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1925,7 +1921,7 @@ income       0.3124884  0.1233458  2.53343   0.016074 *
 farmPrice   -0.1972074  0.1157081 -1.70435   0.097439 .  
 trend        0.3381742  0.0466172  7.25428 2.1330e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.702679 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -1975,7 +1971,7 @@ Model Formula: consump ~ price + income
 price        -0.3985801   0.0842879 -4.72880 3.8493e-05 ***
 income        0.3379166   0.0431146  7.83763 4.0071e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.992194 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -1992,7 +1988,7 @@ income       0.3106398  0.1101449  2.82028  0.0079497 **
 farmPrice   -0.1959577  0.1034267 -1.89465  0.0666692 .  
 trend        0.3379166  0.0431146  7.83763 4.0071e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.702 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2041,7 +2037,7 @@ Model Formula: consump ~ price + income
 price        -0.3944514   0.0911880 -4.32570 0.00012614 ***
 income        0.3381721   0.0466169  7.25429 2.1329e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.985583 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2058,7 +2054,7 @@ income       0.3124915  0.1233459  2.53346   0.016073 *
 farmPrice   -0.1972101  0.1157083 -1.70437   0.097435 .  
 trend        0.3381721  0.0466169  7.25429 2.1329e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.702668 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2108,7 +2104,7 @@ Model Formula: consump ~ price + income
 price        -0.3944594   0.0911882 -4.32577 0.00012611 ***
 income        0.3381742   0.0466172  7.25428 2.1330e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.985592 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2125,7 +2121,7 @@ income       0.3124884  0.1233458  2.53343   0.016074 *
 farmPrice   -0.1972074  0.1157081 -1.70435   0.097439 .  
 trend        0.3381742  0.0466172  7.25428 2.1330e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.702679 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2175,7 +2171,7 @@ Model Formula: consump ~ price + income
 price        -0.3985801   0.0842879 -4.72880 3.8493e-05 ***
 income        0.3379166   0.0431146  7.83763 4.0071e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.992194 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2192,7 +2188,7 @@ income       0.3106398  0.1101449  2.82028  0.0079497 **
 farmPrice   -0.1959577  0.1034267 -1.89465  0.0666692 .  
 trend        0.3379166  0.0431146  7.83763 4.0071e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.702 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2242,7 +2238,7 @@ Model Formula: consump ~ price + income
 price        -0.3985856   0.0842880 -4.72885 3.8487e-05 ***
 income        0.3379180   0.0431149  7.83762 4.0072e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.9922 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2259,7 +2255,7 @@ income       0.3106377  0.1101449  2.82026  0.0079501 **
 farmPrice   -0.1959558  0.1034266 -1.89464  0.0666714 .  
 trend        0.3379180  0.0431149  7.83762 4.0072e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.702008 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2309,7 +2305,7 @@ Model Formula: consump ~ price + income
 price       -0.2276118  0.0850135 -2.67736    0.01122 *  
 income       0.3202701  0.0184936 17.31787 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.988284 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2326,7 +2322,7 @@ price        0.2723882  0.0850135  3.20406  0.0028873 **
 farmPrice    0.2231504  0.0189763 11.75940 1.0369e-13 ***
 trend        0.3202701  0.0184936 17.31787 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.612873 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2373,7 +2369,7 @@ Model Formula: consump ~ price + income
 price       -0.2645914  0.0777305 -3.40396  0.0016795 ** 
 income       0.3006798  0.0436282  6.89187 5.2705e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.963366 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2390,7 +2386,7 @@ income       0.2354086  0.0777305  3.02852   0.004594 **
 farmPrice   -0.1666579  0.1108316 -1.50370   0.141629    
 trend        0.3006798  0.0436282  6.89187 5.2705e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.642168 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2440,7 +2436,7 @@ Model Formula: consump ~ price + income
 price       -0.2397572  0.0779369 -3.0763   0.004053 ** 
 income       0.3231549  0.0163112 19.8119 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.97432 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2457,7 +2453,7 @@ price        0.2602428  0.0779369  3.33915  0.0020049 **
 farmPrice    0.2269624  0.0164343 13.81026 8.8818e-16 ***
 trend        0.3231549  0.0163112 19.81189 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.582662 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2505,7 +2501,7 @@ Model Formula: consump ~ price + income
 price       -0.2575588  0.0709096 -3.63221  0.0008913 ***
 income       0.2976292  0.0403268  7.38043 1.2419e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.97029 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2522,7 +2518,7 @@ income       0.2424412  0.0709096  3.41902  0.0016115 **
 farmPrice   -0.1686546  0.0987933 -1.70715  0.0966530 .  
 trend        0.2976292  0.0403268  7.38043 1.2419e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.612855 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2572,7 +2568,7 @@ Model Formula: consump ~ price + income
 price       -0.2276117  0.0850135 -2.67736    0.01122 *  
 income       0.3202701  0.0184936 17.31786 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.988284 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2589,7 +2585,7 @@ price        0.2723883  0.0850135  3.20406  0.0028873 **
 farmPrice    0.2231504  0.0189763 11.75940 1.0369e-13 ***
 trend        0.3202701  0.0184936 17.31786 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.612873 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2637,7 +2633,7 @@ Model Formula: consump ~ price + income
 price       -0.2645977  0.0777307 -3.40403  0.0016792 ** 
 income       0.3006812  0.0436279  6.89195 5.2693e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.963362 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2654,7 +2650,7 @@ income       0.2354023  0.0777307  3.02843  0.0045951 **
 farmPrice   -0.1666575  0.1108326 -1.50369  0.1416329    
 trend        0.3006812  0.0436279  6.89195 5.2693e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.64219 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2705,7 +2701,7 @@ Model Formula: consump ~ price + income
 price       -0.2276118  0.0850135 -2.67736    0.01122 *  
 income       0.3202701  0.0184936 17.31787 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.988284 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2722,7 +2718,7 @@ price        0.2723882  0.0850135  3.20406  0.0028873 **
 farmPrice    0.2231504  0.0189763 11.75940 1.0369e-13 ***
 trend        0.3202701  0.0184936 17.31787 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.612873 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2770,7 +2766,7 @@ Model Formula: consump ~ price + income
 price       -0.2645914  0.0777305 -3.40396  0.0016795 ** 
 income       0.3006798  0.0436282  6.89187 5.2705e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.963366 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2787,7 +2783,7 @@ income       0.2354086  0.0777305  3.02852   0.004594 **
 farmPrice   -0.1666579  0.1108316 -1.50370   0.141629    
 trend        0.3006798  0.0436282  6.89187 5.2705e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.642168 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2837,7 +2833,7 @@ Model Formula: consump ~ price + income
 price       -0.2397572  0.0779369 -3.0763   0.004053 ** 
 income       0.3231549  0.0163112 19.8119 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.97432 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2854,7 +2850,7 @@ price        0.2602428  0.0779369  3.33915  0.0020049 **
 farmPrice    0.2269624  0.0164343 13.81026 8.8818e-16 ***
 trend        0.3231549  0.0163112 19.81189 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.582662 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2902,7 +2898,7 @@ Model Formula: consump ~ price + income
 price       -0.2575588  0.0709096 -3.63221  0.0008913 ***
 income       0.2976292  0.0403268  7.38043 1.2419e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.97029 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2919,7 +2915,7 @@ income       0.2424412  0.0709096  3.41902  0.0016115 **
 farmPrice   -0.1686546  0.0987933 -1.70715  0.0966530 .  
 trend        0.2976292  0.0403268  7.38043 1.2419e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.612855 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -2973,7 +2969,7 @@ Model Formula: consump ~ price + income
 price       -0.0646807  0.0815254 -0.79338     0.4329    
 income       0.3007469  0.0130683 23.01349 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.373384 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -2990,7 +2986,7 @@ price        0.4353193  0.0815254  5.33967 5.7345e-06 ***
 farmPrice    0.2070310  0.0124152 16.67557 < 2.22e-16 ***
 trend        0.3007469  0.0130683 23.01349 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 3.139838 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -3038,7 +3034,7 @@ Model Formula: consump ~ price + income
 price       -0.2668782  0.0778150 -3.42965  0.0015651 ** 
 income       0.3011344  0.0435444  6.91558 4.9112e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.962096 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -3055,7 +3051,7 @@ income       0.2331218  0.0778150  2.99585  0.0050026 **
 farmPrice   -0.1665940  0.1110965 -1.49954  0.1426998    
 trend        0.3011344  0.0435444  6.91558 4.9112e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.649945 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -3115,7 +3111,7 @@ Model Formula: consump ~ price + income
 price       -0.0646807  0.0815254 -0.79338     0.4329    
 income       0.3007469  0.0130683 23.01349 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.373384 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -3132,7 +3128,7 @@ price        0.4353193  0.0815254  5.33967 5.7345e-06 ***
 farmPrice    0.2070310  0.0124152 16.67557 < 2.22e-16 ***
 trend        0.3007469  0.0130683 23.01349 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 3.139838 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -3180,7 +3176,7 @@ Model Formula: consump ~ price + income
 price       -0.2668782  0.0778150 -3.42965  0.0015651 ** 
 income       0.3011344  0.0435444  6.91558 4.9111e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.962096 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -3197,7 +3193,7 @@ income       0.2331218  0.0778150  2.99585  0.0050026 **
 farmPrice   -0.1665940  0.1110965 -1.49954  0.1426998    
 trend        0.3011344  0.0435444  6.91558 4.9111e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.649945 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -3244,7 +3240,7 @@ Model Formula: price ~ consump - 1
          Estimate Std. Error t value   Pr(>|t|)    
 consump 0.9901867  0.0147976 66.9155 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 6.681506 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -3260,7 +3256,7 @@ Model Formula: farmPrice ~ consump + trend
 consump        2.123094    0.476729  4.45346 0.00034883 ***
 trend         -0.862227    0.302675 -2.84868 0.01110505 *  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 8.44147 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -3306,7 +3302,7 @@ Model Formula: consump ~ price - 1
        Estimate Std. Error t value   Pr(>|t|)    
 price 1.0061285  0.0150281 66.9497 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 6.733638 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -3320,7 +3316,7 @@ Model Formula: consump ~ trend - 1
       Estimate Std. Error t value   Pr(>|t|)    
 trend 7.409599   0.923503 8.02336 1.6049e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 49.475664 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -3368,7 +3364,7 @@ Model Formula: consump ~ trend - 1
       Estimate Std. Error t value   Pr(>|t|)    
 trend 7.404870   0.923529 8.01802 1.6209e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 49.47563 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -3382,7 +3378,7 @@ Model Formula: price ~ trend - 1
       Estimate Std. Error t value  Pr(>|t|)    
 trend 7.318426   0.928669 7.88055 2.094e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 49.751015 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -3427,7 +3423,7 @@ Model Formula: consump ~ trend - 1
       Estimate Std. Error t value   Pr(>|t|)    
 trend 7.387505   0.923234 8.00177 9.4142e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 49.476091 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -3441,7 +3437,7 @@ Model Formula: price ~ trend - 1
       Estimate Std. Error t value   Pr(>|t|)    
 trend 7.387505   0.923234 8.00177 9.4142e-10 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 49.758259 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -3487,7 +3483,7 @@ Model Formula: consump ~ 1
               Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 100.898200   0.839979  120.12 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 3.756498 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -3501,7 +3497,7 @@ Model Formula: price ~ 1
              Estimate Std. Error t value   Pr(>|t|)    
 (Intercept) 100.01905    1.32511 75.4796 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.926086 on 19 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 19 
@@ -3553,7 +3549,7 @@ supply_price        0.1438645  0.0943406  1.52495  0.1367998
 supply_farmPrice    0.2063724  0.0384127  5.37250 6.1445e-06 ***
 supply_trend        0.3325200  0.0640279  5.19336 1.0430e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitsur2e, useDfSys = FALSE, residCov = FALSE ) )
 
@@ -3576,7 +3572,7 @@ Model Formula: consump ~ price + income
 price       -0.2353669  0.0794963 -2.96073  0.0087573 ** 
 income       0.2630793  0.0343562  7.65740 6.5892e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.066217 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -3593,7 +3589,7 @@ price        0.1328254  0.0852704 1.55770    0.13886
 farmPrice    0.1784930  0.0305058 5.85111 2.4578e-05 ***
 trend        0.2630793  0.0343562 7.65740 9.7386e-07 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.597076 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -3639,7 +3635,7 @@ supply_price        0.1332168  0.0953100  1.39772   0.171250
 supply_farmPrice    0.1794809  0.0336540  5.33313 6.3436e-06 ***
 supply_trend        0.2669811  0.0368424  7.24657 2.1812e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitsur4r3 ), residCov = FALSE, equations = FALSE )
 
@@ -3664,7 +3660,7 @@ supply_price        0.2618893  0.0829348  3.15777  0.0032670 **
 supply_farmPrice    0.2271038  0.0170827 13.29439 3.1086e-15 ***
 supply_trend        0.3231256  0.0170395 18.96335 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitsur5, residCov = FALSE ), equations = FALSE )
 
@@ -3689,7 +3685,7 @@ supply_price        0.2202293  0.0839707  2.62269  0.0128319 *
 supply_farmPrice    0.2326705  0.0212149 10.96732 7.1676e-13 ***
 supply_trend        0.3286315  0.0206322 15.92811 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitsur5w, equations = FALSE, residCov = FALSE ),
 +    equations = TRUE )
@@ -3713,7 +3709,7 @@ Model Formula: consump ~ price + income
 price       -0.2752751  0.0837795 -3.28571  0.0023177 ** 
 income       0.3279727  0.0202330 16.20976 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.94271 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -3730,7 +3726,7 @@ price        0.2247249  0.0837795  2.68234   0.011083 *
 farmPrice    0.2318407  0.0208109 11.14034 4.6674e-13 ***
 trend        0.3279727  0.0202330 16.20976 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 2.52447 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -3761,7 +3757,7 @@ Model Formula: consump ~ price + income
 price       -0.2284806  0.0877473 -2.60385   0.018532 *  
 income       0.3097133  0.0458074  6.76120 3.3271e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.982657 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -3778,7 +3774,7 @@ income       0.6638709  0.0422720  15.7047 3.8307e-11 ***
 farmPrice   -0.4715317  0.0369928 -12.7466 8.5406e-10 ***
 trend       -0.7955072  0.0644652 -12.3401 1.3710e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.614546 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -3809,7 +3805,7 @@ Model Formula: consump ~ price + income
 price        -0.3944594   0.0911882 -4.32577 0.00012611 ***
 income        0.3381742   0.0466172  7.25428 2.1330e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.985592 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -3826,7 +3822,7 @@ income       0.3124884  0.1233458  2.53343   0.016074 *
 farmPrice   -0.1972074  0.1157081 -1.70435   0.097439 .  
 trend        0.3381742  0.0466172  7.25428 2.1330e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.702679 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -3859,7 +3855,7 @@ supply_income        0.3106398   0.1101449  2.82028  0.0079497 **
 supply_farmPrice    -0.1959577   0.1034267 -1.89465  0.0666692 .  
 supply_trend         0.3379166   0.0431146  7.83763 4.0071e-09 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitsurio4, residCov = FALSE ), equations = FALSE )
 
@@ -3886,7 +3882,7 @@ supply_price        0.2723882  0.0850135  3.20406  0.0028873 **
 supply_farmPrice    0.2231504  0.0189763 11.75940 1.0369e-13 ***
 supply_trend        0.3202701  0.0184936 17.31787 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( summary( fitsuri4, equations = FALSE ), residCov = FALSE )
 
 systemfit results 
@@ -3912,7 +3908,7 @@ supply_income       0.2354086  0.0777305  3.02852  0.0045940 **
 supply_farmPrice   -0.1666579  0.1108316 -1.50370  0.1416286    
 supply_trend        0.3006798  0.0436282  6.89187 5.2705e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitsuri4w, useDfSys = FALSE, equations = FALSE ) )
 
@@ -3954,7 +3950,7 @@ supply_income       0.2354023  0.0777307  3.02843  0.0079909 **
 supply_farmPrice   -0.1666575  0.1108326 -1.50369  0.1521437    
 supply_trend        0.3006812  0.0436279  6.89195 3.6237e-06 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( summary( fitsurio5r2, equations = FALSE ) )
 
@@ -3998,7 +3994,7 @@ supply_price        0.4353193  0.0815254  5.33967 5.7345e-06 ***
 supply_farmPrice    0.2070310  0.0124152 16.67557 < 2.22e-16 ***
 supply_trend        0.3007469  0.0130683 23.01349 < 2.22e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( summary( fitsuri5r2 ), residCov = FALSE )
 
 systemfit results 
@@ -4022,7 +4018,7 @@ Model Formula: consump ~ price + income
 price       -0.2668782  0.0778150 -3.42965  0.0015651 ** 
 income       0.3011344  0.0435444  6.91558 4.9112e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 1.962096 on 17 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 17 
@@ -4039,7 +4035,7 @@ income       0.2331218  0.0778150  2.99585  0.0050026 **
 farmPrice   -0.1665940  0.1110965 -1.49954  0.1426998    
 trend        0.3011344  0.0435444  6.91558 4.9112e-08 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
 Residual standard error: 5.649945 on 16 degrees of freedom
 Number of observations: 20 Degrees of Freedom: 16 
@@ -7197,7 +7193,7 @@ Model 2: fitsuri1
 1   9 -99.926                         
 2  10 -67.772  1 64.307  1.064e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsuri3, fitsuri1 ) )
 Likelihood ratio test
 
@@ -7207,7 +7203,7 @@ Model 2: fitsuri1
 1   9 -99.926                         
 2  10 -67.772  1 64.307  1.064e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > # iterating, methodResidCov = 0
 > print( lrtest( fitsuri2e, fitsuri1e ) )
 Likelihood ratio test
@@ -7218,7 +7214,7 @@ Model 2: fitsuri1e
 1   9 -99.925                         
 2  10 -67.768  1 64.314  1.061e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsuri3e, fitsuri1e ) )
 Likelihood ratio test
 
@@ -7228,7 +7224,7 @@ Model 2: fitsuri1e
 1   9 -99.925                         
 2  10 -67.768  1 64.314  1.061e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > # non-iterating, methodResidCov = 1, WSUR
 > print( lrtest( fitsur3w, fitsur1w ) )
 Likelihood ratio test
@@ -7250,7 +7246,7 @@ Model 2: fitsur2
 1   8 -58.542                         
 2   9 -52.210  1 12.664  0.0003727 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur4, fitsur3 ) )
 Likelihood ratio test
 
@@ -7260,7 +7256,7 @@ Model 2: fitsur3
 1   8 -58.542                         
 2   9 -52.210  1 12.664  0.0003727 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur5, fitsur2 ) )
 Likelihood ratio test
 
@@ -7270,7 +7266,7 @@ Model 2: fitsur2
 1   8 -58.542                         
 2   9 -52.210  1 12.664  0.0003727 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur5, fitsur3 ) )
 Likelihood ratio test
 
@@ -7280,7 +7276,7 @@ Model 2: fitsur3
 1   8 -58.542                         
 2   9 -52.210  1 12.664  0.0003727 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > # non-iterating, methodResidCov = 0
 > print( lrtest( fitsur4e, fitsur2e ) )
 Likelihood ratio test
@@ -7291,7 +7287,7 @@ Model 2: fitsur2e
 1   8 -58.579                         
 2   9 -51.972  1 13.215  0.0002778 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur4e, fitsur3e ) )
 Likelihood ratio test
 
@@ -7301,7 +7297,7 @@ Model 2: fitsur3e
 1   8 -58.579                         
 2   9 -51.972  1 13.215  0.0002778 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur5e, fitsur2e ) )
 Likelihood ratio test
 
@@ -7311,7 +7307,7 @@ Model 2: fitsur2e
 1   8 -58.579                         
 2   9 -51.972  1 13.215  0.0002778 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur5e, fitsur3e ) )
 Likelihood ratio test
 
@@ -7321,7 +7317,7 @@ Model 2: fitsur3e
 1   8 -58.579                         
 2   9 -51.972  1 13.215  0.0002778 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > # iterating, methodResidCov = 1
 > print( lrtest( fitsurio4, fitsuri2 ) )
 Likelihood ratio test
@@ -7332,7 +7328,7 @@ Model 2: fitsuri2
 1   8 -58.459                         
 2   9 -99.926  1 82.934  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio4, fitsuri2) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7345,7 +7341,7 @@ Model 2: fitsuri3
 1   8 -58.459                         
 2   9 -99.926  1 82.934  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio4, fitsuri3) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7358,7 +7354,7 @@ Model 2: fitsuri2
 1   8 -58.459                         
 2   9 -99.926  1 82.934  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio5, fitsuri2) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7371,7 +7367,7 @@ Model 2: fitsuri3
 1   8 -58.459                         
 2   9 -99.926  1 82.934  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio5, fitsuri3) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7419,7 +7415,7 @@ Model 2: fitsuri2e
 1   8 -58.438                         
 2   9 -99.925  1 82.973  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio4e, fitsuri2e) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7432,7 +7428,7 @@ Model 2: fitsuri3e
 1   8 -58.438                         
 2   9 -99.925  1 82.973  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio4e, fitsuri3e) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7445,7 +7441,7 @@ Model 2: fitsuri2e
 1   8 -58.438                         
 2   9 -99.925  1 82.973  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio5e, fitsuri2e) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7458,7 +7454,7 @@ Model 2: fitsuri3e
 1   8 -58.438                         
 2   9 -99.925  1 82.973  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio5e, fitsuri3e) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7506,7 +7502,7 @@ Model 2: fitsur2we
 1   8 -58.556                         
 2   9 -51.802  1 13.508  0.0002375 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > # iterating, methodResidCov = 1, WSUR
 > print( lrtest( fitsuri2w, fitsuri4w ) )
@@ -7529,7 +7525,7 @@ Model 2: fitsur1
 1   8 -58.542                         
 2  10 -51.614  2 13.855  0.0009805 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur5, fitsur1 ) )
 Likelihood ratio test
 
@@ -7539,7 +7535,7 @@ Model 2: fitsur1
 1   8 -58.542                         
 2  10 -51.614  2 13.855  0.0009805 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > # non-iterating, methodResidCov = 0
 > print( lrtest( fitsur4e, fitsur1e ) )
 Likelihood ratio test
@@ -7550,7 +7546,7 @@ Model 2: fitsur1e
 1   8 -58.579                         
 2  10 -51.622  2 13.915  0.0009515 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur5e, fitsur1e ) )
 Likelihood ratio test
 
@@ -7560,7 +7556,7 @@ Model 2: fitsur1e
 1   8 -58.579                         
 2  10 -51.622  2 13.915  0.0009515 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > # iterating, methodResidCov = 1
 > print( lrtest( fitsurio4, fitsuri1 ) )
 Likelihood ratio test
@@ -7571,7 +7567,7 @@ Model 2: fitsuri1
 1   8 -58.459                         
 2  10 -67.772  2 18.626  9.023e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio4, fitsuri1) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7584,7 +7580,7 @@ Model 2: fitsuri1
 1   8 -58.459                         
 2  10 -67.772  2 18.626  9.023e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio5, fitsuri1) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7598,7 +7594,7 @@ Model 2: fitsuri4
 1  10  -67.772                         
 2   8 -100.876 -2 66.206  4.202e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsuri1, fitsuri5 ) )
 Likelihood ratio test
 
@@ -7608,7 +7604,7 @@ Model 2: fitsuri5
 1  10  -67.772                         
 2   8 -100.876 -2 66.206  4.202e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > # iterating, methodResidCov = 0
 > print( lrtest( fitsurio4e, fitsuri1e ) )
 Likelihood ratio test
@@ -7619,7 +7615,7 @@ Model 2: fitsuri1e
 1   8 -58.438                        
 2  10 -67.768  2 18.66  8.874e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio4e, fitsuri1e) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7632,7 +7628,7 @@ Model 2: fitsuri1e
 1   8 -58.438                        
 2  10 -67.768  2 18.66  8.874e-05 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 Warning message:
 In lrtest.systemfit(fitsurio5e, fitsuri1e) :
   model '2' has a smaller log-likelihood value than the more restricted model '1'
@@ -7646,7 +7642,7 @@ Model 2: fitsuri4e
 1  10  -67.768                        
 2   8 -100.873 -2 66.21  4.195e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsuri1e, fitsuri5e ) )
 Likelihood ratio test
 
@@ -7656,7 +7652,7 @@ Model 2: fitsuri5e
 1  10  -67.768                        
 2   8 -100.873 -2 66.21  4.195e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > # non-iterating, methodResidCov = 1, WSUR
 > print( lrtest( fitsur5w, fitsur1w ) )
 Likelihood ratio test
@@ -7667,7 +7663,7 @@ Model 2: fitsur1w
 1   8 -58.519                        
 2  10 -51.614  2 13.809   0.001003 **
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > # testing the two restrictions with one call
 > # non-iterating, methodResidCov = 1
@@ -7682,7 +7678,7 @@ Model 3: fitsur1
 2   9 -52.210  1 12.6642  0.0003727 ***
 3  10 -51.614  1  1.1906  0.2752006    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur5, fitsur3, fitsur1 ) )
 Likelihood ratio test
 
@@ -7694,7 +7690,7 @@ Model 3: fitsur1
 2   9 -52.210  1 12.6642  0.0003727 ***
 3  10 -51.614  1  1.1906  0.2752006    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur1, fitsur3, fitsur5 ) )
 Likelihood ratio test
 
@@ -7706,7 +7702,7 @@ Model 3: fitsur5
 2   9 -52.210 -1  1.1906  0.2752006    
 3   8 -58.542 -1 12.6642  0.0003727 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( object = fitsur5, fitsur3, fitsur1 ) )
 Likelihood ratio test
 
@@ -7718,7 +7714,7 @@ Model 3: fitsur1
 2   9 -52.210  1 12.6642  0.0003727 ***
 3  10 -51.614  1  1.1906  0.2752006    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur3, object = fitsur5, fitsur1 ) )
 Likelihood ratio test
 
@@ -7730,7 +7726,7 @@ Model 3: fitsur1
 2   9 -52.210  1 12.6642  0.0003727 ***
 3  10 -51.614  1  1.1906  0.2752006    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsur3, fitsur1, object = fitsur5 ) )
 Likelihood ratio test
 
@@ -7742,7 +7738,7 @@ Model 3: fitsur1
 2   9 -52.210  1 12.6642  0.0003727 ***
 3  10 -51.614  1  1.1906  0.2752006    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > # iterating, methodResidCov = 0
 > print( lrtest( fitsuri4e, fitsuri2e, fitsuri1e ) )
 Likelihood ratio test
@@ -7755,7 +7751,7 @@ Model 3: fitsuri1e
 2   9  -99.925  1  1.8962     0.1685    
 3  10  -67.768  1 64.3136  1.061e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > print( lrtest( fitsuri5e, fitsuri3e, fitsuri1e ) )
 Likelihood ratio test
 
@@ -7767,7 +7763,7 @@ Model 3: fitsuri1e
 2   9  -99.925  1  1.8962     0.1685    
 3  10  -67.768  1 64.3136  1.061e-15 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > ## ************** F tests ****************
 > # testing first restriction
@@ -7834,7 +7830,7 @@ Model 2: fitsuri1e2
 1     34                        
 2     33  1 139.68 2.107e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1e2, restrict )
 Linear hypothesis test (Theil's F test)
 
@@ -7848,7 +7844,7 @@ Model 2: fitsuri1e2
 1     34                        
 2     33  1 139.68 2.107e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsuri1r3, restrm ) )
 Linear hypothesis test (Theil's F test)
@@ -7863,7 +7859,7 @@ Model 2: fitsuri1r3
 1     34                        
 2     33  1 140.82 1.887e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1r3, restrict )
 Linear hypothesis test (Theil's F test)
 
@@ -7877,7 +7873,7 @@ Model 2: fitsuri1r3
 1     34                        
 2     33  1 140.82 1.887e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsur1we2, restrm ) )
 Linear hypothesis test (Theil's F test)
@@ -7917,7 +7913,7 @@ Model 2: fitsuri1wr3
 1     34                        
 2     33  1 140.82 1.887e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1wr3, restrict )
 Linear hypothesis test (Theil's F test)
 
@@ -7931,7 +7927,7 @@ Model 2: fitsuri1wr3
 1     34                        
 2     33  1 140.82 1.887e-13 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > # testing second restriction
 > restrOnly2m <- matrix(0,1,7)
@@ -7979,7 +7975,7 @@ Model 2: fitsuri1
 1     34                      
 2     33  1 12.206 0.001379 **
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1, restrictOnly2i )
 Linear hypothesis test (Theil's F test)
 
@@ -7993,7 +7989,7 @@ Model 2: fitsuri1
 1     34                      
 2     33  1 12.206 0.001379 **
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > # first restriction imposed
 > print( linearHypothesis( fitsur2, restrOnly2m, restrOnly2q ) )
@@ -8009,7 +8005,7 @@ Model 2: fitsur2
 1     35                    
 2     34  1 5.5006 0.02498 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsur2, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
@@ -8023,7 +8019,7 @@ Model 2: fitsur2
 1     35                    
 2     34  1 5.5006 0.02498 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsur3, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
@@ -8038,7 +8034,7 @@ Model 2: fitsur3
 1     35                    
 2     34  1 5.5006 0.02498 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsur3, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
@@ -8052,7 +8048,7 @@ Model 2: fitsur3
 1     35                    
 2     34  1 5.5006 0.02498 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsuri2e, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
@@ -8117,7 +8113,7 @@ Model 2: fitsur2we
 1     35                    
 2     34  1 6.2567 0.01735 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsur2we, restrictOnly2 )
 Linear hypothesis test (Theil's F test)
 
@@ -8131,7 +8127,7 @@ Model 2: fitsur2we
 1     35                    
 2     34  1 6.2567 0.01735 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsuri3we, restrOnly2m, restrOnly2q ) )
 Linear hypothesis test (Theil's F test)
@@ -8173,7 +8169,7 @@ Model 2: fitsur1r3
 1     35                    
 2     33  2 2.6017 0.08929 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsur1r3, restrict2 )
 Linear hypothesis test (Theil's F test)
 
@@ -8188,7 +8184,7 @@ Model 2: fitsur1r3
 1     35                    
 2     33  2 2.6017 0.08929 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsuri1e2, restr2m, restr2q ) )
 Linear hypothesis test (Theil's F test)
@@ -8204,7 +8200,7 @@ Model 2: fitsuri1e2
 1     35                        
 2     33  2 89.085 4.996e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1e2, restrict2i )
 Linear hypothesis test (Theil's F test)
 
@@ -8219,7 +8215,7 @@ Model 2: fitsuri1e2
 1     35                        
 2     33  2 89.085 4.996e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsur1w, restr2m, restr2q ) )
 Linear hypothesis test (Theil's F test)
@@ -8262,7 +8258,7 @@ Model 2: fitsuri1wr3
 1     35                        
 2     33  2 89.564 4.641e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1wr3, restrict2i )
 Linear hypothesis test (Theil's F test)
 
@@ -8277,7 +8273,7 @@ Model 2: fitsuri1wr3
 1     35                        
 2     33  2 89.564 4.641e-14 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## ************** Wald tests ****************
@@ -8345,7 +8341,7 @@ Model 2: fitsuri1e2
 1     34                         
 2     33  1 147.44  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1e2, restrict, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
@@ -8359,7 +8355,7 @@ Model 2: fitsuri1e2
 1     34                         
 2     33  1 147.44  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsuri1r3, restrm, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -8374,7 +8370,7 @@ Model 2: fitsuri1r3
 1     34                         
 2     33  1 147.32  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1r3, restrict, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
@@ -8388,7 +8384,7 @@ Model 2: fitsuri1r3
 1     34                         
 2     33  1 147.32  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsur1w, restrm, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -8455,7 +8451,7 @@ Model 2: fitsuri1
 1     34                         
 2     33  1 12.213  0.0004745 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1, restrictOnly2i, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
@@ -8469,7 +8465,7 @@ Model 2: fitsuri1
 1     34                         
 2     33  1 12.213  0.0004745 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > # first restriction imposed
 > print( linearHypothesis( fitsur2, restrOnly2m, restrOnly2q, test = "Chisq" ) )
@@ -8485,7 +8481,7 @@ Model 2: fitsur2
 1     35                       
 2     34  1 3.9457    0.04699 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsur2, restrictOnly2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
@@ -8499,7 +8495,7 @@ Model 2: fitsur2
 1     35                       
 2     34  1 3.9457    0.04699 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsur3, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -8514,7 +8510,7 @@ Model 2: fitsur3
 1     35                       
 2     34  1 3.9457    0.04699 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsur3, restrictOnly2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
@@ -8528,7 +8524,7 @@ Model 2: fitsur3
 1     35                       
 2     34  1 3.9457    0.04699 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsuri2e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -8543,7 +8539,7 @@ Model 2: fitsuri2e
 1     35                       
 2     34  1 2.7641     0.0964 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri2e, restrictOnly2i, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
@@ -8557,7 +8553,7 @@ Model 2: fitsuri2e
 1     35                       
 2     34  1 2.7641     0.0964 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsuri3e, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -8572,7 +8568,7 @@ Model 2: fitsuri3e
 1     35                       
 2     34  1 2.7641     0.0964 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri3e, restrictOnly2i, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
@@ -8586,7 +8582,7 @@ Model 2: fitsuri3e
 1     35                       
 2     34  1 2.7641     0.0964 .
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsuri2w, restrOnly2m, restrOnly2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -8626,7 +8622,7 @@ Model 2: fitsur3w
 1     35                       
 2     34  1 4.2575    0.03908 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsur3w, restrictOnly2, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
@@ -8640,7 +8636,7 @@ Model 2: fitsur3w
 1     35                       
 2     34  1 4.2575    0.03908 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > # testing both of the restrictions
@@ -8685,7 +8681,7 @@ Model 2: fitsuri1e2
 1     35                         
 2     33  2 188.07  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1e2, restrict2i, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
@@ -8700,7 +8696,7 @@ Model 2: fitsuri1e2
 1     35                         
 2     33  2 188.07  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > print( linearHypothesis( fitsur1we2, restr2m, restr2q, test = "Chisq" ) )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
@@ -8743,7 +8739,7 @@ Model 2: fitsuri1wr3
 1     35                         
 2     33  2 187.39  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > linearHypothesis( fitsuri1wr3, restrict2i, test = "Chisq" )
 Linear hypothesis test (Chi^2 statistic of a Wald test)
 
@@ -8758,7 +8754,7 @@ Model 2: fitsuri1wr3
 1     35                         
 2     33  2 187.39  < 2.2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 > 
 > 
 > ## ****************** model frame **************************
@@ -11309,4 +11305,4 @@ Error in bread.systemfit(fitsurS4) :
 > 
 > proc.time()
    user  system elapsed 
-  4.576   0.068   4.633 
+  4.299   0.111   4.395 
