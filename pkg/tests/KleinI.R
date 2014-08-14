@@ -91,7 +91,8 @@ for( methodNo in 1:5 ) {
    
    cat( "Estimating function\n" )
    print( estfun( kleinModel ) )
-   print( colSums( estfun( kleinModel ) ) )
+   print( all.equal( colSums( estfun( kleinModel ) ),
+      rep( 0, ncol( estfun( kleinModel ) ) ), check.attributes = FALSE ) )
 
    cat( "> Bread\n" )
    print( bread( kleinModel ) )
