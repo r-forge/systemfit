@@ -11105,7 +11105,7 @@ eq1_(Intercept) eq2_(Intercept)
 > 
 > 
 > ## **************** bread ************************
-> bread( fitsur1 )
+> round( bread( fitsur1 ), digits = 7 )
      demand_(Intercept) demand_price demand_income supply_(Intercept)
 [1,]           2258.680     -23.5779        1.0971            2354.23
 [2,]            -23.578       0.3134       -0.0796             -15.01
@@ -11123,7 +11123,7 @@ eq1_(Intercept) eq2_(Intercept)
 [6,]       0.0252           0.0636       0.0807
 [7,]       0.0320           0.0807       0.1845
 > 
-> bread( fitsur1e2 )
+> round( bread( fitsur1e2 ), digits = 7 )
      demand_(Intercept) demand_price demand_income supply_(Intercept)
 [1,]            2257.61     -23.5004        1.0286            2442.20
 [2,]             -23.50       0.3077       -0.0746             -16.15
@@ -11141,7 +11141,7 @@ eq1_(Intercept) eq2_(Intercept)
 [6,]       0.0234           0.0590       0.0780
 [7,]       0.0309           0.0780       0.1640
 > 
-> bread( fitsur1r3 )
+> round( bread( fitsur1r3 ), digits = 7 )
      demand_(Intercept) demand_price demand_income supply_(Intercept)
 [1,]           2257.728     -23.5088        1.0361            2434.43
 [2,]            -23.509       0.3083       -0.0752             -16.03
@@ -11159,7 +11159,7 @@ eq1_(Intercept) eq2_(Intercept)
 [6,]       0.0235           0.0595       0.0784
 [7,]       0.0310           0.0784       0.1660
 > 
-> bread( fitsur1w )
+> round( bread( fitsur1w ), digits = 7 )
      demand_(Intercept) demand_price demand_income supply_(Intercept)
 [1,]           2258.680     -23.5779        1.0971            2354.23
 [2,]            -23.578       0.3134       -0.0796             -15.01
@@ -11177,7 +11177,7 @@ eq1_(Intercept) eq2_(Intercept)
 [6,]       0.0252           0.0636       0.0807
 [7,]       0.0320           0.0807       0.1845
 > 
-> bread( fitsuri1e )
+> round( bread( fitsuri1e ), digits = 7 )
      demand_(Intercept) demand_price demand_income supply_(Intercept)
 [1,]           1876.862     -19.2519        0.5677             -81.89
 [2,]            -19.252       0.2661       -0.0755              -2.81
@@ -11195,7 +11195,7 @@ eq1_(Intercept) eq2_(Intercept)
 [6,]       -0.0327           0.0441       0.0571
 [7,]       -0.0527           0.0571       0.1367
 > 
-> bread( fitsuri1wr3 )
+> round( bread( fitsuri1wr3 ), digits = 7 )
      demand_(Intercept) demand_price demand_income supply_(Intercept)
 [1,]           2182.020     -22.2793        0.5557            -108.13
 [2,]            -22.279       0.3080       -0.0874              -3.49
@@ -11213,19 +11213,19 @@ eq1_(Intercept) eq2_(Intercept)
 [6,]       -0.0407           0.0547       0.0717
 [7,]       -0.0653           0.0717       0.1662
 > 
-> bread( fitsurS1 )
+> round( bread( fitsurS1 ), digits = 7 )
      eq1_consump eq2_(Intercept) eq2_consump eq2_trend
-[1,]    8.76e-03       -1.10e-13   -4.02e-03 -8.06e-17
-[2,]   -1.50e-13        9.12e+04   -9.08e+02  4.89e+01
-[3,]   -4.02e-03       -9.08e+02    9.09e+00 -8.66e-01
-[4,]   -1.25e-16        4.89e+01   -8.66e-01  3.66e+00
+[1,]     0.00876             0.0   -4.02e-03     0.000
+[2,]     0.00000         91218.4   -9.08e+02    48.892
+[3,]    -0.00402          -908.0    9.09e+00    -0.866
+[4,]     0.00000            48.9   -8.66e-01     3.664
 > 
-> bread( fitsurS2 )
+> round( bread( fitsurS2 ), digits = 7 )
      eq1_price eq2_trend
 [1,]   0.00903  -0.00752
 [2,]  -0.00752  34.11430
 > 
-> bread( fitsurS3 )
+> round( bread( fitsurS3 ), digits = 7 )
      eq1_trend eq2_trend
 [1,]      34.1      34.0
 [2,]      34.0      34.5
@@ -11236,4 +11236,4 @@ Error in bread.systemfit(fitsurS4) :
 > 
 > proc.time()
    user  system elapsed 
-  6.512   0.144   6.655 
+  6.152   0.144   6.298 

@@ -1259,22 +1259,22 @@ round( colSums( estfun( fitsurS5 ) ), digits = 7 )
 
 
 ## **************** bread ************************
-bread( fitsur1 )
+round( bread( fitsur1 ), digits = 7 )
 
-bread( fitsur1e2 )
+round( bread( fitsur1e2 ), digits = 7 )
 
-bread( fitsur1r3 )
+round( bread( fitsur1r3 ), digits = 7 )
 
-bread( fitsur1w )
+round( bread( fitsur1w ), digits = 7 )
 
-bread( fitsuri1e )
+round( bread( fitsuri1e ), digits = 7 )
 
-bread( fitsuri1wr3 )
+round( bread( fitsuri1wr3 ), digits = 7 )
 
-bread( fitsurS1 )
+round( bread( fitsurS1 ), digits = 7 )
 
-bread( fitsurS2 )
+round( bread( fitsurS2 ), digits = 7 )
 
-bread( fitsurS3 )
+round( bread( fitsurS3 ), digits = 7 )
 
 try( bread( fitsurS4 ) )

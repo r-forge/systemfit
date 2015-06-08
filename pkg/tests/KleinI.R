@@ -90,7 +90,7 @@ for( methodNo in 1:5 ) {
    print( logLik( kleinModel ) )
    
    cat( "Estimating function\n" )
-   print( estfun( kleinModel ) )
+   print( round( estfun( kleinModel ), digits = 7 ) )
    print( all.equal( colSums( estfun( kleinModel ) ),
       rep( 0, ncol( estfun( kleinModel ) ) ), check.attributes = FALSE ) )
 
