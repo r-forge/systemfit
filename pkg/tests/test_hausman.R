@@ -1,5 +1,5 @@
-library( systemfit )
-options( digits = 3 )
+library( "systemfit" )
+options( digits = 5 )
 
 data( "Kmenta" )
 useMatrix <- FALSE
