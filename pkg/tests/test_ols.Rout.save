@@ -1,6 +1,6 @@
 
-R version 3.1.0 (2014-04-10) -- "Spring Dance"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
+Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -4701,11 +4701,11 @@ supply_17        -22.9            -29.2       -4.500
 supply_18       -254.7           -226.5      -44.080
 supply_19        328.9            277.7       59.084
 supply_20        194.5            159.4       34.282
-> colSums( estfun( fitols1 ) )
+> round( colSums( estfun( fitols1 ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          8.53e-14           4.12e-11          -4.59e-11           1.42e-14 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          3.96e-11           2.41e-11          -2.42e-13 
+                 0                  0                  0 
 > 
 > estfun( fitols1s )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -4790,11 +4790,11 @@ supply_17        -22.9            -29.2       -4.500
 supply_18       -254.7           -226.5      -44.080
 supply_19        328.9            277.7       59.084
 supply_20        194.5            159.4       34.282
-> colSums( estfun( fitols1s ) )
+> round( colSums( estfun( fitols1s ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          8.53e-14           4.12e-11          -4.59e-11           1.42e-14 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          3.96e-11           2.41e-11          -2.42e-13 
+                 0                  0                  0 
 > 
 > estfun( fitols1r )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -4879,11 +4879,11 @@ supply_17        -22.9            -29.2       -4.500
 supply_18       -254.7           -226.5      -44.080
 supply_19        328.9            277.7       59.084
 supply_20        194.5            159.4       34.282
-> colSums( estfun( fitols1r ) )
+> round( colSums( estfun( fitols1r ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          8.53e-14           4.12e-11          -4.59e-11           1.42e-14 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          3.96e-11           2.41e-11          -2.42e-13 
+                 0                  0                  0 
 > 
 > try( estfun( fitols2 ) )
 Error in estfun.systemfit(fitols2) : 
@@ -4999,4 +4999,4 @@ Error in bread.systemfit(fitols2) :
 > 
 > proc.time()
    user  system elapsed 
-  2.464   0.079   2.524 
+  3.856   0.128   3.986 

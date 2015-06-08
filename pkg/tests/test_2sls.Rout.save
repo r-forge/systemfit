@@ -1,6 +1,6 @@
 
-R version 3.1.0 (2014-04-10) -- "Spring Dance"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
+Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -6610,11 +6610,11 @@ supply_17         34.3             43.2        6.650
 supply_18       -208.3           -190.7      -37.106
 supply_19        275.4            231.8       49.327
 supply_20         46.5             37.8        8.122
-> colSums( estfun( fit2sls1 ) )
+> round( colSums( estfun( fit2sls1 ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -2.71e-13          -6.79e-11          -3.20e-11          -8.60e-16 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -2.14e-11           2.85e-11          -7.47e-13 
+                 0                  0                  0 
 > 
 > estfun( fit2sls1s )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -6699,11 +6699,11 @@ supply_17         34.3             43.2        6.650
 supply_18       -208.3           -190.7      -37.106
 supply_19        275.4            231.8       49.327
 supply_20         46.5             37.8        8.122
-> colSums( estfun( fit2sls1s ) )
+> round( colSums( estfun( fit2sls1s ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -2.71e-13          -6.79e-11          -3.20e-11          -8.60e-16 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -2.14e-11           2.85e-11          -7.47e-13 
+                 0                  0                  0 
 > 
 > estfun( fit2sls1r )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -6788,11 +6788,11 @@ supply_17         34.3             43.2        6.650
 supply_18       -208.3           -190.7      -37.106
 supply_19        275.4            231.8       49.327
 supply_20         46.5             37.8        8.122
-> colSums( estfun( fit2sls1r ) )
+> round( colSums( estfun( fit2sls1r ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -2.71e-13          -6.79e-11          -3.20e-11          -8.60e-16 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -2.14e-11           2.85e-11          -7.47e-13 
+                 0                  0                  0 
 > 
 > 
 > ## **************** bread ************************
@@ -6876,4 +6876,4 @@ supply_trend            0.06577
 > 
 > proc.time()
    user  system elapsed 
-  2.673   0.084   2.739 
+  4.168   0.144   4.310 

@@ -75,7 +75,7 @@ for( methodNo in 1:5 ) {
       cat( "> matrix of instrumental variables\n" )
       print( model.matrix( kleinModel, which = "z" ) )
       cat( "> matrix of fitted regressors\n" )
-      print( model.matrix( kleinModel, which = "xHat" ) )
+      print( round( model.matrix( kleinModel, which = "xHat" ), digits = 7 ) )
    }
    cat( "> nobs\n" )
    print( nobs( kleinModel ) )

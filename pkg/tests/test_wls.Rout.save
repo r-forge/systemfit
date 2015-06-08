@@ -1,6 +1,6 @@
 
-R version 3.1.0 (2014-04-10) -- "Spring Dance"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
+Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -6139,11 +6139,11 @@ supply_17        -3.96            -5.06      -0.7779
 supply_18       -44.04           -39.16      -7.6205
 supply_19        56.86            48.01      10.2144
 supply_20        33.63            27.56       5.9267
-> colSums( estfun( fitwls1 ) )
+> round( colSums( estfun( fitwls1 ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -9.52e-14          -4.30e-12          -1.07e-11           6.38e-14 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          1.63e-12          -7.38e-12          -9.70e-14 
+                 0                  0                  0 
 > 
 > estfun( fitwlsi1e )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -6228,11 +6228,11 @@ supply_17        -4.95            -6.32       -0.972
 supply_18       -55.05           -48.95       -9.526
 supply_19        71.08            60.01       12.768
 supply_20        42.04            34.45        7.408
-> colSums( estfun( fitwlsi1e ) )
+> round( colSums( estfun( fitwlsi1e ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          1.30e-13          -2.52e-11           2.53e-12           4.29e-14 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -7.59e-12          -1.02e-11          -9.07e-13 
+                 0                  0                  0 
 > 
 > 
 > ## **************** bread ************************
@@ -6274,4 +6274,4 @@ demand_(Intercept)       demand_price      demand_income supply_(Intercept)
 > 
 > proc.time()
    user  system elapsed 
-  2.587   0.065   2.636 
+  4.176   0.164   4.334 

@@ -1,6 +1,6 @@
 
-R version 3.1.0 (2014-04-10) -- "Spring Dance"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
+Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -10464,11 +10464,11 @@ supply_17       -41.05           -52.44      -8.0678
 supply_18      -281.20          -250.07     -48.6623
 supply_19       192.24           162.31      34.5341
 supply_20        86.52            70.90      15.2466
-> colSums( estfun( fitsur1 ) )
+> round( colSums( estfun( fitsur1 ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -1.41e-12           1.61e-11           1.31e-11           2.57e-13 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -6.10e-12           5.18e-11           1.30e-12 
+                 0                  0                  0 
 > 
 > estfun( fitsur1e2 )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -10553,11 +10553,11 @@ supply_17      -45.011          -57.501      -8.8464
 supply_18     -378.445         -336.546     -65.4901
 supply_19      263.588          222.545      47.3500
 supply_20      127.621          104.580      22.4903
-> colSums( estfun( fitsur1e2 ) )
+> round( colSums( estfun( fitsur1e2 ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -4.68e-13           3.79e-11           9.63e-11           8.40e-13 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          7.40e-11          -3.09e-11           5.76e-12 
+                 0                  0                  0 
 > 
 > estfun( fitsur1r3 )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -10642,11 +10642,11 @@ supply_17      -44.820           -57.26     -8.80876
 supply_18     -367.434          -326.75    -63.58452
 supply_19      255.253           215.51     45.85274
 supply_20      122.595           100.46     21.60450
-> colSums( estfun( fitsur1r3 ) )
+> round( colSums( estfun( fitsur1r3 ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          1.45e-12           7.30e-11           6.22e-12          -1.10e-12 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          4.28e-13           1.32e-10           1.39e-12 
+                 0                  0                  0 
 > 
 > estfun( fitsur1w )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -10731,11 +10731,11 @@ supply_17       -41.05           -52.44      -8.0678
 supply_18      -281.20          -250.07     -48.6623
 supply_19       192.24           162.31      34.5341
 supply_20        86.52            70.90      15.2466
-> colSums( estfun( fitsur1w ) )
+> round( colSums( estfun( fitsur1w ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          9.98e-13          -9.41e-11           7.58e-11           9.67e-13 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          2.25e-11           4.90e-11          -6.77e-13 
+                 0                  0                  0 
 > 
 > estfun( fitsuri1e )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -10820,11 +10820,11 @@ supply_17       -113.05          -129.59      -19.937
 supply_18        396.95           351.71       68.440
 supply_19         33.69            27.18        5.782
 supply_20        -49.83           -36.46       -7.841
-> colSums( estfun( fitsuri1e ) )
+> round( colSums( estfun( fitsuri1e ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -8.19e-13           1.09e-10           4.47e-11          -1.36e-12 
+                 0                  0                  0                  0 
      supply_income   supply_farmPrice       supply_trend 
-         -1.81e-10           1.55e-13           3.01e-12 
+                 0                  0                  0 
 > 
 > estfun( fitsuri1wr3 )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -10909,11 +10909,11 @@ supply_17        -98.33          -112.71      -17.341
 supply_18        349.57           309.73       60.271
 supply_19         34.05            27.47        5.845
 supply_20        -37.92           -27.75       -5.967
-> colSums( estfun( fitsuri1wr3 ) )
+> round( colSums( estfun( fitsuri1wr3 ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          3.68e-13           7.60e-11           4.59e-11          -4.06e-13 
+                 0                  0                  0                  0 
      supply_income   supply_farmPrice       supply_trend 
-          3.26e-11          -5.84e-11          -1.27e-12 
+                 0                  0                  0 
 > 
 > estfun( fitsurS1 )
        eq1_consump eq2_(Intercept) eq2_consump eq2_trend
@@ -10957,9 +10957,9 @@ eq2_17      11.047         0.23271      24.091    3.9561
 eq2_18       3.346         0.07302       7.297    1.3144
 eq2_19      -7.478        -0.15498     -16.307   -2.9445
 eq2_20      -5.570        -0.11434     -12.146   -2.2868
-> colSums( estfun( fitsurS1 ) )
+> round( colSums( estfun( fitsurS1 ) ), digits = 7 )
     eq1_consump eq2_(Intercept)     eq2_consump       eq2_trend 
-      -1.46e-12       -2.71e-14        1.32e-12        2.58e-14 
+              0               0               0               0 
 > 
 > estfun( fitsurS2 )
        eq1_price eq2_trend
@@ -11003,9 +11003,9 @@ eq2_17  -0.09018 -0.155889
 eq2_18  -0.16161 -0.245985
 eq2_19  -0.17473 -0.276076
 eq2_20  -0.22123 -0.342915
-> colSums( estfun( fitsurS2 ) )
+> round( colSums( estfun( fitsurS2 ) ), digits = 7 )
 eq1_price eq2_trend 
- 1.19e-12  1.45e-15 
+        0         0 
 > 
 > estfun( fitsurS3 )
        eq1_trend eq2_trend
@@ -11049,9 +11049,9 @@ eq2_17    14.428   -14.479
 eq2_18    11.167   -11.207
 eq2_19    14.155   -14.205
 eq2_20    14.719   -14.771
-> colSums( estfun( fitsurS3 ) )
+> round( colSums( estfun( fitsurS3 ) ), digits = 7 )
 eq1_trend eq2_trend 
--4.50e-14 -1.12e-13 
+        0         0 
 > 
 > try( estfun( fitsurS4 ) )
 Error in estfun.systemfit(fitsurS4) : 
@@ -11099,9 +11099,9 @@ eq2_17         0.06016        -0.38875
 eq2_18        -0.01778         0.11492
 eq2_19        -0.02558         0.16532
 eq2_20        -0.05994         0.38731
-> colSums( estfun( fitsurS5 ) )
+> round( colSums( estfun( fitsurS5 ) ), digits = 7 )
 eq1_(Intercept) eq2_(Intercept) 
-      -1.11e-13        3.53e-14 
+              0               0 
 > 
 > 
 > ## **************** bread ************************
@@ -11236,4 +11236,4 @@ Error in bread.systemfit(fitsurS4) :
 > 
 > proc.time()
    user  system elapsed 
-   4.33    0.10    4.42 
+  6.512   0.144   6.655 

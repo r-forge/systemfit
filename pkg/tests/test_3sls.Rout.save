@@ -1,6 +1,6 @@
 
-R version 3.1.0 (2014-04-10) -- "Spring Dance"
-Copyright (C) 2014 The R Foundation for Statistical Computing
+R version 3.2.0 (2015-04-16) -- "Full of Ingredients"
+Copyright (C) 2015 The R Foundation for Statistical Computing
 Platform: x86_64-pc-linux-gnu (64-bit)
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -17938,23 +17938,23 @@ trend          0.325     0.0205   15.81  0.00000
 > 
 > 
 > ## *********** variance covariance matrix of the coefficients *******
-> print( round( vcov( fit3sls[[ 3 ]]$e1c ), digits = 6 ) )
+> print( round( vcov( fit3sls[[ 3 ]]$e1c ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            62.7397     -0.67342      0.049302
-demand_price                  -0.6734      0.00931     -0.002642
-demand_income                  0.0493     -0.00264      0.002204
-supply_(Intercept)            65.2708     -0.36561     -0.291978
-supply_price                  -0.6979      0.00620      0.000793
-supply_farmPrice               0.0423     -0.00227      0.001891
-supply_trend                   0.0638     -0.00342      0.002853
+demand_(Intercept)            62.7397     -0.67342       0.04930
+demand_price                  -0.6734      0.00931      -0.00264
+demand_income                  0.0493     -0.00264       0.00220
+supply_(Intercept)            65.2708     -0.36561      -0.29198
+supply_price                  -0.6979      0.00620       0.00079
+supply_farmPrice               0.0423     -0.00227       0.00189
+supply_trend                   0.0638     -0.00342       0.00285
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)             65.271    -0.697896         0.042299
-demand_price                   -0.366     0.006204        -0.002267
-demand_income                  -0.292     0.000793         0.001891
-supply_(Intercept)            141.261    -1.082512        -0.292998
-supply_price                   -1.083     0.009931         0.000803
-supply_farmPrice               -0.293     0.000803         0.001915
-supply_trend                   -0.417     0.001103         0.002628
+demand_(Intercept)             65.271     -0.69790          0.04230
+demand_price                   -0.366      0.00620         -0.00227
+demand_income                  -0.292      0.00079          0.00189
+supply_(Intercept)            141.261     -1.08251         -0.29300
+supply_price                   -1.083      0.00993          0.00080
+supply_farmPrice               -0.293      0.00080          0.00192
+supply_trend                   -0.417      0.00110          0.00263
                    supply_trend
 demand_(Intercept)      0.06383
 demand_price           -0.00342
@@ -17963,203 +17963,203 @@ supply_(Intercept)     -0.41674
 supply_price            0.00110
 supply_farmPrice        0.00263
 supply_trend            0.00500
-> print( round( vcov( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]] ), digits = 6 ) )
-            (Intercept)     price farmPrice    trend
-(Intercept)     141.261 -1.082512 -0.292998 -0.41674
-price            -1.083  0.009931  0.000803  0.00110
-farmPrice        -0.293  0.000803  0.001915  0.00263
-trend            -0.417  0.001103  0.002628  0.00500
+> print( round( vcov( fit3sls[[ 4 ]]$e1c$eq[[ 2 ]] ), digits = 5 ) )
+            (Intercept)    price farmPrice    trend
+(Intercept)     141.261 -1.08251  -0.29300 -0.41674
+price            -1.083  0.00993   0.00080  0.00110
+farmPrice        -0.293  0.00080   0.00192  0.00263
+trend            -0.417  0.00110   0.00263  0.00500
 > 
-> print( round( vcov( fit3sls[[ 4 ]]$e2 ), digits = 6 ) )
+> print( round( vcov( fit3sls[[ 4 ]]$e2 ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            64.2351     -0.68447      0.045348
-demand_price                  -0.6845      0.00921     -0.002430
-demand_income                  0.0453     -0.00243      0.002027
-supply_(Intercept)            67.0281     -0.42600     -0.248039
-supply_price                  -0.7080      0.00641      0.000686
-supply_farmPrice               0.0366     -0.00196      0.001636
-supply_trend                   0.0453     -0.00243      0.002027
+demand_(Intercept)            64.2351     -0.68447       0.04535
+demand_price                  -0.6845      0.00921      -0.00243
+demand_income                  0.0454     -0.00243       0.00203
+supply_(Intercept)            67.0281     -0.42600      -0.24804
+supply_price                  -0.7080      0.00641       0.00069
+supply_farmPrice               0.0366     -0.00196       0.00164
+supply_trend                   0.0454     -0.00243       0.00203
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)             67.028    -0.708003         0.036607
-demand_price                   -0.426     0.006409        -0.001962
-demand_income                  -0.248     0.000686         0.001636
-supply_(Intercept)            134.043    -1.076534        -0.242768
-supply_price                   -1.077     0.010032         0.000683
-supply_farmPrice               -0.243     0.000683         0.001628
-supply_trend                   -0.248     0.000686         0.001636
+demand_(Intercept)             67.028     -0.70800          0.03661
+demand_price                   -0.426      0.00641         -0.00196
+demand_income                  -0.248      0.00069          0.00164
+supply_(Intercept)            134.043     -1.07653         -0.24277
+supply_price                   -1.077      0.01003          0.00068
+supply_farmPrice               -0.243      0.00068          0.00163
+supply_trend                   -0.248      0.00069          0.00164
                    supply_trend
-demand_(Intercept)     0.045348
-demand_price          -0.002430
-demand_income          0.002027
-supply_(Intercept)    -0.248039
-supply_price           0.000686
-supply_farmPrice       0.001636
-supply_trend           0.002027
-> print( round( vcov( fit3sls[[ 5 ]]$e2$eq[[ 1 ]] ), digits = 6 ) )
+demand_(Intercept)      0.04535
+demand_price           -0.00243
+demand_income           0.00203
+supply_(Intercept)     -0.24804
+supply_price            0.00069
+supply_farmPrice        0.00164
+supply_trend            0.00203
+> print( round( vcov( fit3sls[[ 5 ]]$e2$eq[[ 1 ]] ), digits = 5 ) )
             (Intercept)    price   income
 (Intercept)     64.2351 -0.68447  0.04535
 price           -0.6845  0.00921 -0.00243
-income           0.0453 -0.00243  0.00203
+income           0.0454 -0.00243  0.00203
 > 
-> print( round( vcov( fit3sls[[ 5 ]]$e3e ), digits = 6 ) )
+> print( round( vcov( fit3sls[[ 5 ]]$e3e ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            54.6190     -0.58283      0.039403
-demand_price                  -0.5828      0.00789     -0.002111
-demand_income                  0.0394     -0.00211      0.001761
-supply_(Intercept)            55.1361     -0.34396     -0.210650
-supply_price                  -0.5835      0.00527      0.000582
-supply_farmPrice               0.0310     -0.00166      0.001387
-supply_trend                   0.0394     -0.00211      0.001761
+demand_(Intercept)            54.6190     -0.58283       0.03940
+demand_price                  -0.5828      0.00789      -0.00211
+demand_income                  0.0394     -0.00211       0.00176
+supply_(Intercept)            55.1360     -0.34396      -0.21065
+supply_price                  -0.5835      0.00527       0.00058
+supply_farmPrice               0.0310     -0.00166       0.00139
+supply_trend                   0.0394     -0.00211       0.00176
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)             55.136    -0.583484         0.031022
-demand_price                   -0.344     0.005267        -0.001662
-demand_income                  -0.211     0.000582         0.001387
-supply_(Intercept)            108.147    -0.863602        -0.199873
-supply_price                   -0.864     0.008031         0.000561
-supply_farmPrice               -0.200     0.000561         0.001337
-supply_trend                   -0.211     0.000582         0.001387
+demand_(Intercept)             55.136     -0.58348          0.03102
+demand_price                   -0.344      0.00527         -0.00166
+demand_income                  -0.211      0.00058          0.00139
+supply_(Intercept)            108.147     -0.86360         -0.19987
+supply_price                   -0.864      0.00803          0.00056
+supply_farmPrice               -0.200      0.00056          0.00134
+supply_trend                   -0.211      0.00058          0.00139
                    supply_trend
-demand_(Intercept)     0.039403
-demand_price          -0.002111
-demand_income          0.001761
-supply_(Intercept)    -0.210650
-supply_price           0.000582
-supply_farmPrice       0.001387
-supply_trend           0.001761
-> print( round( vcov( fit3sls[[ 5 ]]$e3e, modified.regMat = TRUE ), digits = 6 ) )
-        C1       C2        C3      C4        C5        C6
-C1 54.6190 -0.58283  0.039403  55.136 -0.583484  0.031022
-C2 -0.5828  0.00789 -0.002111  -0.344  0.005267 -0.001662
-C3  0.0394 -0.00211  0.001761  -0.211  0.000582  0.001387
-C4 55.1361 -0.34396 -0.210650 108.147 -0.863602 -0.199873
-C5 -0.5835  0.00527  0.000582  -0.864  0.008031  0.000561
-C6  0.0310 -0.00166  0.001387  -0.200  0.000561  0.001337
-> print( round( vcov( fit3sls[[ 1 ]]$e3e$eq[[ 2 ]] ), digits = 6 ) )
-            (Intercept)     price farmPrice     trend
-(Intercept)     108.147 -0.863602 -0.199873 -0.210650
-price            -0.864  0.008031  0.000561  0.000582
-farmPrice        -0.200  0.000561  0.001337  0.001387
-trend            -0.211  0.000582  0.001387  0.001761
+demand_(Intercept)      0.03940
+demand_price           -0.00211
+demand_income           0.00176
+supply_(Intercept)     -0.21065
+supply_price            0.00058
+supply_farmPrice        0.00139
+supply_trend            0.00176
+> print( round( vcov( fit3sls[[ 5 ]]$e3e, modified.regMat = TRUE ), digits = 5 ) )
+        C1       C2       C3      C4       C5       C6
+C1 54.6190 -0.58283  0.03940  55.136 -0.58348  0.03102
+C2 -0.5828  0.00789 -0.00211  -0.344  0.00527 -0.00166
+C3  0.0394 -0.00211  0.00176  -0.211  0.00058  0.00139
+C4 55.1360 -0.34396 -0.21065 108.147 -0.86360 -0.19987
+C5 -0.5835  0.00527  0.00058  -0.864  0.00803  0.00056
+C6  0.0310 -0.00166  0.00139  -0.200  0.00056  0.00134
+> print( round( vcov( fit3sls[[ 1 ]]$e3e$eq[[ 2 ]] ), digits = 5 ) )
+            (Intercept)    price farmPrice    trend
+(Intercept)     108.147 -0.86360  -0.19987 -0.21065
+price            -0.864  0.00803   0.00056  0.00058
+farmPrice        -0.200  0.00056   0.00134  0.00139
+trend            -0.211  0.00058   0.00139  0.00176
 > 
-> print( round( vcov( fit3sls[[ 1 ]]$e4 ), digits = 6 ) )
+> print( round( vcov( fit3sls[[ 1 ]]$e4 ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            62.7805    -0.684388      0.060140
-demand_price                  -0.6844     0.007943     -0.001129
-demand_income                  0.0601    -0.001129      0.000541
-supply_(Intercept)            63.2287    -0.698923      0.070779
-supply_price                  -0.6844     0.007943     -0.001129
-supply_farmPrice               0.0499    -0.000866      0.000377
-supply_trend                   0.0601    -0.001129      0.000541
+demand_(Intercept)            62.7805     -0.68439       0.06014
+demand_price                  -0.6844      0.00794      -0.00113
+demand_income                  0.0601     -0.00113       0.00054
+supply_(Intercept)            63.2287     -0.69892       0.07078
+supply_price                  -0.6844      0.00794      -0.00113
+supply_farmPrice               0.0499     -0.00087       0.00038
+supply_trend                   0.0601     -0.00113       0.00054
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)            63.2287    -0.684388         0.049864
-demand_price                  -0.6989     0.007943        -0.000866
-demand_income                  0.0708    -0.001129         0.000377
-supply_(Intercept)            66.9073    -0.698923         0.026572
-supply_price                  -0.6989     0.007943        -0.000866
-supply_farmPrice               0.0266    -0.000866         0.000581
-supply_trend                   0.0708    -0.001129         0.000377
+demand_(Intercept)            63.2287     -0.68439          0.04986
+demand_price                  -0.6989      0.00794         -0.00087
+demand_income                  0.0708     -0.00113          0.00038
+supply_(Intercept)            66.9073     -0.69892          0.02657
+supply_price                  -0.6989      0.00794         -0.00087
+supply_farmPrice               0.0266     -0.00087          0.00058
+supply_trend                   0.0708     -0.00113          0.00038
                    supply_trend
-demand_(Intercept)     0.060140
-demand_price          -0.001129
-demand_income          0.000541
-supply_(Intercept)     0.070779
-supply_price          -0.001129
-supply_farmPrice       0.000377
-supply_trend           0.000541
-> print( round( vcov( fit3sls[[ 2 ]]$e4$eq[[ 1 ]] ), digits = 6 ) )
-            (Intercept)    price    income
-(Intercept)     62.7805 -0.68439  0.060140
-price           -0.6844  0.00794 -0.001129
-income           0.0601 -0.00113  0.000541
+demand_(Intercept)      0.06014
+demand_price           -0.00113
+demand_income           0.00054
+supply_(Intercept)      0.07078
+supply_price           -0.00113
+supply_farmPrice        0.00038
+supply_trend            0.00054
+> print( round( vcov( fit3sls[[ 2 ]]$e4$eq[[ 1 ]] ), digits = 5 ) )
+            (Intercept)    price   income
+(Intercept)     62.7805 -0.68439  0.06014
+price           -0.6844  0.00794 -0.00113
+income           0.0601 -0.00113  0.00054
 > 
-> print( round( vcov( fit3sls[[ 3 ]]$e4wSym ), digits = 6 ) )
+> print( round( vcov( fit3sls[[ 3 ]]$e4wSym ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            62.5490    -0.684357      0.062477
-demand_price                  -0.6844     0.007949     -0.001135
-demand_income                  0.0625    -0.001135      0.000523
-supply_(Intercept)            62.9766    -0.697985      0.072414
-supply_price                  -0.6844     0.007949     -0.001135
-supply_farmPrice               0.0522    -0.000881      0.000368
-supply_trend                   0.0625    -0.001135      0.000523
+demand_(Intercept)            62.5490     -0.68436       0.06248
+demand_price                  -0.6844      0.00795      -0.00113
+demand_income                  0.0625     -0.00113       0.00052
+supply_(Intercept)            62.9766     -0.69799       0.07241
+supply_price                  -0.6844      0.00795      -0.00113
+supply_farmPrice               0.0522     -0.00088       0.00037
+supply_trend                   0.0625     -0.00113       0.00052
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)            62.9766    -0.684357         0.052200
-demand_price                  -0.6980     0.007949        -0.000881
-demand_income                  0.0724    -0.001135         0.000368
-supply_(Intercept)            66.4588    -0.697985         0.030075
-supply_price                  -0.6980     0.007949        -0.000881
-supply_farmPrice               0.0301    -0.000881         0.000561
-supply_trend                   0.0724    -0.001135         0.000368
+demand_(Intercept)            62.9766     -0.68436          0.05220
+demand_price                  -0.6980      0.00795         -0.00088
+demand_income                  0.0724     -0.00113          0.00037
+supply_(Intercept)            66.4588     -0.69799          0.03007
+supply_price                  -0.6980      0.00795         -0.00088
+supply_farmPrice               0.0301     -0.00088          0.00056
+supply_trend                   0.0724     -0.00113          0.00037
                    supply_trend
-demand_(Intercept)     0.062477
-demand_price          -0.001135
-demand_income          0.000523
-supply_(Intercept)     0.072414
-supply_price          -0.001135
-supply_farmPrice       0.000368
-supply_trend           0.000523
-> print( round( vcov( fit3sls[[ 4 ]]$e4wSym$eq[[ 1 ]] ), digits = 6 ) )
-            (Intercept)    price    income
-(Intercept)     62.5490 -0.68436  0.062477
-price           -0.6844  0.00795 -0.001135
-income           0.0625 -0.00113  0.000523
+demand_(Intercept)      0.06248
+demand_price           -0.00113
+demand_income           0.00052
+supply_(Intercept)      0.07241
+supply_price           -0.00113
+supply_farmPrice        0.00037
+supply_trend            0.00052
+> print( round( vcov( fit3sls[[ 4 ]]$e4wSym$eq[[ 1 ]] ), digits = 5 ) )
+            (Intercept)    price   income
+(Intercept)     62.5490 -0.68436  0.06248
+price           -0.6844  0.00795 -0.00113
+income           0.0625 -0.00113  0.00052
 > 
-> print( round( vcov( fit3sls[[ 2 ]]$e5e ), digits = 6 ) )
+> print( round( vcov( fit3sls[[ 2 ]]$e5e ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            53.5147    -0.575365      0.043041
-demand_price                  -0.5754     0.006586     -0.000855
-demand_income                  0.0430    -0.000855      0.000435
-supply_(Intercept)            53.9493    -0.588808      0.052591
-supply_price                  -0.5754     0.006586     -0.000855
-supply_farmPrice               0.0345    -0.000631      0.000293
-supply_trend                   0.0430    -0.000855      0.000435
+demand_(Intercept)            53.5147     -0.57537       0.04304
+demand_price                  -0.5754      0.00659      -0.00085
+demand_income                  0.0430     -0.00085       0.00044
+supply_(Intercept)            53.9493     -0.58881       0.05259
+supply_price                  -0.5754      0.00659      -0.00085
+supply_farmPrice               0.0345     -0.00063       0.00029
+supply_trend                   0.0430     -0.00085       0.00044
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)            53.9493    -0.575365         0.034494
-demand_price                  -0.5888     0.006586        -0.000631
-demand_income                  0.0526    -0.000855         0.000293
-supply_(Intercept)            57.0063    -0.588808         0.016388
-supply_price                  -0.5888     0.006586        -0.000631
-supply_farmPrice               0.0164    -0.000631         0.000451
-supply_trend                   0.0526    -0.000855         0.000293
+demand_(Intercept)            53.9493     -0.57537          0.03449
+demand_price                  -0.5888      0.00659         -0.00063
+demand_income                  0.0526     -0.00085          0.00029
+supply_(Intercept)            57.0063     -0.58881          0.01639
+supply_price                  -0.5888      0.00659         -0.00063
+supply_farmPrice               0.0164     -0.00063          0.00045
+supply_trend                   0.0526     -0.00085          0.00029
                    supply_trend
-demand_(Intercept)     0.043041
-demand_price          -0.000855
-demand_income          0.000435
-supply_(Intercept)     0.052591
-supply_price          -0.000855
-supply_farmPrice       0.000293
-supply_trend           0.000435
-> print( round( vcov( fit3sls[[ 2 ]]$e5e, modified.regMat = TRUE ), digits = 6 ) )
-        C1        C2        C3      C4        C5        C6
-C1 53.5147 -0.575365  0.043041 53.9493 -0.575365  0.034494
-C2 -0.5754  0.006586 -0.000855 -0.5888  0.006586 -0.000631
-C3  0.0430 -0.000855  0.000435  0.0526 -0.000855  0.000293
-C4 53.9493 -0.588808  0.052591 57.0063 -0.588808  0.016388
-C5 -0.5754  0.006586 -0.000855 -0.5888  0.006586 -0.000631
-C6  0.0345 -0.000631  0.000293  0.0164 -0.000631  0.000451
-> print( round( vcov( fit3sls[[ 3 ]]$e5e$eq[[ 2 ]] ), digits = 6 ) )
-            (Intercept)     price farmPrice     trend
-(Intercept)     57.0063 -0.588808  0.016388  0.052591
-price           -0.5888  0.006586 -0.000631 -0.000855
-farmPrice        0.0164 -0.000631  0.000451  0.000293
-trend            0.0526 -0.000855  0.000293  0.000435
+demand_(Intercept)      0.04304
+demand_price           -0.00085
+demand_income           0.00044
+supply_(Intercept)      0.05259
+supply_price           -0.00085
+supply_farmPrice        0.00029
+supply_trend            0.00044
+> print( round( vcov( fit3sls[[ 2 ]]$e5e, modified.regMat = TRUE ), digits = 5 ) )
+        C1       C2       C3      C4       C5       C6
+C1 53.5147 -0.57537  0.04304 53.9493 -0.57537  0.03449
+C2 -0.5754  0.00659 -0.00085 -0.5888  0.00659 -0.00063
+C3  0.0430 -0.00085  0.00044  0.0526 -0.00085  0.00029
+C4 53.9493 -0.58881  0.05259 57.0063 -0.58881  0.01639
+C5 -0.5754  0.00659 -0.00085 -0.5888  0.00659 -0.00063
+C6  0.0345 -0.00063  0.00029  0.0164 -0.00063  0.00045
+> print( round( vcov( fit3sls[[ 3 ]]$e5e$eq[[ 2 ]] ), digits = 5 ) )
+            (Intercept)    price farmPrice    trend
+(Intercept)     57.0063 -0.58881   0.01639  0.05259
+price           -0.5888  0.00659  -0.00063 -0.00085
+farmPrice        0.0164 -0.00063   0.00045  0.00029
+trend            0.0526 -0.00085   0.00029  0.00044
 > 
-> print( round( vcov( fit3slsi[[ 4 ]]$e1e ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 4 ]]$e1e ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            53.3287     -0.57241      0.041906
-demand_price                  -0.5724      0.00791     -0.002246
-demand_income                  0.0419     -0.00225      0.001873
-supply_(Intercept)            60.8329     -0.34075     -0.272125
-supply_price                  -0.6504      0.00578      0.000739
-supply_farmPrice               0.0394     -0.00211      0.001762
-supply_trend                   0.0595     -0.00319      0.002659
+demand_(Intercept)            53.3287     -0.57241       0.04191
+demand_price                  -0.5724      0.00791      -0.00225
+demand_income                  0.0419     -0.00225       0.00187
+supply_(Intercept)            60.8329     -0.34075      -0.27213
+supply_price                  -0.6504      0.00578       0.00074
+supply_farmPrice               0.0394     -0.00211       0.00176
+supply_trend                   0.0595     -0.00319       0.00266
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)             60.833    -0.650445         0.039423
-demand_price                   -0.341     0.005782        -0.002113
-demand_income                  -0.272     0.000739         0.001762
-supply_(Intercept)            129.860    -0.996157        -0.266878
-supply_price                   -0.996     0.009145         0.000727
-supply_farmPrice               -0.267     0.000727         0.001733
-supply_trend                   -0.396     0.001069         0.002548
+demand_(Intercept)             60.833     -0.65044          0.03942
+demand_price                   -0.341      0.00578         -0.00211
+demand_income                  -0.272      0.00074          0.00176
+supply_(Intercept)            129.860     -0.99616         -0.26688
+supply_price                   -0.996      0.00915          0.00073
+supply_farmPrice               -0.267      0.00073          0.00173
+supply_trend                   -0.396      0.00107          0.00255
                    supply_trend
 demand_(Intercept)      0.05949
 demand_price           -0.00319
@@ -18168,29 +18168,29 @@ supply_(Intercept)     -0.39621
 supply_price            0.00107
 supply_farmPrice        0.00255
 supply_trend            0.00411
-> print( round( vcov( fit3slsi[[ 3 ]]$e1e$eq[[ 1 ]] ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 3 ]]$e1e$eq[[ 1 ]] ), digits = 5 ) )
             (Intercept)    price   income
 (Intercept)     53.3287 -0.57241  0.04191
 price           -0.5724  0.00791 -0.00225
 income           0.0419 -0.00225  0.00187
 > 
-> print( round( vcov( fit3slsi[[ 5 ]]$e1we ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 5 ]]$e1we ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            53.3287     -0.57241      0.041906
-demand_price                  -0.5724      0.00791     -0.002246
-demand_income                  0.0419     -0.00225      0.001873
-supply_(Intercept)            60.8329     -0.34075     -0.272125
-supply_price                  -0.6504      0.00578      0.000739
-supply_farmPrice               0.0394     -0.00211      0.001762
-supply_trend                   0.0595     -0.00319      0.002659
+demand_(Intercept)            53.3287     -0.57241       0.04191
+demand_price                  -0.5724      0.00791      -0.00225
+demand_income                  0.0419     -0.00225       0.00187
+supply_(Intercept)            60.8329     -0.34075      -0.27213
+supply_price                  -0.6504      0.00578       0.00074
+supply_farmPrice               0.0394     -0.00211       0.00176
+supply_trend                   0.0595     -0.00319       0.00266
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)             60.833    -0.650445         0.039423
-demand_price                   -0.341     0.005782        -0.002113
-demand_income                  -0.272     0.000739         0.001762
-supply_(Intercept)            129.860    -0.996157        -0.266878
-supply_price                   -0.996     0.009145         0.000727
-supply_farmPrice               -0.267     0.000727         0.001733
-supply_trend                   -0.396     0.001069         0.002548
+demand_(Intercept)             60.833     -0.65044          0.03942
+demand_price                   -0.341      0.00578         -0.00211
+demand_income                  -0.272      0.00074          0.00176
+supply_(Intercept)            129.860     -0.99616         -0.26688
+supply_price                   -0.996      0.00915          0.00073
+supply_farmPrice               -0.267      0.00073          0.00173
+supply_trend                   -0.396      0.00107          0.00255
                    supply_trend
 demand_(Intercept)      0.05949
 demand_price           -0.00319
@@ -18199,156 +18199,156 @@ supply_(Intercept)     -0.39621
 supply_price            0.00107
 supply_farmPrice        0.00255
 supply_trend            0.00411
-> print( round( vcov( fit3slsi[[ 1 ]]$e1we$eq[[ 2 ]] ), digits = 6 ) )
-            (Intercept)     price farmPrice    trend
-(Intercept)     129.860 -0.996157 -0.266878 -0.39621
-price            -0.996  0.009145  0.000727  0.00107
-farmPrice        -0.267  0.000727  0.001733  0.00255
-trend            -0.396  0.001069  0.002548  0.00411
+> print( round( vcov( fit3slsi[[ 1 ]]$e1we$eq[[ 2 ]] ), digits = 5 ) )
+            (Intercept)    price farmPrice    trend
+(Intercept)     129.860 -0.99616  -0.26688 -0.39621
+price            -0.996  0.00915   0.00073  0.00107
+farmPrice        -0.267  0.00073   0.00173  0.00255
+trend            -0.396  0.00107   0.00255  0.00411
 > 
-> print( round( vcov( fit3slsi[[ 5 ]]$e2e ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 5 ]]$e2e ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            79.5917    -0.812813      0.020026
-demand_price                  -0.8128     0.009173     -0.001073
-demand_income                  0.0200    -0.001073      0.000895
-supply_(Intercept)            90.3437    -0.791775     -0.111343
-supply_price                  -0.9184     0.008881      0.000309
-supply_farmPrice               0.0165    -0.000882      0.000736
-supply_trend                   0.0200    -0.001073      0.000895
+demand_(Intercept)            79.5917     -0.81281       0.02003
+demand_price                  -0.8128      0.00917      -0.00107
+demand_income                  0.0200     -0.00107       0.00090
+supply_(Intercept)            90.3437     -0.79178      -0.11134
+supply_price                  -0.9184      0.00888       0.00031
+supply_farmPrice               0.0165     -0.00088       0.00074
+supply_trend                   0.0200     -0.00107       0.00090
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)            90.3437    -0.918355         0.016458
-demand_price                  -0.7918     0.008881        -0.000882
-demand_income                 -0.1113     0.000309         0.000736
-supply_(Intercept)           124.3894    -1.136799        -0.094940
-supply_price                  -1.1368     0.011078         0.000264
-supply_farmPrice              -0.0949     0.000264         0.000629
-supply_trend                  -0.1113     0.000309         0.000736
+demand_(Intercept)            90.3437     -0.91836          0.01646
+demand_price                  -0.7918      0.00888         -0.00088
+demand_income                 -0.1113      0.00031          0.00074
+supply_(Intercept)           124.3894     -1.13680         -0.09494
+supply_price                  -1.1368      0.01108          0.00026
+supply_farmPrice              -0.0949      0.00026          0.00063
+supply_trend                  -0.1113      0.00031          0.00074
                    supply_trend
-demand_(Intercept)     0.020026
-demand_price          -0.001073
-demand_income          0.000895
-supply_(Intercept)    -0.111343
-supply_price           0.000309
-supply_farmPrice       0.000736
-supply_trend           0.000895
-> print( round( vcov( fit3slsi[[ 4 ]]$e2e$eq[[ 2 ]] ), digits = 6 ) )
-            (Intercept)     price farmPrice     trend
-(Intercept)    124.3894 -1.136799 -0.094940 -0.111343
-price           -1.1368  0.011078  0.000264  0.000309
-farmPrice       -0.0949  0.000264  0.000629  0.000736
-trend           -0.1113  0.000309  0.000736  0.000895
+demand_(Intercept)      0.02003
+demand_price           -0.00107
+demand_income           0.00090
+supply_(Intercept)     -0.11134
+supply_price            0.00031
+supply_farmPrice        0.00074
+supply_trend            0.00090
+> print( round( vcov( fit3slsi[[ 4 ]]$e2e$eq[[ 2 ]] ), digits = 5 ) )
+            (Intercept)    price farmPrice    trend
+(Intercept)    124.3894 -1.13680  -0.09494 -0.11134
+price           -1.1368  0.01108   0.00026  0.00031
+farmPrice       -0.0949  0.00026   0.00063  0.00074
+trend           -0.1113  0.00031   0.00074  0.00090
 > 
-> print( round( vcov( fit3slsi[[ 1 ]]$e3 ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 1 ]]$e3 ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            92.7431     -0.94355      0.019683
-demand_price                  -0.9436      0.01046     -0.001055
-demand_income                  0.0197     -0.00105      0.000880
-supply_(Intercept)           110.7701     -0.99345     -0.113305
-supply_price                  -1.1222      0.01091      0.000315
-supply_farmPrice               0.0168     -0.00090      0.000751
-supply_trend                   0.0197     -0.00105      0.000880
+demand_(Intercept)            92.7431     -0.94355       0.01968
+demand_price                  -0.9435      0.01046      -0.00105
+demand_income                  0.0197     -0.00105       0.00088
+supply_(Intercept)           110.7701     -0.99345      -0.11331
+supply_price                  -1.1222      0.01091       0.00031
+supply_farmPrice               0.0168     -0.00090       0.00075
+supply_trend                   0.0197     -0.00105       0.00088
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)            110.770    -1.122234         0.016801
-demand_price                   -0.993     0.010913        -0.000900
-demand_income                  -0.113     0.000315         0.000751
-supply_(Intercept)            155.849    -1.444074        -0.101247
-supply_price                   -1.444     0.014132         0.000283
-supply_farmPrice               -0.101     0.000283         0.000674
-supply_trend                   -0.113     0.000315         0.000751
+demand_(Intercept)            110.770     -1.12223          0.01680
+demand_price                   -0.993      0.01091         -0.00090
+demand_income                  -0.113      0.00031          0.00075
+supply_(Intercept)            155.849     -1.44407         -0.10125
+supply_price                   -1.444      0.01413          0.00028
+supply_farmPrice               -0.101      0.00028          0.00067
+supply_trend                   -0.113      0.00031          0.00075
                    supply_trend
-demand_(Intercept)     0.019683
-demand_price          -0.001055
-demand_income          0.000880
-supply_(Intercept)    -0.113305
-supply_price           0.000315
-supply_farmPrice       0.000751
-supply_trend           0.000880
-> print( round( vcov( fit3slsi[[ 1 ]]$e3, modified.regMat = TRUE ), digits = 6 ) )
-         C1       C2        C3      C4        C5        C6
-C1  92.7431 -0.94355  0.019683 110.770 -1.122234  0.016801
-C2  -0.9436  0.01046 -0.001055  -0.993  0.010913 -0.000900
-C3   0.0197 -0.00105  0.000880  -0.113  0.000315  0.000751
-C4 110.7701 -0.99345 -0.113305 155.849 -1.444074 -0.101247
-C5  -1.1222  0.01091  0.000315  -1.444  0.014132  0.000283
-C6   0.0168 -0.00090  0.000751  -0.101  0.000283  0.000674
-> print( round( vcov( fit3slsi[[ 5 ]]$e3$eq[[ 1 ]] ), digits = 6 ) )
+demand_(Intercept)      0.01968
+demand_price           -0.00105
+demand_income           0.00088
+supply_(Intercept)     -0.11331
+supply_price            0.00031
+supply_farmPrice        0.00075
+supply_trend            0.00088
+> print( round( vcov( fit3slsi[[ 1 ]]$e3, modified.regMat = TRUE ), digits = 5 ) )
+         C1       C2       C3      C4       C5       C6
+C1  92.7431 -0.94355  0.01968 110.770 -1.12223  0.01680
+C2  -0.9435  0.01046 -0.00105  -0.993  0.01091 -0.00090
+C3   0.0197 -0.00105  0.00088  -0.113  0.00031  0.00075
+C4 110.7701 -0.99345 -0.11331 155.849 -1.44407 -0.10125
+C5  -1.1222  0.01091  0.00031  -1.444  0.01413  0.00028
+C6   0.0168 -0.00090  0.00075  -0.101  0.00028  0.00067
+> print( round( vcov( fit3slsi[[ 5 ]]$e3$eq[[ 1 ]] ), digits = 5 ) )
             (Intercept)    price   income
 (Intercept)     92.7431 -0.94355  0.01968
-price           -0.9436  0.01046 -0.00105
+price           -0.9435  0.01046 -0.00105
 income           0.0197 -0.00105  0.00088
 > 
-> print( round( vcov( fit3slsi[[ 2 ]]$e4e ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 2 ]]$e4e ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            53.5249    -0.601929      0.070234
-demand_price                  -0.6019     0.006971     -0.000977
-demand_income                  0.0702    -0.000977      0.000281
-supply_(Intercept)            53.7695    -0.607489      0.073835
-supply_price                  -0.6019     0.006971     -0.000977
-supply_farmPrice               0.0611    -0.000822      0.000216
-supply_trend                   0.0702    -0.000977      0.000281
+demand_(Intercept)            53.5249     -0.60193       0.07023
+demand_price                  -0.6019      0.00697      -0.00098
+demand_income                  0.0702     -0.00098       0.00028
+supply_(Intercept)            53.7695     -0.60749       0.07383
+supply_price                  -0.6019      0.00697      -0.00098
+supply_farmPrice               0.0611     -0.00082       0.00022
+supply_trend                   0.0702     -0.00098       0.00028
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)            53.7695    -0.601929         0.061143
-demand_price                  -0.6075     0.006971        -0.000822
-demand_income                  0.0738    -0.000977         0.000216
-supply_(Intercept)            55.1575    -0.607489         0.052829
-supply_price                  -0.6075     0.006971        -0.000822
-supply_farmPrice               0.0528    -0.000822         0.000281
-supply_trend                   0.0738    -0.000977         0.000216
+demand_(Intercept)            53.7695     -0.60193          0.06114
+demand_price                  -0.6075      0.00697         -0.00082
+demand_income                  0.0738     -0.00098          0.00022
+supply_(Intercept)            55.1575     -0.60749          0.05283
+supply_price                  -0.6075      0.00697         -0.00082
+supply_farmPrice               0.0528     -0.00082          0.00028
+supply_trend                   0.0738     -0.00098          0.00022
                    supply_trend
-demand_(Intercept)     0.070234
-demand_price          -0.000977
-demand_income          0.000281
-supply_(Intercept)     0.073835
-supply_price          -0.000977
-supply_farmPrice       0.000216
-supply_trend           0.000281
-> print( round( vcov( fit3slsi[[ 1 ]]$e4e$eq[[ 2 ]] ), digits = 6 ) )
-            (Intercept)     price farmPrice     trend
-(Intercept)     55.1575 -0.607489  0.052829  0.073835
-price           -0.6075  0.006971 -0.000822 -0.000977
-farmPrice        0.0528 -0.000822  0.000281  0.000216
-trend            0.0738 -0.000977  0.000216  0.000281
+demand_(Intercept)      0.07023
+demand_price           -0.00098
+demand_income           0.00028
+supply_(Intercept)      0.07383
+supply_price           -0.00098
+supply_farmPrice        0.00022
+supply_trend            0.00028
+> print( round( vcov( fit3slsi[[ 1 ]]$e4e$eq[[ 2 ]] ), digits = 5 ) )
+            (Intercept)    price farmPrice    trend
+(Intercept)     55.1575 -0.60749   0.05283  0.07383
+price           -0.6075  0.00697  -0.00082 -0.00098
+farmPrice        0.0528 -0.00082   0.00028  0.00022
+trend            0.0738 -0.00098   0.00022  0.00028
 > 
-> print( round( vcov( fit3slsi[[ 3 ]]$e5 ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 3 ]]$e5 ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            62.6858     -0.71803      0.095729
-demand_price                  -0.7180      0.00846     -0.001318
-demand_income                  0.0957     -0.00132      0.000370
-supply_(Intercept)            62.7317     -0.72119      0.099090
-supply_price                  -0.7180      0.00846     -0.001318
-supply_farmPrice               0.0864     -0.00115      0.000299
-supply_trend                   0.0957     -0.00132      0.000370
+demand_(Intercept)            62.6857     -0.71803       0.09573
+demand_price                  -0.7180      0.00846      -0.00132
+demand_income                  0.0957     -0.00132       0.00037
+supply_(Intercept)            62.7317     -0.72119       0.09909
+supply_price                  -0.7180      0.00846      -0.00132
+supply_farmPrice               0.0863     -0.00115       0.00030
+supply_trend                   0.0957     -0.00132       0.00037
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)            62.7317     -0.71803         0.086351
-demand_price                  -0.7212      0.00846        -0.001155
-demand_income                  0.0991     -0.00132         0.000299
-supply_(Intercept)            64.1668     -0.72119         0.075390
-supply_price                  -0.7212      0.00846        -0.001155
-supply_farmPrice               0.0754     -0.00115         0.000382
-supply_trend                   0.0991     -0.00132         0.000299
+demand_(Intercept)            62.7317     -0.71803          0.08635
+demand_price                  -0.7212      0.00846         -0.00115
+demand_income                  0.0991     -0.00132          0.00030
+supply_(Intercept)            64.1668     -0.72119          0.07539
+supply_price                  -0.7212      0.00846         -0.00115
+supply_farmPrice               0.0754     -0.00115          0.00038
+supply_trend                   0.0991     -0.00132          0.00030
                    supply_trend
-demand_(Intercept)     0.095729
-demand_price          -0.001318
-demand_income          0.000370
-supply_(Intercept)     0.099090
-supply_price          -0.001318
-supply_farmPrice       0.000299
-supply_trend           0.000370
-> print( round( vcov( fit3slsi[[ 3 ]]$e5, modified.regMat = TRUE ), digits = 6 ) )
-        C1       C2        C3      C4       C5        C6
-C1 62.6858 -0.71803  0.095729 62.7317 -0.71803  0.086351
-C2 -0.7180  0.00846 -0.001318 -0.7212  0.00846 -0.001155
-C3  0.0957 -0.00132  0.000370  0.0991 -0.00132  0.000299
-C4 62.7317 -0.72119  0.099090 64.1668 -0.72119  0.075390
-C5 -0.7180  0.00846 -0.001318 -0.7212  0.00846 -0.001155
-C6  0.0864 -0.00115  0.000299  0.0754 -0.00115  0.000382
-> print( round( vcov( fit3slsi[[ 2 ]]$e5$eq[[ 1 ]] ), digits = 6 ) )
+demand_(Intercept)      0.09573
+demand_price           -0.00132
+demand_income           0.00037
+supply_(Intercept)      0.09909
+supply_price           -0.00132
+supply_farmPrice        0.00030
+supply_trend            0.00037
+> print( round( vcov( fit3slsi[[ 3 ]]$e5, modified.regMat = TRUE ), digits = 5 ) )
+        C1       C2       C3      C4       C5       C6
+C1 62.6857 -0.71803  0.09573 62.7317 -0.71803  0.08635
+C2 -0.7180  0.00846 -0.00132 -0.7212  0.00846 -0.00115
+C3  0.0957 -0.00132  0.00037  0.0991 -0.00132  0.00030
+C4 62.7317 -0.72119  0.09909 64.1668 -0.72119  0.07539
+C5 -0.7180  0.00846 -0.00132 -0.7212  0.00846 -0.00115
+C6  0.0863 -0.00115  0.00030  0.0754 -0.00115  0.00038
+> print( round( vcov( fit3slsi[[ 2 ]]$e5$eq[[ 1 ]] ), digits = 5 ) )
             (Intercept)    price   income
-(Intercept)     62.6858 -0.71803  0.09573
+(Intercept)     62.6857 -0.71803  0.09573
 price           -0.7180  0.00846 -0.00132
 income           0.0957 -0.00132  0.00037
 > 
-> print( round( vcov( fit3slsi[[ 5 ]]$e5w ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 5 ]]$e5w ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
 demand_(Intercept)            107.334     -1.39936       0.34281
 demand_price                   -1.399      0.01904      -0.00518
@@ -18373,7 +18373,7 @@ supply_(Intercept)      0.29205
 supply_price           -0.00518
 supply_farmPrice        0.00214
 supply_trend            0.00179
-> print( round( vcov( fit3slsi[[ 5 ]]$e5w, modified.regMat = TRUE ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 5 ]]$e5w, modified.regMat = TRUE ), digits = 5 ) )
         C1       C2       C3     C4       C5       C6
 C1 107.334 -1.39936  0.34281 95.422 -1.39936  0.43918
 C2  -1.399  0.01904 -0.00518 -1.224  0.01904 -0.00648
@@ -18381,61 +18381,61 @@ C3   0.343 -0.00518  0.00179  0.292 -0.00518  0.00214
 C4  95.422 -1.22389  0.29205 92.381 -1.22389  0.30881
 C5  -1.399  0.01904 -0.00518 -1.224  0.01904 -0.00648
 C6   0.439 -0.00648  0.00214  0.309 -0.00648  0.00328
-> print( round( vcov( fit3slsi[[ 4 ]]$e5w$eq[[ 1 ]] ), digits = 6 ) )
+> print( round( vcov( fit3slsi[[ 4 ]]$e5w$eq[[ 1 ]] ), digits = 5 ) )
             (Intercept)    price   income
 (Intercept)     62.6858 -0.71803  0.09573
 price           -0.7180  0.00846 -0.00132
 income           0.0957 -0.00132  0.00037
 > 
-> print( round( vcov( fit3slsd[[ 5 ]]$e1c ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 5 ]]$e1c ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            124.179     -1.51767      0.285189
-demand_price                   -1.518      0.02098     -0.005954
-demand_income                   0.285     -0.00595      0.003182
-supply_(Intercept)             45.831     -0.16114     -0.302613
-supply_price                   -0.564      0.00477      0.000895
-supply_farmPrice                0.157     -0.00365      0.002134
-supply_trend                   -0.416      0.00351      0.000659
+demand_(Intercept)            124.179     -1.51767       0.28519
+demand_price                   -1.518      0.02098      -0.00595
+demand_income                   0.285     -0.00595       0.00318
+supply_(Intercept)             45.831     -0.16114      -0.30261
+supply_price                   -0.564      0.00477       0.00089
+supply_farmPrice                0.157     -0.00365       0.00213
+supply_trend                   -0.416      0.00351       0.00066
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)             45.831    -0.564216          0.15696
-demand_price                   -0.161     0.004769         -0.00365
-demand_income                  -0.303     0.000895          0.00213
-supply_(Intercept)            132.389    -0.938309         -0.33973
-supply_price                   -0.938     0.007906          0.00115
-supply_farmPrice               -0.340     0.001147          0.00221
-supply_trend                   -0.515     0.003495          0.00108
+demand_(Intercept)             45.831     -0.56422          0.15696
+demand_price                   -0.161      0.00477         -0.00365
+demand_income                  -0.303      0.00089          0.00213
+supply_(Intercept)            132.389     -0.93831         -0.33973
+supply_price                   -0.938      0.00791          0.00115
+supply_farmPrice               -0.340      0.00115          0.00221
+supply_trend                   -0.515      0.00349          0.00108
                    supply_trend
-demand_(Intercept)    -0.415850
-demand_price           0.003515
-demand_income          0.000659
-supply_(Intercept)    -0.515406
-supply_price           0.003495
-supply_farmPrice       0.001082
-supply_trend           0.005845
-> print( round( vcov( fit3slsd[[ 2 ]]$e1c$eq[[ 2 ]] ), digits = 6 ) )
-            (Intercept)     price farmPrice     trend
-(Intercept)     136.580 -1.062336  -0.24479 -0.606819
-price            -0.994  0.009549  -0.00011  0.004705
-farmPrice        -0.334  0.000981   0.00234  0.000959
-trend            -0.438  0.001193   0.00284  0.004149
+demand_(Intercept)     -0.41585
+demand_price            0.00351
+demand_income           0.00066
+supply_(Intercept)     -0.51541
+supply_price            0.00349
+supply_farmPrice        0.00108
+supply_trend            0.00585
+> print( round( vcov( fit3slsd[[ 2 ]]$e1c$eq[[ 2 ]] ), digits = 5 ) )
+            (Intercept)    price farmPrice    trend
+(Intercept)     136.580 -1.06234  -0.24479 -0.60682
+price            -0.994  0.00955  -0.00011  0.00471
+farmPrice        -0.334  0.00098   0.00234  0.00096
+trend            -0.438  0.00119   0.00284  0.00415
 > 
-> print( round( vcov( fit3slsd[[ 1 ]]$e2 ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 1 ]]$e2 ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            40.2908    -0.423513       0.02315
-demand_price                  -0.4235     0.006596      -0.00242
-demand_income                  0.0232    -0.002422       0.00225
-supply_(Intercept)            23.1539     0.178107      -0.41781
-supply_price                  -0.2648     0.000594       0.00211
-supply_farmPrice               0.0342    -0.002195       0.00190
-supply_trend                   0.0232    -0.002422       0.00225
+demand_(Intercept)            40.2908     -0.42351       0.02315
+demand_price                  -0.4235      0.00660      -0.00242
+demand_income                  0.0232     -0.00242       0.00225
+supply_(Intercept)            23.1539      0.17811      -0.41781
+supply_price                  -0.2648      0.00059       0.00211
+supply_farmPrice               0.0342     -0.00220       0.00190
+supply_trend                   0.0232     -0.00242       0.00225
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)             23.154    -0.264821          0.03423
-demand_price                    0.178     0.000594         -0.00219
-demand_income                  -0.418     0.002106          0.00190
-supply_(Intercept)            125.488    -0.817567         -0.40378
-supply_price                   -0.818     0.006158          0.00186
-supply_farmPrice               -0.404     0.001858          0.00205
-supply_trend                   -0.418     0.002106          0.00190
+demand_(Intercept)             23.154     -0.26482          0.03423
+demand_price                    0.178      0.00059         -0.00220
+demand_income                  -0.418      0.00211          0.00190
+supply_(Intercept)            125.488     -0.81757         -0.40378
+supply_price                   -0.818      0.00616          0.00186
+supply_farmPrice               -0.404      0.00186          0.00205
+supply_trend                   -0.418      0.00211          0.00190
                    supply_trend
 demand_(Intercept)      0.02315
 demand_price           -0.00242
@@ -18444,29 +18444,29 @@ supply_(Intercept)     -0.41781
 supply_price            0.00211
 supply_farmPrice        0.00190
 supply_trend            0.00225
-> print( round( vcov( fit3slsd[[ 3 ]]$e2$eq[[ 1 ]] ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 3 ]]$e2$eq[[ 1 ]] ), digits = 5 ) )
             (Intercept)   price   income
 (Intercept)      99.763 -1.2027  0.21239
 price            -1.203  0.0168 -0.00490
 income            0.212 -0.0049  0.00285
 > 
-> print( round( vcov( fit3slsd[[ 5 ]]$e2we ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 5 ]]$e2we ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            34.9080    -0.362318       0.01530
-demand_price                  -0.3623     0.005563      -0.00199
-demand_income                  0.0153    -0.001990       0.00188
-supply_(Intercept)            20.3293     0.134089      -0.34409
-supply_price                  -0.2272     0.000571       0.00174
-supply_farmPrice               0.0249    -0.001762       0.00155
-supply_trend                   0.0153    -0.001990       0.00188
+demand_(Intercept)            34.9080     -0.36232       0.01530
+demand_price                  -0.3623      0.00556      -0.00199
+demand_income                  0.0153     -0.00199       0.00188
+supply_(Intercept)            20.3293      0.13409      -0.34409
+supply_price                  -0.2272      0.00057       0.00174
+supply_farmPrice               0.0249     -0.00176       0.00155
+supply_trend                   0.0153     -0.00199       0.00188
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)             20.329    -0.227157          0.02494
-demand_price                    0.134     0.000571         -0.00176
-demand_income                  -0.344     0.001744          0.00155
-supply_(Intercept)            102.201    -0.668973         -0.32522
-supply_price                   -0.669     0.005055          0.00150
-supply_farmPrice               -0.325     0.001502          0.00164
-supply_trend                   -0.344     0.001744          0.00155
+demand_(Intercept)             20.329     -0.22716          0.02494
+demand_price                    0.134      0.00057         -0.00176
+demand_income                  -0.344      0.00174          0.00155
+supply_(Intercept)            102.201     -0.66897         -0.32522
+supply_price                   -0.669      0.00505          0.00150
+supply_farmPrice               -0.325      0.00150          0.00164
+supply_trend                   -0.344      0.00174          0.00155
                    supply_trend
 demand_(Intercept)      0.01530
 demand_price           -0.00199
@@ -18475,15 +18475,15 @@ supply_(Intercept)     -0.34409
 supply_price            0.00174
 supply_farmPrice        0.00155
 supply_trend            0.00188
-> print( round( vcov( fit3slsd[[ 3 ]]$e2we$eq[[ 1 ]] ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 3 ]]$e2we$eq[[ 1 ]] ), digits = 5 ) )
             (Intercept)   price   income
 (Intercept)      83.743 -1.0065  0.17519
 price            -1.006  0.0141 -0.00410
 income            0.175 -0.0041  0.00241
 > 
-> print( round( vcov( fit3slsd[[ 2 ]]$e3 ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 2 ]]$e3 ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            155.228     -2.21373       0.68054
+demand_(Intercept)            155.228     -2.21373       0.68055
 demand_price                   -1.929      0.03005      -0.01103
 demand_income                   0.389     -0.00812       0.00434
 supply_(Intercept)            120.424     -1.33693       0.13854
@@ -18499,98 +18499,98 @@ supply_price                   -0.279      0.00796         -0.00478
 supply_farmPrice               -0.521      0.00147          0.00350
 supply_trend                   -0.572      0.00159          0.00380
                    supply_trend
-demand_(Intercept)      0.68054
+demand_(Intercept)      0.68055
 demand_price           -0.01103
 demand_income           0.00434
 supply_(Intercept)      0.13854
 supply_price           -0.00522
 supply_farmPrice        0.00350
 supply_trend            0.00434
-> print( round( vcov( fit3slsd[[ 2 ]]$e3, modified.regMat = TRUE ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 2 ]]$e3, modified.regMat = TRUE ), digits = 5 ) )
         C1       C2       C3      C4       C5       C6
-C1 155.228 -2.21373  0.68054 -25.183 -0.42614  0.63002
+C1 155.228 -2.21373  0.68055 -25.183 -0.42614  0.63002
 C2  -1.929  0.03005 -0.01103   0.811  0.00271 -0.01000
 C3   0.389 -0.00812  0.00434  -0.572  0.00159  0.00380
 C4 120.424 -1.33693  0.13854  84.582 -0.95409  0.10043
 C5  -1.546  0.02054 -0.00522  -0.279  0.00796 -0.00478
 C6   0.314 -0.00655  0.00350  -0.521  0.00147  0.00350
-> print( round( vcov( fit3slsd[[ 4 ]]$e3$eq[[ 2 ]] ), digits = 6 ) )
-            (Intercept)     price farmPrice     trend
-(Intercept)     149.704 -1.136408 -0.334253 -0.326756
-price            -1.136  0.010356  0.000943  0.000907
-farmPrice        -0.334  0.000943  0.002248  0.002162
-trend            -0.327  0.000907  0.002162  0.002589
+> print( round( vcov( fit3slsd[[ 4 ]]$e3$eq[[ 2 ]] ), digits = 5 ) )
+            (Intercept)    price farmPrice    trend
+(Intercept)     149.704 -1.13641  -0.33425 -0.32676
+price            -1.136  0.01036   0.00094  0.00091
+farmPrice        -0.334  0.00094   0.00225  0.00216
+trend            -0.327  0.00091   0.00216  0.00259
 > 
-> print( round( vcov( fit3slsd[[ 3 ]]$e4 ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 3 ]]$e4 ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            105.016     -1.17085      0.125910
-demand_price                   -1.171      0.01356     -0.001905
-demand_income                   0.126     -0.00191      0.000663
-supply_(Intercept)            106.127     -1.19320      0.137779
-supply_price                   -1.171      0.01356     -0.001905
-supply_farmPrice                0.102     -0.00148      0.000474
-supply_trend                    0.126     -0.00191      0.000663
+demand_(Intercept)            105.016     -1.17085       0.12591
+demand_price                   -1.171      0.01356      -0.00191
+demand_income                   0.126     -0.00191       0.00066
+supply_(Intercept)            106.127     -1.19320       0.13778
+supply_price                   -1.171      0.01356      -0.00191
+supply_farmPrice                0.102     -0.00148       0.00047
+supply_trend                    0.126     -0.00191       0.00066
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)           106.1266     -1.17085         0.102266
-demand_price                  -1.1932      0.01356        -0.001485
-demand_income                  0.1378     -0.00191         0.000474
-supply_(Intercept)           110.0305     -1.19320         0.084534
-supply_price                  -1.1932      0.01356        -0.001485
-supply_farmPrice               0.0845     -0.00148         0.000611
-supply_trend                   0.1378     -0.00191         0.000474
+demand_(Intercept)           106.1266     -1.17085          0.10227
+demand_price                  -1.1932      0.01356         -0.00148
+demand_income                  0.1378     -0.00191          0.00047
+supply_(Intercept)           110.0305     -1.19320          0.08453
+supply_price                  -1.1932      0.01356         -0.00148
+supply_farmPrice               0.0845     -0.00148          0.00061
+supply_trend                   0.1378     -0.00191          0.00047
                    supply_trend
-demand_(Intercept)     0.125910
-demand_price          -0.001905
-demand_income          0.000663
-supply_(Intercept)     0.137779
-supply_price          -0.001905
-supply_farmPrice       0.000474
-supply_trend           0.000663
-> print( round( vcov( fit3slsd[[ 5 ]]$e4$eq[[ 1 ]] ), digits = 6 ) )
+demand_(Intercept)      0.12591
+demand_price           -0.00191
+demand_income           0.00066
+supply_(Intercept)      0.13778
+supply_price           -0.00191
+supply_farmPrice        0.00047
+supply_trend            0.00066
+> print( round( vcov( fit3slsd[[ 5 ]]$e4$eq[[ 1 ]] ), digits = 5 ) )
             (Intercept)    price   income
 (Intercept)     28.9118 -0.25481 -0.03319
 price           -0.2548  0.00254  0.00001
 income          -0.0332  0.00001  0.00033
 > 
-> print( round( vcov( fit3slsd[[ 4 ]]$e5e ), digits = 6 ) )
+> print( round( vcov( fit3slsd[[ 4 ]]$e5e ), digits = 5 ) )
                    demand_(Intercept) demand_price demand_income
-demand_(Intercept)            57.3878    -0.604144      0.032799
-demand_price                  -0.6041     0.006751     -0.000729
-demand_income                  0.0328    -0.000729      0.000411
-supply_(Intercept)            57.4829    -0.613518      0.041669
-supply_price                  -0.6041     0.006751     -0.000729
-supply_farmPrice               0.0288    -0.000559      0.000278
-supply_trend                   0.0328    -0.000729      0.000411
+demand_(Intercept)            57.3878     -0.60414       0.03280
+demand_price                  -0.6041      0.00675      -0.00073
+demand_income                  0.0328     -0.00073       0.00041
+supply_(Intercept)            57.4828     -0.61352       0.04167
+supply_price                  -0.6041      0.00675      -0.00073
+supply_farmPrice               0.0288     -0.00056       0.00028
+supply_trend                   0.0328     -0.00073       0.00041
                    supply_(Intercept) supply_price supply_farmPrice
-demand_(Intercept)            57.4829    -0.604144         0.028794
-demand_price                  -0.6135     0.006751        -0.000559
-demand_income                  0.0417    -0.000729         0.000278
-supply_(Intercept)            59.8263    -0.613518         0.013889
-supply_price                  -0.6135     0.006751        -0.000559
-supply_farmPrice               0.0139    -0.000559         0.000405
-supply_trend                   0.0417    -0.000729         0.000278
+demand_(Intercept)            57.4828     -0.60414          0.02879
+demand_price                  -0.6135      0.00675         -0.00056
+demand_income                  0.0417     -0.00073          0.00028
+supply_(Intercept)            59.8263     -0.61352          0.01389
+supply_price                  -0.6135      0.00675         -0.00056
+supply_farmPrice               0.0139     -0.00056          0.00041
+supply_trend                   0.0417     -0.00073          0.00028
                    supply_trend
-demand_(Intercept)     0.032799
-demand_price          -0.000729
-demand_income          0.000411
-supply_(Intercept)     0.041669
-supply_price          -0.000729
-supply_farmPrice       0.000278
-supply_trend           0.000411
-> print( round( vcov( fit3slsd[[ 4 ]]$e5e, modified.regMat = TRUE ), digits = 6 ) )
-        C1        C2        C3      C4        C5        C6
-C1 57.3878 -0.604144  0.032799 57.4829 -0.604144  0.028794
-C2 -0.6041  0.006751 -0.000729 -0.6135  0.006751 -0.000559
-C3  0.0328 -0.000729  0.000411  0.0417 -0.000729  0.000278
-C4 57.4829 -0.613518  0.041669 59.8263 -0.613518  0.013889
-C5 -0.6041  0.006751 -0.000729 -0.6135  0.006751 -0.000559
-C6  0.0288 -0.000559  0.000278  0.0139 -0.000559  0.000405
-> print( round( vcov( fit3slsd[[ 1 ]]$e5e$eq[[ 2 ]] ), digits = 6 ) )
-            (Intercept)     price farmPrice     trend
-(Intercept)     24.9502 -0.210662 -0.034898 -0.025297
-price           -0.2107  0.002098  0.000004  0.000045
-farmPrice       -0.0349  0.000004  0.000337  0.000185
-trend           -0.0253  0.000045  0.000185  0.000283
+demand_(Intercept)      0.03280
+demand_price           -0.00073
+demand_income           0.00041
+supply_(Intercept)      0.04167
+supply_price           -0.00073
+supply_farmPrice        0.00028
+supply_trend            0.00041
+> print( round( vcov( fit3slsd[[ 4 ]]$e5e, modified.regMat = TRUE ), digits = 5 ) )
+        C1       C2       C3      C4       C5       C6
+C1 57.3878 -0.60414  0.03280 57.4828 -0.60414  0.02879
+C2 -0.6041  0.00675 -0.00073 -0.6135  0.00675 -0.00056
+C3  0.0328 -0.00073  0.00041  0.0417 -0.00073  0.00028
+C4 57.4828 -0.61352  0.04167 59.8263 -0.61352  0.01389
+C5 -0.6041  0.00675 -0.00073 -0.6135  0.00675 -0.00056
+C6  0.0288 -0.00056  0.00028  0.0139 -0.00056  0.00041
+> print( round( vcov( fit3slsd[[ 1 ]]$e5e$eq[[ 2 ]] ), digits = 5 ) )
+            (Intercept)    price farmPrice    trend
+(Intercept)     24.9502 -0.21066  -0.03490 -0.02530
+price           -0.2107  0.00210   0.00000  0.00004
+farmPrice       -0.0349  0.00000   0.00034  0.00018
+trend           -0.0253  0.00004   0.00018  0.00028
 > 
 > 
 > ## *********** confidence intervals of coefficients *************
@@ -23096,11 +23096,11 @@ supply_17       -5.665           -7.137       -1.098
 supply_18     -266.295         -243.742      -47.431
 supply_19      145.150          122.209       26.002
 supply_20      -56.378          -45.834       -9.857
-> colSums( estfun( fit3sls[[ 1 ]]$e1 ) )
+> round( colSums( estfun( fit3sls[[ 1 ]]$e1 ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -7.91e-13           8.64e-11           6.36e-11           8.07e-13 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -5.90e-12           3.79e-11          -7.72e-12 
+                 0                  0                  0 
 > 
 > estfun( fit3sls[[ 2 ]]$e1e )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -23185,11 +23185,11 @@ supply_17        -5.73            -7.23       -1.112
 supply_18      -329.82          -301.88      -58.745
 supply_19       185.13           155.87       33.163
 supply_20       -66.83           -54.33      -11.684
-> colSums( estfun( fit3sls[[ 2 ]]$e1e ) )
+> round( colSums( estfun( fit3sls[[ 2 ]]$e1e ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          5.95e-13           1.36e-10           9.21e-11          -1.06e-12 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -5.10e-11          -7.05e-11          -1.35e-11 
+                 0                  0                  0 
 > 
 > estfun( fit3sls[[ 3 ]]$e1c )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -23274,11 +23274,11 @@ supply_17        -9.80           -12.34       -1.899
 supply_18      -383.19          -350.73      -68.251
 supply_19       201.99           170.07       36.184
 supply_20       -84.97           -69.08      -14.856
-> colSums( estfun( fit3sls[[ 3 ]]$e1c ) )
+> round( colSums( estfun( fit3sls[[ 3 ]]$e1c ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          3.71e-11           3.62e-09           3.40e-09          -3.66e-11 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -3.66e-09          -3.51e-09          -3.77e-10 
+                 0                  0                  0 
 > 
 > estfun( fit3sls[[ 4 ]]$e1wc )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -23364,60 +23364,60 @@ supply_18      -383.19          -350.73      -68.251
 supply_19       201.99           170.07       36.184
 supply_20       -84.97           -69.08      -14.856
 > 
-> colSums( estfun( fit3sls[[ 5 ]]$e1wc ) )
+> round( colSums( estfun( fit3sls[[ 5 ]]$e1wc ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -2.43e-13          -1.15e-11          -5.28e-12           1.49e-13 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          5.44e-12           1.29e-11           1.96e-12 
-> colSums( estfun( fit3sls[[ 5 ]]$e1wc, residFit = FALSE ) )
+                 0                  0                  0 
+> round( colSums( estfun( fit3sls[[ 5 ]]$e1wc, residFit = FALSE ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -2.78e-13          -2.76e-11          -2.52e-11           2.08e-13 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          1.99e-11           2.04e-11           1.84e-12 
+                 0                  0                  0 
 > 
-> colSums( estfun( fit3sls[[ 4 ]]$e1wc ) )
+> round( colSums( estfun( fit3sls[[ 4 ]]$e1wc ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          1.91e-12           1.15e-10           1.14e-11          -1.29e-12 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -1.27e-10           2.80e-11          -6.66e-12 
-> colSums( estfun( fit3sls[[ 4 ]]$e1wc, residFit = FALSE ) )
+                 0                  0                  0 
+> round( colSums( estfun( fit3sls[[ 4 ]]$e1wc, residFit = FALSE ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          1.88e-12           9.90e-11          -8.58e-12          -1.23e-12 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -1.12e-10           3.52e-11          -6.80e-12 
+                 0                  0                  0 
 > 
-> colSums( estfun( fit3sls[[ 3 ]]$e1wc ) )
+> round( colSums( estfun( fit3sls[[ 3 ]]$e1wc ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          3.92e-11           3.49e-09           3.68e-09          -3.69e-11 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -3.70e-09          -3.55e-09          -3.90e-10 
-> colSums( estfun( fit3sls[[ 3 ]]$e1wc, residFit = FALSE ) )
+                 0                  0                  0 
+> round( colSums( estfun( fit3sls[[ 3 ]]$e1wc, residFit = FALSE ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          3.91e-11           3.47e-09           3.66e-09          -3.68e-11 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -3.68e-09          -3.54e-09          -3.90e-10 
+                 0                  0                  0 
 > 
-> colSums( estfun( fit3sls[[ 2 ]]$e1wc ) )
+> round( colSums( estfun( fit3sls[[ 2 ]]$e1wc ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -1.65e-12          -2.65e-11           3.18e-10           8.45e-14 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          4.71e-11          -3.39e-11           1.88e-12 
-> colSums( estfun( fit3sls[[ 2 ]]$e1wc, residFit = FALSE ) )
+                 0                  0                  0 
+> round( colSums( estfun( fit3sls[[ 2 ]]$e1wc, residFit = FALSE ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -1.69e-12          -4.31e-11           2.98e-10           1.47e-13 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          6.16e-11          -2.62e-11           1.75e-12 
+                 0                  0                  0 
 > 
-> colSums( estfun( fit3sls[[ 1 ]]$e1wc ) )
+> round( colSums( estfun( fit3sls[[ 1 ]]$e1wc ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          1.43e-12          -1.23e-10           2.42e-10           1.23e-12 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          5.22e-11          -3.32e-11           3.90e-12 
-> colSums( estfun( fit3sls[[ 1 ]]$e1wc, residFit = FALSE ) )
+                 0                  0                  0 
+> round( colSums( estfun( fit3sls[[ 1 ]]$e1wc, residFit = FALSE ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          1.39e-12          -1.39e-10           2.22e-10           1.29e-12 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          6.69e-11          -2.58e-11           3.75e-12 
+                 0                  0                  0 
 > 
 > estfun( fit3slsd[[ 5 ]]$e1w )
           demand_(Intercept) demand_price demand_income supply_(Intercept)
@@ -23589,78 +23589,78 @@ supply_18     -147.294         -134.819     -26.2351
 supply_19       95.972           80.804      17.1923
 supply_20       33.238           27.021       5.8111
 > 
-> colSums( estfun( fit3slsd[[ 5 ]]$e1w ) )
+> round( colSums( estfun( fit3slsd[[ 5 ]]$e1w ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          1.38e-13           1.71e-11           1.95e-11          -1.26e-13 
+               0.0                0.0                0.0                0.0 
       supply_price   supply_farmPrice       supply_trend 
-          3.86e+01          -1.51e-11          -5.24e+01 
+              38.6                0.0              -52.4 
 Warning message:
 In estfun.systemfit(fit3slsd[[5]]$e1w) :
   the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
-> colSums( estfun( fit3slsd[[ 5 ]]$e1w, residFit = FALSE ) )
+> round( colSums( estfun( fit3slsd[[ 5 ]]$e1w, residFit = FALSE ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -3.82e-14          -3.62e-12          -4.50e-12           2.39e-14 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          5.45e-12           1.26e-12          -9.11e-12 
+                 0                  0                  0 
 > 
-> colSums( estfun( fit3slsd[[ 4 ]]$e1w ) )
+> round( colSums( estfun( fit3slsd[[ 4 ]]$e1w ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -4.05e-13          -3.61e-11          -1.08e-11           3.35e-13 
+              0.00               0.00               0.00               0.00 
       supply_price   supply_farmPrice       supply_trend 
-          9.67e+00          -6.60e-12          -1.31e+01 
+              9.67               0.00             -13.12 
 Warning message:
 In estfun.systemfit(fit3slsd[[4]]$e1w) :
   the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
-> colSums( estfun( fit3slsd[[ 4 ]]$e1w, residFit = FALSE ) )
+> round( colSums( estfun( fit3slsd[[ 4 ]]$e1w, residFit = FALSE ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -5.90e-13          -5.78e-11          -3.64e-11           4.94e-13 
+               0.0                0.0                0.0                0.0 
       supply_price   supply_farmPrice       supply_trend 
-         -2.89e+01           1.11e-11           3.93e+01 
+             -28.9                0.0               39.3 
 Warning message:
 In estfun.systemfit(fit3slsd[[4]]$e1w, residFit = FALSE) :
   the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
 > 
-> colSums( estfun( fit3slsd[[ 3 ]]$e1w ) )
+> round( colSums( estfun( fit3slsd[[ 3 ]]$e1w ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-          2.67e-14          -2.82e-11          -6.64e-11           5.15e-14 
+              0.00               0.00               0.00               0.00 
       supply_price   supply_farmPrice       supply_trend 
-          9.67e+00           1.61e-11          -1.31e+01 
+              9.67               0.00             -13.12 
 Warning message:
 In estfun.systemfit(fit3slsd[[3]]$e1w) :
   the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
-> colSums( estfun( fit3slsd[[ 3 ]]$e1w, residFit = FALSE ) )
+> round( colSums( estfun( fit3slsd[[ 3 ]]$e1w, residFit = FALSE ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -1.58e-13          -4.99e-11          -9.20e-11           2.10e-13 
+               0.0                0.0                0.0                0.0 
       supply_price   supply_farmPrice       supply_trend 
-         -2.89e+01           3.37e-11           3.93e+01 
+             -28.9                0.0               39.3 
 Warning message:
 In estfun.systemfit(fit3slsd[[3]]$e1w, residFit = FALSE) :
   the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
 > 
-> colSums( estfun( fit3slsd[[ 2 ]]$e1w ) )
+> round( colSums( estfun( fit3slsd[[ 2 ]]$e1w ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -3.90e-13          -2.08e-11           5.97e-11           4.19e-14 
+               0.0                0.0                0.0                0.0 
       supply_price   supply_farmPrice       supply_trend 
-          3.86e+01          -3.38e-12          -5.24e+01 
+              38.6                0.0              -52.4 
 Warning message:
 In estfun.systemfit(fit3slsd[[2]]$e1w) :
   the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
-> colSums( estfun( fit3slsd[[ 2 ]]$e1w, residFit = FALSE ) )
+> round( colSums( estfun( fit3slsd[[ 2 ]]$e1w, residFit = FALSE ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -5.66e-13          -4.15e-11           3.57e-11           1.92e-13 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-         -2.22e-11           1.30e-11           2.37e-12 
+                 0                  0                  0 
 > 
-> colSums( estfun( fit3slsd[[ 1 ]]$e1w ) )
+> round( colSums( estfun( fit3slsd[[ 1 ]]$e1w ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -3.04e-13          -7.66e-11          -2.36e-11           2.96e-13 
+                 0                  0                  0                  0 
       supply_price   supply_farmPrice       supply_trend 
-          2.37e-12           4.48e-11          -6.29e-13 
-> colSums( estfun( fit3slsd[[ 1 ]]$e1w, residFit = FALSE ) )
+                 0                  0                  0 
+> round( colSums( estfun( fit3slsd[[ 1 ]]$e1w, residFit = FALSE ) ), digits = 7 )
 demand_(Intercept)       demand_price      demand_income supply_(Intercept) 
-         -4.91e-13          -9.87e-11          -4.96e-11           4.57e-13 
+               0.0                0.0                0.0                0.0 
       supply_price   supply_farmPrice       supply_trend 
-         -3.86e+01           6.29e-11           5.24e+01 
+             -38.6                0.0               52.4 
 Warning message:
 In estfun.systemfit(fit3slsd[[1]]$e1w, residFit = FALSE) :
   the columns of the returned estimating function do not all sum up to zero, which indicates that the wrong estimating function is returned
@@ -23831,4 +23831,4 @@ In estfun.systemfit(fit3slsd[[1]]$e1w, residFit = FALSE) :
 > 
 > proc.time()
    user  system elapsed 
-  7.696   0.178   7.863 
+ 12.236   0.272  12.521 
