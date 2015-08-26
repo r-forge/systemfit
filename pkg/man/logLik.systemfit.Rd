@@ -29,6 +29,10 @@
    that is used for calculating the log-likelihood value 
    is calculated based on the actually obtained (final) residuals
    (not correcting for degrees of freedom).
+   In case of systems of equations with unequal numbers of observations,
+   the calculation of the residual covariance matrix
+   is only based on the residuals/observations
+   that are available in all equations.
 }
 
 \value{
