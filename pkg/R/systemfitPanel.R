@@ -8,7 +8,7 @@
        timeVar <- names( index )[2]
        
        # pdata.frames do not necessarily carry the index variables as columns.
-       # attach index vars to data, if yet in data (pdata.frame(..., drop.index = TRUE))
+       # attach index vars to data, if not in data (pdata.frame(..., drop.index = TRUE))
        if (! (eqnVar %in% colnames(data))) {
          data <- cbind(data, index)
        }
