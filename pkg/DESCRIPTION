@@ -4,7 +4,7 @@ Date: 2017-03-09
 Title: Estimating Systems of Simultaneous Equations
 Author: Arne Henningsen and Jeff D. Hamann
 Maintainer: Arne Henningsen <arne.henningsen@gmail.com>
-Depends: R (>= 1.8.0), Matrix, car (>= 2.0-0), lmtest
+Depends: R (>= 3.2.0), Matrix, car (>= 2.0-0), lmtest
 Suggests: plm (>= 1.0-1), sem (>= 2.0-0)
 Imports: stats (>= 2.14.0), sandwich (>= 2.2-9), MASS, methods
 Description: Econometric estimation of simultaneous
