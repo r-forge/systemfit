@@ -45,8 +45,8 @@
          wideData[[ newVar ]] <- NA
          wideData[ make.names( eqnData[ , timeVar ] ), newVar ] <-
             eqnData[ , var ]
-         endogVar <- gsub( var, newVar, endogVar )
-         exogVar <- gsub( var, newVar, exogVar )
+         endogVar <- gsub( paste0( "\\b", var, "\\b" ), newVar, endogVar )
+         exogVar <- gsub( paste0( "\\b", var, "\\b" ), newVar, exogVar )
       }
       eqnSystem[[ eqnNo ]] <- as.formula( paste( endogVar, "~", exogVar ) )
    }
@@ -67,7 +67,7 @@
             wideData[[ newVar ]] <- NA
             wideData[ make.names( eqnData[ , timeVar ] ), newVar ] <-
                eqnData[ , var ]
-            instVar <- gsub( var, newVar, instVar )
+            instVar <- gsub( paste0( "\\b", var, "\\b" ), newVar, instVar )
          }
          instSystem[[ eqnNo ]] <- as.formula( paste( "~", instVar ) )
       }
