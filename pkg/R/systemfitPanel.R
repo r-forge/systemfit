@@ -1,4 +1,4 @@
-.systemfitPanel <- function( formula, data, pooled ) {
+.systemfitPanel <- function( formula, inst, data, pooled ) {
 
 
   if (inherits( data, "pdata.frame" )) {
@@ -53,6 +53,27 @@
    names( eqnSystem ) <- eqnLabels
    #reshape( data, idvar=timevar, timevar=eqnVar,direction="wide")
 
+   if( is.null( inst ) ) {
+      instSystem <- NULL
+   } else {   
+      instSystem <- list()
+      for( eqnNo in 1:nEqn ) {
+         eqn <- eqnLabels[ eqnNo ]
+         instVar <- inst[2]
+         eqnData <- data[ data[[ eqnVar ]] == eqn, ]
+         for( var in all.vars( inst ) ) {
+            newVar <- paste( eqn, var, sep = "_" )
+            newVar <- make.names( newVar )
+            wideData[[ newVar ]] <- NA
+            wideData[ make.names( eqnData[ , timeVar ] ), newVar ] <-
+               eqnData[ , var ]
+            instVar <- gsub( var, newVar, instVar )
+         }
+         instSystem[[ eqnNo ]] <- as.formula( paste( "~", instVar ) )
+      }
+      names( instSystem ) <- eqnLabels
+   }
+   
    restrict.regMat <- NULL
    if( pooled ) {
       for( eqnNo in 1:nEqn ) {
@@ -61,6 +82,7 @@
    }
 
    result$eqnSystem <- eqnSystem
+   result$instSystem <- instSystem
    result$wideData  <- wideData
    result$restrict.regMat <- restrict.regMat
 

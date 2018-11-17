@@ -71,10 +71,11 @@ systemfit <- function(  formula,
          stop( "argument 'restrict.regMat' cannot be used for pooled estimation",
             " of panel-like data" )
       }
-      result <- .systemfitPanel( formula = formula,
+      result <- .systemfitPanel( formula = formula, inst = inst,
          data = data, pooled = pooled )
       data <- result$wideData
       formula <- result$eqnSystem
+      inst <- result$instSystem
       if( pooled ){
          restrict.regMat <- result$restrict.regMat
       }
@@ -96,7 +97,7 @@ systemfit <- function(  formula,
                " of equations" )
          }
          if( !is.null( names( inst ) ) && !is.null( names( formula ) ) ){
-            if( names( inst ) != names( formula ) ){
+            if( any( names( inst ) != names( formula ) ) ){
                warning( "names of formulas for instruments (argument 'inst')",
                   " are not equal to names of equations (argument 'formula')" )
             }
