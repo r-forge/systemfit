@@ -5,6 +5,11 @@ A full ChangeLog is available in the log messages of the SVN repository
 on R-Forge.
 
 
+            CHANGES IN VERSION 1.1-24 (201?-??-??)
+
+* implemented 2SLS and 3SLS (instrumental variable) estimations for panel data
+
+
             CHANGES IN VERSION 1.1-22 (2018-04-04)
 
 * made this package compatible to the latest version of the "Matrix" package
