@@ -39,16 +39,16 @@ systemfit <- function(  formula,
 
    ## checking argument 'formula'
    if( panelLike ){
-      if( class( formula ) != "formula" ){
+      if( !inherits( formula, "formula" ) ){
          stop( "argument 'formula' must be an object of class 'formula'",
             " for panel-like models" )
       }
    } else {
       # single-equation models
-      if( class( formula ) == "formula" ){
+      if( inherits( formula, "formula" ) ){
          formula <- list( formula )
-      } else if( class( formula ) == "list" ){
-         if( !all( lapply( formula, class ) == "formula" ) ){
+      } else if( inherits( formula, "list" ) ){
+         if( !all( sapply( formula, function(x) inherits( x, "formula" ) ) ) ){
             stop( "the list of argument 'formula' must",
                " contain only objects of class 'formula'" )
          }
@@ -85,12 +85,12 @@ systemfit <- function(  formula,
    if( method %in% c( "2SLS", "W2SLS", "3SLS" ) ){
       if( is.null( inst ) ) {
          stop( "The methods '2SLS', 'W2SLS', and '3SLS' need instruments" )
-      } else if( class( inst ) == "formula" ){
+      } else if( inherits( inst, "formula" ) ){
          if( length( inst ) != 2 ){
             stop( "argument 'inst' must be a one-sided formula" )
          }
          inst <- lapply( c( 1:length( formula ) ), function(x) inst )
-      } else if( class( inst ) == "list" ){
+      } else if( inherits( inst, "list" ) ){
          if( length( inst ) != length( formula ) ){
             stop( "if different instruments are specified for each equation,",
                " the length of argument 'inst' must be equal to the number",
@@ -102,7 +102,7 @@ systemfit <- function(  formula,
                   " are not equal to names of equations (argument 'formula')" )
             }
          }
-         if( !all( lapply( inst, class ) == "formula" ) ){
+         if( !all( sapply( inst, function(x) inherits( x, "formula" ) ) ) ){
             stop( "the list of argument 'inst' must",
                " contain only objects of class 'formula'" )
          }
