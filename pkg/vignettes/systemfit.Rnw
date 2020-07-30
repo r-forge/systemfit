@@ -862,7 +862,7 @@ where
       \XHat^\top \OHat^{-1} Z \left( Z^\top Z \right)^{-1} Z^\top \OHat
       Z \left( Z^\top Z \right)^{-1} Z^\top \OHat^{-1} \XHat & 0^\top \\
       0 & 0
-   \end{array} \right]^{-1}
+   \end{array} \right]
    \nonumber \\
    & & \cdot
    \left[ \begin{array}{cc}
