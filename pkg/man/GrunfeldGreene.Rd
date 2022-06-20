@@ -34,7 +34,7 @@ is available in the \code{Ecdat} package
 
 \source{
    Greene (2003), Appendix F, Data Sets Used in Applications, Table F13.1.
-   \url{http://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}
+   \url{https://pages.stern.nyu.edu/~wgreene/Text/econometricanalysis.htm}
    (a subset of this data set is available in Theil (1971), p. 296).
 }
 
