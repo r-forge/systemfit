@@ -2016,7 +2016,8 @@ previous year, and
 previous year.
 
 This model can be estimated by
-<<message=FALSE>>=
+<<message=FALSE,eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 data( "GrunfeldGreene" )
 library( "plm" )
 GGPanel <- pdata.frame( GrunfeldGreene, c( "firm", "year" ) )
@@ -2038,7 +2039,8 @@ By default, this argument is set to \code{FALSE}.
 The following command does a seemingly unrelated regression
 of the same model as before,
 but with coefficients restricted to be equal for all individuals.
-<<>>=
+<<eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 greeneSurPooled <- systemfit( invest ~ value + capital, method = "SUR",
    data = GGPanel, pooled = TRUE )
 @
@@ -2306,28 +2308,32 @@ After each estimation, we show the commands to print the estimated coefficients,
 the $\sigma^2$ values of the OLS estimations, and
 the residual covariance matrix as well as the residual correlation matrix
 of the SUR estimations.
-<<message=FALSE>>=
+<<message=FALSE,eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 data( "GrunfeldGreene" )
 library( "plm" )
 GGPanel <- pdata.frame( GrunfeldGreene, c( "firm", "year" ) )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (Table 14.2):
-<<results='hide'>>=
+<<results='hide',eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 greeneOls <- systemfit( formulaGrunfeld,
    data = GGPanel )
 round( coef( summary( greeneOls ) ), digits = 4 )
 round( sapply( greeneOls$eq, function(x){return(summary(x)$ssr/20)} ), digits = 3 )
 @
 pooled OLS (Table 14.2):
-<<results='hide'>>=
+<<results='hide',eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 greeneOlsPooled <- systemfit( formulaGrunfeld,
    data = GGPanel, pooled = TRUE )
 round( coef( summary( greeneOlsPooled$eq[[1]] ) ), digits = 4 ) #$
 sum( sapply( greeneOlsPooled$eq, function(x){return(summary(x)$ssr)}) )/100
 @
 SUR estimation (Table~14.1):
-<<results='hide'>>=
+<<results='hide',eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 greeneSur <- systemfit( formulaGrunfeld, method = "SUR",
    data = GGPanel, methodResidCov = "noDfCor" )
 round( coef( summary( greeneSur ) ), digits = 4 )
@@ -2335,7 +2341,8 @@ round( greeneSur$residCov, digits = 3 ) #$
 round( summary( greeneSur )$residCor, digits = 3 ) #$
 @
 pooled SUR estimation (Table~14.1):
-<<results='hide'>>=
+<<results='hide',eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 greeneSurPooled <- systemfit( formulaGrunfeld, method = "SUR",
    data = GGPanel, pooled = TRUE, methodResidCov = "noDfCor",
    residCovWeighted = TRUE )
@@ -2381,20 +2388,23 @@ Then, the formula is specified,
 and the model is estimated by OLS and SUR.
 Commands to print the estimated coefficients are reported
 after each estimation.
-<<>>=
+<<eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 GrunfeldTheil <- subset( GrunfeldGreene,
    firm %in% c( "General Electric", "Westinghouse" ) )
 GTPanel <- pdata.frame( GrunfeldTheil, c( "firm", "year" ) )
 formulaGrunfeld <- invest ~ value + capital
 @
 OLS estimation (page 295)
-<<results='hide'>>=
+<<results='hide',eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 theilOls <- systemfit( formulaGrunfeld,
    data = GTPanel )
 round( coef( summary( theilOls ) ), digits = 3 )
 @
 SUR estimation (page 300)
-<<results='hide'>>=
+<<results='hide',eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 theilSur <- systemfit( formulaGrunfeld, method = "SUR",
    data = GTPanel, methodResidCov = "noDfCor" )
 round( coef( summary( theilSur ) ), digits = 3 )
@@ -2414,13 +2424,15 @@ The same restriction can be specified also symbolically by
 \code{RMatrix <- c("General.Electric\_value = Westinghouse\_value",
 "General.Electric\_capital = Westinghouse\_capital")}
 }
-<<results='hide'>>=
+<<results='hide',eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 RMatrix <- rbind( c( 0, 1, 0, 0, -1, 0 ), c( 0, 0, 1, 0, 0, -1 ) )
 linearHypothesis( theilSur, RMatrix )
 @
 
 Restricted SUR estimation (page~316)
-<<results='hide',tidy=FALSE>>=
+<<results='hide',tidy=FALSE,eval = requireNamespace("plm", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'plm' package is available
 theilSurRestr <- systemfit(formulaGrunfeld, method = "SUR",
    data = GTPanel, methodResidCov = "noDfCor", restrict.matrix = RMatrix,
    residCovRestricted = FALSE)
@@ -2658,7 +2670,8 @@ This comparison uses Klein's ``Model I'' (see Section~\ref{sec:KleinsModel}).
 Before starting the estimation,
 we load the \pkg{sem} and \pkg{systemfit} package
 as well as the required data set.
-<<message=FALSE>>=
+<<message=FALSE,eval = requireNamespace("sem", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'sem' package is available
 library( "sem" )
 library( "systemfit" )
 data( "KleinI" )
@@ -2666,7 +2679,8 @@ data( "KleinI" )
 
 First, we estimate the system by limited information maximum likelihood
 (LIML) with \code{sem}:
-<<tidy=FALSE>>=
+<<tidy=FALSE,eval = requireNamespace("sem", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'sem' package is available
 limlRam <- matrix(c(
    "consump  <-  corpProf",    "consump_corpProf",    NA,
    "consump  <-  corpProfLag", "consump_corpProfLag", NA,
@@ -2707,7 +2721,8 @@ As expected, the results are identical.
 
 Now, we estimate the system by full information maximum likelihood
 (FIML) with \code{sem}:
-<<tidy=FALSE>>=
+<<tidy=FALSE,eval = requireNamespace("sem", quietly = TRUE)>>=
+### this code chunk is evaluated only if the 'sem' package is available
 fimlRam <- rbind(limlRam,
    c("consump  <-> invest",   "s12", NA),
    c("consump  <-> privWage", "s13", NA),

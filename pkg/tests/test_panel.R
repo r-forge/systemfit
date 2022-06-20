@@ -1,4 +1,5 @@
 library( systemfit )
+if (requireNamespace('pkg', quietly = TRUE)) {
 library( plm )
 options( digits = 3 )
 useMatrix <- FALSE
@@ -273,3 +274,4 @@ try( bread( greeneOlsPooled ) )
 bread( greeneSur )
 
 try( bread( greeneSurPooled ) )
+}
