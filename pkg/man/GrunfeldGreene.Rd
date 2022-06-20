@@ -52,7 +52,7 @@ Theil, Henri (1971). \emph{Principles of Econometrics},
 \examples{
 ## Repeating the OLS and SUR estimations in Greene (2003, pp. 351)
 data( "GrunfeldGreene" )
-if( requireNamespace( 'pkg', quietly = TRUE ) ) {
+if( requireNamespace( 'plm', quietly = TRUE ) ) {
 library( "plm" )
 GGPanel <- pdata.frame( GrunfeldGreene, c( "firm", "year" ) )
 formulaGrunfeld <- invest ~ value + capital

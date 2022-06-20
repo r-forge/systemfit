@@ -1,5 +1,5 @@
 library( systemfit )
-if (requireNamespace('pkg', quietly = TRUE)) {
+if(requireNamespace( 'plm', quietly = TRUE ) ) {
 library( plm )
 options( digits = 3 )
 useMatrix <- FALSE

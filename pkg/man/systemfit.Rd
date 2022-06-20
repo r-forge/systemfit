@@ -302,7 +302,7 @@ print( fit3sls )
 ## Examples how to use systemfit() with panel-like data
 ## Repeating the SUR estimations in Greene (2003, p. 351)
 data( "GrunfeldGreene" )
-if( requireNamespace( 'pkg', quietly = TRUE ) ) {
+if( requireNamespace( 'plm', quietly = TRUE ) ) {
 library( "plm" )
 GGPanel <- pdata.frame( GrunfeldGreene, c( "firm", "year" ) )
 formulaGrunfeld <- invest ~ value + capital
