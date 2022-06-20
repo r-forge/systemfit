@@ -29,7 +29,7 @@ However, we provide this incorrect version to replicate the results
 published in Theil (1971) and Greene (2003).
 A correct version of this data set with 5 additional firms
 is available in the \code{Ecdat} package
-(data set \code{\link[Ecdat]{Grunfeld}}).
+(data set \code{Grunfeld}).
 }
 
 \source{
