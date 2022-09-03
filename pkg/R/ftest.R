@@ -37,8 +37,9 @@
 
    resid <- matrix( resid, ncol = 1 )
    if( object$control$useMatrix ) {
-      resid <- as( resid, "dgCMatrix" )
-      rcov <- as( rcov, "dspMatrix" )
+      resid <- as( resid, "CsparseMatrix" )
+      rcov <- as( as( as( rcov, "dMatrix" ), "symmetricMatrix" ), 
+         "packedMatrix" )
    }
 
    denominator <- as.numeric( .calcXtOmegaInv( xMat = resid, sigma = rcov,

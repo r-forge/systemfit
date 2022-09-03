@@ -301,9 +301,11 @@ systemfit <- function(  formula,
       xMatEqAttr <- list()
       for( i in 1:nEq ) {
          xMatEqAttr[[ i ]] <- attributes( xMatEq[[i]] )
-         xMatEq[[ i ]] <- as( xMatEq[[ i ]], "dgeMatrix" )
+         xMatEq[[ i ]] <- as( as( as( xMatEq[[ i ]], "dMatrix"), 
+            "generalMatrix" ), "unpackedMatrix" )
          if( !is.null( inst ) ) {
-            zMatEq[[ i ]] <- as( zMatEq[[ i ]], "dgeMatrix" )
+            zMatEq[[ i ]] <- as( as( as( zMatEq[[ i ]], "dMatrix"), 
+               "generalMatrix" ), "unpackedMatrix" )
          }
       }
    }
@@ -350,7 +352,7 @@ systemfit <- function(  formula,
       XU <- xMatAll
       xMatAll  <- XU %*% restrict.regMat
       if( control$useMatrix ){
-         xMatAll <- as( xMatAll, "dgCMatrix" )
+         xMatAll <- as( xMatAll, "CsparseMatrix" )
       }
    }
 
