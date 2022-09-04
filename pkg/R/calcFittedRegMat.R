@@ -7,8 +7,7 @@ calcFittedRegMat<- function( xMatAll, zMatEq, nEq, nObsEq, useMatrix, solvetol )
          # extract instrument matrix
          xMatAllThisEq <- xMatAll[ rowsEq, ]
          if( useMatrix ){
-            xMatAllThisEq <- as( as( as( xMatAllThisEq, "dMatrix"), 
-               "generalMatrix" ), "unpackedMatrix" )
+            xMatAllThisEq <- as( xMatAllThisEq, "denseMatrix")
          }
          xMatHatEq[[ i ]] <- zMatEq[[i]] %*%
             solve( crossprod( zMatEq[[i]] ),

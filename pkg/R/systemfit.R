@@ -301,11 +301,9 @@ systemfit <- function(  formula,
       xMatEqAttr <- list()
       for( i in 1:nEq ) {
          xMatEqAttr[[ i ]] <- attributes( xMatEq[[i]] )
-         xMatEq[[ i ]] <- as( as( as( xMatEq[[ i ]], "dMatrix"), 
-            "generalMatrix" ), "unpackedMatrix" )
+         xMatEq[[ i ]] <- as( xMatEq[[ i ]], "denseMatrix")
          if( !is.null( inst ) ) {
-            zMatEq[[ i ]] <- as( as( as( zMatEq[[ i ]], "dMatrix"), 
-               "generalMatrix" ), "unpackedMatrix" )
+            zMatEq[[ i ]] <- as( zMatEq[[ i ]], "denseMatrix")
          }
       }
    }

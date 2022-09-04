@@ -71,8 +71,7 @@
    }
 
    if( useMatrix ){
-      result <- as( as( as( result, "dMatrix" ), "symmetricMatrix" ), 
-         "packedMatrix" )
+      result <- as( result, "symmetricMatrix" )
    }
    return( result )
 }

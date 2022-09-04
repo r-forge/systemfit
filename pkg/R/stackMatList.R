@@ -32,8 +32,7 @@
    result <- rbind2( cbind2( as.matrix( upperleft ), t(R.restr) ), lowerRows )
 
    if( useMatrix ){
-      result <- as( as( as( result, "dMatrix"), "generalMatrix" ), 
-         "unpackedMatrix" )
+      result <- as( result, "denseMatrix")
    }
 
    return( result )
